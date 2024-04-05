@@ -83,3 +83,5 @@ logs/*
 .composer
 !*/.keep
 composer-src/
+*.sql
+.novi/dbdumps/*
