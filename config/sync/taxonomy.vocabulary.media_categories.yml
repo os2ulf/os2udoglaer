@@ -1,0 +1,10 @@
+uuid: 3f751dcf-a08a-49d2-92fc-c9cd478591f2
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: FW69KrIscpDyfVgXyFIX6KjI09KX3FekVG2AR0r0Vmo
+name: 'Media categories'
+vid: media_categories
+description: 'Used to organize media.'
+weight: 0

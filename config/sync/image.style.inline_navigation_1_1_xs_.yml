@@ -1,0 +1,20 @@
+uuid: 131b2444-c215-461c-82ba-42b4d3a09161
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: 3NisVwDXPElfsX3P5OzULzVgx24Unp9sE5xF6e5NvPM
+name: inline_navigation_1_1_xs_
+label: 'Inline navigation (1:1) (XS)'
+effects:
+  e90eaf8f-2ba1-4334-929b-6a0e97466577:
+    uuid: e90eaf8f-2ba1-4334-929b-6a0e97466577
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 305
+      height: 305
+      crop_type: focal_point
+pipeline: __default__

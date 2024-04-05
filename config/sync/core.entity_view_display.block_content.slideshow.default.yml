@@ -1,0 +1,37 @@
+uuid: 80dc743d-9a06-40ad-8046-9304d9ac8da9
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.slideshow
+    - field.field.block_content.slideshow.field_slideshow_autoplay
+    - field.field.block_content.slideshow.field_slideshow_images
+_core:
+  default_config_hash: VvRtVFXqbPfaSny03WyIAQpapDOpGA183bjhprwT9M4
+id: block_content.slideshow.default
+targetEntityType: block_content
+bundle: slideshow
+mode: default
+content:
+  field_slideshow_autoplay:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_slideshow_images:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

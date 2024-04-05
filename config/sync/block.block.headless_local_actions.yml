@@ -1,0 +1,20 @@
+uuid: 28ce5147-8350-4a8e-bfef-2f2f79c7aaea
+langcode: da
+status: true
+dependencies:
+  theme:
+    - premium_headless_theme
+_core:
+  default_config_hash: dMfwh718QZFIdy4qN_UGkchP6vdBX6kMFshQK3s_hLk
+id: headless_local_actions
+theme: premium_headless_theme
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

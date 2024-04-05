@@ -1,0 +1,24 @@
+uuid: 8765eb1d-b3f8-4d93-a91c-a01dba7391c6
+langcode: da
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - filter
+    - media
+    - search_api_page
+    - shortcut
+    - system
+_core:
+  default_config_hash: 7blB3b65_pNl9JfOtjHqKuPZSQtjcDgJd1vwyQPy4r4
+id: authenticated
+label: 'Authenticated user'
+weight: 1
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access shortcuts'
+  - 'use text format basic_html'
+  - 'view media'
+  - 'view search api pages'

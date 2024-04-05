@@ -1,0 +1,40 @@
+uuid: da066176-8065-434d-9a1a-38c2795c23a6
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.document.field_media_category
+    - field.field.media.document.field_media_document
+    - media.type.document
+_core:
+  default_config_hash: ikykCGkw8cnMmYuUcxHlwNSXiCvgql10VkcNI1Bb8gQ
+id: media.document.media_library
+targetEntityType: media
+bundle: document
+mode: media_library
+content:
+  field_media_category:
+    type: entity_reference_autocomplete_tags
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_document: true
+  name: true
+  path: true
+  status: true
+  uid: true

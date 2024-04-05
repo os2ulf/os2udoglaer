@@ -1,0 +1,18 @@
+uuid: 0f8730ef-ae59-4ea5-b291-b76482e0dfbc
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: LswCVLg8z4Zk1u6pV1Dpj1qUj5YY2CQ7_ojx7bJQ8qk
+name: wide
+label: 'Wide (1090)'
+effects:
+  09959c15-59ce-4f6d-90df-e2d7cf32bce5:
+    uuid: 09959c15-59ce-4f6d-90df-e2d7cf32bce5
+    id: image_scale
+    weight: 1
+    data:
+      width: 1090
+      height: null
+      upscale: false
+pipeline: __default__

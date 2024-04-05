@@ -1,0 +1,7 @@
+_core:
+  default_config_hash: HYXi4DJ4Kdg5KkUadQqHeDIbtJZYcVDpJl2ucalDPk0
+langcode: da
+modal_width: '768'
+modal_height: auto
+modal_autoresize: true
+theme_display: gin

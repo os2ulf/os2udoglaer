@@ -1,0 +1,22 @@
+uuid: 1f083a73-834a-41ed-bd61-d3f300c571fe
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: 6oLCFt9BeSJMNAjubdtrlWnzL7CdKqbtMOqmaa7XsYs
+id: breadcrumbs
+theme: os2udoglaer
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

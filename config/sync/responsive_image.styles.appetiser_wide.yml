@@ -1,0 +1,62 @@
+uuid: 8aa9e558-3641-40a9-b9ac-dbed6e5cdd18
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.appetiser_wide_lg_
+    - image.style.appetiser_wide_md_
+    - image.style.appetiser_wide_sm_
+    - image.style.appetiser_wide_xl_
+    - image.style.appetiser_wide_xs_
+    - image.style.appetiser_wide_xsx2_
+    - image.style.appetiser_wide_xxs_
+    - image.style.appetiser_wide_xxsx2_
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: kRSsw6s9SSZ6vfKxX-C4TpMgtGLXPjrnSuXNaz1cmmM
+id: appetiser_wide
+label: 'Appetiser wide'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: appetiser_wide_xl_
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: appetiser_wide_lg_
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: appetiser_wide_md_
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: appetiser_wide_sm_
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: appetiser_wide_xs_
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: appetiser_wide_xsx2_
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: appetiser_wide_xxs_
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: appetiser_wide_xxsx2_
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: appetiser_wide_xxs_

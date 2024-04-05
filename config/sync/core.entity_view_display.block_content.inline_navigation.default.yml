@@ -1,0 +1,44 @@
+uuid: bfb5888a-d46c-4b3e-9a8f-49c25e3abae0
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inline_navigation
+    - field.field.block_content.inline_navigation.field_inline_navigation_mode
+    - field.field.block_content.inline_navigation.field_inline_navigation_pages
+    - field.field.block_content.inline_navigation.field_inline_navigation_parent
+  module:
+    - options
+_core:
+  default_config_hash: hly8KfRsZT1g_bX4nEKa69saNK4t-KelWCbpc3yCOQo
+id: block_content.inline_navigation.default
+targetEntityType: block_content
+bundle: inline_navigation
+mode: default
+content:
+  field_inline_navigation_mode:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_inline_navigation_pages:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_inline_navigation_parent:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

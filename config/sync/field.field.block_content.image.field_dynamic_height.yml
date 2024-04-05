@@ -1,0 +1,25 @@
+uuid: 9afed553-dbb7-437d-a9b9-f406981786c3
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+    - field.storage.block_content.field_dynamic_height
+_core:
+  default_config_hash: i8RvACtt6u_VoY6s8cEPAqjcaqaxAQOmVs5_iuvw_2E
+id: block_content.image.field_dynamic_height
+field_name: field_dynamic_height
+entity_type: block_content
+bundle: image
+label: 'Dynamic height'
+description: 'If set then we will only scale in width - no focal point.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

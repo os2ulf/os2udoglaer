@@ -1,0 +1,83 @@
+uuid: 09ce76e5-dd51-4b11-9d1a-d815a96a082e
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.page.body
+    - field.field.node.page.field_description
+    - field.field.node.page.field_header
+    - field.field.node.page.field_hide_breadcrumb
+    - field.field.node.page.field_hide_title
+    - field.field.node.page.field_list_media
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.layout_builder__layout
+    - node.type.page
+  module:
+    - layout_builder
+    - layout_builder_restrictions
+    - user
+third_party_settings:
+  layout_builder:
+    enabled: true
+    allow_custom: true
+  layout_builder_restrictions:
+    allowed_block_categories:
+      - 'Chaos Tools'
+      - 'Content fields'
+      - 'Custom block types'
+      - Devel
+      - Forms
+      - Help
+      - 'Inline blocks'
+      - 'Lists (Views)'
+      - Menus
+      - Premium
+      - System
+      - User
+      - Webform
+      - core
+    entity_view_mode_restriction:
+      allowed_layouts:
+        - layout_onecol
+        - layout_twocol_section
+        - layout_threecol_section
+      restricted_categories:
+        - Devel
+      whitelisted_blocks:
+        'Chaos Tools': {  }
+        'Content fields': {  }
+        Forms: {  }
+        Help: {  }
+        'Lists (Views)': {  }
+        Menus: {  }
+        Premium: {  }
+        System: {  }
+        User: {  }
+        Webform: {  }
+        core: {  }
+      blacklisted_blocks:
+        'Custom block types':
+          - basic
+        'Inline blocks':
+          - 'inline_block:basic'
+_core:
+  default_config_hash: 3gEG_f13mhXS_39_cFYNgEywgm3tCe7wzoDSIuoe18U
+id: node.page.full
+targetEntityType: node
+bundle: page
+mode: full
+content: {  }
+hidden:
+  body: true
+  content_moderation_control: true
+  field_description: true
+  field_header: true
+  field_hide_breadcrumb: true
+  field_hide_title: true
+  field_list_media: true
+  field_meta_tags: true
+  langcode: true
+  layout_builder__layout: true
+  links: true
+  search_api_excerpt: true

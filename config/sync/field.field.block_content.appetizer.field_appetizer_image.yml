@@ -1,0 +1,30 @@
+uuid: 3bf8b372-0600-4da5-a251-41ba93759a17
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.appetizer
+    - field.storage.block_content.field_appetizer_image
+    - media.type.image
+_core:
+  default_config_hash: C0XYgUwzpVnQD3MTQnypXwQP8gr8PEm33X70DRDCixw
+id: block_content.appetizer.field_appetizer_image
+field_name: field_appetizer_image
+entity_type: block_content
+bundle: appetizer
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

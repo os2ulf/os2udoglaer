@@ -1,0 +1,10 @@
+uuid: 0d3c2355-8646-4933-bc9b-ac49e7eb4687
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iarLrzD0NiTlA4vIQMwEG_nE9sRYK7dK0d5fU9YiTp4
+id: code
+label: Code
+revision: 0
+description: 'A block where editors can add scripts.'

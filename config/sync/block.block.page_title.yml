@@ -1,0 +1,20 @@
+uuid: a53d52b6-2d93-4f89-afb3-1b6ede4742e5
+langcode: da
+status: true
+dependencies:
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: luMsOFovzxO88zljwOcmQZLQ6REOvhL2hcORunUeJFk
+id: page_title
+theme: os2udoglaer
+region: header
+weight: -30
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

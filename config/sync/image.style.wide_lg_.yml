@@ -1,0 +1,20 @@
+uuid: 075deb79-67d9-4925-a6bf-d8ae70ed4f95
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: AaugiAf8M794yNz0yHIPvacgdUiHRRjf4NmzFm-_WN8
+name: wide_lg_
+label: 'Wide (LG)'
+effects:
+  470a04fe-7f51-41a8-ada2-956a36ffa1ef:
+    uuid: 470a04fe-7f51-41a8-ada2-956a36ffa1ef
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 500
+      crop_type: focal_point
+pipeline: __default__

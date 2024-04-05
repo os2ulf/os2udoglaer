@@ -1,0 +1,18 @@
+uuid: 17fd25b7-fc3f-4ab6-8397-a7ae9d724977
+langcode: da
+status: true
+dependencies:
+  module:
+    - media
+    - search_api_page
+    - system
+_core:
+  default_config_hash: 4R6P6lAZFB8dW4LyVpVdUF-55Gsx0Q6LCqi5qxYaQXA
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'view media'
+  - 'view search api pages'

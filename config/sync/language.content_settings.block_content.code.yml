@@ -1,0 +1,13 @@
+uuid: 63cecd78-c61a-41c8-8edb-bd8cfbe27dc1
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.code
+_core:
+  default_config_hash: yZfS4VeCYqlxEm3EJcBL2e25wnHmRTdUzKANkZVIAQc
+id: block_content.code
+target_entity_type_id: block_content
+target_bundle: code
+default_langcode: site_default
+language_alterable: false

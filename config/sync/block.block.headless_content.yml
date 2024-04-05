@@ -1,0 +1,22 @@
+uuid: 16c0dedd-c6e8-466f-9330-2d45b2de90cf
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - premium_headless_theme
+_core:
+  default_config_hash: owM3qRSUStlLPtd7D8kSCoO1fduNzSYH2P9ESeSviTE
+id: headless_content
+theme: premium_headless_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

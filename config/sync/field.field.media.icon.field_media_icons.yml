@@ -1,0 +1,24 @@
+uuid: fdaa2001-d3d1-4bd7-a2eb-7aeb717d33ef
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_icons
+    - media.type.icon
+  module:
+    - media_icons
+_core:
+  default_config_hash: EdpeaZFTI0Awzn9qOc_wScy_dlvqs2bEaNXA9WDtorc
+id: media.icon.field_media_icons
+field_name: field_media_icons
+entity_type: media
+bundle: icon
+label: Ikon
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: icon_field

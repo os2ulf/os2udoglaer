@@ -1,0 +1,25 @@
+uuid: c8e69ca7-95dd-4ec8-883a-d567b3053a02
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+    - field.storage.block_content.field_image_link
+  module:
+    - premium_tools
+_core:
+  default_config_hash: c1bp1bUHpkTR3g4ByXcmrJpEu6JyCvXNLHOMO9buU0g
+id: block_content.image.field_image_link
+field_name: field_image_link
+entity_type: block_content
+bundle: image
+label: 'Make the image a link by entering a url'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: '17'
+  title: '0'
+field_type: link_with_target

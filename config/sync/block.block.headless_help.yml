@@ -1,0 +1,22 @@
+uuid: 8b41da29-2059-4ce9-a383-945c0ef9ce3e
+langcode: da
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - premium_headless_theme
+_core:
+  default_config_hash: L5xc6gWMl9_F_sITFIqugwoWk1s7Fz7TyDYuD12tO6g
+id: headless_help
+theme: premium_headless_theme
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

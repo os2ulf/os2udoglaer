@@ -1,0 +1,26 @@
+uuid: a6311e9e-574f-4ff9-bae2-613d50bc0707
+langcode: da
+status: false
+dependencies: {  }
+_core:
+  default_config_hash: 6MV3sUZDz-MZd1IdCzIes3CqpUf6EFft1WFwkY4nIfU
+id: develop
+label: Develop
+description: ''
+weight: 0
+folder: ../config/develop
+module:
+  admin_toolbar_tools: 0
+  devel: 0
+  devel_generate: 0
+  update: 0
+  upgrade_status: 0
+  webform_devel: 0
+theme: {  }
+blacklist:
+  - devel.settings
+  - devel.toolbar.settings
+  - system.menu.devel
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

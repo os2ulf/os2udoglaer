@@ -1,0 +1,25 @@
+uuid: 026a56ba-7855-4056-9b4b-ac1dc97b14ae
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta
+    - paragraphs.paragraphs_type.basic_hero
+  module:
+    - styles
+_core:
+  default_config_hash: _hTL2IPV8djSOybWTT0smDjKUFAhF5JIPND2-_l1r6I
+id: paragraph.basic_hero.field_cta
+field_name: field_cta
+entity_type: paragraph
+bundle: basic_hero
+label: 'Call to action'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: '17'
+  title: '2'
+field_type: styles_link_target

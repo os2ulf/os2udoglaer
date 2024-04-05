@@ -1,0 +1,18 @@
+uuid: f1de5750-b8c7-4e74-a301-93796b0a4b7f
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: U3joLUyePpmPh_vTgFsjIqLHTmq8i9qLwdbmb1u18Ic
+name: full_size_xxs_flex_height
+label: "Full size (XXS) - dynamic height\t"
+effects:
+  57153006-4e00-48cc-9339-2a6fae42937d:
+    uuid: 57153006-4e00-48cc-9339-2a6fae42937d
+    id: image_scale
+    weight: 1
+    data:
+      width: 480
+      height: null
+      upscale: true
+pipeline: __default__

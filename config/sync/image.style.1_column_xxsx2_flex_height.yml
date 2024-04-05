@@ -1,0 +1,18 @@
+uuid: 5bd94e35-19fc-4771-b5e4-f915a1f39fb5
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: a7QEW8O7r6nZ-YrF7L2RIQLx43pQ3KM5waFQFpv5Aa8
+name: 1_column_xxsx2_flex_height
+label: '1 column (XXSx2) - dynamic height'
+effects:
+  9e2aff40-4129-4437-b7b3-a216ee148142:
+    uuid: 9e2aff40-4129-4437-b7b3-a216ee148142
+    id: image_scale
+    weight: 1
+    data:
+      width: 880
+      height: null
+      upscale: true
+pipeline: __default__

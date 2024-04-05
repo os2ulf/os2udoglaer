@@ -1,0 +1,20 @@
+uuid: 3a8f8b25-a8b2-4586-8392-de48307c53c7
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: HVOGQgVzup9Y6_7ZMZh3N1sjWo1uHHkwXlPSbC1s66U
+name: 1_column_lg_
+label: '1 column (LG)'
+effects:
+  a7292d33-674f-40d7-b081-d89f12de0d4e:
+    uuid: a7292d33-674f-40d7-b081-d89f12de0d4e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1460
+      height: 820
+      crop_type: focal_point
+pipeline: __default__

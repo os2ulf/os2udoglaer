@@ -1,0 +1,20 @@
+uuid: 461906d1-214f-4867-8d98-8942ebd97f08
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: mFyJ-guaTlqzbKj13vG7SiebLKqeVu4W6-a7wx4OPpA
+name: appetiser_xsx2_
+label: 'Appetiser (XSx2)'
+effects:
+  4a964a86-4585-482c-9a7c-a38adc9942c9:
+    uuid: 4a964a86-4585-482c-9a7c-a38adc9942c9
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1454
+      height: 818
+      crop_type: focal_point
+pipeline: __default__

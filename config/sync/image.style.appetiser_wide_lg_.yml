@@ -1,0 +1,20 @@
+uuid: bdec5061-7447-4d39-8705-afec2878eb0f
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: SKpIUrF_SpABke83HugBTLg897WAwQaruqX13gwmMGM
+name: appetiser_wide_lg_
+label: 'Appetiser wide (LG)'
+effects:
+  a68033bc-f10b-4773-9163-4f25f1719a7c:
+    uuid: a68033bc-f10b-4773-9163-4f25f1719a7c
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 960
+      height: 570
+      crop_type: focal_point
+pipeline: __default__

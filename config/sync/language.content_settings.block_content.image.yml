@@ -1,0 +1,13 @@
+uuid: b194b3c3-bcfe-41da-9659-ed5e171af214
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+_core:
+  default_config_hash: B_8kmGDS2sRG7gUrsXJPKaUsJKlZ-CYgEN_uyyT4Z3E
+id: block_content.image
+target_entity_type_id: block_content
+target_bundle: image
+default_langcode: site_default
+language_alterable: false

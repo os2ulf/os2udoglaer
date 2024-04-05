@@ -1,0 +1,19 @@
+uuid: f1499924-17d1-47db-af49-6ab5aab8251a
+langcode: da
+status: true
+dependencies:
+  module:
+    - content_translation
+    - menu_link_content
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+_core:
+  default_config_hash: V_Pd_fpKbulFiFK_W8nmK4uURgwXIs6HKPme050gW-s
+id: menu_link_content.menu_link_content
+target_entity_type_id: menu_link_content
+target_bundle: menu_link_content
+default_langcode: site_default
+language_alterable: false

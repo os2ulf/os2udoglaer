@@ -1,0 +1,32 @@
+uuid: 58a3d739-b5df-4152-a870-5f0caf8aac52
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.rte
+    - field.field.block_content.rte.field_text
+  module:
+    - text
+_core:
+  default_config_hash: TBjGAyOJw2UM81KASCOPOJSXcN3c8GrHBxfGHYHFepA
+id: block_content.rte.default
+targetEntityType: block_content
+bundle: rte
+mode: default
+content:
+  field_text:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  info: true
+  langcode: true

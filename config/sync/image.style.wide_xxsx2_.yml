@@ -1,0 +1,20 @@
+uuid: 05009b3d-43f1-453c-b1ed-2540c8fc933d
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: i76Ar-41uY0vXkDs60D6b64175YsGXz5a1kW8tOI4XA
+name: wide_xxsx2_
+label: 'Wide (XXSx2)'
+effects:
+  470a04fe-7f51-41a8-ada2-956a36ffa1ef:
+    uuid: 470a04fe-7f51-41a8-ada2-956a36ffa1ef
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 960
+      height: 720
+      crop_type: focal_point
+pipeline: __default__

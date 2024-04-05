@@ -1,0 +1,43 @@
+uuid: 2a55a4c1-4cbc-4990-8ca4-858035df7ee0
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.backend_teaser
+    - field.field.media.image.field_media_category
+    - field.field.media.image.field_media_image
+    - image.style.backend_teaser
+    - media.type.image
+  module:
+    - image
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: rqQRfbHkzcIG-vax7_7XBNFNjWKPAPd7WODHhnVH0Zs
+id: media.image.backend_teaser
+targetEntityType: media
+bundle: image
+mode: backend_teaser
+content:
+  field_media_image:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: backend_teaser
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_category: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

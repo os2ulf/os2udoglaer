@@ -1,0 +1,20 @@
+uuid: 0b27fb78-fc69-4b36-ba06-214933d4318d
+langcode: da
+status: true
+dependencies:
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: lG-vye0uMUSstoFlacYoXX5YGNz1nTCSjdB6NAJFWxo
+id: local_actions
+theme: os2udoglaer
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

@@ -1,0 +1,29 @@
+uuid: 7ce25013-0bce-4a17-af0e-5dca3966890d
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: OHVpFJTLJ9BImLiBjk4M0U2vrO7b3ErRLJ7AXpEKriI
+id: block_content.field_appetizer_orientation
+field_name: field_appetizer_orientation
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: 'Image on the left'
+    -
+      value: right
+      label: 'Image on the right'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

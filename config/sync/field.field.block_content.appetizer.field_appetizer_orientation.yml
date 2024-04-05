@@ -1,0 +1,25 @@
+uuid: a688a413-60ae-47ba-b042-66b375900816
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.appetizer
+    - field.storage.block_content.field_appetizer_orientation
+  module:
+    - options
+_core:
+  default_config_hash: dZNdx2VkiNhj-UH5pr6FQ329527nEIbnmqtbTHBLi00
+id: block_content.appetizer.field_appetizer_orientation
+field_name: field_appetizer_orientation
+entity_type: block_content
+bundle: appetizer
+label: Orientation
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: left
+default_value_callback: ''
+settings: {  }
+field_type: list_string

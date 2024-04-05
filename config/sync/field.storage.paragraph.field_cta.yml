@@ -1,0 +1,22 @@
+uuid: c8e1824c-d19b-43b6-ab8d-18a1807defc9
+langcode: da
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - styles
+_core:
+  default_config_hash: QmEKyaMgJJGB1KO9yOEPAYW00Gn3ncHGz9-spFPSZ34
+id: paragraph.field_cta
+field_name: field_cta
+entity_type: paragraph
+type: styles_link_target
+settings:
+  collection: button_style
+module: styles
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

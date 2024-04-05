@@ -1,0 +1,11 @@
+name: Premium theme helper
+description: Premium theme helper
+package: Drupal Premium
+type: module
+core_version_requirement: ^8 || ^9 || ^10
+
+dependencies:
+  - premium_core:premium_core
+
+interface translation project: premium_theme_helper
+interface translation server pattern: modules/custom/premium_theme_helper/translations/%language.po

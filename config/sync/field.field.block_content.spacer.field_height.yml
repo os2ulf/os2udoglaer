@@ -1,0 +1,25 @@
+uuid: a925af83-f6b6-4c88-a6c7-edcda95b509b
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.spacer
+    - field.storage.block_content.field_height
+  module:
+    - options
+_core:
+  default_config_hash: qFDyryS0vUCx0usGr_NNWEpcfeHnr3lDBhcZO5t3avo
+id: block_content.spacer.field_height
+field_name: field_height
+entity_type: block_content
+bundle: spacer
+label: Height
+description: 'Choose the height of the spacer.'
+required: true
+translatable: true
+default_value:
+  -
+    value: small
+default_value_callback: ''
+settings: {  }
+field_type: list_string

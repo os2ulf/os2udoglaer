@@ -1,0 +1,20 @@
+uuid: 2e95a98d-106b-406f-8e9c-6c9b76c8862a
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: uCApBNaEVYAbE-zJ2cx_vnBV4UQqdSSxjC0GYjwF3uk
+name: list_view_xxs_
+label: 'List view (XXS)'
+effects:
+  1c61892c-9868-4872-84e0-d9bc2169a7da:
+    uuid: 1c61892c-9868-4872-84e0-d9bc2169a7da
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 440
+      height: 200
+      crop_type: focal_point
+pipeline: __default__

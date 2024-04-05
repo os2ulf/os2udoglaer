@@ -1,0 +1,25 @@
+uuid: e0537632-dc5e-4df4-b94a-ea5f7a568dfb
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.slideshow
+    - field.storage.block_content.field_slideshow_autoplay
+_core:
+  default_config_hash: RtRek5zeaoREES9U1nRjld4w2EkJd4w8qrV-a-LSY1I
+id: block_content.slideshow.field_slideshow_autoplay
+field_name: field_slideshow_autoplay
+entity_type: block_content
+bundle: slideshow
+label: Autoplay
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

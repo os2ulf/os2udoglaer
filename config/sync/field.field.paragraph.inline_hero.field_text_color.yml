@@ -1,0 +1,23 @@
+uuid: 67a41eda-4d62-4144-b51e-0f536978bdd6
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_color
+    - paragraphs.paragraphs_type.inline_hero
+  module:
+    - options
+_core:
+  default_config_hash: NRB_FypA4x7_mYAOemsIAOPFj3tqXICV3OckCiJJOF8
+id: paragraph.inline_hero.field_text_color
+field_name: field_text_color
+entity_type: paragraph
+bundle: inline_hero
+label: 'Text color'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

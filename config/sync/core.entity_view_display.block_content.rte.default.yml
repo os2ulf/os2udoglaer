@@ -1,0 +1,26 @@
+uuid: 1bcbaf19-7769-4549-8ea7-0f80405445db
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.rte
+    - field.field.block_content.rte.field_text
+  module:
+    - text
+_core:
+  default_config_hash: 3pi9he5c37FQ9jgpIr29omcmbC0QXtP-roDXq5v4w_8
+id: block_content.rte.default
+targetEntityType: block_content
+bundle: rte
+mode: default
+content:
+  field_text:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

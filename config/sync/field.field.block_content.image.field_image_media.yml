@@ -1,0 +1,30 @@
+uuid: 0ec0db40-3e31-4b4a-821e-94386b6e473c
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image
+    - field.storage.block_content.field_image_media
+    - media.type.image
+_core:
+  default_config_hash: SOFknyRKgBERHmqStgXiCp5EZrKSNuM6zo0XTHZnEzQ
+id: block_content.image.field_image_media
+field_name: field_image_media
+entity_type: block_content
+bundle: image
+label: Image
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

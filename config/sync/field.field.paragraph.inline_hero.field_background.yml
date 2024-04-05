@@ -1,0 +1,33 @@
+uuid: 8d6bd185-c071-49ec-b2ca-a083d3a2df2c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background
+    - media.type.image
+    - media.type.remote_video
+    - paragraphs.paragraphs_type.inline_hero
+_core:
+  default_config_hash: SY_rH3-fTDtQ5JPnVu47fH-EvZRxJSVuX_mqNt1Hegc
+id: paragraph.inline_hero.field_background
+field_name: field_background
+entity_type: paragraph
+bundle: inline_hero
+label: Background
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      remote_video: remote_video
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

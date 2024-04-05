@@ -1,0 +1,18 @@
+uuid: 41f733b6-27e5-4786-8e80-5fdce55f8db8
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ADXX90Anr48X1wicQCBeYXZ6JVdaQgiLkaBJ9tplk9c
+name: 3_column_lg_flex_height
+label: '3 column (LG) - dynamic height'
+effects:
+  89a8d170-5944-40e7-828c-61ab3f37a587:
+    uuid: 89a8d170-5944-40e7-828c-61ab3f37a587
+    id: image_scale
+    weight: 1
+    data:
+      width: 420
+      height: null
+      upscale: true
+pipeline: __default__

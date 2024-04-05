@@ -1,0 +1,31 @@
+uuid: e2689590-04e9-40f3-ab88-ecd0e3dd9763
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.quote
+    - field.field.block_content.quote.field_quote_source
+    - field.field.block_content.quote.field_quote_text
+_core:
+  default_config_hash: WWyT4BNQxZ-nrWzzjCA3uE5M91hdoVtSmCX_di8QKX4
+id: block_content.quote.default
+targetEntityType: block_content
+bundle: quote
+mode: default
+content:
+  field_quote_source:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_quote_text:
+    type: value
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

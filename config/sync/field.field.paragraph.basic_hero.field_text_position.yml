@@ -1,0 +1,25 @@
+uuid: adadd38b-15e4-47e8-a43c-d194a25c5b76
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_position
+    - paragraphs.paragraphs_type.basic_hero
+  module:
+    - styles
+_core:
+  default_config_hash: 3gUZSTvQKtx7cPB0w7jnRPHKH6LJVwxvTVnA-FFdY98
+id: paragraph.basic_hero.field_text_position
+field_name: field_text_position
+entity_type: paragraph
+bundle: basic_hero
+label: 'Text position'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: hero--left
+default_value_callback: ''
+settings: {  }
+field_type: styles

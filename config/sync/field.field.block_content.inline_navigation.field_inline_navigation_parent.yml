@@ -1,0 +1,31 @@
+uuid: 62cde3e2-1d98-4cf8-b1b7-2d67b617cc7d
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inline_navigation
+    - field.storage.block_content.field_inline_navigation_parent
+    - node.type.page
+_core:
+  default_config_hash: 2HE9LgUsENbU2tAGgcAgc7k8bdcv9IcKQLbQlisycvk
+id: block_content.inline_navigation.field_inline_navigation_parent
+field_name: field_inline_navigation_parent
+entity_type: block_content
+bundle: inline_navigation
+label: 'Parent page'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page: page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: basic_page
+field_type: entity_reference

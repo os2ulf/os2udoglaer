@@ -1,0 +1,21 @@
+uuid: c7bd7073-4836-4c0d-92b8-8087a78b17a8
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.code
+    - field.storage.block_content.field_code_content
+_core:
+  default_config_hash: MwnP1IgKV8CgUexud0VIqYcqimlUGwC3hk7rIlRXQ1k
+id: block_content.code.field_code_content
+field_name: field_code_content
+entity_type: block_content
+bundle: code
+label: 'Code content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

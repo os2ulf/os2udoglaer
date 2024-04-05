@@ -1,0 +1,48 @@
+uuid: 015bb792-52a0-4f3e-aa80-e3ae360b77f5
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.video
+    - field.field.block_content.video.field_video_headline
+    - field.field.block_content.video.field_video_media
+    - field.field.block_content.video.field_video_subline
+    - field.field.block_content.video.field_video_text_color
+_core:
+  default_config_hash: wKE-xCk4ZEodFFld3ugnrOnO_c-Pe0l6VnuZVwPup_Q
+id: block_content.video.default
+targetEntityType: block_content
+bundle: video
+mode: default
+content:
+  field_video_headline:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_video_media:
+    type: entity_transform
+    weight: '3'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_video_subline:
+    type: value
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_video_text_color:
+    type: value
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

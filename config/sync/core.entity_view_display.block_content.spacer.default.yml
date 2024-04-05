@@ -1,0 +1,26 @@
+uuid: b060e40c-e261-4d91-83dc-7a8e8af686db
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.spacer
+    - field.field.block_content.spacer.field_height
+  module:
+    - options
+_core:
+  default_config_hash: vFV6w0-Tik6tmJYJk6MmbBo7D5KYPICPXMOMYZ4aysU
+id: block_content.spacer.default
+targetEntityType: block_content
+bundle: spacer
+mode: default
+content:
+  field_height:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

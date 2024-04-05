@@ -1,0 +1,43 @@
+uuid: a97896e8-36e6-4836-ae05-79f850c15efd
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.full_width_16_9
+    - field.field.media.remote_video.field_media_category
+    - field.field.media.remote_video.field_media_oembed_video
+    - media.type.remote_video
+    - responsive_image.styles.full_width_16_9
+  module:
+    - layout_builder
+    - responsive_image
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+_core:
+  default_config_hash: zRb2tyuh7uzBNJCATeI7BJIJthCD-Fk4JtjkRE-Vano
+id: media.remote_video.full_width_16_9
+targetEntityType: media
+bundle: remote_video
+mode: full_width_16_9
+content:
+  thumbnail:
+    type: responsive_image
+    label: hidden
+    settings:
+      responsive_image_style: full_width_16_9
+      image_link: ''
+      image_loading:
+        attribute: eager
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_category: true
+  field_media_oembed_video: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  uid: true

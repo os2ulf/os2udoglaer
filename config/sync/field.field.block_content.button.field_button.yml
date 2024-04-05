@@ -1,0 +1,25 @@
+uuid: 67ee0ffa-645a-4f3b-9d0a-f0367c902456
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.button
+    - field.storage.block_content.field_button
+  module:
+    - styles
+_core:
+  default_config_hash: TqL-wNEiA3_M3jFVdz2rj4_oO4wKgQOA1EDJzSeOlvY
+id: block_content.button.field_button
+field_name: field_button
+entity_type: block_content
+bundle: button
+label: Button
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: '17'
+  title: '2'
+field_type: styles_link_target

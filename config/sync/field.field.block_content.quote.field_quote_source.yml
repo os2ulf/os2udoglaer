@@ -1,0 +1,21 @@
+uuid: 99fd16f4-2faf-4351-84e6-c6b484f265b7
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.quote
+    - field.storage.block_content.field_quote_source
+_core:
+  default_config_hash: LZFTjQRTci73imciPCkN17n92EgBZ7kT7lzkUPobRjc
+id: block_content.quote.field_quote_source
+field_name: field_quote_source
+entity_type: block_content
+bundle: quote
+label: Source
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

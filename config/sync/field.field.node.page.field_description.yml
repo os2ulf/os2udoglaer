@@ -1,0 +1,21 @@
+uuid: 98ffb944-672a-4560-8805-05bc1389aeec
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.page
+_core:
+  default_config_hash: MnBziVj5BzIL_CO-RCGTepnBXoB8W4HTZVN72j63oN4
+id: node.page.field_description
+field_name: field_description
+entity_type: node
+bundle: page
+label: Beskrivelse
+description: 'Description is used for meta tags, search results and inline navigation'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

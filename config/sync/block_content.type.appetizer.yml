@@ -1,0 +1,10 @@
+uuid: aa4c88ee-4eba-4844-a394-832278013764
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Apap9mI0G7YRBBPS5DMeBuh6ULNaZzUoXVQGNZrgu0w
+id: appetizer
+label: Appetizer
+revision: 0
+description: 'A block that contains image, text and a CTA-button.'

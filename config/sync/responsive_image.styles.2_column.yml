@@ -1,0 +1,61 @@
+uuid: c3ddc660-6fed-48c8-bd83-9f0111c61324
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.2_column_lg_
+    - image.style.2_column_md_
+    - image.style.2_column_sm_
+    - image.style.2_column_xs_
+    - image.style.2_column_xsx2_
+    - image.style.2_column_xxs_
+    - image.style.2_column_xxsx2_
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: 76obQhi9s-oylgj5FPPhe7n3goHBQ2tYsjhJjRiJwuU
+id: 2_column
+label: '2 column'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: 2_column_lg_
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 2_column_lg_
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 2_column_md_
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 2_column_sm_
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 2_column_xs_
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 2_column_xsx2_
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: 2_column_xxs_
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: 2_column_xxsx2_
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: 2_column_xxs_

@@ -1,0 +1,16 @@
+uuid: d348689b-b052-4ad8-9cb8-9e653f9b1906
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.divider
+_core:
+  default_config_hash: Rij2NZKyZH8AC8Tzcm6IO91Dk1G4qpDL409FjJFbS88
+id: block_content.divider.default
+targetEntityType: block_content
+bundle: divider
+mode: default
+content: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

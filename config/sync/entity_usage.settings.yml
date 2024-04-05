@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: AXUBMTvVtpcNp0jKjDaWjSHqMy6HjuUf7j4yVbXgazI
+langcode: da
+local_task_enabled_entity_types: {  }
+track_enabled_base_fields: false
+usage_controller_items_per_page: 25

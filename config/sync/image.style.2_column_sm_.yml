@@ -1,0 +1,20 @@
+uuid: f955091c-d0a3-4434-ac3c-a2ebccdd6151
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: 7_QRXzEdoZIFQQZUqvfd7jYq3Y4BepCsBdlMRdeJKVA
+name: 2_column_sm_
+label: '2 column (SM)'
+effects:
+  ea3ba8be-c47a-4b9c-8b1e-c2cccb668b37:
+    uuid: ea3ba8be-c47a-4b9c-8b1e-c2cccb668b37
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 891
+      height: 502
+      crop_type: focal_point
+pipeline: __default__

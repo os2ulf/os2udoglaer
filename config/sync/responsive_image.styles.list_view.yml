@@ -1,0 +1,61 @@
+uuid: 6a79b2c2-cde1-4b6e-9cae-fcc00ee64fb5
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.list_view_lg_
+    - image.style.list_view_md_
+    - image.style.list_view_sm_
+    - image.style.list_view_xs_
+    - image.style.list_view_xsx2_
+    - image.style.list_view_xxs_
+    - image.style.list_view_xxsx2_
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: do1FScCNZS9CVtxRnzrTDZBgZIb4YuFoJfB8kNf-0ng
+id: list_view
+label: 'List view'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: list_view_lg_
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: list_view_lg_
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: list_view_md_
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: list_view_sm_
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: list_view_xs_
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: list_view_xsx2_
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: list_view_xxs_
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: list_view_xxsx2_
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: list_view_xxs_

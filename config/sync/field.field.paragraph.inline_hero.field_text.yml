@@ -1,0 +1,30 @@
+uuid: 0b8e3bde-37f1-49b5-995e-70ae84c341d3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.inline_hero
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: ouxF9xUAUs_ezzSxLI8a9K0fUDixAwkEOW5JRIKAGJA
+id: paragraph.inline_hero.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: inline_hero
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

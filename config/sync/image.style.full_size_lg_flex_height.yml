@@ -1,0 +1,18 @@
+uuid: 97c6aa81-6b3b-4e0c-913f-d50dc00e10c6
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: e47gdRy-2-VvU39xVBskA2qScXQtdvclE2n_1gyWNts
+name: full_size_lg_flex_height
+label: 'Full size (LG) - dynamic height'
+effects:
+  d27d3863-be8c-4982-be76-43195026b665:
+    uuid: d27d3863-be8c-4982-be76-43195026b665
+    id: image_scale
+    weight: 1
+    data:
+      width: 1920
+      height: null
+      upscale: true
+pipeline: __default__

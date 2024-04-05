@@ -1,0 +1,54 @@
+uuid: 4fa0d541-79c3-4da4-8c27-79165ba381d2
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion
+    - field.field.block_content.accordion.field_accordion_headline
+    - field.field.block_content.accordion.field_accordion_items
+    - field.field.block_content.accordion.field_accordion_show_more
+  module:
+    - paragraphs
+_core:
+  default_config_hash: FJQp8NipTm4vkDkqBQ8XlpFuemyKUDxhEmMwAwGY0ts
+id: block_content.accordion.default
+targetEntityType: block_content
+bundle: accordion
+mode: default
+content:
+  field_accordion_headline:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_accordion_items:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraf
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: accordion_item
+    third_party_settings: {  }
+  field_accordion_show_more:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  info: true
+  langcode: true

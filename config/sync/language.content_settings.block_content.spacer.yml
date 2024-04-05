@@ -1,0 +1,20 @@
+uuid: f3368734-ebba-4cf6-91b2-dea8826abe55
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.spacer
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+_core:
+  default_config_hash: 1MMHPqPDYMAshsd1ZL0-pJB0_NyYiyB-2naB_eAFtrY
+id: block_content.spacer
+target_entity_type_id: block_content
+target_bundle: spacer
+default_langcode: site_default
+language_alterable: true

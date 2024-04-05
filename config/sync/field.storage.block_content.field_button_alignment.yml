@@ -1,0 +1,32 @@
+uuid: c26a6864-ff90-4d2d-9532-420907fcb627
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: gJDiuph-7h9xpBWHu-ODKcufk1GmK0FINrqTgjPBrxI
+id: block_content.field_button_alignment
+field_name: field_button_alignment
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: left
+      label: Left
+    -
+      value: center
+      label: Center
+    -
+      value: right
+      label: Right
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

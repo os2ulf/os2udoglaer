@@ -1,0 +1,25 @@
+uuid: ae20d0ca-462a-4adf-a44c-f5643fa1e8a3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link
+    - paragraphs.paragraphs_type.basic_hero
+  module:
+    - link
+_core:
+  default_config_hash: 7N-KBB7w5ohS7_MkPCHDhn9TXVyHCzW8iN4q9Ujlac8
+id: paragraph.basic_hero.field_link
+field_name: field_link
+entity_type: paragraph
+bundle: basic_hero
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

@@ -1,0 +1,22 @@
+uuid: 5ece918b-6a6b-42ea-ba8f-5fb3fe46a8df
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: fg0kgApzuCop9QA09z4KrB5hMucyF5gH-Yr7mA7yhqM
+id: content
+theme: os2udoglaer
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

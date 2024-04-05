@@ -1,0 +1,20 @@
+uuid: 54c9ce37-5681-4fb0-b7c1-4ec44383f9bf
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+_core:
+  default_config_hash: hfTfb2lmyv6H_0AC0hrO5UHtj6XgqYDkWvGS7ytXKfg
+name: 3_column_xs_
+label: '3 column (XS)'
+effects:
+  ea3ba8be-c47a-4b9c-8b1e-c2cccb668b37:
+    uuid: ea3ba8be-c47a-4b9c-8b1e-c2cccb668b37
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 667
+      height: 376
+      crop_type: focal_point
+pipeline: __default__

@@ -1,0 +1,13 @@
+uuid: 8761518a-56bc-4e65-97c6-e67f50be28fa
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.backend_thumbnail
+_core:
+  default_config_hash: BzkCtdpavB_cLCWVNDnWh8GXk98-7dYDhcDPrxzKdmE
+id: backend_thumbnail
+label: 'Backend Thumbnail'
+image_style_mappings: {  }
+breakpoint_group: responsive_image
+fallback_image_style: backend_thumbnail

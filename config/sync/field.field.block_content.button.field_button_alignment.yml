@@ -1,0 +1,25 @@
+uuid: c6bc5257-00fe-4cd2-8cc4-95c638f3cc6b
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.button
+    - field.storage.block_content.field_button_alignment
+  module:
+    - options
+_core:
+  default_config_hash: pvKzvBkawKsRsWkJHjaSYayu0HmZNS3wUfZpo8-QZJk
+id: block_content.button.field_button_alignment
+field_name: field_button_alignment
+entity_type: block_content
+bundle: button
+label: Alignment
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: center
+default_value_callback: ''
+settings: {  }
+field_type: list_string

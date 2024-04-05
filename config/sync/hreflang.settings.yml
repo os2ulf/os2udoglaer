@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: YKhjpOyAzjOMy1fetkFySEwD2RchVWLk7NRISKdMgRo
+langcode: da
+x_default: true
+x_default_fallback: true
+defer_to_content_translation: false

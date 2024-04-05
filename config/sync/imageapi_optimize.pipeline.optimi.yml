@@ -1,0 +1,9 @@
+uuid: 12e7c9f4-fb06-4a45-b4d4-7eccf54a6be7
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: DYDef2DqSmSSKUzaOxVWKbtjL5Ea0355dudYZI-Z_YI
+name: optimi
+label: Optimize
+processors: {  }

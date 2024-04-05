@@ -1,0 +1,17 @@
+uuid: 6e1fe35d-3788-48c3-bb50-9bb1364a4408
+langcode: da
+status: true
+dependencies:
+  module:
+    - status_feed
+  enforced:
+    module:
+      - status_feed
+_core:
+  default_config_hash: TiWKiSqMGGdT6x5XWVDj2TcHFK2yUe7J8f2WHFp7rv4
+id: monitor
+label: Monitor
+weight: 5
+is_admin: null
+permissions:
+  - 'access status feed'

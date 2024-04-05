@@ -1,0 +1,32 @@
+uuid: fc472147-0f62-474e-a4dd-489eeaa51563
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+_core:
+  default_config_hash: 74D7hal1zj6SzyRId97-OLvnFI8jGvOpqdZ5NACvXT8
+id: block_content.field_height
+field_name: field_height
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: small
+      label: Small
+    -
+      value: medium
+      label: Medium
+    -
+      value: large
+      label: Large
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: c7c93cc8-065b-4ff0-9099-3fe5ee6afc0c
+langcode: da
+status: true
+dependencies:
+  config:
+    - search_api.index.content
+_core:
+  default_config_hash: xOx3C_GOREVxar5j9oubpgjWOiU2RvGjLqzSqVFk1Cc
+id: content
+label: Content
+path: search
+clean_url: false
+show_all_when_no_keys: false
+index: content
+limit: 10
+searched_fields:
+  field_description: field_description
+  rendered_item: rendered_item
+  title: title
+style: view_modes
+view_mode_configuration:
+  'entity:node':
+    default: search_result
+    overrides:
+      page: ''
+show_search_form: true
+parse_mode: direct

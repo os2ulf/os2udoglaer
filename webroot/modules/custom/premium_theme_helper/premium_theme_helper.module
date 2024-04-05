@@ -1,0 +1,92 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Layout alter - Change and remove definitions.
+ *
+ * @param array $definitions
+ *   The discovered plugin definitions.
+ */
+function premium_theme_helper_layout_alter(array &$definitions) {
+  _premium_theme_helper_layout_alter($definitions);
+}
+
+/**
+ * Add libraries to specific elements.
+ *
+ * @param array $types
+ *   An associative array with structure identical to that of the return value
+ *   of \Drupal\Core\Render\ElementInfoManagerInterface::getInfo().
+ */
+function premium_theme_helper_element_info_alter(array &$types) {
+  _premium_theme_helper_element_info_alter($types);
+}
+
+/**
+ * Change layout builder class, so we can change structure in layout builder.
+ *
+ * @param array $definitions
+ *   The discovered plugin definitions.
+ */
+function premium_theme_helper_element_plugin_alter(array &$definitions) {
+  _premium_theme_helper_element_plugin_alter($definitions);
+}
+
+/**
+ * Add header.
+ *
+ * @param array $variables
+ *   Theme variables.
+ */
+function premium_theme_helper_preprocess_layout(array &$variables) {
+  _premium_theme_helper_preprocess_layout($variables);
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function premium_theme_helper_preprocess_block__inline_block(&$variables) {
+  _premium_theme_helper_preprocess_block__inline_block($variables);
+}
+
+/**
+ * Theme suggestion for block contents.
+ *
+ * Change reuseable blocks to have a theme suggestion to inline block,
+ * so we dont get different templates.
+ *
+ * @param array $suggestions
+ *   An array of theme suggestions.
+ * @param array $variables
+ *   An array of variables passed to the theme hook. Note that this hook is
+ *   invoked before any preprocessing.
+ */
+function premium_theme_helper_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  _premium_theme_helper_theme_suggestions_block_alter($suggestions, $variables);
+}
+
+/**
+ * Adding libraries to a view as pre render.
+ *
+ * @param \Drupal\views\ViewExecutable $view
+ *   View.
+ */
+function premium_theme_helper_views_pre_render(ViewExecutable $view) {
+  _premium_theme_helper_views_pre_render($view);
+}
+
+/**
+ * Form alter - Adding libraries.
+ *
+ * @param array $form
+ *   Form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form state.
+ * @param string $form_id
+ *   Form id.
+ */
+function premium_theme_helper_form_alter(array &$form, FormStateInterface $form_state, string $form_id) {
+  _premium_theme_helper_form_alter($form, $form_state, $form_id);
+}

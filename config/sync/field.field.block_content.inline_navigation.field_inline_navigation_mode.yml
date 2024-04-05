@@ -1,0 +1,25 @@
+uuid: 15d39044-9356-41f6-a609-3fc4a60f8d29
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inline_navigation
+    - field.storage.block_content.field_inline_navigation_mode
+  module:
+    - options
+_core:
+  default_config_hash: RSU5VRWxd3Llw3He1b19UpezuhS5otxhzCHmAPSZmKA
+id: block_content.inline_navigation.field_inline_navigation_mode
+field_name: field_inline_navigation_mode
+entity_type: block_content
+bundle: inline_navigation
+label: 'Selection mode'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: parent
+default_value_callback: ''
+settings: {  }
+field_type: list_string

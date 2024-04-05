@@ -1,0 +1,190 @@
+{
+    "name": "novicell/drupal-premium",
+    "description": "Novicell Drupal Premium package for Drupal 9 projects",
+    "type": "project",
+    "homepage": "https://www.drupal.org/project/drupal",
+    "support": {
+        "docs": "https://www.drupal.org/docs/user_guide/en/index.html",
+        "chat": "https://www.drupal.org/node/314178"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.dk/php/"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "ext-pdo": "*",
+        "bower-asset/jquery-simple-color": "^1.2",
+        "bower-asset/spectrum": "^1.8",
+        "composer/installers": "^1.2",
+        "cweagans/composer-patches": "^1.6.5",
+        "drupal/admin_toolbar": "^3.4",
+        "drupal/allowed_formats": "^2.0",
+        "drupal/atoms": "^1.0",
+        "drupal/autosave_form": "^1.0",
+        "drupal/components": "^3.0@beta",
+        "drupal/config_ignore": "^2.3",
+        "drupal/config_split": "^1.7.0",
+        "drupal/core-composer-scaffold": "^10",
+        "drupal/core-project-message": "^10",
+        "drupal/core-recommended": "^10",
+        "drupal/core-vendor-hardening": "^9.0",
+        "drupal/editor_advanced_link": "^2.2",
+        "drupal/entity_clone": "^2.0@beta",
+        "drupal/entity_usage": "^2.0-beta3",
+        "drupal/field_group": "^3.0",
+        "drupal/focal_point": "^2.0",
+        "drupal/gin": "^3.0@RC",
+        "drupal/gin_toolbar": "^1.0@RC",
+        "drupal/health_check": "^3.0",
+        "drupal/hreflang": "^1.0",
+        "drupal/imageapi_optimize": "^4.0",
+        "drupal/inline_block_title_automatic": "^1.0",
+        "drupal/layout_builder_at": "^2.0",
+        "drupal/layout_builder_modal": "^1.0",
+        "drupal/layout_builder_restrictions": "^2.0",
+        "drupal/linkit": "^6.0",
+        "drupal/metatag": "^1.0",
+        "drupal/noreferrer": "^1.0",
+        "drupal/paragraphs": "^1.0",
+        "drupal/paragraphs_asymmetric_translation_widgets": "^1.0",
+        "drupal/pathauto": "^1.0",
+        "drupal/pathologic": "^2.0@alpha",
+        "drupal/rdf": "^2.0",
+        "drupal/redirect": "^1.0",
+        "drupal/redis": "^1.5",
+        "drupal/role_delegation": "^1.1",
+        "drupal/scheduled_transitions": "^2.0",
+        "drupal/search_api": "^1.0",
+        "drupal/search_api_exclude_entity": "^1.0",
+        "drupal/search_api_page": "^1.0@beta",
+        "drupal/simple_sitemap": "^4.1",
+        "drupal/view_unpublished": "^1.0",
+        "drupal/webform": "^6.2@beta",
+        "drupal/webp": "^1.0@RC",
+        "drush/drush": "^12",
+        "novicell/content_hierarchy": "^1.0",
+        "novicell/dynamic_key_value": "^1.0",
+        "novicell/media_icons": "^1.0",
+        "novicell/premium_core": "^1.0",
+        "novicell/premium_headless": "^1.0",
+        "novicell/premium_headless_theme": "^1.0",
+        "novicell/premium_profile": "^1.0",
+        "novicell/premium_search": "^1.0",
+        "novicell/premium_tools": "^1.0",
+        "novicell/status_feed": "^1.0",
+        "novicell/styles": "^1.0",
+        "oomphinc/composer-installers-extender": "^2.0",
+        "vlucas/phpdotenv": "^5.3",
+        "wikimedia/composer-merge-plugin": "^2.0"
+    },
+    "require-dev": {
+        "drupal/devel": "^5.0",
+        "drupal/upgrade_status": "^4.0",
+        "kint-php/kint": "^5.1"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "platform": {
+            "php": "8.1"
+        },
+        "optimize-autoloader": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "drupal/core-project-message": true,
+            "drupal/core-vendor-hardening": true,
+            "composer/installers": true,
+            "wikimedia/composer-merge-plugin": true,
+            "oomphinc/composer-installers-extender": true
+        }
+    },
+    "extra": {
+        "drupal-scaffold": {
+            "allowed-packages": [
+                "drupal/core"
+            ],
+            "locations": {
+                "web-root": "webroot/"
+            },
+            "file-mapping": {
+                "[web-root]/robots.txt": {
+                    "append": "assets/robots-additions.txt"
+                },
+                "[web-root]/sites/development.services.yml": {
+                    "mode": "replace",
+                    "path": "assets/development.services.yml",
+                    "overwrite": false
+                }
+            }
+        },
+        "installer-paths": {
+            "webroot/core": [
+                "type:drupal-core"
+            ],
+            "webroot/libraries/{$name}": [
+                "type:drupal-library",
+                "type:npm-asset",
+                "type:bower-asset"
+            ],
+            "webroot/modules/contrib/{$name}": [
+                "type:drupal-module"
+            ],
+            "webroot/profiles/contrib/{$name}": [
+                "type:drupal-profile"
+            ],
+            "webroot/themes/contrib/{$name}": [
+                "type:drupal-theme"
+            ],
+            "webroot/drush/Commands/contrib/{$name}": [
+                "type:drupal-drush"
+            ],
+            "webroot/modules/custom/{$name}": [
+                "type:drupal-custom-module"
+            ],
+            "webroot/themes/custom/{$name}": [
+                "type:drupal-custom-theme"
+            ]
+        },
+        "installer-types": [
+            "npm-asset",
+            "bower-asset"
+        ],
+        "merge-plugin": {
+            "include": [
+                "webroot/modules/contrib/webform/composer.libraries.json"
+            ]
+        },
+        "patches": {
+            "drupal/autosave_form": {
+                "(#3355495) PHP 8.2 deprecation issue with AutosaveFormBuilder": "https://www.drupal.org/files/issues/2023-04-20/autosave_form-dynamic-property-deprecation.patch"
+            },
+            "drupal/domain": {
+                "(#3367785) Available on Current Domain doesn't instantiate": "https://www.drupal.org/files/issues/2023-11-10/3367785-domain-php8-boolean-14.patch",
+                "(#3359253) Use core route provider with addExtraCacheKeyPart for route caching?": "https://www.drupal.org/files/issues/2023-05-09/domain-route-provider-addextracachekeypart-3359253-02.patch"
+            },
+            "drupal/paragraphs": {
+                "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch"
+            },
+            "drupal/redis": {
+                "(#3337750) DivisionByZeroError - Problem to access Status Page on PHP 8.1.14": "https://www.drupal.org/files/issues/2023-02-24/redis_status_page_divizion_by_zero_error_php8_1_14_3337750-11.patch"
+            }
+        }
+    }
+}

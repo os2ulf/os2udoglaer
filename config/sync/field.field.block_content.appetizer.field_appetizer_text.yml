@@ -1,0 +1,28 @@
+uuid: 15aac074-12a7-4374-a12e-dfefd2fa282f
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.appetizer
+    - field.storage.block_content.field_appetizer_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+_core:
+  default_config_hash: 0FXc2LcmVEkIjf2Li2d_MHdZbCSExq_df37zq6j-Fj8
+id: block_content.appetizer.field_appetizer_text
+field_name: field_appetizer_text
+entity_type: block_content
+bundle: appetizer
+label: Text
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

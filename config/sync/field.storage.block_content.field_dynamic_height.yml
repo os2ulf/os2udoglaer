@@ -1,0 +1,20 @@
+uuid: 07e2c826-eade-40fc-81dc-fd40e6c99b57
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: Cuoye3ZIRPuTrW2xC_8_7P5YWB7_JzrboMbUxm8IYYI
+id: block_content.field_dynamic_height
+field_name: field_dynamic_height
+entity_type: block_content
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

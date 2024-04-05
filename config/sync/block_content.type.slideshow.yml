@@ -1,0 +1,10 @@
+uuid: f4d319f9-e12b-4bf6-b2e2-990bf01a4052
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: dJexiueaYnP07e0jkuVOiDkfGncI7-4swUkdPLRPxxg
+id: slideshow
+label: Slideshow
+revision: 0
+description: 'A block containing a slideshow of images.'

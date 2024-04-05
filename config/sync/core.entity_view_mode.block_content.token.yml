@@ -1,0 +1,13 @@
+uuid: 62ae6233-b0e3-4d3d-b3ec-e7557ce17e99
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+_core:
+  default_config_hash: JqAPZHEa9m6Cqy0vdpV5Jjdk07YLKkE_EE9ivvB2xhQ
+id: block_content.token
+label: Token
+description: ''
+targetEntityType: block_content
+cache: true

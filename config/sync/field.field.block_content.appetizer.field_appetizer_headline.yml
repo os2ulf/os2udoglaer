@@ -1,0 +1,21 @@
+uuid: 33b3a877-2fc2-4e51-817a-b45221becc72
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.appetizer
+    - field.storage.block_content.field_appetizer_headline
+_core:
+  default_config_hash: UK8ejHByGv95qEIZAnBPwsccjiEktbQ4j0R-cbq2wsU
+id: block_content.appetizer.field_appetizer_headline
+field_name: field_appetizer_headline
+entity_type: block_content
+bundle: appetizer
+label: Headline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

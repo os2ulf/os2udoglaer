@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: N--exVxaeESuGwrWqhzK9UNlPFJzRpKzd6NMC4zZcTo
+tokens: 1
+datetime_format: long
+link_button_class:
+  - button
+text_format_default: full_html
+text_format_allowed: {  }
+langcode: da

@@ -1,0 +1,20 @@
+uuid: c675be7e-931f-4ca1-b658-19407deb4d34
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.basic
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+_core:
+  default_config_hash: Tt00KkiyYe8DqX26CFoU10LaU4pa7sgAqI25X7ZIORA
+id: block_content.basic
+target_entity_type_id: block_content
+target_bundle: basic
+default_langcode: site_default
+language_alterable: false

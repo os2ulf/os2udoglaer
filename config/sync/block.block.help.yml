@@ -1,0 +1,22 @@
+uuid: c472469b-d15f-4d42-8656-0f871893f2b6
+langcode: da
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: UJl3Rb1swkuoDEm5uG5E_ruPjwcE9mWcrYuHP7mA9QI
+id: help
+theme: os2udoglaer
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

@@ -1,0 +1,10 @@
+uuid: 3ec37c09-d034-4da1-9e4c-d21d978faa81
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: IIzIs0BYg_xT3sd4g1OTJxm4YfQA8xzPsP4gmIBzOvw
+id: image
+label: Image
+revision: 0
+description: 'A block that contains image.'

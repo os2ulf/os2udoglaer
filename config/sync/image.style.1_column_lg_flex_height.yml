@@ -1,0 +1,18 @@
+uuid: 688d0d01-827a-4d74-a0c1-76a3dc9a1c18
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: RdRcO__CHdpIxewAeQyRe5EwLs5TvGcMWVmtmfoz1hg
+name: 1_column_lg_flex_height
+label: '1 column (LG) - dynamic height'
+effects:
+  72becb5e-51b3-4337-b0e2-af447265cff4:
+    uuid: 72becb5e-51b3-4337-b0e2-af447265cff4
+    id: image_scale
+    weight: 1
+    data:
+      width: 1460
+      height: null
+      upscale: true
+pipeline: __default__

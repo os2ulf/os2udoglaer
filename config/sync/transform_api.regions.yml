@@ -1,0 +1,6 @@
+_core:
+  default_config_hash: NLaEpZGORhGmiczd9IEwXYWLirDcQ6sYqEjig1_Vz4Q
+langcode: da
+regions:
+  content: Content
+default_region: content

@@ -1,0 +1,33 @@
+uuid: faaed6f4-2993-49b2-bc24-688eec174d1e
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.quote
+    - field.field.block_content.quote.field_quote_source
+    - field.field.block_content.quote.field_quote_text
+_core:
+  default_config_hash: 4fAHlrwLPJxqr5jSdWHVoM4D8DqSULJm8FLBXP310j8
+id: block_content.quote.default
+targetEntityType: block_content
+bundle: quote
+mode: default
+content:
+  field_quote_source:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_quote_text:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

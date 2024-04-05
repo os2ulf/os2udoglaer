@@ -1,0 +1,22 @@
+uuid: 50b47658-b9eb-42d4-bc7d-603e87e9429b
+langcode: da
+status: true
+dependencies:
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: t8UNMsR-rjIOZ-FL-UemL2DOh15_lbHsNRnbHf4gSj8
+id: primary_local_tasks
+theme: os2udoglaer
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

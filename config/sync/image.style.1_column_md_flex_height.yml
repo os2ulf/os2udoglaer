@@ -1,0 +1,18 @@
+uuid: 27650532-a79b-41d1-9ef6-22052c89e07f
+langcode: da
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pd_tpvkidTkiT33XXgoFGIEJGc-9ZF6rOgKwgR_LM44
+name: 1_column_md_flex_height
+label: '1 column (MD) - dynamic height'
+effects:
+  b0430fe6-c973-42fa-9a3e-aec86ceb5177:
+    uuid: b0430fe6-c973-42fa-9a3e-aec86ceb5177
+    id: image_scale
+    weight: 1
+    data:
+      width: 1099
+      height: null
+      upscale: true
+pipeline: __default__

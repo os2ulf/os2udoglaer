@@ -1,0 +1,22 @@
+uuid: ea3029a9-180e-4051-90c7-d40098dd1839
+langcode: da
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - os2udoglaer
+_core:
+  default_config_hash: DDqEExHen5ekq14RPcSk9gSET3OnXaeAK_of-rn-WYk
+id: messages
+theme: os2udoglaer
+region: highlighted
+weight: 0
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

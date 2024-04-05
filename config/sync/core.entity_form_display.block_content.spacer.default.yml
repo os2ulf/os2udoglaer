@@ -1,0 +1,41 @@
+uuid: 3bdafdb2-eeb3-4437-8b02-422b8e4b5886
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.spacer
+    - field.field.block_content.spacer.field_height
+_core:
+  default_config_hash: SUV8pfM1lGqxbcn_c9iOADkGWGN0TCpdjkKlY6MYhf4
+id: block_content.spacer.default
+targetEntityType: block_content
+bundle: spacer
+mode: default
+content:
+  field_height:
+    type: options_select
+    weight: 26
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

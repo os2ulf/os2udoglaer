@@ -1,0 +1,30 @@
+uuid: d5aa49d3-ac53-4cbe-a28c-68987bee0a31
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text
+    - paragraphs.paragraphs_type.basic_hero
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    full_html: '0'
+    plain_text: '0'
+_core:
+  default_config_hash: tmiQRISuTyWusxfNfKcz0xBZL4clAFkXyooD3CcgquY
+id: paragraph.basic_hero.field_text
+field_name: field_text
+entity_type: paragraph
+bundle: basic_hero
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long

@@ -1,0 +1,28 @@
+uuid: ce6a3139-2ac2-436a-8680-8df18dfa158d
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.rte
+    - field.storage.block_content.field_text
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+_core:
+  default_config_hash: OyOHzdwHZK6T_RxpDWzZC_uGFrodSR6GDrPr3U2fI8I
+id: block_content.rte.field_text
+field_name: field_text
+entity_type: block_content
+bundle: rte
+label: Text
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats: {  }
+field_type: text_long
