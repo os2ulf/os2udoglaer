@@ -1,0 +1,37 @@
+master:
+  version: VERSION
+  css:
+    theme:
+      css/master.css: {}
+  dependencies:
+    - os2udoglaer/theme-primary
+
+# Themes.
+theme:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme.css: {}
+
+theme-grey:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-grey.css: {}
+  dependencies:
+    - os2udoglaer/theme
+
+# Previews.
+theme-preview:
+  version: VERSION
+  css:
+    theme:
+      css/preview/theme.css: {}
+  dependencies:
+    - os2udoglaer/theme-grey
+
+button-preview:
+  version: VERSION
+  css:
+    theme:
+      css/preview/button.css: {}

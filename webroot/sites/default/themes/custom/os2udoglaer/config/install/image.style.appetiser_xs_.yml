@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: appetiser_xs_
+label: 'Appetiser (XS)'
+effects:
+  4a964a86-4585-482c-9a7c-a38adc9942c9:
+    uuid: 4a964a86-4585-482c-9a7c-a38adc9942c9
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 727
+      height: 409
+      crop_type: focal_point

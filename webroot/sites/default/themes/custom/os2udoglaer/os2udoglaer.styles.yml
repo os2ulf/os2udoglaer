@@ -1,0 +1,18 @@
+button_style:
+  label: Button styles
+  preview_libraries: os2udoglaer/button-preview
+  preview_style: button
+  base_styles:
+    - button
+  styles:
+    button--normal: Normal
+    button--ghost: Ghost
+
+color_theme:
+  label: Color themes
+  libraries: os2udoglaer/theme-preview
+  preview_style: color_theme
+  base_styles:
+    - theme
+  styles:
+    theme-grey: Grey

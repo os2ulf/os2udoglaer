@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: full_size_xxsx2_flex_height
+label: "Full size (XXSx2) - dynamic height\t"
+effects:
+  5515cac2-6104-4d63-8020-9e862d2a4702:
+    uuid: 5515cac2-6104-4d63-8020-9e862d2a4702
+    id: image_scale
+    weight: 1
+    data:
+      width: 960
+      height: null
+      upscale: true
+

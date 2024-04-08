@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.inline_navigation_1_1_lg_
+    - image.style.inline_navigation_1_1_md_
+    - image.style.inline_navigation_1_1_sm_
+    - image.style.inline_navigation_1_1_xs_
+    - image.style.inline_navigation_1_1_xsx2_
+    - image.style.inline_navigation_1_1_xxs_
+    - image.style.inline_navigation_1_1_xxsx2_
+  theme:
+    - os2udoglaer
+id: inline_navigation_1_1
+label: 'Inline navigation (1:1)'
+image_style_mappings:
+  -
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: inline_navigation_1_1_lg_
+  -
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: inline_navigation_1_1_lg_
+  -
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: inline_navigation_1_1_md_
+  -
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: inline_navigation_1_1_sm_
+  -
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: inline_navigation_1_1_xs_
+  -
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: inline_navigation_1_1_xsx2_
+  -
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: inline_navigation_1_1_xxs_
+  -
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: inline_navigation_1_1_xxsx2_
+breakpoint_group: os2udoglaer
+fallback_image_style: inline_navigation_1_1_xxs_

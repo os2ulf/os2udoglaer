@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: wide_xxsx2_
+label: 'Wide (XXSx2)'
+effects:
+  470a04fe-7f51-41a8-ada2-956a36ffa1ef:
+    uuid: 470a04fe-7f51-41a8-ada2-956a36ffa1ef
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 960
+      height: 720
+      crop_type: focal_point

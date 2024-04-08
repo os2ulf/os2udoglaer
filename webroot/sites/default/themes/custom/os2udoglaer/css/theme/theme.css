@@ -1,0 +1,19 @@
+.section.theme {color: var(--theme-color);background-color: var(--theme-background-color);}
+.section.theme a {color: var(--theme-link-color)}
+.section.theme .button {color: var(--theme-button-color);background-color: var(--theme-button-background-color);}
+.section.theme .button--ghost {color: var(--theme-color);background-color: initial;border-color: var(--theme-button-background-color)}
+.section.theme .divider:before {background-color: var(--theme-divider-background-color)}
+.section.theme .accordion-item {color: var(--theme-accordion-text-color);background-color: var(--theme-accordion-background-color);border-color: var(--theme-accordion-border-color)}
+.section.theme .checkbox:checked + label:before, .section.theme .checkbox:not(:checked) + label:before, .section.theme .radio:checked + label:before, .section.theme .radio:not(:checked) + label:before {border-color: var(--theme-input-border)}
+.section.theme .checkbox:checked + label:after, .section.theme .checkbox:not(:checked) + label:after, .section.theme .radio:checked + label:after, .section.theme .radio:not(:checked) + label:after {border-right-color: var(--theme-input-color-marked);border-bottom-color: var(--theme-input-color-marked)}
+.section.theme .radio:checked + label:after, .section.theme .radio:not(:checked) + label:after {background: var(--theme-input-color-marked)}
+.section.theme .input, .section.theme .select, .section.theme .textarea {color: var(--theme-color);background-color: var(--theme-background-color);border-color: var(--theme-input-border);}
+.section.theme .input:focus, .section.theme .select:focus, .section.theme .textarea:focus {border-color: var(--theme-color)}
+.section.theme .input__description, .section.theme .select__description, .section.theme .textarea__description {color: var(--theme-color)}
+.section.theme .input__icon, .section.theme .select__icon, .section.theme .textarea__icon {fill: var(--theme-color)}
+.section.theme .status-message {color: var(--theme-color);background-color: var(--theme-status-message-background-color);}
+.section.theme .status-message--status {color: var(--theme-status-message-color-status);background-color: var(--theme-status-message-background-color-status)}
+.section.theme .status-message--warning {color: var(--theme-status-message-color-warning);background-color: var(--theme-status-message-background-color-warning)}
+.section.theme .status-message--error {color: var(--theme-status-message-color-error);background-color: var(--theme-status-message-background-color-error)}
+.section.theme .pager__item {background-color: var(--theme-color);box-shadow: 0 2px 0 0 var(--theme-color)}
+.section.theme .pager a {color: var(--theme-link-color)}

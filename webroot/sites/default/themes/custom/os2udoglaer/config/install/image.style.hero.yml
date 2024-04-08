@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: hero
+label: Hero
+effects:
+  304d62dc-4988-4c70-9b82-4b0a0ddf36da:
+    uuid: 304d62dc-4988-4c70-9b82-4b0a0ddf36da
+    id: focal_point_scale_and_crop
+    weight: 2
+    data:
+      width: 1800
+      height: 1800
+      crop_type: focal_point

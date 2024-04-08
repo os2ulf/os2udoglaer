@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.2_column_lg_flex_height
+    - image.style.2_column_md_flex_height
+    - image.style.2_column_sm_flex_height
+    - image.style.2_column_xs_flex_height
+    - image.style.2_column_xsx2_flex_height
+    - image.style.2_column_xxs_flex_height
+    - image.style.2_column_xxsx2_flex_height
+  theme:
+    - os2udoglaer
+id: 2_column_flex_height
+label: '2 column - dynamic height'
+image_style_mappings:
+  -
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 2_column_lg_flex_height
+  -
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 2_column_lg_flex_height
+  -
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 2_column_md_flex_height
+  -
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 2_column_sm_flex_height
+  -
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 2_column_xs_flex_height
+  -
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: 2_column_xsx2_flex_height
+  -
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 2_column_xxs_flex_height
+  -
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+    image_mapping_type: image_style
+    image_mapping: 2_column_xxsx2_flex_height
+breakpoint_group: os2udoglaer
+fallback_image_style: 2_column_xxs_flex_height

@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: full_size_xs_flex_height
+label: "Full size (XS) - dynamic height\t"
+effects:
+  6f724eb9-75c3-4566-8b32-27aa79cc8c44:
+    uuid: 6f724eb9-75c3-4566-8b32-27aa79cc8c44
+    id: image_scale
+    weight: 1
+    data:
+      width: 768
+      height: null
+      upscale: true
+

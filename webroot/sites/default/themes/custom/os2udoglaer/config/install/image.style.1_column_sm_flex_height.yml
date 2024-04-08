@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 1_column_sm_flex_height
+label: '1 column (SM) - dynamic height'
+effects:
+  1516d289-07b5-445e-bd81-e1d036255be1:
+    uuid: 1516d289-07b5-445e-bd81-e1d036255be1
+    id: image_scale
+    weight: 1
+    data:
+      width: 951
+      height: null
+      upscale: true
+

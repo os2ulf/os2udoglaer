@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 3_column_xxs_flex_height
+label: '3 column (XXS) - dynamic height'
+effects:
+  97b60991-eac0-483c-ad61-34068e9a3c79:
+    uuid: 97b60991-eac0-483c-ad61-34068e9a3c79
+    id: image_scale
+    weight: 1
+    data:
+      width: 380
+      height: null
+      upscale: true
+

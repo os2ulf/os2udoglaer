@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 2_column_md_flex_height
+label: '2 column (MD) - dynamic height'
+effects:
+  4b2a5a3d-2d2a-4514-a2c1-054713a7e120:
+    uuid: 4b2a5a3d-2d2a-4514-a2c1-054713a7e120
+    id: image_scale
+    weight: 1
+    data:
+      width: 700
+      height: null
+      upscale: true
+

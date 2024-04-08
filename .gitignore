@@ -32,7 +32,7 @@ webroot/sites/sites.*.php
 
 # Ignore paths that contain user-generated content.
 webroot/sites/*/files
-webroot/sites/*/private
+/private-files
 
 # Ignore SimpleTest multi-site environment.
 webroot/sites/simpletest
@@ -72,10 +72,12 @@ webroot/profiles/README.txt
 webroot/sites/example.settings.local.php
 webroot/sites/example.sites.php
 webroot/sites/README.txt
-webroot/sites/default*
 webroot/themes/README.txt
+webroot/sites/default/default.services.yml
+webroot/sites/default/default.settings.php
 
 .env
+devspace.env
 */node_modules
 .idea/
 logs/*
@@ -83,5 +85,17 @@ logs/*
 .composer
 !*/.keep
 composer-src/
+.devspace
+*.http
 *.sql
-.novi/dbdumps/*
+
+.novi/dbdumps/*.sql
+.novi/state/*.lock
+
+
+# Ignore settings.devspace.php config file
+webroot/sites/default/settings.devspace.php
+
+
+# Ignore sites.devspace.php config file
+webroot/sites/sites.devspace.php

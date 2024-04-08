@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 1_column_xsx2_flex_height
+label: '1 column (XSx2) - dynamic height'
+effects:
+  8d562161-72c7-40e0-be73-8dc929732c2e:
+    uuid: 8d562161-72c7-40e0-be73-8dc929732c2e
+    id: image_scale
+    weight: 1
+    data:
+      width: 1454
+      height: null
+      upscale: true
+

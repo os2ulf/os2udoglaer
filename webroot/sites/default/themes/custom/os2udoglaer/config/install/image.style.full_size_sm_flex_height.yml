@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: full_size_sm_flex_height
+label: "Full size (SM) - dynamic height\t"
+effects:
+  bc2f4378-1f57-4cdb-bea4-e220cbbd5796:
+    uuid: bc2f4378-1f57-4cdb-bea4-e220cbbd5796
+    id: image_scale
+    weight: 1
+    data:
+      width: 991
+      height: null
+      upscale: true
+

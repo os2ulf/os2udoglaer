@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: 1_column_lg_
+label: '1 column (LG)'
+effects:
+  a7292d33-674f-40d7-b081-d89f12de0d4e:
+    uuid: a7292d33-674f-40d7-b081-d89f12de0d4e
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1460
+      height: 820
+      crop_type: focal_point

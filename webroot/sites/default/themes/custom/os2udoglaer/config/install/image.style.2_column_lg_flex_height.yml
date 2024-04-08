@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 2_column_lg_flex_height
+label: '2 column (LG) - dynamic height'
+effects:
+  23c61021-4e11-499d-83e7-18984e7b75af:
+    uuid: 23c61021-4e11-499d-83e7-18984e7b75af
+    id: image_scale
+    weight: 1
+    data:
+      width: 940
+      height: null
+      upscale: true
+

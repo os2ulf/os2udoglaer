@@ -1,0 +1,38 @@
+os2udoglaer.xxs:
+  label: 'Extra extra small'
+  mediaQuery: 'all and (min-width : 413px) and (max-width: 480px)'
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+os2udoglaer.xs:
+  label: 'Extra small'
+  mediaQuery: 'all and (min-width : 481px) and (max-width: 767px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+os2udoglaer.sm:
+  label: 'Small'
+  mediaQuery: 'all and (min-width : 768px) and (max-width: 991px)'
+  weight: 3
+  multipliers:
+    - 1x
+os2udoglaer.md:
+  label: 'Medium'
+  mediaQuery: 'all and (min-width : 992px) and (max-width: 1199px)'
+  weight: 4
+  multipliers:
+    - 1x
+os2udoglaer.lg:
+  label: 'Large'
+  mediaQuery: 'all and (min-width : 1200px) and (max-width: 1920px)'
+  weight: 5
+  multipliers:
+    - 1x
+os2udoglaer.xl:
+  label: 'Extra large'
+  mediaQuery: 'all and (min-width : 1921px)'
+  weight: 6
+  multipliers:
+    - 1x
