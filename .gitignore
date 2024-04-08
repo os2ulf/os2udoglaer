@@ -88,8 +88,10 @@ composer-src/
 .devspace
 *.http
 *.sql
+*.sql.gz
 
 .novi/dbdumps/*.sql
+.novi/dbdumps/*.sql.gz
 .novi/state/*.lock
 
 

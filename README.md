@@ -59,15 +59,15 @@ On your host machine install the following:
    ```sh
    cd os2udoglaer
    ```
-3. Install dependencies with Composer
-   ```sh
-   ddev composer install
-   ```
-4. Create local `.env` file from `.env.dist`:
+3. Create local `.env` file from `.env.dist`:
    ```sh
    cp .env.dist .env
    ```
    _**Note: Insert values or reach out if there are any issues with the default Ddev setup.**_
+4. Install dependencies with Composer
+   ```sh
+   ddev composer install
+   ```
 5. Now run project with DDEV:
    ```sh
    ddev import-db
