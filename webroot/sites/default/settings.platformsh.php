@@ -164,3 +164,8 @@ foreach ($platformsh->variables() as $name => $value) {
   }
 }
 
+// Configure Redis service.
+$platformsh = new \Platformsh\ConfigReader\Config();
+if (!$platformsh->inRuntime()) {
+   return;
+}
