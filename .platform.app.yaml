@@ -13,7 +13,7 @@ variables:
         N_PREFIX: /app/.global
 dependencies:
     php:
-        composer/composer: ^2
+        composer/composer: '^2.1'
 disk: 5000
 mounts:
     '/webroot/sites/default/files': 'shared:files/files'
@@ -67,3 +67,14 @@ relationships:
     database: 'db:mysql'
     redis: 'redis:redis'
     solr: 'solr:solr'
+crons:
+    # Run Drupal's cron tasks every 1 minutes.
+    drupal:
+        spec: '*/1 * * * *'
+        commands:
+            start: 'cd web ; drush core-cron'
+source:
+  operations:
+    auto-update:
+      command: |
+        curl -fsS https://raw.githubusercontent.com/platformsh/source-operations/main/setup.sh | { bash /dev/fd/3 sop-autoupdate; } 3<&0
