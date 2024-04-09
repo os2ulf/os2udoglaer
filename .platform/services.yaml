@@ -1,0 +1,11 @@
+db:
+    type: 'mariadb:10.11'
+    disk: 4096
+    configuration:
+        properties:
+            default_charset: utf8mb4
+            default_collation: utf8mb4_unicode_ci
+            max_allowed_packet: 100
+searchsolr:
+    type: 'solr:9.1'
+    disk: 1024
