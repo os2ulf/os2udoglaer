@@ -65,4 +65,5 @@ hooks:
         /app/vendor/bin/drush sset system.maintenance_mode 0 --input-format=integer
 relationships:
     database: 'db:mysql'
-    searchsolr: 'searchsolr:solr'
+    redis: 'redis:redis'
+    solr: 'solr:solr'
