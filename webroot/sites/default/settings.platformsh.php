@@ -6,6 +6,12 @@
 
 use Drupal\Core\Installer\InstallerKernel;
 
+// Configure Redis service.
+$platformsh = new \Platformsh\ConfigReader\Config();
+if (!$platformsh->inRuntime()) {
+   return;
+}
+
 $platformsh = new \Platformsh\ConfigReader\Config();
 
 // Configure the database.
@@ -39,33 +45,34 @@ if (isset($platformsh->branch)) {
 }
 
 // Enable Redis caching.
-if ($platformsh->hasRelationship('redis') && !InstallerKernel::installationAttempted() && extension_loaded('redis') && class_exists('Drupal\redis\ClientFactory')) {
-  $redis = $platformsh->credentials('redis');
+if ($platformsh->hasRelationship('rediscache') && !InstallerKernel::installationAttempted() && extension_loaded('redis')) {
+  $redis = $platformsh->credentials('rediscache');
 
   // Set Redis as the default backend for any cache bin not otherwise specified.
   $settings['cache']['default'] = 'cache.backend.redis';
   $settings['redis.connection']['host'] = $redis['host'];
   $settings['redis.connection']['port'] = $redis['port'];
 
-  // Apply changes to the container configuration to better leverage Redis.
-  // This includes using Redis for the lock and flood control systems, as well
-  // as the cache tag checksum. Alternatively, copy the contents of that file
-  // to your project-specific services.yml file, modify as appropriate, and
-  // remove this line.
+  // You can leverage Redis by using it for the lock and flood control systems
+  // and the cache tag checksum.
+  // To do so, apply the following changes to the container configuration.
+  // Alternatively, copy the contents of the modules/contrib/redis/example.services.yml file
+  // to your project-specific services.yml file.
+  // Modify the contents to fit your needs and remove the following line.
   $settings['container_yamls'][] = 'modules/contrib/redis/example.services.yml';
 
   // Allow the services to work before the Redis module itself is enabled.
   $settings['container_yamls'][] = 'modules/contrib/redis/redis.services.yml';
 
-  // Manually add the classloader path, this is required for the container cache bin definition below
-  // and allows to use it without the redis module being enabled.
+  // To use Redis for container cache, add the classloader path manually.
   $class_loader->addPsr4('Drupal\\redis\\', 'modules/contrib/redis/src');
 
-  // Use redis for container cache.
-  // The container cache is used to load the container definition itself, and
-  // thus any configuration stored in the container itself is not available
-  // yet. These lines force the container cache to use Redis rather than the
-  // default SQL cache.
+  // Use Redis for container cache.
+  // The container cache is used to load the container definition itself.
+  // This means that any configuration stored in the container isn't available
+  // until the container definition is fully loaded.
+  // To ensure that the container cache uses Redis rather than the
+  // default SQL cache, add the following lines.
   $settings['bootstrap_container_definition'] = [
     'parameters' => [],
     'services' => [
@@ -162,10 +169,4 @@ foreach ($platformsh->variables() as $name => $value) {
       }
       break;
   }
-}
-
-// Configure Redis service.
-$platformsh = new \Platformsh\ConfigReader\Config();
-if (!$platformsh->inRuntime()) {
-   return;
 }
