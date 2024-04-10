@@ -100,6 +100,7 @@ module:
   token: 0
   toolbar: 0
   transform_api: 0
+  transform_api_responsive_image: 0
   user: 0
   view_unpublished: 0
   views_ui: 0
