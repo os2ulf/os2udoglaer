@@ -1,0 +1,28 @@
+name: Auto Merge Release Branches to Staging
+
+on:
+  push:
+    branches:
+      - 'release/**'
+
+jobs:
+  merge-to-staging:
+    runs-on: ubuntu-latest
+    environment: Staging
+    steps:
+    - name: Check out the repository
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0 # Fetch all history for all tags and branches
+
+    - name: Configure Git
+      run: |
+        git config --global user.name "${{ github.actor }}"
+        git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+    - name: Merge release branch to staging
+      run: |
+        git fetch origin
+        git checkout staging
+        git merge ${{ github.ref }} --no-ff -m "Merging release branch ${{ github.ref }} into staging"
+        git push origin staging
