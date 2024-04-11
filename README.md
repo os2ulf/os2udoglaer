@@ -10,7 +10,6 @@ The full stack is:
 - Solr latest
 - Redis latest
 - mariadb latest
-- Node 18
 
 For a better understanding of the projects staging and production environments, please see the [Deployment](#deployment)
 section.
@@ -26,16 +25,10 @@ with LAMP stack (long initial setup)
 These instructions will get you a copy of the project up and running on your local machine for development, demo and
 testing purposes. See deployment for notes on how to deploy the project staging, QA and production systems.
 
-Some environments might have variations of versions of the software listed above. If you are unsure, please contact the
-project technical lead. To build the frontend you will need Node 14 or higher installed.
-
-Tip: Use Devspace6 or Ddev environment CLI when building and compiling, as these packages are already installed in the
-containers.
 
 #### DDEV
 
-DDEV sets up the project and necessary backing services. We use Node.js to build the frontend, which can be done both
-on the host machine or within the `web` docker container created by DDEV.
+DDEV sets up the project and necessary backing services.
 
 ##### Benefits
 
@@ -48,8 +41,6 @@ On your host machine install the following:
 - [Git](https://git-scm.com/)
 - [Docker](https://ddev.readthedocs.io/en/stable/users/docker_installation/)
 - [DDEV](https://ddev.readthedocs.io/en/stable/)
-- [Node.js](https://nodejs.org/en/) -
-  _**Note: OS2udoglaer require version 16 or higher as set in .ddev/web-build/Dockerfile**_
 
 1. Clone the project repository
    ```sh
