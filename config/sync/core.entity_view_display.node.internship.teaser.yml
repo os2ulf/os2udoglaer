@@ -1,0 +1,32 @@
+uuid: 625d83a6-ff73-4cea-9efe-f93582b2b96f
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.internship.body
+    - node.type.internship
+  module:
+    - text
+    - user
+id: node.internship.teaser
+targetEntityType: node
+bundle: internship
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
