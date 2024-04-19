@@ -1,0 +1,15 @@
+uuid: 63d20ced-930f-4f55-92ac-2a0bb9ce9c39
+langcode: da
+status: true
+dependencies: {  }
+id: mainpagecontent
+region: content
+weight: '0'
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: transform_api
+  label_display: null
+visibility: {  }
