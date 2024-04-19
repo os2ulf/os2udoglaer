@@ -129,6 +129,19 @@ third_party_settings:
         id: ''
         description: ''
         required_fields: true
+    group_materialer:
+      children: {  }
+      label: Materialer
+      region: hidden
+      parent_name: ''
+      weight: 20
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
 id: node.course.default
 targetEntityType: node
 bundle: course
