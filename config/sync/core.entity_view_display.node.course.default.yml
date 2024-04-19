@@ -1,0 +1,30 @@
+uuid: f242677a-7669-4193-96f9-ab32f7552be5
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.course.body
+    - node.type.course
+  module:
+    - text
+    - user
+id: node.course.default
+targetEntityType: node
+bundle: course
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
