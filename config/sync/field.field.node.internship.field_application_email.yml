@@ -1,0 +1,19 @@
+uuid: 903db4d7-5f3c-478e-b322-cb4e5a98897f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_email
+    - node.type.internship
+id: node.internship.field_application_email
+field_name: field_application_email
+entity_type: node
+bundle: internship
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

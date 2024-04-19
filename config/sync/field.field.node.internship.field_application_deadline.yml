@@ -1,0 +1,21 @@
+uuid: e832d970-3cb5-4f01-b389-29c43755caff
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_deadline
+    - node.type.internship
+  module:
+    - datetime
+id: node.internship.field_application_deadline
+field_name: field_application_deadline
+entity_type: node
+bundle: internship
+label: Ansøgningsfrist
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

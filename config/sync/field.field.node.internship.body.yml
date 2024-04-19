@@ -6,12 +6,16 @@ dependencies:
     - field.storage.node.body
     - node.type.internship
   module:
+    - allowed_formats
     - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
 id: node.internship.body
 field_name: body
 entity_type: node
 bundle: internship
-label: Body
+label: Beskrivelse
 description: ''
 required: false
 translatable: true

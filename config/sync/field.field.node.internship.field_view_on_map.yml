@@ -1,0 +1,21 @@
+uuid: 5f0c67fc-f185-4611-a038-2bdd3d9eb091
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_view_on_map
+    - node.type.internship
+  module:
+    - options
+id: node.internship.field_view_on_map
+field_name: field_view_on_map
+entity_type: node
+bundle: internship
+label: 'Visning på kort'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

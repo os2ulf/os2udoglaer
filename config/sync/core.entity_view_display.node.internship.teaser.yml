@@ -5,6 +5,32 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.internship.body
+    - field.field.node.internship.field_application_deadline
+    - field.field.node.internship.field_application_email
+    - field.field.node.internship.field_application_phone
+    - field.field.node.internship.field_application_title
+    - field.field.node.internship.field_application_url
+    - field.field.node.internship.field_areas_of_interest
+    - field.field.node.internship.field_desc_application_procedure
+    - field.field.node.internship.field_duration
+    - field.field.node.internship.field_education_path
+    - field.field.node.internship.field_expectations
+    - field.field.node.internship.field_image
+    - field.field.node.internship.field_industry
+    - field.field.node.internship.field_location_city
+    - field.field.node.internship.field_location_description
+    - field.field.node.internship.field_location_name
+    - field.field.node.internship.field_location_street
+    - field.field.node.internship.field_location_zipcode
+    - field.field.node.internship.field_materials
+    - field.field.node.internship.field_meeting_times
+    - field.field.node.internship.field_periode
+    - field.field.node.internship.field_purpose
+    - field.field.node.internship.field_quantity
+    - field.field.node.internship.field_show_application_link
+    - field.field.node.internship.field_todo_list
+    - field.field.node.internship.field_video
+    - field.field.node.internship.field_view_on_map
     - node.type.internship
   module:
     - text
@@ -28,5 +54,31 @@ content:
     weight: 100
     region: content
 hidden:
+  field_application_deadline: true
+  field_application_email: true
+  field_application_phone: true
+  field_application_title: true
+  field_application_url: true
+  field_areas_of_interest: true
+  field_desc_application_procedure: true
+  field_duration: true
+  field_education_path: true
+  field_expectations: true
+  field_image: true
+  field_industry: true
+  field_location_city: true
+  field_location_description: true
+  field_location_name: true
+  field_location_street: true
+  field_location_zipcode: true
+  field_materials: true
+  field_meeting_times: true
+  field_periode: true
+  field_purpose: true
+  field_quantity: true
+  field_show_application_link: true
+  field_todo_list: true
+  field_video: true
+  field_view_on_map: true
   langcode: true
   search_api_excerpt: true
