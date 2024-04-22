@@ -24,6 +24,11 @@ dependencies:
     - field.field.user.user.field_name
     - field.field.user.user.field_phone
     - field.field.user.user.field_presentation
+    - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_enabled
+    - field.field.user.user.field_pretix_event_form
+    - field.field.user.user.field_pretix_organizer_form
+    - field.field.user.user.field_pretix_url
     - image.style.thumbnail
   module:
     - field_group
@@ -45,7 +50,24 @@ third_party_settings:
       label: Kontaktblock
       region: content
       parent_name: ''
-      weight: 15
+      weight: 9
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_pretix:
+      children:
+        - field_pretix_url
+        - field_pretix_api_token
+        - field_pretix_organizer_form
+        - field_pretix_event_form
+      label: Pretix
+      region: content
+      parent_name: ''
+      weight: 18
       format_type: fieldset
       format_settings:
         classes: ''
@@ -70,7 +92,7 @@ content:
     region: content
   field_bypass_workflow:
     type: boolean_checkbox
-    weight: 22
+    weight: 16
     region: content
     settings:
       display_label: true
@@ -125,7 +147,7 @@ content:
     third_party_settings: {  }
   field_cvr:
     type: string_textfield
-    weight: 20
+    weight: 14
     region: content
     settings:
       size: 60
@@ -152,7 +174,7 @@ content:
     third_party_settings: {  }
   field_editor_field:
     type: text_textarea
-    weight: 21
+    weight: 15
     region: content
     settings:
       rows: 5
@@ -168,7 +190,7 @@ content:
     third_party_settings: {  }
   field_homepage:
     type: link_default
-    weight: 18
+    weight: 12
     region: content
     settings:
       placeholder_url: ''
@@ -192,7 +214,7 @@ content:
     third_party_settings: {  }
   field_logo:
     type: image_image
-    weight: 16
+    weight: 10
     region: content
     settings:
       progress_indicator: throbber
@@ -200,7 +222,7 @@ content:
     third_party_settings: {  }
   field_mail:
     type: string_textfield
-    weight: 19
+    weight: 13
     region: content
     settings:
       size: 60
@@ -216,7 +238,7 @@ content:
     third_party_settings: {  }
   field_phone:
     type: string_textfield
-    weight: 17
+    weight: 11
     region: content
     settings:
       size: 60
@@ -228,6 +250,45 @@ content:
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pretix_api_token:
+    type: string_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_pretix_enabled:
+    type: boolean_checkbox
+    weight: 17
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_pretix_event_form:
+    type: string_textarea
+    weight: 21
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pretix_organizer_form:
+    type: string_textarea
+    weight: 20
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_pretix_url:
+    type: string_textfield
+    weight: 18
+    region: content
+    settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   language:

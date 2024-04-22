@@ -25,6 +25,11 @@ dependencies:
     - field.field.user.user.field_name
     - field.field.user.user.field_phone
     - field.field.user.user.field_presentation
+    - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_enabled
+    - field.field.user.user.field_pretix_event_form
+    - field.field.user.user.field_pretix_organizer_form
+    - field.field.user.user.field_pretix_url
   module:
     - image
     - link
@@ -188,6 +193,46 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 8
+    region: content
+  field_pretix_api_token:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_pretix_enabled:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_pretix_event_form:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_pretix_organizer_form:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_pretix_url:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 25
     region: content
   member_for:
     weight: 5

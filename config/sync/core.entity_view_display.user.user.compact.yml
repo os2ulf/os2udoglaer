@@ -26,6 +26,11 @@ dependencies:
     - field.field.user.user.field_name
     - field.field.user.user.field_phone
     - field.field.user.user.field_presentation
+    - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_enabled
+    - field.field.user.user.field_pretix_event_form
+    - field.field.user.user.field_pretix_organizer_form
+    - field.field.user.user.field_pretix_url
   module:
     - user
 _core:
@@ -57,6 +62,11 @@ hidden:
   field_name: true
   field_phone: true
   field_presentation: true
+  field_pretix_api_token: true
+  field_pretix_enabled: true
+  field_pretix_event_form: true
+  field_pretix_organizer_form: true
+  field_pretix_url: true
   langcode: true
   member_for: true
   search_api_excerpt: true
