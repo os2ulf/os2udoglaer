@@ -1,0 +1,14 @@
+uuid: bafcfa48-3d7e-43fb-8b94-4add5be16560
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.theater_contact
+  module:
+    - user
+id: user_remove_role_action.theater_contact
+label: 'Remove the Teaterkontakt role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: theater_contact

@@ -1,0 +1,14 @@
+uuid: b0829daa-7480-465e-84a8-b6582fc30ae3
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.place_of_visit
+  module:
+    - user
+id: user_remove_role_action.place_of_visit
+label: 'Remove the Besøgssted role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: place_of_visit
