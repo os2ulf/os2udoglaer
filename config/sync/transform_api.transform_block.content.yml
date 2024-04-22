@@ -1,8 +1,8 @@
-uuid: 63d20ced-930f-4f55-92ac-2a0bb9ce9c39
+uuid: 48418bd6-9f04-4d78-9cba-5f628adef524
 langcode: da
 status: true
 dependencies: {  }
-id: mainpagecontent
+id: content
 region: content
 weight: '0'
 provider: null
