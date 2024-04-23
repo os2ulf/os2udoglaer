@@ -1,0 +1,19 @@
+uuid: b2dab620-2d1a-4bf5-9dbe-fa13b937ea52
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_todo_list
+    - node.type.internship
+id: node.internship.field_todo_list
+field_name: field_todo_list
+entity_type: node
+bundle: internship
+label: Huskeliste
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

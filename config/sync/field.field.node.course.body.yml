@@ -1,0 +1,28 @@
+uuid: 8d2d0f5f-899e-46ce-8f7b-9c0085cd5fa0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.course
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.course.body
+field_name: body
+entity_type: node
+bundle: course
+label: Beskrivelse
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

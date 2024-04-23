@@ -1,0 +1,19 @@
+uuid: fb4af810-08fe-4d06-b55e-b11e5aebc216
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_title
+    - node.type.internship
+id: node.internship.field_application_title
+field_name: field_application_title
+entity_type: node
+bundle: internship
+label: Titel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

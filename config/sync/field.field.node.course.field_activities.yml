@@ -1,0 +1,19 @@
+uuid: 6b2e5a5d-1b6b-4a9c-bee7-b8d73ebc705e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activities
+    - node.type.course
+id: node.course.field_activities
+field_name: field_activities
+entity_type: node
+bundle: course
+label: Aktiviteter
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

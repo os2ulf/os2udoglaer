@@ -1,0 +1,8 @@
+uuid: 37da5528-82f8-422d-a2a8-34cfa5fad05c
+langcode: da
+status: true
+dependencies: {  }
+name: Interesseområde
+vid: areas_of_interest
+description: ''
+weight: 0

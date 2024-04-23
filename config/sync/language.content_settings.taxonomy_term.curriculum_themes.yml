@@ -1,0 +1,11 @@
+uuid: 45be4018-a306-4aaf-9128-8ba0416892a5
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.curriculum_themes
+id: taxonomy_term.curriculum_themes
+target_entity_type_id: taxonomy_term
+target_bundle: curriculum_themes
+default_langcode: site_default
+language_alterable: false

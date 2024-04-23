@@ -1,0 +1,20 @@
+uuid: 0bbade0c-7591-45dd-a70b-a89bb3343f3c
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_sustainability_goals
+field_name: field_sustainability_goals
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 4
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,23 @@
+uuid: 32bbc383-f0ea-4668-8197-958556ac0e5b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration
+    - node.type.internship
+id: node.internship.field_duration
+field_name: field_duration
+entity_type: node
+bundle: internship
+label: Varighed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

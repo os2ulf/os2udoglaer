@@ -1,0 +1,18 @@
+uuid: d24e665c-1c6c-43e9-bc9f-41d6545780e9
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Undervisnings- og læringsforløb'
+type: course
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

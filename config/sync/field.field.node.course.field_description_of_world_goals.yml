@@ -1,0 +1,19 @@
+uuid: 9a774a95-f25b-4d3d-b95b-52fc72ae2643
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_of_world_goals
+    - node.type.course
+id: node.course.field_description_of_world_goals
+field_name: field_description_of_world_goals
+entity_type: node
+bundle: course
+label: 'Beskrivelse af verdensmål'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
