@@ -1,0 +1,8 @@
+uuid: 07fe9abe-18f2-4d18-a873-7379fe70d26d
+langcode: da
+status: true
+dependencies: {  }
+name: Læreplanstemaer
+vid: curriculum_themes
+description: ''
+weight: 0

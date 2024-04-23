@@ -1,0 +1,19 @@
+uuid: 38693599-f1cd-41f2-ab98-d65e8425135a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_desc_application_procedure
+    - node.type.internship
+id: node.internship.field_desc_application_procedure
+field_name: field_desc_application_procedure
+entity_type: node
+bundle: internship
+label: 'Beskrivelse af ansøgningsprocedure'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

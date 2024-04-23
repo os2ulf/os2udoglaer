@@ -1,0 +1,8 @@
+uuid: ad2bd1e1-ccbe-4e7d-836e-984b9f572747
+langcode: da
+status: true
+dependencies: {  }
+name: Emneområde
+vid: subject
+description: ''
+weight: 0

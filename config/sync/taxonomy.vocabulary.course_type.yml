@@ -1,0 +1,8 @@
+uuid: 2c631447-4c79-43df-ac2f-f2abadd269d2
+langcode: da
+status: true
+dependencies: {  }
+name: Forløbstype
+vid: course_type
+description: ''
+weight: 0

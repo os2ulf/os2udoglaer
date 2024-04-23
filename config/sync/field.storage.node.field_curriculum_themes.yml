@@ -1,0 +1,20 @@
+uuid: 12241fb7-ff10-4552-b552-0dd3db2106c3
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_curriculum_themes
+field_name: field_curriculum_themes
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

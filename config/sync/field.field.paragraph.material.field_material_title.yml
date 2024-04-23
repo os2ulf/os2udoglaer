@@ -1,0 +1,19 @@
+uuid: 4b11aad5-b0c3-4725-af7a-2588174ffb48
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_material_title
+    - paragraphs.paragraphs_type.material
+id: paragraph.material.field_material_title
+field_name: field_material_title
+entity_type: paragraph
+bundle: material
+label: Titel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -15,6 +15,7 @@ module:
   ckeditor5: 0
   color_field: 0
   components: 0
+  conditional_fields: 0
   config: 0
   config_filter: 0
   config_ignore: 0
@@ -27,6 +28,7 @@ module:
   contextual: 0
   crop: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
   dynamic_color: 0
   dynamic_entity_reference: 0
@@ -70,6 +72,7 @@ module:
   node: 0
   noreferrer: 0
   options: 0
+  os2uol_entity_forms: 0
   page_cache: 0
   paragraphs_asymmetric_translation_widgets: 0
   path: 0
@@ -100,7 +103,6 @@ module:
   token: 0
   toolbar: 0
   transform_api: 0
-  transform_api_responsive_image: 0
   user: 0
   view_unpublished: 0
   views_ui: 0
