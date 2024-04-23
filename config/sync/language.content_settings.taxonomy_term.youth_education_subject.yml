@@ -1,0 +1,11 @@
+uuid: 4973ef21-be09-4daa-aa4b-917886dc9066
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.youth_education_subject
+id: taxonomy_term.youth_education_subject
+target_entity_type_id: taxonomy_term
+target_bundle: youth_education_subject
+default_langcode: site_default
+language_alterable: false

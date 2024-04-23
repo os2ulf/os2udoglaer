@@ -28,6 +28,7 @@ module:
   contextual: 0
   crop: 0
   datetime: 0
+  datetime_range: 0
   dblog: 0
   dynamic_color: 0
   dynamic_entity_reference: 0
@@ -71,6 +72,7 @@ module:
   node: 0
   noreferrer: 0
   options: 0
+  os2udoglaer_entity_form_alter: 0
   page_cache: 0
   paragraphs_asymmetric_translation_widgets: 0
   path: 0

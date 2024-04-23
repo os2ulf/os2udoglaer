@@ -1,0 +1,19 @@
+uuid: 9fe20562-ba56-4480-9788-b7f9f73d4498
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quantity_description
+    - node.type.course
+id: node.course.field_quantity_description
+field_name: field_quantity_description
+entity_type: node
+bundle: course
+label: 'Beskrivelse til antal'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

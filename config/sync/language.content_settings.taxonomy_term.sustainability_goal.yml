@@ -1,0 +1,11 @@
+uuid: 16ff5758-4b76-40e9-b5e7-8770415f88be
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.sustainability_goal
+id: taxonomy_term.sustainability_goal
+target_entity_type_id: taxonomy_term
+target_bundle: sustainability_goal
+default_langcode: site_default
+language_alterable: false

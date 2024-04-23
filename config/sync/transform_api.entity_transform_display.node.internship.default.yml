@@ -200,8 +200,4 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_location_city: true
-  field_location_name: true
-  field_location_street: true
-  field_location_zipcode: true
   langcode: true

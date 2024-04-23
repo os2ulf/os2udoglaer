@@ -4,20 +4,57 @@ status: true
 dependencies:
   config:
     - field.field.node.course.body
+    - field.field.node.course.field_activities
+    - field.field.node.course.field_all_year
+    - field.field.node.course.field_banner
+    - field.field.node.course.field_course_type
+    - field.field.node.course.field_curriculum_themes
+    - field.field.node.course.field_description_of_duration
+    - field.field.node.course.field_description_of_period
+    - field.field.node.course.field_description_of_price
+    - field.field.node.course.field_description_of_world_goals
+    - field.field.node.course.field_is_free
+    - field.field.node.course.field_materials
+    - field.field.node.course.field_period
+    - field.field.node.course.field_post_processing
+    - field.field.node.course.field_preparation
+    - field.field.node.course.field_primary_school_subject
+    - field.field.node.course.field_purpose
+    - field.field.node.course.field_quantity
+    - field.field.node.course.field_quantity_description
+    - field.field.node.course.field_registration_deadline
+    - field.field.node.course.field_registration_description
+    - field.field.node.course.field_registration_email
+    - field.field.node.course.field_registration_phone
+    - field.field.node.course.field_registration_title
+    - field.field.node.course.field_registration_url
+    - field.field.node.course.field_show_application_link
+    - field.field.node.course.field_subject
+    - field.field.node.course.field_sustainability_goals
+    - field.field.node.course.field_target_group
+    - field.field.node.course.field_view_on_map
+    - field.field.node.course.field_youth_education_subject
     - node.type.course
   module:
+    - conditional_fields
     - content_moderation
+    - datetime
+    - datetime_range
     - field_group
+    - paragraphs
     - path
     - text
 third_party_settings:
   field_group:
     group_activities:
-      children: {  }
+      children:
+        - field_activities
+        - field_preparation
+        - field_post_processing
       label: 'Aktiviteter, Forberedelse og efterbehandling'
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 17
       format_type: fieldset
       format_settings:
         classes: ''
@@ -26,11 +63,19 @@ third_party_settings:
         description: ''
         required_fields: true
     group_practical_information:
-      children: {  }
+      children:
+        - field_subject
+        - field_quantity_description
+        - field_course_type
+        - field_target_group
+        - field_primary_school_subject
+        - field_youth_education_subject
+        - field_curriculum_themes
+        - field_show_application_link
       label: 'Praktisk information'
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 18
       format_type: fieldset
       format_settings:
         classes: ''
@@ -39,11 +84,14 @@ third_party_settings:
         description: ''
         required_fields: true
     group_duration_and_price:
-      children: {  }
+      children:
+        - field_is_free
+        - field_description_of_price
+        - field_description_of_duration
       label: 'Varighed og pris'
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 19
       format_type: fieldset
       format_settings:
         classes: ''
@@ -52,9 +100,12 @@ third_party_settings:
         description: ''
         required_fields: true
     group_period:
-      children: {  }
+      children:
+        - field_period
+        - field_all_year
+        - field_description_of_period
       label: Periode
-      region: hidden
+      region: content
       parent_name: ''
       weight: 20
       format_type: fieldset
@@ -65,11 +116,13 @@ third_party_settings:
         description: ''
         required_fields: true
     group_world_goals:
-      children: {  }
+      children:
+        - field_sustainability_goals
+        - field_description_of_world_goals
       label: Verdensmål
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 21
       format_type: fieldset
       format_settings:
         classes: ''
@@ -78,11 +131,17 @@ third_party_settings:
         description: ''
         required_fields: true
     group_registration:
-      children: {  }
+      children:
+        - field_registration_description
+        - field_registration_title
+        - field_registration_url
+        - field_registration_email
+        - field_registration_phone
+        - field_registration_deadline
       label: Tilmelding
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 22
       format_type: fieldset
       format_settings:
         classes: ''
@@ -93,9 +152,9 @@ third_party_settings:
     group_pretix:
       children: {  }
       label: Pretix
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 23
       format_type: fieldset
       format_settings:
         classes: ''
@@ -106,9 +165,9 @@ third_party_settings:
     group_media:
       children: {  }
       label: Billeder/Medier
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 25
       format_type: fieldset
       format_settings:
         classes: ''
@@ -119,9 +178,9 @@ third_party_settings:
     group_facilities:
       children: {  }
       label: Faciliteter
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 26
       format_type: fieldset
       format_settings:
         classes: ''
@@ -132,9 +191,22 @@ third_party_settings:
     group_materialer:
       children: {  }
       label: Materialer
-      region: hidden
+      region: content
       parent_name: ''
-      weight: 20
+      weight: 27
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_lokation:
+      children: {  }
+      label: Lokation
+      region: content
+      parent_name: ''
+      weight: 28
       format_type: fieldset
       format_settings:
         classes: ''
@@ -149,7 +221,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 15
     region: content
     settings:
       rows: 9
@@ -159,10 +231,293 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_activities:
+    type: string_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_all_year:
+    type: boolean_checkbox
+    weight: 41
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_banner:
+    type: options_select
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_course_type:
+    type: options_buttons
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_curriculum_themes:
+    type: options_buttons
+    weight: 34
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        d9ef1a8b-04a8-4e5c-bcf2-0ee46ae6fd32:
+          entity_type: node
+          bundle: course
+          dependee: field_target_group
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: Dagtilbud
+            value_form:
+              -
+                target_id: '3'
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_description_of_duration:
+    type: string_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_period:
+    type: string_textarea
+    weight: 42
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_price:
+    type: string_textarea
+    weight: 25
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_world_goals:
+    type: string_textarea
+    weight: 50
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_is_free:
+    type: boolean_checkbox
+    weight: 24
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_materials:
+    type: paragraphs
+    weight: 9
+    region: content
+    settings:
+      title: Materiale
+      title_plural: Materialer
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: material
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        convert: '0'
+        duplicate: '0'
+    third_party_settings: {  }
+  field_period:
+    type: daterange_default
+    weight: 40
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_post_processing:
+    type: string_textarea
+    weight: 14
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_preparation:
+    type: string_textarea
+    weight: 13
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_primary_school_subject:
+    type: options_buttons
+    weight: 32
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        aecda383-ddba-4501-9994-7c3a8efff990:
+          entity_type: node
+          bundle: course
+          dependee: field_target_group
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: Grundskole
+            value_form:
+              -
+                target_id: '4'
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_purpose:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_quantity:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_quantity_description:
+    type: string_textarea
+    weight: 29
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_deadline:
+    type: datetime_default
+    weight: 48
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_registration_description:
+    type: string_textarea
+    weight: 43
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_email:
+    type: email_default
+    weight: 46
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_registration_phone:
+    type: string_textfield
+    weight: 47
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_title:
+    type: string_textfield
+    weight: 44
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_url:
+    type: string_textfield
+    weight: 45
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_show_application_link:
+    type: boolean_checkbox
+    weight: 35
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_subject:
+    type: options_buttons
+    weight: 28
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sustainability_goals:
+    type: options_buttons
+    weight: 49
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_target_group:
+    type: options_buttons
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_view_on_map:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_youth_education_subject:
+    type: options_buttons
+    weight: 33
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        3611cecb-38f7-4f1c-a521-652e9b6f4bd9:
+          entity_type: node
+          bundle: course
+          dependee: field_target_group
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: Ungdomsuddannelse
+            value_form:
+              -
+                target_id: '5'
+            effect: show
+            effect_options: {  }
+            selector: ''
   langcode:
     type: language_select
     weight: 2
@@ -172,45 +527,45 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 100
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 7
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 120
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     region: content
     settings:
       size: 60
@@ -218,7 +573,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
@@ -227,7 +582,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }

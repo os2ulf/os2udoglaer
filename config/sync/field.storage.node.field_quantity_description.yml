@@ -1,0 +1,19 @@
+uuid: 3d121e01-df63-436f-a294-8ac3b2fcf74a
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_quantity_description
+field_name: field_quantity_description
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,8 @@
+uuid: d1774309-a648-4e26-b650-1ecfb2309a0e
+langcode: da
+status: true
+dependencies: {  }
+name: 'Fag - ungdomsuddannelse'
+vid: youth_education_subject
+description: ''
+weight: 0

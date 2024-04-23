@@ -4,8 +4,42 @@ status: true
 dependencies:
   config:
     - field.field.node.course.body
+    - field.field.node.course.field_activities
+    - field.field.node.course.field_all_year
+    - field.field.node.course.field_banner
+    - field.field.node.course.field_course_type
+    - field.field.node.course.field_curriculum_themes
+    - field.field.node.course.field_description_of_duration
+    - field.field.node.course.field_description_of_period
+    - field.field.node.course.field_description_of_price
+    - field.field.node.course.field_description_of_world_goals
+    - field.field.node.course.field_is_free
+    - field.field.node.course.field_materials
+    - field.field.node.course.field_period
+    - field.field.node.course.field_post_processing
+    - field.field.node.course.field_preparation
+    - field.field.node.course.field_primary_school_subject
+    - field.field.node.course.field_purpose
+    - field.field.node.course.field_quantity
+    - field.field.node.course.field_quantity_description
+    - field.field.node.course.field_registration_deadline
+    - field.field.node.course.field_registration_description
+    - field.field.node.course.field_registration_email
+    - field.field.node.course.field_registration_phone
+    - field.field.node.course.field_registration_title
+    - field.field.node.course.field_registration_url
+    - field.field.node.course.field_show_application_link
+    - field.field.node.course.field_subject
+    - field.field.node.course.field_sustainability_goals
+    - field.field.node.course.field_target_group
+    - field.field.node.course.field_view_on_map
+    - field.field.node.course.field_youth_education_subject
     - node.type.course
   module:
+    - datetime
+    - datetime_range
+    - entity_reference_revisions
+    - options
     - text
     - user
 id: node.course.default
@@ -19,6 +53,245 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_activities:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_all_year:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_banner:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_course_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_curriculum_themes:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_description_of_duration:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 116
+    region: content
+  field_description_of_period:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 119
+    region: content
+  field_description_of_price:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 117
+    region: content
+  field_description_of_world_goals:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_is_free:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_materials:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_period:
+    type: daterange_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+      separator: '-'
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_post_processing:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_preparation:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_primary_school_subject:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_purpose:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_quantity:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_quantity_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_registration_deadline:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_registration_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_registration_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 126
+    region: content
+  field_registration_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 127
+    region: content
+  field_registration_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_registration_url:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 125
+    region: content
+  field_show_application_link:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_subject:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_sustainability_goals:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 128
+    region: content
+  field_target_group:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_view_on_map:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_youth_education_subject:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 114
     region: content
   links:
     settings: {  }
