@@ -1,6 +1,0 @@
-settings:
-  allowed_values:
-    -
-      label: 'Image on the left'
-    -
-      label: 'Image on the right'

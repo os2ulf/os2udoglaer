@@ -1,8 +1,0 @@
-settings:
-  allowed_values:
-    -
-      label: Left
-    -
-      label: Center
-    -
-      label: Right

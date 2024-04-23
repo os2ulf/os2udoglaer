@@ -28,4 +28,4 @@ regions_hidden:
   - sidebar_first
 
 interface translation project: os2udoglaer
-interface translation server pattern: sites/kino.dk/themes/custom/os2udoglaer/translations/%language.po
+interface translation server pattern: sites/default/themes/custom/os2udoglaer/translations/%language.po
