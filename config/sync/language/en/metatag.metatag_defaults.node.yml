@@ -1,0 +1,7 @@
+label: Content
+tags:
+  description: '[node:field_description:value]'
+  image_src: '[node:field_list_media:entity:field_media_image]'
+  content_language: '[node:langcode]'
+  title: '[node:title] | [site:name]'
+  canonical_url: '[node:url]'

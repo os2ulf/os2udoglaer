@@ -1,0 +1,19 @@
+uuid: 6979318a-51a9-4fb4-97fe-1e52286216b3
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_facilities_description
+field_name: field_facilities_description
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

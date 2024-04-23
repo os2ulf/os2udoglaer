@@ -1,0 +1,126 @@
+label: 'Media library'
+description: 'Find and manage media.'
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: 'Apply filters'
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
+      pager:
+        options:
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Forskydning
+          tags:
+            previous: ‹‹
+            next: ››
+      fields:
+        media_bulk_form:
+          action_title: Handling
+      filters:
+        name:
+          expose:
+            label: Navn
+        bundle:
+          expose:
+            label: Type
+          group_info:
+            label: Type
+        status:
+          expose:
+            label: Publiceringsstatus
+          group_info:
+            label: Published
+            group_items:
+              1:
+                title: Published
+              2:
+                title: Unpublished
+        langcode:
+          expose:
+            label: Language
+        field_media_category_target_id:
+          expose:
+            label: 'Media category'
+      sorts:
+        name:
+          expose:
+            label: 'Name (A-Z)'
+        name_1:
+          expose:
+            label: 'Name (Z-A)'
+      title: Media
+      empty:
+        area_text_custom:
+          content: 'No media available.'
+  page:
+    display_title: Side
+    display_options:
+      fields:
+        media_bulk_form:
+          action_title: Handling
+        name:
+          separator: ', '
+        edit_media:
+          alter:
+            text: 'Edit {{ name }}'
+            alt: 'Edit {{ name }}'
+          text: Redigér
+        delete_media:
+          alter:
+            text: 'Delete {{ name }}'
+            alt: 'Delete {{ name }}'
+          text: Slet
+  widget:
+    display_title: Widget
+    display_options:
+      filters:
+        name:
+          expose:
+            label: Navn
+        field_media_category_target_id:
+          expose:
+            label: 'Media category'
+      arguments:
+        bundle:
+          exception:
+            title: Alle
+      header:
+        display_link_grid:
+          label: Gitter
+        display_link_table:
+          label: Tabel
+  widget_table:
+    display_title: 'Widget (table)'
+    display_options:
+      fields:
+        thumbnail__target_id:
+          label: Thumbnail
+        name:
+          label: Navn
+        uid:
+          label: Forfatter
+        changed:
+          label: Opdateret
+      filters:
+        name:
+          expose:
+            label: Navn
+        field_media_category_target_id:
+          expose:
+            label: 'Media category'
+      arguments:
+        bundle:
+          exception:
+            title: Alle
+      header:
+        display_link_grid:
+          label: Gitter
+        display_link_table:
+          label: Tabel

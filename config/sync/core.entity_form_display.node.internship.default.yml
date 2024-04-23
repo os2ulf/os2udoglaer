@@ -102,9 +102,9 @@ third_party_settings:
         required_fields: true
     group_location:
       children:
-        - field_location_description
         - field_view_on_map
         - group_alternative_address
+        - field_location_description
       label: Lokation
       region: content
       parent_name: ''
@@ -284,7 +284,7 @@ content:
     third_party_settings: {  }
   field_location_description:
     type: string_textarea
-    weight: 0
+    weight: 3
     region: content
     settings:
       rows: 5
