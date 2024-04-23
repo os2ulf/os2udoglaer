@@ -4,7 +4,7 @@ use Drupal\Core\Form\FormStateInterface;
  * implements hook_field_widget_single_element_paragraphs_form_alter().
  *
  */
-function os2udoglaer_entity_form_alter_field_widget_single_element_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
+function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
   // Check if the form has a paragraph field, and print it to db log.
 
   // Check if the content type is 'internship'.
