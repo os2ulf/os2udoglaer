@@ -101,3 +101,6 @@ webroot/sites/default/settings.devspace.php
 
 # Ignore sites.devspace.php config file
 webroot/sites/sites.devspace.php
+
+# Ignore .vscode folder
+.vscode

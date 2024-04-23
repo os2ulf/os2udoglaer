@@ -9,7 +9,7 @@ id: node.internship.field_location_name
 field_name: field_location_name
 entity_type: node
 bundle: internship
-label: 'Location Name'
+label: 'Navn på lokalitet'
 description: ''
 required: false
 translatable: false

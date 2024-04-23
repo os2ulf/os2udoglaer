@@ -1,0 +1,23 @@
+uuid: 0c7018c9-9832-4239-a456-c905889d679e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_price
+    - paragraphs.paragraphs_type.duration_price
+id: paragraph.duration_price.field_price
+field_name: field_price
+entity_type: paragraph
+bundle: duration_price
+label: Pris
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float
