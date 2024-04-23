@@ -1,0 +1,8 @@
+uuid: ba89a929-7725-4ed1-9037-621e829e9da2
+langcode: da
+status: true
+dependencies: {  }
+name: Facilitet
+vid: facility
+description: ''
+weight: 0

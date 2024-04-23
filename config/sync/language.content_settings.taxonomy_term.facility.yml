@@ -1,0 +1,11 @@
+uuid: 1add8dd6-0eda-40f3-9eff-2e24eb5d218a
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.facility
+id: taxonomy_term.facility
+target_entity_type_id: taxonomy_term
+target_bundle: facility
+default_langcode: site_default
+language_alterable: false

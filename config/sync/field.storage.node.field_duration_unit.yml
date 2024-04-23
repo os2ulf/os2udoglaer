@@ -1,0 +1,42 @@
+uuid: 13b498c2-78b7-44c2-924d-f5c1950d2a1b
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_duration_unit
+field_name: field_duration_unit
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: hour
+      label: Time
+    -
+      value: hours
+      label: Timer
+    -
+      value: lesson
+      label: Lektion
+    -
+      value: lessions
+      label: Lektioner
+    -
+      value: minutes
+      label: Minutter
+    -
+      value: day
+      label: Dag
+    -
+      value: days
+      label: Dage
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

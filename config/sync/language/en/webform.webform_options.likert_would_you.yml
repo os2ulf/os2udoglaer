@@ -1,0 +1,8 @@
+label: 'Likert: Would You'
+category: Likert
+options: |
+  1: Definitely Not
+  2: Probably Not
+  3: Not Sure
+  4: Probably
+  5: Definitely

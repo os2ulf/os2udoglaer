@@ -1,0 +1,36 @@
+uuid: 3b75032e-2a62-45c2-b238-20322797bb2a
+langcode: da
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_price_settlement_unit
+field_name: field_price_settlement_unit
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: per_person
+      label: 'pr. elev/barn/person'
+    -
+      value: per_class
+      label: 'pr. klasse'
+    -
+      value: per_course
+      label: 'pr. forløb'
+    -
+      value: per_group
+      label: 'pr. gruppe'
+    -
+      value: per_show
+      label: 'pr. forestilling'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,6 @@
+label: 'Sex - International Civil Aviation Organization (ICAO)'
+category: Demographic
+options: |
+  M: Male
+  F: Female
+  X: Unspecified
