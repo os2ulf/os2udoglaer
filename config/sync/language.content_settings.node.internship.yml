@@ -1,0 +1,11 @@
+uuid: 945ef21d-821d-4da1-956f-570801bf0587
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.internship
+id: node.internship
+target_entity_type_id: node
+target_bundle: internship
+default_langcode: site_default
+language_alterable: false

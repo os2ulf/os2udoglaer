@@ -1,0 +1,27 @@
+<?php
+use Drupal\Core\Form\FormStateInterface;
+/**
+ * implements hook_field_widget_single_element_paragraphs_form_alter().
+ */
+function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
+    // Access the form object, which could be the node form.
+    $form_object = $form_state->getFormObject();
+
+    // Check if the form object is an instance of NodeForm.
+    if ($form_object instanceof \Drupal\node\NodeForm) {
+        // Get the node entity.
+        $node = $form_object->getEntity();
+
+        // Retrieve the node type.
+        $node_type = $node->getType();
+
+        // Retrieve the paragraph type.
+        $paragraph_type = $element['#paragraph_type'];
+
+        // Now you can use the node type to conditionally alter the paragraph field.
+        if ($node_type == 'internship' && $paragraph_type == 'material') {
+            // Disable the field 'field_literature_suggestion'
+            $element['subform']['field_literature_suggestion']['#access'] = FALSE;
+        }
+    }
+}

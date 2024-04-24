@@ -1,0 +1,8 @@
+uuid: fb4c13ab-02f2-4a5c-a509-269e17f85b01
+langcode: da
+status: true
+dependencies: {  }
+name: 'Overordnet målgruppe'
+vid: target_group
+description: ''
+weight: 0

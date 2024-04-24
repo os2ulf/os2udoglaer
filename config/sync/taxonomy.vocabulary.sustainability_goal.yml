@@ -1,0 +1,8 @@
+uuid: 8e854c2b-951d-47ad-b8a5-63c278584692
+langcode: da
+status: true
+dependencies: {  }
+name: Verdensmål
+vid: sustainability_goal
+description: ''
+weight: 0

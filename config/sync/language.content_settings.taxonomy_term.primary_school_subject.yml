@@ -1,0 +1,11 @@
+uuid: 2111c966-1603-44ce-82be-0335139c030a
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.primary_school_subject
+id: taxonomy_term.primary_school_subject
+target_entity_type_id: taxonomy_term
+target_bundle: primary_school_subject
+default_langcode: site_default
+language_alterable: false

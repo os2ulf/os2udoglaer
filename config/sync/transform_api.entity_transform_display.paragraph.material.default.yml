@@ -1,0 +1,44 @@
+uuid: 2a301910-6e73-48ba-af73-03f50d4eed1f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.material.field_material_description
+    - field.field.paragraph.material.field_material_file
+    - field.field.paragraph.material.field_material_title
+    - field.field.paragraph.material.field_material_url
+    - paragraphs.paragraphs_type.material
+id: paragraph.material.default
+targetEntityType: paragraph
+bundle: material
+mode: default
+content:
+  field_material_description:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_file:
+    type: file_url
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_title:
+    type: value
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_url:
+    type: link
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

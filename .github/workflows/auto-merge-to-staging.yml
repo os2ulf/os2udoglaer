@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - "release/**"
-
 jobs:
   announce:
     name: Announce deploy to Slack
@@ -20,7 +19,6 @@ jobs:
           text: "There is a deployment to *${{ github.ref }}* underway :oooo:"
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-
   merge-to-staging:
     runs-on: ubuntu-latest
     environment: Staging

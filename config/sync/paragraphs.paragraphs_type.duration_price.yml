@@ -1,0 +1,10 @@
+uuid: 8eab1f5b-c4dc-44f7-81f1-f30fb846c889
+langcode: da
+status: true
+dependencies: {  }
+id: duration_price
+label: Pris
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

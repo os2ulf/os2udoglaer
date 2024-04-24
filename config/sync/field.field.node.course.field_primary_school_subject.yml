@@ -1,0 +1,29 @@
+uuid: 037522e9-6ce1-47af-896b-972955ef881b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_primary_school_subject
+    - node.type.course
+    - taxonomy.vocabulary.primary_school_subject
+id: node.course.field_primary_school_subject
+field_name: field_primary_school_subject
+entity_type: node
+bundle: course
+label: 'Fag - grundskole'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      primary_school_subject: primary_school_subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,21 @@
+uuid: 712c1a23-39b4-4ef7-85a5-1689f8d4d5cf
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_application_title
+field_name: field_application_title
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

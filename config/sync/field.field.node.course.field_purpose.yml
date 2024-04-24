@@ -1,0 +1,19 @@
+uuid: 79c2bbae-6019-4c46-bd16-6b88fa1db3be
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_purpose
+    - node.type.course
+id: node.course.field_purpose
+field_name: field_purpose
+entity_type: node
+bundle: course
+label: Formål
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

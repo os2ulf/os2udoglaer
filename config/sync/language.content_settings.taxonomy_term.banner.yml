@@ -1,0 +1,11 @@
+uuid: c06a291b-89ff-4931-9ae3-eb58516d20cc
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.banner
+id: taxonomy_term.banner
+target_entity_type_id: taxonomy_term
+target_bundle: banner
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,19 @@
+uuid: 3188cd0e-b885-4241-8b8f-7747fc7e35b4
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_zipcode
+    - node.type.course
+id: node.course.field_location_zipcode
+field_name: field_location_zipcode
+entity_type: node
+bundle: course
+label: Postnummer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

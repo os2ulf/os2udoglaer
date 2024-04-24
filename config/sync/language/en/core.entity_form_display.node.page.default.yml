@@ -1,0 +1,6 @@
+third_party_settings:
+  field_group:
+    group_page_header:
+      label: 'Page header'
+    group_page_settings:
+      label: 'Page settings'

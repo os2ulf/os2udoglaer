@@ -1,0 +1,21 @@
+uuid: f186278b-d22e-4903-b03c-35e5098c95f7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_deadline
+    - node.type.course
+  module:
+    - datetime
+id: node.course.field_registration_deadline
+field_name: field_registration_deadline
+entity_type: node
+bundle: course
+label: Tilmeldingsfrist
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

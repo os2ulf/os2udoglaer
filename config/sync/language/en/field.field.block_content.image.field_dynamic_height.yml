@@ -1,0 +1,5 @@
+label: 'Dynamic height'
+description: 'If set then we will only scale in width - no focal point.'
+settings:
+  on_label: 'On'
+  off_label: 'Off'

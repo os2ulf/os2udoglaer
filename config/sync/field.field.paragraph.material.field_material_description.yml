@@ -1,0 +1,19 @@
+uuid: 797b3a2c-3984-4313-9c07-16629eeacc15
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_material_description
+    - paragraphs.paragraphs_type.material
+id: paragraph.material.field_material_description
+field_name: field_material_description
+entity_type: paragraph
+bundle: material
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

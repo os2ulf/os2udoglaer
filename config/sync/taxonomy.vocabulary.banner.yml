@@ -1,0 +1,8 @@
+uuid: 825e671a-29ff-4cb9-851f-95690c0141f6
+langcode: da
+status: true
+dependencies: {  }
+name: Banner
+vid: banner
+description: ''
+weight: 0
