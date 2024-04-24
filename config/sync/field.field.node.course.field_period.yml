@@ -1,0 +1,21 @@
+uuid: c8d00f8c-fcfa-4379-8bad-9f1401095bbe
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_period
+    - node.type.course
+  module:
+    - datetime_range
+id: node.course.field_period
+field_name: field_period
+entity_type: node
+bundle: course
+label: Periode
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

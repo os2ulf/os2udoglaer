@@ -1,0 +1,21 @@
+uuid: d7a11c3f-d9f1-4524-8dfc-0b6ad1b07cfa
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_registration_phone
+field_name: field_registration_phone
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

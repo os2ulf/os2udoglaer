@@ -1,0 +1,29 @@
+uuid: 7d351c31-430a-4470-832f-38fe6446d9b0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_target_group
+    - node.type.course
+    - taxonomy.vocabulary.target_group
+id: node.course.field_target_group
+field_name: field_target_group
+entity_type: node
+bundle: course
+label: 'Overordnet målgruppe'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      target_group: target_group
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,30 @@
+uuid: 082a2586-a24d-4e2a-84ac-897929384445
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_view_on_map
+field_name: field_view_on_map
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: show_vendor_address
+      label: 'Vis udbyderadresse'
+    -
+      value: show_alternative_address
+      label: 'Vis alternativ adresse'
+    -
+      value: hidden_on_map
+      label: 'Vis ikke på kort'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

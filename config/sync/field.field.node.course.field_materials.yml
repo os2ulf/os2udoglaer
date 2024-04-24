@@ -1,0 +1,40 @@
+uuid: bf3b3643-0154-4371-af4c-e3ab498ea9e8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_materials
+    - node.type.course
+    - paragraphs.paragraphs_type.material
+  module:
+    - entity_reference_revisions
+id: node.course.field_materials
+field_name: field_materials
+entity_type: node
+bundle: course
+label: Materialer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      material: material
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 5
+        enabled: false
+      basic_hero:
+        weight: 6
+        enabled: false
+      inline_hero:
+        weight: 7
+        enabled: false
+      material:
+        weight: 8
+        enabled: true
+field_type: entity_reference_revisions

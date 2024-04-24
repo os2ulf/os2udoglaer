@@ -1,0 +1,8 @@
+label: 'Likert: Comparison'
+category: Likert
+options: |
+  1: Much Worse
+  2: Somewhat Worse
+  3: About the Same
+  4: Somewhat Better
+  5: Much Better

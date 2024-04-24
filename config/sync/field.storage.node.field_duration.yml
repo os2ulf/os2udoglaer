@@ -1,0 +1,18 @@
+uuid: 2863b038-10c7-4945-933e-3706820f73ae
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_duration
+field_name: field_duration
+entity_type: node
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

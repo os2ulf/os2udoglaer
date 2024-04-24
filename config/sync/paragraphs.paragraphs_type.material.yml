@@ -1,0 +1,10 @@
+uuid: ef0f097f-6ca7-44e9-9ea8-a6fe98a5843e
+langcode: da
+status: true
+dependencies: {  }
+id: material
+label: Materiale
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

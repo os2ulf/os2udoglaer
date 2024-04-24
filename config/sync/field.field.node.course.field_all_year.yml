@@ -1,0 +1,21 @@
+uuid: cc3f7634-eaaa-4529-841d-271dcd0e6c15
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_all_year
+    - node.type.course
+id: node.course.field_all_year
+field_name: field_all_year
+entity_type: node
+bundle: course
+label: 'Hele året'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

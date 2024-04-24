@@ -1,0 +1,21 @@
+uuid: 590be5fb-11a1-4c4a-8dcc-f34d4784ab70
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_application_link
+    - node.type.internship
+id: node.internship.field_show_application_link
+field_name: field_show_application_link
+entity_type: node
+bundle: internship
+label: 'Vis ansøgningslink'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Vis
+  off_label: 'Vis ikke'
+field_type: boolean

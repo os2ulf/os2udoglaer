@@ -1,0 +1,27 @@
+uuid: 3745c5ea-0cdd-4472-aa8f-8c8a01b48a32
+langcode: da
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_price_vat
+field_name: field_price_vat
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: incl_vat
+      label: 'Inklusiv moms'
+    -
+      value: vat_free
+      label: Momsfrit
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

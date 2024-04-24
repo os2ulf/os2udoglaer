@@ -1,0 +1,20 @@
+uuid: e3ffee8c-9a9a-49b9-aabf-779bad8644e5
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_primary_school_subject
+field_name: field_primary_school_subject
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

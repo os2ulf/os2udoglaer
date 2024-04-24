@@ -1,0 +1,29 @@
+uuid: 914cdbf9-07f4-46b1-a35f-2d21b62dc965
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_youth_education_subject
+    - node.type.course
+    - taxonomy.vocabulary.youth_education_subject
+id: node.course.field_youth_education_subject
+field_name: field_youth_education_subject
+entity_type: node
+bundle: course
+label: 'Fag - ungdomsuddannelse'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      youth_education_subject: youth_education_subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

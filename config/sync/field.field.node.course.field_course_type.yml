@@ -1,0 +1,29 @@
+uuid: 13625566-c04c-4287-bc96-1eedd85765e8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_type
+    - node.type.course
+    - taxonomy.vocabulary.course_type
+id: node.course.field_course_type
+field_name: field_course_type
+entity_type: node
+bundle: course
+label: Forløbstype
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      course_type: course_type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

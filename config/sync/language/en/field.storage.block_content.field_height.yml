@@ -1,0 +1,8 @@
+settings:
+  allowed_values:
+    -
+      label: Small
+    -
+      label: Medium
+    -
+      label: Large

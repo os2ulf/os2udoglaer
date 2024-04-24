@@ -1,0 +1,5 @@
+label: Sex
+category: Demographic
+options: |
+  Male: Male
+  Female: Female
