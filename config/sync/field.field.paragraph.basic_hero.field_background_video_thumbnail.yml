@@ -1,17 +1,17 @@
-uuid: 559c8ad9-17a5-49c8-aa43-6ca2ce6167c2
+uuid: a4afacee-a2a2-44ca-babe-2905cc71f7c1
 langcode: da
 status: true
 dependencies:
   config:
-    - block_content.type.appetizer
-    - field.storage.block_content.field_appetizer_image
+    - field.storage.paragraph.field_background_video_thumbnail
+    - paragraphs.paragraphs_type.basic_hero
   module:
     - image
-id: block_content.appetizer.field_appetizer_image
-field_name: field_appetizer_image
-entity_type: block_content
-bundle: appetizer
-label: 'Appetizer Image'
+id: paragraph.basic_hero.field_background_video_thumbnail
+field_name: field_background_video_thumbnail
+entity_type: paragraph
+bundle: basic_hero
+label: 'Background Video Thumbnail'
 description: ''
 required: false
 translatable: false

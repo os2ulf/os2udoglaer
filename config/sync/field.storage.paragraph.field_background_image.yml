@@ -1,14 +1,14 @@
-uuid: e42bc04b-fe74-4234-9dfa-58a897bde611
+uuid: b234cfe4-2fbe-4d7d-a847-7d78d88a35bf
 langcode: da
 status: true
 dependencies:
   module:
-    - block_content
     - file
     - image
-id: block_content.field_appetizer_image
-field_name: field_appetizer_image
-entity_type: block_content
+    - paragraphs
+id: paragraph.field_background_image
+field_name: field_background_image
+entity_type: paragraph
 type: image
 settings:
   target_type: file

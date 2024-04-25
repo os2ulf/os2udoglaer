@@ -5,7 +5,6 @@ dependencies:
   config:
     - block_content.type.video
     - field.field.block_content.video.field_video_headline
-    - field.field.block_content.video.field_video_media
     - field.field.block_content.video.field_video_subline
     - field.field.block_content.video.field_video_text_color
 _core:
@@ -21,14 +20,6 @@ content:
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_video_media:
-    type: entity_transform
-    weight: '3'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
     third_party_settings: {  }
   field_video_subline:
     type: value

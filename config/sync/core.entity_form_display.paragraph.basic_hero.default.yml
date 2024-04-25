@@ -3,7 +3,9 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.basic_hero.field_background
+    - field.field.paragraph.basic_hero.field_background_image
+    - field.field.paragraph.basic_hero.field_background_video_thumbnail
+    - field.field.paragraph.basic_hero.field_background_video_url
     - field.field.paragraph.basic_hero.field_color_theme
     - field.field.paragraph.basic_hero.field_cta
     - field.field.paragraph.basic_hero.field_link
@@ -11,9 +13,11 @@ dependencies:
     - field.field.paragraph.basic_hero.field_text
     - field.field.paragraph.basic_hero.field_text_color
     - field.field.paragraph.basic_hero.field_text_position
+    - image.style.thumbnail
     - paragraphs.paragraphs_type.basic_hero
   module:
-    - media_library
+    - image
+    - link
     - styles
     - text
 _core:
@@ -23,22 +27,39 @@ targetEntityType: paragraph
 bundle: basic_hero
 mode: default
 content:
-  field_background:
-    type: media_library_widget
+  field_background_image:
+    type: image_image
     weight: 1
     region: content
     settings:
-      media_types: {  }
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_background_video_thumbnail:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_background_video_url:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_color_theme:
     type: styles
-    weight: 6
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_cta:
     type: styles_link_target
-    weight: 4
+    weight: 6
     region: content
     settings:
       placeholder_url: ''
@@ -48,7 +69,7 @@ content:
     third_party_settings: {  }
   field_overlay:
     type: boolean_checkbox
-    weight: 2
+    weight: 4
     region: content
     settings:
       display_label: true
@@ -63,12 +84,12 @@ content:
     third_party_settings: {  }
   field_text_position:
     type: styles
-    weight: 5
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   translation:
-    weight: 3
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }

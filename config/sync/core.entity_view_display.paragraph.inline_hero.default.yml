@@ -3,7 +3,9 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.inline_hero.field_background
+    - field.field.paragraph.inline_hero.field_background_image
+    - field.field.paragraph.inline_hero.field_background_video_thumbnail
+    - field.field.paragraph.inline_hero.field_background_video_url
     - field.field.paragraph.inline_hero.field_cta
     - field.field.paragraph.inline_hero.field_overlay
     - field.field.paragraph.inline_hero.field_text
@@ -12,6 +14,8 @@ dependencies:
     - field.field.paragraph.inline_hero.field_title
     - paragraphs.paragraphs_type.inline_hero
   module:
+    - image
+    - link
     - styles
     - text
 _core:
@@ -21,14 +25,39 @@ targetEntityType: paragraph
 bundle: inline_hero
 mode: default
 content:
-  field_background:
-    type: entity_reference_entity_view
-    label: hidden
+  field_background_image:
+    type: image
+    label: above
     settings:
-      view_mode: default
-      link: true
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    weight: 0
+    weight: 5
+    region: content
+  field_background_video_thumbnail:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_background_video_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
     region: content
   field_cta:
     type: styles_link_target

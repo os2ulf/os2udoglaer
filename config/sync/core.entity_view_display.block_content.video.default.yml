@@ -9,6 +9,7 @@ dependencies:
     - field.field.block_content.video.field_video_subline
     - field.field.block_content.video.field_video_text_color
   module:
+    - link
     - options
 _core:
   default_config_hash: 8jMOIJJl0OQGgBaOqurYXhxnlBFnO2HOrqMjb4W8Ers
@@ -26,11 +27,14 @@ content:
     weight: 0
     region: content
   field_video_media:
-    type: entity_reference_entity_view
-    label: hidden
+    type: link
+    label: above
     settings:
-      view_mode: default
-      link: false
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
     third_party_settings: {  }
     weight: 3
     region: content

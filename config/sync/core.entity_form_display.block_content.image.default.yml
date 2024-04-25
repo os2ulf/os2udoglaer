@@ -8,8 +8,9 @@ dependencies:
     - field.field.block_content.image.field_image_caption
     - field.field.block_content.image.field_image_link
     - field.field.block_content.image.field_image_media
+    - image.style.thumbnail
   module:
-    - media_library
+    - image
     - premium_tools
 _core:
   default_config_hash: hKym4mVUgl9Lw6DJLa31vUA3KhJDJbNLXAWNr2vTR64
@@ -20,14 +21,14 @@ mode: default
 content:
   field_dynamic_height:
     type: boolean_checkbox
-    weight: 26
+    weight: 1
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_image_caption:
     type: string_textfield
-    weight: 1
+    weight: 0
     region: content
     settings:
       size: 60
@@ -35,7 +36,7 @@ content:
     third_party_settings: {  }
   field_image_link:
     type: link_with_target
-    weight: 30
+    weight: 3
     region: content
     settings:
       placeholder_url: ''
@@ -43,11 +44,12 @@ content:
       target_blank: 0
     third_party_settings: {  }
   field_image_media:
-    type: media_library_widget
-    weight: 0
+    type: image_image
+    weight: 2
     region: content
     settings:
-      media_types: {  }
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
 hidden:
   info: true

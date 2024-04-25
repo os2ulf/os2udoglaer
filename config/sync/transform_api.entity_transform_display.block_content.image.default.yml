@@ -7,7 +7,6 @@ dependencies:
     - field.field.block_content.image.field_dynamic_height
     - field.field.block_content.image.field_image_caption
     - field.field.block_content.image.field_image_link
-    - field.field.block_content.image.field_image_media
   module:
     - premium_tools
 _core:
@@ -30,14 +29,6 @@ content:
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_image_media:
-    type: entity_transform
-    weight: '0'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
     third_party_settings: {  }
 hidden:
   field_dynamic_height: true

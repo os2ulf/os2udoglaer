@@ -11,6 +11,7 @@ dependencies:
     - field.field.block_content.appetizer.field_appetizer_text
     - field.field.block_content.appetizer.field_appetizer_text_alignment
   module:
+    - image
     - options
     - styles
     - text
@@ -37,13 +38,15 @@ content:
     weight: 2
     region: content
   field_appetizer_image:
-    type: entity_reference_entity_view
-    label: hidden
+    type: image
+    label: above
     settings:
-      view_mode: default
-      link: false
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    weight: 3
+    weight: 7
     region: content
   field_appetizer_orientation:
     type: list_default

@@ -9,6 +9,7 @@ dependencies:
     - field.field.block_content.image.field_image_link
     - field.field.block_content.image.field_image_media
   module:
+    - image
     - premium_tools
 _core:
   default_config_hash: EZJdHuAzGOi0inK9D59vny4nj5hUFQKNCwX3To3owy4
@@ -43,13 +44,15 @@ content:
     weight: 4
     region: content
   field_image_media:
-    type: entity_reference_entity_view
-    label: hidden
+    type: image
+    label: above
     settings:
-      view_mode: default
-      link: false
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
-    weight: 3
+    weight: 9
     region: content
 hidden:
   langcode: true
