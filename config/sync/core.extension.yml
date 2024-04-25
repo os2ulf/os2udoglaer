@@ -3,7 +3,6 @@ _core:
 langcode: da
 module:
   admin_toolbar: 0
-  admin_toolbar_tools: 0
   allowed_formats: 0
   atoms: 0
   automated_cron: 0

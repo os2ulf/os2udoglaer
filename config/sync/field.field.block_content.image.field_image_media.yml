@@ -1,13 +1,12 @@
-uuid: 0ec0db40-3e31-4b4a-821e-94386b6e473c
+uuid: 91ed73dd-7df4-406f-9a40-4588e496d052
 langcode: da
 status: true
 dependencies:
   config:
     - block_content.type.image
     - field.storage.block_content.field_image_media
-    - media.type.image
-_core:
-  default_config_hash: SOFknyRKgBERHmqStgXiCp5EZrKSNuM6zo0XTHZnEzQ
+  module:
+    - image
 id: block_content.image.field_image_media
 field_name: field_image_media
 entity_type: block_content
@@ -19,12 +18,21 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
-  handler_settings:
-    target_bundles:
-      image: image
-    sort:
-      field: _none
-    auto_create: false
-    auto_create_bundle: ''
-field_type: entity_reference
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

@@ -6,6 +6,8 @@ dependencies:
     - block_content.type.slideshow
     - field.field.block_content.slideshow.field_slideshow_autoplay
     - field.field.block_content.slideshow.field_slideshow_images
+  module:
+    - image
 _core:
   default_config_hash: VvRtVFXqbPfaSny03WyIAQpapDOpGA183bjhprwT9M4
 id: block_content.slideshow.default
@@ -24,11 +26,13 @@ content:
     weight: 1
     region: content
   field_slideshow_images:
-    type: entity_reference_entity_view
-    label: hidden
+    type: image
+    label: above
     settings:
-      view_mode: default
-      link: false
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
     weight: 2
     region: content
