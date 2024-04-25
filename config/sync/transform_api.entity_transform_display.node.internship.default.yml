@@ -16,7 +16,11 @@ dependencies:
     - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
+    - field.field.node.internship.field_location_city
     - field.field.node.internship.field_location_description
+    - field.field.node.internship.field_location_name
+    - field.field.node.internship.field_location_street
+    - field.field.node.internship.field_location_zipcode
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_periode
@@ -33,12 +37,11 @@ bundle: internship
 mode: default
 content:
   body:
-    type: plain_text
+    type: text_format
     weight: '1'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
     third_party_settings: {  }
   field_application_deadline:
     type: datetime_default
