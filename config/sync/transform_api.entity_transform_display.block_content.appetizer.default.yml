@@ -6,7 +6,6 @@ dependencies:
     - block_content.type.appetizer
     - field.field.block_content.appetizer.field_appetizer_cta
     - field.field.block_content.appetizer.field_appetizer_headline
-    - field.field.block_content.appetizer.field_appetizer_image
     - field.field.block_content.appetizer.field_appetizer_orientation
     - field.field.block_content.appetizer.field_appetizer_text
     - field.field.block_content.appetizer.field_appetizer_text_alignment
@@ -32,14 +31,6 @@ content:
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_appetizer_image:
-    type: entity_transform
-    weight: '0'
-    region: content
-    label: omit
-    settings:
-      transform_mode: appetizer
     third_party_settings: {  }
   field_appetizer_orientation:
     type: value

@@ -1,0 +1,23 @@
+uuid: 39c14b53-9702-437e-8b96-45a47b1f058b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_background_video_url
+    - paragraphs.paragraphs_type.inline_hero
+  module:
+    - link
+id: paragraph.inline_hero.field_background_video_url
+field_name: field_background_video_url
+entity_type: paragraph
+bundle: inline_hero
+label: 'Background Video URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

@@ -9,7 +9,7 @@ dependencies:
     - field.field.block_content.video.field_video_subline
     - field.field.block_content.video.field_video_text_color
   module:
-    - media_library
+    - link
 _core:
   default_config_hash: _glfZ5wwTTN6YA8H0k-eeupamAEGO9u0182MqEm9IRE
 id: block_content.video.default
@@ -26,11 +26,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_video_media:
-    type: media_library_widget
+    type: link_default
     weight: 29
     region: content
     settings:
-      media_types: {  }
+      placeholder_url: ''
+      placeholder_title: ''
     third_party_settings: {  }
   field_video_subline:
     type: string_textfield

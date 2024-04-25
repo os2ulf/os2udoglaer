@@ -41,21 +41,13 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_list_media:
-    type: entity_reference_entity_view
-    label: hidden
-    settings:
-      view_mode: inline_navigation
-      link: false
-    third_party_settings: {  }
-    weight: 1
-    region: content
 hidden:
   body: true
   content_moderation_control: true
   field_header: true
   field_hide_breadcrumb: true
   field_hide_title: true
+  field_list_media: true
   field_meta_tags: true
   langcode: true
   layout_builder__layout: true

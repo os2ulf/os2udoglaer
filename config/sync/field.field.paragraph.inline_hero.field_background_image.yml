@@ -1,17 +1,17 @@
-uuid: 559c8ad9-17a5-49c8-aa43-6ca2ce6167c2
+uuid: 4b27d3ff-fa32-4cd4-aee4-85970c6c295f
 langcode: da
 status: true
 dependencies:
   config:
-    - block_content.type.appetizer
-    - field.storage.block_content.field_appetizer_image
+    - field.storage.paragraph.field_background_image
+    - paragraphs.paragraphs_type.inline_hero
   module:
     - image
-id: block_content.appetizer.field_appetizer_image
-field_name: field_appetizer_image
-entity_type: block_content
-bundle: appetizer
-label: 'Appetizer Image'
+id: paragraph.inline_hero.field_background_image
+field_name: field_background_image
+entity_type: paragraph
+bundle: inline_hero
+label: 'Background Image'
 description: ''
 required: false
 translatable: false
