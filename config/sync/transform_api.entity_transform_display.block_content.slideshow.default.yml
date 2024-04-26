@@ -20,4 +20,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_slideshow_images: true
   langcode: true
