@@ -18,7 +18,7 @@ settings:
       label: Light
     -
       value: dark
-      label: Dark
+      label: Mørkt
   allowed_values_function: ''
 module: options
 locked: false

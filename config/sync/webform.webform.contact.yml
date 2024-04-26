@@ -229,7 +229,7 @@ handlers:
   email_confirmation:
     id: email
     handler_id: email_confirmation
-    label: 'Email confirmation'
+    label: E-mail-bekræftelse
     notes: ''
     status: true
     conditions: {  }
@@ -266,7 +266,7 @@ handlers:
   email_notification:
     id: email
     handler_id: email_notification
-    label: 'Email notification'
+    label: E-mail-notifikation
     notes: ''
     status: true
     conditions: {  }

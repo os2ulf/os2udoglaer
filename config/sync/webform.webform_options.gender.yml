@@ -8,8 +8,8 @@ dependencies:
 _core:
   default_config_hash: yxhG0JmQs2HT-Ro6ZeDQboDc9ZWR4GglflTtyoqxK4A
 id: gender
-label: Gender
-category: Demographic
+label: Køn
+category: Demografi
 likert: false
 options: |
   Man: Man

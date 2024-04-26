@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: pZJnuQkh9afNML5IcMuKTUC__vmHMFn66Qr5IWtedZ4
 id: months
-label: Months
+label: Måneder
 category: 'Date and time'
 likert: false
 options: |

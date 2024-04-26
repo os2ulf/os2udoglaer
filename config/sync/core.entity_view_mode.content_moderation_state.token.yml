@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: fHBCa4a5p6bB-T2_s7mLD4y5fNBiGH2Ko1pwNH1Suyw
 id: content_moderation_state.token
-label: Token
+label: Symbol
 description: ''
 targetEntityType: content_moderation_state
 cache: true
