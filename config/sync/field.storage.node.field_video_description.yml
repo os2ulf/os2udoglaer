@@ -1,16 +1,16 @@
-uuid: eb569cbc-3c80-45ec-8f27-d2850702b8f9
+uuid: 189d3fd2-88ea-4d68-b1ae-2d094700b479
 langcode: da
 status: true
 dependencies:
   module:
-    - link
     - node
-id: node.field_video
-field_name: field_video
+    - text
+id: node.field_video_description
+field_name: field_video_description
 entity_type: node
-type: link
+type: text_long
 settings: {  }
-module: link
+module: text
 locked: false
 cardinality: 1
 translatable: true

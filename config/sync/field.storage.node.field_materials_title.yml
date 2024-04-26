@@ -1,15 +1,17 @@
-uuid: 938a530a-9210-4ffd-bda4-cd463def1238
+uuid: ff1aa142-e6da-42ee-ab3d-969d5b9cb48b
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_post_processing
-field_name: field_post_processing
+id: node.field_materials_title
+field_name: field_materials_title
 entity_type: node
-type: string_long
+type: string
 settings:
+  max_length: 255
   case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
 cardinality: 1
