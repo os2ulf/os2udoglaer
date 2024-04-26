@@ -9,7 +9,7 @@ jobs:
     name: Announce deploy to Slack
     environment: Staging
     runs-on: ubuntu-latest
-    if: ${{ github.event_name != 'pull_request' && (github.ref == 'refs/heads/staging' || github.ref == 'refs/heads/main') }}
+    if: ${{ github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || contains(github.ref, 'release')) }}
     steps:
       - name: Announce to slack
         uses: 8398a7/action-slack@v3
