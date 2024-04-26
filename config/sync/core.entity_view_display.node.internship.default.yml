@@ -13,7 +13,6 @@ dependencies:
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_duration
     - field.field.node.internship.field_education_path
-    - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -22,13 +21,16 @@ dependencies:
     - field.field.node.internship.field_location_street
     - field.field.node.internship.field_location_zipcode
     - field.field.node.internship.field_materials
+    - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_periode
-    - field.field.node.internship.field_purpose
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
+    - field.field.node.internship.field_video_description
+    - field.field.node.internship.field_video_thumbnail
+    - field.field.node.internship.field_video_title
     - field.field.node.internship.field_view_on_map
     - node.type.internship
   module:
@@ -124,13 +126,6 @@ content:
     third_party_settings: {  }
     weight: 11
     region: content
-  field_expectations:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
   field_image:
     type: image
     label: above
@@ -198,6 +193,14 @@ content:
     third_party_settings: {  }
     weight: 21
     region: content
+  field_materials_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 139
+    region: content
   field_meeting_times:
     type: basic_string
     label: above
@@ -211,13 +214,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 5
-    region: content
-  field_purpose:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
     region: content
   field_quantity:
     type: number_integer
@@ -256,6 +252,32 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 20
+    region: content
+  field_video_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  field_video_thumbnail:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  field_video_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 136
     region: content
   field_view_on_map:
     type: list_default

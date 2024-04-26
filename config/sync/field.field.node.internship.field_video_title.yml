@@ -1,19 +1,19 @@
-uuid: c672fdf9-3ec3-42d3-993a-089f061d1eb3
+uuid: 5a66afa4-66a4-4bcd-a00b-cc0111af5d8d
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_purpose
+    - field.storage.node.field_video_title
     - node.type.internship
-id: node.internship.field_purpose
-field_name: field_purpose
+id: node.internship.field_video_title
+field_name: field_video_title
 entity_type: node
 bundle: internship
-label: Formål
+label: Overskrift
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: string_long
+field_type: string
