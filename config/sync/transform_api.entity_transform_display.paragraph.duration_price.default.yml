@@ -1,0 +1,36 @@
+uuid: 75d253a4-e756-47eb-87c0-3bce58030ffa
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.duration_price.field_price
+    - field.field.paragraph.duration_price.field_price_settlement_unit
+    - field.field.paragraph.duration_price.field_price_vat
+    - paragraphs.paragraphs_type.duration_price
+id: paragraph.duration_price.default
+targetEntityType: paragraph
+bundle: duration_price
+mode: default
+content:
+  field_price:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_price_settlement_unit:
+    type: value
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_price_vat:
+    type: value
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.node.course.body
-    - field.field.node.course.field_activities
     - field.field.node.course.field_all_year
     - field.field.node.course.field_application_button
     - field.field.node.course.field_banner
@@ -25,14 +24,13 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
+    - field.field.node.course.field_materials_title
     - field.field.node.course.field_period
-    - field.field.node.course.field_post_processing
-    - field.field.node.course.field_preparation
     - field.field.node.course.field_price
     - field.field.node.course.field_primary_school_subject
-    - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
     - field.field.node.course.field_quantity_description
+    - field.field.node.course.field_realted_courses
     - field.field.node.course.field_registration_deadline
     - field.field.node.course.field_registration_description
     - field.field.node.course.field_registration_email
@@ -44,6 +42,9 @@ dependencies:
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
     - field.field.node.course.field_video
+    - field.field.node.course.field_video_description
+    - field.field.node.course.field_video_thumbnail
+    - field.field.node.course.field_video_title
     - field.field.node.course.field_view_on_map
     - field.field.node.course.field_youth_education_subject
     - node.type.course
@@ -67,13 +68,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
-    region: content
-  field_activities:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 103
     region: content
   field_all_year:
     type: boolean
@@ -242,6 +236,14 @@ content:
     third_party_settings: {  }
     weight: 21
     region: content
+  field_materials_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 139
+    region: content
   field_period:
     type: daterange_default
     label: above
@@ -251,20 +253,6 @@ content:
       separator: '-'
     third_party_settings: {  }
     weight: 120
-    region: content
-  field_post_processing:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 105
-    region: content
-  field_preparation:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 104
     region: content
   field_price:
     type: entity_reference_revisions_entity_view
@@ -283,13 +271,6 @@ content:
     third_party_settings: {  }
     weight: 113
     region: content
-  field_purpose:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
   field_quantity:
     type: number_integer
     label: above
@@ -305,6 +286,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 107
+    region: content
+  field_realted_courses:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 135
     region: content
   field_registration_deadline:
     type: datetime_default
@@ -395,6 +384,32 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 20
+    region: content
+  field_video_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 137
+    region: content
+  field_video_thumbnail:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 138
+    region: content
+  field_video_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 136
     region: content
   field_view_on_map:
     type: list_default

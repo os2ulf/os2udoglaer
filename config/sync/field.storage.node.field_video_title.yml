@@ -1,15 +1,17 @@
-uuid: 61e583f4-1d0d-4276-ad0b-e146acb6be59
+uuid: a0ed900a-28aa-40a2-a033-df433ce948ee
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_activities
-field_name: field_activities
+id: node.field_video_title
+field_name: field_video_title
 entity_type: node
-type: string_long
+type: string
 settings:
+  max_length: 255
   case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
 cardinality: 1

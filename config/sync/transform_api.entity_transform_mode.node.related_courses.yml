@@ -1,0 +1,10 @@
+uuid: 0d356d6f-23d4-4daf-b09c-a84abeadd0f8
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.related_courses
+label: 'Relaterede forløb'
+targetEntityType: node
+cache: true
