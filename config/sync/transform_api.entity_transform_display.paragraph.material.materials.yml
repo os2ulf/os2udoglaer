@@ -1,4 +1,4 @@
-uuid: 16755ce4-79bd-4bf8-a28a-90a2da5dee42
+uuid: a736e036-106c-42f1-aa21-45d1aae3ae17
 langcode: da
 status: true
 dependencies:
@@ -10,61 +10,52 @@ dependencies:
     - field.field.paragraph.material.field_material_title
     - field.field.paragraph.material.field_material_url
     - paragraphs.paragraphs_type.material
-  module:
-    - file
-    - link
-id: paragraph.material.default
+    - transform_api.entity_transform_mode.paragraph.materials
+id: paragraph.material.materials
 targetEntityType: paragraph
 bundle: material
-mode: default
+mode: materials
 content:
   field_literature_suggestion:
-    type: string_textfield
-    weight: 5
+    type: value
+    weight: '5'
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_material_description:
-    type: string_textarea
-    weight: 1
+    type: value
+    weight: '0'
     region: content
-    settings:
-      rows: 5
-      placeholder: ''
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_material_download_text:
-    type: string_textfield
-    weight: 4
+    type: value
+    weight: '4'
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_material_file:
-    type: file_generic
-    weight: 2
+    type: file_url
+    weight: '1'
     region: content
-    settings:
-      progress_indicator: throbber
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_material_title:
-    type: string_textfield
-    weight: 0
+    type: value
+    weight: '2'
     region: content
-    settings:
-      size: 60
-      placeholder: ''
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_material_url:
-    type: link_default
-    weight: 3
+    type: link
+    weight: '3'
     region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
+    label: omit
+    settings: {  }
     third_party_settings: {  }
-hidden:
-  created: true
-  status: true
+hidden: {  }

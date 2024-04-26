@@ -1,0 +1,29 @@
+uuid: 9eabc83f-7a7d-4ce6-82a0-28c4de959864
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_description
+    - filter.format.basic_html
+    - node.type.course
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.course.field_video_description
+field_name: field_video_description
+entity_type: node
+bundle: course
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
