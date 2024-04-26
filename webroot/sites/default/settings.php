@@ -809,3 +809,6 @@ if (file_exists($app_root . '/' . $site_path . '/settings.local.php')) {
 if (file_exists($app_root . '/' . $site_path . '/settings.devspace.php')) {
   include $app_root . '/' . $site_path . '/settings.devspace.php';
 }
+
+// Set translation directory path - webroot/sites/default/files/translations.
+$settings['locale']['path'] = 'sites/default/files/translations';
