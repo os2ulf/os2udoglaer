@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: iarLrzD0NiTlA4vIQMwEG_nE9sRYK7dK0d5fU9YiTp4
 id: code
-label: Code
+label: Kode
 revision: 0
 description: 'A block where editors can add scripts.'

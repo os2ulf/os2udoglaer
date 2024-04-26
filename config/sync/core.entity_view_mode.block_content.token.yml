@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: JqAPZHEa9m6Cqy0vdpV5Jjdk07YLKkE_EE9ivvB2xhQ
 id: block_content.token
-label: Token
+label: Symbol
 description: ''
 targetEntityType: block_content
 cache: true

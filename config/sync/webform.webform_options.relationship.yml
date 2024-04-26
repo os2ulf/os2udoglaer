@@ -9,7 +9,7 @@ _core:
   default_config_hash: 4J2RPG4JmsD4Fm1NlIQY0JHkrJ08UUl0qTF0_EjUxvw
 id: relationship
 label: Relationship
-category: Demographic
+category: Demografi
 likert: false
 options: |
   Parent: Parent

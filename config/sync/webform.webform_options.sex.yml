@@ -8,9 +8,7 @@ dependencies:
 _core:
   default_config_hash: WRpxpwYpfcO_i0so7BV4QXxXlbPiSVppYmAV6DAz4c0
 id: sex
-label: Sex
-category: Demographic
+label: Køn
+category: Demografi
 likert: false
-options: |
-  Male: Male
-  Female: Female
+options: "Mand: Mand\r\nKvinde: Kvinde\n"
