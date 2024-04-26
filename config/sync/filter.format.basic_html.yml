@@ -5,7 +5,6 @@ dependencies:
   module:
     - editor
     - linkit
-    - media
 _core:
   default_config_hash: Leo5fHjvJ_6aweMHPZ9avyLTURyIlN1WIWDqqYli8xI
 name: 'Simpel HTML'
@@ -36,7 +35,7 @@ filters:
     status: true
     weight: -10
     settings:
-      allowed_html: '<br> <p class="text-align-left text-align-center text-align-right text-align-justify"> <h2 class="text-align-left text-align-center text-align-right text-align-justify"> <h3 class="text-align-left text-align-center text-align-right text-align-justify"> <strong> <em> <u> <a href title target="_blank" data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li> <drupal-media data-entity-type data-entity-uuid alt data-view-mode data-caption data-align>'
+      allowed_html: '<br> <p class="large text-align-left text-align-center text-align-right text-align-justify"> <h2 class="text-align-left text-align-center text-align-right text-align-justify"> <h3 class="text-align-left text-align-center text-align-right text-align-justify"> <h4 class="text-align-left text-align-center text-align-right text-align-justify"> <strong> <em> <u> <a href title target="_blank" data-entity-type data-entity-uuid data-entity-substitution> <ul> <ol start> <li>'
       filter_html_help: false
       filter_html_nofollow: false
   filter_html_image_secure:
@@ -52,12 +51,3 @@ filters:
     weight: 0
     settings:
       title: true
-  media_embed:
-    id: media_embed
-    provider: media
-    status: true
-    weight: 100
-    settings:
-      default_view_mode: default
-      allowed_view_modes: {  }
-      allowed_media_types: {  }
