@@ -8,7 +8,7 @@ dependencies:
 _core:
   default_config_hash: W88NYg31DbaVNQx1Uir_dwwXHVtF09QOq4VBGsH1Snk
 id: yes_no
-label: Yes/No
+label: Ja/nej
 category: General
 likert: false
 options: |
