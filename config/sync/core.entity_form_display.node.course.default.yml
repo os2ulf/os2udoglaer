@@ -64,7 +64,6 @@ third_party_settings:
   field_group:
     group_practical_information:
       children:
-        - uid
         - group_lokation
         - group_duration_and_price
         - group_course_theme
@@ -130,7 +129,7 @@ third_party_settings:
       label: Verdensmål
       region: content
       parent_name: group_practical_information
-      weight: 13
+      weight: 14
       format_type: fieldset
       format_settings:
         classes: ''
@@ -162,7 +161,7 @@ third_party_settings:
       label: Pretix
       region: content
       parent_name: ''
-      weight: 9
+      weight: 8
       format_type: fieldset
       format_settings:
         classes: ''
@@ -177,7 +176,7 @@ third_party_settings:
       label: Faciliteter
       region: content
       parent_name: group_practical_information
-      weight: 12
+      weight: 13
       format_type: fieldset
       format_settings:
         classes: ''
@@ -204,23 +203,11 @@ third_party_settings:
       children:
         - field_view_on_map
         - field_location_description
+        - group_alternative_address
       label: Lokation
       region: content
       parent_name: group_practical_information
       weight: 7
-      format_type: fieldset
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        description: ''
-        required_fields: true
-    group_contact_form:
-      children: {  }
-      label: Kontaktformular
-      region: content
-      parent_name: ''
-      weight: 19
       format_type: fieldset
       format_settings:
         classes: ''
@@ -236,8 +223,8 @@ third_party_settings:
         - field_location_city
       label: 'Alternativ adresse'
       region: content
-      parent_name: ''
-      weight: 20
+      parent_name: group_lokation
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: ''
@@ -269,7 +256,7 @@ third_party_settings:
       label: Varighed
       region: content
       parent_name: group_practical_information
-      weight: 11
+      weight: 12
       format_type: fieldset
       format_settings:
         classes: ''
@@ -324,7 +311,7 @@ content:
     third_party_settings: {  }
   field_application_button:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -356,13 +343,13 @@ content:
     third_party_settings: {  }
   field_course_type:
     type: options_buttons
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   field_curriculum_themes:
     type: options_buttons
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings:
@@ -387,7 +374,7 @@ content:
             selector: ''
   field_description_of_duration:
     type: string_textarea
-    weight: 18
+    weight: 19
     region: content
     settings:
       rows: 5
@@ -418,7 +405,7 @@ content:
     third_party_settings: {  }
   field_duration_unit:
     type: options_select
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -465,7 +452,7 @@ content:
     third_party_settings: {  }
   field_location_description:
     type: string_textarea
-    weight: 10
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -607,7 +594,7 @@ content:
     third_party_settings: {  }
   field_realted_courses:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
@@ -617,13 +604,13 @@ content:
     third_party_settings: {  }
   field_registration_deadline:
     type: datetime_default
-    weight: 44
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   field_registration_description:
     type: string_textarea
-    weight: 43
+    weight: 13
     region: content
     settings:
       rows: 5
@@ -631,7 +618,7 @@ content:
     third_party_settings: {  }
   field_registration_email:
     type: email_default
-    weight: 47
+    weight: 17
     region: content
     settings:
       placeholder: ''
@@ -639,7 +626,7 @@ content:
     third_party_settings: {  }
   field_registration_phone:
     type: string_textfield
-    weight: 49
+    weight: 18
     region: content
     settings:
       size: 60
@@ -647,7 +634,7 @@ content:
     third_party_settings: {  }
   field_registration_title:
     type: string_textfield
-    weight: 45
+    weight: 15
     region: content
     settings:
       size: 60
@@ -655,7 +642,7 @@ content:
     third_party_settings: {  }
   field_registration_url:
     type: string_textfield
-    weight: 46
+    weight: 16
     region: content
     settings:
       size: 60
@@ -663,7 +650,7 @@ content:
     third_party_settings: {  }
   field_subject:
     type: options_buttons
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -683,7 +670,7 @@ content:
     third_party_settings: {  }
   field_target_group:
     type: options_buttons
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -780,38 +767,38 @@ content:
               recurse: '0'
   moderation_state:
     type: moderation_state_default
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 18
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -826,7 +813,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -835,7 +822,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
