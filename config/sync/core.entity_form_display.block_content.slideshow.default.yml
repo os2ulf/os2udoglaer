@@ -6,8 +6,9 @@ dependencies:
     - block_content.type.slideshow
     - field.field.block_content.slideshow.field_slideshow_autoplay
     - field.field.block_content.slideshow.field_slideshow_images
+    - image.style.thumbnail
   module:
-    - media_library
+    - image
 _core:
   default_config_hash: PwgP7TYn7SL_SulZXB2dLEDq5o7-5goC4U48YUWQuKQ
 id: block_content.slideshow.default
@@ -23,11 +24,12 @@ content:
       display_label: true
     third_party_settings: {  }
   field_slideshow_images:
-    type: media_library_widget
-    weight: 0
+    type: image_image
+    weight: 26
     region: content
     settings:
-      media_types: {  }
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
 hidden:
   info: true

@@ -1,13 +1,12 @@
-uuid: 8304520c-8928-489b-b220-966c9d2b4b38
+uuid: 05260a3e-d871-418b-a0f8-4f660ec6fcae
 langcode: da
 status: true
 dependencies:
   config:
     - block_content.type.slideshow
     - field.storage.block_content.field_slideshow_images
-    - media.type.image
-_core:
-  default_config_hash: anuqafkfspSdrP9CQfuGkAbNB3RDkHcmdraVQQxej1s
+  module:
+    - image
 id: block_content.slideshow.field_slideshow_images
 field_name: field_slideshow_images
 entity_type: block_content
@@ -19,12 +18,21 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
-  handler_settings:
-    target_bundles:
-      image: image
-    sort:
-      field: _none
-    auto_create: false
-    auto_create_bundle: ''
-field_type: entity_reference
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

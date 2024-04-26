@@ -1,13 +1,12 @@
-uuid: 3e475134-b9a2-4026-995d-a5aa52a6e5f8
+uuid: 1930699c-aa38-4598-ad20-e15e060758dd
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_list_media
-    - media.type.image
     - node.type.page
-_core:
-  default_config_hash: ryN45WPoOAy060FQvZz-cqIoLnrRvVpDsAC9bxnslsI
+  module:
+    - image
 id: node.page.field_list_media
 field_name: field_list_media
 entity_type: node
@@ -15,17 +14,25 @@ bundle: page
 label: 'List media'
 description: 'Image used for meta tags and inline navigation'
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:media'
-  handler_settings:
-    target_bundles:
-      image: image
-    sort:
-      field: _none
-      direction: ASC
-    auto_create: false
-    auto_create_bundle: ''
-field_type: entity_reference
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image
