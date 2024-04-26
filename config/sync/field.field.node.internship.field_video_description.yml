@@ -1,0 +1,28 @@
+uuid: b4ca69a6-2dbd-4906-81c2-573db519effa
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_description
+    - filter.format.basic_html
+    - node.type.internship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.internship.field_video_description
+field_name: field_video_description
+entity_type: node
+bundle: internship
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
