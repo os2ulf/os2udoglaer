@@ -9,6 +9,7 @@ on:
 jobs:
   announce-on-release:
     name: Announce Deploy to Slack for Release Branch
+    environment: Staging
     if: ${{ github.ref != 'refs/heads/main' && contains(github.ref, 'release') }}
     runs-on: ubuntu-latest
     steps:
@@ -23,6 +24,7 @@ jobs:
 
   announce-on-main-merge:
     name: Announce Merge to Main on Slack
+    environment: Production
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
@@ -37,6 +39,7 @@ jobs:
 
   merge-to-staging:
     runs-on: ubuntu-latest
+    environment: Staging
     steps:
       - name: Check out the repository
         uses: actions/checkout@v2
