@@ -13,7 +13,7 @@ id: node.page.field_meta_tags
 field_name: field_meta_tags
 entity_type: node
 bundle: page
-label: 'Meta tags'
+label: Meta-tags
 description: ''
 required: false
 translatable: true

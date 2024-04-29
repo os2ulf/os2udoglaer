@@ -1,0 +1,11 @@
+uuid: 1ebb398d-f5dc-40e5-950e-5bd092e46fdc
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.target_group_primary_school
+id: taxonomy_term.target_group_primary_school
+target_entity_type_id: taxonomy_term
+target_bundle: target_group_primary_school
+default_langcode: site_default
+language_alterable: false

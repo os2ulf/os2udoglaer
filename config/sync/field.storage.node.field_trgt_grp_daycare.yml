@@ -1,12 +1,12 @@
-uuid: 12241fb7-ff10-4552-b552-0dd3db2106c3
+uuid: 0e79bf36-cb7d-4f4a-b75e-e9318946f490
 langcode: da
 status: true
 dependencies:
   module:
     - node
     - taxonomy
-id: node.field_curriculum_themes
-field_name: field_curriculum_themes
+id: node.field_trgt_grp_daycare
+field_name: field_trgt_grp_daycare
 entity_type: node
 type: entity_reference
 settings:

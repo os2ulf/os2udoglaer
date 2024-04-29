@@ -2,7 +2,7 @@ uuid: d687e338-a55f-41ce-8dd9-8bd38a3e3523
 langcode: da
 status: true
 dependencies: {  }
-name: 'Fag - grundskole'
+name: 'Fag - Grundskole'
 vid: primary_school_subject
 description: ''
 weight: 0
