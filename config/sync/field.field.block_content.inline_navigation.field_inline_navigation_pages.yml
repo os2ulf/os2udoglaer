@@ -12,7 +12,7 @@ id: block_content.inline_navigation.field_inline_navigation_pages
 field_name: field_inline_navigation_pages
 entity_type: block_content
 bundle: inline_navigation
-label: Pages
+label: Sider
 description: ''
 required: false
 translatable: false

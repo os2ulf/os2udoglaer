@@ -14,7 +14,7 @@ id: block_content.accordion.field_accordion_items
 field_name: field_accordion_items
 entity_type: block_content
 bundle: accordion
-label: Items
+label: Overskrifter
 description: ''
 required: false
 translatable: true

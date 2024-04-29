@@ -10,8 +10,8 @@ settings:
   default_ajax_progress_type: throbber
   default_ajax_effect: fade
   default_ajax_speed: 500
-  default_submit_button_label: Submit
-  default_reset_button_label: Reset
+  default_submit_button_label: Indsend
+  default_reset_button_label: Gendan
   default_delete_button_label: Slet
   default_form_submit_once: false
   default_form_open_message: 'This form has not yet been opened to submissions.'
@@ -35,9 +35,9 @@ settings:
   default_wizard_confirmation_label: Komplet
   default_wizard_toggle_show_label: 'Vis alle'
   default_wizard_toggle_hide_label: 'Skjul alle'
-  default_preview_next_button_label: Preview
+  default_preview_next_button_label: Gennemse
   default_preview_prev_button_label: '< Tidligere'
-  default_preview_label: Preview
+  default_preview_label: Gennemse
   default_preview_title: '[webform:title]: Preview'
   default_preview_message: 'Please review your submission. Your submission is not complete until you press the "Submit" button!'
   default_draft_button_label: 'Gem kladde'
@@ -109,13 +109,13 @@ settings:
   dialog: false
   dialog_options:
     narrow:
-      title: Narrow
+      title: Smal
       width: 600
     normal:
       title: Normal
       width: 800
     wide:
-      title: Wide
+      title: Bred
       width: 1000
 assets:
   css: ''
@@ -151,7 +151,7 @@ element:
     webform-horizontal-rule--flaired
     webform-horizontal-rule--glyph
   default_description_display: ''
-  default_more_title: More
+  default_more_title: Mere
   default_section_title_tag: h2
   default_empty_option: true
   default_empty_option_required: ''

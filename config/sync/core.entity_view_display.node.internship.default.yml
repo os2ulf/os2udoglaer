@@ -11,6 +11,8 @@ dependencies:
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
     - field.field.node.internship.field_desc_application_procedure
+    - field.field.node.internship.field_domain_access
+    - field.field.node.internship.field_domain_all_affiliates
     - field.field.node.internship.field_duration
     - field.field.node.internship.field_education_path
     - field.field.node.internship.field_image
@@ -292,5 +294,7 @@ content:
     weight: 0
     region: content
 hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
   langcode: true
   search_api_excerpt: true

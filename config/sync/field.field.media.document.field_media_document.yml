@@ -16,7 +16,7 @@ id: media.document.field_media_document
 field_name: field_media_document
 entity_type: media
 bundle: document
-label: Document
+label: Dokument
 description: ''
 required: true
 translatable: false

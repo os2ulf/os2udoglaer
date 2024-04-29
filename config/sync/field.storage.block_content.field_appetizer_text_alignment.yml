@@ -15,13 +15,13 @@ settings:
   allowed_values:
     -
       value: left
-      label: Left
+      label: Venstre
     -
       value: center
-      label: Center
+      label: Centreret
     -
       value: right
-      label: Right
+      label: Højre
   allowed_values_function: ''
 module: options
 locked: false

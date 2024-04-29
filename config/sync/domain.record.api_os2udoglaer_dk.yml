@@ -1,0 +1,11 @@
+uuid: 37295cf5-1b2c-4cfd-9277-af5e91e38505
+langcode: da
+status: true
+dependencies: {  }
+id: api_os2udoglaer_dk
+domain_id: 9145217
+hostname: api.os2udoglaer.dk
+name: Default
+scheme: variable
+weight: 1
+is_default: true

@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: xOx3C_GOREVxar5j9oubpgjWOiU2RvGjLqzSqVFk1Cc
 id: content
-label: Content
+label: Indhold
 path: search
 clean_url: false
 show_all_when_no_keys: false

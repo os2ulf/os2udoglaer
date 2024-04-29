@@ -15,13 +15,13 @@ settings:
   allowed_values:
     -
       value: small
-      label: Small
+      label: Lille
     -
       value: medium
       label: Medium
     -
       value: large
-      label: Large
+      label: Stor
   allowed_values_function: ''
 module: options
 locked: false

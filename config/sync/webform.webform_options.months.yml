@@ -9,7 +9,7 @@ _core:
   default_config_hash: pZJnuQkh9afNML5IcMuKTUC__vmHMFn66Qr5IWtedZ4
 id: months
 label: Måneder
-category: 'Date and time'
+category: 'Dato og tid'
 likert: false
 options: |
   January: January

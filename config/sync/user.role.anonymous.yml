@@ -9,7 +9,7 @@ dependencies:
 _core:
   default_config_hash: 4R6P6lAZFB8dW4LyVpVdUF-55Gsx0Q6LCqi5qxYaQXA
 id: anonymous
-label: 'Anonymous user'
+label: 'Anonym bruger'
 weight: 0
 is_admin: false
 permissions:

@@ -8,9 +8,9 @@ dependencies:
 _core:
   default_config_hash: gLmoA0yjvlXfMRp9ihOhRKSSQQlbdLdvpDkbVwkYPrg
 id: files
-label: Files
+label: Filer
 module: file
-description: 'Find and manage files.'
+description: 'Find og håndtér filer.'
 tag: default
 base_table: file_managed
 base_field: fid
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Files
+      title: Filer
       fields:
         fid:
           id: fid
@@ -181,7 +181,7 @@ display:
           entity_type: file
           entity_field: filesize
           plugin_id: field
-          label: Size
+          label: Størrelse
           exclude: false
           alter:
             alter_text: false
@@ -277,7 +277,7 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: Temporary
+            format_custom_false: Midlertidig
             format_custom_true: Permanent
         created:
           id: created
@@ -289,7 +289,7 @@ display:
           entity_type: file
           entity_field: created
           plugin_id: field
-          label: 'Upload date'
+          label: Upload-dato
           exclude: false
           alter:
             alter_text: false
@@ -354,7 +354,7 @@ display:
           entity_type: file
           entity_field: changed
           plugin_id: field
-          label: 'Changed date'
+          label: Ændringsdato
           exclude: false
           alter:
             alter_text: false
@@ -417,7 +417,7 @@ display:
           group_type: sum
           admin_label: ''
           plugin_id: numeric
-          label: 'Used in'
+          label: 'Brugt i'
           exclude: false
           alter:
             alter_text: false
@@ -463,7 +463,7 @@ display:
           decimal: .
           separator: ','
           format_plural: true
-          format_plural_string: !!binary MSBwbGFjZQNAY291bnQgcGxhY2Vz
+          format_plural_string: !!binary MSBzdGVkA0Bjb3VudCBzdGVkZXI=
           prefix: ''
           suffix: ''
       pager:
@@ -474,26 +474,26 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Næste ›'
+            previous: '‹ Forrige'
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Antal elementer'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Forskydning
       exposed_form:
         type: basic
         options:
           submit_button: Filter
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       access:
         type: perm
         options:
@@ -508,7 +508,7 @@ display:
           field: area_text_custom
           plugin_id: text_custom
           empty: true
-          content: 'No files available.'
+          content: 'Ingen tilgængelige filer.'
       sorts: {  }
       arguments: {  }
       filters:
@@ -528,7 +528,7 @@ display:
           exposed: true
           expose:
             operator_id: filemime_op
-            label: Filename
+            label: Filnavn
             description: ''
             use_operator: false
             operator: filename_op
@@ -753,7 +753,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: 'Files overview'
+    display_title: Filoversigt
     display_plugin: page
     position: 1
     display_options:
@@ -774,7 +774,7 @@ display:
       path: admin/content/files
       menu:
         type: tab
-        title: Files
+        title: Filer
         description: ''
         weight: 0
         menu_name: admin
@@ -854,7 +854,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          label: 'Entity type'
+          label: Entity-type
           exclude: false
           alter:
             alter_text: false
@@ -903,7 +903,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: standard
-          label: 'Registering module'
+          label: 'Registrerer modul'
           exclude: false
           alter:
             alter_text: false
@@ -952,7 +952,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: numeric
-          label: 'Use count'
+          label: 'Brug antal'
           exclude: false
           alter:
             alter_text: false
@@ -1009,16 +1009,16 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
+            next: 'Næste ›'
+            previous: '‹ Forrige'
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Antal elementer'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Forskydning
       empty: {  }
       arguments:
         fid:
@@ -1035,9 +1035,9 @@ display:
           exception:
             value: all
             title_enable: false
-            title: All
+            title: Alle
           title_enable: true
-          title: 'File usage information for {{ arguments.fid }}'
+          title: 'Information om brug af filen {{ arguments.fid }}'
           default_argument_type: fixed
           default_argument_options:
             argument: ''

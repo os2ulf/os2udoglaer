@@ -1,0 +1,9 @@
+uuid: ca596284-82ab-4f5b-a389-6c198263e7c1
+langcode: da
+status: true
+dependencies: {  }
+id: aarhus_os2udoglaer_localhost
+domain_id: api_ulfiaarhus_dk
+pattern: aarhus.os2udoglaer.localhost
+redirect: 0
+environment: local
