@@ -14,7 +14,7 @@ dependencies:
 _core:
   default_config_hash: P1uTz8NXfuDp0pJuybTDywGXy8DfwHbwbxM8ThIWVrw
 id: content
-name: Content
+name: Indhold
 description: ''
 read_only: false
 field_settings:

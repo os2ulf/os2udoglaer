@@ -8,9 +8,9 @@ dependencies:
 _core:
   default_config_hash: CO5HvIXomfc9ohIAsRI8JTGe_OyDGfbpZR0I93Wb7Mw
 id: user_admin_people
-label: People
+label: Personer
 module: user
-description: 'Find and manage people interacting with your site.'
+description: 'Find og håndtér personer som bruger dit site.'
 tag: default
 base_table: users_field_data
 base_field: uid
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: People
+      title: Personer
       fields:
         user_bulk_form:
           id: user_bulk_form
@@ -32,7 +32,7 @@ display:
           admin_label: ''
           entity_type: user
           plugin_id: user_bulk_form
-          label: 'Bulk update'
+          label: Masseopdatering
           exclude: false
           alter:
             alter_text: false
@@ -179,8 +179,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: Blocked
-            format_custom_true: Active
+            format_custom_false: Blokeret
+            format_custom_true: Aktiv
         roles_target_id:
           id: roles_target_id
           table: user__roles
@@ -189,7 +189,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: user_roles
-          label: Roles
+          label: Roller
           exclude: false
           alter:
             alter_text: false
@@ -242,7 +242,7 @@ display:
           entity_type: user
           entity_field: created
           plugin_id: field
-          label: 'Member for'
+          label: 'Medlem i'
           exclude: false
           alter:
             alter_text: false
@@ -298,7 +298,7 @@ display:
           entity_type: user
           entity_field: access
           plugin_id: field
-          label: 'Last access'
+          label: 'Seneste tilgang'
           exclude: false
           alter:
             alter_text: false
@@ -341,8 +341,8 @@ display:
           hide_alter_empty: true
           type: timestamp_ago
           settings:
-            future_format: '@interval hence'
-            past_format: '@interval ago'
+            future_format: 'om @interval'
+            past_format: '@interval siden'
             granularity: 2
         operations:
           id: operations
@@ -467,29 +467,29 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Next ›'
-            previous: '‹ Previous'
-            first: '« First'
-            last: 'Last »'
+            next: 'Næste ›'
+            previous: '‹ Forrige'
+            first: '« Første'
+            last: 'Sidste »'
           expose:
             items_per_page: false
-            items_per_page_label: 'Items per page'
+            items_per_page_label: 'Antal elementer'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
+            items_per_page_options_all_label: '- Alle -'
             offset: false
-            offset_label: Offset
+            offset_label: Forskydning
           quantity: 9
       exposed_form:
         type: basic
         options:
           submit_button: Filter
           reset_button: true
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       access:
         type: perm
         options:
@@ -506,7 +506,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No people available.'
+          content: 'Ingen personer til rådighed.'
           tokenize: false
       sorts:
         created:
@@ -539,7 +539,7 @@ display:
           exposed: true
           expose:
             operator_id: combine_op
-            label: 'Name or email contains'
+            label: 'Navn eller e-mail indeholder'
             description: ''
             use_operator: false
             operator: combine_op
@@ -611,11 +611,11 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Active
+                title: Aktiv
                 operator: '='
                 value: '1'
               2:
-                title: Blocked
+                title: Blokeret
                 operator: '='
                 value: '0'
         roles_target_id:
@@ -632,7 +632,7 @@ display:
           exposed: true
           expose:
             operator_id: roles_target_id_op
-            label: Role
+            label: Rolle
             description: ''
             use_operator: false
             operator: roles_target_id_op
@@ -674,7 +674,7 @@ display:
           exposed: true
           expose:
             operator_id: permission_op
-            label: Permission
+            label: Tilladelse
             description: ''
             use_operator: false
             operator: permission_op
@@ -877,7 +877,7 @@ display:
       show_admin_links: true
       use_more: false
       use_more_always: false
-      use_more_text: more
+      use_more_text: mere
       link_display: page_1
       link_url: ''
       display_comment: ''
@@ -894,7 +894,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: Page
+    display_title: Side
     display_plugin: page
     position: 1
     display_options:
@@ -905,15 +905,15 @@ display:
       path: admin/people/list
       menu:
         type: 'default tab'
-        title: List
-        description: 'Find and manage people interacting with your site.'
+        title: Vis
+        description: 'Find og håndtér personer som bruger dit site.'
         weight: -10
         menu_name: admin
         context: ''
       tab_options:
         type: normal
-        title: People
-        description: 'Manage user accounts, roles, and permissions.'
+        title: Personer
+        description: 'Håndtér brugerkonti, roller og tilladelser.'
         weight: 0
         menu_name: admin
     cache_metadata:

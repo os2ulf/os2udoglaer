@@ -48,6 +48,9 @@ dependencies:
     - content_moderation
     - content_translation
     - contextual
+    - domain
+    - domain_access
+    - domain_config_ui
     - entity_clone
     - file
     - filter
@@ -78,6 +81,7 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
+  - 'access inactive domains'
   - 'access media overview'
   - 'access own webform configuration'
   - 'access site reports'
@@ -89,6 +93,7 @@ permissions:
   - 'access webform submission user'
   - 'administer atoms'
   - 'administer content_hierarchy'
+  - 'administer domain config ui'
   - 'administer menu'
   - 'administer nodes'
   - 'administer redirect settings'
@@ -99,6 +104,9 @@ permissions:
   - 'administer webform'
   - 'administer webform submission'
   - 'assign all roles'
+  - 'assign domain administrators'
+  - 'assign domain editors'
+  - 'assign editors to any domain'
   - 'clone node entity'
   - 'configure all page node layout overrides'
   - 'configure any layout'
@@ -243,6 +251,7 @@ permissions:
   - 'edit terms in target_group'
   - 'edit terms in youth_education_subject'
   - 'edit webform assets'
+  - 'publish to any domain'
   - 'revert all revisions'
   - 'revert course revisions'
   - 'revert internship revisions'
@@ -254,6 +263,9 @@ permissions:
   - 'update any media'
   - 'update content translations'
   - 'update media'
+  - 'use domain config ui'
+  - 'use domain nav block'
+  - 'use domain switcher block'
   - 'use editorial transition archive'
   - 'use editorial transition archived_draft'
   - 'use editorial transition archived_published'
@@ -267,7 +279,9 @@ permissions:
   - 'view any unpublished content'
   - 'view any unpublished page content'
   - 'view any webform submission'
+  - 'view assigned domains'
   - 'view course revisions'
+  - 'view domain list'
   - 'view internship revisions'
   - 'view latest version'
   - 'view own unpublished content'
@@ -275,5 +289,6 @@ permissions:
   - 'view own webform submission'
   - 'view page revisions'
   - 'view the administration theme'
+  - 'view unpublished domain content'
   - 'view unpublished paragraphs'
   - 'view user email addresses'

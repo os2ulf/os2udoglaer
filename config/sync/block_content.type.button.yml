@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: c9s5-SMg_Iinl-mFselCq-ounnim-OataRS2Xsmqyvg
 id: button
-label: Button
+label: Knap
 revision: 0
 description: "A block that contains a button.\t"

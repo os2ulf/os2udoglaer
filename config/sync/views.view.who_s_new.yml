@@ -7,9 +7,9 @@ dependencies:
 _core:
   default_config_hash: nCa1oy25w2fh-nk_iQ7IJFQwQIcKxrV_5EQW2y8dzPc
 id: who_s_new
-label: "Who's new"
+label: 'Nye brugere'
 module: user
-description: 'Shows a list of the newest user accounts on the site.'
+description: 'Viser en liste af de nyeste brugerkonti på sitet.'
 tag: default
 base_table: users_field_data
 base_field: uid
@@ -20,7 +20,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: "Who's new"
+      title: 'Nye brugere'
       fields:
         name:
           id: name
@@ -64,13 +64,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Udfør
           reset_button: false
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
-          sort_asc_label: Asc
-          sort_desc_label: Desc
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
       access:
         type: perm
         options:
@@ -179,14 +179,14 @@ display:
       tags: {  }
   block_1:
     id: block_1
-    display_title: "Who's new"
+    display_title: 'Nye brugere'
     display_plugin: block
     position: 1
     display_options:
-      display_description: 'A list of new users'
+      display_description: 'En liste af nye brugere'
       display_extenders: {  }
-      block_description: "Who's new"
-      block_category: User
+      block_description: 'Nye brugere'
+      block_category: Bruger
     cache_metadata:
       max-age: -1
       contexts:

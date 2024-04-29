@@ -11,9 +11,9 @@ third_party_settings:
     parent: 'main:'
 _core:
   default_config_hash: F9lS2X3VyFwsFON4Qr-Y-pD4n9Cam3YniCuMkJGdNvM
-name: 'Basic page'
+name: 'Simpel side'
 type: page
-description: "Use <em>basic pages</em> for your static content, such as an 'About us' page."
+description: 'Brug <em>simple sider</em> til dit statiske indhold, som f.eks. en "om os"-side.'
 help: ''
 new_revision: true
 preview_mode: 1

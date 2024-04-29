@@ -14,7 +14,7 @@ id: node.page.field_header
 field_name: field_header
 entity_type: node
 bundle: page
-label: Header
+label: Overskrift
 description: ''
 required: false
 translatable: true

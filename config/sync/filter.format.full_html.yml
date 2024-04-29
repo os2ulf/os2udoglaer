@@ -6,7 +6,7 @@ dependencies:
     - editor
 _core:
   default_config_hash: aWtRzIoO1vSv83Vp-eTloWklqYc7lklVd10sdnc_QYc
-name: 'Full HTML'
+name: 'Fuld HTML'
 format: full_html
 weight: 2
 filters:
