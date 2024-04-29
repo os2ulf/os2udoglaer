@@ -11,6 +11,8 @@ dependencies:
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
     - field.field.node.internship.field_desc_application_procedure
+    - field.field.node.internship.field_domain_access
+    - field.field.node.internship.field_domain_all_affiliates
     - field.field.node.internship.field_duration
     - field.field.node.internship.field_education_path
     - field.field.node.internship.field_image
@@ -229,6 +231,19 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 40
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_domain_all_affiliates:
+    type: boolean_checkbox
+    weight: 41
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_duration:
     type: number

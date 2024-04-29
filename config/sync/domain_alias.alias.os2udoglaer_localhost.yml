@@ -1,0 +1,9 @@
+uuid: 67ee5102-b4dd-4ab6-93e2-7ad12471c596
+langcode: da
+status: true
+dependencies: {  }
+id: os2udoglaer_localhost
+domain_id: api_os2udoglaer_dk
+pattern: os2udoglaer.localhost
+redirect: 0
+environment: local

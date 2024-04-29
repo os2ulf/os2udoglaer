@@ -13,7 +13,7 @@ id: media.video.field_media_video_file
 field_name: field_media_video_file
 entity_type: media
 bundle: video
-label: 'Video file'
+label: Videofil
 description: ''
 required: true
 translatable: false

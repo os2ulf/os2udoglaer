@@ -14,7 +14,7 @@ uid: null
 template: false
 archive: false
 id: contact
-title: Contact
+title: Kontakt
 description: 'Basic email contact webform.'
 categories: {  }
 elements: |
@@ -149,7 +149,7 @@ settings:
   confirmation_type: url_message
   confirmation_url: '<front>'
   confirmation_title: ''
-  confirmation_message: 'Your message has been sent.'
+  confirmation_message: 'Din besked er blevet sendt.'
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
