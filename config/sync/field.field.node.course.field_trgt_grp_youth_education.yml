@@ -1,16 +1,16 @@
-uuid: 037522e9-6ce1-47af-896b-972955ef881b
+uuid: b2c0cfa2-c8ef-4bf3-aa10-f1c04a86ecab
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_primary_school_subject
+    - field.storage.node.field_trgt_grp_youth_education
     - node.type.course
-    - taxonomy.vocabulary.primary_school_subject
-id: node.course.field_primary_school_subject
-field_name: field_primary_school_subject
+    - taxonomy.vocabulary.target_group_youth_education
+id: node.course.field_trgt_grp_youth_education
+field_name: field_trgt_grp_youth_education
 entity_type: node
 bundle: course
-label: Fag
+label: Målgruppe
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      primary_school_subject: primary_school_subject
+      target_group_youth_education: target_group_youth_education
     sort:
       field: name
       direction: asc

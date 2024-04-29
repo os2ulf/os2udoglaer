@@ -1,0 +1,8 @@
+uuid: 1f155869-1e7e-402e-988c-bb0ee8f108d4
+langcode: da
+status: true
+dependencies: {  }
+name: 'Målgruppe - Dagtilbud'
+vid: target_group_daycare
+description: ''
+weight: 0

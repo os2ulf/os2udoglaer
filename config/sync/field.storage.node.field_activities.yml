@@ -1,15 +1,16 @@
-uuid: c8748b77-b961-4769-a3c4-45f7206c0db8
+uuid: ae1b571b-7507-4e54-874b-d153791dae6f
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_application_button
-field_name: field_application_button
+    - text
+id: node.field_activities
+field_name: field_activities
 entity_type: node
-type: boolean
+type: text_long
 settings: {  }
-module: core
+module: text
 locked: false
 cardinality: 1
 translatable: true

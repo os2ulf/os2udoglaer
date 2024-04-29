@@ -5,8 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.course.body
+    - field.field.node.course.field_activities
     - field.field.node.course.field_all_year
-    - field.field.node.course.field_application_button
     - field.field.node.course.field_banner
     - field.field.node.course.field_course_type
     - field.field.node.course.field_curriculum_themes
@@ -29,8 +29,12 @@ dependencies:
     - field.field.node.course.field_materials
     - field.field.node.course.field_materials_title
     - field.field.node.course.field_period
+    - field.field.node.course.field_post_processing
+    - field.field.node.course.field_practical_info_buttons
+    - field.field.node.course.field_preparation
     - field.field.node.course.field_price
     - field.field.node.course.field_primary_school_subject
+    - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
     - field.field.node.course.field_quantity_description
     - field.field.node.course.field_realted_courses
@@ -44,6 +48,9 @@ dependencies:
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
+    - field.field.node.course.field_trgt_grp_daycare
+    - field.field.node.course.field_trgt_grp_primary_school
+    - field.field.node.course.field_trgt_grp_youth_education
     - field.field.node.course.field_video
     - field.field.node.course.field_video_description
     - field.field.node.course.field_video_thumbnail
@@ -73,8 +80,8 @@ content:
     weight: 100
     region: content
 hidden:
+  field_activities: true
   field_all_year: true
-  field_application_button: true
   field_banner: true
   field_course_type: true
   field_curriculum_themes: true
@@ -97,8 +104,12 @@ hidden:
   field_materials: true
   field_materials_title: true
   field_period: true
+  field_post_processing: true
+  field_practical_info_buttons: true
+  field_preparation: true
   field_price: true
   field_primary_school_subject: true
+  field_purpose: true
   field_quantity: true
   field_quantity_description: true
   field_realted_courses: true
@@ -112,6 +123,9 @@ hidden:
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
   field_target_group: true
+  field_trgt_grp_daycare: true
+  field_trgt_grp_primary_school: true
+  field_trgt_grp_youth_education: true
   field_video: true
   field_video_description: true
   field_video_thumbnail: true

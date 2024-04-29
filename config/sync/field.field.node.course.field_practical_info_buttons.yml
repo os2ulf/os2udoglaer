@@ -1,0 +1,21 @@
+uuid: b49e71de-aad6-4eb0-beea-a58806944425
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_practical_info_buttons
+    - node.type.course
+  module:
+    - options
+id: node.course.field_practical_info_buttons
+field_name: field_practical_info_buttons
+entity_type: node
+bundle: course
+label: Ansøgningsknap
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
