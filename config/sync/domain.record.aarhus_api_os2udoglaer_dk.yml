@@ -1,0 +1,11 @@
+uuid: 673b5c72-64e7-47a8-b883-711235d5ea16
+langcode: da
+status: true
+dependencies: {  }
+id: aarhus_api_os2udoglaer_dk
+domain_id: 10420991
+hostname: aarhus-api.os2udoglaer.dk
+name: Aarhus
+scheme: variable
+weight: 2
+is_default: false

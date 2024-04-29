@@ -1,0 +1,14 @@
+uuid: ba6ef23f-48ce-4b03-8eea-7a2762670bdf
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.aarhus_api_os2udoglaer_dk
+  module:
+    - domain_access
+id: domain_access_add_editor_action.aarhus_api_os2udoglaer_dk
+label: 'Add editors to the Aarhus domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: aarhus_api_os2udoglaer_dk

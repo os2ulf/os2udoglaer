@@ -1,0 +1,9 @@
+uuid: e531e41b-c63f-4c65-8f61-179802c0de12
+langcode: da
+status: true
+dependencies: {  }
+id: aarhus_staging_api_os2udoglaer_dk
+domain_id: aarhus_api_os2udoglaer_dk
+pattern: aarhus-staging-api.os2udoglaer.dk
+redirect: 0
+environment: staging

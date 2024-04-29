@@ -1,0 +1,14 @@
+uuid: 581231bf-c341-4f83-a566-b0514a345e65
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.aarhus_api_os2udoglaer_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.aarhus_api_os2udoglaer_dk
+label: 'Remove selected content from the Aarhus domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: aarhus_api_os2udoglaer_dk
