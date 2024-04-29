@@ -1,0 +1,8 @@
+uuid: a0871add-6149-48e7-a471-002359685706
+langcode: da
+status: true
+dependencies: {  }
+name: 'Målgruppe - Ungdomsuddannelse'
+vid: target_group_youth_education
+description: ''
+weight: 0
