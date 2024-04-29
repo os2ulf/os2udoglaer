@@ -12,6 +12,8 @@ dependencies:
     - field.field.node.course.field_description_of_duration
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
+    - field.field.node.course.field_domain_access
+    - field.field.node.course.field_domain_all_affiliates
     - field.field.node.course.field_duration
     - field.field.node.course.field_duration_unit
     - field.field.node.course.field_faciliteter
@@ -432,5 +434,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
   langcode: true
   search_api_excerpt: true
