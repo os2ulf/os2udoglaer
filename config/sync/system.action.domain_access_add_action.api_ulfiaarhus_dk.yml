@@ -1,14 +1,14 @@
-uuid: 257fd61c-ea1e-405a-9398-ca3725aebd13
+uuid: 0830f37f-f3af-40e8-ba0a-538041ae3d80
 langcode: da
 status: true
 dependencies:
   config:
-    - domain.record.aarhus_api_os2udoglaer_dk
+    - domain.record.api_ulfiaarhus_dk
   module:
     - domain_access
-id: domain_access_add_action.aarhus_api_os2udoglaer_dk
+id: domain_access_add_action.api_ulfiaarhus_dk
 label: 'Add selected content to the Aarhus domain'
 type: node
 plugin: domain_access_add_action
 configuration:
-  domain_id: aarhus_api_os2udoglaer_dk
+  domain_id: api_ulfiaarhus_dk
