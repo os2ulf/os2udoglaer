@@ -1,0 +1,8 @@
+uuid: 748c94b2-c953-4dd8-93c0-d35ad01b4d63
+langcode: da
+status: true
+dependencies: {  }
+name: Tema
+vid: theme
+description: ''
+weight: 0
