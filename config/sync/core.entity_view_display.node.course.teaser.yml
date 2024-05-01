@@ -27,7 +27,6 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
-    - field.field.node.course.field_materials_title
     - field.field.node.course.field_period
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
@@ -103,7 +102,6 @@ hidden:
   field_location_street: true
   field_location_zipcode: true
   field_materials: true
-  field_materials_title: true
   field_period: true
   field_post_processing: true
   field_practical_info_buttons: true

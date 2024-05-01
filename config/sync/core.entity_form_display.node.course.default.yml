@@ -26,7 +26,6 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
-    - field.field.node.course.field_materials_title
     - field.field.node.course.field_period
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
@@ -60,6 +59,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.course
   module:
+    - allowed_formats
     - conditional_fields
     - content_moderation
     - datetime
@@ -67,6 +67,7 @@ dependencies:
     - field_group
     - image
     - link
+    - maxlength
     - paragraphs
     - path
     - text
@@ -201,7 +202,6 @@ third_party_settings:
         required_fields: true
     group_materialer:
       children:
-        - field_materials_title
         - field_materials
       label: Materialer
       region: content
@@ -310,7 +310,16 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_summary: 82
+        maxlength_js_label_summary: 'Begrænset til @limit karakterer, tilgængelige: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
   created:
     type: datetime_timestamp
     weight: 14
@@ -420,14 +429,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_faciliteter:
-    type: entity_reference_autocomplete
+    type: options_buttons
     weight: 54
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_facilities_description:
     type: string_textarea
@@ -512,14 +517,6 @@ content:
         convert: '0'
         duplicate: '0'
     third_party_settings: {  }
-  field_materials_title:
-    type: string_textfield
-    weight: 8
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_period:
     type: daterange_default
     weight: 14
@@ -602,7 +599,25 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        139488b8-81c6-4798-a7a6-e9b5b4c60eda:
+          entity_type: node
+          bundle: course
+          dependee: field_is_free
+          settings:
+            state: visible
+            reset: false
+            condition: '!checked'
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_primary_school_subject:
     type: options_buttons
     weight: 21
@@ -847,7 +862,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_view_on_map:
-    type: options_select
+    type: options_buttons
     weight: 4
     region: content
     settings: {  }
@@ -950,7 +965,11 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      maxlength:
+        maxlength_js: 45
+        maxlength_js_label: 'Begrænset til @limit karakterer, tilgængelige: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
     weight: 13

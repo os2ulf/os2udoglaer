@@ -4,24 +4,37 @@ use Drupal\Core\Form\FormStateInterface;
  * implements hook_field_widget_single_element_paragraphs_form_alter().
  */
 function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
-    // Access the form object, which could be the node form.
-    $form_object = $form_state->getFormObject();
+  // Access the form object, which could be the node form.
+  $form_object = $form_state->getFormObject();
 
-    // Check if the form object is an instance of NodeForm.
-    if ($form_object instanceof \Drupal\node\NodeForm) {
-        // Get the node entity.
-        $node = $form_object->getEntity();
+  // Check if the form object is an instance of NodeForm.
+  if ($form_object instanceof \Drupal\node\NodeForm) {
+    // Get the node entity.
+    $node = $form_object->getEntity();
 
-        // Retrieve the node type.
-        $node_type = $node->getType();
+    // Retrieve the node type.
+    $node_type = $node->getType();
 
-        // Retrieve the paragraph type.
-        $paragraph_type = $element['#paragraph_type'];
+    // Retrieve the paragraph type.
+    $paragraph_type = $element['#paragraph_type'];
 
-        // Now you can use the node type to conditionally alter the paragraph field.
-        if ($node_type == 'internship' && $paragraph_type == 'material') {
-            // Disable the field 'field_literature_suggestion'
-            $element['subform']['field_literature_suggestion']['#access'] = FALSE;
-        }
+    // Now you can use the node type to conditionally alter the paragraph field.
+    if ($node_type == 'internship' && $paragraph_type == 'material') {
+      // Disable the field 'field_literature_suggestion'
+      $element['subform']['field_literature_suggestion']['#access'] = FALSE;
     }
+  }
+}
+
+/**
+ * Implements hook_node_form_alter().
+ */
+function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Check if the form is the node course form or node course edit form and hide the hours and minutes from period field.
+  if (in_array($form_id, array('node_course_form', 'node_course_edit_form'))) {
+    $form['field_period']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_period']['widget'][0]['value']['#date_time_format'] = '';
+    $form['field_period']['widget'][0]['end_value']['#date_time_element'] = 'none';
+    $form['field_period']['widget'][0]['end_value']['#date_time_format'] = '';
+  }
 }

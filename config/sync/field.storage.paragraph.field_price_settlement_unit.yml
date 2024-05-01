@@ -26,6 +26,15 @@ settings:
     -
       value: per_show
       label: 'pr. forestilling'
+    -
+      value: per_day
+      label: 'pr. dag'
+    -
+      value: per_hour
+      label: 'pr. time'
+    -
+      value: per_half_hour
+      label: 'pr. halve time'
   allowed_values_function: ''
 module: options
 locked: false
