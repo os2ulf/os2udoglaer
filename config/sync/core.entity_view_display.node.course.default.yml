@@ -26,7 +26,6 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
-    - field.field.node.course.field_materials_title
     - field.field.node.course.field_period
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
@@ -242,14 +241,6 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 21
-    region: content
-  field_materials_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 139
     region: content
   field_period:
     type: daterange_default
