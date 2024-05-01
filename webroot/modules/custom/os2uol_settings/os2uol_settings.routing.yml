@@ -4,4 +4,4 @@ os2uol_settings.domain_settings:
     _title: 'Domain settings'
     _form: 'Drupal\os2uol_settings\Form\DomainSettingsForm'
   requirements:
-    _permission: 'administer site configuration'
+    _permission: 'use domain config ui'
