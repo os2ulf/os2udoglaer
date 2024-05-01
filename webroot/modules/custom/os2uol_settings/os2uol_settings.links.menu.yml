@@ -1,0 +1,5 @@
+os2uol_settings.domain_settings:
+  title: Domain settings
+  route_name: os2uol_settings.domain_settings
+  parent: system.admin
+  weight: 20

@@ -1,0 +1,23 @@
+# Schema for the configuration files of the OS2UOL Settings module.
+os2uol_settings.settings:
+  type: config_object
+  label: 'OS2UOL Settings settings'
+  mapping:
+    logo:
+      type: string
+      label: 'Logo'
+    font:
+      type: string
+      label: 'Font'
+    primary_background_color:
+      type: string
+      label: 'Primary background color'
+    primary_background_text_color:
+      type: string
+      label: 'Primary background text color'
+    secondary_background_color:
+      type: string
+      label: 'Secondary background color'
+    secondary_background_text_color:
+      type: string
+      label: 'Secondary background text color'
