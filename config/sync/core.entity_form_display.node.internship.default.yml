@@ -10,11 +10,13 @@ dependencies:
     - field.field.node.internship.field_application_title
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
+    - field.field.node.internship.field_banner
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_domain_access
     - field.field.node.internship.field_domain_all_affiliates
     - field.field.node.internship.field_duration
     - field.field.node.internship.field_education_path
+    - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -26,6 +28,7 @@ dependencies:
     - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_periode
+    - field.field.node.internship.field_purpose
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
@@ -63,7 +66,7 @@ third_party_settings:
       label: 'Praktisk information'
       region: content
       parent_name: ''
-      weight: 3
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: ''
@@ -83,7 +86,7 @@ third_party_settings:
       label: Ansøgning
       region: content
       parent_name: ''
-      weight: 6
+      weight: 9
       format_type: fieldset
       format_settings:
         classes: ''
@@ -115,7 +118,7 @@ third_party_settings:
       label: Materialer
       region: content
       parent_name: ''
-      weight: 5
+      weight: 8
       format_type: fieldset
       format_settings:
         classes: ''
@@ -132,7 +135,7 @@ third_party_settings:
       label: 'Alternativ adresse'
       region: content
       parent_name: group_location
-      weight: 3
+      weight: 18
       format_type: fieldset
       format_settings:
         classes: ''
@@ -149,7 +152,7 @@ third_party_settings:
       label: Video
       region: content
       parent_name: ''
-      weight: 4
+      weight: 7
       format_type: fieldset
       format_settings:
         classes: ''
@@ -183,7 +186,7 @@ content:
         maxlength_js_enforce: false
   created:
     type: datetime_timestamp
-    weight: 9
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -227,13 +230,19 @@ content:
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_autocomplete
-    weight: 18
+    weight: 19
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_banner:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_desc_application_procedure:
     type: string_textarea
@@ -245,27 +254,35 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 40
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 41
+    weight: 21
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_duration:
     type: number
-    weight: 15
+    weight: 16
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_education_path:
     type: string_textarea
-    weight: 20
+    weight: 21
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_expectations:
+    type: text_textarea
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -281,7 +298,7 @@ content:
     third_party_settings: {  }
   field_industry:
     type: options_buttons
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -295,7 +312,7 @@ content:
     third_party_settings: {  }
   field_location_description:
     type: string_textarea
-    weight: 2
+    weight: 17
     region: content
     settings:
       rows: 5
@@ -355,7 +372,7 @@ content:
     third_party_settings: {  }
   field_meeting_times:
     type: string_textarea
-    weight: 16
+    weight: 17
     region: content
     settings:
       rows: 5
@@ -364,6 +381,14 @@ content:
   field_periode:
     type: string_textarea
     weight: 14
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_purpose:
+    type: text_textarea
+    weight: 3
     region: content
     settings:
       rows: 5
@@ -385,7 +410,7 @@ content:
     third_party_settings: {  }
   field_todo_list:
     type: string_textarea
-    weight: 17
+    weight: 18
     region: content
     settings:
       rows: 5
@@ -424,8 +449,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_view_on_map:
-    type: options_select
-    weight: 1
+    type: options_buttons
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -459,45 +484,45 @@ content:
               recurse: '0'
   langcode:
     type: language_select
-    weight: 7
+    weight: 10
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 15
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 13
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 11
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 16
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 12
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -516,7 +541,7 @@ content:
         maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -525,7 +550,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 14
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }

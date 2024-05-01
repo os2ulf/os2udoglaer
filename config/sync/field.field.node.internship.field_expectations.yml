@@ -1,9 +1,9 @@
-uuid: 1126d8e4-7f5a-4e87-9e7d-c3d12f3a3bdf
+uuid: 96563914-16a5-419a-8603-90d9f6c58d47
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.body
+    - field.storage.node.field_expectations
     - filter.format.basic_html
     - node.type.internship
   module:
@@ -13,19 +13,17 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - basic_html
-id: node.internship.body
-field_name: body
+id: node.internship.field_expectations
+field_name: field_expectations
 entity_type: node
 bundle: internship
-label: Beskrivelse
+label: Forventninger
 description: ''
-required: true
-translatable: true
+required: false
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  display_summary: true
-  required_summary: false
   allowed_formats:
     - basic_html
-field_type: text_with_summary
+field_type: text_long
