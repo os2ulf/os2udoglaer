@@ -1,16 +1,16 @@
-uuid: f4e78224-dc4f-43ef-9e6c-fbe7596e4abd
+uuid: 0fbd4551-42fa-4287-bb34-752670047329
 langcode: da
 status: true
 dependencies:
   module:
     - node
-    - text
 id: node.field_location_description
 field_name: field_location_description
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

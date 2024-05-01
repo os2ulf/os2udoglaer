@@ -1,18 +1,10 @@
-uuid: 06684761-9611-4542-8800-e210f9392147
+uuid: 0e130679-d479-41ea-bcd8-7994a5aebafb
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_sustainability_goals_desc
-    - filter.format.basic_html
     - node.type.course
-  module:
-    - allowed_formats
-    - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: node.course.field_sustainability_goals_desc
 field_name: field_sustainability_goals_desc
 entity_type: node
@@ -23,7 +15,5 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings:
-  allowed_formats:
-    - basic_html
-field_type: text_long
+settings: {  }
+field_type: string_long

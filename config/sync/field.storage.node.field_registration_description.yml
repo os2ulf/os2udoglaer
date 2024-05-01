@@ -1,16 +1,16 @@
-uuid: 6007bce3-dbd4-401b-a509-21543020ca20
+uuid: c3557deb-d4bd-4f77-a497-9d70f2134f6b
 langcode: da
 status: true
 dependencies:
   module:
     - node
-    - text
 id: node.field_registration_description
 field_name: field_registration_description
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

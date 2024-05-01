@@ -1,16 +1,16 @@
-uuid: a553e0a8-904e-4294-a4e7-11894ef2da1b
+uuid: ae5fef96-107d-422b-847a-a38348d4debb
 langcode: da
 status: true
 dependencies:
   module:
     - node
-    - text
 id: node.field_description_of_price
 field_name: field_description_of_price
 entity_type: node
-type: text_long
-settings: {  }
-module: text
+type: string_long
+settings:
+  case_sensitive: false
+module: core
 locked: false
 cardinality: 1
 translatable: true

@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
+    - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
     - field.field.node.internship.field_location_street
     - field.field.node.internship.field_location_zipcode
@@ -171,6 +172,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 27
+    region: content
+  field_location_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 23
     region: content
   field_location_name:
     type: string

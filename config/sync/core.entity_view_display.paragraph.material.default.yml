@@ -13,7 +13,6 @@ dependencies:
   module:
     - file
     - link
-    - text
 id: paragraph.material.default
 targetEntityType: paragraph
 bundle: material
@@ -28,7 +27,7 @@ content:
     weight: 4
     region: content
   field_material_description:
-    type: text_default
+    type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
