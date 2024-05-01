@@ -49,6 +49,7 @@ class DomainSettingsBlock extends TransformBlockBase {
 
     return [
       'logo' => $logo_url,
+      'font' => $config->get('font'),
       'primary_background_color' => $config->get('primary_background_color'),
       'primary_background_text_color' => $config->get('primary_background_text_color'),
       'secondary_background_color' => $config->get('secondary_background_color'),
@@ -57,7 +58,7 @@ class DomainSettingsBlock extends TransformBlockBase {
   }
 
   public function getCacheTags() {
-    return ['config:os2uol_settings.settings'];
+    return $this->configFactory->get('os2uol_settings.settings')->getCacheTags();
   }
 
 }

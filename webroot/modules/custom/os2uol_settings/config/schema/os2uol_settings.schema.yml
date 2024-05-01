@@ -6,6 +6,9 @@ os2uol_settings.settings:
     logo:
       type: string
       label: 'Logo'
+    font:
+      type: string
+      label: 'Font'
     primary_background_color:
       type: string
       label: 'Primary background color'

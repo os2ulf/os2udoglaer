@@ -44,6 +44,13 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => 'Upload a logo in PNG or SVG format.',
     ];
 
+    $form['font'] = [
+      '#type' => 'select',
+      '#title' => $this->t('Font'),
+      '#options' => os2uol_settings_get_available_fonts(),
+      '#default_value' => $config->get('font'),
+    ];
+
     $form['primary_background_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Primary background color'),
@@ -86,6 +93,7 @@ final class DomainSettingsForm extends ConfigFormBase {
 
     $config
       ->set('logo', reset($logo))
+      ->set('font', $form_state->getValue('font'))
       ->set('primary_background_color', $form_state->getValue('primary_background_color'))
       ->set('primary_background_text_color', $form_state->getValue('primary_background_text_color'))
       ->set('secondary_background_color', $form_state->getValue('secondary_background_color'))
