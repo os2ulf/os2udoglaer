@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.course_educators.field_description_of_duration
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
+    - field.field.node.course_educators.field_description_of_quantity
     - field.field.node.course_educators.field_duration_and_unit
     - field.field.node.course_educators.field_faciliteter
     - field.field.node.course_educators.field_food_service
@@ -27,7 +28,6 @@ dependencies:
     - field.field.node.course_educators.field_price
     - field.field.node.course_educators.field_primary_school_subject
     - field.field.node.course_educators.field_quantity
-    - field.field.node.course_educators.field_quantity_description
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_description
     - field.field.node.course_educators.field_registration_email
@@ -72,6 +72,7 @@ hidden:
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true
+  field_description_of_quantity: true
   field_duration_and_unit: true
   field_faciliteter: true
   field_food_service: true
@@ -87,7 +88,6 @@ hidden:
   field_price: true
   field_primary_school_subject: true
   field_quantity: true
-  field_quantity_description: true
   field_registration_deadline: true
   field_registration_description: true
   field_registration_email: true

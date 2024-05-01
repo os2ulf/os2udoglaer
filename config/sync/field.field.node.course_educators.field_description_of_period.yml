@@ -1,10 +1,18 @@
-uuid: 14d12c32-6724-4a4d-a0fb-1be0feaefe69
+uuid: 4d42ad88-be82-4ca5-b61d-aaa5bfb89a88
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_description_of_period
+    - filter.format.basic_html
     - node.type.course_educators
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
 id: node.course_educators.field_description_of_period
 field_name: field_description_of_period
 entity_type: node
@@ -15,5 +23,7 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

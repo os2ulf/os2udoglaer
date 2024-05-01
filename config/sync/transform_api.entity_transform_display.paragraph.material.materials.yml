@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.material.field_literature_suggestion
-    - field.field.paragraph.material.field_material_description
     - field.field.paragraph.material.field_material_download_text
     - field.field.paragraph.material.field_material_file
     - field.field.paragraph.material.field_material_title
@@ -19,13 +18,6 @@ content:
   field_literature_suggestion:
     type: value
     weight: '5'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_material_description:
-    type: value
-    weight: '0'
     region: content
     label: omit
     settings: {  }

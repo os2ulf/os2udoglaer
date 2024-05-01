@@ -1,16 +1,16 @@
-uuid: d8d22fee-21e7-4343-b494-9b79298604ca
+uuid: cc78d297-c14f-4871-b378-4054aa93daed
 langcode: da
 status: true
 dependencies:
   module:
     - node
+    - text
 id: node.field_description_of_duration
 field_name: field_description_of_duration
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

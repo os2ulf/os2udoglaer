@@ -66,7 +66,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 11
     region: content
   field_all_year:
     type: boolean
@@ -76,7 +76,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 118
+    weight: 21
     region: content
   field_application_button:
     type: boolean
@@ -86,7 +86,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 133
+    weight: 33
     region: content
   field_banner:
     type: entity_reference_label
@@ -94,7 +94,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 102
+    weight: 12
     region: content
   field_course_type:
     type: entity_reference_label
@@ -102,7 +102,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 111
+    weight: 16
     region: content
   field_curriculum_themes:
     type: entity_reference_label
@@ -110,28 +110,28 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 115
+    weight: 20
     region: content
   field_description_of_duration:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 116
+    weight: 41
     region: content
   field_description_of_period:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 119
+    weight: 43
     region: content
   field_description_of_price:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 117
+    weight: 42
     region: content
   field_duration_and_unit:
     type: entity_reference_revisions_entity_view
@@ -140,7 +140,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 140
+    weight: 40
     region: content
   field_faciliteter:
     type: entity_reference_label
@@ -148,14 +148,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 134
+    weight: 34
     region: content
   field_facilities_description:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 132
+    weight: 32
     region: content
   field_image:
     type: image
@@ -166,7 +166,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 19
+    weight: 1
     region: content
   field_is_free:
     type: boolean
@@ -176,7 +176,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 110
+    weight: 15
     region: content
   field_location_city:
     type: string
@@ -184,14 +184,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 27
+    weight: 8
     region: content
   field_location_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 23
+    weight: 9
     region: content
   field_location_name:
     type: string
@@ -199,7 +199,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 24
+    weight: 5
     region: content
   field_location_street:
     type: string
@@ -207,7 +207,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 25
+    weight: 6
     region: content
   field_location_zipcode:
     type: string
@@ -215,7 +215,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 26
+    weight: 7
     region: content
   field_materials:
     type: entity_reference_revisions_entity_view
@@ -224,7 +224,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 21
+    weight: 3
     region: content
   field_materials_title:
     type: string
@@ -232,7 +232,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 139
+    weight: 39
     region: content
   field_period:
     type: daterange_default
@@ -242,7 +242,7 @@ content:
       format_type: medium
       separator: '-'
     third_party_settings: {  }
-    weight: 120
+    weight: 22
     region: content
   field_price:
     type: entity_reference_revisions_entity_view
@@ -251,7 +251,7 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 130
+    weight: 31
     region: content
   field_primary_school_subject:
     type: entity_reference_label
@@ -259,7 +259,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 113
+    weight: 18
     region: content
   field_quantity:
     type: number_integer
@@ -268,14 +268,14 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 4
+    weight: 0
     region: content
   field_quantity_description:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 107
+    weight: 14
     region: content
   field_realted_courses:
     type: entity_reference_label
@@ -283,7 +283,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 135
+    weight: 35
     region: content
   field_registration_deadline:
     type: datetime_default
@@ -292,21 +292,21 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 123
+    weight: 24
     region: content
   field_registration_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 122
+    weight: 23
     region: content
   field_registration_email:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 126
+    weight: 27
     region: content
   field_registration_phone:
     type: string
@@ -314,7 +314,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 127
+    weight: 28
     region: content
   field_registration_title:
     type: string
@@ -322,7 +322,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 124
+    weight: 25
     region: content
   field_registration_url:
     type: string
@@ -330,7 +330,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 125
+    weight: 26
     region: content
   field_subject:
     type: entity_reference_label
@@ -338,7 +338,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 106
+    weight: 13
     region: content
   field_sustainability_goals:
     type: entity_reference_label
@@ -346,14 +346,14 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 128
+    weight: 29
     region: content
   field_sustainability_goals_desc:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 129
+    weight: 30
     region: content
   field_target_group:
     type: entity_reference_label
@@ -361,7 +361,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 112
+    weight: 17
     region: content
   field_video:
     type: link
@@ -373,14 +373,14 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 20
+    weight: 2
     region: content
   field_video_description:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 137
+    weight: 37
     region: content
   field_video_thumbnail:
     type: image
@@ -391,7 +391,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 138
+    weight: 38
     region: content
   field_video_title:
     type: string
@@ -399,14 +399,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 136
+    weight: 36
     region: content
   field_view_on_map:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 22
+    weight: 4
     region: content
   field_youth_education_subject:
     type: entity_reference_label
@@ -414,12 +414,12 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 114
+    weight: 19
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 10
     region: content
 hidden:
   langcode: true

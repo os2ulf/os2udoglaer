@@ -250,8 +250,6 @@ third_party_settings:
     group_duration:
       children:
         - field_duration_and_unit
-        - field_duration
-        - field_duration_unit
         - field_description_of_duration
       label: Varighed
       region: content
@@ -343,7 +341,7 @@ content:
     third_party_settings: {  }
   field_course_type:
     type: options_buttons
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -373,24 +371,24 @@ content:
             effect_options: {  }
             selector: ''
   field_description_of_duration:
-    type: string_textarea
-    weight: 14
+    type: text_textarea
+    weight: 48
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_description_of_period:
-    type: string_textarea
-    weight: 12
+    type: text_textarea
+    weight: 56
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_description_of_price:
-    type: string_textarea
-    weight: 12
+    type: text_textarea
+    weight: 11
     region: content
     settings:
       rows: 5
@@ -456,8 +454,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_location_description:
-    type: string_textarea
-    weight: 5
+    type: text_textarea
+    weight: 64
     region: content
     settings:
       rows: 5
@@ -584,14 +582,14 @@ content:
             selector: ''
   field_quantity:
     type: number
-    weight: 13
+    weight: 12
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_quantity_description:
     type: string_textarea
-    weight: 14
+    weight: 13
     region: content
     settings:
       rows: 5
@@ -614,8 +612,8 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_registration_description:
-    type: string_textarea
-    weight: 13
+    type: text_textarea
+    weight: 58
     region: content
     settings:
       rows: 5
@@ -655,7 +653,7 @@ content:
     third_party_settings: {  }
   field_subject:
     type: options_buttons
-    weight: 15
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -666,8 +664,8 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_sustainability_goals_desc:
-    type: string_textarea
-    weight: 48
+    type: text_textarea
+    weight: 57
     region: content
     settings:
       rows: 5
@@ -675,7 +673,7 @@ content:
     third_party_settings: {  }
   field_target_group:
     type: options_buttons
-    weight: 17
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }

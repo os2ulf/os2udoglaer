@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.course_educators.field_description_of_duration
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
+    - field.field.node.course_educators.field_description_of_quantity
     - field.field.node.course_educators.field_duration_and_unit
     - field.field.node.course_educators.field_faciliteter
     - field.field.node.course_educators.field_food_service
@@ -26,7 +27,6 @@ dependencies:
     - field.field.node.course_educators.field_price
     - field.field.node.course_educators.field_primary_school_subject
     - field.field.node.course_educators.field_quantity
-    - field.field.node.course_educators.field_quantity_description
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_description
     - field.field.node.course_educators.field_registration_email
@@ -63,12 +63,12 @@ third_party_settings:
         - field_primary_school_subject
         - field_youth_education_subject
         - field_quantity
-        - field_quantity_description
+        - field_description_of_quantity
         - field_contact
       label: 'Praktisk information'
       region: content
       parent_name: ''
-      weight: 16
+      weight: 14
       format_type: fieldset
       format_settings:
         classes: ''
@@ -80,13 +80,13 @@ third_party_settings:
       children:
         - field_is_free
         - field_price
-        - field_duration_and_unit
         - field_description_of_price
+        - field_duration_and_unit
         - field_description_of_duration
       label: 'Varighed og pris'
       region: content
       parent_name: ''
-      weight: 17
+      weight: 15
       format_type: fieldset
       format_settings:
         classes: ''
@@ -102,7 +102,7 @@ third_party_settings:
       label: Periode
       region: content
       parent_name: ''
-      weight: 18
+      weight: 16
       format_type: fieldset
       format_settings:
         classes: ''
@@ -117,7 +117,7 @@ third_party_settings:
       label: Verdensmål
       region: content
       parent_name: ''
-      weight: 19
+      weight: 17
       format_type: fieldset
       format_settings:
         classes: ''
@@ -136,7 +136,7 @@ third_party_settings:
       label: Tilmelding
       region: content
       parent_name: ''
-      weight: 20
+      weight: 18
       format_type: fieldset
       format_settings:
         classes: ''
@@ -149,7 +149,7 @@ third_party_settings:
       label: Pretix
       region: content
       parent_name: ''
-      weight: 21
+      weight: 19
       format_type: fieldset
       format_settings:
         classes: ''
@@ -165,7 +165,7 @@ third_party_settings:
       label: Billeder/medier
       region: content
       parent_name: ''
-      weight: 22
+      weight: 20
       format_type: fieldset
       format_settings:
         classes: ''
@@ -179,7 +179,7 @@ third_party_settings:
       label: Materialer
       region: content
       parent_name: ''
-      weight: 23
+      weight: 21
       format_type: fieldset
       format_settings:
         classes: ''
@@ -192,7 +192,7 @@ third_party_settings:
       label: 'Yderligere information'
       region: content
       parent_name: ''
-      weight: 24
+      weight: 22
       format_type: fieldset
       format_settings:
         classes: ''
@@ -211,7 +211,7 @@ third_party_settings:
       label: Lokation
       region: content
       parent_name: ''
-      weight: 27
+      weight: 25
       format_type: fieldset
       format_settings:
         classes: ''
@@ -224,7 +224,7 @@ third_party_settings:
       label: Kontaktformular
       region: content
       parent_name: ''
-      weight: 28
+      weight: 26
       format_type: fieldset
       format_settings:
         classes: ''
@@ -239,7 +239,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 14
+    weight: 12
     region: content
     settings:
       rows: 9
@@ -295,7 +295,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_description_of_duration:
-    type: string_textarea
+    type: text_textarea
     weight: 16
     region: content
     settings:
@@ -303,16 +303,24 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_description_of_period:
-    type: string_textarea
-    weight: 11
+    type: text_textarea
+    weight: 56
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_description_of_price:
-    type: string_textarea
-    weight: 15
+    type: text_textarea
+    weight: 14
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_quantity:
+    type: text_textarea
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -320,7 +328,7 @@ content:
     third_party_settings: {  }
   field_duration_and_unit:
     type: paragraphs
-    weight: 14
+    weight: 15
     region: content
     settings:
       title: Paragraph
@@ -338,7 +346,7 @@ content:
     third_party_settings: {  }
   field_faciliteter:
     type: entity_reference_autocomplete
-    weight: 25
+    weight: 23
     region: content
     settings:
       match_operator: CONTAINS
@@ -347,8 +355,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_food_service:
-    type: string_textarea
-    weight: 26
+    type: text_textarea
+    weight: 24
     region: content
     settings:
       rows: 5
@@ -378,8 +386,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_location_description:
-    type: string_textarea
-    weight: 9
+    type: text_textarea
+    weight: 64
     region: content
     settings:
       rows: 5
@@ -488,23 +496,15 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_quantity_description:
-    type: string_textarea
-    weight: 5
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_registration_deadline:
     type: datetime_default
-    weight: 17
+    weight: 59
     region: content
     settings: {  }
     third_party_settings: {  }
   field_registration_description:
-    type: string_textarea
-    weight: 16
+    type: text_textarea
+    weight: 58
     region: content
     settings:
       rows: 5
@@ -512,7 +512,7 @@ content:
     third_party_settings: {  }
   field_registration_email:
     type: email_default
-    weight: 20
+    weight: 62
     region: content
     settings:
       placeholder: ''
@@ -520,7 +520,7 @@ content:
     third_party_settings: {  }
   field_registration_phone:
     type: string_textfield
-    weight: 21
+    weight: 63
     region: content
     settings:
       size: 60
@@ -528,7 +528,7 @@ content:
     third_party_settings: {  }
   field_registration_title:
     type: string_textfield
-    weight: 18
+    weight: 60
     region: content
     settings:
       size: 60
@@ -536,7 +536,7 @@ content:
     third_party_settings: {  }
   field_registration_url:
     type: string_textfield
-    weight: 19
+    weight: 61
     region: content
     settings:
       size: 60
@@ -559,8 +559,8 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_sustainability_goals_desc:
-    type: string_textarea
-    weight: 47
+    type: text_textarea
+    weight: 57
     region: content
     settings:
       rows: 5
@@ -568,7 +568,7 @@ content:
     third_party_settings: {  }
   field_theme:
     type: options_select
-    weight: 15
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -613,7 +613,7 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 12
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -637,7 +637,7 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 13
+    weight: 11
     region: content
     settings:
       display_label: true
@@ -668,7 +668,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 11
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

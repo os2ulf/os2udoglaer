@@ -1,12 +1,12 @@
-uuid: a553e0a8-904e-4294-a4e7-11894ef2da1b
+uuid: 04992bea-0cc8-42c3-8ff2-d8535b2ff667
 langcode: da
 status: true
 dependencies:
   module:
     - node
     - text
-id: node.field_description_of_price
-field_name: field_description_of_price
+id: node.field_description_of_quantity
+field_name: field_description_of_quantity
 entity_type: node
 type: text_long
 settings: {  }

@@ -1,16 +1,16 @@
-uuid: 2c2224fb-c205-4d64-bc17-3aa34471a1e4
+uuid: 68cc5d53-b032-49c5-b1df-50ad27af1400
 langcode: da
 status: true
 dependencies:
   module:
     - node
+    - text
 id: node.field_description_of_period
 field_name: field_description_of_period
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

@@ -1,10 +1,18 @@
-uuid: d4247266-3abc-4122-85bc-892067add402
+uuid: 557b8fb4-e0f2-4ac4-9f30-8d18c2ed745c
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_registration_description
+    - filter.format.basic_html
     - node.type.course
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
 id: node.course.field_registration_description
 field_name: field_registration_description
 entity_type: node
@@ -15,5 +23,7 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

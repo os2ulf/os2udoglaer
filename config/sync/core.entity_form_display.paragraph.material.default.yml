@@ -13,6 +13,7 @@ dependencies:
   module:
     - file
     - link
+    - text
 id: paragraph.material.default
 targetEntityType: paragraph
 bundle: material
@@ -27,8 +28,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_material_description:
-    type: string_textarea
-    weight: 1
+    type: text_textarea
+    weight: 0
     region: content
     settings:
       rows: 5
@@ -51,7 +52,7 @@ content:
     third_party_settings: {  }
   field_material_title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
