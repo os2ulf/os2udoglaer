@@ -1,0 +1,21 @@
+uuid: 7633fdde-dbdf-4a29-81f1-46fd278ff42b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_duration_unit
+    - paragraphs.paragraphs_type.duration_paragraph
+  module:
+    - options
+id: paragraph.duration_paragraph.field_duration_unit
+field_name: field_duration_unit
+entity_type: paragraph
+bundle: duration_paragraph
+label: Enhed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

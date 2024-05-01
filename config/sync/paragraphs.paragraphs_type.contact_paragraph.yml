@@ -1,0 +1,10 @@
+uuid: b2ac09fe-609b-4b8b-b699-a5a41903871c
+langcode: da
+status: true
+dependencies: {  }
+id: contact_paragraph
+label: Kontakt
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

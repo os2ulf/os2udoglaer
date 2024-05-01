@@ -1,0 +1,21 @@
+uuid: 366a5771-25d3-4acc-aca3-a471b4dce932
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_view_on_map
+    - node.type.course_educators
+  module:
+    - options
+id: node.course_educators.field_view_on_map
+field_name: field_view_on_map
+entity_type: node
+bundle: course_educators
+label: 'Visning på kort'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

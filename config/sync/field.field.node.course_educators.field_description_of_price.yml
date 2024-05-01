@@ -1,0 +1,19 @@
+uuid: e918df83-6b6f-4d6c-90d6-e04aae912ea0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_of_price
+    - node.type.course_educators
+id: node.course_educators.field_description_of_price
+field_name: field_description_of_price
+entity_type: node
+bundle: course_educators
+label: 'Beskrivelse til pris'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,19 @@
+uuid: 54539849-ef27-475c-9ed0-c8b4c79ee341
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_title
+    - node.type.course_educators
+id: node.course_educators.field_registration_title
+field_name: field_registration_title
+entity_type: node
+bundle: course_educators
+label: Titel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

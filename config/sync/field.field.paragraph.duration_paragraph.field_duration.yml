@@ -1,0 +1,23 @@
+uuid: f38c6295-3a58-45e6-a569-0bf19d71a57a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_duration
+    - paragraphs.paragraphs_type.duration_paragraph
+id: paragraph.duration_paragraph.field_duration
+field_name: field_duration
+entity_type: paragraph
+bundle: duration_paragraph
+label: Duration
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

@@ -1,0 +1,29 @@
+uuid: 850db484-856e-4fe9-98f8-270682e4245e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.duration_paragraph.field_duration
+    - field.field.paragraph.duration_paragraph.field_duration_unit
+    - paragraphs.paragraphs_type.duration_paragraph
+id: paragraph.duration_paragraph.default
+targetEntityType: paragraph
+bundle: duration_paragraph
+mode: default
+content:
+  field_duration:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_duration_unit:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
