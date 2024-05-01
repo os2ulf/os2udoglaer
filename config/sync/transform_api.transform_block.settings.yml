@@ -1,6 +1,6 @@
 uuid: 98fef92c-d69a-4683-8e07-585f2e7e2523
 langcode: da
-status: false
+status: true
 dependencies:
   module:
     - os2uol_settings
