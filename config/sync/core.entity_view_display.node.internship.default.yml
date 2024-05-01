@@ -10,11 +10,13 @@ dependencies:
     - field.field.node.internship.field_application_title
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
+    - field.field.node.internship.field_banner
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_domain_access
     - field.field.node.internship.field_domain_all_affiliates
     - field.field.node.internship.field_duration
     - field.field.node.internship.field_education_path
+    - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -26,6 +28,7 @@ dependencies:
     - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_periode
+    - field.field.node.internship.field_purpose
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
@@ -103,6 +106,14 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
+  field_banner:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
   field_desc_application_procedure:
     type: basic_string
     label: above
@@ -127,6 +138,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 11
+    region: content
+  field_expectations:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 145
     region: content
   field_image:
     type: image
@@ -216,6 +234,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 5
+    region: content
+  field_purpose:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 144
     region: content
   field_quantity:
     type: number_integer
