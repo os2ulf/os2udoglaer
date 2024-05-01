@@ -1,4 +1,7 @@
 _core:
   default_config_hash: UVH1aJ4b44UM-VdPVN7hNNuuVqfReJxwfVeDQH1Hvsk
 langcode: da
-ignored_config_entities: {  }
+mode: simple
+ignored_config_entities:
+  - 'domain.config.*.os2uol_settings.settings'
+  - os2uol_settings.settings
