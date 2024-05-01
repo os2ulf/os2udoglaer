@@ -14,6 +14,7 @@ dependencies:
     - field.field.node.course_educators.field_description_of_price
     - field.field.node.course_educators.field_description_of_quantity
     - field.field.node.course_educators.field_duration_and_unit
+    - field.field.node.course_educators.field_educators_target_group
     - field.field.node.course_educators.field_faciliteter
     - field.field.node.course_educators.field_food_service
     - field.field.node.course_educators.field_image
@@ -74,6 +75,7 @@ hidden:
   field_description_of_price: true
   field_description_of_quantity: true
   field_duration_and_unit: true
+  field_educators_target_group: true
   field_faciliteter: true
   field_food_service: true
   field_image: true
