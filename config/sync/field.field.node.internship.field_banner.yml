@@ -1,0 +1,29 @@
+uuid: 8ba448b0-beec-4641-842f-9e0b8f998e04
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner
+    - node.type.internship
+    - taxonomy.vocabulary.banner
+id: node.internship.field_banner
+field_name: field_banner
+entity_type: node
+bundle: internship
+label: Banner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      banner: banner
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

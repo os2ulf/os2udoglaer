@@ -11,11 +11,13 @@ dependencies:
     - field.field.node.internship.field_application_title
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
+    - field.field.node.internship.field_banner
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_domain_access
     - field.field.node.internship.field_domain_all_affiliates
     - field.field.node.internship.field_duration
     - field.field.node.internship.field_education_path
+    - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -27,6 +29,7 @@ dependencies:
     - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_periode
+    - field.field.node.internship.field_purpose
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
@@ -64,11 +67,13 @@ hidden:
   field_application_title: true
   field_application_url: true
   field_areas_of_interest: true
+  field_banner: true
   field_desc_application_procedure: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_duration: true
   field_education_path: true
+  field_expectations: true
   field_image: true
   field_industry: true
   field_location_city: true
@@ -80,6 +85,7 @@ hidden:
   field_materials_title: true
   field_meeting_times: true
   field_periode: true
+  field_purpose: true
   field_quantity: true
   field_show_application_link: true
   field_todo_list: true

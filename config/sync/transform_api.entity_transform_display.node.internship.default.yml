@@ -10,9 +10,13 @@ dependencies:
     - field.field.node.internship.field_application_title
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
+    - field.field.node.internship.field_banner
     - field.field.node.internship.field_desc_application_procedure
+    - field.field.node.internship.field_domain_access
+    - field.field.node.internship.field_domain_all_affiliates
     - field.field.node.internship.field_duration
     - field.field.node.internship.field_education_path
+    - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -24,6 +28,7 @@ dependencies:
     - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_periode
+    - field.field.node.internship.field_purpose
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
@@ -47,7 +52,7 @@ content:
     third_party_settings: {  }
   field_application_deadline:
     type: datetime_default
-    weight: '19'
+    weight: '22'
     region: content
     label: omit
     settings:
@@ -56,56 +61,71 @@ content:
     third_party_settings: {  }
   field_application_email:
     type: value
-    weight: '22'
+    weight: '25'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_application_phone:
     type: value
-    weight: '23'
+    weight: '26'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_application_title:
     type: value
-    weight: '20'
+    weight: '23'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_application_url:
     type: value
-    weight: '21'
+    weight: '24'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_labels
-    weight: '9'
+    weight: '12'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_banner:
+    type: entity_transform
+    weight: '4'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
   field_desc_application_procedure:
     type: value
-    weight: '18'
+    weight: '21'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_duration:
     type: value
-    weight: '6'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_education_path:
     type: value
-    weight: '11'
+    weight: '14'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_expectations:
+    type: text_format
+    weight: '3'
     region: content
     label: omit
     settings: {  }
@@ -121,49 +141,49 @@ content:
     third_party_settings: {  }
   field_industry:
     type: entity_reference_labels
-    weight: '10'
+    weight: '13'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '28'
+    weight: '31'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_description:
     type: value
-    weight: '3'
+    weight: '6'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_name:
     type: value
-    weight: '25'
+    weight: '28'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '26'
+    weight: '29'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '27'
+    weight: '30'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_materials:
     type: entity_transform
-    weight: '17'
+    weight: '20'
     region: content
     label: omit
     settings:
@@ -171,63 +191,70 @@ content:
     third_party_settings: {  }
   field_materials_title:
     type: value
-    weight: '16'
+    weight: '19'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_meeting_times:
     type: value
-    weight: '7'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_periode:
     type: value
-    weight: '5'
+    weight: '8'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_purpose:
+    type: text_format
+    weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_quantity:
     type: value
-    weight: '4'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_show_application_link:
     type: boolean
-    weight: '24'
+    weight: '27'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_todo_list:
     type: value
-    weight: '8'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video:
     type: link
-    weight: '14'
+    weight: '17'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video_description:
     type: text_format
-    weight: '13'
+    weight: '16'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video_thumbnail:
     type: image_style
-    weight: '15'
+    weight: '18'
     region: content
     label: omit
     settings:
@@ -236,14 +263,14 @@ content:
     third_party_settings: {  }
   field_video_title:
     type: value
-    weight: '12'
+    weight: '15'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_view_on_map:
     type: value
-    weight: '2'
+    weight: '5'
     region: content
     label: omit
     settings: {  }
