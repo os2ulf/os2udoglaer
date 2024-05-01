@@ -13,7 +13,7 @@ id: block_content.spacer.field_height
 field_name: field_height
 entity_type: block_content
 bundle: spacer
-label: Højde
+label: Height
 description: 'Choose the height of the spacer.'
 required: true
 translatable: true

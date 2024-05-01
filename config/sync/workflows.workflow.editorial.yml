@@ -9,53 +9,53 @@ dependencies:
 _core:
   default_config_hash: S15d9uky9v-NcZ8f-mLyK9BwEd4XAbyd7YvqceCbgDM
 id: editorial
-label: Redaktionel
+label: Editorial
 type: content_moderation
 type_settings:
   states:
     archived:
-      label: Arkiveret
+      label: Archived
       weight: 5
       published: false
       default_revision: true
     draft:
-      label: Kladde
+      label: Draft
       weight: -5
       published: false
       default_revision: false
     published:
-      label: Udgivet
+      label: Published
       weight: 0
       published: true
       default_revision: true
   transitions:
     archive:
-      label: Arkivér
+      label: Archive
       from:
         - published
       to: archived
       weight: 2
     archived_draft:
-      label: 'Gendan som kladde'
+      label: 'Restore to Draft'
       from:
         - archived
       to: draft
       weight: 3
     archived_published:
-      label: Gendan
+      label: Restore
       from:
         - archived
       to: published
       weight: 4
     create_new_draft:
-      label: 'Opret ny kladde'
+      label: 'Create New Draft'
       from:
         - draft
         - published
       to: draft
       weight: 0
     publish:
-      label: Udgiv
+      label: Publish
       from:
         - draft
         - published

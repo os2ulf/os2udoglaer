@@ -16,7 +16,7 @@ dependencies:
 _core:
   default_config_hash: sOlnXMKS5-hG-y75Bv3jI8WXnawFRYDJJSYAelOKAlg
 id: wide
-label: Bred
+label: Wide
 image_style_mappings:
   -
     image_mapping_type: image_style

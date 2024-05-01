@@ -10,7 +10,7 @@ id: node.course.field_primary_school_subject
 field_name: field_primary_school_subject
 entity_type: node
 bundle: course
-label: Fag
+label: 'Fag - grundskole'
 description: ''
 required: false
 translatable: false

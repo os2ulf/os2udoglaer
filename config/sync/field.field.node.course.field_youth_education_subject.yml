@@ -10,7 +10,7 @@ id: node.course.field_youth_education_subject
 field_name: field_youth_education_subject
 entity_type: node
 bundle: course
-label: Fag
+label: 'Fag - ungdomsuddannelse'
 description: ''
 required: false
 translatable: false

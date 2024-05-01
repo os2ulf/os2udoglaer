@@ -10,9 +10,9 @@ dependencies:
 _core:
   default_config_hash: Z1Lg95xnf11BTHIugkzple_pdxZdECiqLRcrLVo3bcw
 id: glossary
-label: Ordliste
+label: Glossary
 module: node
-description: 'Alt indhold efter forbogstav.'
+description: 'All content, by letter.'
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -34,7 +34,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-          label: Titel
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -85,7 +85,7 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-          label: Forfatter
+          label: Author
           exclude: false
           alter:
             alter_text: false
@@ -137,7 +137,7 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: field
-          label: 'Seneste opdatering'
+          label: 'Last update'
           exclude: false
           alter:
             alter_text: false
@@ -204,22 +204,22 @@ display:
             previous: ‹‹
           expose:
             items_per_page: false
-            items_per_page_label: 'Antal elementer'
+            items_per_page_label: 'Items per page'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- Alle -'
+            items_per_page_options_all_label: '- All -'
             offset: false
-            offset_label: Forskydning
+            offset_label: Offset
       exposed_form:
         type: basic
         options:
-          submit_button: Udfør
+          submit_button: Apply
           reset_button: false
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       access:
         type: perm
         options:
@@ -373,7 +373,7 @@ display:
       tags: {  }
   attachment_1:
     id: attachment_1
-    display_title: Bilag
+    display_title: Attachment
     display_plugin: attachment
     position: 2
     display_options:
@@ -440,7 +440,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: Side
+    display_title: Page
     display_plugin: page
     position: 1
     display_options:
@@ -451,7 +451,7 @@ display:
       path: glossary
       menu:
         type: normal
-        title: Ordliste
+        title: Glossary
         weight: 0
         menu_name: main
         parent: ''

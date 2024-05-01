@@ -3,7 +3,6 @@ _core:
 langcode: da
 module:
   admin_toolbar: 0
-  admin_toolbar_tools: 0
   allowed_formats: 0
   atoms: 0
   automated_cron: 0
@@ -31,11 +30,6 @@ module:
   datetime: 0
   datetime_range: 0
   dblog: 0
-  domain: 0
-  domain_access: 0
-  domain_alias: 0
-  domain_config: 0
-  domain_config_ui: 0
   dynamic_color: 0
   dynamic_entity_reference: 0
   dynamic_key_value: 0
@@ -62,13 +56,13 @@ module:
   language: 0
   layout_builder: 0
   layout_builder_at: 0
+  layout_builder_block_clone: 0
   layout_builder_modal: 0
   layout_builder_restrictions: 0
   layout_discovery: 0
   link: 0
   linkit: 0
   locale: 0
-  maxlength: 0
   media: 0
   media_icons: 0
   menu_link_content: 0

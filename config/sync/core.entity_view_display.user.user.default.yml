@@ -3,9 +3,6 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_domain_access
-    - field.field.user.user.field_domain_admin
-    - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -31,8 +28,5 @@ content:
     weight: 0
     region: content
 hidden:
-  field_domain_access: true
-  field_domain_admin: true
-  field_domain_all_affiliates: true
   langcode: true
   search_api_excerpt: true

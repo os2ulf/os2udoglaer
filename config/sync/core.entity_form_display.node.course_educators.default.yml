@@ -1,0 +1,675 @@
+uuid: c16472ac-7f87-4171-ab60-abf0a9db033e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.course_educators.body
+    - field.field.node.course_educators.field_all_year
+    - field.field.node.course_educators.field_banner
+    - field.field.node.course_educators.field_contact
+    - field.field.node.course_educators.field_curriculum_themes
+    - field.field.node.course_educators.field_description_of_duration
+    - field.field.node.course_educators.field_description_of_period
+    - field.field.node.course_educators.field_description_of_price
+    - field.field.node.course_educators.field_duration_and_unit
+    - field.field.node.course_educators.field_faciliteter
+    - field.field.node.course_educators.field_food_service
+    - field.field.node.course_educators.field_image
+    - field.field.node.course_educators.field_is_free
+    - field.field.node.course_educators.field_location_city
+    - field.field.node.course_educators.field_location_description
+    - field.field.node.course_educators.field_location_name
+    - field.field.node.course_educators.field_location_street
+    - field.field.node.course_educators.field_location_zipcode
+    - field.field.node.course_educators.field_materials
+    - field.field.node.course_educators.field_period
+    - field.field.node.course_educators.field_price
+    - field.field.node.course_educators.field_primary_school_subject
+    - field.field.node.course_educators.field_quantity
+    - field.field.node.course_educators.field_quantity_description
+    - field.field.node.course_educators.field_registration_deadline
+    - field.field.node.course_educators.field_registration_description
+    - field.field.node.course_educators.field_registration_email
+    - field.field.node.course_educators.field_registration_phone
+    - field.field.node.course_educators.field_registration_title
+    - field.field.node.course_educators.field_registration_url
+    - field.field.node.course_educators.field_subject
+    - field.field.node.course_educators.field_sustainability_goals
+    - field.field.node.course_educators.field_sustainability_goals_desc
+    - field.field.node.course_educators.field_theme
+    - field.field.node.course_educators.field_video
+    - field.field.node.course_educators.field_video_thumbnail
+    - field.field.node.course_educators.field_view_on_map
+    - field.field.node.course_educators.field_youth_education_subject
+    - image.style.thumbnail
+    - node.type.course_educators
+  module:
+    - conditional_fields
+    - content_moderation
+    - datetime
+    - datetime_range
+    - field_group
+    - image
+    - link
+    - paragraphs
+    - path
+    - text
+third_party_settings:
+  field_group:
+    group_practical_information:
+      children:
+        - field_subject
+        - field_curriculum_themes
+        - field_primary_school_subject
+        - field_youth_education_subject
+        - field_quantity
+        - field_quantity_description
+        - field_contact
+      label: 'Praktisk information'
+      region: content
+      parent_name: ''
+      weight: 16
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_duration_and_price:
+      children:
+        - field_is_free
+        - field_price
+        - field_duration_and_unit
+        - field_description_of_price
+        - field_description_of_duration
+      label: 'Varighed og pris'
+      region: content
+      parent_name: ''
+      weight: 17
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_period:
+      children:
+        - field_all_year
+        - field_period
+        - field_description_of_period
+      label: Periode
+      region: content
+      parent_name: ''
+      weight: 18
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_world_goals:
+      children:
+        - field_sustainability_goals
+        - field_sustainability_goals_desc
+      label: Verdensmål
+      region: content
+      parent_name: ''
+      weight: 19
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_sign_up:
+      children:
+        - field_registration_description
+        - field_registration_deadline
+        - field_registration_title
+        - field_registration_url
+        - field_registration_email
+        - field_registration_phone
+      label: Tilmelding
+      region: content
+      parent_name: ''
+      weight: 20
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_pretix:
+      children: {  }
+      label: Pretix
+      region: content
+      parent_name: ''
+      weight: 21
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_medias:
+      children:
+        - field_image
+        - field_video
+        - field_video_thumbnail
+      label: Billeder/medier
+      region: content
+      parent_name: ''
+      weight: 22
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_materials:
+      children:
+        - field_materials
+      label: Materialer
+      region: content
+      parent_name: ''
+      weight: 23
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_additional_information:
+      children: {  }
+      label: 'Yderligere information'
+      region: content
+      parent_name: ''
+      weight: 24
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_location:
+      children:
+        - field_view_on_map
+        - field_location_name
+        - field_location_street
+        - field_location_zipcode
+        - field_location_city
+        - field_location_description
+      label: Lokation
+      region: content
+      parent_name: ''
+      weight: 27
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_contact_form:
+      children: {  }
+      label: Kontaktformular
+      region: content
+      parent_name: ''
+      weight: 28
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: node.course_educators.default
+targetEntityType: node
+bundle: course_educators
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 14
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_all_year:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_banner:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_contact:
+    type: paragraphs
+    weight: 6
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_curriculum_themes:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_duration:
+    type: string_textarea
+    weight: 16
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_period:
+    type: string_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_price:
+    type: string_textarea
+    weight: 15
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_duration_and_unit:
+    type: paragraphs
+    weight: 14
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_faciliteter:
+    type: entity_reference_autocomplete
+    weight: 25
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_food_service:
+    type: string_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_image:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_is_free:
+    type: boolean_checkbox
+    weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_location_city:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_description:
+    type: string_textarea
+    weight: 9
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_name:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_street:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_zipcode:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_materials:
+    type: paragraphs
+    weight: 9
+    region: content
+    settings:
+      title: Materiale
+      title_plural: Materialer
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: button
+      form_display_mode: default
+      default_paragraph_type: material
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        convert: '0'
+        duplicate: '0'
+    third_party_settings: {  }
+  field_period:
+    type: daterange_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        f6b02cd4-0e2a-488c-8c99-4fa591d9e01e:
+          entity_type: node
+          bundle: course
+          dependee: field_all_year
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_price:
+    type: paragraphs
+    weight: 13
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_primary_school_subject:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quantity:
+    type: number
+    weight: 4
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_quantity_description:
+    type: string_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_deadline:
+    type: datetime_default
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_registration_description:
+    type: string_textarea
+    weight: 16
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_email:
+    type: email_default
+    weight: 20
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_registration_phone:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_title:
+    type: string_textfield
+    weight: 18
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_registration_url:
+    type: string_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_subject:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_sustainability_goals:
+    type: options_buttons
+    weight: 46
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sustainability_goals_desc:
+    type: string_textarea
+    weight: 47
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_theme:
+    type: options_select
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_video:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_video_thumbnail:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_view_on_map:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_youth_education_subject:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 1
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    weight: 6
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  simple_sitemap:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

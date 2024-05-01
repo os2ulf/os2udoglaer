@@ -58,5 +58,3 @@ cloneable_entities:
   - entity_transform_display
   - transform_block
   - entity_transform_mode
-  - domain
-  - domain_alias

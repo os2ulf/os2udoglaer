@@ -15,9 +15,7 @@ label: 'Visning på kort'
 description: ''
 required: true
 translatable: false
-default_value:
-  -
-    value: show_vendor_address
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: list_string

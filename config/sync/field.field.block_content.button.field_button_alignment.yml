@@ -13,7 +13,7 @@ id: block_content.button.field_button_alignment
 field_name: field_button_alignment
 entity_type: block_content
 bundle: button
-label: Justering
+label: Alignment
 description: ''
 required: true
 translatable: true

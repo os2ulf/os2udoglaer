@@ -9,7 +9,7 @@ _core:
   default_config_hash: YNrKbYrWWjeubUUM8AsQ19KnX7cU1elACR14CZJHmdg
 id: days
 label: Dage
-category: 'Dato og tid'
+category: 'Date and time'
 likert: false
 options: |
   Sunday: Sunday

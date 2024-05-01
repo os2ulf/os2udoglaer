@@ -1,0 +1,19 @@
+uuid: 0169ad82-b1a6-4a51-9b05-799b16f8a078
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_food_service
+    - node.type.course_educators
+id: node.course_educators.field_food_service
+field_name: field_food_service
+entity_type: node
+bundle: course_educators
+label: Forplejning
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -20,6 +20,6 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  on_label: Tilsluttet
-  off_label: Afbrudt
+  on_label: 'On'
+  off_label: 'Off'
 field_type: boolean

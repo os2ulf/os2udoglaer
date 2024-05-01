@@ -16,7 +16,7 @@ provider: null
 plugin: help_block
 settings:
   id: help_block
-  label: Hjælp
+  label: Help
   label_display: '0'
   provider: help
 visibility: {  }

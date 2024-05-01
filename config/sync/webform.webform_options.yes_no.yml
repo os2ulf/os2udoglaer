@@ -9,7 +9,7 @@ _core:
   default_config_hash: W88NYg31DbaVNQx1Uir_dwwXHVtF09QOq4VBGsH1Snk
 id: yes_no
 label: Ja/nej
-category: Generelt
+category: General
 likert: false
 options: |
   Yes: Yes

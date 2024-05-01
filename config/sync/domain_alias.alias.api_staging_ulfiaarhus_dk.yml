@@ -1,9 +1,0 @@
-uuid: 13547f0f-f439-4049-97e2-dab4d14e96b7
-langcode: da
-status: true
-dependencies: {  }
-id: api_staging_ulfiaarhus_dk
-domain_id: api_ulfiaarhus_dk
-pattern: api-staging.ulfiaarhus.dk
-redirect: 0
-environment: staging

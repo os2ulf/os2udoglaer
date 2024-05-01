@@ -6,7 +6,7 @@ _core:
   default_config_hash: hzgvcRgZHltqWf8hBmttoWh95tCJoPL25lPq9YSIRsY
 id: video
 label: Video
-description: 'En lokal videofil.'
+description: 'A locally hosted video file.'
 source: video_file
 queue_thumbnail_downloads: false
 new_revision: true

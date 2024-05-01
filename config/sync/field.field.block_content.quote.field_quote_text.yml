@@ -11,7 +11,7 @@ id: block_content.quote.field_quote_text
 field_name: field_quote_text
 entity_type: block_content
 bundle: quote
-label: Tekst
+label: Text
 description: ''
 required: false
 translatable: false

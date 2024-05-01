@@ -7,9 +7,9 @@ dependencies:
 _core:
   default_config_hash: t9qu6R6PnnbZNOft0SpIMxwCg6VCfaX3aW2W-NjeFyc
 id: who_s_online
-label: 'Hvem er online'
+label: "Who's online block"
 module: user
-description: 'Viser navnene på de brugere, der senste har været aktive, og det totale antal af aktive brugere.'
+description: 'Shows the user names of the most recently active users, and the total number of active users.'
 tag: default
 base_table: users_field_data
 base_field: uid
@@ -20,7 +20,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Hvem er online'
+      title: "Who's online"
       fields:
         name:
           id: name
@@ -64,13 +64,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Udfør
+          submit_button: Apply
           reset_button: false
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       access:
         type: perm
         options:
@@ -88,7 +88,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'Der er i øjeblikket 0 brugere online.'
+          content: 'There are currently 0 users online.'
           tokenize: false
       sorts:
         access:
@@ -141,8 +141,8 @@ display:
           exposed: false
           expose:
             operator_id: access_op
-            label: 'Seneste tilgang'
-            description: 'En bruger bliver opfattet som online i dette tidsrum efter hun sidst har set en side.'
+            label: 'Last access'
+            description: 'A user is considered online for this long after they have last viewed a page.'
             use_operator: false
             operator: access_op
             operator_limit_selection: false
@@ -197,7 +197,7 @@ display:
           admin_label: ''
           plugin_id: result
           empty: false
-          content: 'Der er i øjeblikket @total brugere online.'
+          content: 'There are currently @total users online.'
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -209,13 +209,13 @@ display:
       tags: {  }
   who_s_online_block:
     id: who_s_online_block
-    display_title: 'Hvem er online'
+    display_title: "Who's online"
     display_plugin: block
     position: 1
     display_options:
-      display_description: 'En liste af indloggede brugere.'
+      display_description: 'A list of users that are currently logged in.'
       display_extenders: {  }
-      block_description: 'Hvem er online'
+      block_description: "Who's online"
     cache_metadata:
       max-age: -1
       contexts:

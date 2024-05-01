@@ -5,7 +5,7 @@ dependencies: {  }
 _core:
   default_config_hash: 6Qope5wG7HUpV0tPOBMtDI_GZkHFcF1Xj4hgD9Cu_hM
 id: image
-label: Billede
+label: Image
 description: 'Use local images for reusable media.'
 source: image
 queue_thumbnail_downloads: false

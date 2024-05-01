@@ -6,8 +6,6 @@ dependencies:
     - core.entity_view_mode.node.inline_navigation
     - field.field.node.page.body
     - field.field.node.page.field_description
-    - field.field.node.page.field_domain_access
-    - field.field.node.page.field_domain_all_affiliates
     - field.field.node.page.field_header
     - field.field.node.page.field_hide_breadcrumb
     - field.field.node.page.field_hide_title
@@ -46,8 +44,6 @@ content:
 hidden:
   body: true
   content_moderation_control: true
-  field_domain_access: true
-  field_domain_all_affiliates: true
   field_header: true
   field_hide_breadcrumb: true
   field_hide_title: true

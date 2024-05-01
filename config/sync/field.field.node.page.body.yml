@@ -13,7 +13,7 @@ id: node.page.body
 field_name: body
 entity_type: node
 bundle: page
-label: Brødtekst
+label: Body
 description: ''
 required: false
 translatable: true

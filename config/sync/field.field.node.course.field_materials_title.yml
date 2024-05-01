@@ -1,0 +1,19 @@
+uuid: 14949a7f-5a1e-4d08-aa94-c235e9dc04e9
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_materials_title
+    - node.type.course
+id: node.course.field_materials_title
+field_name: field_materials_title
+entity_type: node
+bundle: course
+label: Overskrift
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

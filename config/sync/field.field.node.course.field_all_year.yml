@@ -13,9 +13,7 @@ label: 'Hele året'
 description: ''
 required: false
 translatable: false
-default_value:
-  -
-    value: 1
+default_value: {  }
 default_value_callback: ''
 settings:
   on_label: Ja

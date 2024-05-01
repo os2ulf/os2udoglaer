@@ -8,9 +8,9 @@ dependencies:
 _core:
   default_config_hash: EY-z421FF3Y34e-7DRQS59P7C4g7QcCH2eNKoXqEqjw
 id: content
-label: Indhold
+label: Content
 module: node
-description: 'Find og håndtér indhold.'
+description: 'Find and manage content.'
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Indhold
+      title: Content
       fields:
         node_bulk_form:
           id: node_bulk_form
@@ -46,7 +46,7 @@ display:
           entity_type: node
           entity_field: title
           plugin_id: field
-          label: Titel
+          label: Title
           exclude: false
           alter:
             alter_text: false
@@ -132,7 +132,7 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
-          label: Forfatter
+          label: Author
           exclude: false
           alter:
             alter_text: false
@@ -163,8 +163,8 @@ display:
           type: boolean
           settings:
             format: custom
-            format_custom_false: 'Ikke udgivet'
-            format_custom_true: Udgivet
+            format_custom_false: Unpublished
+            format_custom_true: Published
         changed:
           id: changed
           table: node_field_data
@@ -172,7 +172,7 @@ display:
           entity_type: node
           entity_field: changed
           plugin_id: field
-          label: Opdateret
+          label: Updated
           exclude: false
           alter:
             alter_text: false
@@ -251,20 +251,20 @@ display:
         options:
           items_per_page: 50
           tags:
-            next: 'Næste ›'
-            previous: '‹ Forrige'
-            first: '« Første'
-            last: 'Sidste »'
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
       exposed_form:
         type: basic
         options:
           submit_button: Filter
           reset_button: true
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       access:
         type: perm
         options:
@@ -278,7 +278,7 @@ display:
           field: area_text_custom
           plugin_id: text_custom
           empty: true
-          content: 'Der er intet indhold at vise.'
+          content: 'No content available.'
       sorts: {  }
       arguments: {  }
       filters:
@@ -298,7 +298,7 @@ display:
           exposed: true
           expose:
             operator_id: title_op
-            label: Titel
+            label: Title
             description: ''
             use_operator: false
             operator: title_op
@@ -397,7 +397,7 @@ display:
               authenticated: authenticated
           is_grouped: true
           group_info:
-            label: Publiceringsstatus
+            label: 'Published status'
             description: ''
             identifier: status
             optional: true
@@ -408,11 +408,11 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: Udgivet
+                title: Published
                 operator: '='
                 value: '1'
               2:
-                title: 'Ikke udgivet'
+                title: Unpublished
                 operator: '='
                 value: '0'
         langcode:
@@ -594,7 +594,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: Side
+    display_title: Page
     display_plugin: page
     position: 1
     display_options:
@@ -602,15 +602,15 @@ display:
       path: admin/content/node
       menu:
         type: 'default tab'
-        title: Indhold
+        title: Content
         description: ''
         weight: -10
         menu_name: admin
         context: ''
       tab_options:
         type: normal
-        title: Indhold
-        description: 'Find og håndtér indhold'
+        title: Content
+        description: 'Find and manage content'
         weight: -10
         menu_name: admin
     cache_metadata:

@@ -41,6 +41,4 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_literature_suggestion: true
-  field_material_download_text: true
+hidden: {  }

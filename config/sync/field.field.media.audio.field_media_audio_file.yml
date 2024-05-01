@@ -13,7 +13,7 @@ id: media.audio.field_media_audio_file
 field_name: field_media_audio_file
 entity_type: media
 bundle: audio
-label: Lydfil
+label: 'Audio file'
 description: ''
 required: true
 translatable: false

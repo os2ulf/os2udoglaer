@@ -13,7 +13,7 @@ dependencies:
 _core:
   default_config_hash: 7blB3b65_pNl9JfOtjHqKuPZSQtjcDgJd1vwyQPy4r4
 id: authenticated
-label: 'Godkendt bruger'
+label: 'Authenticated user'
 weight: 1
 is_admin: false
 permissions:

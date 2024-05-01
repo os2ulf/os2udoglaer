@@ -1,0 +1,19 @@
+uuid: f604e7ec-a907-4a14-81d2-fdcbe59b5dea
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.contact_paragraph
+id: paragraph.contact_paragraph.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: contact_paragraph
+label: Beskrivelse
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

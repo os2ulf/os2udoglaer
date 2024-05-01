@@ -11,9 +11,9 @@ dependencies:
 _core:
   default_config_hash: Xk6puCoRlHSJG8mU9Zg2iN4fbnzaw2dFolwMfpWxDSE
 id: frontpage
-label: Forside
+label: Frontpage
 module: node
-description: 'Alt indhold som vises på forsiden.'
+description: 'All content promoted to the front page.'
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -34,29 +34,29 @@ display:
           total_pages: 0
           id: 0
           tags:
-            next: 'Næste ›'
-            previous: '‹ Forrige'
-            first: '« Første'
-            last: 'Sidste »'
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
           expose:
             items_per_page: false
-            items_per_page_label: 'Antal elementer'
+            items_per_page_label: 'Items per page'
             items_per_page_options: '5, 10, 25, 50'
             items_per_page_options_all: false
-            items_per_page_options_all_label: '- Alle -'
+            items_per_page_options_all_label: '- All -'
             offset: false
-            offset_label: Forskydning
+            offset_label: Offset
           quantity: 9
       exposed_form:
         type: basic
         options:
-          submit_button: Udfør
+          submit_button: Apply
           reset_button: false
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       access:
         type: perm
         options:
@@ -75,7 +75,7 @@ display:
           plugin_id: text_custom
           label: ''
           empty: true
-          content: 'Der er ikke oprettet noget indhold på forsiden endnu.<br />Læs <a target="_blank" href="https://www.drupal.org/docs/user_guide/en/index.html">manualen</a> for at komme i gang med at bygge din hjemmeside.'
+          content: 'No front page content has been created yet.<br/>Follow the <a target="_blank" href="https://www.drupal.org/docs/user_guide/en/index.html">User Guide</a> to start building your site.'
           tokenize: false
         node_listing_empty:
           id: node_listing_empty
@@ -98,7 +98,7 @@ display:
           plugin_id: title
           label: ''
           empty: true
-          title: 'Velkommen til [site:name]'
+          title: 'Welcome to [site:name]'
       sorts:
         sticky:
           id: sticky
@@ -294,7 +294,7 @@ display:
       tags: {  }
   page_1:
     id: page_1
-    display_title: Side
+    display_title: Page
     display_plugin: page
     position: 1
     display_options:

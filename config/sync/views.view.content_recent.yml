@@ -8,9 +8,9 @@ dependencies:
 _core:
   default_config_hash: MxwbHUmXqKQgTGCTWcMxsfUH9NZJ8ZVqZp6801AOa40
 id: content_recent
-label: 'Seneste indhold'
+label: 'Recent content'
 module: node
-description: 'Seneste indhold.'
+description: 'Recent content.'
 tag: default
 base_table: node_field_data
 base_field: nid
@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Seneste indhold'
+      title: 'Recent content'
       fields:
         title:
           id: title
@@ -131,13 +131,13 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Udfør
+          submit_button: Apply
           reset_button: false
-          reset_button_label: Gendan
-          exposed_sorts_label: 'Sortér efter'
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
           expose_sort_order: true
-          sort_asc_label: Stigende
-          sort_desc_label: Faldende
+          sort_asc_label: Asc
+          sort_desc_label: Desc
       access:
         type: perm
         options:
@@ -155,7 +155,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'Der er intet indhold at vise.'
+          content: 'No content available.'
           tokenize: false
       sorts:
         changed:
@@ -289,7 +289,7 @@ display:
           required: true
       use_more: false
       use_more_always: false
-      use_more_text: Mere
+      use_more_text: More
       link_display: '0'
       link_url: ''
       header: {  }
@@ -306,7 +306,7 @@ display:
       tags: {  }
   block_1:
     id: block_1
-    display_title: Blok
+    display_title: Block
     display_plugin: block
     position: 1
     display_options:

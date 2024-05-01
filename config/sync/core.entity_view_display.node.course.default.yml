@@ -4,18 +4,15 @@ status: true
 dependencies:
   config:
     - field.field.node.course.body
-    - field.field.node.course.field_activities
     - field.field.node.course.field_all_year
+    - field.field.node.course.field_application_button
     - field.field.node.course.field_banner
     - field.field.node.course.field_course_type
     - field.field.node.course.field_curriculum_themes
     - field.field.node.course.field_description_of_duration
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
-    - field.field.node.course.field_domain_access
-    - field.field.node.course.field_domain_all_affiliates
-    - field.field.node.course.field_duration
-    - field.field.node.course.field_duration_unit
+    - field.field.node.course.field_duration_and_unit
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
     - field.field.node.course.field_image
@@ -26,13 +23,10 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
+    - field.field.node.course.field_materials_title
     - field.field.node.course.field_period
-    - field.field.node.course.field_post_processing
-    - field.field.node.course.field_practical_info_buttons
-    - field.field.node.course.field_preparation
     - field.field.node.course.field_price
     - field.field.node.course.field_primary_school_subject
-    - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
     - field.field.node.course.field_quantity_description
     - field.field.node.course.field_realted_courses
@@ -46,10 +40,6 @@ dependencies:
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
-    - field.field.node.course.field_theme
-    - field.field.node.course.field_trgt_grp_daycare
-    - field.field.node.course.field_trgt_grp_primary_school
-    - field.field.node.course.field_trgt_grp_youth_education
     - field.field.node.course.field_video
     - field.field.node.course.field_video_description
     - field.field.node.course.field_video_thumbnail
@@ -78,13 +68,6 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
-  field_activities:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 145
-    region: content
   field_all_year:
     type: boolean
     label: above
@@ -94,6 +77,16 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 118
+    region: content
+  field_application_button:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 133
     region: content
   field_banner:
     type: entity_reference_label
@@ -140,23 +133,14 @@ content:
     third_party_settings: {  }
     weight: 117
     region: content
-  field_duration:
-    type: number_decimal
+  field_duration_and_unit:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 6
-    region: content
-  field_duration_unit:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 131
+    weight: 140
     region: content
   field_faciliteter:
     type: entity_reference_label
@@ -242,6 +226,14 @@ content:
     third_party_settings: {  }
     weight: 21
     region: content
+  field_materials_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 139
+    region: content
   field_period:
     type: daterange_default
     label: above
@@ -251,27 +243,6 @@ content:
       separator: '-'
     third_party_settings: {  }
     weight: 120
-    region: content
-  field_post_processing:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 147
-    region: content
-  field_practical_info_buttons:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 143
-    region: content
-  field_preparation:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 146
     region: content
   field_price:
     type: entity_reference_revisions_entity_view
@@ -289,13 +260,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 113
-    region: content
-  field_purpose:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 144
     region: content
   field_quantity:
     type: number_integer
@@ -399,38 +363,6 @@ content:
     third_party_settings: {  }
     weight: 112
     region: content
-  field_theme:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 148
-    region: content
-  field_trgt_grp_daycare:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 142
-    region: content
-  field_trgt_grp_primary_school:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 140
-    region: content
-  field_trgt_grp_youth_education:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 141
-    region: content
   field_video:
     type: link
     label: above
@@ -490,7 +422,5 @@ content:
     weight: 100
     region: content
 hidden:
-  field_domain_access: true
-  field_domain_all_affiliates: true
   langcode: true
   search_api_excerpt: true
