@@ -2,6 +2,8 @@ _core:
   default_config_hash: NLaEpZGORhGmiczd9IEwXYWLirDcQ6sYqEjig1_Vz4Q
 langcode: da
 regions:
+  header: Header
   content: Content
+  footer: Footer
 default_region: content
 collapse_regions: false
