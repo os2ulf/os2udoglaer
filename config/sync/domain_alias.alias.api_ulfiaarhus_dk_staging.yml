@@ -1,0 +1,9 @@
+uuid: 3a2326bf-a2ed-4f89-9ba0-fd1fb6b5777d
+langcode: da
+status: true
+dependencies: {  }
+id: api_ulfiaarhus_dk_staging
+domain_id: api_ulfiaarhus_dk
+pattern: api.ulfiaarhus.dk.staging-5em2ouy-4yghg26zberzk.eu-5.platformsh.site
+redirect: 0
+environment: staging
