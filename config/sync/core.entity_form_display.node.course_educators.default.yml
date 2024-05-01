@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.course_educators.field_description_of_price
     - field.field.node.course_educators.field_description_of_quantity
     - field.field.node.course_educators.field_duration_and_unit
+    - field.field.node.course_educators.field_educators_target_group
     - field.field.node.course_educators.field_faciliteter
     - field.field.node.course_educators.field_food_service
     - field.field.node.course_educators.field_image
@@ -68,7 +69,7 @@ third_party_settings:
       label: 'Praktisk information'
       region: content
       parent_name: ''
-      weight: 14
+      weight: 15
       format_type: fieldset
       format_settings:
         classes: ''
@@ -86,7 +87,7 @@ third_party_settings:
       label: 'Varighed og pris'
       region: content
       parent_name: ''
-      weight: 15
+      weight: 16
       format_type: fieldset
       format_settings:
         classes: ''
@@ -102,7 +103,7 @@ third_party_settings:
       label: Periode
       region: content
       parent_name: ''
-      weight: 16
+      weight: 17
       format_type: fieldset
       format_settings:
         classes: ''
@@ -117,7 +118,7 @@ third_party_settings:
       label: Verdensmål
       region: content
       parent_name: ''
-      weight: 17
+      weight: 18
       format_type: fieldset
       format_settings:
         classes: ''
@@ -136,7 +137,7 @@ third_party_settings:
       label: Tilmelding
       region: content
       parent_name: ''
-      weight: 18
+      weight: 19
       format_type: fieldset
       format_settings:
         classes: ''
@@ -149,7 +150,7 @@ third_party_settings:
       label: Pretix
       region: content
       parent_name: ''
-      weight: 19
+      weight: 20
       format_type: fieldset
       format_settings:
         classes: ''
@@ -165,7 +166,7 @@ third_party_settings:
       label: Billeder/medier
       region: content
       parent_name: ''
-      weight: 20
+      weight: 21
       format_type: fieldset
       format_settings:
         classes: ''
@@ -179,7 +180,7 @@ third_party_settings:
       label: Materialer
       region: content
       parent_name: ''
-      weight: 21
+      weight: 22
       format_type: fieldset
       format_settings:
         classes: ''
@@ -188,11 +189,13 @@ third_party_settings:
         description: ''
         required_fields: true
     group_additional_information:
-      children: {  }
+      children:
+        - field_faciliteter
+        - field_food_service
       label: 'Yderligere information'
       region: content
       parent_name: ''
-      weight: 22
+      weight: 23
       format_type: fieldset
       format_settings:
         classes: ''
@@ -203,15 +206,12 @@ third_party_settings:
     group_location:
       children:
         - field_view_on_map
-        - field_location_name
-        - field_location_street
-        - field_location_zipcode
-        - field_location_city
+        - group_alternative_address
         - field_location_description
       label: Lokation
       region: content
       parent_name: ''
-      weight: 25
+      weight: 24
       format_type: fieldset
       format_settings:
         classes: ''
@@ -224,7 +224,24 @@ third_party_settings:
       label: Kontaktformular
       region: content
       parent_name: ''
-      weight: 26
+      weight: 25
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_alternative_address:
+      children:
+        - field_location_name
+        - field_location_street
+        - field_location_zipcode
+        - field_location_city
+      label: 'Alternativ adresse'
+      region: content
+      parent_name: group_location
+      weight: 5
       format_type: fieldset
       format_settings:
         classes: ''
@@ -239,7 +256,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 12
+    weight: 2
     region: content
     settings:
       rows: 9
@@ -249,7 +266,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -262,7 +279,7 @@ content:
     third_party_settings: {  }
   field_banner:
     type: options_select
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -344,6 +361,16 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings: {  }
+  field_educators_target_group:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_faciliteter:
     type: entity_reference_autocomplete
     weight: 23
@@ -387,7 +414,7 @@ content:
     third_party_settings: {  }
   field_location_description:
     type: text_textarea
-    weight: 64
+    weight: 6
     region: content
     settings:
       rows: 5
@@ -447,6 +474,23 @@ content:
         f6b02cd4-0e2a-488c-8c99-4fa591d9e01e:
           entity_type: node
           bundle: course
+          dependee: field_all_year
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+        76d57a4e-d09c-42af-ae48-d240fb59d054:
+          entity_type: node
+          bundle: course_educators
           dependee: field_all_year
           settings:
             state: visible
@@ -568,7 +612,7 @@ content:
     third_party_settings: {  }
   field_theme:
     type: options_select
-    weight: 13
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -604,47 +648,75 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  group_alternative_address:
+    weight: 64
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        7a9a9734-48ea-4a52-8055-239d47e22221:
+          entity_type: node
+          bundle: course_educators
+          dependee: field_view_on_map
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: show_alternative_address
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: '0'
+              apply_to_parent: '0'
+              recurse: '0'
   langcode:
     type: language_select
-    weight: 1
+    weight: 5
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 10
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 8
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 6
+    weight: 9
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 5
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 11
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 7
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -659,7 +731,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -668,7 +740,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 9
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
