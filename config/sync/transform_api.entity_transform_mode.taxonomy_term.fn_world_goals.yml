@@ -1,0 +1,10 @@
+uuid: 61df5533-b6bb-477b-a395-a800bb956d67
+langcode: da
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.fn_world_goals
+label: Verdensmål
+targetEntityType: taxonomy_term
+cache: true

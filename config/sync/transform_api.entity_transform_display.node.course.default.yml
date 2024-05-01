@@ -339,11 +339,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_sustainability_goals:
-    type: entity_reference_labels
+    type: entity_transform
     weight: '24'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      transform_mode: fn_world_goals
     third_party_settings: {  }
   field_sustainability_goals_desc:
     type: value

@@ -1,0 +1,24 @@
+uuid: 5f198378-efdb-4ff8-af00-012a1587629c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.sustainability_goal.field_link
+    - field.field.taxonomy_term.sustainability_goal.field_logo
+    - taxonomy.vocabulary.sustainability_goal
+id: taxonomy_term.sustainability_goal.default
+targetEntityType: taxonomy_term
+bundle: sustainability_goal
+mode: default
+content:
+  description:
+    type: text_format
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_link: true
+  field_logo: true
+  langcode: true
