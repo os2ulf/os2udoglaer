@@ -26,7 +26,6 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
-    - field.field.node.course.field_materials_title
     - field.field.node.course.field_period
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
@@ -47,6 +46,7 @@ dependencies:
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
+    - field.field.node.course.field_theme
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
@@ -195,7 +195,6 @@ hidden:
   field_facilities_description: true
   field_location_name: true
   field_materials: true
-  field_materials_title: true
   field_period: true
   field_post_processing: true
   field_practical_info_buttons: true
@@ -214,6 +213,7 @@ hidden:
   field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
+  field_theme: true
   field_video: true
   field_video_description: true
   field_video_thumbnail: true
