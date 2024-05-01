@@ -1,0 +1,17 @@
+uuid: 98fef92c-d69a-4683-8e07-585f2e7e2523
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_settings
+id: settings
+region: header
+weight: '0'
+provider: null
+plugin: domain_settings
+settings:
+  id: domain_settings
+  label: 'Domain Settings'
+  provider: os2uol_settings
+  label_display: null
+visibility: {  }
