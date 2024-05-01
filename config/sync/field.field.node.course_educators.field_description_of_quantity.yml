@@ -1,11 +1,11 @@
-uuid: 06684761-9611-4542-8800-e210f9392147
+uuid: ede127aa-6503-4199-ac64-85bdb78d498e
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_sustainability_goals_desc
+    - field.storage.node.field_description_of_quantity
     - filter.format.basic_html
-    - node.type.course
+    - node.type.course_educators
   module:
     - allowed_formats
     - text
@@ -13,11 +13,11 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - basic_html
-id: node.course.field_sustainability_goals_desc
-field_name: field_sustainability_goals_desc
+id: node.course_educators.field_description_of_quantity
+field_name: field_description_of_quantity
 entity_type: node
-bundle: course
-label: 'Beskrivelse af verdensmål'
+bundle: course_educators
+label: 'Beskrivelse til antal'
 description: ''
 required: false
 translatable: false
