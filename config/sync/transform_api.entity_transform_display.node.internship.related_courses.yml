@@ -175,6 +175,8 @@ hidden:
   field_application_title: true
   field_application_url: true
   field_desc_application_procedure: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
   field_location_name: true
   field_materials_title: true
   field_show_application_link: true
