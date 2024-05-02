@@ -12,28 +12,27 @@ dependencies:
     - field.field.node.internship.field_areas_of_interest
     - field.field.node.internship.field_banner
     - field.field.node.internship.field_desc_application_procedure
+    - field.field.node.internship.field_description_of_period
     - field.field.node.internship.field_domain_access
     - field.field.node.internship.field_domain_all_affiliates
-    - field.field.node.internship.field_duration
+    - field.field.node.internship.field_duration_rte
     - field.field.node.internship.field_education_path
     - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
+    - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
     - field.field.node.internship.field_location_street
     - field.field.node.internship.field_location_zipcode
     - field.field.node.internship.field_materials
-    - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
-    - field.field.node.internship.field_periode
-    - field.field.node.internship.field_purpose
+    - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
-    - field.field.node.internship.field_video_thumbnail
     - field.field.node.internship.field_video_title
     - field.field.node.internship.field_view_on_map
     - node.type.internship
@@ -41,7 +40,6 @@ dependencies:
     - datetime
     - entity_reference_revisions
     - image
-    - link
     - options
     - text
     - user
@@ -114,29 +112,32 @@ content:
     weight: 102
     region: content
   field_desc_application_procedure:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 12
+    weight: 156
     region: content
-  field_duration:
-    type: number_decimal
+  field_description_of_period:
+    type: text_default
     label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
+    settings: {  }
     third_party_settings: {  }
-    weight: 6
+    weight: 152
+    region: content
+  field_duration_rte:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 157
     region: content
   field_education_path:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 11
+    weight: 155
     region: content
   field_expectations:
     type: text_default
@@ -172,6 +173,13 @@ content:
     third_party_settings: {  }
     weight: 27
     region: content
+  field_location_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 149
+    region: content
   field_location_name:
     type: string
     label: above
@@ -205,34 +213,19 @@ content:
     third_party_settings: {  }
     weight: 21
     region: content
-  field_materials_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 139
-    region: content
   field_meeting_times:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_periode:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_purpose:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 144
+    weight: 153
+    region: content
+  field_purpose_internship:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 158
     region: content
   field_quantity:
     type: number_integer
@@ -254,23 +247,20 @@ content:
     weight: 18
     region: content
   field_todo_list:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 8
+    weight: 154
     region: content
   field_video:
-    type: link
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 20
+    weight: 159
     region: content
   field_video_description:
     type: text_default
@@ -278,17 +268,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 137
-    region: content
-  field_video_thumbnail:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 138
     region: content
   field_video_title:
     type: string

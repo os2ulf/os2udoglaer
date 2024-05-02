@@ -1,19 +1,19 @@
-uuid: e1bb9ea6-9ca7-4d0f-a6c9-8bc328492863
+uuid: e438523f-e469-4ce5-b9c1-fb4100976a7b
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_video_thumbnail
-    - node.type.course_educators
+    - field.storage.paragraph.field_video_thumbnail
+    - paragraphs.paragraphs_type.video
   module:
     - image
-id: node.course_educators.field_video_thumbnail
+id: paragraph.video.field_video_thumbnail
 field_name: field_video_thumbnail
-entity_type: node
-bundle: course_educators
+entity_type: paragraph
+bundle: video
 label: 'Video thumbnail'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

@@ -34,7 +34,6 @@ dependencies:
     - field.field.node.course_educators.field_theme
     - field.field.node.course_educators.field_video
     - field.field.node.course_educators.field_video_description
-    - field.field.node.course_educators.field_video_thumbnail
     - field.field.node.course_educators.field_video_title
     - field.field.node.course_educators.field_view_on_map
     - field.field.node.course_educators.field_youth_education_subject
@@ -54,7 +53,7 @@ content:
     third_party_settings: {  }
   field_all_year:
     type: boolean
-    weight: '15'
+    weight: '12'
     region: content
     label: omit
     settings: {  }
@@ -68,7 +67,7 @@ content:
     third_party_settings: {  }
   field_contact:
     type: entity_transform
-    weight: '10'
+    weight: '9'
     region: content
     label: omit
     settings:
@@ -83,14 +82,14 @@ content:
     third_party_settings: {  }
   field_duration:
     type: float
-    weight: '38'
+    weight: '29'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_duration_unit_taxonomy:
     type: entity_transform
-    weight: '41'
+    weight: '32'
     region: content
     label: omit
     settings:
@@ -105,14 +104,14 @@ content:
     third_party_settings: {  }
   field_faciliteter:
     type: entity_reference_labels
-    weight: '30'
+    weight: '22'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_food_service:
     type: plain_text
-    weight: '31'
+    weight: '23'
     region: content
     label: omit
     settings:
@@ -120,7 +119,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: image_style
-    weight: '26'
+    weight: '20'
     region: content
     label: omit
     settings:
@@ -129,42 +128,42 @@ content:
     third_party_settings: {  }
   field_is_free:
     type: boolean
-    weight: '11'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '36'
+    weight: '28'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_name:
     type: value
-    weight: '33'
+    weight: '25'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '34'
+    weight: '26'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '35'
+    weight: '27'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_materials:
     type: entity_transform
-    weight: '29'
+    weight: '21'
     region: content
     label: omit
     settings:
@@ -172,7 +171,7 @@ content:
     third_party_settings: {  }
   field_period:
     type: daterange_default
-    weight: '16'
+    weight: '13'
     region: content
     label: omit
     settings:
@@ -182,7 +181,7 @@ content:
     third_party_settings: {  }
   field_price:
     type: entity_transform
-    weight: '12'
+    weight: '11'
     region: content
     label: omit
     settings:
@@ -204,7 +203,7 @@ content:
     third_party_settings: {  }
   field_registration_deadline:
     type: datetime_default
-    weight: '21'
+    weight: '15'
     region: content
     label: omit
     settings:
@@ -213,28 +212,28 @@ content:
     third_party_settings: {  }
   field_registration_email:
     type: value
-    weight: '24'
+    weight: '18'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_registration_phone:
     type: value
-    weight: '25'
+    weight: '19'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_registration_title:
     type: value
-    weight: '22'
+    weight: '16'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_registration_url:
     type: value
-    weight: '23'
+    weight: '17'
     region: content
     label: omit
     settings: {  }
@@ -248,7 +247,7 @@ content:
     third_party_settings: {  }
   field_sustainability_goals:
     type: entity_transform
-    weight: '18'
+    weight: '14'
     region: content
     label: omit
     settings:
@@ -262,38 +261,30 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_video:
-    type: link
-    weight: '27'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_video_description:
-    type: text_format
-    weight: '39'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_video_thumbnail:
-    type: image_style
-    weight: '28'
+    type: entity_transform
+    weight: '33'
     region: content
     label: omit
     settings:
-      image_style: ''
-      image_link: ''
+      transform_mode: default
+    third_party_settings: {  }
+  field_video_description:
+    type: text_format
+    weight: '30'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_video_title:
     type: value
-    weight: '40'
+    weight: '31'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_view_on_map:
     type: value
-    weight: '32'
+    weight: '24'
     region: content
     label: omit
     settings: {  }

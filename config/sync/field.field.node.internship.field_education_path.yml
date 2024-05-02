@@ -1,10 +1,18 @@
-uuid: 3325c973-5978-4d25-9671-6f62d03c133e
+uuid: 14a221f3-93df-4118-b364-0e27682999f6
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_education_path
+    - filter.format.basic_html
     - node.type.internship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
 id: node.internship.field_education_path
 field_name: field_education_path
 entity_type: node
@@ -15,5 +23,7 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

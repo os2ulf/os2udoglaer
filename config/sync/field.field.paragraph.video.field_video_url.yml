@@ -1,0 +1,23 @@
+uuid: b8bc53b9-ad69-431c-bad8-3b47a0b8c545
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video_url
+    - paragraphs.paragraphs_type.video
+  module:
+    - link
+id: paragraph.video.field_video_url
+field_name: field_video_url
+entity_type: paragraph
+bundle: video
+label: 'Video URL'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

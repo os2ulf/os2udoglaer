@@ -34,7 +34,6 @@ dependencies:
     - field.field.node.course_educators.field_theme
     - field.field.node.course_educators.field_video
     - field.field.node.course_educators.field_video_description
-    - field.field.node.course_educators.field_video_thumbnail
     - field.field.node.course_educators.field_video_title
     - field.field.node.course_educators.field_view_on_map
     - field.field.node.course_educators.field_youth_education_subject
@@ -44,7 +43,6 @@ dependencies:
     - datetime_range
     - entity_reference_revisions
     - image
-    - link
     - options
     - text
     - user
@@ -300,16 +298,13 @@ content:
     weight: 3
     region: content
   field_video:
-    type: link
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 28
+    weight: 159
     region: content
   field_video_description:
     type: text_default
@@ -317,17 +312,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 137
-    region: content
-  field_video_thumbnail:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 29
     region: content
   field_video_title:
     type: string

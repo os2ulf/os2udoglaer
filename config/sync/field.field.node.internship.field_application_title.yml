@@ -9,7 +9,7 @@ id: node.internship.field_application_title
 field_name: field_application_title
 entity_type: node
 bundle: internship
-label: Titel
+label: Linktekst
 description: ''
 required: false
 translatable: false
