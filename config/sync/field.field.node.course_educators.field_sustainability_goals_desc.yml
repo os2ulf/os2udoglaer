@@ -1,0 +1,29 @@
+uuid: de38f661-2476-4a88-a9ab-b607161d4887
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sustainability_goals_desc
+    - filter.format.basic_html
+    - node.type.course_educators
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.course_educators.field_sustainability_goals_desc
+field_name: field_sustainability_goals_desc
+entity_type: node
+bundle: course_educators
+label: 'Beskrivelse af verdensmål'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

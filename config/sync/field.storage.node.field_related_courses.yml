@@ -1,11 +1,11 @@
-uuid: 00fd0d7c-45d4-4fe5-bb43-104418050282
+uuid: 338b8e5b-0db4-40a1-9b14-eab4af938a55
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_realted_courses
-field_name: field_realted_courses
+id: node.field_related_courses
+field_name: field_related_courses
 entity_type: node
 type: entity_reference
 settings:

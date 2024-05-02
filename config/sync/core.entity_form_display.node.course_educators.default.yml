@@ -8,6 +8,9 @@ dependencies:
     - field.field.node.course_educators.field_banner
     - field.field.node.course_educators.field_contact
     - field.field.node.course_educators.field_curriculum_themes
+    - field.field.node.course_educators.field_description_of_duration
+    - field.field.node.course_educators.field_description_of_period
+    - field.field.node.course_educators.field_description_of_price
     - field.field.node.course_educators.field_duration
     - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
@@ -16,6 +19,7 @@ dependencies:
     - field.field.node.course_educators.field_image
     - field.field.node.course_educators.field_is_free
     - field.field.node.course_educators.field_location_city
+    - field.field.node.course_educators.field_location_description
     - field.field.node.course_educators.field_location_name
     - field.field.node.course_educators.field_location_street
     - field.field.node.course_educators.field_location_zipcode
@@ -24,13 +28,16 @@ dependencies:
     - field.field.node.course_educators.field_price
     - field.field.node.course_educators.field_primary_school_subject
     - field.field.node.course_educators.field_quantity
+    - field.field.node.course_educators.field_quantity_description
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_email
     - field.field.node.course_educators.field_registration_phone
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
+    - field.field.node.course_educators.field_related_courses
     - field.field.node.course_educators.field_subject
     - field.field.node.course_educators.field_sustainability_goals
+    - field.field.node.course_educators.field_sustainability_goals_desc
     - field.field.node.course_educators.field_theme
     - field.field.node.course_educators.field_video
     - field.field.node.course_educators.field_video_description
@@ -80,6 +87,7 @@ third_party_settings:
       children:
         - field_all_year
         - field_period
+        - field_description_of_period
       label: Periode
       region: content
       parent_name: group_practical_information
@@ -94,6 +102,7 @@ third_party_settings:
     group_world_goals:
       children:
         - field_sustainability_goals
+        - field_sustainability_goals_desc
       label: Verdensmål
       region: content
       parent_name: group_practical_information
@@ -142,6 +151,7 @@ third_party_settings:
       children:
         - field_view_on_map
         - group_alternative_address
+        - field_location_description
       label: Lokation
       region: content
       parent_name: group_practical_information
@@ -190,6 +200,7 @@ third_party_settings:
       children:
         - field_duration
         - field_duration_unit_taxonomy
+        - field_description_of_duration
       label: Varighed
       region: content
       parent_name: group_practical_information
@@ -205,7 +216,9 @@ third_party_settings:
       children:
         - field_is_free
         - field_price
+        - field_description_of_price
         - field_quantity
+        - field_quantity_description
       label: Pris
       region: content
       parent_name: group_practical_information
@@ -284,6 +297,30 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_description_of_duration:
+    type: text_textarea
+    weight: 18
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_period:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_price:
+    type: text_textarea
+    weight: 14
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_duration:
     type: number
     weight: 16
@@ -338,6 +375,14 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_description:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_location_name:
@@ -457,6 +502,14 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_quantity_description:
+    type: text_textarea
+    weight: 16
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_registration_deadline:
     type: datetime_default
     weight: 60
@@ -495,6 +548,16 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_related_courses:
+    type: entity_reference_autocomplete
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_subject:
     type: options_buttons
     weight: 7
@@ -506,6 +569,14 @@ content:
     weight: 46
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_sustainability_goals_desc:
+    type: text_textarea
+    weight: 47
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
   field_theme:
     type: options_select

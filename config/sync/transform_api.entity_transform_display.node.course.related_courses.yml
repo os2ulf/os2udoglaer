@@ -35,7 +35,6 @@ dependencies:
     - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
     - field.field.node.course.field_quantity_description
-    - field.field.node.course.field_realted_courses
     - field.field.node.course.field_registration_deadline
     - field.field.node.course.field_registration_description
     - field.field.node.course.field_registration_email
@@ -50,6 +49,7 @@ dependencies:
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
+    - field.field.node.course.field_video
     - field.field.node.course.field_video_description
     - field.field.node.course.field_video_title
     - field.field.node.course.field_view_on_map
@@ -206,7 +206,6 @@ hidden:
   field_purpose: true
   field_quantity: true
   field_quantity_description: true
-  field_realted_courses: true
   field_registration_deadline: true
   field_registration_description: true
   field_registration_email: true
@@ -216,6 +215,7 @@ hidden:
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
   field_theme: true
+  field_video: true
   field_video_description: true
   field_video_title: true
   langcode: true

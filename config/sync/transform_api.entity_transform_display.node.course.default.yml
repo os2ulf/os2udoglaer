@@ -35,13 +35,13 @@ dependencies:
     - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
     - field.field.node.course.field_quantity_description
-    - field.field.node.course.field_realted_courses
     - field.field.node.course.field_registration_deadline
     - field.field.node.course.field_registration_description
     - field.field.node.course.field_registration_email
     - field.field.node.course.field_registration_phone
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
+    - field.field.node.course.field_related_courses
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
@@ -70,7 +70,7 @@ content:
     third_party_settings: {  }
   field_activities:
     type: text_format
-    weight: '34'
+    weight: '33'
     region: content
     label: omit
     settings: {  }
@@ -105,21 +105,21 @@ content:
     third_party_settings: {  }
   field_description_of_duration:
     type: text_format
-    weight: '40'
+    weight: '39'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_description_of_period:
     type: text_format
-    weight: '41'
+    weight: '40'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_description_of_price:
     type: text_format
-    weight: '42'
+    weight: '41'
     region: content
     label: omit
     settings: {  }
@@ -147,7 +147,7 @@ content:
     third_party_settings: {  }
   field_facilities_description:
     type: text_format
-    weight: '43'
+    weight: '42'
     region: content
     label: omit
     settings: {  }
@@ -170,35 +170,35 @@ content:
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '31'
+    weight: '30'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_description:
     type: text_format
-    weight: '44'
+    weight: '43'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_name:
     type: value
-    weight: '28'
+    weight: '27'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '29'
+    weight: '28'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '30'
+    weight: '29'
     region: content
     label: omit
     settings: {  }
@@ -223,21 +223,21 @@ content:
     third_party_settings: {  }
   field_post_processing:
     type: text_format
-    weight: '36'
+    weight: '35'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_practical_info_buttons:
     type: value
-    weight: '32'
+    weight: '31'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_preparation:
     type: text_format
-    weight: '35'
+    weight: '34'
     region: content
     label: omit
     settings: {  }
@@ -259,7 +259,7 @@ content:
     third_party_settings: {  }
   field_purpose:
     type: text_format
-    weight: '33'
+    weight: '32'
     region: content
     label: omit
     settings: {  }
@@ -273,18 +273,10 @@ content:
     third_party_settings: {  }
   field_quantity_description:
     type: text_format
-    weight: '45'
+    weight: '44'
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_realted_courses:
-    type: entity_transform
-    weight: '27'
-    region: content
-    label: omit
-    settings:
-      transform_mode: related_courses
     third_party_settings: {  }
   field_registration_deadline:
     type: datetime_default
@@ -297,7 +289,7 @@ content:
     third_party_settings: {  }
   field_registration_description:
     type: text_format
-    weight: '46'
+    weight: '45'
     region: content
     label: omit
     settings: {  }
@@ -330,6 +322,14 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_related_courses:
+    type: entity_transform
+    weight: '49'
+    region: content
+    label: omit
+    settings:
+      transform_mode: related_courses
+    third_party_settings: {  }
   field_subject:
     type: entity_reference_labels
     weight: '7'
@@ -347,7 +347,7 @@ content:
     third_party_settings: {  }
   field_sustainability_goals_desc:
     type: text_format
-    weight: '47'
+    weight: '46'
     region: content
     label: omit
     settings: {  }
@@ -361,35 +361,35 @@ content:
     third_party_settings: {  }
   field_theme:
     type: entity_reference_labels
-    weight: '48'
+    weight: '47'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_daycare:
     type: entity_reference_labels
-    weight: '37'
+    weight: '36'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_primary_school:
     type: entity_reference_labels
-    weight: '38'
+    weight: '37'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_youth_education:
     type: entity_reference_labels
-    weight: '39'
+    weight: '38'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video:
     type: entity_transform
-    weight: '49'
+    weight: '48'
     region: content
     label: omit
     settings:

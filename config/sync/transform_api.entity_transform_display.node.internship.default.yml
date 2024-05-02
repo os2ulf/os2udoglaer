@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
+    - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
@@ -213,6 +214,14 @@ content:
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_related_courses:
+    type: entity_transform
+    weight: '30'
+    region: content
+    label: omit
+    settings:
+      transform_mode: related_courses
     third_party_settings: {  }
   field_show_application_link:
     type: boolean

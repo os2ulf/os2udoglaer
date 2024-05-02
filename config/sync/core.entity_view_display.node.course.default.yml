@@ -35,13 +35,13 @@ dependencies:
     - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
     - field.field.node.course.field_quantity_description
-    - field.field.node.course.field_realted_courses
     - field.field.node.course.field_registration_deadline
     - field.field.node.course.field_registration_description
     - field.field.node.course.field_registration_email
     - field.field.node.course.field_registration_phone
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
+    - field.field.node.course.field_related_courses
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
@@ -311,14 +311,6 @@ content:
     third_party_settings: {  }
     weight: 151
     region: content
-  field_realted_courses:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 135
-    region: content
   field_registration_deadline:
     type: datetime_default
     label: above
@@ -365,6 +357,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 125
+    region: content
+  field_related_courses:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 160
     region: content
   field_subject:
     type: entity_reference_label
