@@ -1,16 +1,16 @@
-uuid: 91e6bfb9-dd1c-4a18-8ccd-6a98f6e6150a
+uuid: e81614aa-0246-4960-9413-a4ac26666116
 langcode: da
 status: true
 dependencies:
   module:
-    - node
-    - text
-id: node.field_education_path
-field_name: field_education_path
-entity_type: node
-type: text_long
+    - link
+    - paragraphs
+id: paragraph.field_video_url
+field_name: field_video_url
+entity_type: paragraph
+type: link
 settings: {  }
-module: text
+module: link
 locked: false
 cardinality: 1
 translatable: true

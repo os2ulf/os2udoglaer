@@ -1,12 +1,12 @@
-uuid: 91e6bfb9-dd1c-4a18-8ccd-6a98f6e6150a
+uuid: f1e39cea-03e5-4a71-8627-50a922791963
 langcode: da
 status: true
 dependencies:
   module:
     - node
     - text
-id: node.field_education_path
-field_name: field_education_path
+id: node.field_duration_rte
+field_name: field_duration_rte
 entity_type: node
 type: text_long
 settings: {  }

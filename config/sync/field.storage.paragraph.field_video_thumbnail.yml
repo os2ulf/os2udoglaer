@@ -1,14 +1,14 @@
-uuid: 0f4a8930-b3bf-4d6a-8d70-20af2c17f99e
+uuid: 3578c065-c88f-4a28-ae2d-3ad1ae7a7a04
 langcode: da
 status: true
 dependencies:
   module:
     - file
     - image
-    - node
-id: node.field_video_thumbnail
+    - paragraphs
+id: paragraph.field_video_thumbnail
 field_name: field_video_thumbnail
-entity_type: node
+entity_type: paragraph
 type: image
 settings:
   target_type: file

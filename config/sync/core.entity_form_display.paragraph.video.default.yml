@@ -1,0 +1,36 @@
+uuid: 6e860314-1069-49cb-acfa-16f2f78131df
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video.field_video_thumbnail
+    - field.field.paragraph.video.field_video_url
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.video
+  module:
+    - image
+    - link
+id: paragraph.video.default
+targetEntityType: paragraph
+bundle: video
+mode: default
+content:
+  field_video_thumbnail:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_video_url:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

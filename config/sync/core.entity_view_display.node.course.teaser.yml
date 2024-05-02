@@ -53,7 +53,6 @@ dependencies:
     - field.field.node.course.field_trgt_grp_youth_education
     - field.field.node.course.field_video
     - field.field.node.course.field_video_description
-    - field.field.node.course.field_video_thumbnail
     - field.field.node.course.field_video_title
     - field.field.node.course.field_view_on_map
     - field.field.node.course.field_youth_education_subject
@@ -128,7 +127,6 @@ hidden:
   field_trgt_grp_youth_education: true
   field_video: true
   field_video_description: true
-  field_video_thumbnail: true
   field_video_title: true
   field_view_on_map: true
   field_youth_education_subject: true

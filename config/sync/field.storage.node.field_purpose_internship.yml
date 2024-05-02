@@ -1,16 +1,16 @@
-uuid: 3f151eaf-9c93-402a-88d7-dde3bacff7d4
+uuid: 90df135a-7e46-40b7-bf8c-5cbc9f3b530a
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_periode
-field_name: field_periode
+    - text
+id: node.field_purpose_internship
+field_name: field_purpose_internship
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

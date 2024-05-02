@@ -1,9 +1,9 @@
-uuid: 9ab89f1b-e81b-4298-9b74-3b83dbeeaffa
+uuid: ed79bf54-6b98-4c39-abe9-8a3ad4382a41
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_meeting_times
+    - field.storage.node.field_purpose_internship
     - filter.format.basic_html
     - node.type.internship
   module:
@@ -13,11 +13,11 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - basic_html
-id: node.internship.field_meeting_times
-field_name: field_meeting_times
+id: node.internship.field_purpose_internship
+field_name: field_purpose_internship
 entity_type: node
 bundle: internship
-label: Mødetider
+label: Formål
 description: ''
 required: false
 translatable: false

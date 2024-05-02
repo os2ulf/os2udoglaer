@@ -1,9 +1,9 @@
-uuid: 1a68af99-4555-48d4-abdf-9cf4b01410aa
+uuid: bd924ce0-4055-4a35-9872-3cdc74dd70ad
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_purpose
+    - field.storage.node.field_location_description
     - filter.format.basic_html
     - node.type.internship
   module:
@@ -13,13 +13,13 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - basic_html
-id: node.internship.field_purpose
-field_name: field_purpose
+id: node.internship.field_location_description
+field_name: field_location_description
 entity_type: node
 bundle: internship
-label: Formål
+label: Sted
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
