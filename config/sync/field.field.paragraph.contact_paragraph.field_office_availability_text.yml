@@ -1,0 +1,19 @@
+uuid: 3b67952c-5a99-4626-924f-b027fe569a37
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_office_availability_text
+    - paragraphs.paragraphs_type.contact_paragraph
+id: paragraph.contact_paragraph.field_office_availability_text
+field_name: field_office_availability_text
+entity_type: paragraph
+bundle: contact_paragraph
+label: Træffetid
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

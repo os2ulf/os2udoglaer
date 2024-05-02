@@ -1,0 +1,80 @@
+uuid: 61657c48-c54e-461a-8a1c-9f4b0963b5f2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_paragraph.field_description
+    - field.field.paragraph.contact_paragraph.field_email
+    - field.field.paragraph.contact_paragraph.field_name
+    - field.field.paragraph.contact_paragraph.field_office_availability_text
+    - field.field.paragraph.contact_paragraph.field_phone
+    - field.field.paragraph.contact_paragraph.field_title
+    - field.field.paragraph.contact_paragraph.field_webpage
+    - paragraphs.paragraphs_type.contact_paragraph
+  module:
+    - link
+id: paragraph.contact_paragraph.default
+targetEntityType: paragraph
+bundle: contact_paragraph
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_email:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_office_availability_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_webpage:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,8 @@
+uuid: 2c005a52-8f83-47d5-90fd-31503384cf55
+langcode: da
+status: true
+dependencies: {  }
+name: 'Kursus relevans (undervisere)'
+vid: kursus_relevans_undervisere
+description: 'Relevante målgrupper for kursus for undervisere'
+weight: 0

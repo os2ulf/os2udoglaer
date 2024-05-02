@@ -1,0 +1,11 @@
+uuid: bb4afcb2-606a-46a3-8d03-c8ac73799237
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.kursus_relevans_undervisere
+id: taxonomy_term.kursus_relevans_undervisere
+target_entity_type_id: taxonomy_term
+target_bundle: kursus_relevans_undervisere
+default_langcode: site_default
+language_alterable: false

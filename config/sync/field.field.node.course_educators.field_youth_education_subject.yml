@@ -1,0 +1,29 @@
+uuid: 3612ebe7-0659-49aa-89a8-9f053fdeb9f0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_youth_education_subject
+    - node.type.course_educators
+    - taxonomy.vocabulary.youth_education_subject
+id: node.course_educators.field_youth_education_subject
+field_name: field_youth_education_subject
+entity_type: node
+bundle: course_educators
+label: 'Fag - ungdomsuddannelse'
+description: 'Kurset er relevant for undervisere i fagene'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      youth_education_subject: youth_education_subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

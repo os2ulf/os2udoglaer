@@ -1,0 +1,29 @@
+uuid: 31e2633d-e816-4e03-975d-096c94894c3a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject
+    - node.type.course_educators
+    - taxonomy.vocabulary.subject
+id: node.course_educators.field_subject
+field_name: field_subject
+entity_type: node
+bundle: course_educators
+label: Emneområde
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subject: subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

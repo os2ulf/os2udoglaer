@@ -1,0 +1,29 @@
+uuid: c9b71400-436c-4a23-bf42-e00bc8ec0f74
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner
+    - node.type.course_educators
+    - taxonomy.vocabulary.banner
+id: node.course_educators.field_banner
+field_name: field_banner
+entity_type: node
+bundle: course_educators
+label: Banner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      banner: banner
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

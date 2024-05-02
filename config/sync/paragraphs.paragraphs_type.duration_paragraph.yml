@@ -1,0 +1,10 @@
+uuid: e97bb8b6-210d-4c61-8cd0-efd7fd703cf1
+langcode: da
+status: true
+dependencies: {  }
+id: duration_paragraph
+label: Varighed
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,29 @@
+uuid: 093ba403-e4c0-44f2-acd0-1a3677cc2ed1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_of_duration
+    - filter.format.basic_html
+    - node.type.course_educators
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.course_educators.field_description_of_duration
+field_name: field_description_of_duration
+entity_type: node
+bundle: course_educators
+label: 'Beskrivelse til varighed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

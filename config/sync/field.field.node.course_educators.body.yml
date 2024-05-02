@@ -1,0 +1,28 @@
+uuid: 62ef6664-5408-40a7-86a3-bd0abb10f9b9
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.course_educators
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.course_educators.body
+field_name: body
+entity_type: node
+bundle: course_educators
+label: Beskrivelse
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary

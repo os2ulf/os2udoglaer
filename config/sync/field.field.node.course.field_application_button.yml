@@ -1,0 +1,21 @@
+uuid: 615bbbbe-2726-452a-a437-f71aa8cae4e2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_button
+    - node.type.course
+id: node.course.field_application_button
+field_name: field_application_button
+entity_type: node
+bundle: course
+label: Ansøgningsknap
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

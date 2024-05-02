@@ -1,0 +1,18 @@
+uuid: 57bd2615-ae86-4cc3-89e0-ab73ec4a9d9f
+langcode: da
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_duration
+field_name: field_duration
+entity_type: paragraph
+type: float
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

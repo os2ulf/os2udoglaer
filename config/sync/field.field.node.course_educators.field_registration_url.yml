@@ -1,0 +1,19 @@
+uuid: 0ec9d619-946a-4634-b4cf-ba24c1b33557
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_url
+    - node.type.course_educators
+id: node.course_educators.field_registration_url
+field_name: field_registration_url
+entity_type: node
+bundle: course_educators
+label: URL
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

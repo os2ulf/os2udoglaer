@@ -1,0 +1,19 @@
+uuid: ff238860-569a-48cb-9c98-11a4452a4f51
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_name
+    - node.type.course_educators
+id: node.course_educators.field_location_name
+field_name: field_location_name
+entity_type: node
+bundle: course_educators
+label: 'Navn på lokalitet'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

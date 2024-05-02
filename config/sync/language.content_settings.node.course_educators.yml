@@ -1,0 +1,11 @@
+uuid: 0321af02-f985-4871-9b8a-58aff4d0bc8f
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.course_educators
+id: node.course_educators
+target_entity_type_id: node
+target_bundle: course_educators
+default_langcode: site_default
+language_alterable: false

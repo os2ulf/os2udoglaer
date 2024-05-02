@@ -1,0 +1,29 @@
+uuid: f213179d-3da4-4ac0-a182-ee6163510e13
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_educators_target_group
+    - node.type.course_educators
+    - taxonomy.vocabulary.kursus_relevans_undervisere
+id: node.course_educators.field_educators_target_group
+field_name: field_educators_target_group
+entity_type: node
+bundle: course_educators
+label: Målgruppe
+description: 'Målgruppe for undervisere'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      kursus_relevans_undervisere: kursus_relevans_undervisere
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

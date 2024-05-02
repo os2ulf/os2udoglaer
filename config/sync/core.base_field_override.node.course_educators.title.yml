@@ -1,0 +1,18 @@
+uuid: aaf6982b-c0c3-49c3-816c-59ed56595c85
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.course_educators
+id: node.course_educators.title
+field_name: title
+entity_type: node
+bundle: course_educators
+label: Titel
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
