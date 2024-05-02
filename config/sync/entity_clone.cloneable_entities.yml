@@ -60,3 +60,4 @@ cloneable_entities:
   - entity_transform_mode
   - domain
   - domain_alias
+  - ultimate_cron_job

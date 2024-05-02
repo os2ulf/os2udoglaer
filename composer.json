@@ -73,6 +73,7 @@
         "drupal/search_api_exclude_entity": "^1.0",
         "drupal/search_api_page": "^1.0@beta",
         "drupal/simple_sitemap": "^4.1",
+        "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/view_unpublished": "^1.0",
         "drupal/webform": "^6.2@beta",
         "drupal/webp": "^1.0@RC",
