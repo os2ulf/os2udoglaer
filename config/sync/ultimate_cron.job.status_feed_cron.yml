@@ -1,0 +1,17 @@
+uuid: d69c362f-9c0c-4503-90b6-20b77b7559ba
+langcode: da
+status: true
+dependencies:
+  module:
+    - status_feed
+title: 'Default cron handler'
+id: status_feed_cron
+weight: 0
+module: status_feed
+callback: status_feed_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database
