@@ -24,8 +24,8 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_material_description:
-    type: value
-    weight: '0'
+    type: text_format
+    weight: '1'
     region: content
     label: omit
     settings: {  }
@@ -39,14 +39,14 @@ content:
     third_party_settings: {  }
   field_material_file:
     type: file_url
-    weight: '1'
+    weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_material_title:
     type: value
-    weight: '2'
+    weight: '0'
     region: content
     label: omit
     settings: {  }

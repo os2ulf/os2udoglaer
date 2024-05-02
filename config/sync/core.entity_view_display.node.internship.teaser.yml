@@ -21,7 +21,6 @@ dependencies:
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
-    - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
     - field.field.node.internship.field_location_street
     - field.field.node.internship.field_location_zipcode
@@ -77,7 +76,6 @@ hidden:
   field_image: true
   field_industry: true
   field_location_city: true
-  field_location_description: true
   field_location_name: true
   field_location_street: true
   field_location_zipcode: true
