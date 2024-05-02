@@ -1,10 +1,18 @@
-uuid: 44d8f993-8695-4f9b-ae42-71252dde100c
+uuid: b1d11b19-3140-418f-bd5b-26047a8ef8a8
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_facilities_description
+    - filter.format.basic_html
     - node.type.course
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
 id: node.course.field_facilities_description
 field_name: field_facilities_description
 entity_type: node
@@ -15,5 +23,7 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

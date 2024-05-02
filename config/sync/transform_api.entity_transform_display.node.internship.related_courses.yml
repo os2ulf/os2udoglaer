@@ -10,13 +10,16 @@ dependencies:
     - field.field.node.internship.field_application_title
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
+    - field.field.node.internship.field_banner
     - field.field.node.internship.field_desc_application_procedure
+    - field.field.node.internship.field_domain_access
+    - field.field.node.internship.field_domain_all_affiliates
     - field.field.node.internship.field_duration
     - field.field.node.internship.field_education_path
+    - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
-    - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
     - field.field.node.internship.field_location_street
     - field.field.node.internship.field_location_zipcode
@@ -24,6 +27,7 @@ dependencies:
     - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_periode
+    - field.field.node.internship.field_purpose
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
@@ -86,13 +90,6 @@ content:
   field_location_city:
     type: value
     weight: '14'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_description:
-    type: value
-    weight: '15'
     region: content
     label: omit
     settings: {  }
@@ -174,11 +171,14 @@ hidden:
   field_application_phone: true
   field_application_title: true
   field_application_url: true
+  field_banner: true
   field_desc_application_procedure: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_expectations: true
   field_location_name: true
   field_materials_title: true
+  field_purpose: true
   field_show_application_link: true
   field_video_description: true
   field_video_thumbnail: true

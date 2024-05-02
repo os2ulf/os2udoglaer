@@ -8,10 +8,6 @@ dependencies:
     - field.field.node.course_educators.field_banner
     - field.field.node.course_educators.field_contact
     - field.field.node.course_educators.field_curriculum_themes
-    - field.field.node.course_educators.field_description_of_duration
-    - field.field.node.course_educators.field_description_of_period
-    - field.field.node.course_educators.field_description_of_price
-    - field.field.node.course_educators.field_description_of_quantity
     - field.field.node.course_educators.field_duration
     - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
@@ -20,7 +16,6 @@ dependencies:
     - field.field.node.course_educators.field_image
     - field.field.node.course_educators.field_is_free
     - field.field.node.course_educators.field_location_city
-    - field.field.node.course_educators.field_location_description
     - field.field.node.course_educators.field_location_name
     - field.field.node.course_educators.field_location_street
     - field.field.node.course_educators.field_location_zipcode
@@ -30,14 +25,12 @@ dependencies:
     - field.field.node.course_educators.field_primary_school_subject
     - field.field.node.course_educators.field_quantity
     - field.field.node.course_educators.field_registration_deadline
-    - field.field.node.course_educators.field_registration_description
     - field.field.node.course_educators.field_registration_email
     - field.field.node.course_educators.field_registration_phone
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
     - field.field.node.course_educators.field_subject
     - field.field.node.course_educators.field_sustainability_goals
-    - field.field.node.course_educators.field_sustainability_goals_desc
     - field.field.node.course_educators.field_theme
     - field.field.node.course_educators.field_video
     - field.field.node.course_educators.field_video_description
@@ -87,38 +80,6 @@ content:
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_description_of_duration:
-    type: plain_text
-    weight: '14'
-    region: content
-    label: omit
-    settings:
-      text_length: 0
-    third_party_settings: {  }
-  field_description_of_period:
-    type: plain_text
-    weight: '17'
-    region: content
-    label: omit
-    settings:
-      text_length: 0
-    third_party_settings: {  }
-  field_description_of_price:
-    type: plain_text
-    weight: '13'
-    region: content
-    label: omit
-    settings:
-      text_length: 0
-    third_party_settings: {  }
-  field_description_of_quantity:
-    type: plain_text
-    weight: '9'
-    region: content
-    label: omit
-    settings:
-      text_length: 0
     third_party_settings: {  }
   field_duration:
     type: float
@@ -179,14 +140,6 @@ content:
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_location_description:
-    type: plain_text
-    weight: '37'
-    region: content
-    label: omit
-    settings:
-      text_length: 0
     third_party_settings: {  }
   field_location_name:
     type: value
@@ -258,14 +211,6 @@ content:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
-  field_registration_description:
-    type: plain_text
-    weight: '20'
-    region: content
-    label: omit
-    settings:
-      text_length: 0
-    third_party_settings: {  }
   field_registration_email:
     type: value
     weight: '24'
@@ -308,14 +253,6 @@ content:
     label: omit
     settings:
       transform_mode: fn_world_goals
-    third_party_settings: {  }
-  field_sustainability_goals_desc:
-    type: plain_text
-    weight: '19'
-    region: content
-    label: omit
-    settings:
-      text_length: 0
     third_party_settings: {  }
   field_theme:
     type: entity_reference_labels

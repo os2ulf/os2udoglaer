@@ -1,10 +1,18 @@
-uuid: 91844bd3-861b-45bf-830c-94903f7c2a46
+uuid: ba74c075-b313-41e1-aeec-3917760c9aa0
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_description_of_duration
+    - filter.format.basic_html
     - node.type.course
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
 id: node.course.field_description_of_duration
 field_name: field_description_of_duration
 entity_type: node
@@ -15,5 +23,7 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
