@@ -120,25 +120,25 @@ content:
     weight: 115
     region: content
   field_description_of_duration:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 116
+    weight: 153
     region: content
   field_description_of_period:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 119
+    weight: 152
     region: content
   field_description_of_price:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 117
+    weight: 150
     region: content
   field_duration:
     type: number_decimal
@@ -167,11 +167,11 @@ content:
     weight: 134
     region: content
   field_facilities_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 132
+    weight: 154
     region: content
   field_image:
     type: image
@@ -203,11 +203,11 @@ content:
     weight: 27
     region: content
   field_location_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 23
+    weight: 149
     region: content
   field_location_name:
     type: string
@@ -307,11 +307,11 @@ content:
     weight: 4
     region: content
   field_quantity_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 107
+    weight: 151
     region: content
   field_realted_courses:
     type: entity_reference_label
@@ -331,11 +331,11 @@ content:
     weight: 123
     region: content
   field_registration_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 122
+    weight: 156
     region: content
   field_registration_email:
     type: basic_string
@@ -385,11 +385,11 @@ content:
     weight: 128
     region: content
   field_sustainability_goals_desc:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 129
+    weight: 155
     region: content
   field_target_group:
     type: entity_reference_label

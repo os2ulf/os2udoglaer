@@ -1,10 +1,18 @@
-uuid: 797b3a2c-3984-4313-9c07-16629eeacc15
+uuid: 980611d0-02dd-4013-b47c-40a95217e507
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_material_description
+    - filter.format.basic_html
     - paragraphs.paragraphs_type.material
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
 id: paragraph.material.field_material_description
 field_name: field_material_description
 entity_type: paragraph
@@ -15,5 +23,7 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

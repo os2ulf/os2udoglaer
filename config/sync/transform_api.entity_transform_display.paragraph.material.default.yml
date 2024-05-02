@@ -3,7 +3,9 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.paragraph.material.field_literature_suggestion
     - field.field.paragraph.material.field_material_description
+    - field.field.paragraph.material.field_material_download_text
     - field.field.paragraph.material.field_material_file
     - field.field.paragraph.material.field_material_title
     - field.field.paragraph.material.field_material_url
@@ -13,23 +15,37 @@ targetEntityType: paragraph
 bundle: material
 mode: default
 content:
-  field_material_description:
+  field_literature_suggestion:
     type: value
-    weight: '0'
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_description:
+    type: text_format
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_download_text:
+    type: value
+    weight: '4'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_material_file:
     type: file_url
-    weight: '1'
+    weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_material_title:
     type: value
-    weight: '2'
+    weight: '0'
     region: content
     label: omit
     settings: {  }
@@ -41,6 +57,4 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-hidden:
-  field_literature_suggestion: true
-  field_material_download_text: true
+hidden: {  }
