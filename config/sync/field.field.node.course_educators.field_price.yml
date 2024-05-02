@@ -1,0 +1,46 @@
+uuid: 6f87c437-fa85-4c69-aaac-921ec5bc4d95
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_price
+    - node.type.course_educators
+    - paragraphs.paragraphs_type.duration_price
+  module:
+    - entity_reference_revisions
+id: node.course_educators.field_price
+field_name: field_price
+entity_type: node
+bundle: course_educators
+label: Pris
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      duration_price: duration_price
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 6
+        enabled: false
+      basic_hero:
+        weight: 7
+        enabled: false
+      contact_paragraph:
+        weight: 9
+        enabled: false
+      duration_price:
+        weight: 8
+        enabled: true
+      inline_hero:
+        weight: 9
+        enabled: false
+      material:
+        weight: 10
+        enabled: false
+field_type: entity_reference_revisions

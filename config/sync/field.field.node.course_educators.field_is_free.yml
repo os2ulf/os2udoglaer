@@ -1,0 +1,21 @@
+uuid: 79d00273-a715-4daa-b6fe-f6ffa15539fa
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_is_free
+    - node.type.course_educators
+id: node.course_educators.field_is_free
+field_name: field_is_free
+entity_type: node
+bundle: course_educators
+label: Gratis
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

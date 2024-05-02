@@ -1,0 +1,19 @@
+uuid: e089c9c8-8f6e-425d-8836-0973cc50bb0f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_email
+    - node.type.course_educators
+id: node.course_educators.field_registration_email
+field_name: field_registration_email
+entity_type: node
+bundle: course_educators
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email
