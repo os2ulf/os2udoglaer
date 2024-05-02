@@ -1,0 +1,29 @@
+uuid: beee479c-9a56-4c9e-8736-0deec6da1a2f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_of_period
+    - filter.format.basic_html
+    - node.type.course_educators
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.course_educators.field_description_of_period
+field_name: field_description_of_period
+entity_type: node
+bundle: course_educators
+label: 'Yderligere oplysninger til periode'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

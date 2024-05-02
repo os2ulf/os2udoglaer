@@ -9,6 +9,9 @@ dependencies:
     - field.field.node.course_educators.field_banner
     - field.field.node.course_educators.field_contact
     - field.field.node.course_educators.field_curriculum_themes
+    - field.field.node.course_educators.field_description_of_duration
+    - field.field.node.course_educators.field_description_of_period
+    - field.field.node.course_educators.field_description_of_price
     - field.field.node.course_educators.field_duration
     - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
@@ -17,6 +20,7 @@ dependencies:
     - field.field.node.course_educators.field_image
     - field.field.node.course_educators.field_is_free
     - field.field.node.course_educators.field_location_city
+    - field.field.node.course_educators.field_location_description
     - field.field.node.course_educators.field_location_name
     - field.field.node.course_educators.field_location_street
     - field.field.node.course_educators.field_location_zipcode
@@ -25,13 +29,16 @@ dependencies:
     - field.field.node.course_educators.field_price
     - field.field.node.course_educators.field_primary_school_subject
     - field.field.node.course_educators.field_quantity
+    - field.field.node.course_educators.field_quantity_description
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_email
     - field.field.node.course_educators.field_registration_phone
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
+    - field.field.node.course_educators.field_related_courses
     - field.field.node.course_educators.field_subject
     - field.field.node.course_educators.field_sustainability_goals
+    - field.field.node.course_educators.field_sustainability_goals_desc
     - field.field.node.course_educators.field_theme
     - field.field.node.course_educators.field_video
     - field.field.node.course_educators.field_video_description
@@ -65,6 +72,9 @@ hidden:
   field_banner: true
   field_contact: true
   field_curriculum_themes: true
+  field_description_of_duration: true
+  field_description_of_period: true
+  field_description_of_price: true
   field_duration: true
   field_duration_unit_taxonomy: true
   field_educators_target_group: true
@@ -73,6 +83,7 @@ hidden:
   field_image: true
   field_is_free: true
   field_location_city: true
+  field_location_description: true
   field_location_name: true
   field_location_street: true
   field_location_zipcode: true
@@ -81,13 +92,16 @@ hidden:
   field_price: true
   field_primary_school_subject: true
   field_quantity: true
+  field_quantity_description: true
   field_registration_deadline: true
   field_registration_email: true
   field_registration_phone: true
   field_registration_title: true
   field_registration_url: true
+  field_related_courses: true
   field_subject: true
   field_sustainability_goals: true
+  field_sustainability_goals_desc: true
   field_theme: true
   field_video: true
   field_video_description: true

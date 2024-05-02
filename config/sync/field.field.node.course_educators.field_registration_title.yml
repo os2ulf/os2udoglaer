@@ -9,7 +9,7 @@ id: node.course_educators.field_registration_title
 field_name: field_registration_title
 entity_type: node
 bundle: course_educators
-label: Titel
+label: Linktekst
 description: ''
 required: false
 translatable: false

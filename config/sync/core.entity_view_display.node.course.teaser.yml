@@ -36,13 +36,13 @@ dependencies:
     - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
     - field.field.node.course.field_quantity_description
-    - field.field.node.course.field_realted_courses
     - field.field.node.course.field_registration_deadline
     - field.field.node.course.field_registration_description
     - field.field.node.course.field_registration_email
     - field.field.node.course.field_registration_phone
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
+    - field.field.node.course.field_related_courses
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
@@ -110,13 +110,13 @@ hidden:
   field_purpose: true
   field_quantity: true
   field_quantity_description: true
-  field_realted_courses: true
   field_registration_deadline: true
   field_registration_description: true
   field_registration_email: true
   field_registration_phone: true
   field_registration_title: true
   field_registration_url: true
+  field_related_courses: true
   field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
