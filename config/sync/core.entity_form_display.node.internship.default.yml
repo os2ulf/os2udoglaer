@@ -12,28 +12,27 @@ dependencies:
     - field.field.node.internship.field_areas_of_interest
     - field.field.node.internship.field_banner
     - field.field.node.internship.field_desc_application_procedure
+    - field.field.node.internship.field_description_of_period
     - field.field.node.internship.field_domain_access
     - field.field.node.internship.field_domain_all_affiliates
-    - field.field.node.internship.field_duration
+    - field.field.node.internship.field_duration_rte
     - field.field.node.internship.field_education_path
     - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
+    - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
     - field.field.node.internship.field_location_street
     - field.field.node.internship.field_location_zipcode
     - field.field.node.internship.field_materials
-    - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
-    - field.field.node.internship.field_periode
-    - field.field.node.internship.field_purpose
+    - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
-    - field.field.node.internship.field_video_thumbnail
     - field.field.node.internship.field_video_title
     - field.field.node.internship.field_view_on_map
     - image.style.thumbnail
@@ -44,7 +43,6 @@ dependencies:
     - datetime
     - field_group
     - image
-    - link
     - maxlength
     - paragraphs
     - path
@@ -55,8 +53,8 @@ third_party_settings:
       children:
         - group_location
         - field_quantity
-        - field_periode
-        - field_duration
+        - field_description_of_period
+        - field_duration_rte
         - field_meeting_times
         - field_todo_list
         - field_areas_of_interest
@@ -97,27 +95,12 @@ third_party_settings:
     group_location:
       children:
         - field_view_on_map
-        - field_location_description
         - group_alternative_address
+        - field_location_description
       label: Lokation
       region: content
       parent_name: group_practical_information
       weight: 12
-      format_type: fieldset
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        description: ''
-        required_fields: true
-    group_materials:
-      children:
-        - field_materials_title
-        - field_materials
-      label: Materialer
-      region: content
-      parent_name: ''
-      weight: 8
       format_type: fieldset
       format_settings:
         classes: ''
@@ -134,7 +117,7 @@ third_party_settings:
       label: 'Alternativ adresse'
       region: content
       parent_name: group_location
-      weight: 18
+      weight: 17
       format_type: fieldset
       format_settings:
         classes: ''
@@ -146,8 +129,8 @@ third_party_settings:
       children:
         - field_video_title
         - field_video_description
-        - field_video_thumbnail
         - field_video
+        - field_video_thumbnail
       label: Video
       region: content
       parent_name: ''
@@ -191,13 +174,13 @@ content:
     third_party_settings: {  }
   field_application_deadline:
     type: datetime_default
-    weight: 17
+    weight: 30
     region: content
     settings: {  }
     third_party_settings: {  }
   field_application_email:
     type: email_default
-    weight: 20
+    weight: 33
     region: content
     settings:
       placeholder: ''
@@ -205,7 +188,7 @@ content:
     third_party_settings: {  }
   field_application_phone:
     type: string_textfield
-    weight: 21
+    weight: 34
     region: content
     settings:
       size: 60
@@ -213,7 +196,7 @@ content:
     third_party_settings: {  }
   field_application_title:
     type: string_textfield
-    weight: 18
+    weight: 31
     region: content
     settings:
       size: 60
@@ -221,7 +204,7 @@ content:
     third_party_settings: {  }
   field_application_url:
     type: string_textfield
-    weight: 19
+    weight: 32
     region: content
     settings:
       size: 60
@@ -229,7 +212,7 @@ content:
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_autocomplete
-    weight: 19
+    weight: 18
     region: content
     settings:
       match_operator: CONTAINS
@@ -244,8 +227,16 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_desc_application_procedure:
-    type: string_textarea
-    weight: 16
+    type: text_textarea
+    weight: 29
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_description_of_period:
+    type: text_textarea
+    weight: 14
     region: content
     settings:
       rows: 5
@@ -264,16 +255,17 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_duration:
-    type: number
-    weight: 16
+  field_duration_rte:
+    type: text_textarea
+    weight: 15
     region: content
     settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_education_path:
-    type: string_textarea
-    weight: 21
+    type: text_textarea
+    weight: 20
     region: content
     settings:
       rows: 5
@@ -297,7 +289,7 @@ content:
     third_party_settings: {  }
   field_industry:
     type: options_buttons
-    weight: 20
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -307,6 +299,14 @@ content:
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_description:
+    type: text_textarea
+    weight: 18
+    region: content
+    settings:
+      rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_location_name:
@@ -335,7 +335,7 @@ content:
     third_party_settings: {  }
   field_materials:
     type: paragraphs
-    weight: 9
+    weight: 8
     region: content
     settings:
       title: Materiale
@@ -353,31 +353,15 @@ content:
         convert: '0'
         duplicate: '0'
     third_party_settings: {  }
-  field_materials_title:
-    type: string_textfield
-    weight: 8
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_meeting_times:
-    type: string_textarea
-    weight: 17
+    type: text_textarea
+    weight: 16
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_periode:
-    type: string_textarea
-    weight: 14
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_purpose:
+  field_purpose_internship:
     type: text_textarea
     weight: 3
     region: content
@@ -394,26 +378,36 @@ content:
     third_party_settings: {  }
   field_show_application_link:
     type: boolean_checkbox
-    weight: 22
+    weight: 35
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_todo_list:
-    type: string_textarea
-    weight: 18
+    type: text_textarea
+    weight: 17
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_video:
-    type: link_default
-    weight: 13
+    type: paragraphs
+    weight: 12
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
   field_video_description:
     type: text_textarea
@@ -422,14 +416,6 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
-  field_video_thumbnail:
-    type: image_image
-    weight: 12
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
   field_video_title:
     type: string_textfield

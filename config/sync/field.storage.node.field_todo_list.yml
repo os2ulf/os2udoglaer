@@ -1,16 +1,16 @@
-uuid: 73302da3-d6d0-4a62-943b-2db35adede22
+uuid: 31424026-1f59-422a-bba6-cfed82d16ea3
 langcode: da
 status: true
 dependencies:
   module:
     - node
+    - text
 id: node.field_todo_list
 field_name: field_todo_list
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

@@ -50,9 +50,7 @@ dependencies:
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
-    - field.field.node.course.field_video
     - field.field.node.course.field_video_description
-    - field.field.node.course.field_video_thumbnail
     - field.field.node.course.field_video_title
     - field.field.node.course.field_view_on_map
     - field.field.node.course.field_youth_education_subject
@@ -218,8 +216,6 @@ hidden:
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
   field_theme: true
-  field_video: true
   field_video_description: true
-  field_video_thumbnail: true
   field_video_title: true
   langcode: true

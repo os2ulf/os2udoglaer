@@ -1,16 +1,16 @@
-uuid: 92ae3761-7a93-448f-a61f-952b57d6f9e7
+uuid: 480a1f2c-a141-424f-900d-3fab5a63c964
 langcode: da
 status: true
 dependencies:
   module:
     - node
+    - text
 id: node.field_meeting_times
 field_name: field_meeting_times
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

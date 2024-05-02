@@ -1,9 +1,9 @@
-uuid: 9ab89f1b-e81b-4298-9b74-3b83dbeeaffa
+uuid: fc7baccd-ed5d-447b-8e6b-726e6ad81e35
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_meeting_times
+    - field.storage.node.field_duration_rte
     - filter.format.basic_html
     - node.type.internship
   module:
@@ -13,11 +13,11 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - basic_html
-id: node.internship.field_meeting_times
-field_name: field_meeting_times
+id: node.internship.field_duration_rte
+field_name: field_duration_rte
 entity_type: node
 bundle: internship
-label: Mødetider
+label: Varighed
 description: ''
 required: false
 translatable: false
