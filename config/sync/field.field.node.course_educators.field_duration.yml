@@ -1,0 +1,23 @@
+uuid: 4f47b3b8-0cd1-4c22-80bf-b43ed8e8bae2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration
+    - node.type.course_educators
+id: node.course_educators.field_duration
+field_name: field_duration
+entity_type: node
+bundle: course_educators
+label: Varighed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: float

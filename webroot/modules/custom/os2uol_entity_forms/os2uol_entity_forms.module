@@ -30,8 +30,8 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
  * Implements hook_node_form_alter().
  */
 function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Check if the form is the node course form or node course edit form and hide the hours and minutes from period field.
-  if (in_array($form_id, array('node_course_form', 'node_course_edit_form'))) {
+  // Check if the form is the node course or course_educators add or edit form and hide the hours and minutes from period field.
+  if (in_array($form_id, array('node_course_form', 'node_course_edit_form', 'node_course_educators_form', 'node_course_educators_edit_form'))) {
     $form['field_period']['widget'][0]['value']['#date_time_element'] = 'none';
     $form['field_period']['widget'][0]['value']['#date_time_format'] = '';
     $form['field_period']['widget'][0]['end_value']['#date_time_element'] = 'none';
