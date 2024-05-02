@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.course_educators.field_registration_phone
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
+    - field.field.node.course_educators.field_related_courses
     - field.field.node.course_educators.field_subject
     - field.field.node.course_educators.field_sustainability_goals
     - field.field.node.course_educators.field_theme
@@ -237,6 +238,14 @@ content:
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_related_courses:
+    type: entity_transform
+    weight: '34'
+    region: content
+    label: omit
+    settings:
+      transform_mode: related_courses
     third_party_settings: {  }
   field_subject:
     type: entity_reference_labels

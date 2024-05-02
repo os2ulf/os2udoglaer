@@ -30,6 +30,7 @@ dependencies:
     - field.field.node.course_educators.field_registration_phone
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
+    - field.field.node.course_educators.field_related_courses
     - field.field.node.course_educators.field_subject
     - field.field.node.course_educators.field_sustainability_goals
     - field.field.node.course_educators.field_theme
@@ -86,6 +87,7 @@ hidden:
   field_registration_phone: true
   field_registration_title: true
   field_registration_url: true
+  field_related_courses: true
   field_subject: true
   field_sustainability_goals: true
   field_theme: true
