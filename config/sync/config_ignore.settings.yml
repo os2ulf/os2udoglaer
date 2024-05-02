@@ -5,3 +5,4 @@ mode: simple
 ignored_config_entities:
   - 'domain.config.*.os2uol_settings.settings'
   - os2uol_settings.settings
+  - sendgrid_integration.settings
