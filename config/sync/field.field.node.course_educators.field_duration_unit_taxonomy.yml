@@ -1,16 +1,16 @@
-uuid: 4d816691-c86c-46b6-bc84-8421d2a95a3d
+uuid: 15f36357-0bb7-4f5f-917a-0c2773bc8c9e
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_price_vat
-    - paragraphs.paragraphs_type.duration_price
-    - taxonomy.vocabulary.price_vat
-id: paragraph.duration_price.field_price_vat
-field_name: field_price_vat
-entity_type: paragraph
-bundle: duration_price
-label: Moms
+    - field.storage.node.field_duration_unit_taxonomy
+    - node.type.course_educators
+    - taxonomy.vocabulary.duration_unit
+id: node.course_educators.field_duration_unit_taxonomy
+field_name: field_duration_unit_taxonomy
+entity_type: node
+bundle: course_educators
+label: Enhed
 description: ''
 required: false
 translatable: false
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      price_vat: price_vat
+      duration_unit: duration_unit
     sort:
       field: name
       direction: asc

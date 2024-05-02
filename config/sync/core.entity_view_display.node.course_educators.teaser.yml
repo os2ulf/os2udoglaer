@@ -13,7 +13,8 @@ dependencies:
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
     - field.field.node.course_educators.field_description_of_quantity
-    - field.field.node.course_educators.field_duration_and_unit
+    - field.field.node.course_educators.field_duration
+    - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
     - field.field.node.course_educators.field_faciliteter
     - field.field.node.course_educators.field_food_service
@@ -40,7 +41,9 @@ dependencies:
     - field.field.node.course_educators.field_sustainability_goals_desc
     - field.field.node.course_educators.field_theme
     - field.field.node.course_educators.field_video
+    - field.field.node.course_educators.field_video_description
     - field.field.node.course_educators.field_video_thumbnail
+    - field.field.node.course_educators.field_video_title
     - field.field.node.course_educators.field_view_on_map
     - field.field.node.course_educators.field_youth_education_subject
     - node.type.course_educators
@@ -74,7 +77,8 @@ hidden:
   field_description_of_period: true
   field_description_of_price: true
   field_description_of_quantity: true
-  field_duration_and_unit: true
+  field_duration: true
+  field_duration_unit_taxonomy: true
   field_educators_target_group: true
   field_faciliteter: true
   field_food_service: true
@@ -101,7 +105,9 @@ hidden:
   field_sustainability_goals_desc: true
   field_theme: true
   field_video: true
+  field_video_description: true
   field_video_thumbnail: true
+  field_video_title: true
   field_view_on_map: true
   field_youth_education_subject: true
   langcode: true
