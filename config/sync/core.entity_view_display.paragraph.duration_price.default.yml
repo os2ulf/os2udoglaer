@@ -7,8 +7,6 @@ dependencies:
     - field.field.paragraph.duration_price.field_price_settlement_unit
     - field.field.paragraph.duration_price.field_price_vat
     - paragraphs.paragraphs_type.duration_price
-  module:
-    - options
 id: paragraph.duration_price.default
 targetEntityType: paragraph
 bundle: duration_price
@@ -26,16 +24,18 @@ content:
     weight: 0
     region: content
   field_price_settlement_unit:
-    type: list_default
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
     weight: 1
     region: content
   field_price_vat:
-    type: list_default
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
     weight: 2
     region: content

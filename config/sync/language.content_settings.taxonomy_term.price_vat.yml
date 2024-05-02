@@ -1,0 +1,11 @@
+uuid: a633371c-92ae-4519-b8e4-7a89a03e38c3
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.price_vat
+id: taxonomy_term.price_vat
+target_entity_type_id: taxonomy_term
+target_bundle: price_vat
+default_langcode: site_default
+language_alterable: false

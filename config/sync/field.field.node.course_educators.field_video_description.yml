@@ -1,9 +1,9 @@
-uuid: cdd2b2e4-486f-440d-b045-a472cd181944
+uuid: c0ca5bdd-0f1a-4026-8796-962e47336d7f
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_sustainability_goals_desc
+    - field.storage.node.field_video_description
     - filter.format.basic_html
     - node.type.course_educators
   module:
@@ -13,15 +13,17 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - basic_html
-id: node.course_educators.field_sustainability_goals_desc
-field_name: field_sustainability_goals_desc
+id: node.course_educators.field_video_description
+field_name: field_video_description
 entity_type: node
 bundle: course_educators
-label: 'Beskrivelse af verdensmål'
+label: Beskrivelse
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
+settings:
+  allowed_formats:
+    - basic_html
 field_type: text_long

@@ -12,7 +12,8 @@ dependencies:
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
     - field.field.node.course_educators.field_description_of_quantity
-    - field.field.node.course_educators.field_duration_and_unit
+    - field.field.node.course_educators.field_duration
+    - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
     - field.field.node.course_educators.field_faciliteter
     - field.field.node.course_educators.field_food_service
@@ -39,7 +40,9 @@ dependencies:
     - field.field.node.course_educators.field_sustainability_goals_desc
     - field.field.node.course_educators.field_theme
     - field.field.node.course_educators.field_video
+    - field.field.node.course_educators.field_video_description
     - field.field.node.course_educators.field_video_thumbnail
+    - field.field.node.course_educators.field_video_title
     - field.field.node.course_educators.field_view_on_map
     - field.field.node.course_educators.field_youth_education_subject
     - node.type.course_educators
@@ -127,14 +130,24 @@ content:
     third_party_settings: {  }
     weight: 9
     region: content
-  field_duration_and_unit:
-    type: entity_reference_revisions_entity_view
+  field_duration:
+    type: number_decimal
     label: above
     settings:
-      view_mode: default
-      link: ''
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
     third_party_settings: {  }
-    weight: 13
+    weight: 6
+    region: content
+  field_duration_unit_taxonomy:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 138
     region: content
   field_educators_target_group:
     type: entity_reference_label
@@ -354,6 +367,13 @@ content:
     third_party_settings: {  }
     weight: 28
     region: content
+  field_video_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 137
+    region: content
   field_video_thumbnail:
     type: image
     label: above
@@ -364,6 +384,14 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 29
+    region: content
+  field_video_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 136
     region: content
   field_view_on_map:
     type: list_default

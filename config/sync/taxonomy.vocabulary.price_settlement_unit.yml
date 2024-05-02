@@ -1,0 +1,8 @@
+uuid: eb3aafe7-1684-4c55-ae64-d190b0d292e2
+langcode: da
+status: true
+dependencies: {  }
+name: Afregningsenhed
+vid: price_settlement_unit
+description: ''
+weight: 0

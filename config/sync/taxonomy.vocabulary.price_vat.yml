@@ -1,0 +1,8 @@
+uuid: a0b1f699-f331-41ae-b47d-612d7002dd59
+langcode: da
+status: true
+dependencies: {  }
+name: Moms
+vid: price_vat
+description: ''
+weight: 0

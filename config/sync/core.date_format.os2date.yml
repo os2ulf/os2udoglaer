@@ -1,0 +1,8 @@
+uuid: 9ac491ba-9f44-4370-9783-ec01ff5a85f2
+langcode: da
+status: true
+dependencies: {  }
+id: os2date
+label: os2date
+locked: false
+pattern: m.d.Y

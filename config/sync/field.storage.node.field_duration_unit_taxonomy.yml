@@ -1,13 +1,13 @@
-uuid: cdfa27a4-5b6e-4881-8327-c1abec6b2808
+uuid: 7bf07fea-fc38-40a4-9d69-561f24e502cc
 langcode: da
 status: true
 dependencies:
   module:
-    - paragraphs
+    - node
     - taxonomy
-id: paragraph.field_price_vat
-field_name: field_price_vat
-entity_type: paragraph
+id: node.field_duration_unit_taxonomy
+field_name: field_duration_unit_taxonomy
+entity_type: node
 type: entity_reference
 settings:
   target_type: taxonomy_term

@@ -1,0 +1,11 @@
+uuid: ef71fce2-fdcc-47bf-b6f6-9dfab120e589
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.price_settlement_unit
+id: taxonomy_term.price_settlement_unit
+target_entity_type_id: taxonomy_term
+target_bundle: price_settlement_unit
+default_langcode: site_default
+language_alterable: false

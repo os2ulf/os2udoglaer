@@ -1,0 +1,68 @@
+uuid: d178aebe-86a9-47a4-b207-cb87d70bdc63
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.contact_paragraph.field_description
+    - field.field.paragraph.contact_paragraph.field_email
+    - field.field.paragraph.contact_paragraph.field_name
+    - field.field.paragraph.contact_paragraph.field_office_availability_text
+    - field.field.paragraph.contact_paragraph.field_phone
+    - field.field.paragraph.contact_paragraph.field_title
+    - field.field.paragraph.contact_paragraph.field_webpage
+    - paragraphs.paragraphs_type.contact_paragraph
+id: paragraph.contact_paragraph.default
+targetEntityType: paragraph
+bundle: contact_paragraph
+mode: default
+content:
+  field_description:
+    type: value
+    weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_email:
+    type: value
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_name:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_office_availability_text:
+    type: value
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_phone:
+    type: value
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_title:
+    type: value
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_webpage:
+    type: link
+    weight: '6'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
