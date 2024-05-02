@@ -72,7 +72,7 @@ crons:
     drupal:
         spec: '*/1 * * * *'
         commands:
-            start: 'cd web ; drush core-cron'
+            start: '/app/vendor/bin/drush core-cron'
 source:
   operations:
     auto-update:
