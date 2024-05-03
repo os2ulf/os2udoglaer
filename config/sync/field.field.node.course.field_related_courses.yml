@@ -1,0 +1,32 @@
+uuid: eb61b985-5801-4b89-826a-16a76ec32b00
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_courses
+    - node.type.course
+    - node.type.course_educators
+    - node.type.internship
+id: node.course.field_related_courses
+field_name: field_related_courses
+entity_type: node
+bundle: course
+label: 'Relaterede forløb'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      internship: internship
+      course_educators: course_educators
+      course: course
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: course_educators
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: c1367a64-4775-4a91-8674-15f0339733dd
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trgt_grp_daycare
+    - node.type.course
+    - taxonomy.vocabulary.target_group_daycare
+id: node.course.field_trgt_grp_daycare
+field_name: field_trgt_grp_daycare
+entity_type: node
+bundle: course
+label: Målgruppe
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      target_group_daycare: target_group_daycare
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

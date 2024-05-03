@@ -35,7 +35,7 @@
         "drupal/autosave_form": "^1.0",
         "drupal/components": "^3.0@beta",
         "drupal/conditional_fields": "^4.0@alpha",
-        "drupal/config_ignore": "^2.3",
+        "drupal/config_ignore": "^3.3",
         "drupal/config_split": "^1.7.0",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
@@ -57,6 +57,7 @@
         "drupal/layout_builder_modal": "^1.0",
         "drupal/layout_builder_restrictions": "^2.0",
         "drupal/linkit": "^6.0",
+        "drupal/maxlength": "^2.1",
         "drupal/metatag": "^1.0",
         "drupal/noreferrer": "^1.0",
         "drupal/paragraphs": "^1.0",
@@ -71,7 +72,9 @@
         "drupal/search_api": "^1.0",
         "drupal/search_api_exclude_entity": "^1.0",
         "drupal/search_api_page": "^1.0@beta",
+        "drupal/sendgrid_integration": "^2.2",
         "drupal/simple_sitemap": "^4.1",
+        "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/view_unpublished": "^1.0",
         "drupal/webform": "^6.2@beta",
         "drupal/webp": "^1.0@RC",
@@ -175,12 +178,16 @@
             ]
         },
         "patches": {
+            "drupal/core": {
+            "(#2999491) Allow creation of reuseable inline blocks": "https://www.drupal.org/files/issues/2020-05-21/2999491--reusable-title-display--49.patch"
+            },
             "drupal/autosave_form": {
                 "(#3355495) PHP 8.2 deprecation issue with AutosaveFormBuilder": "https://www.drupal.org/files/issues/2023-04-20/autosave_form-dynamic-property-deprecation.patch"
             },
             "drupal/domain": {
                 "(#3367785) Available on Current Domain doesn't instantiate": "https://www.drupal.org/files/issues/2023-11-10/3367785-domain-php8-boolean-14.patch",
-                "(#3359253) Use core route provider with addExtraCacheKeyPart for route caching?": "https://www.drupal.org/files/issues/2023-05-09/domain-route-provider-addextracachekeypart-3359253-02.patch"
+                "(#3359253) Use core route provider with addExtraCacheKeyPart for route caching?": "https://www.drupal.org/files/issues/2023-05-09/domain-route-provider-addextracachekeypart-3359253-02.patch",
+                "(#3397693) Add domain-specific cache tags to config overrides": "https://git.drupalcode.org/project/domain/-/merge_requests/54.diff"
             },
             "drupal/paragraphs": {
                 "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch"

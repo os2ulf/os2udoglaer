@@ -1,0 +1,8 @@
+uuid: 38015719-ae3c-4894-84b3-99f4446b5b50
+langcode: da
+status: true
+dependencies: {  }
+name: 'Målgruppe - Grundskole'
+vid: target_group_primary_school
+description: ''
+weight: 0

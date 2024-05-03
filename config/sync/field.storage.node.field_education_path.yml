@@ -1,16 +1,16 @@
-uuid: 6f2b657b-433a-4387-a40b-ee15549211bd
+uuid: 91e6bfb9-dd1c-4a18-8ccd-6a98f6e6150a
 langcode: da
 status: true
 dependencies:
   module:
     - node
+    - text
 id: node.field_education_path
 field_name: field_education_path
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

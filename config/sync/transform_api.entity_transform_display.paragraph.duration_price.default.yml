@@ -20,17 +20,19 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_price_settlement_unit:
-    type: value
+    type: entity_transform
     weight: '1'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      transform_mode: default
     third_party_settings: {  }
   field_price_vat:
-    type: value
+    type: entity_transform
     weight: '2'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      transform_mode: default
     third_party_settings: {  }
 hidden: {  }

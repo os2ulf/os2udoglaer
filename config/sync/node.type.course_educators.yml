@@ -1,0 +1,18 @@
+uuid: 03e3324a-5d62-4063-a60e-60d4d6b60999
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Kursus
+type: course_educators
+description: ''
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,19 @@
+uuid: 54147e59-df59-4678-9f57-68103310e91a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_phone
+    - node.type.course_educators
+id: node.course_educators.field_registration_phone
+field_name: field_registration_phone
+entity_type: node
+bundle: course_educators
+label: Tlf.nr.
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

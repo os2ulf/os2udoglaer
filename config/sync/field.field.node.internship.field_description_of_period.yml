@@ -1,0 +1,29 @@
+uuid: 630e958c-3044-43d2-b7a6-12450a226151
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_of_period
+    - filter.format.basic_html
+    - node.type.internship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.internship.field_description_of_period
+field_name: field_description_of_period
+entity_type: node
+bundle: internship
+label: Periode
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

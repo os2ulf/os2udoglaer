@@ -4,8 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.course.body
+    - field.field.node.course.field_activities
     - field.field.node.course.field_all_year
-    - field.field.node.course.field_application_button
     - field.field.node.course.field_banner
     - field.field.node.course.field_course_type
     - field.field.node.course.field_curriculum_themes
@@ -26,26 +26,32 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
-    - field.field.node.course.field_materials_title
     - field.field.node.course.field_period
+    - field.field.node.course.field_post_processing
+    - field.field.node.course.field_practical_info_buttons
+    - field.field.node.course.field_preparation
     - field.field.node.course.field_price
     - field.field.node.course.field_primary_school_subject
+    - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
     - field.field.node.course.field_quantity_description
-    - field.field.node.course.field_realted_courses
     - field.field.node.course.field_registration_deadline
     - field.field.node.course.field_registration_description
     - field.field.node.course.field_registration_email
     - field.field.node.course.field_registration_phone
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
+    - field.field.node.course.field_related_courses
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
+    - field.field.node.course.field_theme
+    - field.field.node.course.field_trgt_grp_daycare
+    - field.field.node.course.field_trgt_grp_primary_school
+    - field.field.node.course.field_trgt_grp_youth_education
     - field.field.node.course.field_video
     - field.field.node.course.field_video_description
-    - field.field.node.course.field_video_thumbnail
     - field.field.node.course.field_video_title
     - field.field.node.course.field_view_on_map
     - field.field.node.course.field_youth_education_subject
@@ -55,7 +61,6 @@ dependencies:
     - datetime_range
     - entity_reference_revisions
     - image
-    - link
     - options
     - text
     - user
@@ -71,6 +76,13 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  field_activities:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 145
+    region: content
   field_all_year:
     type: boolean
     label: above
@@ -80,16 +92,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 118
-    region: content
-  field_application_button:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 133
     region: content
   field_banner:
     type: entity_reference_label
@@ -116,25 +118,25 @@ content:
     weight: 115
     region: content
   field_description_of_duration:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 116
+    weight: 153
     region: content
   field_description_of_period:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 119
+    weight: 152
     region: content
   field_description_of_price:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 117
+    weight: 150
     region: content
   field_duration:
     type: number_decimal
@@ -163,11 +165,11 @@ content:
     weight: 134
     region: content
   field_facilities_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 132
+    weight: 154
     region: content
   field_image:
     type: image
@@ -199,11 +201,11 @@ content:
     weight: 27
     region: content
   field_location_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 23
+    weight: 149
     region: content
   field_location_name:
     type: string
@@ -238,14 +240,6 @@ content:
     third_party_settings: {  }
     weight: 21
     region: content
-  field_materials_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 139
-    region: content
   field_period:
     type: daterange_default
     label: above
@@ -255,6 +249,27 @@ content:
       separator: '-'
     third_party_settings: {  }
     weight: 120
+    region: content
+  field_post_processing:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 147
+    region: content
+  field_practical_info_buttons:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 143
+    region: content
+  field_preparation:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 146
     region: content
   field_price:
     type: entity_reference_revisions_entity_view
@@ -273,6 +288,13 @@ content:
     third_party_settings: {  }
     weight: 113
     region: content
+  field_purpose:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 144
+    region: content
   field_quantity:
     type: number_integer
     label: above
@@ -283,19 +305,11 @@ content:
     weight: 4
     region: content
   field_quantity_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 107
-    region: content
-  field_realted_courses:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 135
+    weight: 151
     region: content
   field_registration_deadline:
     type: datetime_default
@@ -307,11 +321,11 @@ content:
     weight: 123
     region: content
   field_registration_description:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 122
+    weight: 156
     region: content
   field_registration_email:
     type: basic_string
@@ -344,6 +358,14 @@ content:
     third_party_settings: {  }
     weight: 125
     region: content
+  field_related_courses:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 160
+    region: content
   field_subject:
     type: entity_reference_label
     label: above
@@ -361,11 +383,11 @@ content:
     weight: 128
     region: content
   field_sustainability_goals_desc:
-    type: basic_string
+    type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 129
+    weight: 155
     region: content
   field_target_group:
     type: entity_reference_label
@@ -375,17 +397,46 @@ content:
     third_party_settings: {  }
     weight: 112
     region: content
-  field_video:
-    type: link
+  field_theme:
+    type: entity_reference_label
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      link: true
     third_party_settings: {  }
-    weight: 20
+    weight: 148
+    region: content
+  field_trgt_grp_daycare:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 142
+    region: content
+  field_trgt_grp_primary_school:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 140
+    region: content
+  field_trgt_grp_youth_education:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 141
+    region: content
+  field_video:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 159
     region: content
   field_video_description:
     type: text_default
@@ -393,17 +444,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 137
-    region: content
-  field_video_thumbnail:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 138
     region: content
   field_video_title:
     type: string

@@ -1,0 +1,29 @@
+uuid: 96563914-16a5-419a-8603-90d9f6c58d47
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_expectations
+    - filter.format.basic_html
+    - node.type.internship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.internship.field_expectations
+field_name: field_expectations
+entity_type: node
+bundle: internship
+label: Forventninger
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

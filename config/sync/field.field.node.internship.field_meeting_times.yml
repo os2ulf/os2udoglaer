@@ -1,10 +1,18 @@
-uuid: b91b9333-1600-417e-b884-3237b3c04586
+uuid: 9ab89f1b-e81b-4298-9b74-3b83dbeeaffa
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_meeting_times
+    - filter.format.basic_html
     - node.type.internship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
 id: node.internship.field_meeting_times
 field_name: field_meeting_times
 entity_type: node
@@ -15,5 +23,7 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

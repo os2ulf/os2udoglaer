@@ -1,0 +1,33 @@
+uuid: 55070b2c-500b-46b5-8daa-792bed823935
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.sustainability_goal.field_link
+    - field.field.taxonomy_term.sustainability_goal.field_logo
+    - taxonomy.vocabulary.sustainability_goal
+    - transform_api.entity_transform_mode.taxonomy_term.fn_world_goals
+id: taxonomy_term.sustainability_goal.fn_world_goals
+targetEntityType: taxonomy_term
+bundle: sustainability_goal
+mode: fn_world_goals
+content:
+  field_link:
+    type: link
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_logo:
+    type: image_style
+    weight: '0'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true

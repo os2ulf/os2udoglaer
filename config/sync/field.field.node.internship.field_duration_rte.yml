@@ -1,0 +1,29 @@
+uuid: fc7baccd-ed5d-447b-8e6b-726e6ad81e35
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration_rte
+    - filter.format.basic_html
+    - node.type.internship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.internship.field_duration_rte
+field_name: field_duration_rte
+entity_type: node
+bundle: internship
+label: Varighed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

@@ -11,11 +11,14 @@ dependencies:
     - field.field.node.internship.field_application_title
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
+    - field.field.node.internship.field_banner
     - field.field.node.internship.field_desc_application_procedure
+    - field.field.node.internship.field_description_of_period
     - field.field.node.internship.field_domain_access
     - field.field.node.internship.field_domain_all_affiliates
-    - field.field.node.internship.field_duration
+    - field.field.node.internship.field_duration_rte
     - field.field.node.internship.field_education_path
+    - field.field.node.internship.field_expectations
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -24,15 +27,14 @@ dependencies:
     - field.field.node.internship.field_location_street
     - field.field.node.internship.field_location_zipcode
     - field.field.node.internship.field_materials
-    - field.field.node.internship.field_materials_title
     - field.field.node.internship.field_meeting_times
-    - field.field.node.internship.field_periode
+    - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
+    - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
-    - field.field.node.internship.field_video_thumbnail
     - field.field.node.internship.field_video_title
     - field.field.node.internship.field_view_on_map
     - node.type.internship
@@ -64,11 +66,14 @@ hidden:
   field_application_title: true
   field_application_url: true
   field_areas_of_interest: true
+  field_banner: true
   field_desc_application_procedure: true
+  field_description_of_period: true
   field_domain_access: true
   field_domain_all_affiliates: true
-  field_duration: true
+  field_duration_rte: true
   field_education_path: true
+  field_expectations: true
   field_image: true
   field_industry: true
   field_location_city: true
@@ -77,15 +82,14 @@ hidden:
   field_location_street: true
   field_location_zipcode: true
   field_materials: true
-  field_materials_title: true
   field_meeting_times: true
-  field_periode: true
+  field_purpose_internship: true
   field_quantity: true
+  field_related_courses: true
   field_show_application_link: true
   field_todo_list: true
   field_video: true
   field_video_description: true
-  field_video_thumbnail: true
   field_video_title: true
   field_view_on_map: true
   langcode: true

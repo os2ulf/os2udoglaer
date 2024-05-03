@@ -1,10 +1,18 @@
-uuid: 38693599-f1cd-41f2-ab98-d65e8425135a
+uuid: e9cc2fc7-0bdb-40f8-a016-9755fb55665a
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_desc_application_procedure
+    - filter.format.basic_html
     - node.type.internship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
 id: node.internship.field_desc_application_procedure
 field_name: field_desc_application_procedure
 entity_type: node
@@ -15,5 +23,7 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: string_long
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

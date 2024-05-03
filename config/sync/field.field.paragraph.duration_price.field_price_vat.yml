@@ -1,12 +1,11 @@
-uuid: 58dbbf4b-d272-4a33-a367-a36199eae0d5
+uuid: 4d816691-c86c-46b6-bc84-8421d2a95a3d
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_price_vat
     - paragraphs.paragraphs_type.duration_price
-  module:
-    - options
+    - taxonomy.vocabulary.price_vat
 id: paragraph.duration_price.field_price_vat
 field_name: field_price_vat
 entity_type: paragraph
@@ -17,5 +16,14 @@ required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
-settings: {  }
-field_type: list_string
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      price_vat: price_vat
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

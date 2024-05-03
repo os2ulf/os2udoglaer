@@ -1,0 +1,19 @@
+uuid: 33fcd225-4583-4004-bfd0-33469b01ccd3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_city
+    - node.type.course_educators
+id: node.course_educators.field_location_city
+field_name: field_location_city
+entity_type: node
+bundle: course_educators
+label: By
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

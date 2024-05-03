@@ -1,16 +1,16 @@
-uuid: 99eb6869-e2fa-4ae9-9d18-05949e835d3f
+uuid: 18826f9f-35e8-483b-8b71-358c056a5a52
 langcode: da
 status: true
 dependencies:
   module:
     - node
+    - text
 id: node.field_desc_application_procedure
 field_name: field_desc_application_procedure
 entity_type: node
-type: string_long
-settings:
-  case_sensitive: false
-module: core
+type: text_long
+settings: {  }
+module: text
 locked: false
 cardinality: 1
 translatable: true

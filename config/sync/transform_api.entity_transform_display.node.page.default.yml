@@ -76,4 +76,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
   langcode: true

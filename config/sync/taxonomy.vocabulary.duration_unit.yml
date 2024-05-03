@@ -1,0 +1,8 @@
+uuid: b951113e-5fec-4e8d-954e-f3cd041ba817
+langcode: da
+status: true
+dependencies: {  }
+name: 'Varighed enhed'
+vid: duration_unit
+description: ''
+weight: 0
