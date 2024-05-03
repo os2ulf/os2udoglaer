@@ -1,0 +1,20 @@
+uuid: 3c74f195-1294-418e-9f29-839af322eb24
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.main
+id: primaernavigation
+region: header
+weight: '0'
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Primær navigation'
+  provider: transform_api
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility: {  }
