@@ -5,8 +5,8 @@ dependencies:
   module:
     - os2uol_settings
 id: settings
-region: content
-weight: '0'
+region: settings
+weight: '-1'
 provider: null
 plugin: domain_settings
 settings:
