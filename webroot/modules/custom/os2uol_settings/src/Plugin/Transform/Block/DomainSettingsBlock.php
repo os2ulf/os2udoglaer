@@ -44,7 +44,7 @@ class DomainSettingsBlock extends TransformBlockBase {
 
     if ($logo) {
       $file = File::load($logo);
-      $logo_url = $file->createFileUrl();
+      $logo_url = $file->createFileUrl(FALSE);
     }
 
     return [
