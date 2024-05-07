@@ -1,0 +1,36 @@
+uuid: d05c46c9-eac4-455f-ae11-2da3befe8622
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cards.field_description
+    - field.field.paragraph.cards.field_link
+    - field.field.paragraph.cards.field_title
+    - paragraphs.paragraphs_type.cards
+id: paragraph.cards.default
+targetEntityType: paragraph
+bundle: cards
+mode: default
+content:
+  field_description:
+    type: value
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_link:
+    type: link
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_title:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
