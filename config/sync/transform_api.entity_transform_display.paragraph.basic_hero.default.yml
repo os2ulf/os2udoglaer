@@ -1,0 +1,39 @@
+uuid: 56109f48-f824-4ac0-a8a7-e96247dfedbb
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.basic_hero.field_background_image
+    - field.field.paragraph.basic_hero.field_paragraph_cards
+    - field.field.paragraph.basic_hero.field_title
+    - paragraphs.paragraphs_type.basic_hero
+id: paragraph.basic_hero.default
+targetEntityType: paragraph
+bundle: basic_hero
+mode: default
+content:
+  field_background_image:
+    type: image_style
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_paragraph_cards:
+    type: entity_transform
+    weight: '2'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_title:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

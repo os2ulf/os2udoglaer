@@ -1,22 +1,20 @@
-uuid: ae20d0ca-462a-4adf-a44c-f5643fa1e8a3
+uuid: 4699c1c7-8049-4325-a233-7377fb2e6b8a
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_link
-    - paragraphs.paragraphs_type.basic_hero
+    - paragraphs.paragraphs_type.cards
   module:
     - link
-_core:
-  default_config_hash: 7N-KBB7w5ohS7_MkPCHDhn9TXVyHCzW8iN4q9Ujlac8
-id: paragraph.basic_hero.field_link
+id: paragraph.cards.field_link
 field_name: field_link
 entity_type: paragraph
-bundle: basic_hero
+bundle: cards
 label: Link
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
