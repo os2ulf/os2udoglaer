@@ -132,7 +132,7 @@ third_party_settings:
       weight: 6
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -167,7 +167,7 @@ third_party_settings:
       weight: 8
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -190,7 +190,7 @@ third_party_settings:
       weight: 9
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -261,7 +261,7 @@ third_party_settings:
       weight: 1
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -284,7 +284,7 @@ third_party_settings:
       weight: 0
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -312,7 +312,7 @@ third_party_settings:
       weight: 2
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -334,7 +334,7 @@ third_party_settings:
       weight: 3
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -356,7 +356,7 @@ third_party_settings:
       weight: 4
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -377,7 +377,7 @@ third_party_settings:
       weight: 5
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -398,7 +398,7 @@ third_party_settings:
       weight: 7
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -418,7 +418,7 @@ third_party_settings:
       weight: 10
       format_type: html_element
       format_settings:
-        classes: form-item
+        classes: ''
         show_empty_fields: false
         id: ''
         element: details
