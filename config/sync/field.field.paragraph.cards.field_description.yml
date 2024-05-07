@@ -1,0 +1,19 @@
+uuid: 863c0848-d162-417d-9140-bd1a161dc58a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_description
+    - paragraphs.paragraphs_type.cards
+id: paragraph.cards.field_description
+field_name: field_description
+entity_type: paragraph
+bundle: cards
+label: Beskrivelse
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
