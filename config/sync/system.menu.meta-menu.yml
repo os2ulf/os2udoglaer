@@ -1,0 +1,8 @@
+uuid: 2512f2e4-1873-4d70-8f05-3ac7568a5822
+langcode: da
+status: true
+dependencies: {  }
+id: meta-menu
+label: 'Meta Menu'
+description: 'Secondary menu (Meta menu)'
+locked: false
