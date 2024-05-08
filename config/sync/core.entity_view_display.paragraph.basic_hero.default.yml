@@ -4,21 +4,12 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.basic_hero.field_background_image
-    - field.field.paragraph.basic_hero.field_background_video_thumbnail
-    - field.field.paragraph.basic_hero.field_background_video_url
-    - field.field.paragraph.basic_hero.field_color_theme
-    - field.field.paragraph.basic_hero.field_cta
-    - field.field.paragraph.basic_hero.field_link
-    - field.field.paragraph.basic_hero.field_overlay
-    - field.field.paragraph.basic_hero.field_text
-    - field.field.paragraph.basic_hero.field_text_color
-    - field.field.paragraph.basic_hero.field_text_position
+    - field.field.paragraph.basic_hero.field_paragraph_cards
+    - field.field.paragraph.basic_hero.field_title
     - paragraphs.paragraphs_type.basic_hero
   module:
+    - entity_reference_revisions
     - image
-    - link
-    - styles
-    - text
 _core:
   default_config_hash: j5tMsp1UWpYqUhIdpHi5rJPyXda6TcVq6i0JercVGoA
 id: paragraph.basic_hero.default
@@ -37,64 +28,22 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
-  field_background_video_thumbnail:
-    type: image
+  field_paragraph_cards:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_background_video_url:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     weight: 6
     region: content
-  field_color_theme:
-    type: styles_class
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_cta:
-    type: styles_link_target
-    label: hidden
+  field_title:
+    type: string
+    label: above
     settings:
-      trim_length: '80'
-      url_only: ''
-      url_plain: ''
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_text:
-    type: text_default
-    label: hidden
-    settings: {  }
+      link_to_entity: false
     third_party_settings: {  }
     weight: 2
     region: content
-  field_text_position:
-    type: styles_class
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
 hidden:
-  field_link: true
-  field_overlay: true
-  field_text_color: true
   search_api_excerpt: true
