@@ -27,15 +27,20 @@ dependencies:
     - media.type.remote_video
     - media.type.video
     - node.type.course
+    - node.type.course_educators
     - node.type.internship
     - node.type.page
     - taxonomy.vocabulary.areas_of_interest
     - taxonomy.vocabulary.banner
     - taxonomy.vocabulary.course_type
     - taxonomy.vocabulary.curriculum_themes
+    - taxonomy.vocabulary.duration_unit
     - taxonomy.vocabulary.facility
     - taxonomy.vocabulary.industries
+    - taxonomy.vocabulary.kursus_relevans_undervisere
     - taxonomy.vocabulary.media_categories
+    - taxonomy.vocabulary.price_settlement_unit
+    - taxonomy.vocabulary.price_vat
     - taxonomy.vocabulary.primary_school_subject
     - taxonomy.vocabulary.subject
     - taxonomy.vocabulary.sustainability_goal
@@ -184,6 +189,7 @@ permissions:
   - 'create code block content'
   - 'create content translations'
   - 'create course content'
+  - 'create course_educators content'
   - 'create divider block content'
   - 'create document media'
   - 'create hero block content'
@@ -203,9 +209,13 @@ permissions:
   - 'create terms in banner'
   - 'create terms in course_type'
   - 'create terms in curriculum_themes'
+  - 'create terms in duration_unit'
   - 'create terms in facility'
   - 'create terms in industries'
+  - 'create terms in kursus_relevans_undervisere'
   - 'create terms in media_categories'
+  - 'create terms in price_settlement_unit'
+  - 'create terms in price_vat'
   - 'create terms in primary_school_subject'
   - 'create terms in subject'
   - 'create terms in sustainability_goal'
@@ -227,6 +237,7 @@ permissions:
   - 'delete any button block content'
   - 'delete any code block content'
   - 'delete any course content'
+  - 'delete any course_educators content'
   - 'delete any divider block content'
   - 'delete any document media'
   - 'delete any file'
@@ -248,10 +259,12 @@ permissions:
   - 'delete any webform submission'
   - 'delete content translations'
   - 'delete course revisions'
+  - 'delete course_educators revisions'
   - 'delete internship revisions'
   - 'delete media'
   - 'delete own audio media'
   - 'delete own course content'
+  - 'delete own course_educators content'
   - 'delete own document media'
   - 'delete own files'
   - 'delete own image media'
@@ -266,9 +279,13 @@ permissions:
   - 'delete terms in banner'
   - 'delete terms in course_type'
   - 'delete terms in curriculum_themes'
+  - 'delete terms in duration_unit'
   - 'delete terms in facility'
   - 'delete terms in industries'
+  - 'delete terms in kursus_relevans_undervisere'
   - 'delete terms in media_categories'
+  - 'delete terms in price_settlement_unit'
+  - 'delete terms in price_vat'
   - 'delete terms in primary_school_subject'
   - 'delete terms in subject'
   - 'delete terms in sustainability_goal'
@@ -285,6 +302,7 @@ permissions:
   - 'edit any button block content'
   - 'edit any code block content'
   - 'edit any course content'
+  - 'edit any course_educators content'
   - 'edit any divider block content'
   - 'edit any document media'
   - 'edit any hero block content'
@@ -305,6 +323,7 @@ permissions:
   - 'edit atom'
   - 'edit own audio media'
   - 'edit own course content'
+  - 'edit own course_educators content'
   - 'edit own document media'
   - 'edit own image media'
   - 'edit own internship content'
@@ -317,9 +336,13 @@ permissions:
   - 'edit terms in banner'
   - 'edit terms in course_type'
   - 'edit terms in curriculum_themes'
+  - 'edit terms in duration_unit'
   - 'edit terms in facility'
   - 'edit terms in industries'
+  - 'edit terms in kursus_relevans_undervisere'
   - 'edit terms in media_categories'
+  - 'edit terms in price_settlement_unit'
+  - 'edit terms in price_vat'
   - 'edit terms in primary_school_subject'
   - 'edit terms in subject'
   - 'edit terms in sustainability_goal'
@@ -333,6 +356,7 @@ permissions:
   - 'publish to any domain'
   - 'revert all revisions'
   - 'revert course revisions'
+  - 'revert course_educators revisions'
   - 'revert internship revisions'
   - 'revert page revisions'
   - 'select account cancellation method'
@@ -373,6 +397,7 @@ permissions:
   - 'view any webform submission'
   - 'view assigned domains'
   - 'view course revisions'
+  - 'view course_educators revisions'
   - 'view domain list'
   - 'view internship revisions'
   - 'view latest version'
