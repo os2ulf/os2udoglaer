@@ -1,0 +1,29 @@
+uuid: 32548d5e-448c-418b-9dc5-2e136e39cc53
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_curriculum_themes
+    - node.type.exercise
+    - taxonomy.vocabulary.curriculum_themes
+id: node.exercise.field_curriculum_themes
+field_name: field_curriculum_themes
+entity_type: node
+bundle: exercise
+label: Læreplanstemaer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      curriculum_themes: curriculum_themes
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

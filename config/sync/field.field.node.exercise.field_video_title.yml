@@ -1,0 +1,19 @@
+uuid: 6340ff0f-2397-45dd-9ef1-115b9da62bc2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_title
+    - node.type.exercise
+id: node.exercise.field_video_title
+field_name: field_video_title
+entity_type: node
+bundle: exercise
+label: Overskrift
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
