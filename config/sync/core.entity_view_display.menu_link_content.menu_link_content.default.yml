@@ -2,7 +2,11 @@ uuid: 02900cf8-1457-45a7-b359-19a34efaa460
 langcode: da
 status: true
 dependencies:
+  config:
+    - field.field.menu_link_content.menu_link_content.field_description
+    - field.field.menu_link_content.menu_link_content.field_icon
   module:
+    - file
     - link
     - menu_link_content
     - menu_item_fields
@@ -11,6 +15,21 @@ targetEntityType: menu_link_content
 bundle: menu_link_content
 mode: default
 content:
+  field_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_icon:
+    type: file_default
+    label: hidden
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
   link:
     type: link
     label: hidden
@@ -21,6 +40,14 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
+    weight: 1
+    region: content
+  title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
     weight: 0
     region: content
 hidden:
@@ -29,5 +56,4 @@ hidden:
   expanded: true
   langcode: true
   search_api_excerpt: true
-  title: true
   weight: true
