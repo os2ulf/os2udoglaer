@@ -68,7 +68,7 @@ content:
     third_party_settings: {  }
   field_curriculum_themes:
     type: entity_reference_labels
-    weight: '5'
+    weight: '3'
     region: content
     label: omit
     settings: {  }
@@ -82,7 +82,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: image_style
-    weight: '9'
+    weight: '8'
     region: content
     label: omit
     settings:
@@ -91,63 +91,57 @@ content:
     third_party_settings: {  }
   field_is_free:
     type: boolean
-    weight: '8'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '13'
+    weight: '12'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '11'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '12'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_primary_school_subject:
     type: entity_reference_labels
-    weight: '6'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_subject:
-    type: entity_reference_labels
-    weight: '4'
+    weight: '5'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_theme:
-    type: entity_reference_labels
-    weight: '3'
+    type: entity_transform
+    weight: '4'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      transform_mode: default
     third_party_settings: {  }
   field_view_on_map:
     type: value
-    weight: '10'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_youth_education_subject:
     type: entity_reference_labels
-    weight: '7'
+    weight: '6'
     region: content
     label: omit
     settings: {  }
@@ -175,6 +169,7 @@ hidden:
   field_registration_title: true
   field_registration_url: true
   field_related_courses: true
+  field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
   field_video: true
