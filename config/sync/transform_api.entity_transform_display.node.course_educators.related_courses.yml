@@ -1,4 +1,4 @@
-uuid: 2588a067-bd81-4540-91ff-5e49c240b2d6
+uuid: b82b46fc-fa73-4324-a4f3-74c2a1419970
 langcode: da
 status: true
 dependencies:
@@ -45,10 +45,11 @@ dependencies:
     - field.field.node.course_educators.field_view_on_map
     - field.field.node.course_educators.field_youth_education_subject
     - node.type.course_educators
-id: node.course_educators.default
+    - transform_api.entity_transform_mode.node.related_courses
+id: node.course_educators.related_courses
 targetEntityType: node
 bundle: course_educators
-mode: default
+mode: related_courses
 content:
   body:
     type: plain_text
@@ -58,27 +59,12 @@ content:
     settings:
       text_length: 0
     third_party_settings: {  }
-  field_all_year:
-    type: boolean
-    weight: '12'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_banner:
     type: entity_reference_labels
     weight: '2'
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_contact:
-    type: entity_transform
-    weight: '9'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
     third_party_settings: {  }
   field_curriculum_themes:
     type: entity_reference_labels
@@ -87,42 +73,6 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_description_of_duration:
-    type: text_format
-    weight: '35'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_description_of_period:
-    type: text_format
-    weight: '36'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_description_of_price:
-    type: text_format
-    weight: '37'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_duration:
-    type: float
-    weight: '29'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_duration_unit_taxonomy:
-    type: entity_transform
-    weight: '32'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
   field_educators_target_group:
     type: entity_reference_labels
     weight: '0'
@@ -130,24 +80,9 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_faciliteter:
-    type: entity_reference_labels
-    weight: '22'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_food_service:
-    type: plain_text
-    weight: '23'
-    region: content
-    label: omit
-    settings:
-      text_length: 0
-    third_party_settings: {  }
   field_image:
     type: image_style
-    weight: '20'
+    weight: '9'
     region: content
     label: omit
     settings:
@@ -156,71 +91,31 @@ content:
     third_party_settings: {  }
   field_is_free:
     type: boolean
-    weight: '10'
+    weight: '8'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '28'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_description:
-    type: text_format
-    weight: '38'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_name:
-    type: value
-    weight: '25'
+    weight: '13'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '26'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '27'
+    weight: '12'
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_materials:
-    type: entity_transform
-    weight: '21'
-    region: content
-    label: omit
-    settings:
-      transform_mode: materials
-    third_party_settings: {  }
-  field_period:
-    type: daterange_default
-    weight: '13'
-    region: content
-    label: omit
-    settings:
-      timezone_override: ''
-      format_type: os2date
-      separator: '-'
-    third_party_settings: {  }
-  field_price:
-    type: entity_transform
-    weight: '11'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
     third_party_settings: {  }
   field_primary_school_subject:
     type: entity_reference_labels
@@ -229,83 +124,9 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_quantity:
-    type: value
-    weight: '8'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_quantity_description:
-    type: text_format
-    weight: '39'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_registration_deadline:
-    type: datetime_default
-    weight: '15'
-    region: content
-    label: omit
-    settings:
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-  field_registration_email:
-    type: value
-    weight: '18'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_registration_phone:
-    type: value
-    weight: '19'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_registration_title:
-    type: value
-    weight: '16'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_registration_url:
-    type: value
-    weight: '17'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_related_courses:
-    type: entity_transform
-    weight: '34'
-    region: content
-    label: omit
-    settings:
-      transform_mode: related_courses
-    third_party_settings: {  }
   field_subject:
     type: entity_reference_labels
     weight: '4'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_sustainability_goals:
-    type: entity_transform
-    weight: '14'
-    region: content
-    label: omit
-    settings:
-      transform_mode: fn_world_goals
-    third_party_settings: {  }
-  field_sustainability_goals_desc:
-    type: text_format
-    weight: '40'
     region: content
     label: omit
     settings: {  }
@@ -317,31 +138,9 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_video:
-    type: entity_transform
-    weight: '33'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_video_description:
-    type: text_format
-    weight: '30'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_video_title:
-    type: value
-    weight: '31'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_view_on_map:
     type: value
-    weight: '24'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
@@ -354,4 +153,31 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_all_year: true
+  field_contact: true
+  field_description_of_duration: true
+  field_description_of_period: true
+  field_description_of_price: true
+  field_duration: true
+  field_duration_unit_taxonomy: true
+  field_faciliteter: true
+  field_food_service: true
+  field_location_description: true
+  field_location_name: true
+  field_materials: true
+  field_period: true
+  field_price: true
+  field_quantity: true
+  field_quantity_description: true
+  field_registration_deadline: true
+  field_registration_email: true
+  field_registration_phone: true
+  field_registration_title: true
+  field_registration_url: true
+  field_related_courses: true
+  field_sustainability_goals: true
+  field_sustainability_goals_desc: true
+  field_video: true
+  field_video_description: true
+  field_video_title: true
   langcode: true
