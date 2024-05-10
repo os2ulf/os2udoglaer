@@ -52,25 +52,28 @@ third_party_settings:
   field_group:
     group_practical_information:
       children:
-        - group_location
         - field_quantity
         - field_description_of_period
         - field_duration_rte
         - field_meeting_times
         - field_todo_list
-        - field_areas_of_interest
-        - field_industry
-        - field_education_path
+        - field_banner
       label: 'Praktisk information'
       region: content
       parent_name: ''
-      weight: 6
-      format_type: fieldset
+      weight: 2
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
     group_application:
       children:
@@ -84,15 +87,20 @@ third_party_settings:
       label: Ansøgning
       region: content
       parent_name: ''
-      weight: 9
-      format_type: fieldset
+      weight: 3
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
-        required_fields: true
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
         effect: none
+        speed: fast
+        required_fields: true
     group_location:
       children:
         - field_view_on_map
@@ -100,14 +108,20 @@ third_party_settings:
         - field_location_description
       label: Lokation
       region: content
-      parent_name: group_practical_information
-      weight: 12
-      format_type: fieldset
+      parent_name: ''
+      weight: 6
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
     group_alternative_address:
       children:
@@ -133,14 +147,120 @@ third_party_settings:
         - field_video
       label: Video
       region: content
-      parent_name: ''
-      weight: 7
+      parent_name: group_media
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         description: ''
+        required_fields: true
+    group_description:
+      children:
+        - title
+        - body
+        - field_purpose_internship
+        - field_expectations
+      label: Beskrivelse
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+        required_fields: true
+    group_industry_area_interest:
+      children:
+        - field_areas_of_interest
+        - field_industry
+        - field_education_path
+      label: 'Branche og interesseområde'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_media:
+      children:
+        - field_image
+        - group_video
+      label: Billeder/medier
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_materials:
+      children:
+        - field_materials
+      label: Materialer
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_related_courses:
+      children:
+        - field_related_courses
+      label: 'Relaterede forløb'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
 id: node.internship.default
 targetEntityType: node
@@ -168,7 +288,7 @@ content:
         maxlength_js_enforce: false
   created:
     type: datetime_timestamp
-    weight: 13
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -188,7 +308,7 @@ content:
     third_party_settings: {  }
   field_application_phone:
     type: string_textfield
-    weight: 34
+    weight: 35
     region: content
     settings:
       size: 60
@@ -222,7 +342,7 @@ content:
     third_party_settings: {  }
   field_banner:
     type: options_select
-    weight: 5
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -236,7 +356,7 @@ content:
     third_party_settings: {  }
   field_description_of_period:
     type: text_textarea
-    weight: 14
+    weight: 6
     region: content
     settings:
       rows: 5
@@ -244,20 +364,20 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 21
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 22
+    weight: 20
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_duration_rte:
     type: text_textarea
-    weight: 15
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -281,7 +401,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: image_image
-    weight: 1
+    weight: 5
     region: content
     settings:
       progress_indicator: throbber
@@ -335,7 +455,7 @@ content:
     third_party_settings: {  }
   field_materials:
     type: paragraphs
-    weight: 8
+    weight: 6
     region: content
     settings:
       title: Materiale
@@ -355,7 +475,7 @@ content:
     third_party_settings: {  }
   field_meeting_times:
     type: text_textarea
-    weight: 16
+    weight: 8
     region: content
     settings:
       rows: 5
@@ -371,14 +491,14 @@ content:
     third_party_settings: {  }
   field_quantity:
     type: number
-    weight: 13
+    weight: 5
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_related_courses:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -388,14 +508,14 @@ content:
     third_party_settings: {  }
   field_show_application_link:
     type: boolean_checkbox
-    weight: 35
+    weight: 36
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_todo_list:
     type: text_textarea
-    weight: 17
+    weight: 9
     region: content
     settings:
       rows: 5
@@ -403,7 +523,7 @@ content:
     third_party_settings: {  }
   field_video:
     type: paragraphs
-    weight: 12
+    weight: 8
     region: content
     settings:
       title: Paragraph
@@ -421,7 +541,7 @@ content:
     third_party_settings: {  }
   field_video_description:
     type: text_textarea
-    weight: 11
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -429,7 +549,7 @@ content:
     third_party_settings: {  }
   field_video_title:
     type: string_textfield
-    weight: 10
+    weight: 6
     region: content
     settings:
       size: 60
@@ -471,52 +591,52 @@ content:
               recurse: '0'
   langcode:
     type: language_select
-    weight: 11
+    weight: 9
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 19
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 17
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 14
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 20
+    weight: 18
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
@@ -528,7 +648,7 @@ content:
         maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -537,7 +657,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 18
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
