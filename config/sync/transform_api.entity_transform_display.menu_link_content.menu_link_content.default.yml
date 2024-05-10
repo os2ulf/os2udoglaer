@@ -2,6 +2,9 @@ uuid: af06cd90-97d1-4779-a790-05aff03bbe90
 langcode: da
 status: true
 dependencies:
+  config:
+    - field.field.menu_link_content.menu_link_content.field_description
+    - field.field.menu_link_content.menu_link_content.field_icon
   module:
     - menu_link_content
 id: menu_link_content.menu_link_content.default
@@ -9,13 +12,6 @@ targetEntityType: menu_link_content
 bundle: menu_link_content
 mode: default
 content:
-  description:
-    type: value
-    weight: '3'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   enabled:
     type: boolean
     weight: '1'
@@ -25,7 +21,21 @@ content:
     third_party_settings: {  }
   expanded:
     type: boolean
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_description:
+    type: value
     weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_icon:
+    type: file_url
+    weight: '5'
     region: content
     label: omit
     settings: {  }
@@ -45,5 +55,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  description: true
   langcode: true
   weight: true
