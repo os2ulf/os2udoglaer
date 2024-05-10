@@ -1,0 +1,90 @@
+uuid: eca4f392-a3d5-4343-a0db-2888f21924cd
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.exercise.body
+    - field.field.node.exercise.field_ackground_knowledge
+    - field.field.node.exercise.field_activities
+    - field.field.node.exercise.field_activity_select
+    - field.field.node.exercise.field_curriculum_themes
+    - field.field.node.exercise.field_description_of_duration
+    - field.field.node.exercise.field_description_of_period
+    - field.field.node.exercise.field_domain_access
+    - field.field.node.exercise.field_domain_all_affiliates
+    - field.field.node.exercise.field_duration_select
+    - field.field.node.exercise.field_how_to
+    - field.field.node.exercise.field_image
+    - field.field.node.exercise.field_materials
+    - field.field.node.exercise.field_period_select
+    - field.field.node.exercise.field_post_processing
+    - field.field.node.exercise.field_primary_school_subject
+    - field.field.node.exercise.field_purpose_exercise
+    - field.field.node.exercise.field_related_excercises
+    - field.field.node.exercise.field_related_user
+    - field.field.node.exercise.field_subject
+    - field.field.node.exercise.field_sustainability_goals
+    - field.field.node.exercise.field_sustainability_goals_desc
+    - field.field.node.exercise.field_target_group
+    - field.field.node.exercise.field_trgt_grp_daycare
+    - field.field.node.exercise.field_trgt_grp_primary_school
+    - field.field.node.exercise.field_trgt_grp_youth_education
+    - field.field.node.exercise.field_video
+    - field.field.node.exercise.field_video_description
+    - field.field.node.exercise.field_video_title
+    - field.field.node.exercise.field_youth_education_subject
+    - node.type.exercise
+  module:
+    - text
+    - user
+id: node.exercise.teaser
+targetEntityType: node
+bundle: exercise
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_ackground_knowledge: true
+  field_activities: true
+  field_activity_select: true
+  field_curriculum_themes: true
+  field_description_of_duration: true
+  field_description_of_period: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_duration_select: true
+  field_how_to: true
+  field_image: true
+  field_materials: true
+  field_period_select: true
+  field_post_processing: true
+  field_primary_school_subject: true
+  field_purpose_exercise: true
+  field_related_excercises: true
+  field_related_user: true
+  field_subject: true
+  field_sustainability_goals: true
+  field_sustainability_goals_desc: true
+  field_target_group: true
+  field_trgt_grp_daycare: true
+  field_trgt_grp_primary_school: true
+  field_trgt_grp_youth_education: true
+  field_video: true
+  field_video_description: true
+  field_video_title: true
+  field_youth_education_subject: true
+  langcode: true
+  search_api_excerpt: true

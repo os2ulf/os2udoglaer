@@ -1,0 +1,17 @@
+uuid: 57acd9ed-20ef-4d63-a5ea-b9cd83ee0de1
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Opgave
+type: exercise
+description: 'Opgave til tilknyttet en eller flere brugere'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true
