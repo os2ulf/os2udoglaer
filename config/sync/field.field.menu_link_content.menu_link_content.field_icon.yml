@@ -1,0 +1,28 @@
+uuid: 2550a9ad-4530-4042-a7cf-068625057e03
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_icon
+  module:
+    - file
+    - menu_link_content
+    - menu_item_fields
+id: menu_link_content.menu_link_content.field_icon
+field_name: field_icon
+entity_type: menu_link_content
+bundle: menu_link_content
+label: Ikon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: menu-icons
+  file_extensions: svg
+  max_filesize: ''
+  description_field: false
+field_type: file

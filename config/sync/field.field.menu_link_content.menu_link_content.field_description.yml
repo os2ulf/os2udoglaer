@@ -1,0 +1,21 @@
+uuid: 7e676625-0549-483f-ab12-2df719615df0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.menu_link_content.field_description
+  module:
+    - menu_link_content
+    - menu_item_fields
+id: menu_link_content.menu_link_content.field_description
+field_name: field_description
+entity_type: menu_link_content
+bundle: menu_link_content
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

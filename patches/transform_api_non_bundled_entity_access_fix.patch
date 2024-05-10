@@ -1,0 +1,18 @@
+diff --git a/src/Access/TransformModeAccessCheck.php b/src/Access/TransformModeAccessCheck.php
+index 48bc985..c19fc5f 100644
+--- a/src/Access/TransformModeAccessCheck.php
++++ b/src/Access/TransformModeAccessCheck.php
+@@ -62,7 +62,12 @@ class TransformModeAccessCheck implements AccessInterface {
+     if ($entity_type_id = $route->getDefault('entity_type_id')) {
+       if (empty($bundle)) {
+         $entity_type = $this->entityTypeManager->getDefinition($entity_type_id);
+-        $bundle = $route_match->getRawParameter($entity_type->getBundleEntityType());
++        if ($entity_type->getBundleEntityType()) {
++          $bundle = $route_match->getRawParameter($entity_type->getBundleEntityType());
++        } else {
++          // If the entity type does not have bundles, use entity type as bundle.
++          $bundle = $entity_type_id;
++        }
+       }
+ 
+       $entity_display = NULL;
