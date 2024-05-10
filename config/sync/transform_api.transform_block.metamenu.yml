@@ -6,7 +6,7 @@ dependencies:
     - system.menu.meta-menu
 id: metamenu
 region: header
-weight: 0
+weight: '0'
 provider: null
 plugin: 'system_menu_block:meta-menu'
 settings:

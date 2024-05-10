@@ -1,0 +1,31 @@
+uuid: 44915f75-436e-4faa-b8a4-413c0ba69d99
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - domain
+    - os2uol_menus
+id: primaernavigation_2
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:main'
+settings:
+  id: 'custom_menu_block:main'
+  label: 'Primær navigation'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_os2udoglaer_dk: api_os2udoglaer_dk
+      api_ulfiaarhus_dk: api_ulfiaarhus_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
