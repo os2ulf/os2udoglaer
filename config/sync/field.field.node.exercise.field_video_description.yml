@@ -1,0 +1,29 @@
+uuid: 7752de0d-89a3-4d93-8f4a-154eafe85746
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_description
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_video_description
+field_name: field_video_description
+entity_type: node
+bundle: exercise
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

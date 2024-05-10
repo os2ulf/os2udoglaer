@@ -1,0 +1,29 @@
+uuid: 3f294b3c-daf6-4db6-b92f-0232d4574c46
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_youth_education_subject
+    - node.type.exercise
+    - taxonomy.vocabulary.youth_education_subject
+id: node.exercise.field_youth_education_subject
+field_name: field_youth_education_subject
+entity_type: node
+bundle: exercise
+label: Fag
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      youth_education_subject: youth_education_subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

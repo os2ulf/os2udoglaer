@@ -1,0 +1,11 @@
+uuid: 19e88133-4bfb-40b2-bc1c-6acec2888d0f
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.months
+id: taxonomy_term.months
+target_entity_type_id: taxonomy_term
+target_bundle: months
+default_langcode: site_default
+language_alterable: false

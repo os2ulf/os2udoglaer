@@ -1,0 +1,19 @@
+uuid: fac8f48e-3259-49d6-84b0-d6827c6e822b
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_ackground_knowledge
+field_name: field_ackground_knowledge
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

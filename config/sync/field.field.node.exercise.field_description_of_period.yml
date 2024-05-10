@@ -1,0 +1,29 @@
+uuid: 31fe6e3f-b116-4ea8-be25-8857a4cbb84e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_of_period
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_description_of_period
+field_name: field_description_of_period
+entity_type: node
+bundle: exercise
+label: 'Yderligere oplysninger til periode'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

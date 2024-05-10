@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: 'Undervisnings- og læringsforløb'
 type: course
-description: ''
+description: 'Undervisnings- og læringsforløb målrettet børn og unge.'
 help: ''
 new_revision: true
 preview_mode: 0

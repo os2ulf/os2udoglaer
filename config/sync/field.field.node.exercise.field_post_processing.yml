@@ -1,0 +1,29 @@
+uuid: b2a96a5b-1643-44cd-9cdf-f00e57187aca
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_post_processing
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_post_processing
+field_name: field_post_processing
+entity_type: node
+bundle: exercise
+label: 'Efter besøget'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

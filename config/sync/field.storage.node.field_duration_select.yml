@@ -1,0 +1,20 @@
+uuid: f489f5c9-eeed-4e34-b32f-e6da7c5bcfc7
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_duration_select
+field_name: field_duration_select
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

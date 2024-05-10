@@ -1,0 +1,19 @@
+uuid: 3bdb3b00-6b6d-44d9-95f7-f957467aea09
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_how_to
+field_name: field_how_to
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

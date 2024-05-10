@@ -1,0 +1,29 @@
+uuid: da8dd619-e97f-466c-a80f-4b9e56aac950
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_purpose_exercise
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_purpose_exercise
+field_name: field_purpose_exercise
+entity_type: node
+bundle: exercise
+label: Mål
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

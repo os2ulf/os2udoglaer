@@ -1,0 +1,29 @@
+uuid: aad0089a-eeeb-4627-86df-025840600dc4
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_period_select
+    - node.type.exercise
+    - taxonomy.vocabulary.months
+id: node.exercise.field_period_select
+field_name: field_period_select
+entity_type: node
+bundle: exercise
+label: Periode
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      months: months
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

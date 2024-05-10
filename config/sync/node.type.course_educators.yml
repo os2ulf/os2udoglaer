@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 name: Kursus
 type: course_educators
-description: ''
+description: 'Kursusforløb målrettet lærere og pædagoger.'
 help: ''
 new_revision: true
 preview_mode: 1

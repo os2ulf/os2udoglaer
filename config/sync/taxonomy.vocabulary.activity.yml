@@ -1,0 +1,8 @@
+uuid: edd9ddb8-28a4-4663-adae-ffae45844305
+langcode: da
+status: true
+dependencies: {  }
+name: Aktivitet
+vid: activity
+description: ''
+weight: 0

@@ -1,0 +1,29 @@
+uuid: 21035127-23dd-47b4-9eed-89451e666836
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ackground_knowledge
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_ackground_knowledge
+field_name: field_ackground_knowledge
+entity_type: node
+bundle: exercise
+label: 'Før besøget'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

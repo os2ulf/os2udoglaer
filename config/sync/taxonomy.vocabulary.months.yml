@@ -1,0 +1,8 @@
+uuid: 63c774bd-2733-4db6-bfea-0d367584472a
+langcode: da
+status: true
+dependencies: {  }
+name: Måneder
+vid: months
+description: ''
+weight: 0

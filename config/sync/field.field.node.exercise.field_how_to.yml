@@ -1,0 +1,29 @@
+uuid: 81e2afa7-f5b5-4d29-861b-e8be9b8e4264
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_how_to
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_how_to
+field_name: field_how_to
+entity_type: node
+bundle: exercise
+label: 'Sådan gør du'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

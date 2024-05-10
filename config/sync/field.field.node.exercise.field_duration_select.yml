@@ -1,0 +1,29 @@
+uuid: dbe841ef-2983-45f1-82a3-75b18f9c8749
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration_select
+    - node.type.exercise
+    - taxonomy.vocabulary.duration
+id: node.exercise.field_duration_select
+field_name: field_duration_select
+entity_type: node
+bundle: exercise
+label: Varighed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      duration: duration
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

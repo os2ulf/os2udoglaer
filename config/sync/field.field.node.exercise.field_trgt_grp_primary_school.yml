@@ -1,0 +1,29 @@
+uuid: d07b4ba5-2eaa-492a-9ef6-497c47a3d224
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trgt_grp_primary_school
+    - node.type.exercise
+    - taxonomy.vocabulary.target_group_primary_school
+id: node.exercise.field_trgt_grp_primary_school
+field_name: field_trgt_grp_primary_school
+entity_type: node
+bundle: exercise
+label: Målgruppe
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      target_group_primary_school: target_group_primary_school
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
