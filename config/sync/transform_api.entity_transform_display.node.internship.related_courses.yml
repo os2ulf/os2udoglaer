@@ -127,6 +127,7 @@ hidden:
   field_meeting_times: true
   field_purpose_internship: true
   field_quantity: true
+  field_related_courses: true
   field_show_application_link: true
   field_todo_list: true
   field_video: true

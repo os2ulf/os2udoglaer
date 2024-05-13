@@ -1,0 +1,20 @@
+uuid: 0d00f7d3-e04f-4f20-92a5-4d0f3138de3b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_mail
+  module:
+    - user
+id: user.user.field_mail
+field_name: field_mail
+entity_type: user
+bundle: user
+label: Mail
+description: 'Henvendelser via kontaktformularen på forløbene sendes til denne adresse.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

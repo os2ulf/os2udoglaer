@@ -6,12 +6,53 @@ dependencies:
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
-    - field.field.user.user.user_picture
+    - field.field.user.user.field_bypass_workflow
+    - field.field.user.user.field_contact_email
+    - field.field.user.user.field_contact_homepage
+    - field.field.user.user.field_contact_hours
+    - field.field.user.user.field_contact_name
+    - field.field.user.user.field_contact_phone
+    - field.field.user.user.field_contact_title
+    - field.field.user.user.field_cvr
+    - field.field.user.user.field_editor_field
+    - field.field.user.user.field_educational_profile
+    - field.field.user.user.field_homepage
+    - field.field.user.user.field_image
+    - field.field.user.user.field_intro
+    - field.field.user.user.field_logo
+    - field.field.user.user.field_mail
+    - field.field.user.user.field_name
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_presentation
     - image.style.thumbnail
   module:
+    - field_group
     - image
+    - link
     - path
+    - text
     - user
+third_party_settings:
+  field_group:
+    group_contact:
+      children:
+        - field_contact_name
+        - field_contact_email
+        - field_contact_title
+        - field_contact_phone
+        - field_contact_hours
+        - field_contact_homepage
+      label: Kontaktblock
+      region: content
+      parent_name: ''
+      weight: 15
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: Tii0Ca3OF32lLDp9WN3el1Q1cy2MFIxUUCraMzIZxRA
 id: user.user.default
@@ -20,11 +61,76 @@ bundle: user
 mode: default
 content:
   account:
-    weight: -10
+    weight: 0
     region: content
+    settings: {  }
+    third_party_settings: {  }
   contact:
     weight: 5
     region: content
+  field_bypass_workflow:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_contact_email:
+    type: string_textfield
+    weight: 10
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_homepage:
+    type: string_textfield
+    weight: 14
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_hours:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_name:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_phone:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_contact_title:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_cvr:
+    type: string_textfield
+    weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_domain_access:
     type: options_buttons
     weight: 40
@@ -44,25 +150,101 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  language:
-    weight: 0
+  field_editor_field:
+    type: text_textarea
+    weight: 21
     region: content
-  path:
-    type: path
-    weight: 30
-    region: content
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
-  timezone:
-    weight: 6
+  field_educational_profile:
+    type: text_textarea
+    weight: 7
     region: content
-  user_picture:
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_homepage:
+    type: link_default
+    weight: 18
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_image:
     type: image_image
-    weight: -1
+    weight: 5
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_intro:
+    type: text_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_logo:
+    type: image_image
+    weight: 16
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_mail:
+    type: string_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_name:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_phone:
+    type: string_textfield
+    weight: 17
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_presentation:
+    type: text_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  language:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  timezone:
+    weight: 2
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true

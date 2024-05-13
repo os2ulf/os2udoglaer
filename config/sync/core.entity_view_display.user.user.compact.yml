@@ -7,10 +7,26 @@ dependencies:
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
-    - field.field.user.user.user_picture
     - image.style.thumbnail
+    - field.field.user.user.field_bypass_workflow
+    - field.field.user.user.field_contact_email
+    - field.field.user.user.field_contact_homepage
+    - field.field.user.user.field_contact_hours
+    - field.field.user.user.field_contact_name
+    - field.field.user.user.field_contact_phone
+    - field.field.user.user.field_contact_title
+    - field.field.user.user.field_cvr
+    - field.field.user.user.field_editor_field
+    - field.field.user.user.field_educational_profile
+    - field.field.user.user.field_homepage
+    - field.field.user.user.field_image
+    - field.field.user.user.field_intro
+    - field.field.user.user.field_logo
+    - field.field.user.user.field_mail
+    - field.field.user.user.field_name
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_presentation
   module:
-    - image
     - user
 _core:
   default_config_hash: AvFV3vu99Tqfd2UgOZ7FZZs2mJLvlLhSsJpR7GVJkPE
@@ -18,20 +34,29 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content:
-  user_picture:
-    type: image
-    label: hidden
-    settings:
-      image_link: content
-      image_style: thumbnail
-    third_party_settings: {  }
-    weight: 0
-    region: content
+content: {  }
 hidden:
+  field_bypass_workflow: true
+  field_contact_email: true
+  field_contact_homepage: true
+  field_contact_hours: true
+  field_contact_name: true
+  field_contact_phone: true
+  field_contact_title: true
+  field_cvr: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
+  field_editor_field: true
+  field_educational_profile: true
+  field_homepage: true
+  field_image: true
+  field_intro: true
+  field_logo: true
+  field_mail: true
+  field_name: true
+  field_phone: true
+  field_presentation: true
   langcode: true
   member_for: true
   search_api_excerpt: true

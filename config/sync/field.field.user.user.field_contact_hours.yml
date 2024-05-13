@@ -1,0 +1,20 @@
+uuid: 24b044f0-f18d-44f6-80e3-48d796ebbf38
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_contact_hours
+  module:
+    - user
+id: user.user.field_contact_hours
+field_name: field_contact_hours
+entity_type: user
+bundle: user
+label: Træffetid
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
