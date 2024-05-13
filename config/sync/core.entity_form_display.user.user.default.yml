@@ -3,9 +3,6 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_domain_access
-    - field.field.user.user.field_domain_admin
-    - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_bypass_workflow
     - field.field.user.user.field_contact_email
     - field.field.user.user.field_contact_homepage
@@ -14,6 +11,9 @@ dependencies:
     - field.field.user.user.field_contact_phone
     - field.field.user.user.field_contact_title
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_editor_field
     - field.field.user.user.field_educational_profile
     - field.field.user.user.field_homepage
@@ -291,6 +291,39 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  group_contact:
+    weight: 51
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
+  group_pretix:
+    weight: 52
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        9c362a76-6f8d-4200-8e02-d3ebb083cb23:
+          entity_type: user
+          bundle: user
+          dependee: field_pretix_enabled
+          settings:
+            state: '!visible'
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: '0'
+              apply_to_parent: '0'
+              recurse: '0'
   language:
     weight: 1
     region: content
