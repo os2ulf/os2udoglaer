@@ -1,0 +1,29 @@
+uuid: 33170732-d22f-4d52-a54f-0b2885bf0244
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activities
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_activities
+field_name: field_activities
+entity_type: node
+bundle: exercise
+label: 'Under besøget'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

@@ -1,0 +1,28 @@
+uuid: 641c5c86-27cf-44b7-95ad-98afe376c095
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_excercises
+    - node.type.exercise
+id: node.exercise.field_related_excercises
+field_name: field_related_excercises
+entity_type: node
+bundle: exercise
+label: 'Kan suppleres med følgende opgaver'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      exercise: exercise
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

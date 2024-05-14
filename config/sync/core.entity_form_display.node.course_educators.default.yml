@@ -60,29 +60,6 @@ dependencies:
     - text
 third_party_settings:
   field_group:
-    group_practical_information:
-      children:
-        - group_location
-        - group_price
-        - field_subject
-        - field_curriculum_themes
-        - field_primary_school_subject
-        - field_youth_education_subject
-        - group_period
-        - group_duration
-        - group_additional_information
-        - group_world_goals
-      label: 'Praktisk information'
-      region: content
-      parent_name: ''
-      weight: 6
-      format_type: fieldset
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        description: ''
-        required_fields: true
     group_period:
       children:
         - field_all_year
@@ -90,7 +67,7 @@ third_party_settings:
         - field_description_of_period
       label: Periode
       region: content
-      parent_name: group_practical_information
+      parent_name: group_period_duration_price
       weight: 12
       format_type: fieldset
       format_settings:
@@ -105,15 +82,22 @@ third_party_settings:
         - field_sustainability_goals_desc
       label: Verdensmål
       region: content
-      parent_name: group_practical_information
-      weight: 15
+      parent_name: group_theme_subject_area
+      weight: 8
       format_type: fieldset
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
         description: ''
         required_fields: true
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
     group_sign_up:
       children:
         - field_registration_deadline
@@ -124,44 +108,42 @@ third_party_settings:
       label: Tilmelding
       region: content
       parent_name: ''
-      weight: 10
-      format_type: fieldset
+      weight: 5
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
-        required_fields: true
-    group_additional_information:
-      children:
-        - field_faciliteter
-        - field_food_service
-      label: 'Yderligere information'
-      region: content
-      parent_name: group_practical_information
-      weight: 14
-      format_type: fieldset
-      format_settings:
-        classes: ''
-        show_empty_fields: false
-        id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
     group_location:
       children:
         - field_view_on_map
         - group_alternative_address
         - field_location_description
+        - field_faciliteter
       label: Lokation
       region: content
-      parent_name: group_practical_information
-      weight: 5
-      format_type: fieldset
+      parent_name: ''
+      weight: 9
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
     group_alternative_address:
       children:
@@ -172,7 +154,7 @@ third_party_settings:
       label: 'Alternativ adresse'
       region: content
       parent_name: group_location
-      weight: 5
+      weight: 11
       format_type: fieldset
       format_settings:
         classes: ''
@@ -187,7 +169,7 @@ third_party_settings:
         - field_video
       label: Video
       region: content
-      parent_name: ''
+      parent_name: group_media
       weight: 7
       format_type: fieldset
       format_settings:
@@ -203,8 +185,8 @@ third_party_settings:
         - field_description_of_duration
       label: Varighed
       region: content
-      parent_name: group_practical_information
-      weight: 13
+      parent_name: group_period_duration_price
+      weight: 14
       format_type: fieldset
       format_settings:
         classes: ''
@@ -217,18 +199,208 @@ third_party_settings:
         - field_is_free
         - field_price
         - field_description_of_price
-        - field_quantity
-        - field_quantity_description
       label: Pris
       region: content
-      parent_name: group_practical_information
-      weight: 6
+      parent_name: group_period_duration_price
+      weight: 13
       format_type: fieldset
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
         description: ''
+        required_fields: true
+    group_description:
+      children:
+        - title
+        - body
+      label: Beskrivelse
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+        required_fields: true
+    group_target_group_amount:
+      children:
+        - field_educators_target_group
+        - field_curriculum_themes
+        - field_primary_school_subject
+        - field_youth_education_subject
+        - field_quantity
+        - field_quantity_description
+      label: 'Målgruppe og antal'
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_period_duration_price:
+      children:
+        - group_period
+        - group_price
+        - group_duration
+      label: 'Periode, varighed og pris'
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_theme_subject_area:
+      children:
+        - field_theme
+        - field_subject
+        - group_world_goals
+      label: 'Tema og emneområde'
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_further_information:
+      children:
+        - field_banner
+        - field_food_service
+      label: 'Yderligere information'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_media:
+      children:
+        - field_image
+        - group_video
+      label: Billeder/medier
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_materials:
+      children:
+        - field_materials
+      label: Materialer
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_contact:
+      children:
+        - field_contact
+      label: Kontakt
+      region: content
+      parent_name: ''
+      weight: 10
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_related_courses:
+      children:
+        - field_related_courses
+      label: 'Relaterede forløb'
+      region: content
+      parent_name: ''
+      weight: 11
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
 id: node.course_educators.default
 targetEntityType: node
@@ -237,7 +409,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 2
     region: content
     settings:
       rows: 9
@@ -269,7 +441,7 @@ content:
     third_party_settings: {  }
   field_banner:
     type: options_select
-    weight: 4
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -293,7 +465,7 @@ content:
     third_party_settings: {  }
   field_curriculum_themes:
     type: options_buttons
-    weight: 8
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -336,19 +508,19 @@ content:
     third_party_settings: {  }
   field_educators_target_group:
     type: options_buttons
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_faciliteter:
     type: options_buttons
-    weight: 11
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   field_food_service:
     type: text_textarea
-    weight: 12
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -356,7 +528,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: image_image
-    weight: 1
+    weight: 6
     region: content
     settings:
       progress_indicator: throbber
@@ -371,7 +543,7 @@ content:
     third_party_settings: {  }
   field_location_city:
     type: string_textfield
-    weight: 8
+    weight: 14
     region: content
     settings:
       size: 60
@@ -379,7 +551,7 @@ content:
     third_party_settings: {  }
   field_location_description:
     type: text_textarea
-    weight: 6
+    weight: 12
     region: content
     settings:
       rows: 5
@@ -387,7 +559,7 @@ content:
     third_party_settings: {  }
   field_location_name:
     type: string_textfield
-    weight: 5
+    weight: 11
     region: content
     settings:
       size: 60
@@ -395,7 +567,7 @@ content:
     third_party_settings: {  }
   field_location_street:
     type: string_textfield
-    weight: 6
+    weight: 12
     region: content
     settings:
       size: 60
@@ -403,7 +575,7 @@ content:
     third_party_settings: {  }
   field_location_zipcode:
     type: string_textfield
-    weight: 7
+    weight: 13
     region: content
     settings:
       size: 60
@@ -491,20 +663,20 @@ content:
             selector: ''
   field_primary_school_subject:
     type: options_buttons
-    weight: 9
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_quantity:
     type: number
-    weight: 15
+    weight: 7
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_quantity_description:
     type: text_textarea
-    weight: 16
+    weight: 8
     region: content
     settings:
       rows: 5
@@ -550,7 +722,7 @@ content:
     third_party_settings: {  }
   field_related_courses:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 14
     region: content
     settings:
       match_operator: CONTAINS
@@ -580,13 +752,13 @@ content:
     third_party_settings: {  }
   field_theme:
     type: options_select
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_video:
     type: paragraphs
-    weight: 12
+    weight: 13
     region: content
     settings:
       title: Paragraph
@@ -604,7 +776,7 @@ content:
     third_party_settings: {  }
   field_video_description:
     type: text_textarea
-    weight: 7
+    weight: 12
     region: content
     settings:
       rows: 5
@@ -612,7 +784,7 @@ content:
     third_party_settings: {  }
   field_video_title:
     type: string_textfield
-    weight: 6
+    weight: 11
     region: content
     settings:
       size: 60
@@ -620,13 +792,13 @@ content:
     third_party_settings: {  }
   field_view_on_map:
     type: options_buttons
-    weight: 4
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
   field_youth_education_subject:
     type: options_buttons
-    weight: 10
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -705,7 +877,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60

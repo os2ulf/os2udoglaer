@@ -1,0 +1,29 @@
+uuid: 9dd9d9ee-0755-475c-8475-7504aad8fd6f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_of_duration
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_description_of_duration
+field_name: field_description_of_duration
+entity_type: node
+bundle: exercise
+label: 'Beskrivelse til varighed'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

@@ -41,6 +41,7 @@ dependencies:
     - field.field.node.course.field_registration_phone
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
+    - field.field.node.course.field_related_courses
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
@@ -75,13 +76,6 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_course_type:
-    type: entity_reference_labels
-    weight: '15'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_curriculum_themes:
     type: entity_reference_labels
     weight: '6'
@@ -100,28 +94,28 @@ content:
     third_party_settings: {  }
   field_is_free:
     type: boolean
-    weight: '10'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '14'
+    weight: '15'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '12'
+    weight: '13'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '13'
+    weight: '14'
     region: content
     label: omit
     settings: {  }
@@ -133,14 +127,6 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_subject:
-    type: entity_transform
-    weight: '16'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
   field_target_group:
     type: entity_reference_labels
     weight: '3'
@@ -148,30 +134,38 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_trgt_grp_daycare:
-    type: entity_reference_labels
+  field_theme:
+    type: entity_transform
     weight: '7'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      transform_mode: default
     third_party_settings: {  }
-  field_trgt_grp_primary_school:
+  field_trgt_grp_daycare:
     type: entity_reference_labels
     weight: '8'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_trgt_grp_youth_education:
+  field_trgt_grp_primary_school:
     type: entity_reference_labels
     weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_trgt_grp_youth_education:
+    type: entity_reference_labels
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_view_on_map:
     type: value
-    weight: '11'
+    weight: '12'
     region: content
     label: omit
     settings: {  }
@@ -186,6 +180,7 @@ content:
 hidden:
   field_activities: true
   field_all_year: true
+  field_course_type: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true
@@ -212,9 +207,10 @@ hidden:
   field_registration_phone: true
   field_registration_title: true
   field_registration_url: true
+  field_related_courses: true
+  field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
-  field_theme: true
   field_video: true
   field_video_description: true
   field_video_title: true

@@ -1,0 +1,29 @@
+uuid: 2f710e85-7ccb-4ae4-9e63-f8e3e2f06853
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_trgt_grp_youth_education
+    - node.type.exercise
+    - taxonomy.vocabulary.target_group_youth_education
+id: node.exercise.field_trgt_grp_youth_education
+field_name: field_trgt_grp_youth_education
+entity_type: node
+bundle: exercise
+label: Målgruppe
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      target_group_youth_education: target_group_youth_education
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: 0fad7f96-0459-41c4-a6a2-37e4152569f3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sustainability_goals
+    - node.type.exercise
+    - taxonomy.vocabulary.sustainability_goal
+id: node.exercise.field_sustainability_goals
+field_name: field_sustainability_goals
+entity_type: node
+bundle: exercise
+label: Verdensmål
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sustainability_goal: sustainability_goal
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,5 @@
+name: 'OS2udoglær Menus'
+type: module
+description: 'Extends menus for this project'
+package: OS2udoglær
+core_version_requirement: ^10 || ^11

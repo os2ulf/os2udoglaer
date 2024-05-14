@@ -1,0 +1,20 @@
+uuid: cea76144-6e0a-45e7-a8d4-5c6b479e0ac4
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_period_select
+field_name: field_period_select
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

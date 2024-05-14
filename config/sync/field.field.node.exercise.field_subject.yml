@@ -1,0 +1,29 @@
+uuid: dea16c57-d6f1-4c8b-8103-ee8e821789e7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_subject
+    - node.type.exercise
+    - taxonomy.vocabulary.subject
+id: node.exercise.field_subject
+field_name: field_subject
+entity_type: node
+bundle: exercise
+label: Emneområde
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      subject: subject
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

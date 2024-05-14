@@ -1,0 +1,29 @@
+uuid: 228cae9e-e814-4a76-855d-7f13820eb909
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activity_select
+    - node.type.exercise
+    - taxonomy.vocabulary.activity
+id: node.exercise.field_activity_select
+field_name: field_activity_select
+entity_type: node
+bundle: exercise
+label: Aktivitet
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      activity: activity
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
