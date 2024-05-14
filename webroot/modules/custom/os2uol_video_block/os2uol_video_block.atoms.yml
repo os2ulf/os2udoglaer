@@ -2,7 +2,7 @@ atoms:
   video_overlay_text:
     type: textarea
     title: Video Overlay Text
-    description: A text which is displayed on top of a video.
+    description: A text which is displayed on top of a video to notify the user that they are leaving the site.
     category: Block
     group: Block
     default:

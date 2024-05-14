@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_entity_transform_alter().
+ * @param array $transformation
+ */
+function os2uol_video_block_entity_transform_alter(array &$transformation)
+{
+  // Check if the transformation is for a video paragraph.
+  if (
+    $transformation['type'] == 'entity'
+    && $transformation['bundle'] == 'video'
+    && $transformation['entity_type'] == 'paragraph'
+  ) {
+    // Add the video_overlay_text atom to the transformation.
+    $transformation['video_overlay_text'] = atom('video_overlay_text');
+  }
+}
