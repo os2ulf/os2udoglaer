@@ -1,0 +1,19 @@
+uuid: 06e0a615-2a90-4f40-bf6b-a08446bc1652
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_roles
+field_name: field_roles
+entity_type: user
+type: entity_reference
+settings:
+  target_type: user_role
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

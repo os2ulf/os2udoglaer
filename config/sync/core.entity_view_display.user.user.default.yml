@@ -3,10 +3,6 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.user.user.field_domain_access
-    - field.field.user.user.field_domain_admin
-    - field.field.user.user.field_domain_all_affiliates
-    - image.style.thumbnail
     - field.field.user.user.field_bypass_workflow
     - field.field.user.user.field_contact_email
     - field.field.user.user.field_contact_homepage
@@ -15,6 +11,9 @@ dependencies:
     - field.field.user.user.field_contact_phone
     - field.field.user.user.field_contact_title
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_editor_field
     - field.field.user.user.field_educational_profile
     - field.field.user.user.field_homepage
@@ -30,6 +29,7 @@ dependencies:
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
+    - field.field.user.user.field_roles
   module:
     - image
     - link
@@ -233,6 +233,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 25
+    region: content
+  field_roles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 33
     region: content
   member_for:
     weight: 5
