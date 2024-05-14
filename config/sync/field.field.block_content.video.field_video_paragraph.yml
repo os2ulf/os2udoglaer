@@ -1,0 +1,55 @@
+uuid: 91159dc7-4c19-4231-82f4-92c93896a2fd
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.video
+    - field.storage.block_content.field_video_paragraph
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+id: block_content.video.field_video_paragraph
+field_name: field_video_paragraph
+entity_type: block_content
+bundle: video
+label: Video
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      video: video
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 10
+        enabled: false
+      basic_hero:
+        weight: 11
+        enabled: false
+      cards:
+        weight: 12
+        enabled: false
+      contact_paragraph:
+        weight: 13
+        enabled: false
+      duration_paragraph:
+        weight: 14
+        enabled: false
+      duration_price:
+        weight: 15
+        enabled: false
+      inline_hero:
+        weight: 16
+        enabled: false
+      material:
+        weight: 17
+        enabled: false
+      video:
+        weight: 18
+        enabled: true
+field_type: entity_reference_revisions
