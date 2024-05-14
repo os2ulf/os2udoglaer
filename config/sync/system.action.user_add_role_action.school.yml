@@ -1,0 +1,14 @@
+uuid: d409e587-0d61-449f-8170-d02b0b977adb
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.school
+  module:
+    - user
+id: user_add_role_action.school
+label: 'Add the Skole role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: school

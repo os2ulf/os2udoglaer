@@ -1,0 +1,19 @@
+uuid: 841f8233-7688-47fc-9a88-ab4f1524ce49
+langcode: da
+status: true
+dependencies:
+  module:
+    - text
+    - user
+id: user.field_editor_field
+field_name: field_editor_field
+entity_type: user
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

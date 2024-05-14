@@ -1,0 +1,22 @@
+uuid: 59f5d578-2e41-4333-be11-f97edc424dea
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_guarantee_partner
+  module:
+    - user
+id: user.user.field_guarantee_partner
+field_name: field_guarantee_partner
+entity_type: user
+bundle: user
+label: Garantipartner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

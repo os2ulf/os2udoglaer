@@ -1,0 +1,14 @@
+uuid: 97c0b37d-a356-48c7-b200-a58481c963f2
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.theater_contact
+  module:
+    - user
+id: user_add_role_action.theater_contact
+label: 'Add the Teaterkontakt role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: theater_contact

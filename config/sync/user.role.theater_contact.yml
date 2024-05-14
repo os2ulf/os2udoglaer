@@ -1,0 +1,9 @@
+uuid: 5ed3b12e-ae2d-44ce-b506-973117ad7428
+langcode: da
+status: true
+dependencies: {  }
+id: theater_contact
+label: Teaterkontakt
+weight: 11
+is_admin: null
+permissions: {  }

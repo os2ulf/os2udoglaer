@@ -1,0 +1,29 @@
+uuid: 81908301-18c8-4cef-9011-a6a1261ec85e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_editor_field
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+    - user
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: user.user.field_editor_field
+field_name: field_editor_field
+entity_type: user
+bundle: user
+label: Redaktørfelt
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

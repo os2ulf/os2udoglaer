@@ -1,0 +1,14 @@
+uuid: f272b3e7-fa12-4c61-8d83-ba2d1a358a96
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.course_provider
+  module:
+    - user
+id: user_remove_role_action.course_provider
+label: 'Remove the Course provider (Udbyder) role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: course_provider

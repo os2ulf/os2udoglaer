@@ -1,0 +1,19 @@
+uuid: 0ebf9f1e-c60a-4488-bceb-7d5a7ebf815b
+langcode: da
+status: true
+dependencies:
+  module:
+    - text
+    - user
+id: user.field_educational_profile
+field_name: field_educational_profile
+entity_type: user
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

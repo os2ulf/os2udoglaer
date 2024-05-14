@@ -1,0 +1,14 @@
+uuid: ca1df096-d693-4c20-a1ab-3cc04537b60e
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.institution
+  module:
+    - user
+id: user_add_role_action.institution
+label: 'Add the Institution role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: institution

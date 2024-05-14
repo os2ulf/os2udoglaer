@@ -1,0 +1,14 @@
+uuid: d3a6aacf-9581-44b4-8ecd-06eb40b5f744
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.course_provider
+  module:
+    - user
+id: user_add_role_action.course_provider
+label: 'Add the Course provider (Udbyder) role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: course_provider

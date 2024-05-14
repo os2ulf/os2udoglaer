@@ -1,0 +1,29 @@
+uuid: 8d2a6b8e-2af7-43f4-8830-aaea43f317d9
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_intro
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+    - user
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: user.user.field_intro
+field_name: field_intro
+entity_type: user
+bundle: user
+label: Entré
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

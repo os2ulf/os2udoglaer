@@ -1,0 +1,61 @@
+uuid: 0bb5b8a8-65cc-4fb7-96fd-8457869e1ffc
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_allocated_budget
+    - paragraphs.paragraphs_type.allocated_budget
+  module:
+    - entity_reference_revisions
+    - user
+id: user.user.field_allocated_budget
+field_name: field_allocated_budget
+entity_type: user
+bundle: user
+label: 'Tildelt budget'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      allocated_budget: allocated_budget
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 12
+        enabled: false
+      allocated_budget:
+        weight: 13
+        enabled: true
+      basic_hero:
+        weight: 14
+        enabled: false
+      cards:
+        weight: 15
+        enabled: false
+      contact_paragraph:
+        weight: 16
+        enabled: false
+      duration_paragraph:
+        weight: 17
+        enabled: false
+      duration_price:
+        weight: 18
+        enabled: false
+      inline_hero:
+        weight: 19
+        enabled: false
+      material:
+        weight: 20
+        enabled: false
+      other_user_info:
+        weight: 21
+        enabled: false
+      video:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

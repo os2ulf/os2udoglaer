@@ -1,0 +1,22 @@
+uuid: 7efd4033-965a-46b8-b165-b488db0a26b9
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_pretix_enabled
+  module:
+    - user
+id: user.user.field_pretix_enabled
+field_name: field_pretix_enabled
+entity_type: user
+bundle: user
+label: 'Enable Pretix'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

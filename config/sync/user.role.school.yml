@@ -1,0 +1,9 @@
+uuid: fbb3bf31-0c67-4d45-8a77-010ef2020ec0
+langcode: da
+status: true
+dependencies: {  }
+id: school
+label: Skole
+weight: 9
+is_admin: null
+permissions: {  }

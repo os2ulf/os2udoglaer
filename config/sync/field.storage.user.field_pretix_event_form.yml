@@ -1,0 +1,19 @@
+uuid: bb0dde3f-524d-4044-8ac9-ef418ba65eae
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_pretix_event_form
+field_name: field_pretix_event_form
+entity_type: user
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

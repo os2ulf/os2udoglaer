@@ -1,0 +1,20 @@
+uuid: 1c96f0d6-5dce-424a-93a3-318c5492331b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_pretix_organizer_form
+  module:
+    - user
+id: user.user.field_pretix_organizer_form
+field_name: field_pretix_organizer_form
+entity_type: user
+bundle: user
+label: 'Organizer Short Form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

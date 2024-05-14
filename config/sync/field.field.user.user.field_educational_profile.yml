@@ -1,0 +1,29 @@
+uuid: e77ef811-13d8-4f17-baae-964e43c4f51b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_educational_profile
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+    - user
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: user.user.field_educational_profile
+field_name: field_educational_profile
+entity_type: user
+bundle: user
+label: 'Pædagogisk profil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

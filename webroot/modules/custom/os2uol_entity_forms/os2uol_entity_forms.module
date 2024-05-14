@@ -37,4 +37,17 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     $form['field_period']['widget'][0]['end_value']['#date_time_element'] = 'none';
     $form['field_period']['widget'][0]['end_value']['#date_time_format'] = '';
   }
+
+  if ($form_id == 'user_register_form' || $form_id == 'user_form') {
+    $form['account']['roles']['#access'] = FALSE;
+    unset($form['field_roles']['widget']['#options']['anonymous']);
+    unset($form['field_roles']['widget']['#options']['authenticated']);
+    // Add submit handler to the form to populate the roles field with the placeholder field value.
+    array_unshift($form['#submit'], 'os2uol_entity_forms_user_submit');
+    array_unshift($form['actions']['submit']['#submit'], 'os2uol_entity_forms_user_submit');
+  }
+}
+
+function os2uol_entity_forms_user_submit($form, FormStateInterface $form_state) {
+  $form_state->setValue('roles', $form_state->getValue('field_roles'));
 }
