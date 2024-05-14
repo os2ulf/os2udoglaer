@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_allocated_budget
     - field.field.user.user.field_bypass_workflow
     - field.field.user.user.field_contact_email
     - field.field.user.user.field_contact_homepage
@@ -16,6 +17,7 @@ dependencies:
     - field.field.user.user.field_domain_all_affiliates
     - field.field.user.user.field_editor_field
     - field.field.user.user.field_educational_profile
+    - field.field.user.user.field_guarantee_partner
     - field.field.user.user.field_homepage
     - field.field.user.user.field_image
     - field.field.user.user.field_intro
@@ -45,6 +47,15 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_allocated_budget:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 36
+    region: content
   field_bypass_workflow:
     type: boolean
     label: above
@@ -124,6 +135,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 9
+    region: content
+  field_guarantee_partner:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 37
     region: content
   field_homepage:
     type: link
