@@ -23,6 +23,7 @@ dependencies:
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
     - field.field.user.user.field_name
+    - field.field.user.user.field_other_info
     - field.field.user.user.field_phone
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
@@ -31,6 +32,7 @@ dependencies:
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
     - field.field.user.user.field_roles
+    - field.field.user.user.field_video
   module:
     - user
 _core:
@@ -60,6 +62,7 @@ hidden:
   field_logo: true
   field_mail: true
   field_name: true
+  field_other_info: true
   field_phone: true
   field_presentation: true
   field_pretix_api_token: true
@@ -68,6 +71,7 @@ hidden:
   field_pretix_organizer_form: true
   field_pretix_url: true
   field_roles: true
+  field_video: true
   langcode: true
   member_for: true
   search_api_excerpt: true
