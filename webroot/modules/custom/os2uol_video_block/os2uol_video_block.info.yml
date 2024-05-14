@@ -1,0 +1,5 @@
+name: 'OS2UOL Video Block'
+type: module
+description: 'Custom logic related to video blocks.'
+package: OS2udoglær
+core_version_requirement: ^10 || ^11

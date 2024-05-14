@@ -4,13 +4,12 @@ status: true
 dependencies:
   config:
     - block_content.type.video
-    - field.field.block_content.video.field_video_headline
-    - field.field.block_content.video.field_video_media
-    - field.field.block_content.video.field_video_subline
-    - field.field.block_content.video.field_video_text_color
+    - field.field.block_content.video.field_text
+    - field.field.block_content.video.field_title
+    - field.field.block_content.video.field_video_paragraph
   module:
-    - link
-    - options
+    - entity_reference_revisions
+    - text
 _core:
   default_config_hash: 8jMOIJJl0OQGgBaOqurYXhxnlBFnO2HOrqMjb4W8Ers
 id: block_content.video.default
@@ -18,38 +17,27 @@ targetEntityType: block_content
 bundle: video
 mode: default
 content:
-  field_video_headline:
-    type: string
+  field_text:
+    type: text_default
     label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_video_media:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_video_subline:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
     weight: 1
     region: content
-  field_video_text_color:
-    type: list_default
-    label: hidden
-    settings: {  }
+  field_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_video_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     weight: 2
     region: content
