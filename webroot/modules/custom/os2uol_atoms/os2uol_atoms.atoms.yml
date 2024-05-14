@@ -1,0 +1,12 @@
+atoms:
+  video_overlay_text:
+    type: textarea
+    title: Video Overlay Text
+    description: A text which is displayed on top of a video.
+    category: Block
+    group: Block
+    default:
+      da: 'Video Overlay Tekst'
+    options:
+      token_types:
+        - node

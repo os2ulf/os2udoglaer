@@ -1,0 +1,5 @@
+name: 'OS2UOL Atoms'
+type: module
+description: 'All project Atoms are located in this module.'
+package: OS2udoglær
+core_version_requirement: ^10 || ^11
