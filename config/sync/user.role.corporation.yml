@@ -1,0 +1,9 @@
+uuid: 404e10a4-6273-4621-ba48-da621b5d990a
+langcode: da
+status: true
+dependencies: {  }
+id: corporation
+label: Virksomhed
+weight: 6
+is_admin: null
+permissions: {  }

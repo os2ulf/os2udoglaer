@@ -1,0 +1,19 @@
+uuid: 23b193cd-7b76-42b5-8a7c-99c7dbcf2757
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_allocated_budget
+    - paragraphs.paragraphs_type.allocated_budget
+id: paragraph.allocated_budget.field_allocated_budget
+field_name: field_allocated_budget
+entity_type: paragraph
+bundle: allocated_budget
+label: 'Allokeret budget'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,14 @@
+uuid: 1e02928c-c5a5-4b46-b438-28deb18a87a4
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.institution
+  module:
+    - user
+id: user_remove_role_action.institution
+label: 'Remove the Institution role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: institution

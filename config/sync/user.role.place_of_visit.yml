@@ -1,0 +1,9 @@
+uuid: 9fbe62b9-454f-4cc4-9b9e-db12bc4d91ed
+langcode: da
+status: true
+dependencies: {  }
+id: place_of_visit
+label: Besøgssted
+weight: 8
+is_admin: null
+permissions: {  }

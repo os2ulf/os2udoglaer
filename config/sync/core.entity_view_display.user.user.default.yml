@@ -3,13 +3,42 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.user.user.field_allocated_budget
+    - field.field.user.user.field_bypass_workflow
+    - field.field.user.user.field_contact_email
+    - field.field.user.user.field_contact_homepage
+    - field.field.user.user.field_contact_hours
+    - field.field.user.user.field_contact_name
+    - field.field.user.user.field_contact_phone
+    - field.field.user.user.field_contact_title
+    - field.field.user.user.field_cvr
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
-    - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - field.field.user.user.field_editor_field
+    - field.field.user.user.field_educational_profile
+    - field.field.user.user.field_guarantee_partner
+    - field.field.user.user.field_homepage
+    - field.field.user.user.field_image
+    - field.field.user.user.field_intro
+    - field.field.user.user.field_logo
+    - field.field.user.user.field_mail
+    - field.field.user.user.field_name
+    - field.field.user.user.field_other_info
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_presentation
+    - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_enabled
+    - field.field.user.user.field_pretix_event_form
+    - field.field.user.user.field_pretix_organizer_form
+    - field.field.user.user.field_pretix_url
+    - field.field.user.user.field_roles
+    - field.field.user.user.field_video
   module:
+    - entity_reference_revisions
     - image
+    - link
+    - text
     - user
 _core:
   default_config_hash: 07gc2gh6oNbbsZLTuvecYEOTecp6bTTr2Z8zKJ7CLJk
@@ -18,17 +47,245 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  field_allocated_budget:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 36
+    region: content
+  field_bypass_workflow:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 23
+    region: content
+  field_contact_email:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_contact_homepage:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_contact_hours:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_contact_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_contact_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_contact_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_cvr:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 21
+    region: content
+  field_editor_field:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 22
+    region: content
+  field_educational_profile:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_guarantee_partner:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 37
+    region: content
+  field_homepage:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 19
+    region: content
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_intro:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_logo:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 17
+    region: content
+  field_mail:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 20
+    region: content
+  field_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_other_info:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 35
+    region: content
+  field_phone:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 18
+    region: content
+  field_presentation:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_pretix_api_token:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_pretix_enabled:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 24
+    region: content
+  field_pretix_event_form:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 28
+    region: content
+  field_pretix_organizer_form:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_pretix_url:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_roles:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 33
+    region: content
+  field_video:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 34
+    region: content
   member_for:
     weight: 5
-    region: content
-  user_picture:
-    type: image
-    label: hidden
-    settings:
-      image_link: content
-      image_style: thumbnail
-    third_party_settings: {  }
-    weight: 0
     region: content
 hidden:
   field_domain_access: true

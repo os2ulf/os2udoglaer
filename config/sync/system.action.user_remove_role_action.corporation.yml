@@ -1,0 +1,14 @@
+uuid: f9dda163-fbef-4385-9369-05cffc8b4682
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.corporation
+  module:
+    - user
+id: user_remove_role_action.corporation
+label: 'Remove the Virksomhed role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: corporation

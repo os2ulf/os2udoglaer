@@ -1,0 +1,14 @@
+uuid: ccb52092-f17c-44ec-91fc-fe88e0d9fd7e
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.school
+  module:
+    - user
+id: user_remove_role_action.school
+label: 'Remove the Skole role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: school

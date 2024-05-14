@@ -1,0 +1,14 @@
+uuid: 44a79d2a-5453-48c1-9191-d189b749c28e
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.place_of_visit
+  module:
+    - user
+id: user_add_role_action.place_of_visit
+label: 'Add the Besøgssted role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: place_of_visit

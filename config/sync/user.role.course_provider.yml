@@ -1,0 +1,9 @@
+uuid: 774dedff-f3a9-4309-a20a-b350d238b089
+langcode: da
+status: true
+dependencies: {  }
+id: course_provider
+label: 'Course provider (Udbyder)'
+weight: 7
+is_admin: null
+permissions: {  }

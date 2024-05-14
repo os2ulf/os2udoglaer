@@ -1,0 +1,46 @@
+uuid: ce1cf13e-a041-4f7a-8372-bb3540568b35
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.other_user_info.field_description
+    - field.field.paragraph.other_user_info.field_file
+    - field.field.paragraph.other_user_info.field_link
+    - paragraphs.paragraphs_type.other_user_info
+  module:
+    - file
+    - link
+id: paragraph.other_user_info.default
+targetEntityType: paragraph
+bundle: other_user_info
+mode: default
+content:
+  field_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

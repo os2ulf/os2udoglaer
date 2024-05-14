@@ -1,0 +1,10 @@
+uuid: 0dcc7335-d27f-4e84-ab6f-2f30fb559c1e
+langcode: da
+status: true
+dependencies: {  }
+id: allocated_budget
+label: 'Tildelt budget'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,21 @@
+uuid: d3e71a36-75d6-4481-9a4a-1b8f887c349f
+langcode: da
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_allocated_budget
+field_name: field_allocated_budget
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
