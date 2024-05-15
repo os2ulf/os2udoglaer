@@ -1,0 +1,200 @@
+uuid: ec506465-e9b3-4239-95a6-0f2aac12842e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_allocated_budget
+    - field.field.user.user.field_bypass_workflow
+    - field.field.user.user.field_contact_email
+    - field.field.user.user.field_contact_homepage
+    - field.field.user.user.field_contact_hours
+    - field.field.user.user.field_contact_name
+    - field.field.user.user.field_contact_phone
+    - field.field.user.user.field_contact_title
+    - field.field.user.user.field_cvr
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
+    - field.field.user.user.field_editor_field
+    - field.field.user.user.field_educational_profile
+    - field.field.user.user.field_guarantee_partner
+    - field.field.user.user.field_homepage
+    - field.field.user.user.field_image
+    - field.field.user.user.field_intro
+    - field.field.user.user.field_logo
+    - field.field.user.user.field_mail
+    - field.field.user.user.field_name
+    - field.field.user.user.field_other_info
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_presentation
+    - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_enabled
+    - field.field.user.user.field_pretix_event_form
+    - field.field.user.user.field_pretix_organizer_form
+    - field.field.user.user.field_pretix_url
+    - field.field.user.user.field_roles
+    - field.field.user.user.field_video
+  module:
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  field_allocated_budget:
+    type: entity_transform
+    weight: '18'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_contact_email:
+    type: value
+    weight: '7'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_homepage:
+    type: value
+    weight: '11'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_hours:
+    type: value
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_name:
+    type: value
+    weight: '6'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_phone:
+    type: value
+    weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_contact_title:
+    type: value
+    weight: '8'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_cvr:
+    type: value
+    weight: '16'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_educational_profile:
+    type: plain_text
+    weight: '3'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+  field_homepage:
+    type: link
+    weight: '14'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: image_style
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_intro:
+    type: plain_text
+    weight: '4'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+  field_logo:
+    type: image_style
+    weight: '12'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_mail:
+    type: value
+    weight: '15'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_name:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_other_info:
+    type: entity_transform
+    weight: '17'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_phone:
+    type: value
+    weight: '13'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_presentation:
+    type: plain_text
+    weight: '2'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+  field_video:
+    type: entity_transform
+    weight: '5'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+hidden:
+  field_bypass_workflow: true
+  field_domain_access: true
+  field_domain_admin: true
+  field_domain_all_affiliates: true
+  field_editor_field: true
+  field_guarantee_partner: true
+  field_pretix_api_token: true
+  field_pretix_enabled: true
+  field_pretix_event_form: true
+  field_pretix_organizer_form: true
+  field_pretix_url: true
+  field_roles: true
+  langcode: true
