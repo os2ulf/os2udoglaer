@@ -43,14 +43,21 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content: {  }
+content:
+  field_contact_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_allocated_budget: true
   field_bypass_workflow: true
   field_contact_email: true
   field_contact_homepage: true
   field_contact_hours: true
-  field_contact_name: true
   field_contact_phone: true
   field_contact_title: true
   field_cvr: true
