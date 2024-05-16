@@ -1,0 +1,9 @@
+uuid: 5bfd4f32-eaf2-4b04-9bb4-7bf6c3cf00ae
+langcode: da
+status: true
+dependencies: {  }
+id: institution
+label: Institution
+weight: 10
+is_admin: null
+permissions: {  }

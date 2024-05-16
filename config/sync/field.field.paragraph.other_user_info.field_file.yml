@@ -1,0 +1,27 @@
+uuid: 89a819ae-3342-426a-8372-256faee08e7b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_file
+    - paragraphs.paragraphs_type.other_user_info
+  module:
+    - file
+id: paragraph.other_user_info.field_file
+field_name: field_file
+entity_type: paragraph
+bundle: other_user_info
+label: Fil-upload
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc docx jpg png gif ppt pptf xls xlsx'
+  max_filesize: '20 MB'
+  description_field: false
+field_type: file

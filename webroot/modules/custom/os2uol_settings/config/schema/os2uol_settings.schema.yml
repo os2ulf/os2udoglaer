@@ -21,3 +21,9 @@ os2uol_settings.settings:
     secondary_background_text_color:
       type: string
       label: 'Secondary background text color'
+    text_positive_color:
+      type: string
+      label: 'Text positive color'
+    text_negative_color:
+      type: string
+      label: 'Text negative color'

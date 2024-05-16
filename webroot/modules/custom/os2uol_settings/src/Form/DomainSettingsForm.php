@@ -75,6 +75,18 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('secondary_background_text_color'),
     ];
 
+    $form['text_positive_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Text positive color'),
+      '#default_value' => $config->get('text_positive_color'),
+    ];
+
+    $form['text_negative_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Text negative color'),
+      '#default_value' => $config->get('text_negative_color'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -98,6 +110,8 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('primary_background_text_color', $form_state->getValue('primary_background_text_color'))
       ->set('secondary_background_color', $form_state->getValue('secondary_background_color'))
       ->set('secondary_background_text_color', $form_state->getValue('secondary_background_text_color'))
+      ->set('text_positive_color', $form_state->getValue('text_positive_color'))
+      ->set('text_negative_color', $form_state->getValue('text_negative_color'))
       ->save();
 
     parent::submitForm($form, $form_state);

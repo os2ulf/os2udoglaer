@@ -1,0 +1,21 @@
+uuid: bd51441b-955f-44f3-a435-54a126ced059
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_contact_homepage
+field_name: field_contact_homepage
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

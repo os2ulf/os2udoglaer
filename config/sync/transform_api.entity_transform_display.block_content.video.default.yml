@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - block_content.type.video
-    - field.field.block_content.video.field_video_headline
-    - field.field.block_content.video.field_video_subline
-    - field.field.block_content.video.field_video_text_color
+    - field.field.block_content.video.field_text
+    - field.field.block_content.video.field_title
+    - field.field.block_content.video.field_video_paragraph
 _core:
   default_config_hash: wKE-xCk4ZEodFFld3ugnrOnO_c-Pe0l6VnuZVwPup_Q
 id: block_content.video.default
@@ -14,27 +14,28 @@ targetEntityType: block_content
 bundle: video
 mode: default
 content:
-  field_video_headline:
+  field_text:
+    type: plain_text
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+  field_title:
     type: value
     weight: '0'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_video_subline:
-    type: value
-    weight: '1'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_video_text_color:
-    type: value
+  field_video_paragraph:
+    type: entity_transform
     weight: '2'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      transform_mode: default
     third_party_settings: {  }
 hidden:
-  field_video_media: true
   langcode: true

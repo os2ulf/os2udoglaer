@@ -1,0 +1,31 @@
+uuid: 74285b36-2a7e-4e41-a188-d39d49b0653a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.allocated_budget.field_allocated_budget
+    - field.field.paragraph.allocated_budget.field_year
+    - paragraphs.paragraphs_type.allocated_budget
+id: paragraph.allocated_budget.default
+targetEntityType: paragraph
+bundle: allocated_budget
+mode: default
+content:
+  field_allocated_budget:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_year:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

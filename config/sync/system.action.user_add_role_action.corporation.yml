@@ -1,0 +1,14 @@
+uuid: 78cf45fe-24a9-4987-9d46-5aead7444526
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.corporation
+  module:
+    - user
+id: user_add_role_action.corporation
+label: 'Add the Virksomhed role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: corporation

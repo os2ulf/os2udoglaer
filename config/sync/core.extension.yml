@@ -84,6 +84,7 @@ module:
   os2uol_entity_forms: 0
   os2uol_menus: 0
   os2uol_settings: 0
+  os2uol_video_block: 0
   page_cache: 0
   paragraphs_asymmetric_translation_widgets: 0
   path: 0
@@ -104,6 +105,7 @@ module:
   search_api_db: 0
   search_api_exclude_entity: 0
   search_api_page: 0
+  search_api_solr: 0
   sendgrid_integration: 0
   shortcut: 0
   simple_sitemap: 0

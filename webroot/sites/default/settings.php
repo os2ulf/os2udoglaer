@@ -804,6 +804,10 @@ if (extension_loaded('redis') && !empty(getenv('REDIS_HOST'))) {
   $settings['cache_prefix'] = 'os2udoglaer_';
 }
 
+$config['search_api.server.solr']['backend_config']['connector_config']['host'] = getenv('SOLR_HOST') ?: 'solr';
+$config['search_api.server.solr']['backend_config']['connector_config']['port'] = 8983;
+$config['search_api.server.solr']['backend_config']['connector_config']['core'] = getenv('SOLR_CORE') ?: 'dev';
+
 if (file_exists($app_root . '/sites/default/settings.ddev.php') && getenv('IS_DDEV_PROJECT') == 'true') {
   if (extension_loaded('redis') && !empty(getenv('REDIS_HOST'))) {
     $settings['redis.connection']['host'] = 'redis';

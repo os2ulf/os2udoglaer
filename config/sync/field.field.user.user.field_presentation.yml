@@ -1,0 +1,29 @@
+uuid: ce11dd36-74a7-40cd-9673-85146a408db0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_presentation
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+    - user
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: user.user.field_presentation
+field_name: field_presentation
+entity_type: user
+bundle: user
+label: Præsentation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

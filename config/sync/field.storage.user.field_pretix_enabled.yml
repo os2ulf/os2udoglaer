@@ -1,0 +1,18 @@
+uuid: 634c41e2-4fff-4620-9825-b9b89fa361d5
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_pretix_enabled
+field_name: field_pretix_enabled
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
