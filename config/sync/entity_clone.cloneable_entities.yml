@@ -61,3 +61,7 @@ cloneable_entities:
   - domain
   - domain_alias
   - ultimate_cron_job
+  - solr_request_handler
+  - solr_field_type
+  - solr_cache
+  - solr_request_dispatcher
