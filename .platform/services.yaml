@@ -26,3 +26,10 @@ solr:
     # the CLI will return an error.
     type: 'solr:9.4'
     disk: 1024
+    configuration:
+        cores:
+            os2uol:
+                conf_dir: !archive "os2uol-conf"
+        endpoints:
+            main:
+                core: os2uol
