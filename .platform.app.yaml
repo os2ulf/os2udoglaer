@@ -66,7 +66,9 @@ hooks:
 relationships:
     database: 'db:mysql'
     redis: 'redis:redis'
-    solr: 'solr:solr'
+    solr:
+        service: solr
+        endpoint: main
 crons:
     # Run Drupal's cron tasks every 1 minutes.
     drupal:
