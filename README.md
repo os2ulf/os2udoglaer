@@ -301,5 +301,5 @@ collaboration:
 
 This is done using Platform.sh CI/CD and Gitops.
 
-### Random Bumper
+### Deploy bumper
 This has been done 0 times
