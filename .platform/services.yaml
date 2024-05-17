@@ -29,7 +29,7 @@ solr:
     configuration:
         cores:
             os2uol:
-                conf_dir: !archive "os2uol-conf"
+                conf_dir: !archive "solr-conf/os2uol"
         endpoints:
             main:
                 core: os2uol
