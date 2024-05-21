@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\atoms\Atom;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Implements hook_entity_transform_alter().
@@ -14,7 +15,13 @@ function os2uol_video_block_entity_transform_alter(array &$transformation)
     && $transformation['bundle'] == 'video'
     && $transformation['entity_type'] == 'paragraph'
   ) {
+    // Load the video_overlay_text atom.
+    $atom = Atom::load('video_overlay_text');
+
     // Add the video_overlay_text atom to the transformation.
-    $transformation['video_overlay_text'] = Atom::getAsString('video_overlay_text');
+    $transformation['video_overlay_text'] = $atom->view()->toString();
+
+    // Add cache tag
+    $transformation['#cache']['tags'] = Cache::mergeTags($transformation['#cache']['tags'], $atom->getCacheTags());
   }
 }
