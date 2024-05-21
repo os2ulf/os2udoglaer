@@ -1,9 +1,14 @@
 uuid: 9fbe62b9-454f-4cc4-9b9e-db12bc4d91ed
 langcode: da
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
 id: place_of_visit
 label: Besøgssted
-weight: 8
+weight: -1
 is_admin: null
-permissions: {  }
+permissions:
+  - 'use editorial transition submit_for_review'

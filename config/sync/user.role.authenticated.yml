@@ -14,11 +14,12 @@ _core:
   default_config_hash: 7blB3b65_pNl9JfOtjHqKuPZSQtjcDgJd1vwyQPy4r4
 id: authenticated
 label: 'Godkendt bruger'
-weight: 1
+weight: -9
 is_admin: false
 permissions:
   - 'access content'
   - 'access shortcuts'
+  - 'access user profiles'
   - 'use text format basic_html'
   - 'view media'
   - 'view search api pages'

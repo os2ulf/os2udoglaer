@@ -11,7 +11,7 @@ _core:
   default_config_hash: TiWKiSqMGGdT6x5XWVDj2TcHFK2yUe7J8f2WHFp7rv4
 id: monitor
 label: Monitor
-weight: 5
+weight: 1
 is_admin: null
 permissions:
   - 'access status feed'
