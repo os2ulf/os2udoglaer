@@ -74,16 +74,18 @@ dependencies:
     - path
     - redirect
     - role_delegation
+    - scheduled_transitions
     - system
     - taxonomy
     - toolbar
     - view_unpublished
     - webform
+    - workbench
 _core:
   default_config_hash: DvxmGnu7j-bkGVoHU0oQJmbH1ySdppjeroxi_oOCRsY
 id: webmaster
 label: Webmaster
-weight: 4
+weight: -7
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -102,6 +104,7 @@ permissions:
   - 'access webform help'
   - 'access webform overview'
   - 'access webform submission user'
+  - 'access workbench'
   - 'administer atoms'
   - 'administer content_hierarchy'
   - 'administer menu'
@@ -113,10 +116,16 @@ permissions:
   - 'administer users'
   - 'administer webform'
   - 'administer webform submission'
+  - 'assign corporation role'
+  - 'assign course_provider role'
   - 'assign domain administrators'
   - 'assign domain editors'
   - 'assign editor role'
   - 'assign editors to any domain'
+  - 'assign institution role'
+  - 'assign place_of_visit role'
+  - 'assign school role'
+  - 'assign theater_contact role'
   - 'assign webmaster role'
   - 'clone action entity'
   - 'clone base_field_override entity'
@@ -151,6 +160,7 @@ permissions:
   - 'clone menu entity'
   - 'clone menu_link_content entity'
   - 'clone metatag_defaults entity'
+  - 'clone node entity'
   - 'clone node_type entity'
   - 'clone paragraph entity'
   - 'clone paragraphs_type entity'
@@ -193,6 +203,7 @@ permissions:
   - 'create course_educators content'
   - 'create divider block content'
   - 'create document media'
+  - 'create domain content'
   - 'create exercise content'
   - 'create hero block content'
   - 'create image block content'
@@ -263,7 +274,7 @@ permissions:
   - 'delete content translations'
   - 'delete course revisions'
   - 'delete course_educators revisions'
-  - 'delete exercise content on assigned domains'
+  - 'delete domain content'
   - 'delete exercise revisions'
   - 'delete internship revisions'
   - 'delete media'
@@ -328,6 +339,7 @@ permissions:
   - 'edit any webform'
   - 'edit any webform submission'
   - 'edit atom'
+  - 'edit domain content'
   - 'edit own audio media'
   - 'edit own course content'
   - 'edit own course_educators content'
@@ -361,6 +373,7 @@ permissions:
   - 'edit terms in theme'
   - 'edit terms in youth_education_subject'
   - 'edit webform assets'
+  - 'publish to any assigned domain'
   - 'publish to any domain'
   - 'revert all revisions'
   - 'revert course revisions'
@@ -379,21 +392,20 @@ permissions:
   - 'translate page node'
   - 'update any media'
   - 'update content translations'
-  - 'update exercise content on assigned domains'
   - 'update media'
   - 'use domain config ui'
   - 'use domain nav block'
   - 'use domain switcher block'
-  - 'use editorial transition archive'
-  - 'use editorial transition archived_draft'
-  - 'use editorial transition archived_published'
-  - 'use editorial transition create_new_draft'
-  - 'use editorial transition publish'
+  - 'use editorial transition accept'
+  - 'use editorial transition reject'
+  - 'use editorial transition submit_for_review'
+  - 'use editorial transition unpublish'
   - 'use media icons'
   - 'use text format basic_html'
   - 'use text format full_html'
   - 'view all media revisions'
   - 'view all revisions'
+  - 'view all scheduled transitions'
   - 'view any audio media revisions'
   - 'view any document media revisions'
   - 'view any icon media revisions'
@@ -401,6 +413,7 @@ permissions:
   - 'view any remote_video media revisions'
   - 'view any unpublished content'
   - 'view any unpublished course content'
+  - 'view any unpublished course_educators content'
   - 'view any unpublished exercise content'
   - 'view any unpublished internship content'
   - 'view any unpublished page content'

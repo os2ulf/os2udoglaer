@@ -1,9 +1,56 @@
 uuid: 774dedff-f3a9-4309-a20a-b350d238b089
 langcode: da
 status: true
-dependencies: {  }
+dependencies:
+  config:
+    - node.type.course
+    - node.type.course_educators
+    - node.type.exercise
+    - node.type.internship
+    - node.type.page
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - domain_access
+    - entity_clone
+    - node
+    - system
+    - toolbar
+    - workbench
 id: course_provider
-label: 'Course provider (Udbyder)'
-weight: 7
+label: Udbyder
+weight: -5
 is_admin: null
-permissions: {  }
+permissions:
+  - 'access toolbar'
+  - 'access workbench'
+  - 'change own username'
+  - 'clone node entity'
+  - 'create course content'
+  - 'create course content on assigned domains'
+  - 'create course_educators content'
+  - 'create course_educators content on assigned domains'
+  - 'create exercise content'
+  - 'create exercise content on assigned domains'
+  - 'create internship content'
+  - 'create internship content on assigned domains'
+  - 'delete own course content'
+  - 'delete own course_educators content'
+  - 'delete own exercise content'
+  - 'delete own internship content'
+  - 'delete own page content'
+  - 'edit own course content'
+  - 'edit own course_educators content'
+  - 'edit own exercise content'
+  - 'edit own internship content'
+  - 'edit own page content'
+  - 'update course content on assigned domains'
+  - 'use editorial transition submit_for_review'
+  - 'view all revisions'
+  - 'view course revisions'
+  - 'view course_educators revisions'
+  - 'view exercise revisions'
+  - 'view internship revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view the administration theme'

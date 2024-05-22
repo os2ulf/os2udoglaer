@@ -34,7 +34,6 @@ dependencies:
   module:
     - atoms
     - block_content
-    - content_hierarchy
     - content_moderation
     - content_translation
     - contextual
@@ -51,16 +50,18 @@ dependencies:
     - paragraphs
     - path
     - redirect
+    - scheduled_transitions
     - system
     - taxonomy
     - toolbar
     - view_unpublished
     - webform
+    - workbench
 _core:
   default_config_hash: DpbSSRm-l6Ic0XKaRRjYVvABmHusWZ35wXL-3LpHspc
 id: editor
 label: Editor
-weight: 3
+weight: -6
 is_admin: null
 permissions:
   - 'access administration pages'
@@ -77,8 +78,8 @@ permissions:
   - 'access webform help'
   - 'access webform overview'
   - 'access webform submission user'
+  - 'access workbench'
   - 'administer atoms'
-  - 'administer content_hierarchy'
   - 'administer menu'
   - 'administer redirect settings'
   - 'administer redirects'
@@ -117,6 +118,7 @@ permissions:
   - 'clone menu entity'
   - 'clone menu_link_content entity'
   - 'clone metatag_defaults entity'
+  - 'clone node entity'
   - 'clone node_type entity'
   - 'clone paragraph entity'
   - 'clone paragraphs_type entity'
@@ -208,7 +210,6 @@ permissions:
   - 'delete course revisions'
   - 'delete course_educators revisions'
   - 'delete domain content'
-  - 'delete exercise content on assigned domains'
   - 'delete exercise revisions'
   - 'delete internship revisions'
   - 'delete media'
@@ -268,6 +269,7 @@ permissions:
   - 'edit own webform submission'
   - 'edit webform assets'
   - 'publish to any assigned domain'
+  - 'publish to any domain'
   - 'revert all revisions'
   - 'revert course revisions'
   - 'revert course_educators revisions'
@@ -283,27 +285,28 @@ permissions:
   - 'translate editable entities'
   - 'translate menu_link_content'
   - 'update any media'
-  - 'update exercise content on assigned domains'
   - 'update media'
   - 'use domain nav block'
-  - 'use editorial transition archive'
-  - 'use editorial transition archived_draft'
-  - 'use editorial transition archived_published'
-  - 'use editorial transition create_new_draft'
-  - 'use editorial transition publish'
+  - 'use editorial transition accept'
+  - 'use editorial transition reject'
+  - 'use editorial transition submit_for_review'
+  - 'use editorial transition unpublish'
   - 'use media icons'
   - 'use text format basic_html'
   - 'use text format full_html'
   - 'view all media revisions'
   - 'view all revisions'
+  - 'view all scheduled transitions'
   - 'view any unpublished content'
   - 'view any unpublished course content'
+  - 'view any unpublished course_educators content'
   - 'view any unpublished exercise content'
   - 'view any unpublished internship content'
   - 'view any unpublished page content'
   - 'view any webform submission'
   - 'view course revisions'
   - 'view course_educators revisions'
+  - 'view domain list'
   - 'view exercise revisions'
   - 'view internship revisions'
   - 'view latest version'

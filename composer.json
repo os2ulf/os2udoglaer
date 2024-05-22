@@ -80,6 +80,7 @@
         "drupal/view_unpublished": "^1.0",
         "drupal/webform": "^6.2@beta",
         "drupal/webp": "^1.0@RC",
+        "drupal/workbench": "^1.4",
         "drush/drush": "^12",
         "novicell/content_hierarchy": "^1.0",
         "novicell/dynamic_key_value": "^1.0",
