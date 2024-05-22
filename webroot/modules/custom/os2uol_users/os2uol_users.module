@@ -20,7 +20,7 @@ function os2uol_users_user_access(\Drupal\user\UserInterface $user, $operation, 
     }
   }
 
-  // If current user has permission does not have permission to view private user information, return forbidden.
+  // If current user does not have permission to view private user information, return forbidden.
   if (!$current_user->hasPermission('view private user information')) {
     return AccessResult::forbidden();
   }
