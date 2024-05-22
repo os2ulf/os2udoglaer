@@ -10,8 +10,8 @@ id: node.course_educators.field_youth_education_subject
 field_name: field_youth_education_subject
 entity_type: node
 bundle: course_educators
-label: 'Fag - ungdomsuddannelse'
-description: 'Kurset er relevant for undervisere i fagene'
+label: 'Kurset er relevant for undervisere i fagene'
+description: 'Vælg omfattede fag for ungdomsuddannelser.'
 required: false
 translatable: false
 default_value: {  }

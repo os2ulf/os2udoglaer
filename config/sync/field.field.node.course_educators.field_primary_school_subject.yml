@@ -10,8 +10,8 @@ id: node.course_educators.field_primary_school_subject
 field_name: field_primary_school_subject
 entity_type: node
 bundle: course_educators
-label: 'Fag - grundskole'
-description: 'Kurset er relevant for lærere, der underviser i fagene'
+label: 'Kurset er relevant for lærere, der underviser i fagene'
+description: 'Vælg omfattede fag for grundskoler.'
 required: false
 translatable: false
 default_value: {  }
