@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for OS2UOL Users module.
+ */
+
+use Drupal\Core\Access\AccessResult;
+
+/**
+ * Implements hook_ENTITY_TYPE_access().
+ */
+function os2uol_users_user_access(\Drupal\user\UserInterface $user, $operation, \Drupal\Core\Session\AccountInterface $current_user) {
+  $allowed_roles = os2uol_get_public_user_roles();
+
+  // If user has any of the allowed roles, return neutral.
+  foreach ($user->getRoles(TRUE) as $role) {
+    if (in_array($role, $allowed_roles)) {
+      return AccessResult::neutral();
+    }
+  }
+
+  // If current user has permission does not have permission to view private user information, return forbidden.
+  if (!$current_user->hasPermission('view private user information')) {
+    return AccessResult::forbidden();
+  }
+
+  return AccessResult::neutral();
+}
+
+function os2uol_get_public_user_roles(): array {
+  return [
+    'course_provider',
+    'place_of_visit',
+    'corporation',
+  ];
+}
