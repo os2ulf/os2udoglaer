@@ -1,0 +1,103 @@
+label: 'Workbench: Recent content'
+description: 'Content overview page for Workbench.'
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      fields:
+        title:
+          label: Title
+          separator: ', '
+        type:
+          label: Type
+          separator: ', '
+        status:
+          label: Published
+          separator: ', '
+        name:
+          label: Author
+          separator: ', '
+        changed:
+          label: 'Last updated'
+          separator: ', '
+        edit_node:
+          label: Actions
+          text: edit
+      filters:
+        title:
+          expose:
+            label: Title
+        type:
+          expose:
+            label: Type
+        status:
+          expose:
+            label: Published
+      title: 'Workbench: Recent content'
+      empty:
+        area:
+          content:
+            value: 'There is no content available for you to edit.'
+      link_url: /admin/workbench/content/all
+      use_more_text: 'view all'
+  block_1:
+    display_title: 'Overview block'
+    display_options:
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      display_description: 'The ten most recent posts to the site'
+      filters:
+        status:
+          expose:
+            label: Published
+      fields:
+        title:
+          label: Title
+          separator: ', '
+        type:
+          label: Type
+          separator: ', '
+        name:
+          label: Author
+          separator: ', '
+        changed:
+          label: 'Last updated'
+          separator: ', '
+        edit_node:
+          label: Actions
+          text: edit
+      header:
+        area:
+          content:
+            value: '<h3>Recent content</h3>'
+  embed_1:
+    display_title: 'Page Embed'
+    display_options:
+      display_description: 'The embedded view for use on a landing page'

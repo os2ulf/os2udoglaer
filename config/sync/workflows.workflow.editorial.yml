@@ -3,7 +3,10 @@ langcode: da
 status: true
 dependencies:
   config:
-    - node.type.page
+    - node.type.course
+    - node.type.course_educators
+    - node.type.exercise
+    - node.type.internship
   module:
     - content_moderation
 _core:
@@ -13,14 +16,9 @@ label: Redaktionel
 type: content_moderation
 type_settings:
   states:
-    archived:
-      label: Arkiveret
-      weight: 5
-      published: false
-      default_revision: true
     draft:
       label: Kladde
-      weight: -5
+      weight: -2
       published: false
       default_revision: false
     published:
@@ -28,40 +26,40 @@ type_settings:
       weight: 0
       published: true
       default_revision: true
+    review:
+      label: Review
+      weight: -1
+      published: false
+      default_revision: false
   transitions:
-    archive:
-      label: Arkivér
+    accept:
+      label: Godkend
       from:
-        - published
-      to: archived
-      weight: 2
-    archived_draft:
-      label: 'Gendan som kladde'
-      from:
-        - archived
-      to: draft
-      weight: 3
-    archived_published:
-      label: Gendan
-      from:
-        - archived
-      to: published
-      weight: 4
-    create_new_draft:
-      label: 'Opret ny kladde'
-      from:
-        - draft
-        - published
-      to: draft
-      weight: 0
-    publish:
-      label: Udgiv
-      from:
-        - draft
-        - published
+        - review
       to: published
       weight: 1
+    reject:
+      label: Afvis
+      from:
+        - review
+      to: draft
+      weight: 2
+    submit_for_review:
+      label: review
+      from:
+        - draft
+      to: review
+      weight: 0
+    unpublish:
+      label: Afpublicer
+      from:
+        - published
+      to: draft
+      weight: 3
   entity_types:
     node:
-      - page
+      - course
+      - course_educators
+      - exercise
+      - internship
   default_moderation_state: draft
