@@ -10,7 +10,7 @@ id: node.course_educators.field_curriculum_themes
 field_name: field_curriculum_themes
 entity_type: node
 bundle: course_educators
-label: Læreplanstemaer
+label: 'Kurset er relevant for pædagoger, der arbejder med læreplanstemaerne'
 description: 'Kurset er relevant for pædagoger, der arbejder med læreplanstemaerne'
 required: false
 translatable: false

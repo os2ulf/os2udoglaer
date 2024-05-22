@@ -12,25 +12,25 @@ type: list_string
 settings:
   allowed_values:
     -
-      value: hour
+      value: time
       label: Time
     -
-      value: hours
+      value: timer
       label: Timer
     -
-      value: lesson
+      value: lektion
       label: Lektion
     -
-      value: lessons
+      value: lektioner
       label: Lektioner
     -
-      value: minutes
+      value: minutter
       label: Minutter
     -
-      value: day
+      value: dag
       label: Dag
     -
-      value: days
+      value: dage
       label: Dage
   allowed_values_function: ''
 module: options

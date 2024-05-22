@@ -1,4 +1,4 @@
-uuid: 665f0492-56c2-47b5-bb7c-23f948909d95
+uuid: ff4d52d0-cccc-4f62-bfb9-a6b39fc1522a
 langcode: da
 status: true
 dependencies:
@@ -7,9 +7,9 @@ dependencies:
     - scheduled_transitions
     - user
 _core:
-  default_config_hash: p28o-rcGhO_A8lprEp0pc-yUAnwtylHaaGVoEyT_D3M
+  default_config_hash: CRJ4wWdCQQzLovoZ1qzwF5h0wcg1wOuGxdyX8Ma75Fk
 id: scheduled_transitions
-label: 'Scheduled Transitions'
+label: 'Planlagte Overgange'
 module: views
 description: ''
 tag: ''
@@ -22,7 +22,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Scheduled Transitions'
+      title: 'Planlagte Overgange'
       fields:
         entity__target_id:
           id: entity__target_id
@@ -139,7 +139,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: 'View revision'
+          text: 'Vis revidering'
         state_from:
           id: state_from
           table: scheduled_transition
@@ -149,7 +149,7 @@ display:
           admin_label: ''
           entity_type: scheduled_transition
           plugin_id: scheduled_transitions_transition_from
-          label: 'From state'
+          label: 'Fra tilstand'
           exclude: false
           alter:
             alter_text: false
@@ -200,7 +200,7 @@ display:
           entity_type: scheduled_transition
           entity_field: moderation_state
           plugin_id: scheduled_transitions_transition_to
-          label: 'To state'
+          label: 'Til tilstand'
           exclude: false
           alter:
             alter_text: false
@@ -251,7 +251,7 @@ display:
           entity_type: scheduled_transition
           entity_field: transition_on
           plugin_id: field
-          label: 'On date'
+          label: 'På dato'
           exclude: false
           alter:
             alter_text: false
@@ -327,7 +327,7 @@ display:
           entity_type: scheduled_transition
           entity_field: author
           plugin_id: field
-          label: 'Scheduled by'
+          label: 'Planlagt af'
           exclude: false
           alter:
             alter_text: false

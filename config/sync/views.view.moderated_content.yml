@@ -1,4 +1,4 @@
-uuid: 2a2c1456-dff2-4c6a-ae58-81620db1e06f
+uuid: 6a0f3a9c-46e3-4cf4-96e9-3b31faa25b09
 langcode: da
 status: true
 dependencies:
@@ -9,7 +9,7 @@ dependencies:
     module:
       - content_moderation
 _core:
-  default_config_hash: Kjqf5d4F134C3zua0tXV7LA3m5OEeS_Fowa2dP9kk2I
+  default_config_hash: 7olvKOaJNf15B-Bj4eD1wJyaz4BR7CNA9cEjWBssa2Y
 id: moderated_content
 label: 'Modereret indhold'
 module: views
@@ -342,7 +342,7 @@ display:
             custom_date_format: ''
             timezone: ''
             tooltip:
-              date_format: ''
+              date_format: long
               custom_date_format: ''
             time_diff:
               enabled: false
