@@ -70,6 +70,7 @@ dependencies:
     - media_icons
     - menu_link_content
     - node
+    - os2uol_users
     - paragraphs
     - path
     - redirect
@@ -430,6 +431,7 @@ permissions:
   - 'view own unpublished media'
   - 'view own webform submission'
   - 'view page revisions'
+  - 'view private user information'
   - 'view the administration theme'
   - 'view unpublished domain content'
   - 'view unpublished paragraphs'

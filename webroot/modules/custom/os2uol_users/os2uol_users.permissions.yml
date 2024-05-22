@@ -1,0 +1,3 @@
+view private user information:
+  title: 'View private user information'
+  description: 'View users with roles that should not be publicly available'
