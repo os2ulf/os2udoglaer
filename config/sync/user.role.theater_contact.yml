@@ -3,12 +3,15 @@ langcode: da
 status: true
 dependencies:
   config:
+    - filter.format.basic_html
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - filter
 id: theater_contact
 label: Teaterkontakt
 weight: 0
 is_admin: null
 permissions:
   - 'use editorial transition submit_for_review'
+  - 'use text format basic_html'

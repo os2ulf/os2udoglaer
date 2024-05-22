@@ -14,19 +14,19 @@ filters:
   editor_file_reference:
     id: editor_file_reference
     provider: editor
-    status: true
+    status: false
     weight: 11
     settings: {  }
   filter_align:
     id: filter_align
     provider: filter
-    status: true
+    status: false
     weight: 7
     settings: {  }
   filter_caption:
     id: filter_caption
     provider: filter
-    status: true
+    status: false
     weight: 8
     settings: {  }
   filter_html:
