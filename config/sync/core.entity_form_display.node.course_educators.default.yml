@@ -458,9 +458,11 @@ content:
       closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: _none
       features:
+        add_above: '0'
         collapse_edit_all: collapse_edit_all
+        convert: '0'
         duplicate: duplicate
     third_party_settings: {  }
   field_curriculum_themes:
@@ -468,7 +470,26 @@ content:
     weight: 4
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        afb9c7e8-9ffb-47d5-8967-bb6972625e8c:
+          entity_type: node
+          bundle: course_educators
+          dependee: field_educators_target_group
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 3
+            value: ''
+            values: "153\r\n154\r\n155"
+            value_form:
+              -
+                target_id: '153'
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_description_of_duration:
     type: text_textarea
     weight: 18
@@ -666,7 +687,26 @@ content:
     weight: 5
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        d6ea4900-c588-42a3-aafc-fd45446e4f98:
+          entity_type: node
+          bundle: course_educators
+          dependee: field_educators_target_group
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 3
+            value: ''
+            values: "156\r\n157\r\n158\r\n159\r\n161\r\n162\r\n163\r\n164"
+            value_form:
+              -
+                target_id: '156'
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_quantity:
     type: number
     weight: 7
@@ -801,7 +841,26 @@ content:
     weight: 6
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        4c22122c-4ff2-4ab6-bd3f-3dae7f77e0fc:
+          entity_type: node
+          bundle: course_educators
+          dependee: field_educators_target_group
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '165'
+            effect: show
+            effect_options: {  }
+            selector: ''
   group_alternative_address:
     weight: 64
     region: content
