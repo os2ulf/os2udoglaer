@@ -3,22 +3,15 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.inline_hero.field_background_image
-    - field.field.paragraph.inline_hero.field_background_video_thumbnail
-    - field.field.paragraph.inline_hero.field_background_video_url
-    - field.field.paragraph.inline_hero.field_cta
-    - field.field.paragraph.inline_hero.field_overlay
-    - field.field.paragraph.inline_hero.field_text
-    - field.field.paragraph.inline_hero.field_text_color
-    - field.field.paragraph.inline_hero.field_text_position
+    - field.field.paragraph.inline_hero.field_image
+    - field.field.paragraph.inline_hero.field_links
+    - field.field.paragraph.inline_hero.field_sub_title
     - field.field.paragraph.inline_hero.field_title
     - image.style.thumbnail
     - paragraphs.paragraphs_type.inline_hero
   module:
     - image
-    - link
-    - styles
-    - text
+    - paragraphs
 _core:
   default_config_hash: P5yVVhqxRrXsFDVraobgcsQ_Yk6JPcVUva--jAyrsrA
 id: paragraph.inline_hero.default
@@ -26,63 +19,48 @@ targetEntityType: paragraph
 bundle: inline_hero
 mode: default
 content:
-  field_background_image:
+  field_image:
     type: image_image
-    weight: 1
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_background_video_thumbnail:
-    type: image_image
-    weight: 3
-    region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings: {  }
-  field_background_video_url:
-    type: link_default
     weight: 2
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-  field_cta:
-    type: styles_link_target
-    weight: 5
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-      style: ''
-      target_blank: 0
-    third_party_settings: {  }
-  field_overlay:
-    type: boolean_checkbox
+  field_links:
+    type: paragraphs
     weight: 4
     region: content
     settings:
-      display_label: true
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
     third_party_settings: {  }
-  field_text:
-    type: text_textarea
+  field_sub_title:
+    type: string_textfield
     weight: 0
     region: content
     settings:
-      rows: 5
+      size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_text_position:
-    type: styles
-    weight: 6
+  field_title:
+    type: string_textfield
+    weight: 1
     region: content
-    settings: {  }
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true
-  field_text_color: true
-  field_title: true
   status: true

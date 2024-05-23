@@ -1,0 +1,35 @@
+uuid: 47480f74-5bae-4537-8eb9-4696680aad74
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.links_paragraph.field_link
+    - field.field.paragraph.links_paragraph.field_text
+    - paragraphs.paragraphs_type.links_paragraph
+  module:
+    - link
+    - text
+id: paragraph.links_paragraph.default
+targetEntityType: paragraph
+bundle: links_paragraph
+mode: default
+content:
+  field_link:
+    type: link_default
+    weight: 0
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_text:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
