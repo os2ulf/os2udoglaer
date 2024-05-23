@@ -1143,7 +1143,7 @@ display:
         filter_groups: false
         header: false
       use_ajax: true
-      display_description: 'The ten most recent posts to the site'
+      display_description: '10 seneste indhold'
       link_display: /admin/workbench/content/all
       header:
         area:
@@ -1156,7 +1156,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h3>Recent content</h3>'
+            value: '<h3>Seneste indhold</h3>'
             format: basic_html
           tokenize: false
       display_extenders: {  }
