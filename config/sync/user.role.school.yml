@@ -3,12 +3,15 @@ langcode: da
 status: true
 dependencies:
   config:
+    - filter.format.basic_html
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - filter
 id: school
 label: Skole
 weight: -2
 is_admin: null
 permissions:
   - 'use editorial transition submit_for_review'
+  - 'use text format basic_html'

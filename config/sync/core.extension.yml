@@ -14,6 +14,7 @@ module:
   block_content: 0
   breakpoint: 0
   ckeditor5: 0
+  ckeditor5_paste_filter: 0
   color_field: 0
   components: 0
   conditional_fields: 0
@@ -84,6 +85,7 @@ module:
   os2uol_entity_forms: 0
   os2uol_menus: 0
   os2uol_settings: 0
+  os2uol_users: 0
   os2uol_video_block: 0
   page_cache: 0
   paragraphs_asymmetric_translation_widgets: 0

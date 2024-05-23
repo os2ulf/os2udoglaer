@@ -1,0 +1,5 @@
+name: 'OS2UOL Users'
+type: module
+description: 'Provides custom functionality for user accounts and user roles for OS2 project'
+package: OS2udoglær
+core_version_requirement: ^10 || ^11
