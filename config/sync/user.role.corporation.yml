@@ -8,7 +8,6 @@ dependencies:
     - node.type.course_educators
     - node.type.exercise
     - node.type.internship
-    - node.type.page
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -40,13 +39,14 @@ permissions:
   - 'delete own course_educators content'
   - 'delete own exercise content'
   - 'delete own internship content'
-  - 'delete own page content'
   - 'edit own course content'
   - 'edit own course_educators content'
   - 'edit own exercise content'
   - 'edit own internship content'
-  - 'edit own page content'
   - 'update course content on assigned domains'
+  - 'update course_educators content on assigned domains'
+  - 'update exercise content on assigned domains'
+  - 'update internship content on assigned domains'
   - 'use editorial transition submit_for_review'
   - 'use text format basic_html'
   - 'view all revisions'
@@ -55,5 +55,4 @@ permissions:
   - 'view exercise revisions'
   - 'view internship revisions'
   - 'view own unpublished content'
-  - 'view page revisions'
   - 'view the administration theme'

@@ -203,7 +203,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          text: 'Edit my profile'
+          text: 'Rediger min profil'
         access:
           id: access
           table: users_field_data
@@ -290,7 +290,7 @@ display:
           entity_type: user
           entity_field: roles
           plugin_id: field
-          label: 'Assigned roles'
+          label: 'Tildelte roller'
           exclude: false
           alter:
             alter_text: false
@@ -432,7 +432,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: "<h3>{{ name }}'s profile</h3>"
+            value: "<h3>{{ name }}'s profil</h3>"
             format: basic_html
           tokenize: true
       footer: {  }

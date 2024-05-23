@@ -953,7 +953,7 @@ display:
         header: false
         footer: false
       use_ajax: true
-      display_description: 'The five most recent edits by this user'
+      display_description: 'De fem seneste redigeringer af denne bruger'
       use_more: false
       use_more_always: false
       use_more_text: 'vis alle'
@@ -969,7 +969,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: '<h3>Your most recent edits</h3>'
+            value: '<h3>Dine seneste redigeringer</h3>'
             format: basic_html
           tokenize: false
       footer: {  }
