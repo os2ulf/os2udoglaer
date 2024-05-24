@@ -68,12 +68,18 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_educational_profile:
-    type: plain_text
+    type: text_format
     weight: '3'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_guarantee_partner:
+    type: boolean
+    weight: '24'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_homepage:
     type: link
@@ -92,12 +98,11 @@ content:
       image_link: ''
     third_party_settings: {  }
   field_intro:
-    type: plain_text
+    type: text_format
     weight: '4'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
@@ -159,12 +164,11 @@ content:
       transform_mode: default
     third_party_settings: {  }
   field_other_info_description:
-    type: plain_text
+    type: text_format
     weight: '13'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
     third_party_settings: {  }
   field_phone:
     type: value
@@ -174,12 +178,32 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_presentation:
-    type: plain_text
+    type: text_format
     weight: '2'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_pretix_api_token:
+    type: value
+    weight: '23'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_pretix_enabled:
+    type: boolean
+    weight: '21'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_pretix_url:
+    type: value
+    weight: '22'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_video:
     type: entity_transform
@@ -190,12 +214,11 @@ content:
       transform_mode: default
     third_party_settings: {  }
   field_video_description:
-    type: plain_text
+    type: text_format
     weight: '6'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
     third_party_settings: {  }
   field_video_title:
     type: value
@@ -210,12 +233,8 @@ hidden:
   field_domain_admin: true
   field_domain_all_affiliates: true
   field_editor_field: true
-  field_guarantee_partner: true
-  field_pretix_api_token: true
-  field_pretix_enabled: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true
-  field_pretix_url: true
   field_roles: true
   field_view_on_map: true
   langcode: true
