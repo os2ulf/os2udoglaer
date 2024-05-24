@@ -1,0 +1,19 @@
+uuid: c693256f-9ebf-4d48-ad65-d503ebc9d5a3
+langcode: da
+status: true
+dependencies:
+  module:
+    - text
+    - user
+id: user.field_other_info_description
+field_name: field_other_info_description
+entity_type: user
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
