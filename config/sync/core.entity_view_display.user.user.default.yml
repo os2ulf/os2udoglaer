@@ -16,10 +16,15 @@ dependencies:
     - field.field.user.user.field_homepage
     - field.field.user.user.field_image
     - field.field.user.user.field_intro
+    - field.field.user.user.field_location_city
+    - field.field.user.user.field_location_name
+    - field.field.user.user.field_location_street
+    - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
+    - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
@@ -29,10 +34,14 @@ dependencies:
     - field.field.user.user.field_pretix_url
     - field.field.user.user.field_roles
     - field.field.user.user.field_video
+    - field.field.user.user.field_video_description
+    - field.field.user.user.field_video_title
+    - field.field.user.user.field_view_on_map
   module:
     - entity_reference_revisions
     - image
     - link
+    - options
     - text
     - user
 _core:
@@ -115,6 +124,38 @@ content:
     third_party_settings: {  }
     weight: 5
     region: content
+  field_location_city:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 29
+    region: content
+  field_location_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 31
+    region: content
+  field_location_street:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 30
+    region: content
+  field_location_zipcode:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 32
+    region: content
   field_logo:
     type: image
     label: above
@@ -150,6 +191,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 21
+    region: content
+  field_other_info_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 27
     region: content
   field_phone:
     type: string
@@ -196,6 +244,28 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 20
+    region: content
+  field_video_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 26
+    region: content
+  field_video_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 25
+    region: content
+  field_view_on_map:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 28
     region: content
   member_for:
     settings: {  }

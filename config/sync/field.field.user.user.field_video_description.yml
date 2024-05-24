@@ -1,0 +1,29 @@
+uuid: 7203af92-9b9f-44e9-beba-e3e861dfc083
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_video_description
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+    - user
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: user.user.field_video_description
+field_name: field_video_description
+entity_type: user
+bundle: user
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
