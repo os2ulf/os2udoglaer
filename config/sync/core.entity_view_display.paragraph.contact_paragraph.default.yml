@@ -3,7 +3,6 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.contact_paragraph.field_description
     - field.field.paragraph.contact_paragraph.field_email
     - field.field.paragraph.contact_paragraph.field_name
     - field.field.paragraph.contact_paragraph.field_office_availability_text
@@ -18,13 +17,6 @@ targetEntityType: paragraph
 bundle: contact_paragraph
 mode: default
 content:
-  field_description:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 3
-    region: content
   field_email:
     type: basic_string
     label: above

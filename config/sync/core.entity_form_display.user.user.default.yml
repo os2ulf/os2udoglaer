@@ -16,10 +16,15 @@ dependencies:
     - field.field.user.user.field_homepage
     - field.field.user.user.field_image
     - field.field.user.user.field_intro
+    - field.field.user.user.field_location_city
+    - field.field.user.user.field_location_name
+    - field.field.user.user.field_location_street
+    - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
+    - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
@@ -29,6 +34,9 @@ dependencies:
     - field.field.user.user.field_pretix_url
     - field.field.user.user.field_roles
     - field.field.user.user.field_video
+    - field.field.user.user.field_video_description
+    - field.field.user.user.field_video_title
+    - field.field.user.user.field_view_on_map
     - image.style.thumbnail
   module:
     - conditional_fields
@@ -49,7 +57,92 @@ third_party_settings:
       label: Pretix
       region: content
       parent_name: ''
-      weight: 17
+      weight: 18
+      format_type: fieldset
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+    group_video:
+      children:
+        - field_video_title
+        - field_video_description
+        - field_video
+      label: Video
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: fieldset
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+    group_other_info:
+      children:
+        - field_other_info_description
+        - field_other_info
+      label: 'Yderligere information'
+      region: content
+      parent_name: ''
+      weight: 19
+      format_type: fieldset
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+    group_location:
+      children:
+        - field_view_on_map
+        - group_alternative_address
+        - field_location_description
+      label: Lokation
+      region: content
+      parent_name: ''
+      weight: 15
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_alternative_address:
+      children:
+        - field_location_name
+        - field_location_street
+        - field_location_zipcode
+        - field_location_city
+      label: 'Alternativ adresse'
+      region: content
+      parent_name: group_location
+      weight: 26
       format_type: fieldset
       format_settings:
         classes: ''
@@ -74,7 +167,7 @@ content:
     region: content
   field_allocated_budget:
     type: paragraphs
-    weight: 19
+    weight: 20
     region: content
     settings:
       title: Paragraph
@@ -213,20 +306,20 @@ content:
             selector: ''
   field_domain_access:
     type: options_buttons
-    weight: 20
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_admin:
     type: options_buttons
-    weight: 23
+    weight: 24
     region: content
     settings: {  }
     third_party_settings:
       conditional_fields: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 22
+    weight: 23
     region: content
     settings:
       display_label: true
@@ -234,7 +327,7 @@ content:
       conditional_fields: {  }
   field_editor_field:
     type: text_textarea
-    weight: 15
+    weight: 16
     region: content
     settings:
       rows: 5
@@ -294,7 +387,7 @@ content:
             selector: ''
   field_guarantee_partner:
     type: boolean_checkbox
-    weight: 21
+    weight: 22
     region: content
     settings:
       display_label: true
@@ -409,6 +502,38 @@ content:
             effect: show
             effect_options: {  }
             selector: ''
+  field_location_city:
+    type: string_textfield
+    weight: 31
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_name:
+    type: string_textfield
+    weight: 28
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_street:
+    type: string_textfield
+    weight: 29
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_zipcode:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_logo:
     type: image_image
     weight: 10
@@ -503,7 +628,7 @@ content:
     third_party_settings: {  }
   field_other_info:
     type: paragraphs
-    weight: 18
+    weight: 26
     region: content
     settings:
       title: Paragraph
@@ -519,29 +644,15 @@ content:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
     third_party_settings:
-      conditional_fields:
-        ca458e6a-c81b-46c4-9975-fa54ae4883fc:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
-            effect: show
-            effect_options: {  }
-            selector: ''
+      conditional_fields: {  }
+  field_other_info_description:
+    type: text_textarea
+    weight: 25
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_phone:
     type: string_textfield
     weight: 11
@@ -636,7 +747,7 @@ content:
     third_party_settings: {  }
   field_pretix_enabled:
     type: boolean_checkbox
-    weight: 16
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -696,7 +807,7 @@ content:
     third_party_settings: {  }
   field_video:
     type: paragraphs
-    weight: 8
+    weight: 27
     region: content
     settings:
       title: Paragraph
@@ -707,34 +818,63 @@ content:
       closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: _none
       features:
+        add_above: '0'
         collapse_edit_all: collapse_edit_all
+        convert: '0'
         duplicate: duplicate
+    third_party_settings: {  }
+  field_video_description:
+    type: text_textarea
+    weight: 26
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_video_title:
+    type: string_textfield
+    weight: 25
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_view_on_map:
+    type: options_buttons
+    weight: 25
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  group_alternative_address:
+    weight: 56
+    region: content
+    settings: {  }
     third_party_settings:
       conditional_fields:
-        0e69a6a5-e513-4be2-a94b-6b73c8a4c22e:
+        c512fff4-4907-459c-b1be-747484c3e8bd:
           entity_type: user
           bundle: user
-          dependee: field_roles
+          dependee: field_view_on_map
           settings:
             state: visible
             reset: false
             condition: value
-            grouping: OR
+            grouping: AND
             values_set: 1
             value: ''
             values: {  }
             value_form:
               -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
+                value: show_on_map
             effect: show
             effect_options: {  }
             selector: ''
+            inheritance:
+              propagate: propagate
+              apply_to_parent: apply_to_parent
+              recurse: recurse
   group_contact:
     weight: 51
     region: content
@@ -767,6 +907,70 @@ content:
               propagate: propagate
               apply_to_parent: apply_to_parent
               recurse: '0'
+  group_location:
+    weight: 55
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        0f4bb0e7-565a-4fec-a81e-6b6fbe576fdb:
+          entity_type: user
+          bundle: user
+          dependee: field_roles
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: corporation
+              -
+                target_id: course_provider
+              -
+                target_id: place_of_visit
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: propagate
+              apply_to_parent: apply_to_parent
+              recurse: recurse
+  group_other_info:
+    weight: 54
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        31121a31-6940-4f12-a0f7-d7c48e9cdcd9:
+          entity_type: user
+          bundle: user
+          dependee: field_roles
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: corporation
+              -
+                target_id: course_provider
+              -
+                target_id: place_of_visit
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: propagate
+              apply_to_parent: apply_to_parent
+              recurse: recurse
   group_pretix:
     weight: 52
     region: content
@@ -794,6 +998,38 @@ content:
               propagate: '0'
               apply_to_parent: '0'
               recurse: '0'
+  group_video:
+    weight: 53
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        bcf946e7-c23a-463d-8ed5-95f9a2ab91cc:
+          entity_type: user
+          bundle: user
+          dependee: field_roles
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: corporation
+              -
+                target_id: course_provider
+              -
+                target_id: place_of_visit
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: propagate
+              apply_to_parent: apply_to_parent
+              recurse: recurse
 hidden:
   langcode: true
   language: true

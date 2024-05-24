@@ -17,10 +17,15 @@ dependencies:
     - field.field.user.user.field_homepage
     - field.field.user.user.field_image
     - field.field.user.user.field_intro
+    - field.field.user.user.field_location_city
+    - field.field.user.user.field_location_name
+    - field.field.user.user.field_location_street
+    - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
+    - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
@@ -30,6 +35,9 @@ dependencies:
     - field.field.user.user.field_pretix_url
     - field.field.user.user.field_roles
     - field.field.user.user.field_video
+    - field.field.user.user.field_video_description
+    - field.field.user.user.field_video_title
+    - field.field.user.user.field_view_on_map
   module:
     - user
 _core:
@@ -53,10 +61,15 @@ hidden:
   field_homepage: true
   field_image: true
   field_intro: true
+  field_location_city: true
+  field_location_name: true
+  field_location_street: true
+  field_location_zipcode: true
   field_logo: true
   field_mail: true
   field_name: true
   field_other_info: true
+  field_other_info_description: true
   field_phone: true
   field_presentation: true
   field_pretix_api_token: true
@@ -66,6 +79,9 @@ hidden:
   field_pretix_url: true
   field_roles: true
   field_video: true
+  field_video_description: true
+  field_video_title: true
+  field_view_on_map: true
   langcode: true
   member_for: true
   search_api_excerpt: true

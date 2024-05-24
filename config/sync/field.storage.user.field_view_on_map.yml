@@ -1,0 +1,27 @@
+uuid: 9465b82c-5d89-446f-8e88-027d424ffb79
+langcode: da
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_view_on_map
+field_name: field_view_on_map
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: show_on_map
+      label: 'Vis på kort'
+    -
+      value: hidden_on_map
+      label: 'Vis ikke på kort'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

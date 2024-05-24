@@ -1,0 +1,23 @@
+uuid: 7b255eff-dd74-4416-b99f-a6c2e03e0d4f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_view_on_map
+  module:
+    - options
+    - user
+id: user.user.field_view_on_map
+field_name: field_view_on_map
+entity_type: user
+bundle: user
+label: 'Visning på kort'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: show_on_map
+default_value_callback: ''
+settings: {  }
+field_type: list_string

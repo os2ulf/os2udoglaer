@@ -16,10 +16,15 @@ dependencies:
     - field.field.user.user.field_homepage
     - field.field.user.user.field_image
     - field.field.user.user.field_intro
+    - field.field.user.user.field_location_city
+    - field.field.user.user.field_location_name
+    - field.field.user.user.field_location_street
+    - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
+    - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
@@ -29,6 +34,9 @@ dependencies:
     - field.field.user.user.field_pretix_url
     - field.field.user.user.field_roles
     - field.field.user.user.field_video
+    - field.field.user.user.field_video_description
+    - field.field.user.user.field_video_title
+    - field.field.user.user.field_view_on_map
   module:
     - user
 id: user.user.default
@@ -38,7 +46,7 @@ mode: default
 content:
   field_allocated_budget:
     type: entity_transform
-    weight: '12'
+    weight: '15'
     region: content
     label: omit
     settings:
@@ -46,7 +54,7 @@ content:
     third_party_settings: {  }
   field_contact:
     type: entity_transform
-    weight: '13'
+    weight: '16'
     region: content
     label: omit
     settings:
@@ -54,7 +62,7 @@ content:
     third_party_settings: {  }
   field_cvr:
     type: value
-    weight: '10'
+    weight: '12'
     region: content
     label: omit
     settings: {  }
@@ -69,7 +77,7 @@ content:
     third_party_settings: {  }
   field_homepage:
     type: link
-    weight: '8'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
@@ -91,9 +99,37 @@ content:
     settings:
       text_length: 0
     third_party_settings: {  }
+  field_location_city:
+    type: value
+    weight: '20'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_name:
+    type: value
+    weight: '17'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_street:
+    type: value
+    weight: '18'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_zipcode:
+    type: value
+    weight: '19'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_logo:
     type: image_style
-    weight: '6'
+    weight: '8'
     region: content
     label: omit
     settings:
@@ -102,7 +138,7 @@ content:
     third_party_settings: {  }
   field_mail:
     type: value
-    weight: '9'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
@@ -116,15 +152,23 @@ content:
     third_party_settings: {  }
   field_other_info:
     type: entity_transform
-    weight: '11'
+    weight: '14'
     region: content
     label: omit
     settings:
       transform_mode: default
     third_party_settings: {  }
+  field_other_info_description:
+    type: plain_text
+    weight: '13'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
   field_phone:
     type: value
-    weight: '7'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
@@ -139,11 +183,26 @@ content:
     third_party_settings: {  }
   field_video:
     type: entity_transform
-    weight: '5'
+    weight: '7'
     region: content
     label: omit
     settings:
       transform_mode: default
+    third_party_settings: {  }
+  field_video_description:
+    type: plain_text
+    weight: '6'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+  field_video_title:
+    type: value
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
 hidden:
   field_bypass_workflow: true
@@ -158,4 +217,5 @@ hidden:
   field_pretix_organizer_form: true
   field_pretix_url: true
   field_roles: true
+  field_view_on_map: true
   langcode: true

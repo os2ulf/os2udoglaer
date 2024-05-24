@@ -1,0 +1,21 @@
+uuid: 94eeba50-0eda-418c-971d-57e54ca76400
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_location_city
+field_name: field_location_city
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
