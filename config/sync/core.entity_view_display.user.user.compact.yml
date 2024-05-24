@@ -6,12 +6,7 @@ dependencies:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_allocated_budget
     - field.field.user.user.field_bypass_workflow
-    - field.field.user.user.field_contact_email
-    - field.field.user.user.field_contact_homepage
-    - field.field.user.user.field_contact_hours
-    - field.field.user.user.field_contact_name
-    - field.field.user.user.field_contact_phone
-    - field.field.user.user.field_contact_title
+    - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
@@ -43,23 +38,11 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content:
-  field_contact_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
+content: {  }
 hidden:
   field_allocated_budget: true
   field_bypass_workflow: true
-  field_contact_email: true
-  field_contact_homepage: true
-  field_contact_hours: true
-  field_contact_phone: true
-  field_contact_title: true
+  field_contact: true
   field_cvr: true
   field_domain_access: true
   field_domain_admin: true

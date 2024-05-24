@@ -5,12 +5,7 @@ dependencies:
   config:
     - field.field.user.user.field_allocated_budget
     - field.field.user.user.field_bypass_workflow
-    - field.field.user.user.field_contact_email
-    - field.field.user.user.field_contact_homepage
-    - field.field.user.user.field_contact_hours
-    - field.field.user.user.field_contact_name
-    - field.field.user.user.field_contact_phone
-    - field.field.user.user.field_contact_title
+    - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
@@ -56,53 +51,14 @@ content:
     third_party_settings: {  }
     weight: 22
     region: content
-  field_contact_email:
-    type: string
+  field_contact:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      link_to_entity: false
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 7
-    region: content
-  field_contact_homepage:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  field_contact_hours:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  field_contact_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 6
-    region: content
-  field_contact_phone:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 9
-    region: content
-  field_contact_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 8
+    weight: 24
     region: content
   field_cvr:
     type: string

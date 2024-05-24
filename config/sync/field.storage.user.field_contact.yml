@@ -1,4 +1,4 @@
-uuid: dd6d8e93-cdc0-4ced-8001-075cc42d3eb4
+uuid: 48e68440-bb49-409d-900c-a74384aea134
 langcode: da
 status: true
 dependencies:
@@ -6,15 +6,15 @@ dependencies:
     - entity_reference_revisions
     - paragraphs
     - user
-id: user.field_other_info
-field_name: field_other_info
+id: user.field_contact
+field_name: field_contact
 entity_type: user
 type: entity_reference_revisions
 settings:
   target_type: paragraph
 module: entity_reference_revisions
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false
