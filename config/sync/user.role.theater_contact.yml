@@ -8,10 +8,14 @@ dependencies:
   module:
     - content_moderation
     - filter
+    - system
+    - toolbar
 id: theater_contact
 label: Teaterkontakt
 weight: 0
 is_admin: null
 permissions:
+  - 'access toolbar'
   - 'use editorial transition submit_for_review'
   - 'use text format basic_html'
+  - 'view the administration theme'
