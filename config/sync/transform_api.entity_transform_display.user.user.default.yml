@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.user.user.field_allocated_budget
     - field.field.user.user.field_bypass_workflow
-    - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
@@ -47,14 +46,6 @@ content:
   field_allocated_budget:
     type: entity_transform
     weight: '15'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_contact:
-    type: entity_transform
-    weight: '16'
     region: content
     label: omit
     settings:
