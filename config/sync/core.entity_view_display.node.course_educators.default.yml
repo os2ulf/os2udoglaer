@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.course_educators.field_description_of_duration
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
+    - field.field.node.course_educators.field_domain_access
     - field.field.node.course_educators.field_duration
     - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
@@ -64,6 +65,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   field_all_year:
     type: boolean
@@ -120,6 +126,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 150
+    region: content
+  field_domain_access:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 161
     region: content
   field_duration:
     type: number_decimal

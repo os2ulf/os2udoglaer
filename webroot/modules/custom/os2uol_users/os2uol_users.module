@@ -35,3 +35,30 @@ function os2uol_get_public_user_roles(): array {
     'corporation',
   ];
 }
+
+/**
+ * Implements hook_form_alter() to hide the field_roles field for non-admin users.
+ */
+function os2uol_users_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  // Get the current user.
+  $current_user = \Drupal::currentUser();
+
+  // Define the roles that are allowed to see the field_roles field.
+  $allowed_roles = ['administrator', 'webmaster'];
+
+  // Check if the current user has one of the allowed roles.
+  $has_allowed_role = FALSE;
+  foreach ($allowed_roles as $role) {
+    if ($current_user->hasRole($role)) {
+      $has_allowed_role = TRUE;
+      break;
+    }
+  }
+
+  // If the user does not have one of the allowed roles, hide the field_roles field.
+  if (!$has_allowed_role) {
+    if (isset($form['field_roles'])) {
+      $form['field_roles']['#access'] = FALSE;
+    }
+  }
+}

@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.course_educators.field_description_of_duration
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
+    - field.field.node.course_educators.field_domain_access
     - field.field.node.course_educators.field_duration
     - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
@@ -46,6 +47,7 @@ dependencies:
     - field.field.node.course_educators.field_youth_education_subject
     - image.style.thumbnail
     - node.type.course_educators
+    - workflows.workflow.editorial
   module:
     - allowed_formats
     - conditional_fields
@@ -513,6 +515,12 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_domain_access:
+    type: options_buttons
+    weight: 21
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_duration:
     type: number
