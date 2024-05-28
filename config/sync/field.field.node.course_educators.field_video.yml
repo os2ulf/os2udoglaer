@@ -28,8 +28,14 @@ settings:
       accordion_item:
         weight: 9
         enabled: false
+      allocated_budget:
+        weight: 13
+        enabled: false
       basic_hero:
         weight: 10
+        enabled: false
+      cards:
+        weight: 15
         enabled: false
       contact_paragraph:
         weight: 11
@@ -45,6 +51,9 @@ settings:
         enabled: false
       material:
         weight: 15
+        enabled: false
+      other_user_info:
+        weight: 21
         enabled: false
       video:
         weight: 16
