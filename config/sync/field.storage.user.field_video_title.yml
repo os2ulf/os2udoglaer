@@ -1,11 +1,11 @@
-uuid: f8bb891c-ecf5-42cf-869f-e5a16ff41603
+uuid: c1622034-79a4-4f4d-ae4f-cb843dc2bfc0
 langcode: da
 status: true
 dependencies:
   module:
     - user
-id: user.field_contact_hours
-field_name: field_contact_hours
+id: user.field_video_title
+field_name: field_video_title
 entity_type: user
 type: string
 settings:

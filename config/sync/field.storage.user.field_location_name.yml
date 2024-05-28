@@ -1,11 +1,11 @@
-uuid: bd51441b-955f-44f3-a435-54a126ced059
+uuid: d2b100d2-ad5f-4416-a983-30f785a1804b
 langcode: da
 status: true
 dependencies:
   module:
     - user
-id: user.field_contact_homepage
-field_name: field_contact_homepage
+id: user.field_location_name
+field_name: field_location_name
 entity_type: user
 type: string
 settings:

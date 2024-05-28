@@ -1,16 +1,16 @@
-uuid: 3302fd7e-bbad-4477-b68f-7b1238a4a3e4
+uuid: fca418aa-55c1-4ca0-af50-4ddce9849512
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.user.field_contact_email
+    - field.storage.user.field_location_name
   module:
     - user
-id: user.user.field_contact_email
-field_name: field_contact_email
+id: user.user.field_location_name
+field_name: field_location_name
 entity_type: user
 bundle: user
-label: Email
+label: 'Navn på lokalitet'
 description: ''
 required: false
 translatable: false

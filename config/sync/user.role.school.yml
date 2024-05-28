@@ -4,14 +4,15 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
-    - workflows.workflow.editorial
   module:
-    - content_moderation
     - filter
+    - system
+    - toolbar
 id: school
 label: Skole
 weight: -2
 is_admin: null
 permissions:
-  - 'use editorial transition submit_for_review'
+  - 'access toolbar'
   - 'use text format basic_html'
+  - 'view the administration theme'

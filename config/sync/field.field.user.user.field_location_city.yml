@@ -1,16 +1,16 @@
-uuid: 21a31fd4-b035-49cf-bd31-1c7203dcad57
+uuid: 8786e545-2f84-4138-9ad5-6f8fdde998e7
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.user.field_contact_title
+    - field.storage.user.field_location_city
   module:
     - user
-id: user.user.field_contact_title
-field_name: field_contact_title
+id: user.user.field_location_city
+field_name: field_location_city
 entity_type: user
 bundle: user
-label: Titel/Beskrivelse
+label: By
 description: ''
 required: false
 translatable: false

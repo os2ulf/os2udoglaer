@@ -1,0 +1,5 @@
+name: 'OS2udoglær Transform Plugins'
+type: module
+description: 'Extends Transform API with OS2udoglær specific plugins.'
+package: OS2udoglær
+core_version_requirement: ^10 || ^11

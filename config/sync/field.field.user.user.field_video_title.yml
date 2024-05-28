@@ -1,16 +1,16 @@
-uuid: db509a65-66e7-4d00-b673-1eae9498052e
+uuid: 6391a437-a744-4d89-987b-013adbb84bcc
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.user.field_contact_name
+    - field.storage.user.field_video_title
   module:
     - user
-id: user.user.field_contact_name
-field_name: field_contact_name
+id: user.user.field_video_title
+field_name: field_video_title
 entity_type: user
 bundle: user
-label: Navn
+label: Titel
 description: ''
 required: false
 translatable: false

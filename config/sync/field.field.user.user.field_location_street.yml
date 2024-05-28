@@ -1,16 +1,16 @@
-uuid: 8eb02973-4200-4ba3-addd-e09bf51f15b4
+uuid: 0669ebdd-be33-454c-acf9-c6cde179af9c
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.user.field_contact_homepage
+    - field.storage.user.field_location_street
   module:
     - user
-id: user.user.field_contact_homepage
-field_name: field_contact_homepage
+id: user.user.field_location_street
+field_name: field_location_street
 entity_type: user
 bundle: user
-label: Hjemmeside
+label: Gade
 description: ''
 required: false
 translatable: false

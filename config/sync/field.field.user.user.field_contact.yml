@@ -1,18 +1,18 @@
-uuid: 94de7613-d6eb-4f38-9e8c-4ea16180fe99
+uuid: 35616778-c9ad-489e-a948-2f0a0b671774
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.user.field_other_info
-    - paragraphs.paragraphs_type.other_user_info
+    - field.storage.user.field_contact
+    - paragraphs.paragraphs_type.contact_paragraph
   module:
     - entity_reference_revisions
     - user
-id: user.user.field_other_info
-field_name: field_other_info
+id: user.user.field_contact
+field_name: field_contact
 entity_type: user
 bundle: user
-label: 'Yderligere information'
+label: Kontakt
 description: ''
 required: false
 translatable: false
@@ -22,40 +22,40 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      other_user_info: other_user_info
+      contact_paragraph: contact_paragraph
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: 11
+        weight: 12
         enabled: false
       allocated_budget:
         weight: 13
         enabled: false
       basic_hero:
-        weight: 12
-        enabled: false
-      cards:
-        weight: 13
-        enabled: false
-      contact_paragraph:
         weight: 14
         enabled: false
-      duration_paragraph:
+      cards:
         weight: 15
         enabled: false
-      duration_price:
+      contact_paragraph:
         weight: 16
-        enabled: false
-      inline_hero:
+        enabled: true
+      duration_paragraph:
         weight: 17
         enabled: false
-      material:
+      duration_price:
         weight: 18
         enabled: false
-      other_user_info:
+      inline_hero:
         weight: 19
-        enabled: true
-      video:
+        enabled: false
+      material:
         weight: 20
+        enabled: false
+      other_user_info:
+        weight: 21
+        enabled: false
+      video:
+        weight: 22
         enabled: false
 field_type: entity_reference_revisions

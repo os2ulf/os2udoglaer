@@ -1,16 +1,16 @@
-uuid: 7ffdd189-88e9-47c0-a7b7-afa4df0d1e7f
+uuid: f9f952d1-01d1-45d7-8809-348f04ea2013
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.user.field_contact_phone
+    - field.storage.user.field_location_zipcode
   module:
     - user
-id: user.user.field_contact_phone
-field_name: field_contact_phone
+id: user.user.field_location_zipcode
+field_name: field_location_zipcode
 entity_type: user
 bundle: user
-label: Telefon
+label: Postnummer
 description: ''
 required: false
 translatable: false

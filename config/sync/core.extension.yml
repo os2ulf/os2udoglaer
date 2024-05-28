@@ -85,6 +85,7 @@ module:
   os2uol_entity_forms: 0
   os2uol_menus: 0
   os2uol_settings: 0
+  os2uol_transform_plugins: 0
   os2uol_users: 0
   os2uol_video_block: 0
   page_cache: 0

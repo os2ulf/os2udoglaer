@@ -3,24 +3,18 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.other_user_info.field_description
     - field.field.paragraph.other_user_info.field_file
     - field.field.paragraph.other_user_info.field_link
     - paragraphs.paragraphs_type.other_user_info
+  module:
+    - os2uol_transform_plugins
 id: paragraph.other_user_info.default
 targetEntityType: paragraph
 bundle: other_user_info
 mode: default
 content:
-  field_description:
-    type: value
-    weight: '0'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_file:
-    type: file_url
+    type: custom_file_url
     weight: '1'
     region: content
     label: omit

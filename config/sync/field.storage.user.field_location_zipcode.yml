@@ -1,11 +1,11 @@
-uuid: 51051028-01c4-49f8-8835-fef0200dc8b9
+uuid: 202c7126-155d-4588-a2d6-8538fe78fcd5
 langcode: da
 status: true
 dependencies:
   module:
     - user
-id: user.field_contact_email
-field_name: field_contact_email
+id: user.field_location_zipcode
+field_name: field_location_zipcode
 entity_type: user
 type: string
 settings:

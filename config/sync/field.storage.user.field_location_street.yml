@@ -1,11 +1,11 @@
-uuid: b420f0ce-e3c8-4af2-8d97-34df41998335
+uuid: bba7341e-8126-46c6-8229-33e6a589e43a
 langcode: da
 status: true
 dependencies:
   module:
     - user
-id: user.field_contact_title
-field_name: field_contact_title
+id: user.field_location_street
+field_name: field_location_street
 entity_type: user
 type: string
 settings:
