@@ -3,10 +3,7 @@ _core:
 langcode: da
 theme: current
 defaults:
-  sender: php_mail
-  formatter: php_mail
+  sender: SMTPMailSystem
+  formatter: SMTPMailSystem
 modules:
-  sendgrid_integration:
-    none:
-      sender: sendgrid_integration
-      formatter: sendgrid_integration
+  sendgrid_integration: {  }
