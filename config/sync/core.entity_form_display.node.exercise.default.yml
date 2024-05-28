@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.exercise.field_youth_education_subject
     - image.style.thumbnail
     - node.type.exercise
+    - workflows.workflow.editorial
   module:
     - conditional_fields
     - content_moderation
@@ -341,6 +342,16 @@ content:
     region: content
     settings:
       rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_domain_access:
+    type: entity_reference_autocomplete
+    weight: 19
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_duration_select:
@@ -681,5 +692,4 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_domain_access: true
   field_domain_all_affiliates: true
