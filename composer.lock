@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "855a9caaf501a487104a449337ed9088",
+    "content-hash": "31e88600782ba046673f75cb094c53dc",
     "packages": [
         {
             "name": "algolia/places",
@@ -3649,29 +3649,29 @@
         },
         {
             "name": "drupal/maxlength",
-            "version": "2.1.2",
+            "version": "3.0.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/maxlength.git",
-                "reference": "2.1.2"
+                "reference": "3.0.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/maxlength-2.1.2.zip",
-                "reference": "2.1.2",
-                "shasum": "97015e4d1065770a92953c9f37fef5d55b360cf6"
+                "url": "https://ftp.drupal.org/files/projects/maxlength-3.0.0-beta1.zip",
+                "reference": "3.0.0-beta1",
+                "shasum": "3881f6e72c02cff100c518be7c83f71cb3c42bf9"
             },
             "require": {
-                "drupal/core": "^9.2 || ^10"
+                "drupal/core": "^10"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.2",
-                    "datestamp": "1689974531",
+                    "version": "3.0.0-beta1",
+                    "datestamp": "1707234085",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -3711,8 +3711,9 @@
                     "role": "Maintainer"
                 },
                 {
-                    "name": "srdtwc",
-                    "homepage": "https://www.drupal.org/user/3422763"
+                    "name": "Adam Nagy (joevagyok)",
+                    "homepage": "https://www.drupal.org/u/joevagyok",
+                    "role": "Maintainer"
                 }
             ],
             "description": "MaxLength allows a soft or hard character limit to be set on titles, text fields and link fields.",
@@ -12255,6 +12256,7 @@
         "drupal/entity_clone": 10,
         "drupal/gin": 5,
         "drupal/gin_toolbar": 5,
+        "drupal/maxlength": 10,
         "drupal/pathologic": 15,
         "drupal/search_api_page": 10,
         "drupal/ultimate_cron": 15,
@@ -12272,5 +12274,5 @@
     "platform-overrides": {
         "php": "8.1"
     },
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.6.0"
 }
