@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.exercise.field_materials
     - field.field.node.exercise.field_period_select
     - field.field.node.exercise.field_post_processing
+    - field.field.node.exercise.field_preparation
     - field.field.node.exercise.field_primary_school_subject
     - field.field.node.exercise.field_purpose_exercise
     - field.field.node.exercise.field_related_excercises
@@ -50,9 +51,10 @@ third_party_settings:
       children:
         - title
         - field_target_group
+        - field_activity_select
         - body
         - field_purpose_exercise
-      label: Opgaven
+      label: Beskrivelse
       region: content
       parent_name: ''
       weight: 0
@@ -71,12 +73,12 @@ third_party_settings:
         required_fields: true
     group_exercise_sub:
       children:
+        - field_preparation
         - field_how_to
         - field_ackground_knowledge
         - field_activities
         - field_post_processing
-        - field_related_excercises
-      label: 'Aktiviteter, forberedelse og efterbehandling'
+      label: 'Før, under og efter besøget'
       region: content
       parent_name: ''
       weight: 1
@@ -95,39 +97,16 @@ third_party_settings:
         required_fields: true
     group_practical_information:
       children:
-        - field_subject
         - field_trgt_grp_primary_school
         - field_trgt_grp_youth_education
         - field_trgt_grp_daycare
-        - field_curriculum_themes
-        - field_activity_select
         - field_primary_school_subject
         - field_youth_education_subject
-      label: 'Praktisk information'
+        - field_curriculum_themes
+      label: Målgruppe
       region: content
       parent_name: ''
       weight: 2
-      format_type: html_element
-      format_settings:
-        classes: trailer
-        show_empty_fields: false
-        id: ''
-        element: details
-        show_label: true
-        label_element: summary
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        required_fields: true
-    group_duration:
-      children:
-        - field_duration_select
-        - field_description_of_duration
-      label: Varighed
-      region: content
-      parent_name: ''
-      weight: 3
       format_type: html_element
       format_settings:
         classes: trailer
@@ -145,10 +124,12 @@ third_party_settings:
       children:
         - field_period_select
         - field_description_of_period
-      label: Periode
+        - field_duration_select
+        - field_description_of_duration
+      label: 'Periode og varighed'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 3
       format_type: html_element
       format_settings:
         classes: trailer
@@ -165,13 +146,13 @@ third_party_settings:
     group_materials:
       children:
         - field_materials
-      label: Materialer
+      label: Arbejdsark
       region: content
       parent_name: ''
-      weight: 6
+      weight: 9
       format_type: html_element
       format_settings:
-        classes: trailer
+        classes: ''
         show_empty_fields: false
         id: ''
         element: details
@@ -188,31 +169,10 @@ third_party_settings:
       label: Besøgssteder
       region: content
       parent_name: ''
-      weight: 7
+      weight: 5
       format_type: html_element
       format_settings:
         classes: trailer
-        show_empty_fields: false
-        id: ''
-        element: details
-        show_label: true
-        label_element: summary
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        required_fields: true
-    group_sustainability_goals:
-      children:
-        - field_sustainability_goals
-        - field_sustainability_goals_desc
-      label: Verdensmål
-      region: content
-      parent_name: ''
-      weight: 8
-      format_type: html_element
-      format_settings:
-        classes: ''
         show_empty_fields: false
         id: ''
         element: details
@@ -230,7 +190,7 @@ third_party_settings:
       label: Billeder/medier
       region: content
       parent_name: ''
-      weight: 5
+      weight: 8
       format_type: html_element
       format_settings:
         classes: trailer
@@ -260,6 +220,67 @@ third_party_settings:
         id: ''
         description: ''
         required_fields: true
+    group_theme_subject:
+      children:
+        - field_subject
+        - field_sustainability_goals
+        - field_sustainability_goals_desc
+      label: 'Tema og emneområde'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_supplementary_tasks:
+      children:
+        - field_related_excercises
+      label: 'Supplerende opgaver'
+      region: content
+      parent_name: ''
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_additional_info:
+      children: {  }
+      label: 'Yderligere info'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
 id: node.exercise.default
 targetEntityType: node
 bundle: exercise
@@ -267,7 +288,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 9
@@ -277,13 +298,13 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   field_ackground_knowledge:
     type: text_textarea
-    weight: 8
+    weight: 9
     region: content
     settings:
       rows: 5
@@ -291,7 +312,7 @@ content:
     third_party_settings: {  }
   field_activities:
     type: text_textarea
-    weight: 9
+    weight: 10
     region: content
     settings:
       rows: 5
@@ -299,13 +320,13 @@ content:
     third_party_settings: {  }
   field_activity_select:
     type: options_buttons
-    weight: 10
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_curriculum_themes:
     type: options_buttons
-    weight: 9
+    weight: 12
     region: content
     settings: {  }
     third_party_settings:
@@ -330,7 +351,7 @@ content:
             selector: ''
   field_description_of_duration:
     type: text_textarea
-    weight: 27
+    weight: 23
     region: content
     settings:
       rows: 5
@@ -346,7 +367,7 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: entity_reference_autocomplete
-    weight: 19
+    weight: 20
     region: content
     settings:
       match_operator: CONTAINS
@@ -355,18 +376,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_duration_select:
-    type: entity_reference_autocomplete
-    weight: 26
+    type: options_buttons
+    weight: 22
     region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_how_to:
     type: text_textarea
-    weight: 7
+    weight: 8
     region: content
     settings:
       rows: 5
@@ -385,15 +402,15 @@ content:
     weight: 7
     region: content
     settings:
-      title: Materiale
-      title_plural: Materialer
+      title: Arbejdsark
+      title_plural: Arbejdsark
       edit_mode: open
       closed_mode: summary
       autocollapse: none
       closed_mode_threshold: 0
       add_mode: button
       form_display_mode: default
-      default_paragraph_type: material
+      default_paragraph_type: _none
       features:
         add_above: '0'
         collapse_edit_all: collapse_edit_all
@@ -408,7 +425,15 @@ content:
     third_party_settings: {  }
   field_post_processing:
     type: text_textarea
-    weight: 10
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_preparation:
+    type: text_textarea
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -416,7 +441,7 @@ content:
     third_party_settings: {  }
   field_primary_school_subject:
     type: options_buttons
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings:
@@ -441,7 +466,7 @@ content:
             selector: ''
   field_purpose_exercise:
     type: text_textarea
-    weight: 4
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -449,7 +474,7 @@ content:
     third_party_settings: {  }
   field_related_excercises:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -465,19 +490,19 @@ content:
     third_party_settings: {  }
   field_subject:
     type: options_buttons
-    weight: 5
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_sustainability_goals:
     type: options_buttons
-    weight: 19
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_sustainability_goals_desc:
     type: text_textarea
-    weight: 20
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -577,9 +602,11 @@ content:
       closed_mode_threshold: 0
       add_mode: dropdown
       form_display_mode: default
-      default_paragraph_type: ''
+      default_paragraph_type: _none
       features:
+        add_above: '0'
         collapse_edit_all: collapse_edit_all
+        convert: '0'
         duplicate: duplicate
     third_party_settings: {  }
   field_video_description:
@@ -600,7 +627,7 @@ content:
     third_party_settings: {  }
   field_youth_education_subject:
     type: options_buttons
-    weight: 12
+    weight: 11
     region: content
     settings: {  }
     third_party_settings:
@@ -625,45 +652,45 @@ content:
             selector: ''
   langcode:
     type: language_select
-    weight: 9
+    weight: 10
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 18
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -678,7 +705,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -687,7 +714,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
