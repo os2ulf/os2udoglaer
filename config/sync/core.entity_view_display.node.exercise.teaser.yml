@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.exercise.field_materials
     - field.field.node.exercise.field_period_select
     - field.field.node.exercise.field_post_processing
+    - field.field.node.exercise.field_preparation
     - field.field.node.exercise.field_primary_school_subject
     - field.field.node.exercise.field_purpose_exercise
     - field.field.node.exercise.field_related_excercises
@@ -51,6 +52,11 @@ content:
     third_party_settings: {  }
     weight: 101
     region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
@@ -71,6 +77,7 @@ hidden:
   field_materials: true
   field_period_select: true
   field_post_processing: true
+  field_preparation: true
   field_primary_school_subject: true
   field_purpose_exercise: true
   field_related_excercises: true
