@@ -1,0 +1,29 @@
+uuid: 5457ecab-0f4a-4b72-88b2-f31caba69c32
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_preparation
+    - filter.format.basic_html
+    - node.type.exercise
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.exercise.field_preparation
+field_name: field_preparation
+entity_type: node
+bundle: exercise
+label: Forberedelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
