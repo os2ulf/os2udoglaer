@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.user.user.field_allocated_budget
     - field.field.user.user.field_bypass_workflow
+    - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
@@ -58,6 +59,15 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 22
+    region: content
+  field_contact:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 24
     region: content
   field_cvr:
     type: string
