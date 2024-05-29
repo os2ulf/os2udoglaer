@@ -11,7 +11,7 @@ field_name: field_sustainability_goals
 entity_type: node
 bundle: exercise
 label: Verdensmål
-description: ''
+description: 'Du kan vælge max. 4 verdensmål.'
 required: false
 translatable: false
 default_value: {  }
