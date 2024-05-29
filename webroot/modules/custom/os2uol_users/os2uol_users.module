@@ -6,6 +6,9 @@
  */
 
 use Drupal\Core\Access\AccessResult;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Views;
 
 /**
  * Implements hook_ENTITY_TYPE_access().
@@ -60,5 +63,35 @@ function os2uol_users_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateIn
     if (isset($form['field_roles'])) {
       $form['field_roles']['#access'] = FALSE;
     }
+  }
+}
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function os2uol_users_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+  // Check if the view is a Workbench dashboard view.
+  if ($view->id() == 'workbench_recent_content') {
+    // Get the roles of the current user.
+    $roles = \Drupal::currentUser()->getRoles();
+
+    // Check if the user has one of the specified roles.
+    if (in_array('administrator', $roles) || in_array('webmaster', $roles) || in_array('editor', $roles)) {
+      // If the user has one of the roles, do not alter the query.
+      return;
+    }
+
+    // Add a join to the 'node_field_data' table.
+    $join = Views::pluginManager('join')->createInstance('standard', [
+      'table' => 'node_field_data',
+      'field' => 'nid',
+      'left_table' => 'node_field_data',
+      'left_field' => 'nid',
+      'operator' => '=',
+    ]);
+    $query->addRelationship('node_field_data', $join, 'node_field_data');
+
+    // Add a condition to the query to exclude entities of type "page".
+    $query->addWhere(0, 'node_field_data.type', 'page', '!=');
   }
 }
