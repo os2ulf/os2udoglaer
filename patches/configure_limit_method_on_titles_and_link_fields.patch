@@ -1,0 +1,12 @@
+--- webroot/core/modules/link/src/Plugin/Field/FieldWidget/LinkWidget.php	2024-05-29 13:42:32.507666317 +0200
++++ webroot/core/modules/link/src/Plugin/Field/FieldWidget/LinkWidget_modified.php	2024-05-29 13:41:54.399196515 +0200
+@@ -263,7 +263,8 @@
+       '#title' => $this->t('Link text'),
+       '#placeholder' => $this->getSetting('placeholder_title'),
+       '#default_value' => $items[$delta]->title ?? NULL,
+-      '#maxlength' => 255,
++      '#maxlength' => 25,
++      '#description' => $this->t('Maximum length: 25 characters'),
+       '#access' => $this->getFieldSetting('title') != DRUPAL_DISABLED,
+       '#required' => $this->getFieldSetting('title') === DRUPAL_REQUIRED && $element['#required'],
+     ];
