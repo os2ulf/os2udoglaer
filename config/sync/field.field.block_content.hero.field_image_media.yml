@@ -1,19 +1,19 @@
-uuid: a087a514-f790-48ef-8612-5601fcd847fe
+uuid: aa646810-1a51-443e-94c5-0910776ef625
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_image
-    - paragraphs.paragraphs_type.inline_hero
+    - block_content.type.hero
+    - field.storage.block_content.field_image_media
   module:
     - image
-id: paragraph.inline_hero.field_image
-field_name: field_image
-entity_type: paragraph
-bundle: inline_hero
+id: block_content.hero.field_image_media
+field_name: field_image_media
+entity_type: block_content
+bundle: hero
 label: Billede
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -26,7 +26,7 @@ settings:
   max_resolution: ''
   min_resolution: ''
   alt_field: true
-  alt_field_required: true
+  alt_field_required: false
   title_field: false
   title_field_required: false
   default_image:

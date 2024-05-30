@@ -1,22 +1,20 @@
-uuid: 3798b805-ef8c-4a24-923b-0ae32ec378e6
+uuid: c6029431-c203-4ecb-ae19-855f6eb9b2f3
 langcode: da
 status: true
 dependencies:
   config:
     - block_content.type.hero
-    - field.storage.block_content.field_hero
-    - paragraphs.paragraphs_type.inline_hero
+    - field.storage.block_content.field_hero_links
+    - paragraphs.paragraphs_type.links_paragraph
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: weszN_PVMyQlO8i6fe2GloavXPiT8iwI_OnyHNE1bD0
-id: block_content.hero.field_hero
-field_name: field_hero
+id: block_content.hero.field_hero_links
+field_name: field_hero_links
 entity_type: block_content
 bundle: hero
-label: Hero
+label: Links
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -24,17 +22,17 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      inline_hero: inline_hero
+      links_paragraph: links_paragraph
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: 3
+        weight: 14
         enabled: false
       allocated_budget:
         weight: 15
         enabled: false
       basic_hero:
-        weight: 4
+        weight: 16
         enabled: false
       cards:
         weight: 17
@@ -49,11 +47,11 @@ settings:
         weight: 20
         enabled: false
       inline_hero:
-        weight: 4
-        enabled: true
+        weight: 21
+        enabled: false
       links_paragraph:
         weight: 13
-        enabled: false
+        enabled: true
       material:
         weight: 22
         enabled: false
