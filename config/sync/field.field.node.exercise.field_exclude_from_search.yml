@@ -1,0 +1,21 @@
+uuid: c199a838-b841-4e35-98ee-bc4e37b86bef
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_search
+    - node.type.exercise
+id: node.exercise.field_exclude_from_search
+field_name: field_exclude_from_search
+entity_type: node
+bundle: exercise
+label: 'Vis ikke i intern søgning'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

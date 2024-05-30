@@ -1,0 +1,21 @@
+uuid: b703e6fc-3eb5-4304-8592-02643b967185
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_profile
+    - node.type.course_educators
+id: node.course_educators.field_exclude_from_profile
+field_name: field_exclude_from_profile
+entity_type: node
+bundle: course_educators
+label: 'Vis ikke på profil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

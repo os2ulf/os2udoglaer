@@ -1,0 +1,21 @@
+uuid: 4ec2e66e-4420-4db4-9b63-fbf3ece99246
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.internship
+  module:
+    - metatag
+id: node.internship.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: internship
+label: Meta-tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

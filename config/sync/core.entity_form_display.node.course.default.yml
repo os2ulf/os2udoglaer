@@ -13,9 +13,10 @@ dependencies:
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
     - field.field.node.course.field_domain_access
-    - field.field.node.course.field_domain_all_affiliates
     - field.field.node.course.field_duration
     - field.field.node.course.field_duration_unit
+    - field.field.node.course.field_exclude_from_profile
+    - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
     - field.field.node.course.field_image
@@ -26,6 +27,7 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
+    - field.field.node.course.field_meta_tags
     - field.field.node.course.field_period
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
@@ -57,6 +59,7 @@ dependencies:
     - field.field.node.course.field_youth_education_subject
     - image.style.thumbnail
     - node.type.course
+    - workflows.workflow.editorial
   module:
     - allowed_formats
     - conditional_fields
@@ -66,6 +69,7 @@ dependencies:
     - field_group
     - image
     - maxlength
+    - metatag
     - paragraphs
     - path
     - text
@@ -164,7 +168,7 @@ third_party_settings:
       label: Materialer
       region: content
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: html_element
       format_settings:
         classes: trailer
@@ -187,7 +191,7 @@ third_party_settings:
       label: Lokation
       region: content
       parent_name: ''
-      weight: 9
+      weight: 10
       format_type: html_element
       format_settings:
         classes: trailer
@@ -395,7 +399,7 @@ third_party_settings:
       label: Billeder/medier
       region: content
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: html_element
       format_settings:
         classes: trailer
@@ -415,10 +419,32 @@ third_party_settings:
       label: 'Relaterede forløb'
       region: content
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: html_element
       format_settings:
         classes: ''
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_content_visibility:
+      children:
+        - field_exclude_from_search
+        - field_exclude_from_profile
+        - field_domain_access
+      label: 'Visning af indhold'
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -537,16 +563,9 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 21
+    weight: 23
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_domain_all_affiliates:
-    type: boolean_checkbox
-    weight: 22
-    region: content
-    settings:
-      display_label: true
     third_party_settings: {  }
   field_duration:
     type: number
@@ -560,6 +579,20 @@ content:
     weight: 17
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_exclude_from_profile:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_exclude_from_search:
+    type: boolean_checkbox
+    weight: 21
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_faciliteter:
     type: options_buttons
@@ -649,6 +682,14 @@ content:
         collapse_edit_all: collapse_edit_all
         convert: '0'
         duplicate: '0'
+    third_party_settings: {  }
+  field_meta_tags:
+    type: metatag_firehose
+    weight: 16
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
     third_party_settings: {  }
   field_period:
     type: daterange_default
@@ -1057,13 +1098,13 @@ content:
               recurse: '0'
   moderation_state:
     type: moderation_state_default
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1081,14 +1122,14 @@ content:
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 20
+    weight: 21
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -1116,7 +1157,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 18
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
