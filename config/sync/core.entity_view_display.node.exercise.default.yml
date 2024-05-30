@@ -15,9 +15,9 @@ dependencies:
     - field.field.node.exercise.field_duration_select
     - field.field.node.exercise.field_exclude_from_profile
     - field.field.node.exercise.field_exclude_from_search
+    - field.field.node.exercise.field_focus
     - field.field.node.exercise.field_how_to
     - field.field.node.exercise.field_image
-    - field.field.node.exercise.field_materials
     - field.field.node.exercise.field_meta_tags
     - field.field.node.exercise.field_period_select
     - field.field.node.exercise.field_post_processing
@@ -26,7 +26,6 @@ dependencies:
     - field.field.node.exercise.field_purpose_exercise
     - field.field.node.exercise.field_related_excercises
     - field.field.node.exercise.field_related_user
-    - field.field.node.exercise.field_subject
     - field.field.node.exercise.field_sustainability_goals
     - field.field.node.exercise.field_sustainability_goals_desc
     - field.field.node.exercise.field_target_group
@@ -37,6 +36,7 @@ dependencies:
     - field.field.node.exercise.field_video
     - field.field.node.exercise.field_video_description
     - field.field.node.exercise.field_video_title
+    - field.field.node.exercise.field_work_documents
     - field.field.node.exercise.field_youth_education_subject
     - node.type.exercise
   module:
@@ -142,6 +142,14 @@ content:
     third_party_settings: {  }
     weight: 161
     region: content
+  field_focus:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 163
+    region: content
   field_how_to:
     type: text_default
     label: above
@@ -159,15 +167,6 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 19
-    region: content
-  field_materials:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 21
     region: content
   field_meta_tags:
     type: metatag_empty_formatter
@@ -228,14 +227,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 160
-    region: content
-  field_subject:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 106
     region: content
   field_sustainability_goals:
     type: entity_reference_label
@@ -315,6 +306,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 136
+    region: content
+  field_work_documents:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 164
     region: content
   field_youth_education_subject:
     type: entity_reference_label

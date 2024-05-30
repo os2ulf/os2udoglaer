@@ -1,0 +1,19 @@
+uuid: 3368fb98-79aa-4742-8b88-796c3859c00d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_material_download_text
+    - paragraphs.paragraphs_type.work_documents
+id: paragraph.work_documents.field_material_download_text
+field_name: field_material_download_text
+entity_type: paragraph
+bundle: work_documents
+label: 'Download tekst'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
