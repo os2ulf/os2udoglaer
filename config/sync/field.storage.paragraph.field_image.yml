@@ -1,4 +1,4 @@
-uuid: 84c20db7-f3c6-47c5-9e25-6acefba2d8b7
+uuid: 8367cedd-38ba-4fde-b153-b8b9c87deb82
 langcode: da
 status: true
 dependencies:
@@ -6,8 +6,8 @@ dependencies:
     - file
     - image
     - paragraphs
-id: paragraph.field_background_video_thumbnail
-field_name: field_background_video_thumbnail
+id: paragraph.field_image
+field_name: field_image
 entity_type: paragraph
 type: image
 settings:

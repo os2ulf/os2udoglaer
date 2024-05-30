@@ -1,0 +1,19 @@
+uuid: 6688f393-1af9-43bd-aa7f-cbfccc9ab941
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sub_title
+    - paragraphs.paragraphs_type.inline_hero
+id: paragraph.inline_hero.field_sub_title
+field_name: field_sub_title
+entity_type: paragraph
+bundle: inline_hero
+label: Undertitel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

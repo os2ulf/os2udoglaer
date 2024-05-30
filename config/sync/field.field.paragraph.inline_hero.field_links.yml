@@ -1,22 +1,20 @@
-uuid: 3798b805-ef8c-4a24-923b-0ae32ec378e6
+uuid: a7a2996e-297f-4758-8b5a-6b3be7734d43
 langcode: da
 status: true
 dependencies:
   config:
-    - block_content.type.hero
-    - field.storage.block_content.field_hero
+    - field.storage.paragraph.field_links
     - paragraphs.paragraphs_type.inline_hero
+    - paragraphs.paragraphs_type.links_paragraph
   module:
     - entity_reference_revisions
-_core:
-  default_config_hash: weszN_PVMyQlO8i6fe2GloavXPiT8iwI_OnyHNE1bD0
-id: block_content.hero.field_hero
-field_name: field_hero
-entity_type: block_content
-bundle: hero
-label: Hero
+id: paragraph.inline_hero.field_links
+field_name: field_links
+entity_type: paragraph
+bundle: inline_hero
+label: Links
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -24,36 +22,36 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      inline_hero: inline_hero
+      links_paragraph: links_paragraph
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: 3
-        enabled: false
-      allocated_budget:
-        weight: 15
-        enabled: false
-      basic_hero:
-        weight: 4
-        enabled: false
-      cards:
-        weight: 17
-        enabled: false
-      contact_paragraph:
-        weight: 18
-        enabled: false
-      duration_paragraph:
-        weight: 19
-        enabled: false
-      duration_price:
-        weight: 20
-        enabled: false
-      inline_hero:
-        weight: 4
-        enabled: true
-      links_paragraph:
         weight: 13
         enabled: false
+      allocated_budget:
+        weight: 14
+        enabled: false
+      basic_hero:
+        weight: 15
+        enabled: false
+      cards:
+        weight: 16
+        enabled: false
+      contact_paragraph:
+        weight: 17
+        enabled: false
+      duration_paragraph:
+        weight: 18
+        enabled: false
+      duration_price:
+        weight: 19
+        enabled: false
+      inline_hero:
+        weight: 20
+        enabled: false
+      links_paragraph:
+        weight: 21
+        enabled: true
       material:
         weight: 22
         enabled: false

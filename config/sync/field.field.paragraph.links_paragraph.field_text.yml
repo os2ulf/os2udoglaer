@@ -1,28 +1,24 @@
-uuid: 0b8e3bde-37f1-49b5-995e-70ae84c341d3
+uuid: 3756a1ea-cf89-429f-a977-2808b675476f
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.paragraph.field_text
-    - paragraphs.paragraphs_type.inline_hero
+    - paragraphs.paragraphs_type.links_paragraph
   module:
     - allowed_formats
     - text
 third_party_settings:
   allowed_formats:
-    basic_html: basic_html
-    full_html: '0'
-    plain_text: '0'
-_core:
-  default_config_hash: ouxF9xUAUs_ezzSxLI8a9K0fUDixAwkEOW5JRIKAGJA
-id: paragraph.inline_hero.field_text
+    allowed_formats: {  }
+id: paragraph.links_paragraph.field_text
 field_name: field_text
 entity_type: paragraph
-bundle: inline_hero
+bundle: links_paragraph
 label: Tekst
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
