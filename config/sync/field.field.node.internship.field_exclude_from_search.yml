@@ -1,0 +1,21 @@
+uuid: 16bcf9b5-8377-479f-9d5f-8796669350c3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_search
+    - node.type.internship
+id: node.internship.field_exclude_from_search
+field_name: field_exclude_from_search
+entity_type: node
+bundle: internship
+label: 'Vis ikke i intern søgning'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
