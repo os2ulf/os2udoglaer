@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.exercise.field_ackground_knowledge
     - field.field.node.exercise.field_activities
     - field.field.node.exercise.field_activity_select
+    - field.field.node.exercise.field_banner
     - field.field.node.exercise.field_curriculum_themes
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
@@ -28,6 +29,7 @@ dependencies:
     - field.field.node.exercise.field_sustainability_goals
     - field.field.node.exercise.field_sustainability_goals_desc
     - field.field.node.exercise.field_target_group
+    - field.field.node.exercise.field_theme
     - field.field.node.exercise.field_trgt_grp_daycare
     - field.field.node.exercise.field_trgt_grp_primary_school
     - field.field.node.exercise.field_trgt_grp_youth_education
@@ -66,6 +68,7 @@ hidden:
   field_ackground_knowledge: true
   field_activities: true
   field_activity_select: true
+  field_banner: true
   field_curriculum_themes: true
   field_description_of_duration: true
   field_description_of_period: true
@@ -86,6 +89,7 @@ hidden:
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
   field_target_group: true
+  field_theme: true
   field_trgt_grp_daycare: true
   field_trgt_grp_primary_school: true
   field_trgt_grp_youth_education: true
