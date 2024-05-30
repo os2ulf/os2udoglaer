@@ -13,9 +13,10 @@ dependencies:
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
     - field.field.node.course.field_domain_access
-    - field.field.node.course.field_domain_all_affiliates
     - field.field.node.course.field_duration
     - field.field.node.course.field_duration_unit
+    - field.field.node.course.field_exclude_from_profile
+    - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
     - field.field.node.course.field_image
@@ -26,6 +27,7 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
+    - field.field.node.course.field_meta_tags
     - field.field.node.course.field_period
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
@@ -61,6 +63,7 @@ dependencies:
     - datetime_range
     - entity_reference_revisions
     - image
+    - metatag
     - options
     - text
     - user
@@ -75,6 +78,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   field_activities:
     type: text_default
@@ -155,6 +163,26 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 131
+    region: content
+  field_exclude_from_profile:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 162
+    region: content
+  field_exclude_from_search:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 161
     region: content
   field_faciliteter:
     type: entity_reference_label
@@ -239,6 +267,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 21
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_period:
     type: daterange_default
@@ -475,6 +510,5 @@ content:
     region: content
 hidden:
   field_domain_access: true
-  field_domain_all_affiliates: true
   langcode: true
   search_api_excerpt: true

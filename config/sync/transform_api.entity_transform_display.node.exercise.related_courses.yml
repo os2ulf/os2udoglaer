@@ -7,17 +7,19 @@ dependencies:
     - field.field.node.exercise.field_ackground_knowledge
     - field.field.node.exercise.field_activities
     - field.field.node.exercise.field_activity_select
+    - field.field.node.exercise.field_banner
     - field.field.node.exercise.field_curriculum_themes
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
     - field.field.node.exercise.field_domain_access
-    - field.field.node.exercise.field_domain_all_affiliates
     - field.field.node.exercise.field_duration_select
     - field.field.node.exercise.field_how_to
     - field.field.node.exercise.field_image
     - field.field.node.exercise.field_materials
+    - field.field.node.exercise.field_meta_tags
     - field.field.node.exercise.field_period_select
     - field.field.node.exercise.field_post_processing
+    - field.field.node.exercise.field_preparation
     - field.field.node.exercise.field_primary_school_subject
     - field.field.node.exercise.field_purpose_exercise
     - field.field.node.exercise.field_related_excercises
@@ -26,6 +28,7 @@ dependencies:
     - field.field.node.exercise.field_sustainability_goals
     - field.field.node.exercise.field_sustainability_goals_desc
     - field.field.node.exercise.field_target_group
+    - field.field.node.exercise.field_theme
     - field.field.node.exercise.field_trgt_grp_daycare
     - field.field.node.exercise.field_trgt_grp_primary_school
     - field.field.node.exercise.field_trgt_grp_youth_education
@@ -116,21 +119,24 @@ hidden:
   field_ackground_knowledge: true
   field_activities: true
   field_activity_select: true
+  field_banner: true
   field_description_of_duration: true
   field_description_of_period: true
   field_domain_access: true
-  field_domain_all_affiliates: true
   field_duration_select: true
   field_how_to: true
   field_materials: true
+  field_meta_tags: true
   field_period_select: true
   field_post_processing: true
+  field_preparation: true
   field_purpose_exercise: true
   field_related_excercises: true
   field_related_user: true
   field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
+  field_theme: true
   field_video: true
   field_video_description: true
   field_video_title: true
