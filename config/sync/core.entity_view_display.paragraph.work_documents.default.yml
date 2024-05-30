@@ -1,0 +1,74 @@
+uuid: 94047a22-9d8d-4b07-b01f-d37e91a453c7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.work_documents.field_literature_suggestion
+    - field.field.paragraph.work_documents.field_material_description
+    - field.field.paragraph.work_documents.field_material_download_text
+    - field.field.paragraph.work_documents.field_material_file
+    - field.field.paragraph.work_documents.field_material_title
+    - field.field.paragraph.work_documents.field_material_url
+    - paragraphs.paragraphs_type.work_documents
+  module:
+    - file
+    - link
+    - text
+id: paragraph.work_documents.default
+targetEntityType: paragraph
+bundle: work_documents
+mode: default
+content:
+  field_literature_suggestion:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_material_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_material_download_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_material_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_material_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_material_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,19 @@
+uuid: 1e9b319b-9a44-4cbc-b5cb-2db36d9874a4
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_literature_suggestion
+    - paragraphs.paragraphs_type.work_documents
+id: paragraph.work_documents.field_literature_suggestion
+field_name: field_literature_suggestion
+entity_type: paragraph
+bundle: work_documents
+label: Litteraturforslag
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

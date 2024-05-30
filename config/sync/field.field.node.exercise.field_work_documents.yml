@@ -1,18 +1,18 @@
-uuid: d4c4a594-e317-4b94-a4dc-d78285e03306
+uuid: 5db1a071-6626-4dd0-898a-6721c230f9fb
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_materials
+    - field.storage.node.field_work_documents
     - node.type.exercise
-    - paragraphs.paragraphs_type.material
+    - paragraphs.paragraphs_type.work_documents
   module:
     - entity_reference_revisions
-id: node.exercise.field_materials
-field_name: field_materials
+id: node.exercise.field_work_documents
+field_name: field_work_documents
 entity_type: node
 bundle: exercise
-label: Materialer
+label: Arbejdsark
 description: ''
 required: false
 translatable: false
@@ -22,34 +22,43 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      material: material
+      work_documents: work_documents
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: 5
-        enabled: false
-      basic_hero:
-        weight: 6
-        enabled: false
-      cards:
-        weight: 12
-        enabled: false
-      contact_paragraph:
         weight: 13
         enabled: false
-      duration_paragraph:
+      allocated_budget:
         weight: 14
         enabled: false
-      duration_price:
+      basic_hero:
         weight: 15
         enabled: false
-      inline_hero:
-        weight: 7
+      cards:
+        weight: 16
         enabled: false
-      material:
-        weight: 8
-        enabled: true
-      video:
+      contact_paragraph:
+        weight: 17
+        enabled: false
+      duration_paragraph:
         weight: 18
         enabled: false
+      duration_price:
+        weight: 19
+        enabled: false
+      links_paragraph:
+        weight: 20
+        enabled: false
+      material:
+        weight: 21
+        enabled: false
+      other_user_info:
+        weight: 22
+        enabled: false
+      video:
+        weight: 23
+        enabled: false
+      work_documents:
+        weight: 24
+        enabled: true
 field_type: entity_reference_revisions

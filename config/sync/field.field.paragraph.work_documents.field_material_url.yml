@@ -1,0 +1,23 @@
+uuid: cd55af20-4803-4699-bd39-0d39157dce6e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_material_url
+    - paragraphs.paragraphs_type.work_documents
+  module:
+    - link
+id: paragraph.work_documents.field_material_url
+field_name: field_material_url
+entity_type: paragraph
+bundle: work_documents
+label: URL
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

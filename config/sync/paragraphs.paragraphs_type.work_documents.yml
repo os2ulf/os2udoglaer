@@ -1,0 +1,10 @@
+uuid: e4bbdb6f-3711-4710-9bee-a876045df0f1
+langcode: da
+status: true
+dependencies: {  }
+id: work_documents
+label: Arbejdsark
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,71 @@
+uuid: 843305c2-4752-4b54-90c8-150809b156f4
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.work_documents.field_literature_suggestion
+    - field.field.paragraph.work_documents.field_material_description
+    - field.field.paragraph.work_documents.field_material_download_text
+    - field.field.paragraph.work_documents.field_material_file
+    - field.field.paragraph.work_documents.field_material_title
+    - field.field.paragraph.work_documents.field_material_url
+    - paragraphs.paragraphs_type.work_documents
+  module:
+    - file
+    - link
+    - text
+id: paragraph.work_documents.default
+targetEntityType: paragraph
+bundle: work_documents
+mode: default
+content:
+  field_literature_suggestion:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_material_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_material_download_text:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_material_file:
+    type: file_generic
+    weight: 2
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_material_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_material_url:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

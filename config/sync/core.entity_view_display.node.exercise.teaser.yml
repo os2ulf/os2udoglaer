@@ -16,9 +16,9 @@ dependencies:
     - field.field.node.exercise.field_duration_select
     - field.field.node.exercise.field_exclude_from_profile
     - field.field.node.exercise.field_exclude_from_search
+    - field.field.node.exercise.field_focus
     - field.field.node.exercise.field_how_to
     - field.field.node.exercise.field_image
-    - field.field.node.exercise.field_materials
     - field.field.node.exercise.field_meta_tags
     - field.field.node.exercise.field_period_select
     - field.field.node.exercise.field_post_processing
@@ -27,7 +27,6 @@ dependencies:
     - field.field.node.exercise.field_purpose_exercise
     - field.field.node.exercise.field_related_excercises
     - field.field.node.exercise.field_related_user
-    - field.field.node.exercise.field_subject
     - field.field.node.exercise.field_sustainability_goals
     - field.field.node.exercise.field_sustainability_goals_desc
     - field.field.node.exercise.field_target_group
@@ -38,6 +37,7 @@ dependencies:
     - field.field.node.exercise.field_video
     - field.field.node.exercise.field_video_description
     - field.field.node.exercise.field_video_title
+    - field.field.node.exercise.field_work_documents
     - field.field.node.exercise.field_youth_education_subject
     - node.type.exercise
   module:
@@ -78,9 +78,9 @@ hidden:
   field_duration_select: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
+  field_focus: true
   field_how_to: true
   field_image: true
-  field_materials: true
   field_meta_tags: true
   field_period_select: true
   field_post_processing: true
@@ -89,7 +89,6 @@ hidden:
   field_purpose_exercise: true
   field_related_excercises: true
   field_related_user: true
-  field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
   field_target_group: true
@@ -100,6 +99,7 @@ hidden:
   field_video: true
   field_video_description: true
   field_video_title: true
+  field_work_documents: true
   field_youth_education_subject: true
   langcode: true
   search_api_excerpt: true
