@@ -1,16 +1,17 @@
-uuid: ba663341-0acb-41b7-a1d0-53476d980703
+uuid: 1f97a2b2-f462-4e9a-9e8d-57cab95496ab
 langcode: da
 status: true
 dependencies:
   module:
     - paragraphs
-_core:
-  default_config_hash: hgkDwsykqRSFL96ZJRUmVHwUra0LDUI7xsLxaTvTqDY
-id: paragraph.field_overlay
-field_name: field_overlay
+id: paragraph.field_sub_title
+field_name: field_sub_title
 entity_type: paragraph
-type: boolean
-settings: {  }
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
 cardinality: 1

@@ -1,17 +1,17 @@
-uuid: 4b27d3ff-fa32-4cd4-aee4-85970c6c295f
+uuid: a087a514-f790-48ef-8612-5601fcd847fe
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_background_image
+    - field.storage.paragraph.field_image
     - paragraphs.paragraphs_type.inline_hero
   module:
     - image
-id: paragraph.inline_hero.field_background_image
-field_name: field_background_image
+id: paragraph.inline_hero.field_image
+field_name: field_image
 entity_type: paragraph
 bundle: inline_hero
-label: 'Background Image'
+label: Billede
 description: ''
 required: false
 translatable: false

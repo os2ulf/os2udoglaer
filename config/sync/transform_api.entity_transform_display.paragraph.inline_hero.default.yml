@@ -1,0 +1,47 @@
+uuid: ecd5158b-2297-4a64-8f18-7cbe9b850bbd
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.inline_hero.field_image
+    - field.field.paragraph.inline_hero.field_links
+    - field.field.paragraph.inline_hero.field_sub_title
+    - field.field.paragraph.inline_hero.field_title
+    - paragraphs.paragraphs_type.inline_hero
+id: paragraph.inline_hero.default
+targetEntityType: paragraph
+bundle: inline_hero
+mode: default
+content:
+  field_image:
+    type: image_style
+    weight: '2'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_links:
+    type: entity_transform
+    weight: '3'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_sub_title:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_title:
+    type: value
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
