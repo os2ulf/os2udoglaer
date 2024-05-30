@@ -1,0 +1,21 @@
+uuid: fc152a90-06f8-4079-8a03-0d81b0f18386
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_profile
+    - node.type.exercise
+id: node.exercise.field_exclude_from_profile
+field_name: field_exclude_from_profile
+entity_type: node
+bundle: exercise
+label: 'Vis ikke på profil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

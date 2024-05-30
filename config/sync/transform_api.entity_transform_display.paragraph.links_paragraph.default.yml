@@ -1,0 +1,29 @@
+uuid: 886a2241-aa7b-4b6e-8afb-e6dc105b41c5
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.links_paragraph.field_link
+    - field.field.paragraph.links_paragraph.field_text
+    - paragraphs.paragraphs_type.links_paragraph
+id: paragraph.links_paragraph.default
+targetEntityType: paragraph
+bundle: links_paragraph
+mode: default
+content:
+  field_link:
+    type: link
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_text:
+    type: plain_text
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+hidden: {  }

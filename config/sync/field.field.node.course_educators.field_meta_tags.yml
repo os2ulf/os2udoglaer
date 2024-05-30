@@ -1,0 +1,21 @@
+uuid: 38c44fb5-c60c-4a06-9ee5-3fd11ffecbff
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.course_educators
+  module:
+    - metatag
+id: node.course_educators.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: course_educators
+label: Meta-tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

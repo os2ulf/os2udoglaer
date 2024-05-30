@@ -1,0 +1,18 @@
+uuid: 2f37d432-9b86-46a4-b306-c6c2d5d7a0a8
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_exclude_from_search
+field_name: field_exclude_from_search
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

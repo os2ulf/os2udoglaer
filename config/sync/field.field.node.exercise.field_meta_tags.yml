@@ -1,0 +1,21 @@
+uuid: a2086e54-b897-43c3-b8bc-cfeaeef516a8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.exercise
+  module:
+    - metatag
+id: node.exercise.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: exercise
+label: Meta-tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

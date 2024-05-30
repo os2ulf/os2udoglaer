@@ -15,6 +15,8 @@ dependencies:
     - field.field.node.course_educators.field_duration
     - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
+    - field.field.node.course_educators.field_exclude_from_profile
+    - field.field.node.course_educators.field_exclude_from_search
     - field.field.node.course_educators.field_faciliteter
     - field.field.node.course_educators.field_food_service
     - field.field.node.course_educators.field_image
@@ -25,6 +27,7 @@ dependencies:
     - field.field.node.course_educators.field_location_street
     - field.field.node.course_educators.field_location_zipcode
     - field.field.node.course_educators.field_materials
+    - field.field.node.course_educators.field_meta_tags
     - field.field.node.course_educators.field_period
     - field.field.node.course_educators.field_price
     - field.field.node.course_educators.field_primary_school_subject
@@ -51,6 +54,7 @@ dependencies:
     - datetime_range
     - entity_reference_revisions
     - image
+    - metatag
     - options
     - text
     - user
@@ -162,6 +166,26 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
+  field_exclude_from_profile:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 162
+    region: content
+  field_exclude_from_search:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 161
+    region: content
   field_faciliteter:
     type: entity_reference_label
     label: above
@@ -245,6 +269,13 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 30
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_period:
     type: daterange_default

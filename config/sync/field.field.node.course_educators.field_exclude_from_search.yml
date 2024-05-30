@@ -1,0 +1,21 @@
+uuid: 03736786-7941-446e-b618-1b873ca4d307
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_search
+    - node.type.course_educators
+id: node.course_educators.field_exclude_from_search
+field_name: field_exclude_from_search
+entity_type: node
+bundle: course_educators
+label: 'Vis ikke i intern søgning'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

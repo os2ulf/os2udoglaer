@@ -13,9 +13,10 @@ dependencies:
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
     - field.field.node.course.field_domain_access
-    - field.field.node.course.field_domain_all_affiliates
     - field.field.node.course.field_duration
     - field.field.node.course.field_duration_unit
+    - field.field.node.course.field_exclude_from_profile
+    - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
     - field.field.node.course.field_image
@@ -26,6 +27,7 @@ dependencies:
     - field.field.node.course.field_location_street
     - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
+    - field.field.node.course.field_meta_tags
     - field.field.node.course.field_period
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
@@ -425,5 +427,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_domain_access: true
-  field_domain_all_affiliates: true
+  field_exclude_from_profile: true
+  field_exclude_from_search: true
+  field_meta_tags: true
   langcode: true

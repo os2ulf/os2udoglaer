@@ -1,0 +1,21 @@
+uuid: 0898bbfa-8143-407a-a6f2-5ba0bd66f5fa
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_profile
+    - node.type.page
+id: node.page.field_exclude_from_profile
+field_name: field_exclude_from_profile
+entity_type: node
+bundle: page
+label: 'Vis ikke på profil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
