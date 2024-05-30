@@ -1,12 +1,12 @@
-uuid: 1f97a2b2-f462-4e9a-9e8d-57cab95496ab
+uuid: 216950ab-89a6-43eb-99fa-492563880a7d
 langcode: da
 status: true
 dependencies:
   module:
-    - paragraphs
-id: paragraph.field_sub_title
-field_name: field_sub_title
-entity_type: paragraph
+    - block_content
+id: block_content.field_hero_subtitle
+field_name: field_hero_subtitle
+entity_type: block_content
 type: string
 settings:
   max_length: 255
