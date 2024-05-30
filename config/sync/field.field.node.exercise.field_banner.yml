@@ -1,0 +1,29 @@
+uuid: 2e6d2b3a-112c-4ec0-8f3a-5f5665e77a36
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner
+    - node.type.exercise
+    - taxonomy.vocabulary.banner
+id: node.exercise.field_banner
+field_name: field_banner
+entity_type: node
+bundle: exercise
+label: Banner
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      banner: banner
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

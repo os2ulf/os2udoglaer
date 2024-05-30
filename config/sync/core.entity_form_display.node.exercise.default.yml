@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.exercise.field_ackground_knowledge
     - field.field.node.exercise.field_activities
     - field.field.node.exercise.field_activity_select
+    - field.field.node.exercise.field_banner
     - field.field.node.exercise.field_curriculum_themes
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
@@ -27,6 +28,7 @@ dependencies:
     - field.field.node.exercise.field_sustainability_goals
     - field.field.node.exercise.field_sustainability_goals_desc
     - field.field.node.exercise.field_target_group
+    - field.field.node.exercise.field_theme
     - field.field.node.exercise.field_trgt_grp_daycare
     - field.field.node.exercise.field_trgt_grp_primary_school
     - field.field.node.exercise.field_trgt_grp_youth_education
@@ -222,6 +224,7 @@ third_party_settings:
         required_fields: true
     group_theme_subject:
       children:
+        - field_theme
         - field_subject
         - field_sustainability_goals
         - field_sustainability_goals_desc
@@ -263,7 +266,8 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_additional_info:
-      children: {  }
+      children:
+        - field_banner
       label: 'Yderligere info'
       region: content
       parent_name: ''
@@ -321,6 +325,12 @@ content:
   field_activity_select:
     type: options_buttons
     weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_banner:
+    type: options_select
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -490,19 +500,19 @@ content:
     third_party_settings: {  }
   field_subject:
     type: options_buttons
-    weight: 3
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_sustainability_goals:
     type: options_buttons
-    weight: 4
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   field_sustainability_goals_desc:
     type: text_textarea
-    weight: 5
+    weight: 9
     region: content
     settings:
       rows: 5
@@ -511,6 +521,12 @@ content:
   field_target_group:
     type: options_buttons
     weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_theme:
+    type: options_select
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
