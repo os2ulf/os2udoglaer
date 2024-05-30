@@ -154,10 +154,10 @@ third_party_settings:
       label: Arbejdsark
       region: content
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -195,7 +195,7 @@ third_party_settings:
       label: Billeder/medier
       region: content
       parent_name: ''
-      weight: 9
+      weight: 8
       format_type: html_element
       format_settings:
         classes: trailer
@@ -296,10 +296,10 @@ third_party_settings:
       label: 'Visning af indhold'
       region: content
       parent_name: ''
-      weight: 8
+      weight: 10
       format_type: html_element
       format_settings:
-        classes: trailer
+        classes: ''
         show_empty_fields: false
         id: ''
         element: details
