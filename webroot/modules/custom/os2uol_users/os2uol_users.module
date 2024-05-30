@@ -46,19 +46,13 @@ function os2uol_users_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateIn
   // Get the current user.
   $current_user = \Drupal::currentUser();
 
-  // Define the roles that are allowed to see the field_roles field.
-  $allowed_roles = ['administrator', 'webmaster'];
+  // Define the role that is allowed to see the field_roles field.
+  $allowed_role = 'administrator';
 
-  // Check if the current user has one of the allowed roles.
-  $has_allowed_role = FALSE;
-  foreach ($allowed_roles as $role) {
-    if ($current_user->hasRole($role)) {
-      $has_allowed_role = TRUE;
-      break;
-    }
-  }
+  // Check if the current user has the allowed role.
+  $has_allowed_role = $current_user->hasRole($allowed_role);
 
-  // If the user does not have one of the allowed roles, hide the field_roles field.
+  // If the user does not have the allowed role, hide the field_roles field.
   if (!$has_allowed_role) {
     if (isset($form['field_roles'])) {
       $form['field_roles']['#access'] = FALSE;
@@ -72,12 +66,15 @@ function os2uol_users_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateIn
 function os2uol_users_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
   // Check if the view is a Workbench dashboard view.
   if ($view->id() == 'workbench_recent_content') {
-    // Get the roles of the current user.
-    $roles = \Drupal::currentUser()->getRoles();
+    // Get the current user.
+    $current_user = \Drupal::currentUser();
 
-    // Check if the user has one of the specified roles.
+    // Get the roles of the current user.
+    $roles = $current_user->getRoles();
+
+    // Check if the user has the 'administrator', 'webmaster', or 'editor' role.
     if (in_array('administrator', $roles) || in_array('webmaster', $roles) || in_array('editor', $roles)) {
-      // If the user has one of the roles, do not alter the query.
+      // If the user has any of these roles, do not alter the query.
       return;
     }
 
@@ -93,5 +90,8 @@ function os2uol_users_views_query_alter(ViewExecutable $view, QueryPluginBase $q
 
     // Add a condition to the query to exclude entities of type "page".
     $query->addWhere(0, 'node_field_data.type', 'page', '!=');
+
+    // Add a condition to the query to only include nodes where the author (uid) is the current user.
+    $query->addWhere(0, 'node_field_data.uid', $current_user->id());
   }
 }
