@@ -1,18 +1,18 @@
-uuid: dea16c57-d6f1-4c8b-8103-ee8e821789e7
+uuid: f9e68d21-0692-4afd-8a8c-0c0240808a61
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_subject
+    - field.storage.node.field_focus
     - node.type.exercise
-    - taxonomy.vocabulary.subject
-id: node.exercise.field_subject
-field_name: field_subject
+    - taxonomy.vocabulary.focus
+id: node.exercise.field_focus
+field_name: field_focus
 entity_type: node
 bundle: exercise
-label: Emneområde
+label: Fokus
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      subject: subject
+      focus: focus
     sort:
       field: name
       direction: asc

@@ -1,0 +1,11 @@
+uuid: 29cb6642-012b-4fd5-841e-3261a68b598a
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.focus
+id: taxonomy_term.focus
+target_entity_type_id: taxonomy_term
+target_bundle: focus
+default_langcode: site_default
+language_alterable: false

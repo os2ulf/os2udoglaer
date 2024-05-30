@@ -1,0 +1,27 @@
+uuid: 6eab7065-aef3-4d6c-b836-5a27ecf9ab14
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_material_file
+    - paragraphs.paragraphs_type.work_documents
+  module:
+    - file
+id: paragraph.work_documents.field_material_file
+field_name: field_material_file
+entity_type: paragraph
+bundle: work_documents
+label: Fil
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: materialer
+  file_extensions: 'txt pdf docx doc xls xlsx ppt pptx'
+  max_filesize: ''
+  description_field: false
+field_type: file

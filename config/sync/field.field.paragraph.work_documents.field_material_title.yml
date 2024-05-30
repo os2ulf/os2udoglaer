@@ -1,0 +1,19 @@
+uuid: 84091644-1de9-45e1-a084-5b386bc0035a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_material_title
+    - paragraphs.paragraphs_type.work_documents
+id: paragraph.work_documents.field_material_title
+field_name: field_material_title
+entity_type: paragraph
+bundle: work_documents
+label: Titel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
