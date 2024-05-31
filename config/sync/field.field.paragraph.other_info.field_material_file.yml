@@ -21,7 +21,7 @@ settings:
   handler: 'default:file'
   handler_settings: {  }
   file_directory: materialer
-  file_extensions: 'txt pdf docx doc xls xlsx ppt pptx'
-  max_filesize: ''
+  file_extensions: 'txt pdf doc docx jpg png gif ppt pptf xls xlsx'
+  max_filesize: 100MB
   description_field: false
 field_type: file
