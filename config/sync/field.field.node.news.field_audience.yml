@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_audience
     - filter.format.basic_html
-    - filter.format.full_html
     - node.type.news
   module:
     - allowed_formats
@@ -14,7 +13,6 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - basic_html
-      - full_html
 id: node.news.field_audience
 field_name: field_audience
 entity_type: node
@@ -28,5 +26,4 @@ default_value_callback: ''
 settings:
   allowed_formats:
     - basic_html
-    - full_html
 field_type: text_long
