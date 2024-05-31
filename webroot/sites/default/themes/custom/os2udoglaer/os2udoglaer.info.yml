@@ -27,5 +27,8 @@ regions:
 regions_hidden:
   - sidebar_first
 
+ckeditor5-stylesheets:
+  - css/ckeditor.css
+
 interface translation project: os2udoglaer
 interface translation server pattern: sites/default/themes/custom/os2udoglaer/translations/%language.po
