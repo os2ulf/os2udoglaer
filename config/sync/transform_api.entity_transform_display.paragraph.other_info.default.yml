@@ -1,0 +1,39 @@
+uuid: a53aa26a-4e62-4251-b47d-46e7681a46ca
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.other_info.field_material_description
+    - field.field.paragraph.other_info.field_material_file
+    - field.field.paragraph.other_info.field_material_url
+    - paragraphs.paragraphs_type.other_info
+  module:
+    - os2uol_transform_plugins
+id: paragraph.other_info.default
+targetEntityType: paragraph
+bundle: other_info
+mode: default
+content:
+  field_material_description:
+    type: plain_text
+    weight: '0'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+  field_material_file:
+    type: custom_file_url
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_url:
+    type: link
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

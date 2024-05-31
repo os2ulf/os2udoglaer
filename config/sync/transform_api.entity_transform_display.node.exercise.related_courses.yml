@@ -124,6 +124,8 @@ hidden:
   field_description_of_period: true
   field_domain_access: true
   field_duration_select: true
+  field_exclude_from_profile: true
+  field_exclude_from_search: true
   field_how_to: true
   field_materials: true
   field_meta_tags: true
