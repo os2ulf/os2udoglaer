@@ -152,12 +152,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_preparation:
-    type: plain_text
+    type: text_format
     weight: '28'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
     third_party_settings: {  }
   field_primary_school_subject:
     type: entity_reference_labels
