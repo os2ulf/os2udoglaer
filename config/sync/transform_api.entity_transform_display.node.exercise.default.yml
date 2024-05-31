@@ -67,35 +67,56 @@ content:
     third_party_settings: {  }
   field_activity_select:
     type: entity_reference_labels
-    weight: '13'
+    weight: '12'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_banner:
+    type: entity_reference_labels
+    weight: '26'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_curriculum_themes:
     type: entity_reference_labels
-    weight: '12'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_description_of_duration:
     type: text_format
-    weight: '17'
+    weight: '16'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_description_of_period:
     type: text_format
-    weight: '19'
+    weight: '18'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_duration_select:
     type: entity_reference_labels
-    weight: '16'
+    weight: '15'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_exclude_from_profile:
+    type: boolean
+    weight: '33'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_focus:
+    type: entity_reference_labels
+    weight: '27'
     region: content
     label: omit
     settings: {  }
@@ -109,7 +130,7 @@ content:
     third_party_settings: {  }
   field_image:
     type: image_style
-    weight: '20'
+    weight: '19'
     region: content
     label: omit
     settings:
@@ -118,7 +139,7 @@ content:
     third_party_settings: {  }
   field_period_select:
     type: entity_reference_labels
-    weight: '18'
+    weight: '17'
     region: content
     label: omit
     settings: {  }
@@ -130,9 +151,17 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_preparation:
+    type: plain_text
+    weight: '28'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
   field_primary_school_subject:
     type: entity_reference_labels
-    weight: '14'
+    weight: '13'
     region: content
     label: omit
     settings: {  }
@@ -154,7 +183,7 @@ content:
     third_party_settings: {  }
   field_related_user:
     type: entity_transform
-    weight: '25'
+    weight: '23'
     region: content
     label: omit
     settings:
@@ -162,7 +191,7 @@ content:
     third_party_settings: {  }
   field_sustainability_goals:
     type: entity_transform
-    weight: '26'
+    weight: '24'
     region: content
     label: omit
     settings:
@@ -170,7 +199,7 @@ content:
     third_party_settings: {  }
   field_sustainability_goals_desc:
     type: text_format
-    weight: '27'
+    weight: '25'
     region: content
     label: omit
     settings: {  }
@@ -182,30 +211,37 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_theme:
+    type: entity_reference_labels
+    weight: '29'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_trgt_grp_daycare:
     type: entity_reference_labels
-    weight: '9'
+    weight: '8'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_primary_school:
     type: entity_reference_labels
-    weight: '10'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_youth_education:
     type: entity_reference_labels
-    weight: '11'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video:
     type: entity_transform
-    weight: '23'
+    weight: '22'
     region: content
     label: omit
     settings:
@@ -213,33 +249,35 @@ content:
     third_party_settings: {  }
   field_video_description:
     type: text_format
-    weight: '22'
+    weight: '21'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video_title:
     type: value
-    weight: '21'
+    weight: '20'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_work_documents:
+    type: entity_transform
+    weight: '30'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
   field_youth_education_subject:
     type: entity_reference_labels
-    weight: '15'
+    weight: '14'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_banner: true
   field_domain_access: true
-  field_exclude_from_profile: true
   field_exclude_from_search: true
-  field_focus: true
   field_meta_tags: true
-  field_preparation: true
-  field_theme: true
-  field_work_documents: true
   langcode: true
