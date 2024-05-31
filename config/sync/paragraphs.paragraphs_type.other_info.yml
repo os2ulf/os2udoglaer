@@ -1,9 +1,9 @@
-uuid: c0b8d198-bda5-4e12-bff9-87c026687b5f
+uuid: 9f841e62-b491-4721-a3eb-fa4de5201639
 langcode: da
 status: true
 dependencies: {  }
-id: other_user_info
-label: 'Yderligere bruger information'
+id: other_info
+label: 'Yderligere information'
 icon_uuid: null
 icon_default: null
 description: ''

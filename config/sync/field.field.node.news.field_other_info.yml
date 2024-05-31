@@ -1,0 +1,64 @@
+uuid: 5f9092f8-9b78-4498-88cc-5f238d0494e7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_other_info
+    - node.type.news
+    - paragraphs.paragraphs_type.other_info
+  module:
+    - entity_reference_revisions
+id: node.news.field_other_info
+field_name: field_other_info
+entity_type: node
+bundle: news
+label: 'Yderligere information'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      other_info: other_info
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 13
+        enabled: false
+      allocated_budget:
+        weight: 14
+        enabled: false
+      basic_hero:
+        weight: 15
+        enabled: false
+      cards:
+        weight: 16
+        enabled: false
+      contact_paragraph:
+        weight: 17
+        enabled: false
+      duration_paragraph:
+        weight: 18
+        enabled: false
+      duration_price:
+        weight: 19
+        enabled: false
+      links_paragraph:
+        weight: 20
+        enabled: false
+      material:
+        weight: 21
+        enabled: false
+      other_info:
+        weight: 22
+        enabled: true
+      other_user_info:
+        weight: 23
+        enabled: false
+      video:
+        weight: 24
+        enabled: false
+field_type: entity_reference_revisions
