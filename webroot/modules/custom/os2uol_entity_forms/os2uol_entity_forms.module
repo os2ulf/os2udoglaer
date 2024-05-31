@@ -36,6 +36,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     $form['field_period']['widget'][0]['value']['#date_time_format'] = '';
     $form['field_period']['widget'][0]['end_value']['#date_time_element'] = 'none';
     $form['field_period']['widget'][0]['end_value']['#date_time_format'] = '';
+    // Hide time part of registration deadline date field.
+    $form['field_registration_deadline']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_registration_deadline']['widget'][0]['value']['#date_time_format'] = '';
   }
 
   // Hide time part of application deadline date field.
