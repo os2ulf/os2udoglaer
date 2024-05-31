@@ -1,0 +1,45 @@
+uuid: cc258165-1f4a-4b28-a53c-fd367aa07e1c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.news.body
+    - field.field.node.news.field_audience
+    - field.field.node.news.field_banner
+    - field.field.node.news.field_domain_access
+    - field.field.node.news.field_images
+    - field.field.node.news.field_other_info
+    - field.field.node.news.field_theme
+    - field.field.node.news.field_video
+    - node.type.news
+    - transform_api.entity_transform_mode.node.teaser
+id: node.news.teaser
+targetEntityType: node
+bundle: news
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      trim_length: '300'
+    third_party_settings: {  }
+  field_images:
+    type: image_style
+    weight: '0'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+hidden:
+  field_audience: true
+  field_banner: true
+  field_domain_access: true
+  field_other_info: true
+  field_theme: true
+  field_video: true
+  langcode: true
