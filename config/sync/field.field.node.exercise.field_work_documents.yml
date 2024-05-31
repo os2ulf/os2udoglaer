@@ -1,18 +1,18 @@
-uuid: c6029431-c203-4ecb-ae19-855f6eb9b2f3
+uuid: 5db1a071-6626-4dd0-898a-6721c230f9fb
 langcode: da
 status: true
 dependencies:
   config:
-    - block_content.type.hero
-    - field.storage.block_content.field_hero_links
-    - paragraphs.paragraphs_type.links_paragraph
+    - field.storage.node.field_work_documents
+    - node.type.exercise
+    - paragraphs.paragraphs_type.work_documents
   module:
     - entity_reference_revisions
-id: block_content.hero.field_hero_links
-field_name: field_hero_links
-entity_type: block_content
-bundle: hero
-label: Links
+id: node.exercise.field_work_documents
+field_name: field_work_documents
+entity_type: node
+bundle: exercise
+label: Arbejdsark
 description: ''
 required: false
 translatable: false
@@ -22,43 +22,43 @@ settings:
   handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      links_paragraph: links_paragraph
+      work_documents: work_documents
     negate: 0
     target_bundles_drag_drop:
       accordion_item:
-        weight: 14
+        weight: 13
         enabled: false
       allocated_budget:
-        weight: 15
+        weight: 14
         enabled: false
       basic_hero:
-        weight: 16
+        weight: 15
         enabled: false
       cards:
-        weight: 17
+        weight: 16
         enabled: false
       contact_paragraph:
-        weight: 18
+        weight: 17
         enabled: false
       duration_paragraph:
-        weight: 19
+        weight: 18
         enabled: false
       duration_price:
-        weight: 20
-        enabled: false
-      inline_hero:
-        weight: 21
+        weight: 19
         enabled: false
       links_paragraph:
-        weight: 13
-        enabled: true
+        weight: 20
+        enabled: false
       material:
-        weight: 22
+        weight: 21
         enabled: false
       other_user_info:
-        weight: 23
+        weight: 22
         enabled: false
       video:
-        weight: 24
+        weight: 23
         enabled: false
+      work_documents:
+        weight: 24
+        enabled: true
 field_type: entity_reference_revisions

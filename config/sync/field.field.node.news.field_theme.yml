@@ -1,18 +1,18 @@
-uuid: dea16c57-d6f1-4c8b-8103-ee8e821789e7
+uuid: 6daf9eb3-2333-4e27-8088-bc661ed57fb8
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_subject
-    - node.type.exercise
-    - taxonomy.vocabulary.subject
-id: node.exercise.field_subject
-field_name: field_subject
+    - field.storage.node.field_theme
+    - node.type.news
+    - taxonomy.vocabulary.theme
+id: node.news.field_theme
+field_name: field_theme
 entity_type: node
-bundle: exercise
-label: Emneområde
+bundle: news
+label: Tema
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -20,7 +20,7 @@ settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      subject: subject
+      theme: theme
     sort:
       field: name
       direction: asc

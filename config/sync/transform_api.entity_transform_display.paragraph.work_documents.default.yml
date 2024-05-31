@@ -1,0 +1,62 @@
+uuid: dc166f9e-6bb7-488b-96f7-092aba1f0c97
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.work_documents.field_literature_suggestion
+    - field.field.paragraph.work_documents.field_material_description
+    - field.field.paragraph.work_documents.field_material_download_text
+    - field.field.paragraph.work_documents.field_material_file
+    - field.field.paragraph.work_documents.field_material_title
+    - field.field.paragraph.work_documents.field_material_url
+    - paragraphs.paragraphs_type.work_documents
+  module:
+    - os2uol_transform_plugins
+id: paragraph.work_documents.default
+targetEntityType: paragraph
+bundle: work_documents
+mode: default
+content:
+  field_literature_suggestion:
+    type: value
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_description:
+    type: text_format
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_download_text:
+    type: value
+    weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_file:
+    type: custom_file_url
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_title:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_url:
+    type: link
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

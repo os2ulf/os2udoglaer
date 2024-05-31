@@ -1,14 +1,14 @@
-uuid: db6467a9-b4c4-4046-854b-d481affd9406
+uuid: 98865023-425b-4876-a781-5d51d57d03a3
 langcode: da
 status: true
 dependencies:
   module:
-    - block_content
     - entity_reference_revisions
+    - node
     - paragraphs
-id: block_content.field_hero_links
-field_name: field_hero_links
-entity_type: block_content
+id: node.field_other_info
+field_name: field_other_info
+entity_type: node
 type: entity_reference_revisions
 settings:
   target_type: paragraph

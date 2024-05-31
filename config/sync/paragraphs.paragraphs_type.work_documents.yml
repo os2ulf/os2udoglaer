@@ -1,9 +1,9 @@
-uuid: c0b8d198-bda5-4e12-bff9-87c026687b5f
+uuid: e4bbdb6f-3711-4710-9bee-a876045df0f1
 langcode: da
 status: true
 dependencies: {  }
-id: other_user_info
-label: 'Yderligere bruger information'
+id: work_documents
+label: Arbejdsark
 icon_uuid: null
 icon_default: null
 description: ''

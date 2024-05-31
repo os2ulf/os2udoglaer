@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - block_content.type.hero
-    - field.field.block_content.hero.field_hero_links
+    - field.field.block_content.hero.field_hero_link
     - field.field.block_content.hero.field_hero_subtitle
     - field.field.block_content.hero.field_hero_title
     - field.field.block_content.hero.field_image_media
@@ -15,13 +15,12 @@ targetEntityType: block_content
 bundle: hero
 mode: default
 content:
-  field_hero_links:
-    type: entity_transform
+  field_hero_link:
+    type: link
     weight: '3'
     region: content
     label: omit
-    settings:
-      transform_mode: default
+    settings: {  }
     third_party_settings: {  }
   field_hero_subtitle:
     type: value
