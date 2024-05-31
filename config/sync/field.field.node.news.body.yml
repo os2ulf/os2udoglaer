@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.storage.node.body
     - filter.format.basic_html
-    - filter.format.full_html
     - node.type.news
   module:
     - allowed_formats
@@ -14,14 +13,13 @@ third_party_settings:
   allowed_formats:
     allowed_formats:
       - basic_html
-      - full_html
 id: node.news.body
 field_name: body
 entity_type: node
 bundle: news
 label: Beskrivelse
 description: ''
-required: false
+required: true
 translatable: true
 default_value: {  }
 default_value_callback: ''
@@ -30,5 +28,4 @@ settings:
   required_summary: false
   allowed_formats:
     - basic_html
-    - full_html
 field_type: text_with_summary
