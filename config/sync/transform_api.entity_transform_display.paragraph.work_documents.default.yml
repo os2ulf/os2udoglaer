@@ -25,12 +25,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_material_description:
-    type: plain_text
+    type: text_format
     weight: '1'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
     third_party_settings: {  }
   field_material_download_text:
     type: value
