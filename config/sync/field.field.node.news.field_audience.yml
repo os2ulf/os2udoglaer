@@ -1,0 +1,32 @@
+uuid: daaefa04-7844-4b9f-9c7b-471cbb61e5ff
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_audience
+    - filter.format.basic_html
+    - filter.format.full_html
+    - node.type.news
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+      - full_html
+id: node.news.field_audience
+field_name: field_audience
+entity_type: node
+bundle: news
+label: Målgruppe
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_long
