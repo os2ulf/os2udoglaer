@@ -6,7 +6,6 @@ dependencies:
     - field.field.node.course_educators.body
     - field.field.node.course_educators.field_all_year
     - field.field.node.course_educators.field_banner
-    - field.field.node.course_educators.field_contact
     - field.field.node.course_educators.field_curriculum_themes
     - field.field.node.course_educators.field_description_of_duration
     - field.field.node.course_educators.field_description_of_period
@@ -368,26 +367,6 @@ third_party_settings:
         effect: none
         speed: fast
         required_fields: true
-    group_contact:
-      children:
-        - field_contact
-      label: Kontakt
-      region: content
-      parent_name: ''
-      weight: 9
-      format_type: html_element
-      format_settings:
-        classes: trailer
-        show_empty_fields: false
-        id: ''
-        element: details
-        show_label: true
-        label_element: summary
-        label_element_classes: ''
-        attributes: ''
-        effect: none
-        speed: fast
-        required_fields: true
     group_related_courses:
       children:
         - field_related_courses
@@ -472,26 +451,6 @@ content:
     weight: 6
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_contact:
-    type: paragraphs
-    weight: 11
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      closed_mode: summary
-      autocollapse: none
-      closed_mode_threshold: 0
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: _none
-      features:
-        add_above: '0'
-        collapse_edit_all: collapse_edit_all
-        convert: '0'
-        duplicate: duplicate
     third_party_settings: {  }
   field_curriculum_themes:
     type: options_buttons
