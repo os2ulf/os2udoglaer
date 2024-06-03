@@ -1,14 +1,14 @@
-uuid: ea4e7ff1-dc61-4f87-9b91-90beadc79307
+uuid: e747033a-0ac7-49aa-a47e-cca5175f6411
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_images
+    - field.storage.node.field_image
     - node.type.news
   module:
     - image
-id: node.news.field_images
-field_name: field_images
+id: node.news.field_image
+field_name: field_image
 entity_type: node
 bundle: news
 label: Billede
@@ -20,9 +20,9 @@ default_value_callback: ''
 settings:
   handler: 'default:file'
   handler_settings: {  }
-  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_directory: news
   file_extensions: 'png gif jpg jpeg webp'
-  max_filesize: 50MB
+  max_filesize: ''
   max_resolution: ''
   min_resolution: ''
   alt_field: true
