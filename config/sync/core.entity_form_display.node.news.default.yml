@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.news.field_audience
     - field.field.node.news.field_banner
     - field.field.node.news.field_domain_access
-    - field.field.node.news.field_images
+    - field.field.node.news.field_image
     - field.field.node.news.field_other_info
     - field.field.node.news.field_theme
     - field.field.node.news.field_video
@@ -26,7 +26,7 @@ third_party_settings:
   field_group:
     group_media:
       children:
-        - field_images
+        - field_image
         - group_video
       label: Medie
       region: content
@@ -97,7 +97,7 @@ third_party_settings:
       label: Video
       region: content
       parent_name: group_media
-      weight: 28
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -140,9 +140,9 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_images:
+  field_image:
     type: image_image
-    weight: 27
+    weight: 3
     region: content
     settings:
       progress_indicator: throbber
