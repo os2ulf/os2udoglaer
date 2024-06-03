@@ -1,0 +1,19 @@
+uuid: fd23092d-bc3e-45e8-9331-6a0032f8446a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_material_title
+    - paragraphs.paragraphs_type.other_info
+id: paragraph.other_info.field_material_title
+field_name: field_material_title
+entity_type: paragraph
+bundle: other_info
+label: Titel
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
