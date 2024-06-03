@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.news.field_audience
     - field.field.node.news.field_banner
     - field.field.node.news.field_domain_access
-    - field.field.node.news.field_images
+    - field.field.node.news.field_image
     - field.field.node.news.field_other_info
     - field.field.node.news.field_theme
     - field.field.node.news.field_video
@@ -46,7 +46,7 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-  field_images:
+  field_image:
     type: image
     label: above
     settings:
@@ -55,7 +55,7 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 4
+    weight: 19
     region: content
   field_other_info:
     type: entity_reference_revisions_entity_view

@@ -7,7 +7,7 @@ dependencies:
     - field.field.node.news.field_audience
     - field.field.node.news.field_banner
     - field.field.node.news.field_domain_access
-    - field.field.node.news.field_images
+    - field.field.node.news.field_image
     - field.field.node.news.field_other_info
     - field.field.node.news.field_theme
     - field.field.node.news.field_video
@@ -41,9 +41,9 @@ content:
     settings:
       transform_mode: default
     third_party_settings: {  }
-  field_images:
+  field_image:
     type: image_style
-    weight: '1'
+    weight: '2'
     region: content
     label: omit
     settings:
@@ -83,7 +83,7 @@ content:
     third_party_settings: {  }
   field_video_title:
     type: value
-    weight: '2'
+    weight: '1'
     region: content
     label: omit
     settings: {  }
