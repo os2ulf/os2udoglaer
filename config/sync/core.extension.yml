@@ -110,6 +110,7 @@ module:
   search_api_page: 0
   search_api_solr: 0
   sendgrid_integration: 0
+  sharedemail: 0
   shortcut: 0
   simple_sitemap: 0
   smtp: 0
