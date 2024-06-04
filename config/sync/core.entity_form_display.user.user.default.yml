@@ -224,11 +224,7 @@ content:
             values: {  }
             value_form:
               -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
+                target_id: editor
             effect: show
             effect_options: {  }
             selector: ''
@@ -348,11 +344,7 @@ content:
             values: {  }
             value_form:
               -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
+                target_id: editor
             effect: show
             effect_options: {  }
             selector: ''
@@ -767,11 +759,7 @@ content:
             values: {  }
             value_form:
               -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
+                target_id: editor
             effect: show
             effect_options: {  }
             selector: ''
