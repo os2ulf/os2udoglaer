@@ -1,0 +1,9 @@
+uuid: 7dcf2b9b-d282-40c4-a972-fdf64d1a260f
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_mitvadehav_dk
+domain_id: api_mitvadehav_dk
+pattern: api-staging.mitvadehav.dk
+redirect: 0
+environment: staging

@@ -719,7 +719,13 @@ $settings['container_yamls'][] = $app_root . '/' . $site_path . '/services.yml';
  * example.org, with all subdomains included.
  */
 $trusted_hosts = getenv('TRUSTED_HOSTS');
-$manually_added_hosts = ['api.ulfiaarhus.dk', 'api-staging.ulfiaarhus.dk'];
+
+$manually_added_hosts = [
+  'api.ulfiaarhus.dk',
+  'api-staging.ulfiaarhus.dk',
+  'api.mitvadehav.dk',
+  'api-staging.mitvadehav.dk'
+];
 
 if ($trusted_hosts !== false) {
     $settings['trusted_host_patterns'][] = $trusted_hosts;
