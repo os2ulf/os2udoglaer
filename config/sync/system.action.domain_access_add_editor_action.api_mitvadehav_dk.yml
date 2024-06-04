@@ -1,0 +1,14 @@
+uuid: c9195fb1-6d66-47e2-9051-9ffdd47462d7
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_mitvadehav_dk
+  module:
+    - domain_access
+id: domain_access_add_editor_action.api_mitvadehav_dk
+label: 'Add editors to the mitvadehav.dk domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: api_mitvadehav_dk

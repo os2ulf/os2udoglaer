@@ -5,7 +5,7 @@ dependencies: {  }
 id: api_ulfiaarhus_dk
 domain_id: 11588557
 hostname: api.ulfiaarhus.dk
-name: Aarhus
+name: ulfiaarhus.dk
 scheme: variable
 weight: 2
 is_default: false

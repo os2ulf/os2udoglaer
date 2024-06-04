@@ -1,0 +1,9 @@
+uuid: a76458ac-6b01-42dc-a0cc-7d6d2de2cd86
+langcode: da
+status: true
+dependencies: {  }
+id: mitvadehav_os2udoglaer_localhost
+domain_id: api_mitvadehav_dk
+pattern: mitvadehav.os2udoglaer.localhost
+redirect: 0
+environment: local

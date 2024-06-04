@@ -1,0 +1,14 @@
+uuid: 0394fb77-c6d3-41e0-ab88-757caecb5b25
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_mitvadehav_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.api_mitvadehav_dk
+label: 'Remove selected content from the mitvadehav.dk domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_mitvadehav_dk
