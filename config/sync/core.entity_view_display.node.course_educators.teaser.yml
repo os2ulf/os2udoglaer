@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.course_educators.body
     - field.field.node.course_educators.field_all_year
     - field.field.node.course_educators.field_banner
-    - field.field.node.course_educators.field_contact
     - field.field.node.course_educators.field_curriculum_themes
     - field.field.node.course_educators.field_description_of_duration
     - field.field.node.course_educators.field_description_of_period
@@ -79,7 +78,6 @@ content:
 hidden:
   field_all_year: true
   field_banner: true
-  field_contact: true
   field_curriculum_themes: true
   field_description_of_duration: true
   field_description_of_period: true

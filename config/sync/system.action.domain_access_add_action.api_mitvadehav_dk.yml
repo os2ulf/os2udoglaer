@@ -1,0 +1,14 @@
+uuid: ed883ef1-4532-42b8-9843-228d7451f5cc
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_mitvadehav_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_mitvadehav_dk
+label: 'Add selected content to the mitvadehav.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_mitvadehav_dk
