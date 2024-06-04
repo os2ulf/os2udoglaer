@@ -152,6 +152,7 @@ third_party_settings:
     group_user_information:
       children:
         - account
+        - field_roles
       label: Brugeroplysninger
       region: content
       parent_name: ''
@@ -183,9 +184,9 @@ third_party_settings:
     group_contact_information:
       children:
         - field_phone
-        - field_homepage
         - field_mail
         - field_cvr
+        - field_homepage
       label: Kontaktoplysninger
       region: content
       parent_name: ''
@@ -215,7 +216,6 @@ third_party_settings:
         required_fields: true
     group_editor_settings:
       children:
-        - field_roles
         - field_domain_access
         - field_domain_admin
         - field_domain_all_affiliates
@@ -307,6 +307,8 @@ content:
             value_form:
               -
                 target_id: editor
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -353,7 +355,7 @@ content:
             selector: ''
   field_cvr:
     type: string_textfield
-    weight: 12
+    weight: 11
     region: content
     settings:
       size: 60
@@ -405,6 +407,8 @@ content:
             value_form:
               -
                 target_id: editor
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -465,7 +469,7 @@ content:
             selector: ''
   field_homepage:
     type: link_default
-    weight: 10
+    weight: 12
     region: content
     settings:
       placeholder_url: ''
@@ -553,7 +557,7 @@ content:
       conditional_fields: {  }
   field_mail:
     type: string_textfield
-    weight: 11
+    weight: 10
     region: content
     settings:
       size: 60
@@ -710,6 +714,8 @@ content:
             value_form:
               -
                 target_id: editor
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -739,7 +745,7 @@ content:
     third_party_settings: {  }
   field_roles:
     type: options_buttons
-    weight: 10
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -901,7 +907,11 @@ content:
               -
                 target_id: course_provider
               -
+                target_id: institution
+              -
                 target_id: place_of_visit
+              -
+                target_id: school
             effect: show
             effect_options: {  }
             selector: ''
