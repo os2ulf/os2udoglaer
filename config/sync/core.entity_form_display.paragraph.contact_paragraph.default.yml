@@ -8,10 +8,7 @@ dependencies:
     - field.field.paragraph.contact_paragraph.field_office_availability_text
     - field.field.paragraph.contact_paragraph.field_phone
     - field.field.paragraph.contact_paragraph.field_title
-    - field.field.paragraph.contact_paragraph.field_webpage
     - paragraphs.paragraphs_type.contact_paragraph
-  module:
-    - link
 id: paragraph.contact_paragraph.default
 targetEntityType: paragraph
 bundle: contact_paragraph
@@ -56,14 +53,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  field_webpage:
-    type: link_default
-    weight: 6
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
     third_party_settings: {  }
 hidden:
   created: true

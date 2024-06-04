@@ -8,10 +8,7 @@ dependencies:
     - field.field.paragraph.contact_paragraph.field_office_availability_text
     - field.field.paragraph.contact_paragraph.field_phone
     - field.field.paragraph.contact_paragraph.field_title
-    - field.field.paragraph.contact_paragraph.field_webpage
     - paragraphs.paragraphs_type.contact_paragraph
-  module:
-    - link
 id: paragraph.contact_paragraph.default
 targetEntityType: paragraph
 bundle: contact_paragraph
@@ -55,18 +52,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 2
-    region: content
-  field_webpage:
-    type: link
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 6
     region: content
 hidden:
   search_api_excerpt: true
