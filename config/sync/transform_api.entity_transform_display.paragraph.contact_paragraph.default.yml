@@ -8,7 +8,6 @@ dependencies:
     - field.field.paragraph.contact_paragraph.field_office_availability_text
     - field.field.paragraph.contact_paragraph.field_phone
     - field.field.paragraph.contact_paragraph.field_title
-    - field.field.paragraph.contact_paragraph.field_webpage
     - paragraphs.paragraphs_type.contact_paragraph
 id: paragraph.contact_paragraph.default
 targetEntityType: paragraph
@@ -46,13 +45,6 @@ content:
   field_title:
     type: value
     weight: '3'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_webpage:
-    type: link
-    weight: '6'
     region: content
     label: omit
     settings: {  }

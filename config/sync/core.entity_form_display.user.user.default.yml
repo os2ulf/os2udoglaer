@@ -57,7 +57,7 @@ third_party_settings:
       label: Pretix
       region: content
       parent_name: ''
-      weight: 18
+      weight: 8
       format_type: fieldset
       format_settings:
         classes: trailer
@@ -79,8 +79,8 @@ third_party_settings:
         - field_video
       label: Video
       region: content
-      parent_name: ''
-      weight: 8
+      parent_name: group_media
+      weight: 7
       format_type: fieldset
       format_settings:
         classes: trailer
@@ -102,7 +102,7 @@ third_party_settings:
       label: 'Yderligere information'
       region: content
       parent_name: ''
-      weight: 19
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: trailer
@@ -121,11 +121,10 @@ third_party_settings:
       children:
         - field_view_on_map
         - group_alternative_address
-        - field_location_description
       label: Lokation
       region: content
       parent_name: ''
-      weight: 15
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: ''
@@ -150,6 +149,89 @@ third_party_settings:
         id: ''
         description: ''
         required_fields: true
+    group_user_information:
+      children:
+        - account
+      label: Brugeroplysninger
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_presentation:
+      children:
+        - field_name
+        - field_presentation
+        - field_educational_profile
+        - field_intro
+      label: Præsentation
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_contact_information:
+      children:
+        - field_phone
+        - field_homepage
+        - field_mail
+        - field_cvr
+      label: Kontaktoplysninger
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_media:
+      children:
+        - field_image
+        - field_logo
+        - group_video
+      label: Billeder/medier
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_editor_settings:
+      children:
+        - field_roles
+        - field_domain_access
+        - field_domain_admin
+        - field_domain_all_affiliates
+        - field_bypass_workflow
+        - field_editor_field
+      label: Redaktørindstillinger
+      region: content
+      parent_name: ''
+      weight: 11
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
 _core:
   default_config_hash: Tii0Ca3OF32lLDp9WN3el1Q1cy2MFIxUUCraMzIZxRA
 id: user.user.default
@@ -158,7 +240,7 @@ bundle: user
 mode: default
 content:
   account:
-    weight: 2
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -167,7 +249,7 @@ content:
     region: content
   field_allocated_budget:
     type: paragraphs
-    weight: 20
+    weight: 9
     region: content
     settings:
       title: Paragraph
@@ -204,7 +286,7 @@ content:
             selector: ''
   field_bypass_workflow:
     type: boolean_checkbox
-    weight: 4
+    weight: 14
     region: content
     settings:
       display_label: true
@@ -224,17 +306,13 @@ content:
             values: {  }
             value_form:
               -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
+                target_id: editor
             effect: show
             effect_options: {  }
             selector: ''
   field_contact:
     type: paragraphs
-    weight: 9
+    weight: 2
     region: content
     settings:
       title: Paragraph
@@ -275,51 +353,29 @@ content:
             selector: ''
   field_cvr:
     type: string_textfield
-    weight: 14
+    weight: 12
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings:
-      conditional_fields:
-        db4bf1b0-90b6-42ba-90e6-2698724f0e8f:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
-            effect: show
-            effect_options: {  }
-            selector: ''
+      conditional_fields: {  }
   field_domain_access:
     type: options_buttons
-    weight: 21
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_domain_admin:
     type: options_buttons
-    weight: 24
+    weight: 12
     region: content
     settings: {  }
     third_party_settings:
       conditional_fields: {  }
   field_domain_all_affiliates:
     type: boolean_checkbox
-    weight: 23
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -327,7 +383,7 @@ content:
       conditional_fields: {  }
   field_editor_field:
     type: text_textarea
-    weight: 16
+    weight: 15
     region: content
     settings:
       rows: 5
@@ -348,17 +404,13 @@ content:
             values: {  }
             value_form:
               -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
+                target_id: editor
             effect: show
             effect_options: {  }
             selector: ''
   field_educational_profile:
     type: text_textarea
-    weight: 6
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -387,7 +439,7 @@ content:
             selector: ''
   field_guarantee_partner:
     type: boolean_checkbox
-    weight: 22
+    weight: 10
     region: content
     settings:
       display_label: true
@@ -413,69 +465,25 @@ content:
             selector: ''
   field_homepage:
     type: link_default
-    weight: 12
+    weight: 10
     region: content
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings:
-      conditional_fields:
-        f578ed96-24c2-42bc-8ca5-d39364d77c7d:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
-            effect: show
-            effect_options: {  }
-            selector: ''
+      conditional_fields: {  }
   field_image:
     type: image_image
-    weight: 1
+    weight: 5
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings:
-      conditional_fields:
-        d9228034-d564-452d-bfca-1344c82c3bdc:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
-            effect: show
-            effect_options: {  }
-            selector: ''
+      conditional_fields: {  }
   field_intro:
     type: text_textarea
-    weight: 7
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -536,66 +544,22 @@ content:
     third_party_settings: {  }
   field_logo:
     type: image_image
-    weight: 10
+    weight: 6
     region: content
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings:
-      conditional_fields:
-        0154445c-37c1-47f0-9127-44ee0eeb6dc8:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
-            effect: show
-            effect_options: {  }
-            selector: ''
+      conditional_fields: {  }
   field_mail:
     type: string_textfield
-    weight: 13
+    weight: 11
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings:
       conditional_fields:
-        1d5fcddb-710c-4ee2-b254-2618ebb1ff82:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
-            effect: show
-            effect_options: {  }
-            selector: ''
         a6c170f1-7078-409f-8672-84573a8f3f0c:
           entity_type: user
           bundle: user
@@ -620,7 +584,7 @@ content:
             selector: ''
   field_name:
     type: string_textfield
-    weight: 0
+    weight: 2
     region: content
     settings:
       size: 60
@@ -655,38 +619,16 @@ content:
     third_party_settings: {  }
   field_phone:
     type: string_textfield
-    weight: 11
+    weight: 9
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings:
-      conditional_fields:
-        7e62d3a4-1962-4c66-bcd1-fce0dafc6823:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
-            effect: show
-            effect_options: {  }
-            selector: ''
+      conditional_fields: {  }
   field_presentation:
     type: text_textarea
-    weight: 5
+    weight: 3
     region: content
     settings:
       rows: 5
@@ -739,7 +681,7 @@ content:
             selector: ''
   field_pretix_api_token:
     type: string_textfield
-    weight: 19
+    weight: 20
     region: content
     settings:
       size: 60
@@ -747,7 +689,7 @@ content:
     third_party_settings: {  }
   field_pretix_enabled:
     type: boolean_checkbox
-    weight: 17
+    weight: 7
     region: content
     settings:
       display_label: true
@@ -767,17 +709,13 @@ content:
             values: {  }
             value_form:
               -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
+                target_id: editor
             effect: show
             effect_options: {  }
             selector: ''
   field_pretix_event_form:
     type: string_textarea
-    weight: 21
+    weight: 22
     region: content
     settings:
       rows: 5
@@ -785,7 +723,7 @@ content:
     third_party_settings: {  }
   field_pretix_organizer_form:
     type: string_textarea
-    weight: 20
+    weight: 21
     region: content
     settings:
       rows: 5
@@ -793,7 +731,7 @@ content:
     third_party_settings: {  }
   field_pretix_url:
     type: string_textfield
-    weight: 18
+    weight: 19
     region: content
     settings:
       size: 60
@@ -801,7 +739,7 @@ content:
     third_party_settings: {  }
   field_roles:
     type: options_buttons
-    weight: 3
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -907,6 +845,38 @@ content:
               propagate: propagate
               apply_to_parent: apply_to_parent
               recurse: '0'
+  group_contact_information:
+    weight: 57
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        85bca0c1-4638-457d-b3e0-2320d995198a:
+          entity_type: user
+          bundle: user
+          dependee: field_roles
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: corporation
+              -
+                target_id: course_provider
+              -
+                target_id: place_of_visit
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: '0'
+              apply_to_parent: '0'
+              recurse: '0'
   group_location:
     weight: 55
     region: content
@@ -939,6 +909,38 @@ content:
               propagate: propagate
               apply_to_parent: apply_to_parent
               recurse: recurse
+  group_media:
+    weight: 58
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        c602575b-cfd8-4ccf-b076-481a90216718:
+          entity_type: user
+          bundle: user
+          dependee: field_roles
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: corporation
+              -
+                target_id: course_provider
+              -
+                target_id: place_of_visit
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: '0'
+              apply_to_parent: '0'
+              recurse: '0'
   group_other_info:
     weight: 54
     region: content
@@ -1003,33 +1005,7 @@ content:
     region: content
     settings: {  }
     third_party_settings:
-      conditional_fields:
-        bcf946e7-c23a-463d-8ed5-95f9a2ab91cc:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: corporation
-              -
-                target_id: course_provider
-              -
-                target_id: place_of_visit
-            effect: show
-            effect_options: {  }
-            selector: ''
-            inheritance:
-              propagate: propagate
-              apply_to_parent: apply_to_parent
-              recurse: recurse
+      conditional_fields: {  }
 hidden:
   langcode: true
   language: true
