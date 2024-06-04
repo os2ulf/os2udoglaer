@@ -12,7 +12,7 @@ id: user.user.field_contact
 field_name: field_contact
 entity_type: user
 bundle: user
-label: Kontakt
+label: 'Kontakt person'
 description: ''
 required: false
 translatable: false
@@ -46,16 +46,22 @@ settings:
       duration_price:
         weight: 18
         enabled: false
-      inline_hero:
-        weight: 19
+      links_paragraph:
+        weight: 21
         enabled: false
       material:
         weight: 20
+        enabled: false
+      other_info:
+        weight: 23
         enabled: false
       other_user_info:
         weight: 21
         enabled: false
       video:
         weight: 22
+        enabled: false
+      work_documents:
+        weight: 26
         enabled: false
 field_type: entity_reference_revisions
