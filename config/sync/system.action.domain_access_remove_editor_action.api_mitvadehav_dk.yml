@@ -1,0 +1,14 @@
+uuid: 1fe2536e-baa9-40b5-bda5-f18f85ea6024
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_mitvadehav_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_mitvadehav_dk
+label: 'Remove editors from the mitvadehav.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_mitvadehav_dk

@@ -1,0 +1,11 @@
+uuid: c2b553ef-0348-45fe-aca3-a301bd5d1665
+langcode: da
+status: true
+dependencies: {  }
+id: mitvadehav_dk
+domain_id: 6104620
+hostname: api.mitvadehav.dk
+name: mitvadehav.dk
+scheme: variable
+weight: 3
+is_default: false
