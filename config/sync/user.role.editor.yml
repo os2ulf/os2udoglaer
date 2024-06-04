@@ -85,6 +85,7 @@ permissions:
   - 'administer redirect settings'
   - 'administer redirects'
   - 'administer url aliases'
+  - 'administer users'
   - 'administer webform submission'
   - 'clone action entity'
   - 'clone base_field_override entity'
