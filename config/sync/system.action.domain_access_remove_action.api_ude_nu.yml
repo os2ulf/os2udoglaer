@@ -1,0 +1,14 @@
+uuid: 7d42218c-198d-49e4-8cc4-1571e8012a3b
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_ude_nu
+  module:
+    - domain_access
+id: domain_access_remove_action.api_ude_nu
+label: 'Remove selected content from the ude.nu domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_ude_nu

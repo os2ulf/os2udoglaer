@@ -1,0 +1,14 @@
+uuid: c82d518c-3062-489b-b751-a60971c8d7ca
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udsynmodarbejdsliv_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.api_udsynmodarbejdsliv_dk
+label: 'Remove selected content from the udsynmodarbejdsliv.dk domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_udsynmodarbejdsliv_dk

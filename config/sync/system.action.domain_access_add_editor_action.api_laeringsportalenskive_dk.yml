@@ -1,0 +1,14 @@
+uuid: 5612ec53-e2c0-46d5-84ba-f9c64fca0102
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_laeringsportalenskive_dk
+  module:
+    - domain_access
+id: domain_access_add_editor_action.api_laeringsportalenskive_dk
+label: 'Add editors to the laeringsportalenskive.dk domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: api_laeringsportalenskive_dk

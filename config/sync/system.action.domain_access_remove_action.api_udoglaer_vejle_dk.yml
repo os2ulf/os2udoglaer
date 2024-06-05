@@ -1,0 +1,14 @@
+uuid: bd8c669e-f94d-44cf-b35f-8b635200d627
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_vejle_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.api_udoglaer_vejle_dk
+label: 'Remove selected content from the udoglaer.vejle.dk domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_udoglaer_vejle_dk

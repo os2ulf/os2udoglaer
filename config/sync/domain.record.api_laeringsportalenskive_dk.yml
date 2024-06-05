@@ -1,0 +1,11 @@
+uuid: c6786cdb-b482-4c21-98ae-c9e580389343
+langcode: da
+status: true
+dependencies: {  }
+id: api_laeringsportalenskive_dk
+domain_id: 12325470
+hostname: api.laeringsportalenskive.dk
+name: laeringsportalenskive.dk
+scheme: variable
+weight: 6
+is_default: false

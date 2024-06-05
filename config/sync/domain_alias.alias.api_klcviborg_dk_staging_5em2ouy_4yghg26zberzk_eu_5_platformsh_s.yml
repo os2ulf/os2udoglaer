@@ -1,0 +1,9 @@
+uuid: 463853a6-7c58-414a-8ca3-dbfb49165792
+langcode: da
+status: true
+dependencies: {  }
+id: api_klcviborg_dk_staging_5em2ouy_4yghg26zberzk_eu_5_platformsh_s
+domain_id: api_klcviborg_dk
+pattern: api.klcviborg.dk.staging-5em2ouy-4yghg26zberzk.eu-5.platformsh.site
+redirect: 0
+environment: staging

@@ -1,0 +1,9 @@
+uuid: 00f57fd5-40ec-459c-851b-f58ac2ae1a50
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_udoglaer_randers_dk
+domain_id: api_udoglaer_randers_dk
+pattern: api-staging.udoglaer.randers.dk
+redirect: 0
+environment: staging

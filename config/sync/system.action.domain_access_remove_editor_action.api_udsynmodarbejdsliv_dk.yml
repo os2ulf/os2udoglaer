@@ -1,0 +1,14 @@
+uuid: bd641f1e-06c2-4bba-8c15-aa477197cdf3
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udsynmodarbejdsliv_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_udsynmodarbejdsliv_dk
+label: 'Remove editors from the udsynmodarbejdsliv.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_udsynmodarbejdsliv_dk

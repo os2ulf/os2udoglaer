@@ -1,0 +1,14 @@
+uuid: 05fe15ad-fee4-44ba-8a47-27006b2c0fe4
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_ude_nu
+  module:
+    - domain_access
+id: domain_access_add_action.api_ude_nu
+label: 'Add selected content to the ude.nu domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_ude_nu

@@ -1,0 +1,9 @@
+uuid: 5c7b5d7b-3c0f-437a-85c4-a103cf3da858
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_aabenaalborg_dk
+domain_id: api_aabenaalborg_dk
+pattern: api-staging.aabenaalborg.dk
+redirect: 0
+environment: staging

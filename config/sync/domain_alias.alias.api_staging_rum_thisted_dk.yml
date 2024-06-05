@@ -1,0 +1,9 @@
+uuid: a90cf76e-bab8-494d-beb6-f560c3b7b258
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_rum_thisted_dk
+domain_id: api_rum_thisted_dk
+pattern: api-staging.rum.thisted.dk
+redirect: 0
+environment: staging

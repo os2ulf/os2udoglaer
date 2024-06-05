@@ -1,0 +1,11 @@
+uuid: c9e538d7-2c2d-4c65-99eb-94bef115f02e
+langcode: da
+status: true
+dependencies: {  }
+id: api_rum_thisted_dk
+domain_id: 14581620
+hostname: api.rum.thisted.dk
+name: rum.thisted.dk
+scheme: variable
+weight: 7
+is_default: false

@@ -1,0 +1,14 @@
+uuid: 6baadf76-f092-4317-bbf4-6d19636f9ac4
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_laeringsportalenskive_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_laeringsportalenskive_dk
+label: 'Add selected content to the laeringsportalenskive.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_laeringsportalenskive_dk

@@ -1,0 +1,14 @@
+uuid: e3a4bd4b-6491-46c7-9de4-bc9446e1ce76
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_randers_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_udoglaer_randers_dk
+label: 'Remove editors from the udoglaer.randers.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_udoglaer_randers_dk

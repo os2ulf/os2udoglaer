@@ -1,0 +1,14 @@
+uuid: 1682cff5-f389-4e2b-8bcf-10f44d0e122b
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_randers_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.api_udoglaer_randers_dk
+label: 'Remove selected content from the udoglaer.randers.dk domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_udoglaer_randers_dk

@@ -1,0 +1,9 @@
+uuid: bddd2150-de8e-4dc5-96e8-95ac24ae546d
+langcode: da
+status: true
+dependencies: {  }
+id: klcviborg_os2udoglaer_localhost
+domain_id: api_klcviborg_dk
+pattern: klcviborg.os2udoglaer.localhost
+redirect: 0
+environment: local

@@ -1,0 +1,14 @@
+uuid: 216869a5-43b0-4342-ada1-1a968f2178b2
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_randers_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_udoglaer_randers_dk
+label: 'Add selected content to the udoglaer.randers.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_udoglaer_randers_dk

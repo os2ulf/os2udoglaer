@@ -1,0 +1,11 @@
+uuid: 2d628d60-58ab-4cc4-8169-095c8e0253c2
+langcode: da
+status: true
+dependencies: {  }
+id: api_klcviborg_dk
+domain_id: 3519517
+hostname: api.klcviborg.dk
+name: klcviborg.dk
+scheme: variable
+weight: 5
+is_default: false

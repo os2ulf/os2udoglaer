@@ -1,0 +1,14 @@
+uuid: 3dd0be73-18bc-4894-b690-36f509a47367
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_klcviborg_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_klcviborg_dk
+label: 'Remove editors from the klcviborg.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_klcviborg_dk

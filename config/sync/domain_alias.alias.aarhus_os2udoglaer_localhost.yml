@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: aarhus_os2udoglaer_localhost
 domain_id: api_ulfiaarhus_dk
-pattern: aarhus.os2udoglaer.localhost
+pattern: ulfiaarhus.os2udoglaer.localhost
 redirect: 0
 environment: local

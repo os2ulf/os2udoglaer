@@ -1,0 +1,9 @@
+uuid: 5092a7df-66ef-4438-8187-7f21c822327d
+langcode: da
+status: true
+dependencies: {  }
+id: udsynmodarbejdsliv_os2udoglaer_localhost
+domain_id: api_udsynmodarbejdsliv_dk
+pattern: udsynmodarbejdsliv.os2udoglaer.localhost
+redirect: 0
+environment: local

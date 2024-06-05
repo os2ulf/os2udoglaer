@@ -723,8 +723,39 @@ $trusted_hosts = getenv('TRUSTED_HOSTS');
 $manually_added_hosts = [
   'api.ulfiaarhus.dk',
   'api-staging.ulfiaarhus.dk',
+
   'api.mitvadehav.dk',
-  'api-staging.mitvadehav.dk'
+  'api-staging.mitvadehav.dk',
+
+  'api.aabenaalborg.dk',
+  'api-staging.aabenaalborg.dk',
+
+  'api.klcviborg.dk',
+  'api-staging.klcviborg.dk',
+
+  'api.laeringsportalenskive.dk',
+  'api-staging.laeringsportalenskive.dk',
+
+  'api.rum.thisted.dk',
+  'api-staging.rum.thisted.dk',
+
+  'api.udoglaer.dk',
+  'api-staging.udoglaer.dk',
+
+  'api.udoglaer.randers.dk',
+  'api-staging.udoglaer.randers.dk',
+
+  'api.udoglaer.vejle.dk',
+  'api-staging.udoglaer.vejle.dk',
+
+  'api.ude.nu',
+  'api-staging.ude.nu',
+
+  'api.ungegarantien.dk',
+  'api-staging.ungegarantien.dk',
+
+  'api.udsynmodarbejdsliv.dk',
+  'api-staging.udsynmodarbejdsliv.dk',
 ];
 
 if ($trusted_hosts !== false) {

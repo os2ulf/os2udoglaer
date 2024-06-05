@@ -1,0 +1,9 @@
+uuid: 1d1516da-bd84-4728-ae11-120eaf37c12a
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_udoglaer_vejle_dk
+domain_id: api_udoglaer_vejle_dk
+pattern: api-staging.udoglaer.vejle.dk
+redirect: 0
+environment: staging

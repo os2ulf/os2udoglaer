@@ -1,0 +1,14 @@
+uuid: 6fca36fd-cb9f-44d2-9c91-d425f1213945
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udsynmodarbejdsliv_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_udsynmodarbejdsliv_dk
+label: 'Add selected content to the udsynmodarbejdsliv.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_udsynmodarbejdsliv_dk

@@ -1,0 +1,9 @@
+uuid: 4bdab43e-2df0-43b8-978b-3aa702985765
+langcode: da
+status: true
+dependencies: {  }
+id: laeringsportalenskive_os2udoglaer_localhost
+domain_id: api_laeringsportalenskive_dk
+pattern: laeringsportalenskive.os2udoglaer.localhost
+redirect: 0
+environment: local

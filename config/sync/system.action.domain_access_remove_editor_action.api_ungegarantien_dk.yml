@@ -1,0 +1,14 @@
+uuid: 53b194e3-0ae5-4303-bc94-0fa2a28a00db
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_ungegarantien_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_ungegarantien_dk
+label: 'Remove editors from the ungegarantien.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_ungegarantien_dk

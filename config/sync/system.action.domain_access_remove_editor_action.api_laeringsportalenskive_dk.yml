@@ -1,0 +1,14 @@
+uuid: 820ba616-9adf-46db-9e2d-e1c9241c1338
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_laeringsportalenskive_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_laeringsportalenskive_dk
+label: 'Remove editors from the laeringsportalenskive.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_laeringsportalenskive_dk

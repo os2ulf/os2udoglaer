@@ -1,0 +1,9 @@
+uuid: d5aad161-2e90-4516-a129-21cbaacf9622
+langcode: da
+status: true
+dependencies: {  }
+id: rum_thisted_os2udoglaer_localhost
+domain_id: api_rum_thisted_dk
+pattern: rum.thisted.os2udoglaer.localhost
+redirect: 0
+environment: local

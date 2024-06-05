@@ -1,0 +1,9 @@
+uuid: 4e254888-7d20-4d9b-8e69-6dd4a4a937e8
+langcode: da
+status: true
+dependencies: {  }
+id: udenu_os2udoglaer_localhost
+domain_id: api_ude_nu
+pattern: udenu.os2udoglaer.localhost
+redirect: 0
+environment: local

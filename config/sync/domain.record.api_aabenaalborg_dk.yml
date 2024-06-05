@@ -1,0 +1,11 @@
+uuid: f4bb63be-bd55-4927-a011-326c7c449ffd
+langcode: da
+status: true
+dependencies: {  }
+id: api_aabenaalborg_dk
+domain_id: 14072618
+hostname: api.aabenaalborg.dk
+name: aabenaalborg.dk
+scheme: variable
+weight: 4
+is_default: false

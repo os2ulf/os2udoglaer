@@ -1,0 +1,14 @@
+uuid: e23981b0-2e04-4aec-9c29-00149e6505dc
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_vejle_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_udoglaer_vejle_dk
+label: 'Add selected content to the udoglaer.vejle.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_udoglaer_vejle_dk
