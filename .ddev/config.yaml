@@ -7,18 +7,18 @@ router_http_port: "80"
 router_https_port: "443"
 xdebug_enabled: false
 additional_hostnames:
-    - ulfiaarhus.os2udoglaer.localhost
-    - aabenaalborg.os2udoglaer.localhost
-    - klcviborg.os2udoglaer.localhost
-    - laeringsportalenskive.os2udoglaer.localhost
-    - mitvadehav.os2udoglaer.localhost
-    - rum.thisted.os2udoglaer.localhost
-    - udoglaer.os2udoglaer.localhost
-    - udoglaer.randers.os2udoglaer.localhost
-    - udoglaer.vejle.os2udoglaer.localhost
-    - udenu.os2udoglaer.localhost
-    - ungegarantien.os2udoglaer.localhost
-    - udsynmodarbejdsliv.os2udoglaer.localhost
+    - ulfiaarhus.os2udoglaer
+    - aabenaalborg.os2udoglaer
+    - klcviborg.os2udoglaer
+    - laeringsportalenskive.os2udoglaer
+    - mitvadehav.os2udoglaer
+    - rum.thisted.os2udoglaer
+    - udoglaer.os2udoglaer
+    - udoglaer.randers.os2udoglaer
+    - udoglaer.vejle.os2udoglaer
+    - udenu.os2udoglaer
+    - ungegarantien.os2udoglaer
+    - udsynmodarbejdsliv.os2udoglaer
 additional_fqdns: []
 database:
     type: mariadb
