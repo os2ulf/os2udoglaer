@@ -1,0 +1,9 @@
+uuid: a3bd357a-4cbb-4d9b-bbe2-49790cca4275
+langcode: da
+status: true
+dependencies: {  }
+id: aabenaalborg_os2udoglaer_localhost
+domain_id: api_aabenaalborg_dk
+pattern: aabenaalborg.os2udoglaer.localhost
+redirect: 0
+environment: local

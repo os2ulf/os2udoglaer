@@ -1,0 +1,14 @@
+uuid: 2ffd891f-2595-4c09-b26d-7fe0f3ab503a
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_udoglaer_dk
+label: 'Add selected content to the udoglaer.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_udoglaer_dk

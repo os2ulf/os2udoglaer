@@ -1,0 +1,9 @@
+uuid: 6dcb007c-ff9e-49a3-8243-517431340b73
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_laeringsportalenskive_dk
+domain_id: api_laeringsportalenskive_dk
+pattern: api-staging.laeringsportalenskive.dk
+redirect: 0
+environment: staging

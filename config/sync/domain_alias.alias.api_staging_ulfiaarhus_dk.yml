@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 id: api_staging_ulfiaarhus_dk
 domain_id: api_ulfiaarhus_dk
-pattern: 'api-staging.ulfiaarhus.dk,'
+pattern: api-staging.ulfiaarhus.dk
 redirect: 0
 environment: staging

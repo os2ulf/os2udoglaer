@@ -1,0 +1,14 @@
+uuid: 480128df-c64d-48f3-a54f-88a354ec3701
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_ungegarantien_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_ungegarantien_dk
+label: 'Add selected content to the ungegarantien.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_ungegarantien_dk

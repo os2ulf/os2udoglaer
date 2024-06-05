@@ -1,0 +1,11 @@
+uuid: f1e1068b-7c85-4425-8d7b-be97a7e291aa
+langcode: da
+status: true
+dependencies: {  }
+id: api_udsynmodarbejdsliv_dk
+domain_id: 14084920
+hostname: api.udsynmodarbejdsliv.dk
+name: udsynmodarbejdsliv.dk
+scheme: variable
+weight: 13
+is_default: false

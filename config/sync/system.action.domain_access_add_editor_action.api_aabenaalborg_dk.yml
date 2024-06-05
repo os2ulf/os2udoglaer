@@ -1,0 +1,14 @@
+uuid: 5b3a1300-97b1-4032-9af6-641b0b74d3db
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_aabenaalborg_dk
+  module:
+    - domain_access
+id: domain_access_add_editor_action.api_aabenaalborg_dk
+label: 'Add editors to the aabenaalborg.dk domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: api_aabenaalborg_dk
