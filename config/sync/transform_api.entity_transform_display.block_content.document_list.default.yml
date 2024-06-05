@@ -1,0 +1,38 @@
+uuid: 8f27c17d-129d-407c-82e0-2b60fea97725
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.document_list
+    - field.field.block_content.document_list.body
+    - field.field.block_content.document_list.field_material_paragraph
+    - field.field.block_content.document_list.field_title
+id: block_content.document_list.default
+targetEntityType: block_content
+bundle: document_list
+mode: default
+content:
+  body:
+    type: text_format
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_material_paragraph:
+    type: entity_transform
+    weight: '2'
+    region: content
+    label: omit
+    settings:
+      transform_mode: materials
+    third_party_settings: {  }
+  field_title:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true

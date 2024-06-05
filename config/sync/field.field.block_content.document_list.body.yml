@@ -1,0 +1,31 @@
+uuid: 8b1e8c40-8357-4a27-880a-0ba0dda07076
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.document_list
+    - field.storage.block_content.body
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: block_content.document_list.body
+field_name: body
+entity_type: block_content
+bundle: document_list
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - basic_html
+field_type: text_with_summary

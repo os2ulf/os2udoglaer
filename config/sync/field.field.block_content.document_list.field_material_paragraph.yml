@@ -1,0 +1,67 @@
+uuid: 08a2a4f5-f2fa-4635-b7a4-1825fa5965de
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.document_list
+    - field.storage.block_content.field_material_paragraph
+    - paragraphs.paragraphs_type.material
+  module:
+    - entity_reference_revisions
+id: block_content.document_list.field_material_paragraph
+field_name: field_material_paragraph
+entity_type: block_content
+bundle: document_list
+label: Materiale
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      material: material
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 14
+        enabled: false
+      allocated_budget:
+        weight: 15
+        enabled: false
+      basic_hero:
+        weight: 16
+        enabled: false
+      cards:
+        weight: 17
+        enabled: false
+      contact_paragraph:
+        weight: 18
+        enabled: false
+      duration_paragraph:
+        weight: 19
+        enabled: false
+      duration_price:
+        weight: 20
+        enabled: false
+      links_paragraph:
+        weight: 21
+        enabled: false
+      material:
+        weight: 22
+        enabled: true
+      other_info:
+        weight: 23
+        enabled: false
+      other_user_info:
+        weight: 24
+        enabled: false
+      video:
+        weight: 25
+        enabled: false
+      work_documents:
+        weight: 26
+        enabled: false
+field_type: entity_reference_revisions
