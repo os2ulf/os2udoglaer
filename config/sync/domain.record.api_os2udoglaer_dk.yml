@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: api_os2udoglaer_dk
 domain_id: 9145217
-hostname: os2udoglaer.localhost
+hostname: api.os2udoglaer.dk
 name: Databrønden
 scheme: variable
 weight: 1
