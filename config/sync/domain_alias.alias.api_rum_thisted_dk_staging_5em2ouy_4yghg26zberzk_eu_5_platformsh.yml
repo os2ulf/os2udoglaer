@@ -1,0 +1,9 @@
+uuid: 1de87617-42d7-4f76-b811-493c7074e7ed
+langcode: da
+status: true
+dependencies: {  }
+id: api_rum_thisted_dk_staging_5em2ouy_4yghg26zberzk_eu_5_platformsh
+domain_id: api_rum_thisted_dk
+pattern: api.rum.thisted.dk.staging-5em2ouy-4yghg26zberzk.eu-5.platformsh.site
+redirect: 0
+environment: staging

@@ -1,0 +1,14 @@
+uuid: 19f70732-58c2-4ec1-8f88-ee3cc248e9d0
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_rum_thisted_dk
+  module:
+    - domain_access
+id: domain_access_add_editor_action.api_rum_thisted_dk
+label: 'Add editors to the rum.thisted.dk domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: api_rum_thisted_dk

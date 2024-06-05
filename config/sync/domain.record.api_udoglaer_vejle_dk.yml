@@ -1,0 +1,11 @@
+uuid: cb4aaa9c-92f8-4f72-bcc5-087e8a8eb324
+langcode: da
+status: true
+dependencies: {  }
+id: api_udoglaer_vejle_dk
+domain_id: 5562611
+hostname: api.udoglaer.vejle.dk
+name: udoglaer.vejle.dk
+scheme: variable
+weight: 10
+is_default: false

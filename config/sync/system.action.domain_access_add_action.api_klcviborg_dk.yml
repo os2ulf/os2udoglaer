@@ -1,0 +1,14 @@
+uuid: be100905-6b05-43ab-b26f-7ea5761479cf
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_klcviborg_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_klcviborg_dk
+label: 'Add selected content to the klcviborg.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_klcviborg_dk

@@ -1,0 +1,14 @@
+uuid: d0af71e3-1e57-46d8-9bfc-c0cb749c3470
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_rum_thisted_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_rum_thisted_dk
+label: 'Add selected content to the rum.thisted.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_rum_thisted_dk

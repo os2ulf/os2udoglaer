@@ -1,0 +1,14 @@
+uuid: 8fa73404-2302-4564-82a3-f909054b4373
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udsynmodarbejdsliv_dk
+  module:
+    - domain_access
+id: domain_access_add_editor_action.api_udsynmodarbejdsliv_dk
+label: 'Add editors to the udsynmodarbejdsliv.dk domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: api_udsynmodarbejdsliv_dk

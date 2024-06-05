@@ -1,0 +1,11 @@
+uuid: 945beb19-5150-4348-903a-4d1e8617c875
+langcode: da
+status: true
+dependencies: {  }
+id: api_udoglaer_randers_dk
+domain_id: 6220034
+hostname: api.udoglaer.randers.dk
+name: udoglaer.randers.dk
+scheme: variable
+weight: 9
+is_default: false
