@@ -1,0 +1,8 @@
+uuid: 16f64032-83f1-40a1-b94e-731e6bcd2104
+langcode: da
+status: true
+dependencies: {  }
+id: document_list
+label: Dokumentliste
+revision: 0
+description: ''
