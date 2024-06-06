@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.news.field_audience
     - field.field.node.news.field_banner
     - field.field.node.news.field_domain_access
+    - field.field.node.news.field_exclude_from_profile
+    - field.field.node.news.field_exclude_from_search
     - field.field.node.news.field_image
     - field.field.node.news.field_other_info
     - field.field.node.news.field_theme
@@ -45,6 +47,26 @@ content:
       link: true
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_exclude_from_profile:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 162
+    region: content
+  field_exclude_from_search:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 161
     region: content
   field_image:
     type: image
