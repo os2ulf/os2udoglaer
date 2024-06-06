@@ -1,17 +1,17 @@
-uuid: ebd74ab2-22b9-470d-b2a1-a6c523d581ee
+uuid: 1d9983e5-460b-4b38-864d-89aa4abafbd3
 langcode: da
 status: true
 dependencies:
   config:
     - block_content.type.footer
-    - field.storage.block_content.field_cookie_policy_terms_link
+    - field.storage.block_content.field_privacy_terms
   module:
     - link
-id: block_content.footer.field_cookie_policy_terms_link
-field_name: field_cookie_policy_terms_link
+id: block_content.footer.field_privacy_terms
+field_name: field_privacy_terms
 entity_type: block_content
 bundle: footer
-label: 'Cookie politik/terms link'
+label: 'Cookie- og privatlivspolitik links'
 description: ''
 required: false
 translatable: false

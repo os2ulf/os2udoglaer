@@ -15,7 +15,7 @@ id: block_content.footer.field_shortcuts
 field_name: field_shortcuts
 entity_type: block_content
 bundle: footer
-label: Shortcuts
+label: Genveje
 description: ''
 required: false
 translatable: false

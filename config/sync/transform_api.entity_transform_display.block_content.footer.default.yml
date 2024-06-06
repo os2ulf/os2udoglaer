@@ -4,15 +4,14 @@ status: true
 dependencies:
   config:
     - block_content.type.footer
-    - field.field.block_content.footer.body
     - field.field.block_content.footer.field_background_image
     - field.field.block_content.footer.field_contact_info
     - field.field.block_content.footer.field_contact_page_url
-    - field.field.block_content.footer.field_cookie_policy_terms_link
     - field.field.block_content.footer.field_facebook_url
     - field.field.block_content.footer.field_instagram_url
     - field.field.block_content.footer.field_linkedin_url
     - field.field.block_content.footer.field_logos_and_links
+    - field.field.block_content.footer.field_privacy_terms
     - field.field.block_content.footer.field_shortcuts
     - field.field.block_content.footer.field_youtube_url
 id: block_content.footer.default
@@ -22,7 +21,7 @@ mode: default
 content:
   field_background_image:
     type: image_style
-    weight: '8'
+    weight: '7'
     region: content
     label: omit
     settings:
@@ -39,14 +38,7 @@ content:
     third_party_settings: {  }
   field_contact_page_url:
     type: link
-    weight: '9'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_cookie_policy_terms_link:
-    type: link
-    weight: '6'
+    weight: '8'
     region: content
     label: omit
     settings: {  }
@@ -74,14 +66,21 @@ content:
     third_party_settings: {  }
   field_logos_and_links:
     type: entity_transform
-    weight: '7'
+    weight: '6'
     region: content
     label: omit
     settings:
       transform_mode: default
     third_party_settings: {  }
+  field_privacy_terms:
+    type: link
+    weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_shortcuts:
-    type: entity_reference_labels
+    type: entity_reference_links
     weight: '1'
     region: content
     label: omit
@@ -95,5 +94,4 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  body: true
   langcode: true
