@@ -11,6 +11,8 @@ dependencies:
     - field.field.paragraph.material.field_material_url
     - paragraphs.paragraphs_type.material
     - transform_api.entity_transform_mode.paragraph.materials
+  module:
+    - os2uol_transform_plugins
 id: paragraph.material.materials
 targetEntityType: paragraph
 bundle: material
@@ -38,7 +40,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_material_file:
-    type: file_url
+    type: custom_file_url
     weight: '2'
     region: content
     label: omit
