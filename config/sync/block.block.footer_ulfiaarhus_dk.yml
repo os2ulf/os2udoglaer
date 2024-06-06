@@ -1,0 +1,33 @@
+uuid: b8e832b6-d167-4a36-941b-c97201dcee9e
+langcode: da
+status: true
+dependencies:
+  content:
+    - 'block_content:footer:7b19b82b-61a7-40f7-8a75-660dc3047616'
+  module:
+    - block_content
+    - domain
+  theme:
+    - os2udoglaer
+id: footer_ulfiaarhus_dk
+theme: os2udoglaer
+region: footer
+weight: -9
+provider: null
+plugin: 'block_content:7b19b82b-61a7-40f7-8a75-660dc3047616'
+settings:
+  id: 'block_content:7b19b82b-61a7-40f7-8a75-660dc3047616'
+  label: 'Footer: ulfiaarhus.dk'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_ulfiaarhus_dk: api_ulfiaarhus_dk

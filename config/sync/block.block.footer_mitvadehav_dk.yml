@@ -1,0 +1,33 @@
+uuid: 1109173a-ba4f-45c4-bab4-d4e660c2abc6
+langcode: da
+status: true
+dependencies:
+  content:
+    - 'block_content:footer:3859c69f-998c-4409-8cf7-ce8e1d00f6fd'
+  module:
+    - block_content
+    - domain
+  theme:
+    - os2udoglaer
+id: footer_mitvadehav_dk
+theme: os2udoglaer
+region: footer
+weight: -8
+provider: null
+plugin: 'block_content:3859c69f-998c-4409-8cf7-ce8e1d00f6fd'
+settings:
+  id: 'block_content:3859c69f-998c-4409-8cf7-ce8e1d00f6fd'
+  label: 'Footer: mitvadehav.dk'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_mitvadehav_dk: api_mitvadehav_dk

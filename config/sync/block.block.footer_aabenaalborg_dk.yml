@@ -1,0 +1,33 @@
+uuid: 395c5e5c-533b-4266-b4dc-4386075cace1
+langcode: da
+status: true
+dependencies:
+  content:
+    - 'block_content:footer:49ebc15d-412e-49ac-8496-9a04d6935fa5'
+  module:
+    - block_content
+    - domain
+  theme:
+    - os2udoglaer
+id: footer_aabenaalborg_dk
+theme: os2udoglaer
+region: footer
+weight: -7
+provider: null
+plugin: 'block_content:49ebc15d-412e-49ac-8496-9a04d6935fa5'
+settings:
+  id: 'block_content:49ebc15d-412e-49ac-8496-9a04d6935fa5'
+  label: 'Footer: aabenaalborg.dk'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_aabenaalborg_dk: api_aabenaalborg_dk

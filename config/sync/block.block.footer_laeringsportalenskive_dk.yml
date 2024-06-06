@@ -1,0 +1,33 @@
+uuid: ea25c48b-1fde-4aa5-97e6-16af95c5fd91
+langcode: da
+status: true
+dependencies:
+  content:
+    - 'block_content:footer:6cbd6606-952d-47b2-8642-964dd5f136f2'
+  module:
+    - block_content
+    - domain
+  theme:
+    - os2udoglaer
+id: footer_laeringsportalenskive_dk
+theme: os2udoglaer
+region: footer
+weight: -5
+provider: null
+plugin: 'block_content:6cbd6606-952d-47b2-8642-964dd5f136f2'
+settings:
+  id: 'block_content:6cbd6606-952d-47b2-8642-964dd5f136f2'
+  label: 'Footer: laeringsportalenskive.dk'
+  label_display: visible
+  provider: block_content
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_laeringsportalenskive_dk: api_laeringsportalenskive_dk
