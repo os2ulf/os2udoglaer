@@ -1,0 +1,39 @@
+uuid: 8b9a572d-69e4-4150-932c-cf0253a33e1b
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.storage.block_content.field_shortcuts
+    - node.type.course
+    - node.type.course_educators
+    - node.type.exercise
+    - node.type.internship
+    - node.type.news
+    - node.type.page
+id: block_content.footer.field_shortcuts
+field_name: field_shortcuts
+entity_type: block_content
+bundle: footer
+label: Shortcuts
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      internship: internship
+      course_educators: course_educators
+      news: news
+      exercise: exercise
+      page: page
+      course: course
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: internship
+field_type: entity_reference

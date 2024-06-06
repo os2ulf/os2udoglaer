@@ -1,0 +1,70 @@
+uuid: f4db7921-2bbd-4a9c-8c45-cd1a9499c398
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.storage.block_content.field_logos_and_links
+    - paragraphs.paragraphs_type.footer_links
+  module:
+    - entity_reference_revisions
+id: block_content.footer.field_logos_and_links
+field_name: field_logos_and_links
+entity_type: block_content
+bundle: footer
+label: 'Logoer og links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      footer_links: footer_links
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 15
+        enabled: false
+      allocated_budget:
+        weight: 16
+        enabled: false
+      basic_hero:
+        weight: 17
+        enabled: false
+      cards:
+        weight: 18
+        enabled: false
+      contact_paragraph:
+        weight: 19
+        enabled: false
+      duration_paragraph:
+        weight: 20
+        enabled: false
+      duration_price:
+        weight: 21
+        enabled: false
+      footer_links:
+        weight: 22
+        enabled: true
+      links_paragraph:
+        weight: 23
+        enabled: false
+      material:
+        weight: 24
+        enabled: false
+      other_info:
+        weight: 25
+        enabled: false
+      other_user_info:
+        weight: 26
+        enabled: false
+      video:
+        weight: 27
+        enabled: false
+      work_documents:
+        weight: 28
+        enabled: false
+field_type: entity_reference_revisions

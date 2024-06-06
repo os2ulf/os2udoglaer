@@ -1,0 +1,29 @@
+uuid: 8c7fe677-1b17-43b3-b471-e52f09525cb2
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.storage.block_content.field_contact_info
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: block_content.footer.field_contact_info
+field_name: field_contact_info
+entity_type: block_content
+bundle: footer
+label: Kontaktinformation
+description: 'Kontaktinformation som vises i footeren'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
