@@ -13,6 +13,22 @@ theme:
     theme:
       css/theme/theme.css: {}
 
+theme-primary:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-primary.css: {}
+  dependencies:
+    - os2udoglaer/theme
+
+theme-secondary:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-secondary.css: {}
+  dependencies:
+    - os2udoglaer/theme
+
 theme-grey:
   version: VERSION
   css:
@@ -28,6 +44,8 @@ theme-preview:
     theme:
       css/preview/theme.css: {}
   dependencies:
+    - os2udoglaer/theme-primary
+    - os2udoglaer/theme-secondary
     - os2udoglaer/theme-grey
 
 button-preview:

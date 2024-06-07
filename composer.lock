@@ -7219,10 +7219,10 @@
         },
         {
             "name": "novicell/styles",
-            "version": "1.0.30",
+            "version": "1.0.31",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.drupal.dk/php/~/up/ver_GMPVV/novicellstyles-1-0-30.zip"
+                "url": "https://packages.drupal.dk/php/~/up/ver_1FN4D8/novicellstyles-1-0-31.zip"
             },
             "type": "drupal-module",
             "license": [
