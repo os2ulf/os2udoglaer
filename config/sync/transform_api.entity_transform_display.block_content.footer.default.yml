@@ -13,7 +13,10 @@ dependencies:
     - field.field.block_content.footer.field_logos_and_links
     - field.field.block_content.footer.field_privacy_terms
     - field.field.block_content.footer.field_shortcuts
+    - field.field.block_content.footer.field_theme
     - field.field.block_content.footer.field_youtube_url
+  module:
+    - styles
 id: block_content.footer.default
 targetEntityType: block_content
 bundle: footer
@@ -82,6 +85,13 @@ content:
   field_shortcuts:
     type: entity_reference_links
     weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_theme:
+    type: styles
+    weight: '10'
     region: content
     label: omit
     settings: {  }

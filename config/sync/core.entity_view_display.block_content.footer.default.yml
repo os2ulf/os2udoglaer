@@ -13,6 +13,7 @@ dependencies:
     - field.field.block_content.footer.field_logos_and_links
     - field.field.block_content.footer.field_privacy_terms
     - field.field.block_content.footer.field_shortcuts
+    - field.field.block_content.footer.field_theme
     - field.field.block_content.footer.field_youtube_url
   module:
     - entity_reference_revisions
@@ -118,6 +119,14 @@ content:
       link: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_theme:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 11
     region: content
   field_youtube_url:
     type: link

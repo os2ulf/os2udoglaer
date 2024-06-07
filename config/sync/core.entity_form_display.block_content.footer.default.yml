@@ -13,6 +13,7 @@ dependencies:
     - field.field.block_content.footer.field_logos_and_links
     - field.field.block_content.footer.field_privacy_terms
     - field.field.block_content.footer.field_shortcuts
+    - field.field.block_content.footer.field_theme
     - field.field.block_content.footer.field_youtube_url
     - image.style.thumbnail
   module:
@@ -20,6 +21,7 @@ dependencies:
     - image
     - link
     - paragraphs
+    - styles
     - text
 third_party_settings:
   field_group:
@@ -198,6 +200,12 @@ content:
       match_limit: 10
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_theme:
+    type: styles
+    weight: 27
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_youtube_url:
     type: link_default
