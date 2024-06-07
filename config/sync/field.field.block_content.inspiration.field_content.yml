@@ -1,0 +1,39 @@
+uuid: ff5521dd-e74c-46cb-addd-4a21ab800182
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inspiration
+    - field.storage.block_content.field_content
+    - node.type.course
+    - node.type.course_educators
+    - node.type.exercise
+    - node.type.internship
+    - node.type.news
+    - node.type.page
+id: block_content.inspiration.field_content
+field_name: field_content
+entity_type: block_content
+bundle: inspiration
+label: Indhold
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      internship: internship
+      course_educators: course_educators
+      news: news
+      exercise: exercise
+      page: page
+      course: course
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: internship
+field_type: entity_reference
