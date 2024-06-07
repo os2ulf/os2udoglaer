@@ -1,0 +1,38 @@
+uuid: 3d6c40a1-fd9e-4f9d-95d3-e67ce5133062
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inspiration
+    - field.field.block_content.inspiration.field_content
+id: block_content.inspiration.default
+targetEntityType: block_content
+bundle: inspiration
+mode: default
+content:
+  field_content:
+    type: entity_reference_autocomplete
+    weight: 26
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden: {  }

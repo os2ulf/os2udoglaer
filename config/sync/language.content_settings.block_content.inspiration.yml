@@ -1,0 +1,11 @@
+uuid: 34dd7e3b-85e0-449a-8501-88325611465d
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inspiration
+id: block_content.inspiration
+target_entity_type_id: block_content
+target_bundle: inspiration
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,23 @@
+uuid: 6b3f1e5d-1a6f-441f-bc30-de4cb5ef0171
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inspiration
+    - field.field.block_content.inspiration.field_content
+id: block_content.inspiration.default
+targetEntityType: block_content
+bundle: inspiration
+mode: default
+content:
+  field_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
