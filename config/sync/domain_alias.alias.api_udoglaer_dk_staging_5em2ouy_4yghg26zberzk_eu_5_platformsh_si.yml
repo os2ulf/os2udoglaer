@@ -1,9 +1,0 @@
-uuid: eb69d9c1-8a29-433e-925a-329fea7116dd
-langcode: da
-status: true
-dependencies: {  }
-id: api_udoglaer_dk_staging_5em2ouy_4yghg26zberzk_eu_5_platformsh_si
-domain_id: api_udoglaer_dk
-pattern: api.udoglaer.dk.staging-5em2ouy-4yghg26zberzk.eu-5.platformsh.site
-redirect: 0
-environment: staging
