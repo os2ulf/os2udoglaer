@@ -1,0 +1,13 @@
+.theme-primary {
+  --theme-background-color:#297f78;
+  --theme-color:#ffffff;
+  --theme-button-background-color:#ffffff;
+  --theme-button-color:#297f78;
+  --theme-link-color:#ffffff;
+  --theme-divider-background-color:#ffffff;
+  --theme-accordion-border-color:#297f78;
+  --theme-accordion-background-color: #297f78;
+  --theme-accordion-text-color:#ffffff;
+  --theme-input-border:#ffffff;
+  --theme-input-color-marked:#ffffff
+}
