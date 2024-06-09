@@ -1,0 +1,19 @@
+uuid: e3ab0fc1-bec5-4d3e-a0d2-419062f315ef
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+    - link
+id: block_content.field_contact_page_url
+field_name: field_contact_page_url
+entity_type: block_content
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

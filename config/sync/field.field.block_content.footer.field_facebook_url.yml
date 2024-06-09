@@ -1,0 +1,23 @@
+uuid: 1e32e09b-f025-4553-8ee1-a82fd8da115b
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.storage.block_content.field_facebook_url
+  module:
+    - link
+id: block_content.footer.field_facebook_url
+field_name: field_facebook_url
+entity_type: block_content
+bundle: footer
+label: 'Facebook URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

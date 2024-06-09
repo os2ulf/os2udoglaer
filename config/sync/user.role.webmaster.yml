@@ -9,6 +9,7 @@ dependencies:
     - block_content.type.button
     - block_content.type.code
     - block_content.type.divider
+    - block_content.type.footer
     - block_content.type.hero
     - block_content.type.image
     - block_content.type.inline_navigation
@@ -54,6 +55,7 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - atoms
+    - block
     - block_content
     - content_hierarchy
     - content_moderation
@@ -107,6 +109,7 @@ permissions:
   - 'access webform submission user'
   - 'access workbench'
   - 'administer atoms'
+  - 'administer blocks'
   - 'administer content_hierarchy'
   - 'administer menu'
   - 'administer nodes'
@@ -206,6 +209,7 @@ permissions:
   - 'create document media'
   - 'create domain content'
   - 'create exercise content'
+  - 'create footer block content'
   - 'create hero block content'
   - 'create image block content'
   - 'create image media'
@@ -256,6 +260,8 @@ permissions:
   - 'delete any document media'
   - 'delete any exercise content'
   - 'delete any file'
+  - 'delete any footer block content'
+  - 'delete any footer block content revisions'
   - 'delete any hero block content'
   - 'delete any image block content'
   - 'delete any image media'
@@ -324,6 +330,7 @@ permissions:
   - 'edit any divider block content'
   - 'edit any document media'
   - 'edit any exercise content'
+  - 'edit any footer block content'
   - 'edit any hero block content'
   - 'edit any image block content'
   - 'edit any image media'
@@ -377,6 +384,7 @@ permissions:
   - 'publish to any assigned domain'
   - 'publish to any domain'
   - 'revert all revisions'
+  - 'revert any footer block content revisions'
   - 'revert course revisions'
   - 'revert course_educators revisions'
   - 'revert exercise revisions'

@@ -1,0 +1,23 @@
+uuid: 4540477a-4f9e-40a8-8d79-69aeccd45179
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.storage.block_content.field_instagram_url
+  module:
+    - link
+id: block_content.footer.field_instagram_url
+field_name: field_instagram_url
+entity_type: block_content
+bundle: footer
+label: 'Instagram URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

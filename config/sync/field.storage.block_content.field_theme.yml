@@ -1,0 +1,20 @@
+uuid: 18aafbb8-a033-4461-a61a-f3a0fd5b58fb
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+    - styles
+id: block_content.field_theme
+field_name: field_theme
+entity_type: block_content
+type: styles
+settings:
+  collection: color_theme
+module: styles
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

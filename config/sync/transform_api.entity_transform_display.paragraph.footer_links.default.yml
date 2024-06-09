@@ -1,0 +1,30 @@
+uuid: 9cb08076-51c2-422e-ae70-8bf877e2e2a8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.footer_links.field_image
+    - field.field.paragraph.footer_links.field_link
+    - paragraphs.paragraphs_type.footer_links
+id: paragraph.footer_links.default
+targetEntityType: paragraph
+bundle: footer_links
+mode: default
+content:
+  field_image:
+    type: image_style
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_link:
+    type: link
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
