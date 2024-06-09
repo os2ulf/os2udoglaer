@@ -1,0 +1,13 @@
+.theme-brown {
+  --theme-background-color:#40362E;
+  --theme-color:#ffffff;
+  --theme-button-background-color:#ffffff;
+  --theme-button-color:#40362E;
+  --theme-link-color:#ffffff;
+  --theme-divider-background-color:#ffffff;
+  --theme-accordion-border-color:#40362E;
+  --theme-accordion-background-color: #40362E;
+  --theme-accordion-text-color:#ffffff;
+  --theme-input-border:#ffffff;
+  --theme-input-color-marked:#ffffff
+}
