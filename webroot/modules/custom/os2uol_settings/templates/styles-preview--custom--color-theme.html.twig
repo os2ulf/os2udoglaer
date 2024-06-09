@@ -1,0 +1,50 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a style preview.
+ *
+ * Available variables:
+ * - style: The style ID being previewed.
+ * - collection: The collection ID the style belongs to.
+ * - title: The title of the style.
+ * - active: Whether the style has been selected or not.
+ * - toggle: Whether the preview can be toggled. Otherwise it can be selected.
+ * - preview_type: The type of preview is used for this collection.
+ * - attributes: HTML attributes for the containing element.
+ *   - data-widget: The form ID of the widget this preview belongs to.
+ *   - data-style: The style ID this preview will select or toggle for the widget.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - styles--preview: Present on all previews.
+ *   - styles--preview--[preview_type]: The current preview type. For example, if the preview type is
+ *     "button" it would result in "styles--preview--button".
+ *   - styles--toggleable: Appears if the preview can be toggled.
+ *   - styles--selectable: Appears if the preview can be selected.
+ *   - styles--selected: Appears if the preview is currently selected or toggled on.
+ *   - styles--empty: If the widget has an empty option, that option will have this class.
+ *   The following are controlled through the collection.
+ *   - [base_styles]: Any classes that are global for this collection.
+ *   - [style_id]: The actual style this preview is for.
+ * - preview_attributes: Same as attributes, except for the ones based on the collection and instead
+ *   will have the following:
+ *   - styles--preview--[style_id]: The actual style this preview is for.
+ * - object_attributes: Same as attributes, but only those based on the collection.
+ *
+ * @see template_preprocess_styles_preview()
+ *
+ * @ingroup themeable
+ */
+#}
+{% if style == 'theme-primary' and primary_bg_color is not empty and primary_bg_txt_color is not empty %}
+  <div{{ attributes }} style="background: {{ primary_bg_color }}; color: {{ primary_bg_txt_color }};">
+    {{ "Tx"|t }}
+  </div>
+{% elseif style == 'theme-secondary' and secondary_bg_color is not empty and secondary_bg_txt_color is not empty %}
+  <div{{ attributes }} style="background: {{ secondary_bg_color }}; color: {{ secondary_bg_txt_color }};">
+    {{ "Tx"|t }}
+  </div>
+{% else %}
+  <div{{ attributes }}>
+    {{ "Tx"|t }}
+  </div>
+{% endif %}

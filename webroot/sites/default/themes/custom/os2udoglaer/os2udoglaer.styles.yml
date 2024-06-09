@@ -18,4 +18,5 @@ color_theme:
     theme-default: Standard
     theme-primary: Primary
     theme-secondary: Secondary
+    theme-brown: Brown
     theme-grey: Grey
