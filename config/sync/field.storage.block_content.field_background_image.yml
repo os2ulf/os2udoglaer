@@ -1,0 +1,30 @@
+uuid: 24b127fe-c710-4c96-97f4-5f94b9d62f8e
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+    - file
+    - image
+id: block_content.field_background_image
+field_name: field_background_image
+entity_type: block_content
+type: image
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+module: image
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

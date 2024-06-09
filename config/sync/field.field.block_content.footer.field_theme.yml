@@ -1,0 +1,23 @@
+uuid: 1b6089b1-65e5-4d62-8cfe-ba237fad43f7
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.storage.block_content.field_theme
+  module:
+    - styles
+id: block_content.footer.field_theme
+field_name: field_theme
+entity_type: block_content
+bundle: footer
+label: Theme
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: theme-primary
+default_value_callback: ''
+settings: {  }
+field_type: styles

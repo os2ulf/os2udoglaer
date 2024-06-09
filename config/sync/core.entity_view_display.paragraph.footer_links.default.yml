@@ -1,0 +1,41 @@
+uuid: 9ff31286-554a-4de1-8f2e-946528ec10f3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.footer_links.field_image
+    - field.field.paragraph.footer_links.field_link
+    - paragraphs.paragraphs_type.footer_links
+  module:
+    - image
+    - link
+id: paragraph.footer_links.default
+targetEntityType: paragraph
+bundle: footer_links
+mode: default
+content:
+  field_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+hidden:
+  search_api_excerpt: true

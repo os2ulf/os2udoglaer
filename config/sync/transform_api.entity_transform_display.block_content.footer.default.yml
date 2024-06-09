@@ -1,0 +1,107 @@
+uuid: 2b504900-2199-4d5a-afa3-fc92c77aac86
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.footer
+    - field.field.block_content.footer.field_background_image
+    - field.field.block_content.footer.field_contact_info
+    - field.field.block_content.footer.field_contact_page_url
+    - field.field.block_content.footer.field_facebook_url
+    - field.field.block_content.footer.field_instagram_url
+    - field.field.block_content.footer.field_linkedin_url
+    - field.field.block_content.footer.field_logos_and_links
+    - field.field.block_content.footer.field_privacy_terms
+    - field.field.block_content.footer.field_shortcuts
+    - field.field.block_content.footer.field_theme
+    - field.field.block_content.footer.field_youtube_url
+  module:
+    - styles
+id: block_content.footer.default
+targetEntityType: block_content
+bundle: footer
+mode: default
+content:
+  field_background_image:
+    type: image_style
+    weight: '7'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_contact_info:
+    type: plain_text
+    weight: '0'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+  field_contact_page_url:
+    type: link
+    weight: '8'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_facebook_url:
+    type: link
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_instagram_url:
+    type: link
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_linkedin_url:
+    type: link
+    weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_logos_and_links:
+    type: entity_transform
+    weight: '6'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_privacy_terms:
+    type: link
+    weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_shortcuts:
+    type: entity_reference_links
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_theme:
+    type: styles
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_youtube_url:
+    type: link
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
