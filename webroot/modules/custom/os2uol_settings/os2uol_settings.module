@@ -18,10 +18,8 @@ function os2uol_settings_get_available_fonts(): array {
  * Implements hook_theme_suggestions_HOOK_alter() for styles_preview.
  */
 function os2uol_settings_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
-  switch ($hook) {
-    case 'styles_preview':
-      $suggestions[] = $hook . '__' . 'custom' . '__' . $variables['elements']['#collection'];
-      break;
+  if ($hook == 'styles_preview') {
+    $suggestions[] = $hook . '__' . 'custom' . '__' . $variables['elements']['#collection'];
   }
 }
 
@@ -49,15 +47,13 @@ function os2uol_settings_preprocess_styles_preview(&$variables) {
     $secondary_bg_txt_color = $config->get('secondary_background_text_color');
 
     if ($variables['style'] === 'theme-primary' && !empty($primary_bg_color) && !empty($primary_bg_txt_color)) {
-      $variables['primary_bg_color'] = $config->get('primary_background_color');
-      $variables['primary_bg_txt_color'] = $config->get('primary_background_text_color');
-      $variables['theme_hook_original'] = 'styles_preview_custom';
+      $variables['primary_bg_color'] = $primary_bg_color;
+      $variables['primary_bg_txt_color'] = $primary_bg_txt_color;
     }
 
     if ($variables['style'] === 'theme-secondary' && !empty($secondary_bg_color) && !empty($secondary_bg_txt_color)) {
-      $variables['secondary_bg_color'] = $config->get('secondary_background_color');
-      $variables['secondary_bg_txt_color'] = $config->get('secondary_background_text_color');
-      $variables['theme_hook_original'] = 'styles_preview_custom';
+      $variables['secondary_bg_color'] = $secondary_bg_color;
+      $variables['secondary_bg_txt_color'] = $secondary_bg_txt_color;
     }
   }
 }
