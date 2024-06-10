@@ -1,0 +1,18 @@
+uuid: a3495746-e8e5-4bc6-b053-487d25d4e94d
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+name: isg_focal_point_1920_1080
+label: 'Focal point scale (1920x1080)'
+effects:
+  942cba13-d962-4922-afbb-457d43a24e65:
+    uuid: 942cba13-d962-4922-afbb-457d43a24e65
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 1080
+      crop_type: focal_point
+pipeline: __default__

@@ -97,7 +97,6 @@
 
 {# Check if target group is in target group arrays #}
 {% for item in node.field_target_group.value %}
-  {{ dump(item.target_id) }}
   {% if item.target_id == 14 %}
     {% set is_daycare_school = true %}
   {% endif %}

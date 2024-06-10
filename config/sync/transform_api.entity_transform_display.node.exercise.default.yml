@@ -39,6 +39,9 @@ dependencies:
     - field.field.node.exercise.field_work_documents
     - field.field.node.exercise.field_youth_education_subject
     - node.type.exercise
+    - responsive_image.styles.isg_course_header
+  module:
+    - transform_api_responsive_image
 id: node.exercise.default
 targetEntityType: node
 bundle: exercise
@@ -129,13 +132,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image:
-    type: image_style
+    type: responsive_image
     weight: '19'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_course_header
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_period_select:
     type: entity_reference_labels

@@ -1,0 +1,72 @@
+uuid: 5b689c7a-1148-43e6-a197-06e33f0ca22f
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.isg_focal_point_1504_560
+    - image.style.isg_focal_point_1534_920
+    - image.style.isg_focal_point_1920_560
+    - image.style.isg_focal_point_412_250
+    - image.style.isg_focal_point_480_320
+    - image.style.isg_focal_point_767_460
+    - image.style.isg_focal_point_824_500
+    - image.style.isg_focal_point_826_460
+    - image.style.isg_focal_point_960_640
+    - image.style.isg_focal_point_999_560
+  theme:
+    - os2udoglaer
+id: isg_page_header
+label: 'Page Header'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1920_560
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1504_560
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_999_560
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_826_460
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_767_460
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1534_920
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_480_320
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_960_640
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_412_250
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_824_500
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: isg_focal_point_412_250

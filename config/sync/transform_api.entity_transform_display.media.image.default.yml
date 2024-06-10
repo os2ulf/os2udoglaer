@@ -1,0 +1,21 @@
+uuid: 5bcf2686-090b-40bd-8f14-f64693a503f5
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.media.image.field_media_category
+    - field.field.media.image.field_media_image
+    - media.type.image
+id: media.image.default
+targetEntityType: media
+bundle: image
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_media_category: true
+  field_media_image: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

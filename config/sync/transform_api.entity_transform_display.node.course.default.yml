@@ -58,6 +58,9 @@ dependencies:
     - field.field.node.course.field_view_on_map
     - field.field.node.course.field_youth_education_subject
     - node.type.course
+    - responsive_image.styles.isg_course_header
+  module:
+    - transform_api_responsive_image
 id: node.course.default
 targetEntityType: node
 bundle: course
@@ -155,13 +158,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image:
-    type: image_style
+    type: responsive_image
     weight: '0'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_course_header
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_is_free:
     type: boolean

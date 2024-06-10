@@ -1,0 +1,71 @@
+uuid: f072f221-1ab7-46c3-b4ab-c85f62fa3da3
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.isg_focal_point_1552_873
+    - image.style.isg_focal_point_1824_1026
+    - image.style.isg_focal_point_2972_1672
+    - image.style.isg_focal_point_352_198
+    - image.style.isg_focal_point_388_219
+    - image.style.isg_focal_point_456_257
+    - image.style.isg_focal_point_496_279
+    - image.style.isg_focal_point_743_418
+    - image.style.isg_focal_point_967_544
+  theme:
+    - os2udoglaer
+id: isg_hero_width_33
+label: 'Hero - Width 33%'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_496_279
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_496_279
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_352_198
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_967_544
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_743_418
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_2972_1672
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_456_257
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1824_1026
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_388_219
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1552_873
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: isg_focal_point_388_219

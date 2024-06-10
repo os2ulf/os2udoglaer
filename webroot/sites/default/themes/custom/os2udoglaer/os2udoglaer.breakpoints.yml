@@ -1,3 +1,10 @@
+os2udoglaer.lighthouse:
+  label: 'Lighthouse Mobile'
+  mediaQuery: 'all and (max-width: 412px)'
+  weight: 0
+  multipliers:
+    - 1x
+    - 2x
 os2udoglaer.xxs:
   label: 'Extra extra small'
   mediaQuery: 'all and (min-width : 413px) and (max-width: 480px)'

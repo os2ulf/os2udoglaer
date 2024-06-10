@@ -1,0 +1,16 @@
+uuid: c62262f4-2e73-4c5c-892e-c2c06a71f0e9
+langcode: da
+status: true
+dependencies: {  }
+name: isg_image_scale_2972
+label: 'Image scale (2972)'
+effects:
+  1bfb7abd-060d-4d8d-b0ad-79fdbd076373:
+    uuid: 1bfb7abd-060d-4d8d-b0ad-79fdbd076373
+    id: image_scale
+    weight: 1
+    data:
+      width: 2972
+      height: null
+      upscale: true
+pipeline: __default__

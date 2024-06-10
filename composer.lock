@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bb91f706cf83c91329b8018415bce5ec",
+    "content-hash": "0a98ba4abaa66f856b123d1795dec3ca",
     "packages": [
         {
             "name": "algolia/places",
@@ -7067,6 +7067,20 @@
             "keywords": [
                 "Novicell"
             ]
+        },
+        {
+            "name": "novicell/image_style_generator",
+            "version": "1.0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://packages.drupal.dk/php/~/up/ver_1XeMZg/novicellimage_style_generator-1-0-3.zip"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Image Style Generator",
+            "homepage": "https://www.novicell.dk"
         },
         {
             "name": "novicell/media_icons",
