@@ -1,0 +1,71 @@
+uuid: 24f9df27-7a89-400a-8efd-cc46b553eb8c
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.isg_focal_point_1486_800
+    - image.style.isg_focal_point_388_400
+    - image.style.isg_focal_point_456_400
+    - image.style.isg_focal_point_484_500
+    - image.style.isg_focal_point_576_600
+    - image.style.isg_focal_point_743_400
+    - image.style.isg_focal_point_776_800
+    - image.style.isg_focal_point_792_600
+    - image.style.isg_focal_point_912_800
+  theme:
+    - os2udoglaer
+id: isg_appetizer
+label: Appetizer
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_792_600
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_792_600
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_576_600
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_484_500
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_743_400
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1486_800
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_456_400
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_912_800
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_388_400
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_776_800
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: isg_focal_point_388_400

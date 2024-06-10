@@ -10,8 +10,10 @@ dependencies:
     - field.field.block_content.appetizer.field_appetizer_orientation
     - field.field.block_content.appetizer.field_appetizer_text
     - field.field.block_content.appetizer.field_appetizer_text_alignment
+    - responsive_image.styles.isg_appetizer
   module:
     - styles
+    - transform_api_responsive_image
 _core:
   default_config_hash: AIMqsCd5GdQHdUx6jR_KizmFOi4XWCuIbt6TEqb4o9g
 id: block_content.appetizer.default
@@ -34,13 +36,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_appetizer_image:
-    type: image_style
+    type: responsive_image
     weight: '5'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_appetizer
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_appetizer_orientation:
     type: value

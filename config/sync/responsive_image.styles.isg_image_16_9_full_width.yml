@@ -1,0 +1,70 @@
+uuid: 9306c165-1ba0-46f4-9acd-dbb2e9542d74
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.isg_focal_point_1199_675
+    - image.style.isg_focal_point_1648_927
+    - image.style.isg_focal_point_1920_1080
+    - image.style.isg_focal_point_3068_1726
+    - image.style.isg_focal_point_412_232
+    - image.style.isg_focal_point_480_270
+    - image.style.isg_focal_point_767_432
+    - image.style.isg_focal_point_991_558
+  theme:
+    - os2udoglaer
+id: isg_image_16_9_full_width
+label: 'Image 16 by 9 - Fuld bredde'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1920_1080
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1920_1080
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1199_675
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_991_558
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_767_432
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_3068_1726
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_480_270
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1920_1080
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_412_232
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1648_927
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: isg_focal_point_412_232

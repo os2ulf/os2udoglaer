@@ -1,0 +1,71 @@
+uuid: 9663ac76-3c06-44aa-90aa-ba60ff394b5d
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.isg_image_scale_1040
+    - image.style.isg_image_scale_1552
+    - image.style.isg_image_scale_1824
+    - image.style.isg_image_scale_2972
+    - image.style.isg_image_scale_388
+    - image.style.isg_image_scale_456
+    - image.style.isg_image_scale_743
+    - image.style.isg_image_scale_751
+    - image.style.isg_image_scale_967
+  theme:
+    - os2udoglaer
+id: isg_image_dynamic_width_66
+label: 'Image Dynamic - Width 66%'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_1040
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_1040
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_751
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_967
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_743
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_2972
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_456
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_1824
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_388
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_image_scale_1552
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: isg_image_scale_388
