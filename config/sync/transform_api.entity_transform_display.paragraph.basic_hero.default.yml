@@ -7,19 +7,24 @@ dependencies:
     - field.field.paragraph.basic_hero.field_paragraph_cards
     - field.field.paragraph.basic_hero.field_title
     - paragraphs.paragraphs_type.basic_hero
+    - responsive_image.styles.isg_page_header
+  module:
+    - transform_api_responsive_image
 id: paragraph.basic_hero.default
 targetEntityType: paragraph
 bundle: basic_hero
 mode: default
 content:
   field_background_image:
-    type: image_style
+    type: responsive_image
     weight: '1'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_page_header
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_paragraph_cards:
     type: entity_transform
