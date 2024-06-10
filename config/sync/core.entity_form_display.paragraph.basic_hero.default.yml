@@ -6,10 +6,10 @@ dependencies:
     - field.field.paragraph.basic_hero.field_background_image
     - field.field.paragraph.basic_hero.field_paragraph_cards
     - field.field.paragraph.basic_hero.field_title
-    - image.style.thumbnail
+    - image.style.medium
     - paragraphs.paragraphs_type.basic_hero
   module:
-    - image
+    - focal_point
     - paragraphs
 _core:
   default_config_hash: O6-OGy31KG-Ds0lPdYzWaTjbaKJKLym0sPnp50xj9fw
@@ -19,12 +19,14 @@ bundle: basic_hero
 mode: default
 content:
   field_background_image:
-    type: image_image
+    type: image_focal_point
     weight: 1
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
   field_paragraph_cards:
     type: paragraphs

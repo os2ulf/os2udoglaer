@@ -5,10 +5,10 @@ dependencies:
   config:
     - field.field.paragraph.footer_links.field_image
     - field.field.paragraph.footer_links.field_link
-    - image.style.thumbnail
+    - image.style.medium
     - paragraphs.paragraphs_type.footer_links
   module:
-    - image
+    - focal_point
     - link
 id: paragraph.footer_links.default
 targetEntityType: paragraph
@@ -16,12 +16,14 @@ bundle: footer_links
 mode: default
 content:
   field_image:
-    type: image_image
+    type: image_focal_point
     weight: 1
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
   field_link:
     type: link_default
