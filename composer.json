@@ -87,6 +87,7 @@
         "drush/drush": "^12",
         "novicell/content_hierarchy": "^1.0",
         "novicell/dynamic_key_value": "^1.0",
+        "novicell/image_style_generator": "^1.0",
         "novicell/media_icons": "^1.0",
         "novicell/premium_core": "^1.0",
         "novicell/premium_headless": "^1.0",

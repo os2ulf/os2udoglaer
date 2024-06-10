@@ -1,0 +1,16 @@
+uuid: 2611c684-c5a1-496f-9e52-be1500be0f1f
+langcode: da
+status: true
+dependencies: {  }
+name: isg_image_scale_1584
+label: 'Image scale (1584)'
+effects:
+  17395412-cce9-487c-ad01-8fc14854ddee:
+    uuid: 17395412-cce9-487c-ad01-8fc14854ddee
+    id: image_scale
+    weight: 1
+    data:
+      width: 1584
+      height: null
+      upscale: true
+pipeline: __default__
