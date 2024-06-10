@@ -1,0 +1,20 @@
+name: Trigger Umbrella Workflow
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'release/**'
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Umbrella Repository Workflow
+        run: |
+          curl -X POST -H "Accept: application/vnd.github.v3+json" \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          https://api.github.com/repos/os2ulf/os2udoglaer-platform/dispatches \
+          -d '{"event_type":"trigger-umbrella-workflow"}'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
