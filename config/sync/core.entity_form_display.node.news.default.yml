@@ -15,12 +15,12 @@ dependencies:
     - field.field.node.news.field_video
     - field.field.node.news.field_video_description
     - field.field.node.news.field_video_title
-    - image.style.thumbnail
+    - image.style.medium
     - node.type.news
   module:
     - content_moderation
     - field_group
-    - image
+    - focal_point
     - paragraphs
     - path
     - text
@@ -185,12 +185,14 @@ content:
       display_label: true
     third_party_settings: {  }
   field_image:
-    type: image_image
+    type: image_focal_point
     weight: 3
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
   field_other_info:
     type: paragraphs

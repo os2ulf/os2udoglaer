@@ -10,9 +10,9 @@ dependencies:
     - field.field.block_content.appetizer.field_appetizer_orientation
     - field.field.block_content.appetizer.field_appetizer_text
     - field.field.block_content.appetizer.field_appetizer_text_alignment
-    - image.style.thumbnail
+    - image.style.medium
   module:
-    - image
+    - focal_point
     - styles
     - text
 _core:
@@ -41,12 +41,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_appetizer_image:
-    type: image_image
+    type: image_focal_point
     weight: 1
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
   field_appetizer_orientation:
     type: options_select

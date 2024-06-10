@@ -47,7 +47,7 @@ dependencies:
     - field.field.node.course_educators.field_video_title
     - field.field.node.course_educators.field_view_on_map
     - field.field.node.course_educators.field_youth_education_subject
-    - image.style.thumbnail
+    - image.style.medium
     - node.type.course_educators
     - workflows.workflow.editorial
   module:
@@ -57,7 +57,7 @@ dependencies:
     - datetime
     - datetime_range
     - field_group
-    - image
+    - focal_point
     - maxlength
     - metatag
     - paragraphs
@@ -555,12 +555,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_image:
-    type: image_image
+    type: image_focal_point
     weight: 6
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
   field_is_free:
     type: boolean_checkbox
