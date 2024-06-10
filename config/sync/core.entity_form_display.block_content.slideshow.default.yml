@@ -6,9 +6,9 @@ dependencies:
     - block_content.type.slideshow
     - field.field.block_content.slideshow.field_slideshow_autoplay
     - field.field.block_content.slideshow.field_slideshow_images
-    - image.style.thumbnail
+    - image.style.medium
   module:
-    - image
+    - focal_point
 _core:
   default_config_hash: PwgP7TYn7SL_SulZXB2dLEDq5o7-5goC4U48YUWQuKQ
 id: block_content.slideshow.default
@@ -24,12 +24,14 @@ content:
       display_label: true
     third_party_settings: {  }
   field_slideshow_images:
-    type: image_image
+    type: image_focal_point
     weight: 26
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
 hidden:
   info: true
