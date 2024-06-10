@@ -8,9 +8,9 @@ dependencies:
     - field.field.block_content.hero.field_hero_subtitle
     - field.field.block_content.hero.field_hero_title
     - field.field.block_content.hero.field_image_media
-    - image.style.thumbnail
+    - image.style.medium
   module:
-    - image
+    - focal_point
     - link
 _core:
   default_config_hash: 5fD3474ZrDGb6pQauE8tdb5rxiAJP1VbpBoxWcl1nNc
@@ -44,12 +44,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_image_media:
-    type: image_image
+    type: image_focal_point
     weight: 2
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
 hidden:
   info: true

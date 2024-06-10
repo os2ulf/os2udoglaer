@@ -5,10 +5,10 @@ dependencies:
   config:
     - field.field.paragraph.video.field_video_thumbnail
     - field.field.paragraph.video.field_video_url
-    - image.style.thumbnail
+    - image.style.medium
     - paragraphs.paragraphs_type.video
   module:
-    - image
+    - focal_point
     - link
 id: paragraph.video.default
 targetEntityType: paragraph
@@ -16,12 +16,14 @@ bundle: video
 mode: default
 content:
   field_video_thumbnail:
-    type: image_image
+    type: image_focal_point
     weight: 1
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
   field_video_url:
     type: link_default

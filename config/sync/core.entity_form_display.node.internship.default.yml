@@ -38,7 +38,7 @@ dependencies:
     - field.field.node.internship.field_video_description
     - field.field.node.internship.field_video_title
     - field.field.node.internship.field_view_on_map
-    - image.style.thumbnail
+    - image.style.medium
     - node.type.internship
     - workflows.workflow.editorial
   module:
@@ -46,7 +46,7 @@ dependencies:
     - content_moderation
     - datetime
     - field_group
-    - image
+    - focal_point
     - maxlength
     - metatag
     - paragraphs
@@ -433,12 +433,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_image:
-    type: image_image
+    type: image_focal_point
     weight: 7
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
   field_industry:
     type: options_buttons

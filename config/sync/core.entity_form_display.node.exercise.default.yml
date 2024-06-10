@@ -38,14 +38,14 @@ dependencies:
     - field.field.node.exercise.field_video_title
     - field.field.node.exercise.field_work_documents
     - field.field.node.exercise.field_youth_education_subject
-    - image.style.thumbnail
+    - image.style.medium
     - node.type.exercise
     - workflows.workflow.editorial
   module:
     - conditional_fields
     - content_moderation
     - field_group
-    - image
+    - focal_point
     - metatag
     - paragraphs
     - path
@@ -151,7 +151,6 @@ third_party_settings:
     group_materials:
       children:
         - field_work_documents
-        - field_materials
       label: Arbejdsark
       region: content
       parent_name: ''
@@ -442,12 +441,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_image:
-    type: image_image
+    type: image_focal_point
     weight: 3
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose

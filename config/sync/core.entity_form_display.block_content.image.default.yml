@@ -8,9 +8,9 @@ dependencies:
     - field.field.block_content.image.field_image_caption
     - field.field.block_content.image.field_image_link
     - field.field.block_content.image.field_image_media
-    - image.style.thumbnail
+    - image.style.medium
   module:
-    - image
+    - focal_point
     - premium_tools
 _core:
   default_config_hash: hKym4mVUgl9Lw6DJLa31vUA3KhJDJbNLXAWNr2vTR64
@@ -44,12 +44,14 @@ content:
       target_blank: 0
     third_party_settings: {  }
   field_image_media:
-    type: image_image
+    type: image_focal_point
     weight: 2
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
     third_party_settings: {  }
 hidden:
   info: true
