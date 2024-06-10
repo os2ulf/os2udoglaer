@@ -38,7 +38,8 @@ content:
     weight: '5'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      absolute: '1'
     third_party_settings: {  }
   link:
     type: link
