@@ -6,19 +6,24 @@ dependencies:
     - field.field.paragraph.video.field_video_thumbnail
     - field.field.paragraph.video.field_video_url
     - paragraphs.paragraphs_type.video
+    - responsive_image.styles.isg_video
+  module:
+    - transform_api_responsive_image
 id: paragraph.video.default
 targetEntityType: paragraph
 bundle: video
 mode: default
 content:
   field_video_thumbnail:
-    type: image_style
+    type: responsive_image
     weight: '0'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_video
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_video_url:
     type: link
