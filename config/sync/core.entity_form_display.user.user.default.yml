@@ -37,11 +37,11 @@ dependencies:
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
-    - image.style.thumbnail
+    - image.style.medium
   module:
     - conditional_fields
     - field_group
-    - image
+    - focal_point
     - link
     - paragraphs
     - text
@@ -477,14 +477,15 @@ content:
     third_party_settings:
       conditional_fields: {  }
   field_image:
-    type: image_image
+    type: image_focal_point
     weight: 5
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings:
-      conditional_fields: {  }
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings: {  }
   field_intro:
     type: text_textarea
     weight: 5
@@ -547,14 +548,15 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_logo:
-    type: image_image
+    type: image_focal_point
     weight: 6
     region: content
     settings:
       progress_indicator: throbber
-      preview_image_style: thumbnail
-    third_party_settings:
-      conditional_fields: {  }
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings: {  }
   field_mail:
     type: string_textfield
     weight: 10
