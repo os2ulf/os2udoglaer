@@ -1,0 +1,14 @@
+uuid: 8d693a81-cee2-4695-ae7d-3a927515d2a1
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_ude_nu
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_ude_nu
+label: 'Remove editors from the ude.nu domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_ude_nu

@@ -1,0 +1,14 @@
+uuid: bba42f0c-a234-45f2-9fd4-f5a0be49dc63
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_aabenaalborg_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.api_aabenaalborg_dk
+label: 'Remove selected content from the aabenaalborg.dk domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_aabenaalborg_dk

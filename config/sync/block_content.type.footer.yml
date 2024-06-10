@@ -1,0 +1,8 @@
+uuid: 4b621bb7-dd70-4978-b22a-5f2ad62eef3f
+langcode: da
+status: true
+dependencies: {  }
+id: footer
+label: Footer
+revision: 0
+description: 'Footeren som vises på sitet'

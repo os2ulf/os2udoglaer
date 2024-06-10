@@ -1,0 +1,9 @@
+uuid: a93c7dfe-90a2-445c-9630-a3aeb62d1371
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_ude_nu
+domain_id: api_ude_nu
+pattern: api-staging.ude.nu
+redirect: 0
+environment: staging

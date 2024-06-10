@@ -1,0 +1,14 @@
+uuid: 47fd3bd0-e014-446e-a546-be49a7207e7d
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_laeringsportalenskive_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.api_laeringsportalenskive_dk
+label: 'Remove selected content from the laeringsportalenskive.dk domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_laeringsportalenskive_dk

@@ -1,0 +1,11 @@
+uuid: b9981b02-f94a-4d42-99f2-308a52f6d181
+langcode: da
+status: true
+dependencies: {  }
+id: api_ungegarantien_dk
+domain_id: 13940715
+hostname: api.ungegarantien.dk
+name: ungegarantien.dk
+scheme: variable
+weight: 12
+is_default: false

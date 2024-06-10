@@ -1,0 +1,9 @@
+uuid: 258a9450-d38b-4d8a-9073-54b569e528ad
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_udsynmodarbejdsliv_dk
+domain_id: api_udsynmodarbejdsliv_dk
+pattern: api-staging.udsynmodarbejdsliv.dk
+redirect: 0
+environment: staging

@@ -1,0 +1,22 @@
+uuid: 9ea7e489-0e18-4011-a445-703aaedd9e17
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inspiration
+    - field.field.block_content.inspiration.field_content
+id: block_content.inspiration.default
+targetEntityType: block_content
+bundle: inspiration
+mode: default
+content:
+  field_content:
+    type: entity_transform
+    weight: '0'
+    region: content
+    label: omit
+    settings:
+      transform_mode: related_courses
+    third_party_settings: {  }
+hidden:
+  langcode: true

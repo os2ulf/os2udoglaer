@@ -1,0 +1,14 @@
+uuid: 1e5be565-b660-41de-9f83-c50c28351546
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_aabenaalborg_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_aabenaalborg_dk
+label: 'Add selected content to the aabenaalborg.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_aabenaalborg_dk

@@ -1,0 +1,14 @@
+uuid: f23070e2-a0cf-4bda-a0c9-a52e69c491c4
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_vejle_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_udoglaer_vejle_dk
+label: 'Remove editors from the udoglaer.vejle.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_udoglaer_vejle_dk

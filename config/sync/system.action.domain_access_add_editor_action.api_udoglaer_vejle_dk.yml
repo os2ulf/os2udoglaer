@@ -1,0 +1,14 @@
+uuid: 15185aa3-69de-4bb7-878a-e20bfb993edf
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_vejle_dk
+  module:
+    - domain_access
+id: domain_access_add_editor_action.api_udoglaer_vejle_dk
+label: 'Add editors to the udoglaer.vejle.dk domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: api_udoglaer_vejle_dk

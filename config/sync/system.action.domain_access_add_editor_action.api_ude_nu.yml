@@ -1,0 +1,14 @@
+uuid: 1d2f5999-c945-4a9d-b1eb-fa72500f1976
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_ude_nu
+  module:
+    - domain_access
+id: domain_access_add_editor_action.api_ude_nu
+label: 'Add editors to the ude.nu domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: api_ude_nu

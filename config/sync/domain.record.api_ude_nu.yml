@@ -1,0 +1,11 @@
+uuid: 9125ef8c-7d63-4f71-a5d5-1fde1bbd94e2
+langcode: da
+status: true
+dependencies: {  }
+id: api_ude_nu
+domain_id: 3718682
+hostname: api.ude.nu
+name: ude.nu
+scheme: variable
+weight: 11
+is_default: false

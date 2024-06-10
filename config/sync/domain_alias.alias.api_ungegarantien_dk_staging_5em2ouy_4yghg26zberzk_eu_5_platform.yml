@@ -1,0 +1,9 @@
+uuid: 9687fdbe-7179-400b-8245-5a7d47a56083
+langcode: da
+status: true
+dependencies: {  }
+id: api_ungegarantien_dk_staging_5em2ouy_4yghg26zberzk_eu_5_platform
+domain_id: api_ungegarantien_dk
+pattern: api.ungegarantien.dk.staging-5em2ouy-4yghg26zberzk.eu-5.platformsh.site
+redirect: 0
+environment: staging

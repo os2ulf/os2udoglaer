@@ -7,7 +7,17 @@ router_http_port: "80"
 router_https_port: "443"
 xdebug_enabled: false
 additional_hostnames:
-    - aarhus.os2udoglaer
+    - ulfiaarhus.os2udoglaer
+    - aabenaalborg.os2udoglaer
+    - klcviborg.os2udoglaer
+    - laeringsportalenskive.os2udoglaer
+    - mitvadehav.os2udoglaer
+    - rum.thisted.os2udoglaer
+    - udoglaer.randers.os2udoglaer
+    - udoglaer.vejle.os2udoglaer
+    - udenu.os2udoglaer
+    - ungegarantien.os2udoglaer
+    - udsynmodarbejdsliv.os2udoglaer
 additional_fqdns: []
 database:
     type: mariadb

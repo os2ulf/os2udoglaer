@@ -18,7 +18,7 @@ field_name: field_location_description
 entity_type: node
 bundle: internship
 label: Sted
-description: ''
+description: "Eks. 'Store Sal', 'Brug højre indgang - ring på dørklokken' "
 required: false
 translatable: false
 default_value: {  }

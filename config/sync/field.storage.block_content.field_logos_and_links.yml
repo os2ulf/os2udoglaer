@@ -1,0 +1,21 @@
+uuid: 4820d255-e34c-4729-9bc6-f80f105a2118
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+    - entity_reference_revisions
+    - paragraphs
+id: block_content.field_logos_and_links
+field_name: field_logos_and_links
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 8
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -33,3 +33,93 @@
 
       # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
       cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.aabenaalborg.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.klcviborg.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.laeringsportalenskive.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.rum.thisted.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.udoglaer.randers.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.udoglaer.vejle.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.ude.nu":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.ulfiaarhus.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.ungegarantien.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
+"https://api.udsynmodarbejdsliv.dk":
+    type: upstream
+    upstream: "app:http"
+    cache:
+      enabled: true
+
+      # Base the cache on the session cookie and custom Drupal cookies. Ignore all other cookies.
+      cookies: ['/^SS?ESS/', '/^Drupal.visitor/']

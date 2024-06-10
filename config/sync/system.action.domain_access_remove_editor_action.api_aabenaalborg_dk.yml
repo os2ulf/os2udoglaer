@@ -1,0 +1,14 @@
+uuid: 1e66a8d5-e865-487d-9fac-4c159f5cf837
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_aabenaalborg_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_aabenaalborg_dk
+label: 'Remove editors from the aabenaalborg.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_aabenaalborg_dk
