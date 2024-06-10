@@ -7,33 +7,32 @@ use Drupal\image_style_generator\StyleViewModeInterface;
 
 /**
  * @StyleGroup(
- *  id = "course_header",
- *  title = "Course Header",
+ *  id = "appetizer",
+ *  title = "Appetizer",
  *  view_modes = {
  *  }
  * )
  */
-class CourseHeader extends StyleGroupBase {
+class Appetizer extends StyleGroupBase {
 
   public function getCrop(string $breakpoint, int $width, int $multiplier, ?StyleViewModeInterface $view_mode = NULL): array {
-    $calculated_width = 1584;
-    $calculated_height = 700;
+    $calculated_width = 1584 / 2;
+    $calculated_height = 600;
 
     if ($breakpoint === 'lighthouse') {
       $calculated_width = 388 * $multiplier;
-      $calculated_height = 250 * $multiplier;
+      $calculated_height = 400 * $multiplier;
     } else if ($breakpoint === 'xxs') {
       $calculated_width = 456 * $multiplier;
-      $calculated_height = 320 * $multiplier;
+      $calculated_height = 400 * $multiplier;
     } else if ($breakpoint === 'xs') {
       $calculated_width = 743 * $multiplier;
-      $calculated_height = 500 * $multiplier;
+      $calculated_height = 400 * $multiplier;
     } else if ($breakpoint === 'sm') {
-      $calculated_width = 967;
+      $calculated_width = 967 / 2;
       $calculated_height = 500;
     } else if ($breakpoint === 'md') {
-      $calculated_width = 1151;
-      $calculated_height = 600;
+      $calculated_width = 1151 / 2;
     }
 
     return [
