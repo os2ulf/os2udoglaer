@@ -1,0 +1,71 @@
+uuid: 8eec158b-0f8f-4b5c-9e2c-092c7f9d8295
+langcode: da
+status: true
+dependencies:
+  config:
+    - image.style.isg_focal_point_1486_836
+    - image.style.isg_focal_point_388_219
+    - image.style.isg_focal_point_456_257
+    - image.style.isg_focal_point_472_266
+    - image.style.isg_focal_point_562_317
+    - image.style.isg_focal_point_743_418
+    - image.style.isg_focal_point_768_432
+    - image.style.isg_focal_point_776_437
+    - image.style.isg_focal_point_912_513
+  theme:
+    - os2udoglaer
+id: isg_video
+label: Video
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_768_432
+    breakpoint_id: os2udoglaer.xl
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_768_432
+    breakpoint_id: os2udoglaer.lg
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_562_317
+    breakpoint_id: os2udoglaer.md
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_472_266
+    breakpoint_id: os2udoglaer.sm
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_743_418
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_1486_836
+    breakpoint_id: os2udoglaer.xs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_456_257
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_912_513
+    breakpoint_id: os2udoglaer.xxs
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_388_219
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: isg_focal_point_776_437
+    breakpoint_id: os2udoglaer.lighthouse
+    multiplier: 2x
+breakpoint_group: os2udoglaer
+fallback_image_style: isg_focal_point_388_219
