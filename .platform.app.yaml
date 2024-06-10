@@ -1,4 +1,4 @@
-name: app
+name: backend
 type: 'php:8.2'
 runtime:
     extensions:
