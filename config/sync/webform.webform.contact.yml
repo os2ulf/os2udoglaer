@@ -17,27 +17,22 @@ id: contact
 title: Kontakt
 description: 'Basic email contact webform.'
 categories: {  }
-elements: |
-  name:
-    '#title': 'Your Name'
+elements: |-
+  first_name:
     '#type': textfield
-    '#required': true
-    '#default_value': '[current-user:display-name]'
-  email:
-    '#title': 'Your Email'
+    '#title': Fornavn
+  last_name:
+    '#type': textfield
+    '#title': Efternavn
+  phone_number:
+    '#type': textfield
+    '#title': Telefonnummer
+  email_address:
     '#type': email
-    '#required': true
-    '#default_value': '[current-user:mail]'
-  subject:
-    '#title': Subject
-    '#type': textfield
-    '#required': true
-    '#test': 'Testing contact webform from [site:name]'
+    '#title': E-mailadresse
   message:
-    '#title': Message
     '#type': textarea
-    '#required': true
-    '#test': 'Please ignore this email.'
+    '#title': 'Uddyb venligst din henvendelse'
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
@@ -231,7 +226,7 @@ handlers:
     handler_id: email_confirmation
     label: E-mail-bekræftelse
     notes: ''
-    status: true
+    status: false
     conditions: {  }
     weight: 1
     settings:
@@ -268,7 +263,7 @@ handlers:
     handler_id: email_notification
     label: E-mail-notifikation
     notes: ''
-    status: true
+    status: false
     conditions: {  }
     weight: 2
     settings:
