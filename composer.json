@@ -206,6 +206,9 @@
             "drupal/redis": {
                 "(#3337750) DivisionByZeroError - Problem to access Status Page on PHP 8.1.14": "https://www.drupal.org/files/issues/2023-02-24/redis_status_page_divizion_by_zero_error_php8_1_14_3337750-11.patch"
             },
+            "drupal/sharedemail": {
+                "(#3420685) Error when creating a new user.": "https://www.drupal.org/files/issues/2024-06-06/3420685-user-create-error-6.patch"
+            },
             "drupal/transform_api": {
                 "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch"
             }
