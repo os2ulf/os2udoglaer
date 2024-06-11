@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_email
     - field.field.node.course_educators.field_registration_phone
+    - field.field.node.course_educators.field_registration_procedure
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
     - field.field.node.course_educators.field_related_courses
@@ -105,6 +106,7 @@ third_party_settings:
         speed: fast
     group_sign_up:
       children:
+        - field_registration_procedure
         - field_registration_deadline
         - field_registration_title
         - field_registration_url
@@ -741,13 +743,13 @@ content:
     third_party_settings: {  }
   field_registration_deadline:
     type: datetime_default
-    weight: 60
+    weight: 62
     region: content
     settings: {  }
     third_party_settings: {  }
   field_registration_email:
     type: email_default
-    weight: 63
+    weight: 65
     region: content
     settings:
       placeholder: ''
@@ -755,15 +757,23 @@ content:
     third_party_settings: {  }
   field_registration_phone:
     type: string_textfield
-    weight: 64
+    weight: 66
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_registration_procedure:
+    type: text_textarea
+    weight: 61
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_registration_title:
     type: string_textfield
-    weight: 61
+    weight: 63
     region: content
     settings:
       size: 60
@@ -771,7 +781,7 @@ content:
     third_party_settings: {  }
   field_registration_url:
     type: string_textfield
-    weight: 62
+    weight: 64
     region: content
     settings:
       size: 60
