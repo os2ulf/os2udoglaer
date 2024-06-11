@@ -56,7 +56,6 @@ hooks:
     deploy: |
         set -e
         mkdir -p /app/webroot/sites/default/files/translations
-        chown -R www-data:www-data /app/webroot/sites/default/files/translations
         chmod -R 755 /app/webroot/sites/default/files/translations
         cd /app/webroot
         /app/vendor/bin/drush -y sset system.maintenance_mode 1 --input-format=integer
