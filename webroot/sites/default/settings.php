@@ -875,3 +875,5 @@ $config['smtp.settings'] = [
   'smtp_fromname' => getenv('SMTP_FROMNAME') ?: 'OS2udoglær',
   'smtp_allowhtml' => getenv('SMTP_ALLOWHTML') ?: 1,
 ];
+
+$settings['locale_translate_directory'] = 'translations://';
