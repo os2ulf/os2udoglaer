@@ -88,13 +88,6 @@ third_party_settings:
         id: ''
         description: ''
         required_fields: true
-        element: details
-        show_label: true
-        label_element: summary
-        label_element_classes: ''
-        attributes: 'open="open"'
-        effect: none
-        speed: fast
     group_other_info:
       children:
         - field_other_info_description

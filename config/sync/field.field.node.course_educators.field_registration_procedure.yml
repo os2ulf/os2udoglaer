@@ -1,0 +1,29 @@
+uuid: 25928f59-372c-415e-adb0-24eebd43750d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_registration_procedure
+    - filter.format.basic_html
+    - node.type.course_educators
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.course_educators.field_registration_procedure
+field_name: field_registration_procedure
+entity_type: node
+bundle: course_educators
+label: Tilmeldingsprocedure
+description: 'Beskrivelse af tilmeldingsprocedure.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
