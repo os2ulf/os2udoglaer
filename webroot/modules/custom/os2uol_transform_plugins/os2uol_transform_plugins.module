@@ -1,0 +1,13 @@
+<?php
+
+function os2uol_transform_plugins_block_content_transform_alter(&$transformation) {
+  if ($transformation['bundle'] == 'appetizer') {
+
+    $transform_mode = 'small';
+    if ($transformation['field_appetizer_image']->getValue('transform_mode') === 'width_100') {
+      $transform_mode = 'default';
+    }
+
+    $transformation['appetizer_size'] = $transform_mode;
+  }
+}
