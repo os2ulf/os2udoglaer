@@ -42,9 +42,11 @@
         "drupal/core-project-message": "^10",
         "drupal/core-recommended": "^10",
         "drupal/core-vendor-hardening": "^9.0",
+        "drupal/diff": "^1.7",
         "drupal/domain": "^2.0@beta",
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_clone": "^2.0@beta",
+        "drupal/entity_diff_ui": "^2.0@alpha",
         "drupal/entity_usage": "^2.0-beta3",
         "drupal/field_group": "^3.0",
         "drupal/focal_point": "^2.0",
@@ -205,6 +207,9 @@
             },
             "drupal/redis": {
                 "(#3337750) DivisionByZeroError - Problem to access Status Page on PHP 8.1.14": "https://www.drupal.org/files/issues/2023-02-24/redis_status_page_divizion_by_zero_error_php8_1_14_3337750-11.patch"
+            },
+            "drupal/sharedemail": {
+                "(#3420685) Error when creating a new user.": "https://www.drupal.org/files/issues/2024-06-06/3420685-user-create-error-6.patch"
             },
             "drupal/transform_api": {
                 "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch"
