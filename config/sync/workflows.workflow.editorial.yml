@@ -7,6 +7,7 @@ dependencies:
     - node.type.course_educators
     - node.type.exercise
     - node.type.internship
+    - node.type.news
   module:
     - content_moderation
 _core:
@@ -62,4 +63,5 @@ type_settings:
       - course_educators
       - exercise
       - internship
+      - news
   default_moderation_state: draft

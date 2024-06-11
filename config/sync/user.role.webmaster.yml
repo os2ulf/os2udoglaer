@@ -31,6 +31,7 @@ dependencies:
     - node.type.course_educators
     - node.type.exercise
     - node.type.internship
+    - node.type.news
     - node.type.page
     - taxonomy.vocabulary.areas_of_interest
     - taxonomy.vocabulary.banner
@@ -216,6 +217,7 @@ permissions:
   - 'create inline_navigation block content'
   - 'create internship content'
   - 'create media'
+  - 'create news content'
   - 'create page content'
   - 'create quote block content'
   - 'create remote_video media'
@@ -268,6 +270,7 @@ permissions:
   - 'delete any inline_navigation block content'
   - 'delete any internship content'
   - 'delete any media'
+  - 'delete any news content'
   - 'delete any page content'
   - 'delete any quote block content'
   - 'delete any remote_video media'
@@ -285,6 +288,7 @@ permissions:
   - 'delete exercise revisions'
   - 'delete internship revisions'
   - 'delete media'
+  - 'delete news revisions'
   - 'delete own audio media'
   - 'delete own course content'
   - 'delete own course_educators content'
@@ -293,6 +297,7 @@ permissions:
   - 'delete own files'
   - 'delete own image media'
   - 'delete own internship content'
+  - 'delete own news content'
   - 'delete own page content'
   - 'delete own remote_video media'
   - 'delete own video media'
@@ -336,6 +341,7 @@ permissions:
   - 'edit any image media'
   - 'edit any inline_navigation block content'
   - 'edit any internship content'
+  - 'edit any news content'
   - 'edit any page content'
   - 'edit any quote block content'
   - 'edit any remote_video media'
@@ -355,6 +361,7 @@ permissions:
   - 'edit own exercise content'
   - 'edit own image media'
   - 'edit own internship content'
+  - 'edit own news content'
   - 'edit own page content'
   - 'edit own remote_video media'
   - 'edit own video media'
@@ -389,6 +396,7 @@ permissions:
   - 'revert course_educators revisions'
   - 'revert exercise revisions'
   - 'revert internship revisions'
+  - 'revert news revisions'
   - 'revert page revisions'
   - 'select account cancellation method'
   - 'set default domain configuration'
@@ -425,6 +433,7 @@ permissions:
   - 'view any unpublished course_educators content'
   - 'view any unpublished exercise content'
   - 'view any unpublished internship content'
+  - 'view any unpublished news content'
   - 'view any unpublished page content'
   - 'view any video media revisions'
   - 'view any webform submission'
@@ -435,6 +444,7 @@ permissions:
   - 'view exercise revisions'
   - 'view internship revisions'
   - 'view latest version'
+  - 'view news revisions'
   - 'view own unpublished content'
   - 'view own unpublished media'
   - 'view own webform submission'
