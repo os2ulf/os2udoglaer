@@ -55,7 +55,17 @@ function os2uol_users_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateIn
   // If the user does not have the allowed role, hide the field_roles field.
   if (!$has_allowed_role) {
     if (isset($form['field_roles'])) {
-      $form['field_roles']['#access'] = FALSE;
+      $form['field_roles']['#attributes']['class'][] = 'hidden';
+    }
+  }
+
+  // Check if the current user has the corporation role.
+  $has_corporation_role = $current_user->hasRole('corporation');
+
+  // If the user has corporation role, hide the field_guarantee_partner field.
+  if ($has_corporation_role) {
+    if (isset($form['field_guarantee_partner'])) {
+      $form['field_guarantee_partner']['#access'] = FALSE;
     }
   }
 }
