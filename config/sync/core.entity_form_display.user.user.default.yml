@@ -127,11 +127,11 @@ third_party_settings:
         required_fields: true
     group_alternative_address:
       children:
-        - field_location_name
         - field_location_street
+        - field_location_name
         - field_location_zipcode
         - field_location_city
-      label: 'Alternativ adresse'
+      label: Adresse
       region: content
       parent_name: group_location
       weight: 26
@@ -384,27 +384,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings:
-      conditional_fields:
-        e0baf9c1-80f1-4072-91fe-ba45bcbc759b:
-          entity_type: user
-          bundle: user
-          dependee: field_roles
-          settings:
-            state: visible
-            reset: false
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              -
-                target_id: editor
-              -
-                target_id: webmaster
-            effect: show
-            effect_options: {  }
-            selector: ''
+      conditional_fields: {  }
   field_educational_profile:
     type: text_textarea
     weight: 4
@@ -425,7 +405,7 @@ content:
             grouping: OR
             values_set: 1
             value: ''
-            values: {  }
+            values: "corporation\r\nplace_of_visit"
             value_form:
               -
                 target_id: course_provider
@@ -510,7 +490,7 @@ content:
             selector: ''
   field_location_city:
     type: string_textfield
-    weight: 31
+    weight: 32
     region: content
     settings:
       size: 60
@@ -518,7 +498,7 @@ content:
     third_party_settings: {  }
   field_location_name:
     type: string_textfield
-    weight: 28
+    weight: 30
     region: content
     settings:
       size: 60
@@ -534,7 +514,7 @@ content:
     third_party_settings: {  }
   field_location_zipcode:
     type: string_textfield
-    weight: 30
+    weight: 31
     region: content
     settings:
       size: 60
@@ -797,7 +777,7 @@ content:
           bundle: user
           dependee: field_view_on_map
           settings:
-            state: visible
+            state: '!visible'
             reset: false
             condition: value
             grouping: AND
@@ -806,7 +786,7 @@ content:
             values: {  }
             value_form:
               -
-                value: show_on_map
+                value: hidden_on_map
             effect: show
             effect_options: {  }
             selector: ''
@@ -871,6 +851,36 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+            effect: show
+            effect_options: {  }
+            selector: ''
+            inheritance:
+              propagate: '0'
+              apply_to_parent: '0'
+              recurse: '0'
+  group_editor_settings:
+    weight: 59
+    region: content
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        516748b7-15e2-47ee-8449-14cd1ef013f1:
+          entity_type: user
+          bundle: user
+          dependee: field_roles
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: OR
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: editor
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
