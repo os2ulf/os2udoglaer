@@ -17,6 +17,7 @@ dependencies:
 disk: 5000
 mounts:
     '/webroot/sites/default/files': 'shared:files/files'
+    '/webroot/sites/default/files/translations': 'shared:files/translations'
     '/tmp': 'shared:files/tmp'
     '/private': 'shared:files/private'
     '/.drush': 'shared:files/.drush'
@@ -54,6 +55,8 @@ web:
 hooks:
     deploy: |
         set -e
+        mkdir -p /app/webroot/sites/default/files/translations
+        chmod -R 755 /app/webroot/sites/default/files/translations
         cd /app/webroot
         /app/vendor/bin/drush -y sset system.maintenance_mode 1 --input-format=integer
         /app/vendor/bin/drush -y cache-rebuild
