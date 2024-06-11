@@ -36,6 +36,7 @@ dependencies:
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_email
     - field.field.node.course_educators.field_registration_phone
+    - field.field.node.course_educators.field_registration_procedure
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
     - field.field.node.course_educators.field_related_courses
@@ -107,6 +108,7 @@ hidden:
   field_registration_deadline: true
   field_registration_email: true
   field_registration_phone: true
+  field_registration_procedure: true
   field_registration_title: true
   field_registration_url: true
   field_related_courses: true
