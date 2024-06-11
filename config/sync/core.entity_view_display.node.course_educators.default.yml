@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_email
     - field.field.node.course_educators.field_registration_phone
+    - field.field.node.course_educators.field_registration_procedure
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
     - field.field.node.course_educators.field_related_courses
@@ -333,6 +334,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 26
+    region: content
+  field_registration_procedure:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 163
     region: content
   field_registration_title:
     type: string
