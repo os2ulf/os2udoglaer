@@ -2,8 +2,11 @@ uuid: 17fd25b7-fc3f-4ab6-8397-a7ae9d724977
 langcode: da
 status: true
 dependencies:
+  config:
+    - rest.resource.webform_rest_submit
   module:
     - media
+    - rest
     - search_api_page
     - system
 _core:
@@ -15,5 +18,6 @@ is_admin: false
 permissions:
   - 'access content'
   - 'access user profiles'
+  - 'restful post webform_rest_submit'
   - 'view media'
   - 'view search api pages'

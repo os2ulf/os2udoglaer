@@ -1,4 +1,4 @@
-uuid: 2c56662a-5f00-4ecc-97b0-607195406a03
+uuid: dd71ecc0-fd48-4830-9ea9-deb7d981b8cc
 langcode: da
 status: open
 dependencies:
@@ -10,34 +10,23 @@ _core:
 weight: 0
 open: null
 close: null
-uid: null
+uid: 1
 template: false
 archive: false
-id: contact
-title: Kontakt
-description: 'Basic email contact webform.'
+id: contact_provider
+title: 'Kontakt udbyder'
+description: '<p>Basic email contact webform.</p>'
 categories: {  }
-elements: |
+elements: |-
   name:
-    '#title': 'Your Name'
     '#type': textfield
-    '#required': true
-    '#default_value': '[current-user:display-name]'
+    '#title': Navn
   email:
-    '#title': 'Your Email'
     '#type': email
-    '#required': true
-    '#default_value': '[current-user:mail]'
-  subject:
-    '#title': Subject
-    '#type': textfield
-    '#required': true
-    '#test': 'Testing contact webform from [site:name]'
+    '#title': Email
   message:
-    '#title': Message
     '#type': textarea
-    '#required': true
-    '#test': 'Please ignore this email.'
+    '#title': Besked
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
@@ -231,7 +220,7 @@ handlers:
     handler_id: email_confirmation
     label: E-mail-bekræftelse
     notes: ''
-    status: true
+    status: false
     conditions: {  }
     weight: 1
     settings:
@@ -268,7 +257,7 @@ handlers:
     handler_id: email_notification
     label: E-mail-notifikation
     notes: ''
-    status: true
+    status: false
     conditions: {  }
     weight: 2
     settings:

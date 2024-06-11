@@ -65,3 +65,4 @@ cloneable_entities:
   - solr_field_type
   - solr_cache
   - solr_request_dispatcher
+  - rest_resource_config
