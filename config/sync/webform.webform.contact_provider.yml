@@ -18,15 +18,12 @@ title: 'Kontakt udbyder'
 description: '<p>Basic email contact webform.</p>'
 categories: {  }
 elements: |-
-  first_name:
+  name:
     '#type': textfield
-    '#title': Fornavn
-  last_name:
-    '#type': textfield
-    '#title': Efternavn
-  email_address:
+    '#title': Navn
+  email:
     '#type': email
-    '#title': E-mailadresse
+    '#title': Email
   message:
     '#type': textarea
     '#title': Besked
