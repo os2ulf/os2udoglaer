@@ -1,0 +1,10 @@
+uuid: 580ac884-4a01-447d-b3f9-3d73dd03135c
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user.courses
+label: Courses
+targetEntityType: user
+cache: true
