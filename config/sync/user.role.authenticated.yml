@@ -6,7 +6,6 @@ dependencies:
     - filter.format.basic_html
   module:
     - filter
-    - media
     - search_api_page
     - shortcut
     - system
@@ -21,5 +20,4 @@ permissions:
   - 'access shortcuts'
   - 'access user profiles'
   - 'use text format basic_html'
-  - 'view media'
   - 'view search api pages'
