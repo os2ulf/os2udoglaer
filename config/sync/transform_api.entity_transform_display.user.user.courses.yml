@@ -1,0 +1,97 @@
+uuid: ccce40ab-2f23-4a37-86fe-ef24b724b3fb
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_allocated_budget
+    - field.field.user.user.field_bypass_workflow
+    - field.field.user.user.field_contact
+    - field.field.user.user.field_cvr
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
+    - field.field.user.user.field_editor_field
+    - field.field.user.user.field_educational_profile
+    - field.field.user.user.field_guarantee_partner
+    - field.field.user.user.field_homepage
+    - field.field.user.user.field_image
+    - field.field.user.user.field_intro
+    - field.field.user.user.field_location_city
+    - field.field.user.user.field_location_name
+    - field.field.user.user.field_location_street
+    - field.field.user.user.field_location_zipcode
+    - field.field.user.user.field_logo
+    - field.field.user.user.field_mail
+    - field.field.user.user.field_name
+    - field.field.user.user.field_other_info
+    - field.field.user.user.field_other_info_description
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_presentation
+    - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_enabled
+    - field.field.user.user.field_pretix_event_form
+    - field.field.user.user.field_pretix_organizer_form
+    - field.field.user.user.field_pretix_url
+    - field.field.user.user.field_roles
+    - field.field.user.user.field_video
+    - field.field.user.user.field_video_description
+    - field.field.user.user.field_video_title
+    - field.field.user.user.field_view_on_map
+    - transform_api.entity_transform_mode.user.courses
+  module:
+    - user
+id: user.user.courses
+targetEntityType: user
+bundle: user
+mode: courses
+content:
+  field_logo:
+    type: image_style
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_name:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_allocated_budget: true
+  field_bypass_workflow: true
+  field_contact: true
+  field_cvr: true
+  field_domain_access: true
+  field_domain_admin: true
+  field_domain_all_affiliates: true
+  field_editor_field: true
+  field_educational_profile: true
+  field_guarantee_partner: true
+  field_homepage: true
+  field_image: true
+  field_intro: true
+  field_location_city: true
+  field_location_name: true
+  field_location_street: true
+  field_location_zipcode: true
+  field_mail: true
+  field_other_info: true
+  field_other_info_description: true
+  field_phone: true
+  field_presentation: true
+  field_pretix_api_token: true
+  field_pretix_enabled: true
+  field_pretix_event_form: true
+  field_pretix_organizer_form: true
+  field_pretix_url: true
+  field_roles: true
+  field_video: true
+  field_video_description: true
+  field_video_title: true
+  field_view_on_map: true
+  langcode: true
