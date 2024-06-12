@@ -1,5 +1,7 @@
 <?php
 
+use Drupal\transform_api\Transform\EntityTransform;
+
 function os2uol_transform_plugins_block_content_transform_alter(&$transformation) {
   if ($transformation['bundle'] == 'appetizer') {
 
@@ -9,5 +11,13 @@ function os2uol_transform_plugins_block_content_transform_alter(&$transformation
     }
 
     $transformation['appetizer_size'] = $transform_mode;
+  }
+}
+
+function os2uol_transform_plugins_node_transform_alter(&$transformation) {
+  // Check if user role is provider.
+  if ($transformation['#entity']->get('uid')->entity->hasRole('course_provider')) {
+    // Add user transform object to transformation.
+    $transformation['provider'] = EntityTransform::createFromEntity($transformation['#entity']->get('uid')->entity, 'courses');
   }
 }
