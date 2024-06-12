@@ -32,12 +32,11 @@ content:
       image_link: ''
     third_party_settings: {  }
   field_contact_info:
-    type: plain_text
+    type: text_format
     weight: '0'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
     third_party_settings: {  }
   field_contact_page_url:
     type: link
