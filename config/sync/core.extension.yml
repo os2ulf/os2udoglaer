@@ -74,8 +74,6 @@ module:
   locale: 0
   mailsystem: 0
   maxlength: 0
-  media: 0
-  media_icons: 0
   menu_item_fields: 0
   menu_item_fields_ui: 0
   menu_link_content: 0
