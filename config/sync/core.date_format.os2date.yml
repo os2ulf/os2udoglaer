@@ -5,4 +5,4 @@ dependencies: {  }
 id: os2date
 label: os2date
 locked: false
-pattern: m.d.Y
+pattern: d.m.Y
