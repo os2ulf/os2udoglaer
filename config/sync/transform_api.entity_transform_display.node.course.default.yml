@@ -292,7 +292,7 @@ content:
     label: omit
     settings:
       timezone_override: ''
-      format_type: medium
+      format_type: os2date
     third_party_settings: {  }
   field_registration_description:
     type: text_format
