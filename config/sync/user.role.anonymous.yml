@@ -5,7 +5,6 @@ dependencies:
   config:
     - rest.resource.webform_rest_submit
   module:
-    - media
     - rest
     - search_api_page
     - system
@@ -19,5 +18,4 @@ permissions:
   - 'access content'
   - 'access user profiles'
   - 'restful post webform_rest_submit'
-  - 'view media'
   - 'view search api pages'
