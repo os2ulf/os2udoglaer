@@ -274,6 +274,8 @@ content:
             value_form:
               -
                 target_id: theater_contact
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -343,6 +345,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -411,6 +415,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -437,6 +443,8 @@ content:
             value_form:
               -
                 target_id: corporation
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -485,6 +493,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -558,6 +568,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -633,6 +645,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -655,6 +669,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -851,6 +867,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -917,6 +935,8 @@ content:
                 target_id: place_of_visit
               -
                 target_id: school
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -949,6 +969,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
@@ -981,6 +1003,8 @@ content:
                 target_id: course_provider
               -
                 target_id: place_of_visit
+              -
+                target_id: webmaster
             effect: show
             effect_options: {  }
             selector: ''
