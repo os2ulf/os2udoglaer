@@ -26,27 +26,51 @@ third_party_settings:
     allow_custom: true
   layout_builder_restrictions:
     allowed_block_categories:
-      - 'Chaos Tools'
+      - Block
+      - Bruger
       - 'Content fields'
       - 'Custom block types'
+      - 'Custom blocks'
       - Devel
+      - Domain
       - Forms
       - Help
       - 'Inline blocks'
       - 'Lists (Views)'
+      - 'Menu Item Fields'
       - Menus
       - Premium
       - System
-      - User
       - Webform
+      - Workbench
       - core
     entity_view_mode_restriction:
       allowed_layouts:
         - layout_onecol
         - layout_twocol_section
         - layout_threecol_section
+      denylisted_blocks:
+        'Inline blocks':
+          - 'inline_block:footer'
+      allowlisted_blocks: {  }
       restricted_categories:
+        - Block
+        - Bruger
+        - 'Content fields'
+        - 'Custom block types'
+        - 'Custom blocks'
         - Devel
+        - Domain
+        - Forms
+        - Help
+        - 'Lists (Views)'
+        - 'Menu Item Fields'
+        - Menus
+        - Premium
+        - System
+        - Webform
+        - Workbench
+        - core
       whitelisted_blocks:
         'Chaos Tools': {  }
         'Content fields': {  }
