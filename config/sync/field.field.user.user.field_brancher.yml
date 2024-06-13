@@ -1,0 +1,30 @@
+uuid: 04f32a7e-f114-4bbb-9596-418067117077
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_brancher
+    - taxonomy.vocabulary.industries
+  module:
+    - user
+id: user.user.field_brancher
+field_name: field_brancher
+entity_type: user
+bundle: user
+label: Brancher
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      industries: industries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

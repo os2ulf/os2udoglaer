@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_allocated_budget
+    - field.field.user.user.field_brancher
     - field.field.user.user.field_bypass_workflow
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
@@ -26,13 +27,13 @@ dependencies:
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
+    - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
     - field.field.user.user.field_pretix_enabled
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
-    - field.field.user.user.field_roles
     - field.field.user.user.field_video
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
@@ -59,6 +60,14 @@ content:
       link: ''
     third_party_settings: {  }
     weight: 22
+    region: content
+  field_brancher:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 33
     region: content
   field_contact:
     type: entity_reference_revisions_entity_view
@@ -207,6 +216,14 @@ content:
     third_party_settings: {  }
     weight: 13
     region: content
+  field_postnummer:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 34
+    region: content
   field_presentation:
     type: text_default
     label: above
@@ -227,14 +244,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 17
-    region: content
-  field_roles:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 19
     region: content
   field_video:
     type: entity_reference_revisions_entity_view

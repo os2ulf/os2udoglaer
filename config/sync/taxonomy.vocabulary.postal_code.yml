@@ -1,0 +1,8 @@
+uuid: 6b880eae-5148-477e-a581-a57fa3a1b159
+langcode: da
+status: true
+dependencies: {  }
+name: Postnummer
+vid: postal_code
+description: ''
+weight: 0
