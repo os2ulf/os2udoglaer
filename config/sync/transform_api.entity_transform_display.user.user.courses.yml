@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.user.user.field_allocated_budget
+    - field.field.user.user.field_brancher
     - field.field.user.user.field_bypass_workflow
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
@@ -26,13 +27,13 @@ dependencies:
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
+    - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
     - field.field.user.user.field_pretix_enabled
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
-    - field.field.user.user.field_roles
     - field.field.user.user.field_video
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
@@ -45,14 +46,63 @@ targetEntityType: user
 bundle: user
 mode: courses
 content:
+  field_cvr:
+    type: value
+    weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_homepage:
+    type: link
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_city:
+    type: value
+    weight: '8'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_name:
+    type: value
+    weight: '6'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_street:
+    type: value
+    weight: '7'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_zipcode:
+    type: value
+    weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_logo:
     type: image_style
-    weight: '1'
+    weight: '5'
     region: content
     label: omit
     settings:
       image_style: ''
       image_link: ''
+    third_party_settings: {  }
+  field_mail:
+    type: value
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_name:
     type: value
@@ -61,35 +111,35 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_phone:
+    type: value
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_allocated_budget: true
+  field_brancher: true
   field_bypass_workflow: true
   field_contact: true
-  field_cvr: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
   field_editor_field: true
   field_educational_profile: true
   field_guarantee_partner: true
-  field_homepage: true
   field_image: true
   field_intro: true
-  field_location_city: true
-  field_location_name: true
-  field_location_street: true
-  field_location_zipcode: true
-  field_mail: true
   field_other_info: true
   field_other_info_description: true
-  field_phone: true
+  field_postnummer: true
   field_presentation: true
   field_pretix_api_token: true
   field_pretix_enabled: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true
   field_pretix_url: true
-  field_roles: true
   field_video: true
   field_video_description: true
   field_video_title: true

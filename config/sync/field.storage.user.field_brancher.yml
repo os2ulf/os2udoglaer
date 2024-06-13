@@ -1,15 +1,16 @@
-uuid: 06e0a615-2a90-4f40-bf6b-a08446bc1652
+uuid: caf14f6a-36e8-493a-affe-ab1069a787be
 langcode: da
 status: true
 dependencies:
   module:
+    - taxonomy
     - user
-id: user.field_roles
-field_name: field_roles
+id: user.field_brancher
+field_name: field_brancher
 entity_type: user
 type: entity_reference
 settings:
-  target_type: user_role
+  target_type: taxonomy_term
 module: core
 locked: false
 cardinality: -1
