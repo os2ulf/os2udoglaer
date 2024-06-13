@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.course.field_description_of_price
     - field.field.node.course.field_domain_access
     - field.field.node.course.field_duration
-    - field.field.node.course.field_duration_unit
+    - field.field.node.course.field_duration_unit_taxonomy
     - field.field.node.course.field_exclude_from_profile
     - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
@@ -114,7 +114,7 @@ third_party_settings:
       label: Verdensmål
       region: content
       parent_name: group_theme_subject_area
-      weight: 8
+      weight: 22
       format_type: fieldset
       format_settings:
         classes: ''
@@ -154,7 +154,7 @@ third_party_settings:
       label: Faciliteter
       region: content
       parent_name: group_lokation
-      weight: 7
+      weight: 59
       format_type: fieldset
       format_settings:
         classes: ''
@@ -214,7 +214,7 @@ third_party_settings:
       label: 'Alternativ adresse'
       region: content
       parent_name: group_lokation
-      weight: 5
+      weight: 57
       format_type: fieldset
       format_settings:
         classes: ''
@@ -226,6 +226,7 @@ third_party_settings:
       children:
         - field_duration
         - field_duration_unit
+        - field_duration_unit_taxonomy
         - field_description_of_duration
       label: Varighed
       region: content
@@ -481,7 +482,7 @@ content:
         maxlength_js_enforce: true
   created:
     type: datetime_timestamp
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -539,7 +540,7 @@ content:
             selector: ''
   field_description_of_duration:
     type: text_textarea
-    weight: 58
+    weight: 19
     region: content
     settings:
       rows: 5
@@ -574,9 +575,9 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_duration_unit:
+  field_duration_unit_taxonomy:
     type: options_select
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -602,7 +603,7 @@ content:
     third_party_settings: {  }
   field_facilities_description:
     type: text_textarea
-    weight: 59
+    weight: 56
     region: content
     settings:
       rows: 5
@@ -635,7 +636,7 @@ content:
     third_party_settings: {  }
   field_location_description:
     type: text_textarea
-    weight: 6
+    weight: 58
     region: content
     settings:
       rows: 5
@@ -687,7 +688,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 16
+    weight: 17
     region: content
     settings:
       sidebar: true
@@ -858,7 +859,7 @@ content:
     third_party_settings: {  }
   field_registration_email:
     type: email_default
-    weight: 19
+    weight: 20
     region: content
     settings:
       placeholder: ''
@@ -866,7 +867,7 @@ content:
     third_party_settings: {  }
   field_registration_phone:
     type: string_textfield
-    weight: 20
+    weight: 21
     region: content
     settings:
       size: 60
@@ -900,7 +901,7 @@ content:
     third_party_settings: {  }
   field_subject:
     type: options_buttons
-    weight: 7
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -926,7 +927,7 @@ content:
     third_party_settings: {  }
   field_theme:
     type: options_select
-    weight: 6
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1007,7 +1008,7 @@ content:
             selector: ''
   field_video:
     type: paragraphs
-    weight: 12
+    weight: 11
     region: content
     settings:
       title: Paragraph
@@ -1027,7 +1028,7 @@ content:
     third_party_settings: {  }
   field_video_description:
     type: text_textarea
-    weight: 9
+    weight: 10
     region: content
     settings:
       rows: 5
@@ -1043,7 +1044,7 @@ content:
     third_party_settings: {  }
   field_view_on_map:
     type: options_buttons
-    weight: 4
+    weight: 56
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1102,38 +1103,38 @@ content:
               recurse: '0'
   moderation_state:
     type: moderation_state_default
-    weight: 20
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 18
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 21
+    weight: 22
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 17
+    weight: 18
     region: content
     settings:
       display_label: true
@@ -1152,7 +1153,7 @@ content:
         maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -1161,7 +1162,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
