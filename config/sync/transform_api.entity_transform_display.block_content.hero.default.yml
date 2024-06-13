@@ -8,6 +8,9 @@ dependencies:
     - field.field.block_content.hero.field_hero_subtitle
     - field.field.block_content.hero.field_hero_title
     - field.field.block_content.hero.field_image_media
+    - responsive_image.styles.isg_hero_width_100
+  module:
+    - transform_api_responsive_image
 _core:
   default_config_hash: JIDuNR4L6pBgvXPHc0lHsfhSWYFRmlamxQdeJ2yJymA
 id: block_content.hero.default
@@ -37,13 +40,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image_media:
-    type: image_style
+    type: responsive_image
     weight: '2'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_hero_width_100
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
 hidden:
   langcode: true
