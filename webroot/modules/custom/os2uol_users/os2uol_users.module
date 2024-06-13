@@ -46,33 +46,6 @@ function os2uol_users_form_user_form_alter(&$form, \Drupal\Core\Form\FormStateIn
   // Get the current user.
   $current_user = \Drupal::currentUser();
 
-  // Define the role that is allowed to see the field_roles field.
-  $allowed_role = array('administrator', 'webmaster');
-
-  // Check if the current user has the allowed role.
-  $has_allowed_role = FALSE;
-  foreach ($allowed_role as $role) {
-    if ($current_user->hasRole($role)) {
-      $has_allowed_role = TRUE;
-      break;
-    }
-  }
-
-  if ($has_allowed_role) {
-    if (isset($form['role_change'])) {
-      // If the user have the allowed role and role_change is set, hide the role_change field.
-      $form['role_change']['#attributes']['class'][] = 'hidden';
-      // If the user have the webmaster role unset 'administrator' option from field_roles widget.
-      if ($current_user->hasRole('webmaster')) {
-        unset($form['field_roles']['widget']['#options']['administrator']);
-      }
-    }
-  } else {
-    // If the user does not have the allowed role, hide the field_roles field.
-    if (isset($form['field_roles'])) {
-      $form['field_roles']['#attributes']['class'][] = 'hidden';
-    }
-  }
 
   // Check if the current user has the corporation role.
   $has_corporation_role = $current_user->hasRole('corporation');

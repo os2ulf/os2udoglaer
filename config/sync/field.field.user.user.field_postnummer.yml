@@ -1,0 +1,30 @@
+uuid: 4f222b60-73b7-4723-9c3b-7cb4d95b3bb4
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_postnummer
+    - taxonomy.vocabulary.postal_code
+  module:
+    - user
+id: user.user.field_postnummer
+field_name: field_postnummer
+entity_type: user
+bundle: user
+label: Postnummer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      postal_code: postal_code
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
