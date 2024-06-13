@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_allocated_budget
+    - field.field.user.user.field_brancher
     - field.field.user.user.field_bypass_workflow
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
@@ -27,13 +28,13 @@ dependencies:
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
+    - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
     - field.field.user.user.field_pretix_enabled
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
-    - field.field.user.user.field_roles
     - field.field.user.user.field_video
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
@@ -49,6 +50,7 @@ mode: compact
 content: {  }
 hidden:
   field_allocated_budget: true
+  field_brancher: true
   field_bypass_workflow: true
   field_contact: true
   field_cvr: true
@@ -71,13 +73,13 @@ hidden:
   field_other_info: true
   field_other_info_description: true
   field_phone: true
+  field_postnummer: true
   field_presentation: true
   field_pretix_api_token: true
   field_pretix_enabled: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true
   field_pretix_url: true
-  field_roles: true
   field_video: true
   field_video_description: true
   field_video_title: true
