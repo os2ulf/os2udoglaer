@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.course.field_description_of_price
     - field.field.node.course.field_domain_access
     - field.field.node.course.field_duration
-    - field.field.node.course.field_duration_unit
+    - field.field.node.course.field_duration_unit_taxonomy
     - field.field.node.course.field_exclude_from_profile
     - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
@@ -157,12 +157,13 @@ content:
     third_party_settings: {  }
     weight: 6
     region: content
-  field_duration_unit:
-    type: list_default
+  field_duration_unit_taxonomy:
+    type: entity_reference_label
     label: above
-    settings: {  }
+    settings:
+      link: true
     third_party_settings: {  }
-    weight: 131
+    weight: 138
     region: content
   field_exclude_from_profile:
     type: boolean

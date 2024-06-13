@@ -1,0 +1,29 @@
+uuid: 19a93542-1ff2-48c3-ac19-174e65da8c10
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration_unit_taxonomy
+    - node.type.course
+    - taxonomy.vocabulary.duration_unit
+id: node.course.field_duration_unit_taxonomy
+field_name: field_duration_unit_taxonomy
+entity_type: node
+bundle: course
+label: Enhed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      duration_unit: duration_unit
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
