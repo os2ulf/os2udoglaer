@@ -877,3 +877,10 @@ $config['smtp.settings'] = [
 ];
 
 $settings['locale_translate_directory'] = 'translations://';
+
+// Private files path depending on environment - if ddev or platform.sh.
+if (file_exists($app_root . '/sites/default/settings.ddev.php') && getenv('IS_DDEV_PROJECT') == 'true') {
+  $settings['file_private_path'] = '/var/www/html/private';
+} else {
+  $settings['file_private_path'] = '/app/private';
+}
