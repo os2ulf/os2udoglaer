@@ -27,6 +27,7 @@ dependencies:
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
+    - field.field.user.user.field_posibilities
     - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
@@ -146,7 +147,6 @@ third_party_settings:
     group_user_information:
       children:
         - account
-        - field_roles
       label: Brugeroplysninger
       region: content
       parent_name: ''
@@ -218,7 +218,7 @@ third_party_settings:
       label: Redaktørindstillinger
       region: content
       parent_name: ''
-      weight: 13
+      weight: 14
       format_type: fieldset
       format_settings:
         classes: ''
@@ -472,9 +472,15 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields: {  }
-  field_postnummer:
+  field_posibilities:
     type: options_buttons
     weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_postnummer:
+    type: options_buttons
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
