@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
+    - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -56,7 +57,7 @@ content:
     third_party_settings: {  }
   field_application_deadline:
     type: datetime_default
-    weight: '11'
+    weight: '12'
     region: content
     label: omit
     settings:
@@ -65,35 +66,35 @@ content:
     third_party_settings: {  }
   field_application_email:
     type: value
-    weight: '14'
+    weight: '15'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_application_phone:
     type: value
-    weight: '15'
+    weight: '16'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_application_title:
     type: value
-    weight: '12'
+    weight: '13'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_application_url:
     type: value
-    weight: '13'
+    weight: '14'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_labels
-    weight: '6'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
@@ -107,28 +108,28 @@ content:
     third_party_settings: {  }
   field_desc_application_procedure:
     type: text_format
-    weight: '23'
+    weight: '24'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_description_of_period:
     type: text_format
-    weight: '22'
+    weight: '23'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_duration_rte:
     type: text_format
-    weight: '24'
+    weight: '25'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_education_path:
     type: text_format
-    weight: '25'
+    weight: '26'
     region: content
     label: omit
     settings: {  }
@@ -153,49 +154,49 @@ content:
     third_party_settings: {  }
   field_industry:
     type: entity_reference_labels
-    weight: '7'
+    weight: '8'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '20'
+    weight: '21'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_description:
     type: text_format
-    weight: '26'
+    weight: '27'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_name:
     type: value
-    weight: '17'
+    weight: '18'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '18'
+    weight: '19'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '19'
+    weight: '20'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_materials:
     type: entity_transform
-    weight: '10'
+    weight: '11'
     region: content
     label: omit
     settings:
@@ -203,14 +204,14 @@ content:
     third_party_settings: {  }
   field_meeting_times:
     type: text_format
-    weight: '27'
+    weight: '28'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_purpose_internship:
     type: text_format
-    weight: '21'
+    weight: '22'
     region: content
     label: omit
     settings: {  }
@@ -224,7 +225,7 @@ content:
     third_party_settings: {  }
   field_related_courses:
     type: entity_transform
-    weight: '30'
+    weight: '31'
     region: content
     label: omit
     settings:
@@ -232,21 +233,28 @@ content:
     third_party_settings: {  }
   field_show_application_link:
     type: boolean
-    weight: '16'
+    weight: '17'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_theme:
+    type: entity_reference_links
+    weight: '6'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_todo_list:
     type: text_format
-    weight: '28'
+    weight: '29'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video:
     type: entity_transform
-    weight: '29'
+    weight: '30'
     region: content
     label: omit
     settings:
@@ -254,14 +262,14 @@ content:
     third_party_settings: {  }
   field_video_description:
     type: text_format
-    weight: '9'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video_title:
     type: value
-    weight: '8'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
