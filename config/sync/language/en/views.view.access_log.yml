@@ -1,0 +1,58 @@
+label: 'Access Log'
+description: 'Basic view to display the Simple Access Log data'
+display:
+  default:
+    display_title: Master
+    display_options:
+      title: 'Access Log'
+      fields:
+        lid:
+          label: 'Log ID'
+        timestamp:
+          label: Timestamp
+        remote_host:
+          label: 'Client IP Address'
+        uid:
+          label: Uid
+        name:
+          label: Name
+          separator: ', '
+        title:
+          label: 'Page Title'
+        path:
+          label: Path
+        uri:
+          label: URI
+        referer:
+          label: Referer
+        user_agent:
+          label: 'User Agent'
+        host:
+          label: 'Server Hostname/IP'
+      pager:
+        options:
+          tags:
+            next: ››
+            previous: ‹‹
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      empty:
+        area:
+          content:
+            value: '-No Access Logs Found-'
+  page_1:
+    display_title: Page
+    display_options:
+      menu:
+        title: 'Access Log'
