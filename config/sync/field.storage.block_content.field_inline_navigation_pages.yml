@@ -1,19 +1,18 @@
-uuid: fe33b85f-c670-41ea-b406-10b602e5e372
+uuid: dcc8bf35-d8e2-418f-981e-fc49d7fed8da
 langcode: da
 status: true
 dependencies:
   module:
     - block_content
-    - node
-_core:
-  default_config_hash: Ys3U92lAmaKmwds7HejHinqHSGqUasVw047i6fL90vM
+    - entity_reference_revisions
+    - paragraphs
 id: block_content.field_inline_navigation_pages
 field_name: field_inline_navigation_pages
 entity_type: block_content
-type: entity_reference
+type: entity_reference_revisions
 settings:
-  target_type: node
-module: core
+  target_type: paragraph
+module: entity_reference_revisions
 locked: false
 cardinality: -1
 translatable: true

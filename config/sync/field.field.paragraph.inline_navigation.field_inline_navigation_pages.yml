@@ -1,0 +1,29 @@
+uuid: 347a6b2e-f908-4442-8263-7d3127eadb61
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_inline_navigation_pages
+    - node.type.page
+    - paragraphs.paragraphs_type.inline_navigation
+id: paragraph.inline_navigation.field_inline_navigation_pages
+field_name: field_inline_navigation_pages
+entity_type: paragraph
+bundle: inline_navigation
+label: 'Inline Navigation Pages'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page: page
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

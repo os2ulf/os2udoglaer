@@ -1,0 +1,22 @@
+uuid: b02a7e0c-926b-4421-ada4-8ee0d884876a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.inline_navigation.field_inline_navigation_pages
+    - paragraphs.paragraphs_type.inline_navigation
+id: paragraph.inline_navigation.default
+targetEntityType: paragraph
+bundle: inline_navigation
+mode: default
+content:
+  field_inline_navigation_pages:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

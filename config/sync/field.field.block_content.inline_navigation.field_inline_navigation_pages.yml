@@ -1,13 +1,13 @@
-uuid: 96e9b914-aeb1-4553-aff2-53b7b2157f41
+uuid: cdb2a30a-ab01-48f1-be98-b94eae01d800
 langcode: da
 status: true
 dependencies:
   config:
     - block_content.type.inline_navigation
     - field.storage.block_content.field_inline_navigation_pages
-    - node.type.page
-_core:
-  default_config_hash: 5XzjpQ2tLHWvde0WJrs6Q0wM-MKfhfT-se9GE6miMw8
+    - paragraphs.paragraphs_type.inline_navigation
+  module:
+    - entity_reference_revisions
 id: block_content.inline_navigation.field_inline_navigation_pages
 field_name: field_inline_navigation_pages
 entity_type: block_content
@@ -19,13 +19,55 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:paragraph'
   handler_settings:
     target_bundles:
-      page: page
-    sort:
-      field: _none
-      direction: ASC
-    auto_create: false
-    auto_create_bundle: basic_page
-field_type: entity_reference
+      inline_navigation: inline_navigation
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 16
+        enabled: false
+      allocated_budget:
+        weight: 17
+        enabled: false
+      basic_hero:
+        weight: 18
+        enabled: false
+      cards:
+        weight: 19
+        enabled: false
+      contact_paragraph:
+        weight: 20
+        enabled: false
+      duration_paragraph:
+        weight: 21
+        enabled: false
+      duration_price:
+        weight: 22
+        enabled: false
+      footer_links:
+        weight: 23
+        enabled: false
+      inline_navigation:
+        weight: 24
+        enabled: true
+      links_paragraph:
+        weight: 25
+        enabled: false
+      material:
+        weight: 26
+        enabled: false
+      other_info:
+        weight: 27
+        enabled: false
+      other_user_info:
+        weight: 28
+        enabled: false
+      video:
+        weight: 29
+        enabled: false
+      work_documents:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

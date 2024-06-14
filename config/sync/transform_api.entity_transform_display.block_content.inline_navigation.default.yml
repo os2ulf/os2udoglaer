@@ -16,7 +16,7 @@ mode: default
 content:
   field_inline_navigation_mode:
     type: value
-    weight: '1'
+    weight: '0'
     region: content
     label: omit
     settings: {  }
@@ -27,11 +27,11 @@ content:
     region: content
     label: omit
     settings:
-      transform_mode: inline_navigation
+      transform_mode: default
     third_party_settings: {  }
   field_inline_navigation_parent:
     type: entity_transform
-    weight: '3'
+    weight: '1'
     region: content
     label: omit
     settings:

@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.inline_navigation.field_inline_navigation_pages
     - field.field.block_content.inline_navigation.field_inline_navigation_parent
   module:
+    - entity_reference_revisions
     - options
 _core:
   default_config_hash: hly8KfRsZT1g_bX4nEKa69saNK4t-KelWCbpc3yCOQo
@@ -24,12 +25,13 @@ content:
     weight: 2
     region: content
   field_inline_navigation_pages:
-    type: entity_reference_label
-    label: hidden
+    type: entity_reference_revisions_entity_view
+    label: above
     settings:
-      link: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 0
+    weight: 3
     region: content
   field_inline_navigation_parent:
     type: entity_reference_label
