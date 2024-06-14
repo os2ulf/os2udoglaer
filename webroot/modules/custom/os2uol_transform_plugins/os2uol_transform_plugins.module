@@ -28,9 +28,7 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
 }
 
 function os2uol_transform_plugins_user_transform_alter(&$transformation) {
-  // Check if user role is provider.
-  if ($transformation['#entity']->hasRole('course_provider') || $transformation['#entity']->hasRole('corporation')) {
-    // Add user profile link to transformation.
-    $transformation['link'] = $transformation['#entity']->toUrl()->toString();
-  }
+  // Add user profile link and user roles to transformation.
+  $transformation['link'] = $transformation['#entity']->toUrl()->toString();
+  $transformation['roles'] = $transformation['#entity']->getRoles();
 }
