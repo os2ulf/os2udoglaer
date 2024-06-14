@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "606e6fdcf3d1b9b9bdc1da2d50bb57fc",
+    "content-hash": "a962b807f25a87a59d4703e91d67005b",
     "packages": [
         {
             "name": "algolia/places",
@@ -5413,17 +5413,17 @@
         },
         {
             "name": "drupal/transform_api",
-            "version": "1.0.2",
+            "version": "1.1.0-beta1",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api.git",
-                "reference": "1.0.2"
+                "reference": "1.1.0-beta1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api-1.0.2.zip",
-                "reference": "1.0.2",
-                "shasum": "2e863485b1cedeab293073160a06acfd4052f289"
+                "url": "https://ftp.drupal.org/files/projects/transform_api-1.1.0-beta1.zip",
+                "reference": "1.1.0-beta1",
+                "shasum": "1b5e610ce349018b736bf43f2ae535e6c7259aa3"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -5437,11 +5437,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.2",
-                    "datestamp": "1717752361",
+                    "version": "1.1.0-beta1",
+                    "datestamp": "1718108211",
                     "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
                     }
                 }
             },
@@ -12811,6 +12811,7 @@
         "drupal/maxlength": 10,
         "drupal/pathologic": 15,
         "drupal/search_api_page": 10,
+        "drupal/transform_api": 10,
         "drupal/ultimate_cron": 15,
         "drupal/webform": 10,
         "drupal/webp": 5
