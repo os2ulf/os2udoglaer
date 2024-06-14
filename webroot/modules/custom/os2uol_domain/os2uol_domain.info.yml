@@ -1,0 +1,7 @@
+name: 'OS2udoglær Domain'
+type: module
+description: 'Sets the default domain for all nodes and content.'
+core_version_requirement: ^10
+package: 'OS2udoglær'
+dependencies:
+  - domain

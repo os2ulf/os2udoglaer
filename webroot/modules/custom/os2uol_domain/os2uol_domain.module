@@ -1,0 +1,10 @@
+<?php
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_entity_create().
+ */
+function os2uol_domain_entity_create(\Drupal\Core\Entity\EntityInterface $entity) {
+  \Drupal::service('os2uol_domain.default_domain')->entityCreate($entity);
+}
