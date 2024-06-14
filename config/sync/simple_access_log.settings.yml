@@ -1,0 +1,12 @@
+_core:
+  default_config_hash: Nu0QTBawEMxBXM18SQj8aWTHuxwt69fxMZ85xnsjV20
+langcode: da
+do_not_log_0: 0
+do_not_log_1: 1
+do_not_log_admin: 0
+not_admin_paths: 1
+delete_log_after: 2419200
+respect_dnt: 0
+disable_page_cache_warning: 1
+exclude_or_include: '0'
+exclude_paths: ''
