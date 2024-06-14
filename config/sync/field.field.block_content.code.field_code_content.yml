@@ -12,7 +12,7 @@ field_name: field_code_content
 entity_type: block_content
 bundle: code
 label: 'Code content'
-description: ''
+description: 'Bemærk: Redaktøren er ansvarlig for alle cookies, der sættes for brugeren, afhængigt af hvilken kode de vælger at indsætte.'
 required: false
 translatable: false
 default_value: {  }
