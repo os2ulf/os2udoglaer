@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
+    - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -185,6 +186,7 @@ third_party_settings:
         required_fields: true
     group_industry_area_interest:
       children:
+        - field_theme
         - field_areas_of_interest
         - field_industry
         - field_education_path
@@ -358,7 +360,7 @@ content:
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_autocomplete
-    weight: 18
+    weight: 24
     region: content
     settings:
       match_operator: CONTAINS
@@ -404,7 +406,7 @@ content:
     third_party_settings: {  }
   field_education_path:
     type: text_textarea
-    weight: 20
+    weight: 26
     region: content
     settings:
       rows: 5
@@ -444,7 +446,7 @@ content:
     third_party_settings: {  }
   field_industry:
     type: options_buttons
-    weight: 19
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -555,6 +557,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_theme:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_todo_list:
     type: text_textarea
