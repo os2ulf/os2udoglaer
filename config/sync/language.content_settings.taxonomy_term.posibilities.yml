@@ -1,0 +1,11 @@
+uuid: 2829db74-0f07-4801-96f3-95724b531244
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.posibilities
+id: taxonomy_term.posibilities
+target_entity_type_id: taxonomy_term
+target_bundle: posibilities
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,30 @@
+uuid: e36b50a8-3fb2-40d5-aa6e-ef8817a998c2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_posibilities
+    - taxonomy.vocabulary.posibilities
+  module:
+    - user
+id: user.user.field_posibilities
+field_name: field_posibilities
+entity_type: user
+bundle: user
+label: Muligheder
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      posibilities: posibilities
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

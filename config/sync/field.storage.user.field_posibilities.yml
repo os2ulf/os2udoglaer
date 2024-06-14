@@ -1,0 +1,20 @@
+uuid: c0fabc07-6080-4b30-b10f-bdbb2ca2cf5d
+langcode: da
+status: true
+dependencies:
+  module:
+    - taxonomy
+    - user
+id: user.field_posibilities
+field_name: field_posibilities
+entity_type: user
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -10,12 +10,8 @@ id: block_content.divider.default
 targetEntityType: block_content
 bundle: divider
 mode: default
-content:
-  translation:
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
+content: {  }
 hidden:
   info: true
   langcode: true
+  translation: true
