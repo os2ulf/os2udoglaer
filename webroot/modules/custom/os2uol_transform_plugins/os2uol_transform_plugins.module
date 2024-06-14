@@ -20,11 +20,16 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
     // Add user transform object to transformation.
     $transformation['provider'] = EntityTransform::createFromEntity($transformation['#entity']->get('uid')->entity, 'courses');
   }
+  // Check if user role is provider.
+  if ($transformation['#entity']->get('uid')->entity->hasRole('corporation')) {
+    // Add user transform object to transformation.
+    $transformation['corporation'] = EntityTransform::createFromEntity($transformation['#entity']->get('uid')->entity, 'courses');
+  }
 }
 
 function os2uol_transform_plugins_user_transform_alter(&$transformation) {
   // Check if user role is provider.
-  if ($transformation['#entity']->hasRole('course_provider')) {
+  if ($transformation['#entity']->hasRole('course_provider') || $transformation['#entity']->hasRole('corporation')) {
     // Add user profile link to transformation.
     $transformation['link'] = $transformation['#entity']->toUrl()->toString();
   }
