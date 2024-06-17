@@ -1,0 +1,10 @@
+uuid: a9ab66f2-6e6c-4804-a3cf-c46d5e705ba2
+langcode: da
+status: true
+dependencies: {  }
+id: inline_navigation
+label: 'Inline Navigation'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

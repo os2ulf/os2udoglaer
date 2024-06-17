@@ -1,0 +1,25 @@
+uuid: a7cfc101-939f-4b01-b172-886fb4ce844a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.inline_navigation.field_inline_navigation_pages
+    - paragraphs.paragraphs_type.inline_navigation
+id: paragraph.inline_navigation.default
+targetEntityType: paragraph
+bundle: inline_navigation
+mode: default
+content:
+  field_inline_navigation_pages:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

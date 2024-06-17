@@ -1,15 +1,13 @@
-uuid: fe33b85f-c670-41ea-b406-10b602e5e372
+uuid: d7646c84-f117-4038-9e6d-6e71c9fa79f3
 langcode: da
 status: true
 dependencies:
   module:
-    - block_content
     - node
-_core:
-  default_config_hash: Ys3U92lAmaKmwds7HejHinqHSGqUasVw047i6fL90vM
-id: block_content.field_inline_navigation_pages
+    - paragraphs
+id: paragraph.field_inline_navigation_pages
 field_name: field_inline_navigation_pages
-entity_type: block_content
+entity_type: paragraph
 type: entity_reference
 settings:
   target_type: node
