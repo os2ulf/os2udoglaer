@@ -1,4 +1,4 @@
-uuid: 424da692-6092-4d7d-b42b-242c651a3281
+uuid: 06a898ed-c7c9-4f96-9945-fa8bb929219b
 langcode: da
 status: true
 dependencies:
@@ -6,8 +6,8 @@ dependencies:
     - block_content
     - entity_reference_revisions
     - paragraphs
-id: block_content.field_inline_navigation_pg
-field_name: field_inline_navigation_pg
+id: block_content.field_inline_nav_paragraphs
+field_name: field_inline_nav_paragraphs
 entity_type: block_content
 type: entity_reference_revisions
 settings:

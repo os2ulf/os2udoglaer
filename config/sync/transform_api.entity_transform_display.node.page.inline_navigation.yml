@@ -1,10 +1,13 @@
-uuid: 4b6ccec3-11ab-42fc-b82a-09b67878883d
+uuid: 1e040746-6511-4835-82e8-4b2a57a2747e
 langcode: da
 status: true
 dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_description
+    - field.field.node.page.field_domain_access
+    - field.field.node.page.field_exclude_from_profile
+    - field.field.node.page.field_exclude_from_search
     - field.field.node.page.field_header
     - field.field.node.page.field_hide_breadcrumb
     - field.field.node.page.field_hide_title
@@ -12,17 +15,22 @@ dependencies:
     - field.field.node.page.field_meta_tags
     - field.field.node.page.layout_builder__layout
     - node.type.page
-id: node.page.default
+    - responsive_image.styles.3_column_flex_height
+    - transform_api.entity_transform_mode.node.inline_navigation
+  module:
+    - transform_api_responsive_image
+id: node.page.inline_navigation
 targetEntityType: node
 bundle: page
-mode: default
+mode: inline_navigation
 content:
   body:
-    type: text_format
+    type: text_summary_or_trimmed
     weight: '1'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      trim_length: '600'
     third_party_settings: {  }
   field_description:
     type: value
@@ -39,44 +47,24 @@ content:
     settings:
       transform_mode: default
     third_party_settings: {  }
-  field_hide_breadcrumb:
-    type: boolean
-    weight: '6'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_hide_title:
-    type: boolean
-    weight: '5'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_list_media:
-    type: image_style
+    type: responsive_image
     weight: '2'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: 3_column_flex_height
       image_link: ''
-    third_party_settings: {  }
-  field_meta_tags:
-    type: metatag
-    weight: '7'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  layout_builder__layout:
-    type: layout_builder
-    weight: '4'
-    region: content
-    label: omit
-    settings: {  }
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_exclude_from_profile: true
+  field_exclude_from_search: true
+  field_hide_breadcrumb: true
+  field_hide_title: true
+  field_meta_tags: true
   langcode: true
+  layout_builder__layout: true
