@@ -79,4 +79,6 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_exclude_from_profile: true
+  field_exclude_from_search: true
   langcode: true
