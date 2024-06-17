@@ -1,0 +1,10 @@
+uuid: f5b4ea4a-c1c3-4e07-9739-ecc366233826
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.inline_navigation
+label: 'Inline Navigation'
+targetEntityType: node
+cache: true
