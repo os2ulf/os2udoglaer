@@ -5,8 +5,8 @@ dependencies:
   config:
     - block_content.type.inline_navigation
     - field.field.block_content.inline_navigation.field_inline_navigation_mode
-    - field.field.block_content.inline_navigation.field_inline_navigation_pages
     - field.field.block_content.inline_navigation.field_inline_navigation_parent
+    - field.field.block_content.inline_navigation.field_inline_navigation_pg
   module:
     - paragraphs
 _core:
@@ -22,7 +22,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_inline_navigation_pages:
+  field_inline_navigation_parent:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_inline_navigation_pg:
     type: paragraphs
     weight: 26
     region: content
@@ -39,16 +49,6 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
-    third_party_settings: {  }
-  field_inline_navigation_parent:
-    type: entity_reference_autocomplete
-    weight: 2
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
 hidden:
   info: true

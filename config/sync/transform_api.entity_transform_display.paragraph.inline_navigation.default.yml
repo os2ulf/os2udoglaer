@@ -11,10 +11,11 @@ bundle: inline_navigation
 mode: default
 content:
   field_inline_navigation_pages:
-    type: entity_reference_labels
+    type: entity_transform
     weight: '0'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      transform_mode: default
     third_party_settings: {  }
 hidden: {  }
