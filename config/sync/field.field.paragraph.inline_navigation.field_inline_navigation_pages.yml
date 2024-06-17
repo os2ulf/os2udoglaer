@@ -1,18 +1,16 @@
-uuid: 96e9b914-aeb1-4553-aff2-53b7b2157f41
+uuid: 347a6b2e-f908-4442-8263-7d3127eadb61
 langcode: da
 status: true
 dependencies:
   config:
-    - block_content.type.inline_navigation
-    - field.storage.block_content.field_inline_navigation_pages
+    - field.storage.paragraph.field_inline_navigation_pages
     - node.type.page
-_core:
-  default_config_hash: 5XzjpQ2tLHWvde0WJrs6Q0wM-MKfhfT-se9GE6miMw8
-id: block_content.inline_navigation.field_inline_navigation_pages
+    - paragraphs.paragraphs_type.inline_navigation
+id: paragraph.inline_navigation.field_inline_navigation_pages
 field_name: field_inline_navigation_pages
-entity_type: block_content
+entity_type: paragraph
 bundle: inline_navigation
-label: Sider
+label: 'Inline Navigation Pages'
 description: ''
 required: false
 translatable: false
@@ -27,5 +25,5 @@ settings:
       field: _none
       direction: ASC
     auto_create: false
-    auto_create_bundle: basic_page
+    auto_create_bundle: ''
 field_type: entity_reference
