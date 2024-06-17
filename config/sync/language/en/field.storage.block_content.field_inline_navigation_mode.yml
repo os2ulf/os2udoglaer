@@ -1,6 +1,0 @@
-settings:
-  allowed_values:
-    -
-      label: 'Choose parent page'
-    -
-      label: 'Choose specific pages'
