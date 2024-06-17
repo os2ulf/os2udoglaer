@@ -10,7 +10,6 @@ dependencies:
     - node.type.exercise
     - node.type.internship
     - node.type.news
-    - node.type.page
 id: block_content.inspiration.field_content
 field_name: field_content
 entity_type: block_content
@@ -29,7 +28,6 @@ settings:
       course_educators: course_educators
       news: news
       exercise: exercise
-      page: page
       course: course
     sort:
       field: _none
