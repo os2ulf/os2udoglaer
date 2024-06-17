@@ -5413,17 +5413,17 @@
         },
         {
             "name": "drupal/transform_api",
-            "version": "1.1.0-beta1",
+            "version": "1.1.0-beta2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api.git",
-                "reference": "1.1.0-beta1"
+                "reference": "1.1.0-beta2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api-1.1.0-beta1.zip",
-                "reference": "1.1.0-beta1",
-                "shasum": "1b5e610ce349018b736bf43f2ae535e6c7259aa3"
+                "url": "https://ftp.drupal.org/files/projects/transform_api-1.1.0-beta2.zip",
+                "reference": "1.1.0-beta2",
+                "shasum": "f21bbf37752f054ad5ae3ebf0917f7e7aaf5890a"
             },
             "require": {
                 "drupal/core": "^9 || ^10",
@@ -5437,8 +5437,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.1.0-beta1",
-                    "datestamp": "1718108211",
+                    "version": "1.1.0-beta2",
+                    "datestamp": "1718640065",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
