@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - block_content.type.inline_navigation
+    - field.field.block_content.inline_navigation.field_inline_nav_paragraphs
     - field.field.block_content.inline_navigation.field_inline_navigation_mode
     - field.field.block_content.inline_navigation.field_inline_navigation_parent
-    - field.field.block_content.inline_navigation.field_inline_navigation_pg
   module:
     - paragraphs
 _core:
@@ -16,23 +16,7 @@ targetEntityType: block_content
 bundle: inline_navigation
 mode: default
 content:
-  field_inline_navigation_mode:
-    type: options_select
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_inline_navigation_parent:
-    type: entity_reference_autocomplete
-    weight: 2
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_inline_navigation_pg:
+  field_inline_nav_paragraphs:
     type: paragraphs
     weight: 26
     region: content
@@ -49,6 +33,22 @@ content:
       features:
         collapse_edit_all: collapse_edit_all
         duplicate: duplicate
+    third_party_settings: {  }
+  field_inline_navigation_mode:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_inline_navigation_parent:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   info: true

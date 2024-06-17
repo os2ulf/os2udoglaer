@@ -4,9 +4,9 @@ status: true
 dependencies:
   config:
     - block_content.type.inline_navigation
+    - field.field.block_content.inline_navigation.field_inline_nav_paragraphs
     - field.field.block_content.inline_navigation.field_inline_navigation_mode
     - field.field.block_content.inline_navigation.field_inline_navigation_parent
-    - field.field.block_content.inline_navigation.field_inline_navigation_pg
 _core:
   default_config_hash: w_NC1rz-LKlKzlgdBN0VJOJ8t6E5dhc2b8VQVgvOY-Y
 id: block_content.inline_navigation.default
@@ -14,6 +14,14 @@ targetEntityType: block_content
 bundle: inline_navigation
 mode: default
 content:
+  field_inline_nav_paragraphs:
+    type: entity_transform
+    weight: '2'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
   field_inline_navigation_mode:
     type: value
     weight: '0'
@@ -28,14 +36,6 @@ content:
     label: omit
     settings:
       transform_mode: inline_navigation
-    third_party_settings: {  }
-  field_inline_navigation_pg:
-    type: entity_transform
-    weight: '2'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
     third_party_settings: {  }
 hidden:
   langcode: true
