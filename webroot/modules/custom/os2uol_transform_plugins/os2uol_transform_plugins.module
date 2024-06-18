@@ -3,6 +3,12 @@
 use Drupal\transform_api\Transform\EntityTransform;
 
 function os2uol_transform_plugins_block_content_transform_alter(&$transformation) {
+  if (empty($transformation)) {
+    return;
+  }
+  // Set block content entity variable.
+  $block_content = $transformation['#entity'];
+
   if ($transformation['bundle'] == 'appetizer') {
 
     $transform_mode = 'small';
@@ -12,9 +18,32 @@ function os2uol_transform_plugins_block_content_transform_alter(&$transformation
 
     $transformation['appetizer_size'] = $transform_mode;
   }
+
+  if ($transformation['bundle'] == 'image') {
+    // Set default image style
+    $responsive_image_style = 'isg_image_16_9_width_100';
+
+    // Check transform mode and set image style accordingly.
+    if ($transformation['field_image_media']->getValue('transform_mode') === 'width_33') {
+      $responsive_image_style = 'isg_image_16_9_width_33';
+    } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_50') {
+      $responsive_image_style = 'isg_image_16_9_width_50';
+    } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_66') {
+      $responsive_image_style = 'isg_image_16_9_width_66';
+    }
+
+    // Check if dynamic height is enabled.
+    if ($block_content->get('field_dynamic_height')->value) {
+      $responsive_image_style = str_replace('16_9', 'dynamic', $responsive_image_style);
+    }
+
+  }
 }
 
 function os2uol_transform_plugins_node_transform_alter(&$transformation) {
+  if (empty($transformation)) {
+    return;
+  }
   // Check if user role is provider.
   if ($transformation['#entity']->get('uid')->entity->hasRole('course_provider')) {
     // Add user transform object to transformation.
@@ -32,7 +61,11 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
 }
 
 function os2uol_transform_plugins_user_transform_alter(&$transformation) {
+  if (empty($transformation)) {
+    return;
+  }
   // Add user profile link and user roles to transformation.
   $transformation['link'] = $transformation['#entity']->toUrl()->toString();
   $transformation['roles'] = $transformation['#entity']->getRoles();
 }
+
