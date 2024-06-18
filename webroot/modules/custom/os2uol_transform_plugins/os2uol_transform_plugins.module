@@ -27,6 +27,8 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
   }
   // Add entity link to transformation.
   $transformation['link'] = $transformation['#entity']->toUrl()->toString();
+  // Add entity bundle label to transformation.
+  $transformation['bundle_label'] = $transformation['#entity']->type->entity->label();
 }
 
 function os2uol_transform_plugins_user_transform_alter(&$transformation) {

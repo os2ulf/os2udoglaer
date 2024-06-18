@@ -35,6 +35,7 @@ dependencies:
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_email
     - field.field.node.course_educators.field_registration_phone
+    - field.field.node.course_educators.field_registration_procedure
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
     - field.field.node.course_educators.field_related_courses
@@ -55,12 +56,12 @@ bundle: course_educators
 mode: related_courses
 content:
   body:
-    type: plain_text
+    type: text_summary_or_trimmed
     weight: '1'
     region: content
     label: omit
     settings:
-      text_length: 0
+      trim_length: '85'
     third_party_settings: {  }
   field_banner:
     type: entity_reference_labels
@@ -128,12 +129,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_theme:
-    type: entity_transform
+    type: entity_reference_labels
     weight: '4'
     region: content
     label: omit
-    settings:
-      transform_mode: default
+    settings: {  }
     third_party_settings: {  }
   field_view_on_map:
     type: value
@@ -172,6 +172,7 @@ hidden:
   field_registration_deadline: true
   field_registration_email: true
   field_registration_phone: true
+  field_registration_procedure: true
   field_registration_title: true
   field_registration_url: true
   field_related_courses: true

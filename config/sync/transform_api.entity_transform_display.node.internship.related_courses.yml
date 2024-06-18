@@ -33,6 +33,7 @@ dependencies:
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
+    - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -46,11 +47,12 @@ bundle: internship
 mode: related_courses
 content:
   body:
-    type: text_format
+    type: text_summary_or_trimmed
     weight: '2'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      trim_length: '85'
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_labels
@@ -60,12 +62,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_banner:
-    type: entity_transform
+    type: entity_reference_labels
     weight: '1'
     region: content
     label: omit
-    settings:
-      transform_mode: default
+    settings: {  }
     third_party_settings: {  }
   field_image:
     type: image_style
@@ -100,6 +101,13 @@ content:
   field_location_zipcode:
     type: value
     weight: '7'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_theme:
+    type: entity_reference_labels
+    weight: '9'
     region: content
     label: omit
     settings: {  }
