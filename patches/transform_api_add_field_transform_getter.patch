@@ -1,0 +1,16 @@
+diff --git a/src/Transform/FieldTransform.php b/src/Transform/FieldTransform.php
+index 43613f6..80816e9 100644
+--- a/src/Transform/FieldTransform.php
++++ b/src/Transform/FieldTransform.php
+@@ -96,4 +96,11 @@ class FieldTransform extends TransformBase {
+     return new self($plugin, $entity, $field_name);
+   }
+ 
++  /**
++   * @return \Drupal\transform_api\FieldTransformInterface
++   */
++  public function getFieldTransform(): FieldTransformInterface {
++    return $this->fieldTransform;
++  }
++
+ }

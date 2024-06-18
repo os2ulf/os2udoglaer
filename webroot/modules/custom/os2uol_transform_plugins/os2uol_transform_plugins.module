@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\transform_api\Transform\EntityTransform;
+use Drupal\transform_api_responsive_image\Plugin\Transform\Field\ResponsiveImageTransform;
 
 function os2uol_transform_plugins_block_content_transform_alter(&$transformation) {
   if (empty($transformation)) {
@@ -20,23 +21,24 @@ function os2uol_transform_plugins_block_content_transform_alter(&$transformation
   }
 
   if ($transformation['bundle'] == 'image') {
-    // Set default image style
-    $responsive_image_style = 'isg_image_16_9_width_100';
-
-    // Check transform mode and set image style accordingly.
-    if ($transformation['field_image_media']->getValue('transform_mode') === 'width_33') {
-      $responsive_image_style = 'isg_image_16_9_width_33';
-    } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_50') {
-      $responsive_image_style = 'isg_image_16_9_width_50';
-    } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_66') {
-      $responsive_image_style = 'isg_image_16_9_width_66';
-    }
-
-    // Check if dynamic height is enabled.
     if ($block_content->get('field_dynamic_height')->value) {
-      $responsive_image_style = str_replace('16_9', 'dynamic', $responsive_image_style);
-    }
+      $field_transform = $transformation['field_image_media']->getFieldTransform();
 
+      if ($field_transform instanceof ResponsiveImageTransform) {
+        $responsive_image_style = 'isg_image_dynamic_width_100';
+
+        // Check transform mode and set image style accordingly.
+        if ($transformation['field_image_media']->getValue('transform_mode') === 'width_33') {
+          $responsive_image_style = 'isg_image_dynamic_width_33';
+        } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_50') {
+          $responsive_image_style = 'isg_image_dynamic_width_50';
+        } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_66') {
+          $responsive_image_style = 'isg_image_dynamic_width_66';
+        }
+
+        $field_transform->setSetting('responsive_image_style', $responsive_image_style);
+      }
+    }
   }
 }
 
