@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.news.field_audience
     - field.field.node.news.field_banner
     - field.field.node.news.field_domain_access
+    - field.field.node.news.field_exclude_from_profile
+    - field.field.node.news.field_exclude_from_search
     - field.field.node.news.field_image
     - field.field.node.news.field_other_info
     - field.field.node.news.field_theme
@@ -26,7 +28,7 @@ content:
     region: content
     label: omit
     settings:
-      trim_length: '300'
+      trim_length: '85'
     third_party_settings: {  }
   field_audience:
     type: text_format
