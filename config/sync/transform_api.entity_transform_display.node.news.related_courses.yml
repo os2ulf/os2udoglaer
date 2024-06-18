@@ -1,6 +1,6 @@
 uuid: 01cbeeda-cac5-4a18-9a95-cef1e416435c
 langcode: da
-status: false
+status: true
 dependencies:
   config:
     - field.field.node.news.body
@@ -16,7 +16,10 @@ dependencies:
     - field.field.node.news.field_video_description
     - field.field.node.news.field_video_title
     - node.type.news
+    - responsive_image.styles.isg_image_16_9_width_33
     - transform_api.entity_transform_mode.node.related_courses
+  module:
+    - transform_api_responsive_image
 id: node.news.related_courses
 targetEntityType: node
 bundle: news
@@ -45,13 +48,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image:
-    type: image_style
+    type: responsive_image
     weight: '0'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_image_16_9_width_33
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_theme:
     type: entity_reference_labels
