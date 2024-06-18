@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.news.field_audience
     - field.field.node.news.field_banner
     - field.field.node.news.field_domain_access
+    - field.field.node.news.field_exclude_from_profile
+    - field.field.node.news.field_exclude_from_search
     - field.field.node.news.field_image
     - field.field.node.news.field_other_info
     - field.field.node.news.field_theme
@@ -14,7 +16,10 @@ dependencies:
     - field.field.node.news.field_video_description
     - field.field.node.news.field_video_title
     - node.type.news
+    - responsive_image.styles.isg_image_16_9_width_33
     - transform_api.entity_transform_mode.node.related_courses
+  module:
+    - transform_api_responsive_image
 id: node.news.related_courses
 targetEntityType: node
 bundle: news
@@ -26,7 +31,7 @@ content:
     region: content
     label: omit
     settings:
-      trim_length: '200'
+      trim_length: '85'
     third_party_settings: {  }
   field_audience:
     type: text_format
@@ -35,14 +40,30 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_banner:
+    type: entity_reference_labels
+    weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_image:
-    type: image_style
+    type: responsive_image
     weight: '0'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_image_16_9_width_33
       image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+  field_theme:
+    type: entity_reference_labels
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_video_title:
     type: value
@@ -52,12 +73,10 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_banner: true
   field_domain_access: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
   field_other_info: true
-  field_theme: true
   field_video: true
   field_video_description: true
   langcode: true
