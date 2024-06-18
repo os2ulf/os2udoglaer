@@ -54,7 +54,9 @@ third_party_settings:
           - footer
         'Inline blocks':
           - 'inline_block:footer'
-      allowlisted_blocks: {  }
+      allowlisted_blocks:
+        'Lists (Views)':
+          - 'views_block:latest_news-block_1'
       restricted_categories:
         - Block
         - Bruger
@@ -64,7 +66,6 @@ third_party_settings:
         - Domain
         - Forms
         - Help
-        - 'Lists (Views)'
         - 'Menu Item Fields'
         - Menus
         - Premium

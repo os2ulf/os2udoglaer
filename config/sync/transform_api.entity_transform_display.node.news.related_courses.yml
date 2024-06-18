@@ -1,6 +1,6 @@
 uuid: 01cbeeda-cac5-4a18-9a95-cef1e416435c
 langcode: da
-status: true
+status: false
 dependencies:
   config:
     - field.field.node.news.body
