@@ -17,8 +17,9 @@ dependencies:
     - field.field.node.news.field_video_description
     - field.field.node.news.field_video_title
     - node.type.news
+    - responsive_image.styles.isg_image_16_9_width_33
   module:
-    - image
+    - responsive_image
     - text
     - user
 id: node.news.teaser
@@ -55,11 +56,11 @@ content:
     weight: 5
     region: content
   field_image:
-    type: image
+    type: responsive_image
     label: above
     settings:
+      responsive_image_style: isg_image_16_9_width_33
       image_link: ''
-      image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
