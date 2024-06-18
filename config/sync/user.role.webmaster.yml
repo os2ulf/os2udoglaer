@@ -9,10 +9,12 @@ dependencies:
     - block_content.type.button
     - block_content.type.code
     - block_content.type.divider
+    - block_content.type.document_list
     - block_content.type.footer
     - block_content.type.hero
     - block_content.type.image
     - block_content.type.inline_navigation
+    - block_content.type.inspiration
     - block_content.type.quote
     - block_content.type.rte
     - block_content.type.slideshow
@@ -195,12 +197,14 @@ permissions:
   - 'create course content'
   - 'create course_educators content'
   - 'create divider block content'
+  - 'create document_list block content'
   - 'create domain content'
   - 'create exercise content'
   - 'create footer block content'
   - 'create hero block content'
   - 'create image block content'
   - 'create inline_navigation block content'
+  - 'create inspiration block content'
   - 'create internship content'
   - 'create news content'
   - 'create page content'
@@ -241,6 +245,7 @@ permissions:
   - 'delete any course content'
   - 'delete any course_educators content'
   - 'delete any divider block content'
+  - 'delete any document_list block content'
   - 'delete any exercise content'
   - 'delete any file'
   - 'delete any footer block content'
@@ -248,6 +253,7 @@ permissions:
   - 'delete any hero block content'
   - 'delete any image block content'
   - 'delete any inline_navigation block content'
+  - 'delete any inspiration block content'
   - 'delete any internship content'
   - 'delete any news content'
   - 'delete any page content'
@@ -303,11 +309,13 @@ permissions:
   - 'edit any course content'
   - 'edit any course_educators content'
   - 'edit any divider block content'
+  - 'edit any document_list block content'
   - 'edit any exercise content'
   - 'edit any footer block content'
   - 'edit any hero block content'
   - 'edit any image block content'
   - 'edit any inline_navigation block content'
+  - 'edit any inspiration block content'
   - 'edit any internship content'
   - 'edit any news content'
   - 'edit any page content'

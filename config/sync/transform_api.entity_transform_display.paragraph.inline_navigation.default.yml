@@ -1,0 +1,21 @@
+uuid: 336e67b5-dd59-4d44-8189-0b3b7a7e0b1a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.inline_navigation.field_inline_navigation_pages
+    - paragraphs.paragraphs_type.inline_navigation
+id: paragraph.inline_navigation.default
+targetEntityType: paragraph
+bundle: inline_navigation
+mode: default
+content:
+  field_inline_navigation_pages:
+    type: entity_transform
+    weight: '0'
+    region: content
+    label: omit
+    settings:
+      transform_mode: inline_navigation
+    third_party_settings: {  }
+hidden: {  }
