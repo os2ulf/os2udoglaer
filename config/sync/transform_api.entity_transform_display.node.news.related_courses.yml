@@ -7,6 +7,8 @@ dependencies:
     - field.field.node.news.field_audience
     - field.field.node.news.field_banner
     - field.field.node.news.field_domain_access
+    - field.field.node.news.field_exclude_from_profile
+    - field.field.node.news.field_exclude_from_search
     - field.field.node.news.field_image
     - field.field.node.news.field_other_info
     - field.field.node.news.field_theme
@@ -26,11 +28,18 @@ content:
     region: content
     label: omit
     settings:
-      trim_length: '200'
+      trim_length: '85'
     third_party_settings: {  }
   field_audience:
     type: text_format
     weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_banner:
+    type: entity_reference_labels
+    weight: '4'
     region: content
     label: omit
     settings: {  }
@@ -44,6 +53,13 @@ content:
       image_style: ''
       image_link: ''
     third_party_settings: {  }
+  field_theme:
+    type: entity_reference_labels
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_video_title:
     type: value
     weight: '2'
@@ -52,12 +68,10 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_banner: true
   field_domain_access: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
   field_other_info: true
-  field_theme: true
   field_video: true
   field_video_description: true
   langcode: true

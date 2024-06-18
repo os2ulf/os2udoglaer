@@ -235,6 +235,7 @@ hidden:
   field_domain_admin: true
   field_domain_all_affiliates: true
   field_editor_field: true
+  field_posibilities: true
   field_postnummer: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true
