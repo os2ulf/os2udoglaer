@@ -133,6 +133,7 @@ hidden:
   field_intro: true
   field_other_info: true
   field_other_info_description: true
+  field_posibilities: true
   field_postnummer: true
   field_presentation: true
   field_pretix_api_token: true
