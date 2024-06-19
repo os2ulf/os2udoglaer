@@ -1,0 +1,201 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+<article{{ attributes.addClass('profile') }}>
+  {% if content %}
+    {# If user has editor role hide the following fields. #}
+    {% if 'editor' in user.getroles(TRUE)  %}
+      {{ content|without([
+        'field_presentation',
+        'field_educational_profile',
+        'field_intro',
+        'field_contact',
+        'field_phone',
+        'field_mail',
+        'field_cvr',
+        'field_homepage',
+        'field_other_info_description',
+        'field_other_info',
+        'field_image',
+        'field_logo',
+        'field_video',
+        'field_video_title',
+        'field_video_description',
+        'field_view_on_map',
+        'field_location_street',
+        'field_location_name',
+        'field_location_zipcode',
+        'field_location_city',
+        'field_pretix_enabled',
+        'field_pretix_url',
+        'field_pretix_api_token',
+        'field_pretix_organizer_form',
+        'field_pretix_event_form',
+        'field_allocated_budget',
+        'field_guarantee_partner',
+        'field_brancher',
+        'field_posibilities',
+        'field_postnummer',
+        'field_editor_field',
+      ]) }}
+    {# If user has course_provider role hide the following fields. #}
+    {% elseif 'course_provider' in user.getroles(TRUE)  %}
+      {{ content|without([
+        'field_pretix_enabled',
+        'field_pretix_url',
+        'field_pretix_api_token',
+        'field_pretix_organizer_form',
+        'field_pretix_event_form',
+        'field_allocated_budget',
+        'field_guarantee_partner',
+        'field_brancher',
+        'field_posibilities',
+        'field_postnummer',
+        'field_editor_field',
+      ]) }}
+    {# If user has place_of_visit role hide the following fields. #}
+    {% elseif 'place_of_visit' in user.getroles(TRUE)  %}
+      {{ content|without([
+        'field_pretix_enabled',
+        'field_pretix_url',
+        'field_pretix_api_token',
+        'field_pretix_organizer_form',
+        'field_pretix_event_form',
+        'field_allocated_budget',
+        'field_guarantee_partner',
+        'field_brancher',
+        'field_posibilities',
+        'field_postnummer',
+        'field_editor_field',
+      ]) }}
+    {# If user has corporation role hide the following fields. #}
+    {% elseif 'corporation' in user.getroles(TRUE)  %}
+      {{ content|without([
+        'field_educational_profile',
+        'field_intro',
+        'field_pretix_enabled',
+        'field_pretix_url',
+        'field_pretix_api_token',
+        'field_pretix_organizer_form',
+        'field_pretix_event_form',
+        'field_allocated_budget',
+        'field_guarantee_partner',
+        'field_editor_field',
+      ]) }}
+    {# If user has school role hide the following fields. #}
+    {% elseif 'school' in user.getroles(TRUE)  %}
+      {{ content|without([
+        'field_presentation',
+        'field_educational_profile',
+        'field_intro',
+        'field_contact',
+        'field_phone',
+        'field_mail',
+        'field_cvr',
+        'field_homepage',
+        'field_other_info_description',
+        'field_other_info',
+        'field_image',
+        'field_logo',
+        'field_video',
+        'field_video_title',
+        'field_video_description',
+        'field_view_on_map',
+        'field_pretix_enabled',
+        'field_pretix_url',
+        'field_pretix_api_token',
+        'field_pretix_organizer_form',
+        'field_pretix_event_form',
+        'field_allocated_budget',
+        'field_guarantee_partner',
+        'field_brancher',
+        'field_posibilities',
+        'field_postnummer',
+        'field_editor_field',
+      ]) }}
+    {# If user has institution role hide the following fields. #}
+    {% elseif 'institution' in user.getroles(TRUE)  %}
+      {{ content|without([
+        'field_presentation',
+        'field_educational_profile',
+        'field_intro',
+        'field_contact',
+        'field_phone',
+        'field_mail',
+        'field_cvr',
+        'field_homepage',
+        'field_other_info_description',
+        'field_other_info',
+        'field_image',
+        'field_logo',
+        'field_video',
+        'field_video_title',
+        'field_video_description',
+        'field_view_on_map',
+        'field_pretix_enabled',
+        'field_pretix_url',
+        'field_pretix_api_token',
+        'field_pretix_organizer_form',
+        'field_pretix_event_form',
+        'field_allocated_budget',
+        'field_guarantee_partner',
+        'field_brancher',
+        'field_posibilities',
+        'field_postnummer',
+        'field_editor_field',
+      ]) }}
+    {# If user has theater_contact role hide the following fields. #}
+    {% elseif 'theater_contact' in user.getroles(TRUE)  %}
+      {{ content|without([
+        'field_presentation',
+        'field_educational_profile',
+        'field_intro',
+        'field_contact',
+        'field_phone',
+        'field_mail',
+        'field_cvr',
+        'field_homepage',
+        'field_other_info_description',
+        'field_other_info',
+        'field_image',
+        'field_logo',
+        'field_video',
+        'field_video_title',
+        'field_video_description',
+        'field_view_on_map',
+        'field_location_street',
+        'field_location_name',
+        'field_location_zipcode',
+        'field_location_city',
+        'field_pretix_enabled',
+        'field_pretix_url',
+        'field_pretix_api_token',
+        'field_pretix_organizer_form',
+        'field_pretix_event_form',
+        'field_allocated_budget',
+        'field_guarantee_partner',
+        'field_brancher',
+        'field_posibilities',
+        'field_postnummer',
+        'field_editor_field',
+      ]) }}
+    {% else %}
+      {{ content }}
+    {% endif %}
+  {% endif %}
+</article>
