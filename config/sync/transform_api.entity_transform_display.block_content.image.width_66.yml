@@ -1,4 +1,4 @@
-uuid: 4ea9ef11-f2e4-4629-8fa8-4a1e14d9c264
+uuid: 69aaebee-8e6d-4fd7-871e-8ffe3400718b
 langcode: da
 status: true
 dependencies:
@@ -8,16 +8,17 @@ dependencies:
     - field.field.block_content.image.field_image_caption
     - field.field.block_content.image.field_image_link
     - field.field.block_content.image.field_image_media
-    - responsive_image.styles.isg_image_16_9_full_width
+    - responsive_image.styles.isg_image_16_9_width_66
+    - transform_api.entity_transform_mode.block_content.width_66
   module:
     - premium_tools
     - transform_api_responsive_image
 _core:
   default_config_hash: VaBtYK8ebFTxX_QS8ywAK-rg6wsgOHqGxhROj_sHKZE
-id: block_content.image.default
+id: block_content.image.width_66
 targetEntityType: block_content
 bundle: image
-mode: default
+mode: width_66
 content:
   field_dynamic_height:
     type: boolean
@@ -46,7 +47,7 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_image_16_9_full_width
+      responsive_image_style: isg_image_16_9_width_66
       image_link: ''
       image_loading:
         attribute: lazy
