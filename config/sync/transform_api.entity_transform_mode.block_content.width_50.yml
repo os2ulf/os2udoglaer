@@ -1,0 +1,10 @@
+uuid: 284ad726-9f1e-44b8-b4a1-f591c1999109
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.width_50
+label: 'Width 50'
+targetEntityType: block_content
+cache: true

@@ -39,7 +39,10 @@ dependencies:
     - field.field.node.exercise.field_work_documents
     - field.field.node.exercise.field_youth_education_subject
     - node.type.exercise
+    - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.related_courses
+  module:
+    - transform_api_responsive_image
 id: node.exercise.related_courses
 targetEntityType: node
 bundle: exercise
@@ -68,13 +71,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image:
-    type: image_style
+    type: responsive_image
     weight: '8'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_related_courses
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_primary_school_subject:
     type: entity_reference_labels

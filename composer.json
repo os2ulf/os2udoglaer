@@ -216,7 +216,8 @@
                 "(#3420685) Error when creating a new user.": "https://www.drupal.org/files/issues/2024-06-06/3420685-user-create-error-6.patch"
             },
             "drupal/transform_api": {
-                "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch"
+                "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch",
+                "Add getter for field transform": "patches/transform_api_add_field_transform_getter.patch"
             }
         }
     }

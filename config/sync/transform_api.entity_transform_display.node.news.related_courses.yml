@@ -16,7 +16,7 @@ dependencies:
     - field.field.node.news.field_video_description
     - field.field.node.news.field_video_title
     - node.type.news
-    - responsive_image.styles.isg_image_16_9_width_33
+    - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.related_courses
   module:
     - transform_api_responsive_image
@@ -53,7 +53,7 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_image_16_9_width_33
+      responsive_image_style: isg_related_courses
       image_link: ''
       image_loading:
         attribute: lazy
