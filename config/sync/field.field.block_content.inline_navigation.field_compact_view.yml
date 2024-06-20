@@ -1,0 +1,21 @@
+uuid: 670f5436-55d0-4f3a-b57c-eba47719e2b9
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.inline_navigation
+    - field.storage.block_content.field_compact_view
+id: block_content.inline_navigation.field_compact_view
+field_name: field_compact_view
+entity_type: block_content
+bundle: inline_navigation
+label: 'Kompakt visning'
+description: 'Vis uden billeder/Kompakt visning'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Slået til'
+  off_label: 'Slået fra'
+field_type: boolean

@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - block_content.type.inline_navigation
+    - field.field.block_content.inline_navigation.field_compact_view
     - field.field.block_content.inline_navigation.field_inline_nav_paragraphs
   module:
     - entity_reference_revisions
@@ -14,6 +15,16 @@ targetEntityType: block_content
 bundle: inline_navigation
 mode: default
 content:
+  field_compact_view:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
   field_inline_nav_paragraphs:
     type: entity_reference_revisions_entity_view
     label: above
