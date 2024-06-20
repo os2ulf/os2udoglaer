@@ -1,4 +1,4 @@
-uuid: 81c16f06-5b65-4905-a4e2-684a6fb168e7
+uuid: 7dba932b-1a10-4dfb-8747-00ab58e6e987
 langcode: da
 status: true
 dependencies:
@@ -7,8 +7,8 @@ dependencies:
 name: isg_focal_point_826_460
 label: 'Focal point scale (826x460)'
 effects:
-  3a3da8e7-7dd3-4499-b9eb-a5e4daac7391:
-    uuid: 3a3da8e7-7dd3-4499-b9eb-a5e4daac7391
+  b29c0db7-20d2-426e-ae5b-ebcbe0e995f2:
+    uuid: b29c0db7-20d2-426e-ae5b-ebcbe0e995f2
     id: focal_point_scale_and_crop
     weight: 1
     data:

@@ -16,7 +16,7 @@ use Drupal\image_style_generator\StyleViewModeInterface;
 class PageHeader extends StyleGroupBase {
 
   public function getCrop(string $breakpoint, int $width, int $multiplier, ?StyleViewModeInterface $view_mode = NULL): array {
-    $calculated_width = 1920;
+    $calculated_width = 2244;
     $calculated_height = 560;
 
     if ($breakpoint === 'lighthouse') {
@@ -24,10 +24,10 @@ class PageHeader extends StyleGroupBase {
       $calculated_height = 250 * $multiplier;
     } else if ($breakpoint === 'xxs') {
       $calculated_width = 480 * $multiplier;
-      $calculated_height = 320 * $multiplier;
+      $calculated_height = 250 * $multiplier;
     } else if ($breakpoint === 'xs') {
       $calculated_width = 767 * $multiplier;
-      $calculated_height = 460 * $multiplier;
+      $calculated_height = 320 * $multiplier;
     } else if ($breakpoint === 'sm') {
       $calculated_width = 826;
       $calculated_height = 460;
