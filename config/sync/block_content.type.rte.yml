@@ -7,4 +7,4 @@ _core:
 id: rte
 label: Tekst
 revision: 0
-description: 'A block containing an rich text editor.'
+description: 'En blok der indeholder en rich tekst editor.'

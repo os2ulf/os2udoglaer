@@ -3,15 +3,16 @@ langcode: da
 status: true
 dependencies:
   config:
-    - image.style.isg_focal_point_1486_800
-    - image.style.isg_focal_point_388_400
-    - image.style.isg_focal_point_456_400
-    - image.style.isg_focal_point_484_500
-    - image.style.isg_focal_point_576_600
-    - image.style.isg_focal_point_743_400
-    - image.style.isg_focal_point_776_800
-    - image.style.isg_focal_point_792_600
-    - image.style.isg_focal_point_912_800
+    - image.style.isg_focal_point_1534_800
+    - image.style.isg_focal_point_1700_650
+    - image.style.isg_focal_point_388_300
+    - image.style.isg_focal_point_480_350
+    - image.style.isg_focal_point_600_650
+    - image.style.isg_focal_point_767_400
+    - image.style.isg_focal_point_776_600
+    - image.style.isg_focal_point_960_650
+    - image.style.isg_focal_point_960_700
+    - image.style.isg_focal_point_991_500
   theme:
     - os2udoglaer
 id: isg_appetizer
@@ -19,53 +20,53 @@ label: Appetizer
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_792_600
+    image_mapping: isg_focal_point_1700_650
     breakpoint_id: os2udoglaer.xl
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_792_600
+    image_mapping: isg_focal_point_960_650
     breakpoint_id: os2udoglaer.lg
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_576_600
+    image_mapping: isg_focal_point_600_650
     breakpoint_id: os2udoglaer.md
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_484_500
+    image_mapping: isg_focal_point_991_500
     breakpoint_id: os2udoglaer.sm
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_743_400
+    image_mapping: isg_focal_point_767_400
     breakpoint_id: os2udoglaer.xs
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_1486_800
+    image_mapping: isg_focal_point_1534_800
     breakpoint_id: os2udoglaer.xs
     multiplier: 2x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_456_400
+    image_mapping: isg_focal_point_480_350
     breakpoint_id: os2udoglaer.xxs
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_912_800
+    image_mapping: isg_focal_point_960_700
     breakpoint_id: os2udoglaer.xxs
     multiplier: 2x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_388_400
+    image_mapping: isg_focal_point_388_300
     breakpoint_id: os2udoglaer.lighthouse
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_776_800
+    image_mapping: isg_focal_point_776_600
     breakpoint_id: os2udoglaer.lighthouse
     multiplier: 2x
 breakpoint_group: os2udoglaer
-fallback_image_style: isg_focal_point_388_400
+fallback_image_style: isg_focal_point_388_300
