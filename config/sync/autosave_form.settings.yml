@@ -7,6 +7,6 @@ active_on:
   config_entity_forms: false
 notification:
   active: true
-  message: 'Saving draft...'
+  message: 'Gemmer kladde...'
   delay: 1000
 allowed_content_entity_types: {  }

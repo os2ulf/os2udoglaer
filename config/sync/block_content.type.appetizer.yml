@@ -7,4 +7,4 @@ _core:
 id: appetizer
 label: Appetizer
 revision: 0
-description: 'A block that contains image, text and a CTA-button.'
+description: 'En blok der indeholder et billede, tekst og en CTA knap.'

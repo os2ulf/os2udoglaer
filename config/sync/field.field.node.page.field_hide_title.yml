@@ -11,7 +11,7 @@ id: node.page.field_hide_title
 field_name: field_hide_title
 entity_type: node
 bundle: page
-label: 'Hide title'
+label: 'Skjul titel'
 description: ''
 required: false
 translatable: true
