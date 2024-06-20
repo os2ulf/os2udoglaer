@@ -77,14 +77,8 @@ final class DomainSettingsForm extends ConfigFormBase {
 
     $form['text_positive_color'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Text positive color'),
+      '#title' => $this->t('Text color'),
       '#default_value' => $config->get('text_positive_color'),
-    ];
-
-    $form['text_negative_color'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Text negative color'),
-      '#default_value' => $config->get('text_negative_color'),
     ];
 
     return parent::buildForm($form, $form_state);
