@@ -120,7 +120,7 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: node_type
-          default_action: default
+          default_action: empty
           exception:
             value: all
             title_enable: false
@@ -199,11 +199,11 @@ display:
       display_extenders:
         transform_api_views:
           row_transform: entity
-          row_transform_mode: default
-          pager_transform: mini
+          row_transform_mode: full
+          pager_transform: basic
           pager_transform_links: absolute
           pager_transform_links_destination: results
-      path: json-feed/%bundle
+      path: json-feed/%type
     cache_metadata:
       max-age: -1
       contexts:
