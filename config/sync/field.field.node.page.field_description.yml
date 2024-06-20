@@ -12,7 +12,7 @@ field_name: field_description
 entity_type: node
 bundle: page
 label: Beskrivelse
-description: 'Description is used for meta tags, search results and inline navigation'
+description: 'Beskrivelsen er brugt til meta tags, søgeresultater og inline navigation'
 required: true
 translatable: true
 default_value: {  }

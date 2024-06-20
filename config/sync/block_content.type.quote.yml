@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: KDyxhO9yYAVcFoZbg8ceVd_pyoc2-LxoDBZL6jw3NPY
 id: quote
-label: Quote
+label: Citat
 revision: 0
-description: 'A block contains a quote.'
+description: 'En blok der indeholder et citat.'

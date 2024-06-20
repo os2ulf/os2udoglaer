@@ -7,4 +7,4 @@ _core:
 id: divider
 label: Divider
 revision: 0
-description: 'A block that contains an divider'
+description: 'En blok der indeholder en delelinje.'
