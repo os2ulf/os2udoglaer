@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - block_content.type.inline_navigation
+    - field.field.block_content.inline_navigation.field_compact_view
     - field.field.block_content.inline_navigation.field_inline_nav_paragraphs
 _core:
   default_config_hash: w_NC1rz-LKlKzlgdBN0VJOJ8t6E5dhc2b8VQVgvOY-Y
@@ -12,9 +13,16 @@ targetEntityType: block_content
 bundle: inline_navigation
 mode: default
 content:
+  field_compact_view:
+    type: boolean
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_inline_nav_paragraphs:
     type: entity_transform
-    weight: '2'
+    weight: '0'
     region: content
     label: omit
     settings:
