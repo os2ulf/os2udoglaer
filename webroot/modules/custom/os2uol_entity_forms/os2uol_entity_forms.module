@@ -52,6 +52,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     // Get current logged in user.
     $current_user = \Drupal::currentUser();
 
+    //Get edit form user id from url.
+    $edit_user = \Drupal::routeMatch()->getParameter('user');
+
     // Attach library for jQuery functionality.
     $form['#attached']['library'][] = 'os2uol_entity_forms/user-edit-form-alter';
 
@@ -88,13 +91,17 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_posibilities',
       'field_postnummer',
       'field_editor_field',
+      'field_bypass_workflow',
     ];
 
     // Hide fields for user role editor.
-    if ($current_user->hasRole('editor')) {
-      foreach ($editor_hidden_fields as $field) {
-        if (isset($form[$field])) {
-          $form[$field]['#access'] = FALSE;
+    if ($current_user->hasRole('editor')){
+      if ($edit_user && $current_user->id() == $edit_user->id()) {
+        $form['account']['status']['#access'] = FALSE;
+        foreach ($editor_hidden_fields as $field) {
+          if (isset($form[$field])) {
+            $form[$field]['#access'] = FALSE;
+          }
         }
       }
     }
@@ -112,6 +119,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_posibilities',
       'field_postnummer',
       'field_editor_field',
+      'field_bypass_workflow',
     ];
 
     // Hide fields for user role course_provider.
@@ -136,6 +144,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_posibilities',
       'field_postnummer',
       'field_editor_field',
+      'field_bypass_workflow',
     ];
 
     // Hide fields for user role place_of_visit.
@@ -159,6 +168,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_allocated_budget',
       'field_guarantee_partner',
       'field_editor_field',
+      'field_bypass_workflow',
     ];
 
     // Hide fields for user role corporation.
@@ -199,6 +209,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_posibilities',
       'field_postnummer',
       'field_editor_field',
+      'field_bypass_workflow',
     ];
 
     // Hide fields for user role school.
@@ -239,6 +250,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_posibilities',
       'field_postnummer',
       'field_editor_field',
+      'field_bypass_workflow',
     ];
 
     // Hide fields for user role institution.
@@ -283,6 +295,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_posibilities',
       'field_postnummer',
       'field_editor_field',
+      'field_bypass_workflow',
     ];
 
     // Hide fields for user role theater_contact.
