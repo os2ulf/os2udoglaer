@@ -217,7 +217,8 @@
             },
             "drupal/transform_api": {
                 "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch",
-                "Add getter for field transform": "patches/transform_api_add_field_transform_getter.patch"
+                "Add getter for field transform": "patches/transform_api_add_field_transform_getter.patch",
+                "Fix views parameters": "https://git.drupalcode.org/project/transform_api/-/commit/190b4a236137133ecb4710a5067b8510c9cf6661.diff"
             }
         }
     }
