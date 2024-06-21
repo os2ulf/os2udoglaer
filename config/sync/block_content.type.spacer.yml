@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: 3egmUBe-i0bnD9yx6syyPr9SEsEtyZXTbpoC6VkiE1k
 id: spacer
-label: Spacer
+label: 'Spacer (1)'
 revision: 0
 description: "A block that contains a spacer.\t"

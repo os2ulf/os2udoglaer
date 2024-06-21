@@ -3,6 +3,6 @@ langcode: da
 status: true
 dependencies: {  }
 id: footer
-label: Footer
+label: 'Footer (1)'
 revision: 0
 description: 'Footeren som vises på sitet'

@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: IIzIs0BYg_xT3sd4g1OTJxm4YfQA8xzPsP4gmIBzOvw
 id: image
-label: Billede
+label: 'Billede (1/2/3)'
 revision: 0
 description: 'En blok der indeholder et billede.'
