@@ -1,0 +1,21 @@
+uuid: cd62c826-e4e8-4061-9389-6c84723356e1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.news
+id: node.news.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: news
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

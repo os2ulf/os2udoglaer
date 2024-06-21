@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
     - field.field.node.course_educators.field_domain_access
+    - field.field.node.course_educators.field_domain_all_affiliates
     - field.field.node.course_educators.field_duration
     - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
@@ -84,6 +85,7 @@ hidden:
   field_description_of_period: true
   field_description_of_price: true
   field_domain_access: true
+  field_domain_all_affiliates: true
   field_duration: true
   field_duration_unit_taxonomy: true
   field_educators_target_group: true
