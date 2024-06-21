@@ -95,7 +95,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     ];
 
     // Hide fields for user role editor.
-    if ($current_user->hasRole('editor')){
+    if ($current_user->hasRole('editor')) {
       if ($edit_user && $current_user->id() == $edit_user->id()) {
         $form['account']['status']['#access'] = FALSE;
         foreach ($editor_hidden_fields as $field) {
@@ -103,6 +103,31 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
             $form[$field]['#access'] = FALSE;
           }
         }
+      } elseif ($edit_user && $edit_user->hasRole('webmaster')) {
+        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+
+      } elseif (($edit_user && $edit_user->hasRole('course_provider')) || ($edit_user && $edit_user->hasRole('place_of_visit'))) {
+        $form['field_allocated_budget']['#access'] = FALSE;
+        $form['field_guarantee_partner']['#access'] = FALSE;
+        $form['field_brancher']['#access'] = FALSE;
+        $form['field_posibilities']['#access'] = FALSE;
+        $form['field_postnummer']['#access'] = FALSE;
+      } elseif ($edit_user && $edit_user->hasRole('corporation')) {
+        $form['field_allocated_budget']['#access'] = FALSE;
+      } elseif (($edit_user && $edit_user->hasRole('school')) || ($edit_user && $edit_user->hasRole('institution'))) {
+        foreach ($editor_hidden_fields as $field) {
+          if (isset($form[$field])) {
+            $form[$field]['#access'] = FALSE;
+          }
+        }
+        $form['field_location_street']['#access'] = TRUE;
+        $form['field_location_name']['#access'] = TRUE;
+        $form['field_location_zipcode']['#access'] = TRUE;
+        $form['field_location_city']['#access'] = TRUE;
+      } elseif ($edit_user && $edit_user->hasRole('theater_contact')) {
+        $form['field_allocated_budget']['#access'] = TRUE;
+        $form['field_editor_field']['#access'] = TRUE;
+        $form['field_bypass_workflow']['#access'] = TRUE;
       }
     }
 
