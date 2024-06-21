@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
     - field.field.node.exercise.field_domain_access
+    - field.field.node.exercise.field_domain_all_affiliates
     - field.field.node.exercise.field_duration_select
     - field.field.node.exercise.field_exclude_from_profile
     - field.field.node.exercise.field_exclude_from_search
@@ -282,6 +283,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_domain_access: true
+  field_domain_all_affiliates: true
   field_exclude_from_search: true
   field_meta_tags: true
   langcode: true

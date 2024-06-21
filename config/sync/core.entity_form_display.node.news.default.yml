@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.news.field_audience
     - field.field.node.news.field_banner
     - field.field.node.news.field_domain_access
+    - field.field.node.news.field_domain_all_affiliates
     - field.field.node.news.field_exclude_from_profile
     - field.field.node.news.field_exclude_from_search
     - field.field.node.news.field_image
@@ -330,4 +331,5 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_domain_all_affiliates: true

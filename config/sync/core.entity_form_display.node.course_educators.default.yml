@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
     - field.field.node.course_educators.field_domain_access
+    - field.field.node.course_educators.field_domain_all_affiliates
     - field.field.node.course_educators.field_duration
     - field.field.node.course_educators.field_duration_unit_taxonomy
     - field.field.node.course_educators.field_educators_target_group
@@ -375,7 +376,7 @@ third_party_settings:
       label: 'Relaterede forløb'
       region: content
       parent_name: ''
-      weight: 10
+      weight: 9
       format_type: html_element
       format_settings:
         classes: trailer
@@ -397,7 +398,7 @@ third_party_settings:
       label: 'Visning af indhold'
       region: content
       parent_name: ''
-      weight: 11
+      weight: 10
       format_type: html_element
       format_settings:
         classes: ''
@@ -437,7 +438,7 @@ content:
         maxlength_js_enforce: false
   created:
     type: datetime_timestamp
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -635,7 +636,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 15
+    weight: 14
     region: content
     settings:
       sidebar: true
@@ -918,45 +919,45 @@ content:
               recurse: '0'
   langcode:
     type: language_select
-    weight: 12
+    weight: 11
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
-    weight: 21
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
   path:
     type: path
-    weight: 19
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 17
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 22
+    weight: 21
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 18
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -975,7 +976,7 @@ content:
         maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
@@ -984,8 +985,9 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 20
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
-hidden: {  }
+hidden:
+  field_domain_all_affiliates: true

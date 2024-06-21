@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
     - field.field.node.course.field_domain_access
+    - field.field.node.course.field_domain_all_affiliates
     - field.field.node.course.field_duration
     - field.field.node.course.field_duration_unit_taxonomy
     - field.field.node.course.field_exclude_from_profile
@@ -225,7 +226,6 @@ third_party_settings:
     group_duration:
       children:
         - field_duration
-        - field_duration_unit
         - field_duration_unit_taxonomy
         - field_description_of_duration
       label: Varighed
@@ -1167,4 +1167,5 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_domain_all_affiliates: true
   langcode: true
