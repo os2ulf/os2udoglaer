@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: UcgGPabvDSlQQtmSGu1GxRLG6aGAPgYfK1IObPJEg08
 id: video
-label: 'Video (1/2/3)'
+label: 'Video (1)'
 revision: 0
 description: 'A block containing a video.'
