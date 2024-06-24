@@ -27,3 +27,6 @@ os2uol_settings.settings:
     text_negative_color:
       type: string
       label: 'Text negative color'
+    site_tracking_script:
+      type: string
+      label: 'Site tracking script'
