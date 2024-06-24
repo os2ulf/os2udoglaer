@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: Apap9mI0G7YRBBPS5DMeBuh6ULNaZzUoXVQGNZrgu0w
 id: appetizer
-label: Appetizer
+label: 'Appetizer (1)'
 revision: 0
 description: 'En blok der indeholder et billede, tekst og en CTA knap.'

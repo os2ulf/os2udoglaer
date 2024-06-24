@@ -3,6 +3,6 @@ langcode: da
 status: true
 dependencies: {  }
 id: inspiration
-label: Inspiration
+label: 'Inspiration (1)'
 revision: 0
 description: ''
