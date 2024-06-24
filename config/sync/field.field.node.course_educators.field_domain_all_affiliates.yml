@@ -1,0 +1,21 @@
+uuid: e94e7735-50af-4e0f-b5e9-ccc85d0f9d77
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.course_educators
+id: node.course_educators.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: course_educators
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

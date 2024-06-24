@@ -13,7 +13,7 @@ id: block_content.appetizer.field_appetizer_cta
 field_name: field_appetizer_cta
 entity_type: block_content
 bundle: appetizer
-label: 'Call to action button'
+label: 'Call to action knap'
 description: ''
 required: false
 translatable: false

@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: sdbk9La6XQho0osV8n6K2rKy7_qeyN7MERlx39Yqa1I
 id: rte
-label: Tekst
+label: 'Tekst (1/2/3)'
 revision: 0
-description: 'A block containing an rich text editor.'
+description: 'En blok der indeholder en rich tekst editor.'

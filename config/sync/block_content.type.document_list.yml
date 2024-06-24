@@ -3,6 +3,6 @@ langcode: da
 status: true
 dependencies: {  }
 id: document_list
-label: Dokumentliste
+label: 'Dokumentliste (1/2/3)'
 revision: 0
 description: ''

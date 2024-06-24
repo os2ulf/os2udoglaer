@@ -5,6 +5,6 @@ dependencies: {  }
 _core:
   default_config_hash: q44CE8l_WTQfatB-Dc_pZanJoD9OVQZjHKeH0qUBSzw
 id: inline_navigation
-label: 'Inline Navigation'
+label: 'Inline Navigation (1)'
 revision: 0
-description: 'A block containing a inline navigation.'
+description: 'En blok der indeholder en inline navigation.'

@@ -77,14 +77,14 @@ final class DomainSettingsForm extends ConfigFormBase {
 
     $form['text_positive_color'] = [
       '#type' => 'textfield',
-      '#title' => $this->t('Text positive color'),
+      '#title' => $this->t('Text color'),
       '#default_value' => $config->get('text_positive_color'),
     ];
 
-    $form['text_negative_color'] = [
-      '#type' => 'textfield',
-      '#title' => $this->t('Text negative color'),
-      '#default_value' => $config->get('text_negative_color'),
+    $form['site_tracking_script'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Site tracking script'),
+      '#default_value' => $config->get('site_tracking_script'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -112,6 +112,7 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('secondary_background_text_color', $form_state->getValue('secondary_background_text_color'))
       ->set('text_positive_color', $form_state->getValue('text_positive_color'))
       ->set('text_negative_color', $form_state->getValue('text_negative_color'))
+      ->set('site_tracking_script', $form_state->getValue('site_tracking_script'))
       ->save();
 
     parent::submitForm($form, $form_state);

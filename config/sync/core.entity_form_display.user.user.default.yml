@@ -52,6 +52,7 @@ third_party_settings:
   field_group:
     group_pretix:
       children:
+        - field_pretix_enabled
         - field_pretix_url
         - field_pretix_api_token
         - field_pretix_organizer_form
@@ -59,21 +60,20 @@ third_party_settings:
       label: Pretix
       region: content
       parent_name: ''
-      weight: 8
-      format_type: fieldset
+      weight: 6
+      format_type: html_element
       format_settings:
         classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
-        required_fields: true
         element: details
         show_label: true
         label_element: summary
         label_element_classes: ''
-        attributes: 'open="open"'
+        attributes: ''
         effect: none
         speed: fast
+        required_fields: true
     group_video:
       children:
         - field_video_title
@@ -97,21 +97,20 @@ third_party_settings:
       label: 'Yderligere information'
       region: content
       parent_name: ''
-      weight: 4
-      format_type: fieldset
+      weight: 3
+      format_type: html_element
       format_settings:
         classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
-        required_fields: true
         element: details
         show_label: true
         label_element: summary
         label_element_classes: ''
-        attributes: 'open="open"'
+        attributes: ''
         effect: none
         speed: fast
+        required_fields: true
     group_location:
       children:
         - field_view_on_map
@@ -119,13 +118,19 @@ third_party_settings:
       label: Lokation
       region: content
       parent_name: ''
-      weight: 6
-      format_type: fieldset
+      weight: 5
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
     group_alternative_address:
       children:
@@ -151,12 +156,18 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 0
-      format_type: fieldset
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
         required_fields: true
     group_presentation:
       children:
@@ -168,15 +179,22 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 1
-      format_type: fieldset
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
     group_contact_information:
       children:
+        - field_contact
         - field_phone
         - field_mail
         - field_cvr
@@ -184,13 +202,19 @@ third_party_settings:
       label: Kontaktoplysninger
       region: content
       parent_name: ''
-      weight: 3
-      format_type: fieldset
+      weight: 2
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
     group_media:
       children:
@@ -200,13 +224,19 @@ third_party_settings:
       label: Billeder/medier
       region: content
       parent_name: ''
-      weight: 5
-      format_type: fieldset
+      weight: 4
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
     group_editor_settings:
       children:
@@ -218,13 +248,62 @@ third_party_settings:
       label: Redaktørindstillinger
       region: content
       parent_name: ''
-      weight: 14
-      format_type: fieldset
+      weight: 9
+      format_type: html_element
       format_settings:
         classes: ''
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_extra:
+      children:
+        - field_guarantee_partner
+        - field_brancher
+        - field_posibilities
+        - field_postnummer
+      label: Ekstra
+      region: content
+      parent_name: ''
+      weight: 8
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_budget:
+      children:
+        - field_allocated_budget
+      label: Budget
+      region: content
+      parent_name: ''
+      weight: 7
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
         required_fields: true
 _core:
   default_config_hash: Tii0Ca3OF32lLDp9WN3el1Q1cy2MFIxUUCraMzIZxRA
@@ -243,7 +322,7 @@ content:
     region: content
   field_allocated_budget:
     type: paragraphs
-    weight: 9
+    weight: 8
     region: content
     settings:
       title: Paragraph
@@ -262,7 +341,7 @@ content:
       conditional_fields: {  }
   field_brancher:
     type: options_buttons
-    weight: 11
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -295,7 +374,7 @@ content:
       conditional_fields: {  }
   field_cvr:
     type: string_textfield
-    weight: 11
+    weight: 5
     region: content
     settings:
       size: 60
@@ -343,7 +422,7 @@ content:
       conditional_fields: {  }
   field_guarantee_partner:
     type: boolean_checkbox
-    weight: 10
+    weight: 9
     region: content
     settings:
       display_label: true
@@ -351,7 +430,7 @@ content:
       conditional_fields: {  }
   field_homepage:
     type: link_default
-    weight: 12
+    weight: 6
     region: content
     settings:
       placeholder_url: ''
@@ -421,7 +500,7 @@ content:
     third_party_settings: {  }
   field_mail:
     type: string_textfield
-    weight: 10
+    weight: 4
     region: content
     settings:
       size: 60
@@ -465,7 +544,7 @@ content:
     third_party_settings: {  }
   field_phone:
     type: string_textfield
-    weight: 9
+    weight: 3
     region: content
     settings:
       size: 60
@@ -474,13 +553,13 @@ content:
       conditional_fields: {  }
   field_posibilities:
     type: options_buttons
-    weight: 12
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_postnummer:
     type: options_buttons
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -495,7 +574,7 @@ content:
       conditional_fields: {  }
   field_pretix_api_token:
     type: string_textfield
-    weight: 20
+    weight: 9
     region: content
     settings:
       size: 60
@@ -511,7 +590,7 @@ content:
       conditional_fields: {  }
   field_pretix_event_form:
     type: string_textarea
-    weight: 22
+    weight: 11
     region: content
     settings:
       rows: 5
@@ -519,7 +598,7 @@ content:
     third_party_settings: {  }
   field_pretix_organizer_form:
     type: string_textarea
-    weight: 21
+    weight: 10
     region: content
     settings:
       rows: 5
@@ -527,7 +606,7 @@ content:
     third_party_settings: {  }
   field_pretix_url:
     type: string_textfield
-    weight: 19
+    weight: 8
     region: content
     settings:
       size: 60

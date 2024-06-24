@@ -47,8 +47,289 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     $form['field_application_deadline']['widget'][0]['value']['#date_time_format'] = '';
   }
 
+  // If user_register_form or user_form.
   if ($form_id == 'user_register_form' || $form_id == 'user_form') {
-    unset($form['field_roles']['widget']['#options']['anonymous']);
-    unset($form['field_roles']['widget']['#options']['authenticated']);
+    // Get current logged in user.
+    $current_user = \Drupal::currentUser();
+
+    //Get edit form user id from url.
+    $edit_user = \Drupal::routeMatch()->getParameter('user');
+
+    // Attach library for jQuery functionality.
+    $form['#attached']['library'][] = 'os2uol_entity_forms/user-edit-form-alter';
+
+    // Hidden fields for user role editor.
+    $editor_hidden_fields = [
+      'field_presentation',
+      'field_educational_profile',
+      'field_intro',
+      'field_contact',
+      'field_phone',
+      'field_mail',
+      'field_cvr',
+      'field_homepage',
+      'field_other_info_description',
+      'field_other_info',
+      'field_image',
+      'field_logo',
+      'field_video',
+      'field_video_title',
+      'field_video_description',
+      'field_view_on_map',
+      'field_location_street',
+      'field_location_name',
+      'field_location_zipcode',
+      'field_location_city',
+      'field_pretix_enabled',
+      'field_pretix_url',
+      'field_pretix_api_token',
+      'field_pretix_organizer_form',
+      'field_pretix_event_form',
+      'field_allocated_budget',
+      'field_guarantee_partner',
+      'field_brancher',
+      'field_posibilities',
+      'field_postnummer',
+      'field_editor_field',
+      'field_bypass_workflow',
+    ];
+
+    // Hide fields for user role editor.
+    if ($current_user->hasRole('editor')) {
+      if ($edit_user && $current_user->id() == $edit_user->id()) {
+        $form['account']['status']['#access'] = FALSE;
+        foreach ($editor_hidden_fields as $field) {
+          if (isset($form[$field])) {
+            $form[$field]['#access'] = FALSE;
+          }
+        }
+      } elseif ($edit_user && $edit_user->hasRole('webmaster')) {
+        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+
+      } elseif (($edit_user && $edit_user->hasRole('course_provider')) || ($edit_user && $edit_user->hasRole('place_of_visit'))) {
+        $form['field_allocated_budget']['#access'] = FALSE;
+        $form['field_guarantee_partner']['#access'] = FALSE;
+        $form['field_brancher']['#access'] = FALSE;
+        $form['field_posibilities']['#access'] = FALSE;
+        $form['field_postnummer']['#access'] = FALSE;
+      } elseif ($edit_user && $edit_user->hasRole('corporation')) {
+        $form['field_allocated_budget']['#access'] = FALSE;
+      } elseif (($edit_user && $edit_user->hasRole('school')) || ($edit_user && $edit_user->hasRole('institution'))) {
+        foreach ($editor_hidden_fields as $field) {
+          if (isset($form[$field])) {
+            $form[$field]['#access'] = FALSE;
+          }
+        }
+        $form['field_location_street']['#access'] = TRUE;
+        $form['field_location_name']['#access'] = TRUE;
+        $form['field_location_zipcode']['#access'] = TRUE;
+        $form['field_location_city']['#access'] = TRUE;
+      } elseif ($edit_user && $edit_user->hasRole('theater_contact')) {
+        $form['field_allocated_budget']['#access'] = TRUE;
+        $form['field_editor_field']['#access'] = TRUE;
+        $form['field_bypass_workflow']['#access'] = TRUE;
+      }
+    }
+
+    // Hidden fields for user role course_provider.
+    $course_provider_hidden_fields = [
+      'field_pretix_enabled',
+      'field_pretix_url',
+      'field_pretix_api_token',
+      'field_pretix_organizer_form',
+      'field_pretix_event_form',
+      'field_allocated_budget',
+      'field_guarantee_partner',
+      'field_brancher',
+      'field_posibilities',
+      'field_postnummer',
+      'field_editor_field',
+      'field_bypass_workflow',
+    ];
+
+    // Hide fields for user role course_provider.
+    if ($current_user->hasRole('course_provider')) {
+      foreach ($course_provider_hidden_fields as $field) {
+        if (isset($form[$field])) {
+          $form[$field]['#access'] = FALSE;
+        }
+      }
+    }
+
+    // Hidden fields for user role place_of_visit.
+    $place_of_visit_hidden_fields = [
+      'field_pretix_enabled',
+      'field_pretix_url',
+      'field_pretix_api_token',
+      'field_pretix_organizer_form',
+      'field_pretix_event_form',
+      'field_allocated_budget',
+      'field_guarantee_partner',
+      'field_brancher',
+      'field_posibilities',
+      'field_postnummer',
+      'field_editor_field',
+      'field_bypass_workflow',
+    ];
+
+    // Hide fields for user role place_of_visit.
+    if ($current_user->hasRole('place_of_visit')) {
+      foreach ($place_of_visit_hidden_fields as $field) {
+        if (isset($form[$field])) {
+          $form[$field]['#access'] = FALSE;
+        }
+      }
+    }
+
+    // Hidden fields for user role corporation.
+    $corporation_hidden_fields = [
+      'field_educational_profile',
+      'field_intro',
+      'field_pretix_enabled',
+      'field_pretix_url',
+      'field_pretix_api_token',
+      'field_pretix_organizer_form',
+      'field_pretix_event_form',
+      'field_allocated_budget',
+      'field_guarantee_partner',
+      'field_editor_field',
+      'field_bypass_workflow',
+    ];
+
+    // Hide fields for user role corporation.
+    if ($current_user->hasRole('corporation')) {
+      foreach ($corporation_hidden_fields as $field) {
+        if (isset($form[$field])) {
+          $form[$field]['#access'] = FALSE;
+        }
+      }
+    }
+
+    // Hidden fields for user role school.
+    $school_hidden_fields = [
+      'field_presentation',
+      'field_educational_profile',
+      'field_intro',
+      'field_contact',
+      'field_phone',
+      'field_mail',
+      'field_cvr',
+      'field_homepage',
+      'field_other_info_description',
+      'field_other_info',
+      'field_image',
+      'field_logo',
+      'field_video',
+      'field_video_title',
+      'field_video_description',
+      'field_view_on_map',
+      'field_pretix_enabled',
+      'field_pretix_url',
+      'field_pretix_api_token',
+      'field_pretix_organizer_form',
+      'field_pretix_event_form',
+      'field_allocated_budget',
+      'field_guarantee_partner',
+      'field_brancher',
+      'field_posibilities',
+      'field_postnummer',
+      'field_editor_field',
+      'field_bypass_workflow',
+    ];
+
+    // Hide fields for user role school.
+    if ($current_user->hasRole('school')) {
+      foreach ($school_hidden_fields as $field) {
+        if (isset($form[$field])) {
+          $form[$field]['#access'] = FALSE;
+        }
+      }
+    }
+
+    // Hidden fields for user role institution.
+    $institution_hidden_fields = [
+      'field_presentation',
+      'field_educational_profile',
+      'field_intro',
+      'field_contact',
+      'field_phone',
+      'field_mail',
+      'field_cvr',
+      'field_homepage',
+      'field_other_info_description',
+      'field_other_info',
+      'field_image',
+      'field_logo',
+      'field_video',
+      'field_video_title',
+      'field_video_description',
+      'field_view_on_map',
+      'field_pretix_enabled',
+      'field_pretix_url',
+      'field_pretix_api_token',
+      'field_pretix_organizer_form',
+      'field_pretix_event_form',
+      'field_allocated_budget',
+      'field_guarantee_partner',
+      'field_brancher',
+      'field_posibilities',
+      'field_postnummer',
+      'field_editor_field',
+      'field_bypass_workflow',
+    ];
+
+    // Hide fields for user role institution.
+    if ($current_user->hasRole('institution')) {
+      foreach ($institution_hidden_fields as $field) {
+        if (isset($form[$field])) {
+          $form[$field]['#access'] = FALSE;
+        }
+      }
+    }
+
+    // Hidden fields for user role theater_contact.
+    $theater_contact_hidden_fields = [
+      'field_presentation',
+      'field_educational_profile',
+      'field_intro',
+      'field_contact',
+      'field_phone',
+      'field_mail',
+      'field_cvr',
+      'field_homepage',
+      'field_other_info_description',
+      'field_other_info',
+      'field_image',
+      'field_logo',
+      'field_video',
+      'field_video_title',
+      'field_video_description',
+      'field_view_on_map',
+      'field_location_street',
+      'field_location_name',
+      'field_location_zipcode',
+      'field_location_city',
+      'field_pretix_enabled',
+      'field_pretix_url',
+      'field_pretix_api_token',
+      'field_pretix_organizer_form',
+      'field_pretix_event_form',
+      'field_allocated_budget',
+      'field_guarantee_partner',
+      'field_brancher',
+      'field_posibilities',
+      'field_postnummer',
+      'field_editor_field',
+      'field_bypass_workflow',
+    ];
+
+    // Hide fields for user role theater_contact.
+    if ($current_user->hasRole('theater_contact')) {
+      foreach ($theater_contact_hidden_fields as $field) {
+        if (isset($form[$field])) {
+          $form[$field]['#access'] = FALSE;
+        }
+      }
+    }
   }
 }

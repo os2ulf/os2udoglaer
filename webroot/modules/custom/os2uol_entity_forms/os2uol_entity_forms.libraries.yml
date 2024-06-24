@@ -1,0 +1,6 @@
+user-edit-form-alter:
+  version: VERSION
+  js:
+    js/user-edit-form-alter.js: {}
+  dependencies:
+    - core/jquery

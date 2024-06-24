@@ -1,0 +1,10 @@
+uuid: 9cea6fe0-a251-47e5-9721-129ec9172eb9
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.width_100
+label: 'Width 100'
+targetEntityType: block_content
+cache: true
