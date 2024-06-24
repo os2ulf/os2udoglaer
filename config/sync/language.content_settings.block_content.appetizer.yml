@@ -1,0 +1,11 @@
+uuid: cdd0ff04-96a3-4bb3-aaa0-14d647b58321
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.appetizer
+id: block_content.appetizer
+target_entity_type_id: block_content
+target_bundle: appetizer
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,11 @@
+uuid: 953c8abe-f4e2-490a-b7db-df1a52afea2f
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.slideshow
+id: block_content.slideshow
+target_entity_type_id: block_content
+target_bundle: slideshow
+default_langcode: site_default
+language_alterable: false
