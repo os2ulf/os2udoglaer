@@ -8,4 +8,8 @@ id: front
 label: Forside
 tags:
   canonical_url: '[site:url]'
+  og_description: '[node:field_description:value]'
+  og_image: '[node:field_image]'
+  og_title: '[node:title] | [site:name]'
+  og_url: '[site:url]'
   shortlink: '[site:url]'
