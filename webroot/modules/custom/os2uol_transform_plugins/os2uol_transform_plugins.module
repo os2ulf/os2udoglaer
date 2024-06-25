@@ -71,7 +71,7 @@ function os2uol_transform_plugins_user_transform_alter(&$transformation) {
   $transformation['roles'] = $transformation['#entity']->getRoles();
 }
 
-function os2uol_transform_plugins_view_transform_alter(&$transformation) {
+function os2uol_transform_plugins_view_latest_news_block_1_transform_alter(&$transformation) {
   if (empty($transformation)) {
     return;
   }
