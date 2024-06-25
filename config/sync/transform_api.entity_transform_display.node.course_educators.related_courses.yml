@@ -160,6 +160,7 @@ hidden:
   field_description_of_period: true
   field_description_of_price: true
   field_domain_access: true
+  field_domain_all_affiliates: true
   field_duration: true
   field_duration_unit_taxonomy: true
   field_exclude_from_profile: true

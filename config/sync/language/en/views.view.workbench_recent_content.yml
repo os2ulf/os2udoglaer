@@ -1,5 +1,5 @@
-label: 'Workbench: Seneste indhold'
-description: 'Indholdsoversigtsside for Workbench.'
+label: 'Workbench: Recent content'
+description: 'Content overview page for Workbench.'
 display:
   default:
     display_title: Master
@@ -96,7 +96,7 @@ display:
       header:
         area:
           content:
-            value: '<h3>Seneste indhold</h3>'
+            value: '<h3>Recent content</h3>'
   embed_1:
     display_title: 'Page Embed'
     display_options:

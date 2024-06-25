@@ -44,6 +44,7 @@
         "drupal/core-vendor-hardening": "^9.0",
         "drupal/diff": "^1.7",
         "drupal/domain": "^2.0@beta",
+        "drupal/domain_entity": "^1.0@RC",
         "drupal/domain_simple_sitemap": "^3.0@beta",
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_clone": "^2.0@beta",
@@ -206,6 +207,9 @@
                 "(#3367785) Available on Current Domain doesn't instantiate": "https://www.drupal.org/files/issues/2023-11-10/3367785-domain-php8-boolean-14.patch",
                 "(#3359253) Use core route provider with addExtraCacheKeyPart for route caching?": "https://www.drupal.org/files/issues/2023-05-09/domain-route-provider-addextracachekeypart-3359253-02.patch",
                 "(#3397693) Add domain-specific cache tags to config overrides": "https://git.drupalcode.org/project/domain/-/merge_requests/54.diff"
+            },
+            "drupal/domain_entity" : {
+                "(#3405907) Make module compatible with PHP 8.2": "https://www.drupal.org/files/issues/2023-12-04/3405907-1.patch"
             },
             "drupal/paragraphs": {
                 "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch"
