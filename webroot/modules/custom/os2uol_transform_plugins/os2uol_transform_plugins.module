@@ -60,6 +60,8 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
   $transformation['link'] = $transformation['#entity']->toUrl()->toString();
   // Add entity bundle label to transformation.
   $transformation['bundle_label'] = $transformation['#entity']->type->entity->label();
+  // Add created date formatted with os2date to transformation.
+  $transformation['created'] = \Drupal::service('date.formatter')->format($transformation['#entity']->get('created')->value, 'os2date');
 }
 
 function os2uol_transform_plugins_user_transform_alter(&$transformation) {
