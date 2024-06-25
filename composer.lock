@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "85c44877f9c343f77ce04795148d88bd",
+    "content-hash": "c744c7cc464159b8169f236477f21b78",
     "packages": [
         {
             "name": "algolia/places",
@@ -1668,6 +1668,10 @@
             ],
             "authors": [
                 {
+                    "name": "mandclu",
+                    "homepage": "https://www.drupal.org/user/52136"
+                },
+                {
                     "name": "NickDickinsonWilde",
                     "homepage": "https://www.drupal.org/user/3094661"
                 },
@@ -2719,6 +2723,94 @@
             }
         },
         {
+            "name": "drupal/domain_access",
+            "version": "2.0.0-beta1",
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/domain": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "2.0.0-beta1",
+                    "datestamp": "1686067462",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "agentrickard",
+                    "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "nonsie",
+                    "homepage": "https://www.drupal.org/user/29899"
+                }
+            ],
+            "description": "Domain-based access control for content.",
+            "homepage": "https://www.drupal.org/project/domain",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain"
+            }
+        },
+        {
+            "name": "drupal/domain_entity",
+            "version": "1.0.0-rc1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain_entity.git",
+                "reference": "8.x-1.0-rc1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain_entity-8.x-1.0-rc1.zip",
+                "reference": "8.x-1.0-rc1",
+                "shasum": "e0e05c2f6e345416b8c6869f9fe76ede48af5ef3"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10",
+                "drupal/domain": "*",
+                "drupal/domain_access": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-1.0-rc1",
+                    "datestamp": "1664388388",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "RC releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "andypost",
+                    "homepage": "https://www.drupal.org/user/118908"
+                },
+                {
+                    "name": "delta",
+                    "homepage": "https://www.drupal.org/user/1270276"
+                }
+            ],
+            "description": "Defines Domain access for entities",
+            "homepage": "https://www.drupal.org/project/domain_entity",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain_entity"
+            }
+        },
+        {
             "name": "drupal/dynamic_entity_reference",
             "version": "3.2.0",
             "source": {
@@ -2856,7 +2948,7 @@
             "extra": {
                 "drupal": {
                     "version": "2.0.0-beta5",
-                    "datestamp": "1711543181",
+                    "datestamp": "1713782789",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -3171,7 +3263,7 @@
             "extra": {
                 "drupal": {
                     "version": "2.0.3",
-                    "datestamp": "1710483189",
+                    "datestamp": "1718776206",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -3838,6 +3930,14 @@
                     "homepage": "https://www.drupal.org/user/214652"
                 },
                 {
+                    "name": "emartoni",
+                    "homepage": "https://www.drupal.org/user/3225331"
+                },
+                {
+                    "name": "joseph.olstad",
+                    "homepage": "https://www.drupal.org/user/1321830"
+                },
+                {
                     "name": "Les Lim",
                     "homepage": "https://www.drupal.org/user/84263"
                 },
@@ -3856,6 +3956,14 @@
                 {
                     "name": "pillarsdotnet",
                     "homepage": "https://www.drupal.org/user/36148"
+                },
+                {
+                    "name": "renatog",
+                    "homepage": "https://www.drupal.org/user/3326031"
+                },
+                {
+                    "name": "TR",
+                    "homepage": "https://www.drupal.org/user/202830"
                 }
             ],
             "description": "Mail System",
@@ -4785,7 +4893,7 @@
             "extra": {
                 "drupal": {
                     "version": "8.x-1.33",
-                    "datestamp": "1712242225",
+                    "datestamp": "1712400461",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -12804,6 +12912,7 @@
         "drupal/components": 10,
         "drupal/conditional_fields": 15,
         "drupal/domain": 10,
+        "drupal/domain_entity": 5,
         "drupal/entity_clone": 10,
         "drupal/entity_diff_ui": 15,
         "drupal/gin": 5,

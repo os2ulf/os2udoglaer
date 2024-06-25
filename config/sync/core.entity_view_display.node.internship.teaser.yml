@@ -78,6 +78,7 @@ hidden:
   field_desc_application_procedure: true
   field_description_of_period: true
   field_domain_access: true
+  field_domain_all_affiliates: true
   field_duration_rte: true
   field_education_path: true
   field_exclude_from_profile: true
