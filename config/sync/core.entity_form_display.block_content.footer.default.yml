@@ -14,7 +14,6 @@ dependencies:
     - field.field.block_content.footer.field_privacy_terms
     - field.field.block_content.footer.field_shortcuts
     - field.field.block_content.footer.field_theme
-    - field.field.block_content.footer.field_youtube_url
     - image.style.medium
   module:
     - field_group
@@ -208,14 +207,6 @@ content:
     weight: 27
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_youtube_url:
-    type: link_default
-    weight: 7
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
     third_party_settings: {  }
   info:
     type: string_textfield
