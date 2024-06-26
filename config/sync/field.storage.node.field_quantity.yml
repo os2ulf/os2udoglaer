@@ -1,4 +1,4 @@
-uuid: 7599d1a7-467e-43d9-a123-e944d248a242
+uuid: 79841acc-cb0b-44c9-998a-8904afe5de88
 langcode: da
 status: true
 dependencies:
@@ -7,10 +7,11 @@ dependencies:
 id: node.field_quantity
 field_name: field_quantity
 entity_type: node
-type: integer
+type: string
 settings:
-  unsigned: false
-  size: normal
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
 module: core
 locked: false
 cardinality: 1
