@@ -720,7 +720,7 @@ content:
             grouping: AND
             values_set: 3
             value: ''
-            values: "156\r\n157\r\n158\r\n159\r\n161\r\n162\r\n163\r\n164"
+            values: "156\r\n157\r\n158\r\n159\r\n162\r\n163\r\n164"
             value_form:
               -
                 target_id: '156'
