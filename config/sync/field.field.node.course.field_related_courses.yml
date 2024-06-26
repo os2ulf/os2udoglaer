@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_related_courses
     - node.type.course
-    - node.type.course_educators
-    - node.type.internship
 id: node.course.field_related_courses
 field_name: field_related_courses
 entity_type: node
@@ -18,15 +16,11 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: views
   handler_settings:
-    target_bundles:
-      internship: internship
-      course_educators: course_educators
-      course: course
-    sort:
-      field: _none
-      direction: ASC
-    auto_create: false
-    auto_create_bundle: course_educators
+    view:
+      view_name: content_reference
+      display_name: entity_reference_1
+      arguments:
+        - internship+course_educators+course
 field_type: entity_reference
