@@ -829,10 +829,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_quantity:
-    type: number
-    weight: 23
+    type: string_textfield
+    weight: 61
     region: content
     settings:
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_quantity_description:
