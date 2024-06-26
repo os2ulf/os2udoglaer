@@ -1,16 +1,13 @@
-uuid: 99ec3022-5042-43f4-b466-a7b59c05b3b5
+uuid: 8ba7c4e7-016c-45f5-a991-6107366c48e3
 langcode: da
 status: true
 dependencies:
-  config:
-    - core.entity_view_mode.node.teaser
-    - node.type.news
   module:
     - domain_access
     - node
     - user
-id: latest_news
-label: 'Seneste nyheder'
+id: content_reference
+label: 'Content reference'
 module: views
 description: ''
 tag: ''
@@ -23,7 +20,6 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: ''
       fields:
         title:
           id: title
@@ -32,35 +28,19 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
+          entity_type: node
+          entity_field: title
           plugin_id: field
           label: ''
           exclude: false
           alter:
             alter_text: false
-            text: ''
             make_link: false
-            path: ''
             absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
+            word_boundary: false
+            ellipsis: false
             strip_tags: false
             trim: false
-            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
@@ -89,10 +69,23 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: some
+        type: mini
         options:
           offset: 0
-          items_per_page: 8
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Antal elementer'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Alle -'
+            offset: false
+            offset_label: Forskydning
       exposed_form:
         type: basic
         options:
@@ -128,28 +121,48 @@ display:
             field_identifier: ''
           exposed: false
           granularity: second
-      arguments: {  }
-      filters:
-        status:
-          id: status
-          table: node_field_data
-          field: status
-          entity_type: node
-          entity_field: status
-          plugin_id: boolean
-          value: '1'
-          group: 1
-          expose:
-            operator: ''
+      arguments:
         type:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
           entity_type: node
           entity_field: type
-          plugin_id: bundle
-          value:
-            news: news
+          plugin_id: node_type
+          default_action: ignore
+          exception:
+            value: all
+            title_enable: false
+            title: All
+          title_enable: false
+          title: ''
+          default_argument_type: fixed
+          default_argument_options:
+            argument: ''
+          summary_options:
+            base_path: ''
+            count: true
+            override: false
+            items_per_page: 25
+          summary:
+            sort_order: asc
+            number_of_records: 0
+            format: default_summary
+          specify_validation: false
+          validate:
+            type: none
+            fail: 'not found'
+          validate_options: {  }
+          glossary: false
+          limit: 0
+          case: none
+          path_case: none
+          transform_dash: false
+          break_phrase: true
+      filters:
         current_all:
           id: current_all
           table: node__field_domain_access
@@ -190,11 +203,18 @@ display:
             group_items: {  }
       style:
         type: default
-      row:
-        type: 'entity:node'
         options:
-          relationship: none
-          view_mode: teaser
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: fields
+        options:
+          default_field_elements: true
+          inline: {  }
+          separator: ''
+          hide_empty: false
       query:
         type: views_query
         options:
@@ -212,20 +232,28 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
+        - url.query_args
         - url.site
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  block_1:
-    id: block_1
-    display_title: Block
-    display_plugin: block
+  entity_reference_1:
+    id: entity_reference_1
+    display_title: 'Current domain content reference'
+    display_plugin: entity_reference
     position: 1
     display_options:
+      style:
+        type: entity_reference
+        options:
+          search_fields:
+            title: title
+      display_description: ''
       display_extenders:
         transform_api_views:
           row_transform: entity
-          row_transform_mode: teaser
+          row_transform_mode: default
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
@@ -234,6 +262,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.site
         - 'user.node_grants:view'
         - user.permissions
