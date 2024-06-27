@@ -23,6 +23,7 @@ dependencies:
     - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
+    - field.field.user.user.field_meta_tags
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
@@ -45,6 +46,7 @@ dependencies:
     - field_group
     - focal_point
     - link
+    - metatag
     - paragraphs
     - text
     - user
@@ -507,6 +509,14 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields: {  }
+  field_meta_tags:
+    type: metatag_firehose
+    weight: 60
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
+    third_party_settings: {  }
   field_name:
     type: string_textfield
     weight: 2

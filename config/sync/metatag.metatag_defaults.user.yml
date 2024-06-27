@@ -8,5 +8,11 @@ id: user
 label: Bruger
 tags:
   canonical_url: '[user:url]'
-  description: '[site:name]'
-  title: '[user:display-name] | [site:name]'
+  description: '[user:field_other_info_description:value]'
+  image_src: '[user:field_image:entity:url]'
+  og_description: '[user:field_other_info_description:value]'
+  og_image: '[user:field_image:entity:url]'
+  og_site_name: '[site:name]'
+  og_title: '[user:field_name:value] | [site:name]'
+  og_url: '[user:url]'
+  title: '[user:field_name:value] | [site:name]'
