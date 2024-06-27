@@ -137,6 +137,7 @@ hidden:
   field_description_of_duration: true
   field_description_of_period: true
   field_domain_access: true
+  field_domain_all_affiliates: true
   field_duration_select: true
   field_exclude_from_profile: true
   field_exclude_from_search: true

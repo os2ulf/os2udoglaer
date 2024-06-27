@@ -8,3 +8,54 @@ use Drupal\node\Entity\Node;
 function os2uol_domain_entity_create(\Drupal\Core\Entity\EntityInterface $entity) {
   \Drupal::service('os2uol_domain.default_domain')->entityCreate($entity);
 }
+
+/**
+ * Implements hook_options_list_alter().
+ */
+function os2uol_domain_options_list_alter(array &$options, array $context) {
+  /** @var \Drupal\Core\Field\FieldDefinitionInterface $fieldDefinition */
+  $fieldDefinition = $context['fieldDefinition'];
+  $target_type = $fieldDefinition->getSettings()['target_type'];
+  if ($fieldDefinition->getType() == 'entity_reference' && $target_type == 'taxonomy_term') {
+    $handler_settings = $fieldDefinition->getSettings()['handler_settings'];
+    $target_bundles = $handler_settings['target_bundles'];
+    if (count($target_bundles) == 1) {
+      $target_bundle = reset($target_bundles);
+      /** @var \Drupal\Core\Entity\EntityFieldManagerInterface $entityFieldManager */
+      $entityFieldManager = \Drupal::service('entity_field.manager');
+      $fields = $entityFieldManager->getFieldDefinitions($target_type, $target_bundle);
+      if (isset($fields['domain_access'])) {
+        $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+        if ($user->get('field_domain_all_affiliates')->getString() == 1) {
+          return;
+        }
+        $term_storage = \Drupal::entityTypeManager()->getStorage($target_type);
+        $query = $term_storage->getQuery()
+          ->condition('vid', $target_bundle)
+          ->condition('status', 1);
+        $domains = [];
+        foreach ($user->get('field_domain_access')->getValue() as $item) {
+          $domains[] = $item['target_id'];
+        }
+        if (empty($domains)) {
+          $query->notExists('domain_access');
+        } else {
+          $group = $query->orConditionGroup()
+            ->notExists('domain_access')
+            ->condition('domain_access.target_id', $domains, 'IN');
+          $query->condition($group);
+        }
+        $tids = $query
+          ->accessCheck(FALSE)
+          ->sort('weight')
+          ->sort('name')
+          ->execute();
+        $terms = $term_storage->loadMultiple($tids);
+        $options = [];
+        foreach ($terms as $term) {
+          $options[$term->id()] = $term->label();
+        }
+      }
+    }
+  }
+}
