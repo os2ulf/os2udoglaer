@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.news.field_exclude_from_profile
     - field.field.node.news.field_exclude_from_search
     - field.field.node.news.field_image
+    - field.field.node.news.field_meta_tags
     - field.field.node.news.field_other_info
     - field.field.node.news.field_theme
     - field.field.node.news.field_video
@@ -85,6 +86,7 @@ hidden:
   field_domain_all_affiliates: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
+  field_meta_tags: true
   field_other_info: true
   field_video: true
   field_video_description: true

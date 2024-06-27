@@ -23,10 +23,12 @@ dependencies:
     - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
+    - field.field.user.user.field_meta_tags
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
+    - field.field.user.user.field_posibilities
     - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
@@ -145,6 +147,13 @@ content:
   field_mail:
     type: value
     weight: '11'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_meta_tags:
+    type: metatag
+    weight: '25'
     region: content
     label: omit
     settings: {  }

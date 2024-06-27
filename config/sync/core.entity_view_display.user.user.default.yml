@@ -23,6 +23,7 @@ dependencies:
     - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
+    - field.field.user.user.field_meta_tags
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
@@ -43,6 +44,7 @@ dependencies:
     - entity_reference_revisions
     - image
     - link
+    - metatag
     - options
     - text
     - user
@@ -184,6 +186,13 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 15
+    region: content
+  field_meta_tags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 36
     region: content
   field_name:
     type: string

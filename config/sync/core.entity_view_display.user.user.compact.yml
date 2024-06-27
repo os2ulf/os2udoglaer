@@ -24,6 +24,7 @@ dependencies:
     - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
+    - field.field.user.user.field_meta_tags
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
@@ -70,6 +71,7 @@ hidden:
   field_location_zipcode: true
   field_logo: true
   field_mail: true
+  field_meta_tags: true
   field_name: true
   field_other_info: true
   field_other_info_description: true
