@@ -1,19 +1,17 @@
-uuid: cfbbee30-353c-4355-a115-fb47e0822261
+uuid: 21d99881-1b1a-492b-8e50-c7e873375f57
 langcode: da
 status: true
 dependencies: {  }
-_core:
-  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
-id: front
-label: Forside
+id: node__page
+label: 'Indhold: Simpel side'
 tags:
-  canonical_url: '[site:url]'
+  canonical_url: '[node:url]'
+  content_language: '[node:langcode]'
   description: '[node:field_description:value]'
   image_src: '[node:field_list_media:entity:url]'
   og_description: '[node:field_description:value]'
   og_image: '[node:field_list_media:entity:url]'
   og_site_name: '[site:name]'
   og_title: '[node:title] | [site:name]'
-  og_url: '[site:url]'
-  shortlink: '[site:url]'
+  og_url: '[node:url]'
   title: '[node:title] | [site:name]'
