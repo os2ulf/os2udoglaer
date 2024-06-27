@@ -729,7 +729,7 @@ content:
             selector: ''
   field_quantity:
     type: string_textfield
-    weight: 61
+    weight: 7
     region: content
     settings:
       size: 60

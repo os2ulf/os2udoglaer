@@ -3,13 +3,13 @@ langcode: da
 status: true
 dependencies:
   config:
-    - image.style.isg_focal_point_1478_700
+    - image.style.isg_focal_point_1478_640
     - image.style.isg_focal_point_384_250
-    - image.style.isg_focal_point_388_500
+    - image.style.isg_focal_point_388_320
     - image.style.isg_focal_point_452_250
-    - image.style.isg_focal_point_482_400
-    - image.style.isg_focal_point_574_500
-    - image.style.isg_focal_point_739_350
+    - image.style.isg_focal_point_482_370
+    - image.style.isg_focal_point_574_320
+    - image.style.isg_focal_point_739_320
     - image.style.isg_focal_point_768_500
     - image.style.isg_focal_point_904_500
   theme:
@@ -19,32 +19,32 @@ label: 'Related Courses'
 image_style_mappings:
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_388_500
+    image_mapping: isg_focal_point_388_320
     breakpoint_id: os2udoglaer.xl
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_388_500
+    image_mapping: isg_focal_point_388_320
     breakpoint_id: os2udoglaer.lg
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_574_500
+    image_mapping: isg_focal_point_574_320
     breakpoint_id: os2udoglaer.md
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_482_400
+    image_mapping: isg_focal_point_482_370
     breakpoint_id: os2udoglaer.sm
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_739_350
+    image_mapping: isg_focal_point_739_320
     breakpoint_id: os2udoglaer.xs
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_1478_700
+    image_mapping: isg_focal_point_1478_640
     breakpoint_id: os2udoglaer.xs
     multiplier: 2x
   -

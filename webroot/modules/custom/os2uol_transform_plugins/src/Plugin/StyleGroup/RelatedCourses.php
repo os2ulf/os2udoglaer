@@ -17,7 +17,7 @@ class RelatedCourses extends StyleGroupBase {
 
   public function getCrop(string $breakpoint, int $width, int $multiplier, ?StyleViewModeInterface $view_mode = NULL): array {
     $calculated_width = 388;
-    $calculated_height = 500;
+    $calculated_height = 320;
 
     if ($breakpoint === 'lighthouse') {
       $calculated_width = 384 * $multiplier;
@@ -27,10 +27,10 @@ class RelatedCourses extends StyleGroupBase {
       $calculated_height = 250 * $multiplier;
     } else if ($breakpoint === 'xs') {
       $calculated_width = 739 * $multiplier;
-      $calculated_height = 350 * $multiplier;
+      $calculated_height = 320 * $multiplier;
     } else if ($breakpoint === 'sm') {
       $calculated_width = 482;
-      $calculated_height = 400;
+      $calculated_height = 370;
     } else if ($breakpoint === 'md') {
       $calculated_width = 574;
     }
