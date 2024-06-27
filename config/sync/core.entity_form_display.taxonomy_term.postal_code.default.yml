@@ -1,0 +1,36 @@
+uuid: f8ff51ca-3c41-4e8c-b0ff-df5dc1ac3db2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.postal_code.domain_access
+    - taxonomy.vocabulary.postal_code
+id: taxonomy_term.postal_code.default
+targetEntityType: taxonomy_term
+bundle: postal_code
+mode: default
+content:
+  domain_access:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  simple_sitemap: true
+  status: true
