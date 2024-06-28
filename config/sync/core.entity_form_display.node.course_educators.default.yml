@@ -462,7 +462,7 @@ content:
     settings: {  }
     third_party_settings:
       conditional_fields:
-        afb9c7e8-9ffb-47d5-8967-bb6972625e8c:
+        d9af1b4e-8029-4db7-9377-91093b45cd66:
           entity_type: node
           bundle: course_educators
           dependee: field_educators_target_group
@@ -474,9 +474,7 @@ content:
             values_set: 3
             value: ''
             values: "153\r\n154\r\n155"
-            value_form:
-              -
-                target_id: '153'
+            value_form: {  }
             effect: show
             effect_options: {  }
             selector: ''
@@ -709,7 +707,7 @@ content:
     settings: {  }
     third_party_settings:
       conditional_fields:
-        d6ea4900-c588-42a3-aafc-fd45446e4f98:
+        730e66c4-1dc6-456e-8448-e3005deea923:
           entity_type: node
           bundle: course_educators
           dependee: field_educators_target_group
@@ -721,9 +719,7 @@ content:
             values_set: 3
             value: ''
             values: "156\r\n157\r\n158\r\n159\r\n162\r\n163\r\n164"
-            value_form:
-              -
-                target_id: '156'
+            value_form: {  }
             effect: show
             effect_options: {  }
             selector: ''
@@ -871,7 +867,23 @@ content:
     region: content
     settings: {  }
     third_party_settings:
-      conditional_fields: {  }
+      conditional_fields:
+        bea0f6ed-fc8b-4a11-b806-9241ee8118a9:
+          entity_type: node
+          bundle: course_educators
+          dependee: field_educators_target_group
+          settings:
+            state: visible
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 3
+            value: ''
+            values: '165'
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
   group_alternative_address:
     weight: 64
     region: content
