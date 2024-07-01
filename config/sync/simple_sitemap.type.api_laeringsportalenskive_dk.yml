@@ -1,0 +1,16 @@
+uuid: 1c9828fc-7cec-40ed-bcbd-7e34548b93fa
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_laeringsportalenskive_dk
+id: api_laeringsportalenskive_dk
+label: 'laeringsportalenskive.dk sitemap'
+description: 'Sitemap type for domain: laeringsportalenskive.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

@@ -1,0 +1,11 @@
+uuid: cd7e88bd-0505-44ca-9874-18f94c93f464
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_udoglaer_vejle_dk
+id: udoglaer-vejle-dk
+label: udoglaer.vejle.dk
+description: ''
+type: api_udoglaer_vejle_dk
+weight: 0

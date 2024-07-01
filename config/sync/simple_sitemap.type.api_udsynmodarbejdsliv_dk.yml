@@ -1,0 +1,16 @@
+uuid: 4ef1e2fe-3451-485b-8507-59ca57d833a5
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_udsynmodarbejdsliv_dk
+id: api_udsynmodarbejdsliv_dk
+label: 'udsynmodarbejdsliv.dk sitemap'
+description: 'Sitemap type for domain: udsynmodarbejdsliv.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

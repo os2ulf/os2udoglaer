@@ -38,6 +38,7 @@ module:
   domain_alias: 0
   domain_config: 0
   domain_config_ui: 0
+  domain_simple_sitemap: 0
   dynamic_color: 0
   dynamic_entity_reference: 0
   dynamic_key_value: 0
@@ -55,6 +56,7 @@ module:
   filter: 0
   focal_point: 0
   gin_toolbar: 0
+  headless_domain_simple_sitemap: 0
   health_check: 0
   help: 0
   history: 0
