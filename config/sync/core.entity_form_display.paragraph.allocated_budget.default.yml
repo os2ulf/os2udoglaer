@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.allocated_budget.field_allocated_budget
-    - field.field.paragraph.allocated_budget.field_year
+    - field.field.paragraph.allocated_budget.field_allocated_budget_year
     - paragraphs.paragraphs_type.allocated_budget
+  module:
+    - datetime
 id: paragraph.allocated_budget.default
 targetEntityType: paragraph
 bundle: allocated_budget
@@ -19,12 +21,14 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_year:
-    type: number
-    weight: 0
+  field_allocated_budget_year:
+    type: datetime_datelist
+    weight: 2
     region: content
     settings:
-      placeholder: ''
+      increment: 15
+      date_order: YMD
+      time_type: none
     third_party_settings: {  }
 hidden:
   created: true

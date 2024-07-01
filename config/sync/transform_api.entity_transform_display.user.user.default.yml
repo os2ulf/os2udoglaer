@@ -40,7 +40,9 @@ dependencies:
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
+    - responsive_image.styles.isg_course_header
   module:
+    - transform_api_responsive_image
     - user
 id: user.user.default
 targetEntityType: user
@@ -54,6 +56,13 @@ content:
     label: omit
     settings:
       transform_mode: default
+    third_party_settings: {  }
+  field_brancher:
+    type: entity_reference_labels
+    weight: '26'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_contact:
     type: entity_transform
@@ -92,13 +101,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image:
-    type: image_style
+    type: responsive_image
     weight: '1'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_course_header
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_intro:
     type: text_format
@@ -187,6 +198,20 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_posibilities:
+    type: entity_reference_labels
+    weight: '27'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_postnummer:
+    type: entity_reference_labels
+    weight: '28'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_presentation:
     type: text_format
     weight: '2'
@@ -238,14 +263,11 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_brancher: true
   field_bypass_workflow: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
   field_editor_field: true
-  field_posibilities: true
-  field_postnummer: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true
   field_view_on_map: true

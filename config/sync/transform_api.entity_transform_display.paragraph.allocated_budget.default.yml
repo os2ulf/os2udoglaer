@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.allocated_budget.field_allocated_budget
-    - field.field.paragraph.allocated_budget.field_year
+    - field.field.paragraph.allocated_budget.field_allocated_budget_year
     - paragraphs.paragraphs_type.allocated_budget
 id: paragraph.allocated_budget.default
 targetEntityType: paragraph
@@ -13,16 +13,18 @@ mode: default
 content:
   field_allocated_budget:
     type: value
-    weight: '1'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_year:
-    type: value
     weight: '0'
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_allocated_budget_year:
+    type: datetime_simple
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      timezone_override: ''
+      format_type: html_year
     third_party_settings: {  }
 hidden: {  }
