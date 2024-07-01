@@ -1,0 +1,21 @@
+uuid: 1ca6f152-fb54-4271-b644-69f13895a3e6
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_allocated_budget_year
+    - paragraphs.paragraphs_type.allocated_budget
+  module:
+    - datetime
+id: paragraph.allocated_budget.field_allocated_budget_year
+field_name: field_allocated_budget_year
+entity_type: paragraph
+bundle: allocated_budget
+label: År
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime
