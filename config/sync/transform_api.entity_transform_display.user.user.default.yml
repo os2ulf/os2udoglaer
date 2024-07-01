@@ -40,7 +40,9 @@ dependencies:
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
+    - responsive_image.styles.isg_course_header
   module:
+    - transform_api_responsive_image
     - user
 id: user.user.default
 targetEntityType: user
@@ -99,13 +101,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image:
-    type: image_style
+    type: responsive_image
     weight: '1'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_course_header
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_intro:
     type: text_format
