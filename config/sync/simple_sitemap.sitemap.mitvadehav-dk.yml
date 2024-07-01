@@ -1,0 +1,11 @@
+uuid: ed9eb65a-8c10-4aad-9b7f-7fcae6a09d06
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_mitvadehav_dk
+id: mitvadehav-dk
+label: mitvadehav.dk
+description: ''
+type: api_mitvadehav_dk
+weight: 0

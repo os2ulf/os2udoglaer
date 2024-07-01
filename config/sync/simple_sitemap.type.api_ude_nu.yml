@@ -1,0 +1,16 @@
+uuid: 393b14d4-1e8c-492e-b60e-6d8c619dc29b
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_ude_nu
+id: api_ude_nu
+label: 'ude.nu sitemap'
+description: 'Sitemap type for domain: ude.nu'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

@@ -44,6 +44,7 @@
         "drupal/core-vendor-hardening": "^9.0",
         "drupal/diff": "^1.7",
         "drupal/domain": "^2.0@beta",
+        "drupal/domain_simple_sitemap": "^3.0@beta",
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_clone": "^2.0@beta",
         "drupal/entity_diff_ui": "^2.0@alpha",

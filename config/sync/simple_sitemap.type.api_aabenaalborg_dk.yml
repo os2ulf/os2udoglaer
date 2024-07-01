@@ -1,0 +1,16 @@
+uuid: 9cf651d0-06a9-4e94-a5f4-5dc545f9be2f
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_aabenaalborg_dk
+id: api_aabenaalborg_dk
+label: 'aabenaalborg.dk sitemap'
+description: 'Sitemap type for domain: aabenaalborg.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

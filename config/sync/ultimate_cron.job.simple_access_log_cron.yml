@@ -1,0 +1,17 @@
+uuid: 82231f39-a22b-4697-8597-bcd2077fbf4e
+langcode: da
+status: true
+dependencies:
+  module:
+    - simple_access_log
+title: 'Default cron handler'
+id: simple_access_log_cron
+weight: 0
+module: simple_access_log
+callback: simple_access_log_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database
