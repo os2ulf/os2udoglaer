@@ -27,6 +27,9 @@ elements: |-
   message:
     '#type': textarea
     '#title': Besked
+  provider_email:
+    '#type': textfield
+    '#title': 'Udbyder email'
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
