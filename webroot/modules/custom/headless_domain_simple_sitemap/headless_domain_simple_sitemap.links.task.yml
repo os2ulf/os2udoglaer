@@ -1,0 +1,4 @@
+headless_domain_simple_sitemap.settings:
+  title: Headless domain sitemap
+  route_name: headless_domain_simple_sitemap.settings
+  base_route: domain.admin

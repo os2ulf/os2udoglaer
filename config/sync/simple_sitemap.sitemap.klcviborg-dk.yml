@@ -1,0 +1,11 @@
+uuid: bbbf7286-1245-44eb-95ad-f69c99c2466f
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_klcviborg_dk
+id: klcviborg-dk
+label: klcviborg.dk
+description: ''
+type: api_klcviborg_dk
+weight: 0

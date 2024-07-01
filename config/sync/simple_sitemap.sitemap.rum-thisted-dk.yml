@@ -1,0 +1,11 @@
+uuid: 91482cde-a927-4c80-8131-546046a500f7
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_rum_thisted_dk
+id: rum-thisted-dk
+label: rum.thisted.dk
+description: ''
+type: api_rum_thisted_dk
+weight: 0

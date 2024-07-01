@@ -1,0 +1,11 @@
+uuid: 39fb64c6-e9a1-407e-81ef-e6891103fd85
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_udsynmodarbejdsliv_dk
+id: udsynmodarbejdsliv-dk
+label: udsynmodarbejdsliv.dk
+description: ''
+type: api_udsynmodarbejdsliv_dk
+weight: 0

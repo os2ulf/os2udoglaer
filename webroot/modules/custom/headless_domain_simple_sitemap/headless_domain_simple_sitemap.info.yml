@@ -1,0 +1,7 @@
+name: 'Headless domain simple sitemap'
+type: module
+description: 'Extends domain_simple_sitemap for headless projects'
+package: Domain
+core_version_requirement: ^10 || ^11
+dependencies:
+  - domain_simple_sitemap:domain_simple_sitemap

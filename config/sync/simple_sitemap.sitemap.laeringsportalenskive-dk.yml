@@ -1,0 +1,11 @@
+uuid: 6739561e-d317-431d-88bd-228f58dce19b
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_laeringsportalenskive_dk
+id: laeringsportalenskive-dk
+label: laeringsportalenskive.dk
+description: ''
+type: api_laeringsportalenskive_dk
+weight: 0

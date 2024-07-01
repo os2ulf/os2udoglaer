@@ -1,0 +1,16 @@
+uuid: 7472f98d-25a6-436c-aa74-349c9638160b
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_udoglaer_randers_dk
+id: api_udoglaer_randers_dk
+label: 'udoglaer.randers.dk sitemap'
+description: 'Sitemap type for domain: udoglaer.randers.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

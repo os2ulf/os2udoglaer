@@ -1,0 +1,11 @@
+uuid: f1ac474b-7e38-40b6-b066-c4534bc88c38
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_ulfiaarhus_dk
+id: ulfiaarhus-dk
+label: ulfiaarhus.dk
+description: ''
+type: api_ulfiaarhus_dk
+weight: 0

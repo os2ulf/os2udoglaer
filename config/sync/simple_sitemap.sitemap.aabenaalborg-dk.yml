@@ -1,0 +1,11 @@
+uuid: ca2f2aa7-4972-4271-90ee-7d517f685ab8
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_aabenaalborg_dk
+id: aabenaalborg-dk
+label: aabenaalborg.dk
+description: ''
+type: api_aabenaalborg_dk
+weight: 0

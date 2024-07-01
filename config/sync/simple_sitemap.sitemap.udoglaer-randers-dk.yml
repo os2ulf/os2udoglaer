@@ -1,0 +1,11 @@
+uuid: b7d7f532-035c-4e10-80d7-dd2af7501d5a
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_udoglaer_randers_dk
+id: udoglaer-randers-dk
+label: udoglaer.randers.dk
+description: ''
+type: api_udoglaer_randers_dk
+weight: 0

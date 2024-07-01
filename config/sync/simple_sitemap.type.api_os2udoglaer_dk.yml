@@ -1,0 +1,16 @@
+uuid: 70968082-671e-4241-9edb-1271d4206825
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_os2udoglaer_dk
+id: api_os2udoglaer_dk
+label: 'Databrønden sitemap'
+description: 'Sitemap type for domain: Databrønden'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

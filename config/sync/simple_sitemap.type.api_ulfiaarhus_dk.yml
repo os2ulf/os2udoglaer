@@ -1,0 +1,16 @@
+uuid: 2fc95e58-89cc-4174-9e4f-7940e2dcc8b1
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_ulfiaarhus_dk
+id: api_ulfiaarhus_dk
+label: 'ulfiaarhus.dk sitemap'
+description: 'Sitemap type for domain: ulfiaarhus.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

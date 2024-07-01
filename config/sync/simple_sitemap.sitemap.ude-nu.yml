@@ -1,0 +1,11 @@
+uuid: 046095cd-0fce-4a9d-9c46-a9af07514684
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_ude_nu
+id: ude-nu
+label: ude.nu
+description: ''
+type: api_ude_nu
+weight: 0

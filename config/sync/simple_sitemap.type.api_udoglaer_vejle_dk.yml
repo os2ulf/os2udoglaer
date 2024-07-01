@@ -1,0 +1,16 @@
+uuid: 81c250cb-3fb4-4290-b52c-19ecc0a46b6e
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_udoglaer_vejle_dk
+id: api_udoglaer_vejle_dk
+label: 'udoglaer.vejle.dk sitemap'
+description: 'Sitemap type for domain: udoglaer.vejle.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity
