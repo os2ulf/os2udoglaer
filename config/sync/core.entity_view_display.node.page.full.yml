@@ -52,7 +52,11 @@ third_party_settings:
         - layout_threecol_section
       denylisted_blocks:
         'Custom block types':
+          - accordion
+          - basic
           - footer
+          - quote
+          - slideshow
         'Inline blocks':
           - 'inline_block:accordion'
           - 'inline_block:quote'
