@@ -1,83 +1,83 @@
 name: backend
-type: 'php:8.2'
+type: "php:8.2"
 runtime:
-    extensions:
-        - imagick
-        - igbinary
-        - redis
-        - apcu
+  extensions:
+    - imagick
+    - igbinary
+    - redis
+    - apcu
 variables:
-    php:
-        memory_limit: 512M
-    env:
-        N_PREFIX: /app/.global
+  php:
+    memory_limit: 512M
+  env:
+    N_PREFIX: /app/.global
 dependencies:
-    php:
-        composer/composer: '^2.1'
+  php:
+    composer/composer: "^2.1"
 disk: 5000
 mounts:
-    '/webroot/sites/default/files': 'shared:files/files'
-    '/webroot/sites/default/files/translations': 'shared:files/translations'
-    '/tmp': 'shared:files/tmp'
-    '/private': 'shared:files/private'
-    '/.drush': 'shared:files/.drush'
-    '/drush-backups': 'shared:files/drush-backups'
-    '/logs':
-        source: local
-        source_path: logs
+  "/webroot/sites/default/files": "shared:files/files"
+  "/webroot/sites/default/files/translations": "shared:files/translations"
+  "/tmp": "shared:files/tmp"
+  "/private": "shared:files/private"
+  "/.drush": "shared:files/.drush"
+  "/drush-backups": "shared:files/drush-backups"
+  "/logs":
+    source: local
+    source_path: logs
 build:
-    flavor: composer
+  flavor: composer
 web:
-    locations:
-        /:
-            root: webroot
-            expires: 1d
-            passthru: /index.php
-            allow: false
-            rules:
-                '\.(jpe?g|png|gif|svgz?|css|js|map|ico|bmp|eot|woff2?|otf|ttf|webp)$':
-                    allow: true
-                    expires: 1y
-                ^/robots\.txt$:
-                    allow: true
-                ^/sitemap\.xml$:
-                    allow: true
-                ^/sites/sites\.php$:
-                    scripts: false
-                '^/sites/[^/]+/settings.*?\.php$':
-                    scripts: false
-        /sites/default/files:
-            allow: true
-            expires: 1y
-            passthru: /index.php
-            root: webroot/sites/default/files
-            scripts: false
+  locations:
+    /:
+      root: webroot
+      expires: 1d
+      passthru: /index.php
+      allow: false
+      rules:
+        '\.(jpe?g|png|gif|svgz?|css|js|map|ico|bmp|eot|woff2?|otf|ttf|webp)$':
+          allow: true
+          expires: 1y
+        ^/robots\.txt$:
+          allow: true
+        ^/sitemap\.xml$:
+          allow: true
+        ^/sites/sites\.php$:
+          scripts: false
+        '^/sites/[^/]+/settings.*?\.php$':
+          scripts: false
+    /sites/default/files:
+      allow: true
+      expires: 1y
+      passthru: /index.php
+      root: webroot/sites/default/files
+      scripts: false
 hooks:
-    deploy: |
-        set -e
-        mkdir -p /app/webroot/sites/default/files/translations
-        chmod -R 755 /app/webroot/sites/default/files/translations
-        cd /app/webroot
-        /app/vendor/bin/drush -y sset system.maintenance_mode 1 --input-format=integer
-        /app/vendor/bin/drush -y cache-rebuild
-        /app/vendor/bin/drush -y updatedb
-        /app/vendor/bin/drush -y config-import
-        /app/vendor/bin/drush locale-check
-        /app/vendor/bin/drush locale-update
-        /app/vendor/bin/drush image-flush --all
-        /app/vendor/bin/drush sset system.maintenance_mode 0 --input-format=integer
+  deploy: |
+    set -e
+    mkdir -p /app/webroot/sites/default/files/translations
+    chmod -R 755 /app/webroot/sites/default/files/translations
+    cd /app/webroot
+    /app/vendor/bin/drush -y sset system.maintenance_mode 1 --input-format=integer
+    /app/vendor/bin/drush -y cache-rebuild
+    /app/vendor/bin/drush -y updatedb
+    /app/vendor/bin/drush -y config-import
+    /app/vendor/bin/drush locale-check
+    /app/vendor/bin/drush locale-update
+    /app/vendor/bin/drush image-flush --all
+    /app/vendor/bin/drush sset system.maintenance_mode 0 --input-format=integer
 relationships:
-    database: 'db:mysql'
-    redis: 'redis:redis'
-    solr:
-        service: solr
-        endpoint: main
+  database: "db:mysql"
+  redis: "redis:redis"
+  solr:
+    service: solr
+    endpoint: main
 crons:
-    # Run Drupal's cron tasks every 1 minutes.
-    drupal:
-        spec: '*/1 * * * *'
-        commands:
-            start: '/app/vendor/bin/drush core-cron'
+  # Run Drupal's cron tasks every 1 minutes.
+  drupal:
+    spec: "*/1 * * * *"
+    commands:
+      start: "/app/vendor/bin/drush core-cron"
 source:
   operations:
     auto-update:
