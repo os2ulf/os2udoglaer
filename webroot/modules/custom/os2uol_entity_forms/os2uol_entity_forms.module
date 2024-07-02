@@ -24,18 +24,6 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
       $element['subform']['field_literature_suggestion']['#access'] = FALSE;
     }
   }
-
-  // Hide month and day from allocated_budget date dropdown field.
-  if ($element['#paragraph_type'] == 'allocated_budget') {
-    foreach($element['subform']['field_allocated_budget_year']['widget'][0]['value']['#date_part_order'] as $key => $value) {
-      if ($value == 'month') {
-        unset($element['subform']['field_allocated_budget_year']['widget'][0]['value']['#date_part_order'][$key]);
-      }
-      if ($value == 'day') {
-        unset($element['subform']['field_allocated_budget_year']['widget'][0]['value']['#date_part_order'][$key]);
-      }
-    }
-  }
 }
 
 /**
