@@ -1,0 +1,27 @@
+uuid: 81df5479-7da0-4317-afd5-670a15d95f47
+langcode: da
+status: true
+dependencies:
+  config:
+    - views.view.related_content
+  module:
+    - system
+    - transform_api_views
+id: user_related_content
+region: content
+weight: '0'
+provider: null
+plugin: 'view:related_content-block_1'
+settings:
+  id: 'view:related_content-block_1'
+  label: 'User related content'
+  provider: transform_api_views
+  items_per_page: none
+  label_display: null
+  views_label: ''
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '/user/*'
+    negate: false
