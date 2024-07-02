@@ -23,13 +23,13 @@ jobs:
           # Get the branch name
           branch_name=${{ github.ref_name }}
 
-          # If the branch isn't main, it's staging!
+          # If the branch isn't main, it's develop!
           if [ "$branch_name" != "main" ]; then
-            branch_name="staging"
+            branch_name="develop"
           fi
 
-          # Valid branches are main and staging, fail on anything else
-          if [ "$branch_name" != "main" ] && [ "$branch_name" != "staging" ]; then
+          # Valid branches are main and develop, fail on anything else
+          if [ "$branch_name" != "main" ] && [ "$branch_name" != "develop" ]; then
             echo "Invalid branch name: $branch_name"
             exit 1
           fi
