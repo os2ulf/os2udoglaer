@@ -7,7 +7,7 @@ dependencies:
     - field.field.paragraph.allocated_budget.field_allocated_budget_year
     - paragraphs.paragraphs_type.allocated_budget
   module:
-    - datetime
+    - os2uol_entity_forms
 id: paragraph.allocated_budget.default
 targetEntityType: paragraph
 bundle: allocated_budget
@@ -22,13 +22,11 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_allocated_budget_year:
-    type: datetime_datelist
+    type: custom_datetime_year_list
     weight: 2
     region: content
     settings:
-      increment: 15
-      date_order: YMD
-      time_type: none
+      date_order: 'Y'
     third_party_settings: {  }
 hidden:
   created: true
