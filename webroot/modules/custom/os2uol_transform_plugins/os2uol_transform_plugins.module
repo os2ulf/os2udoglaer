@@ -62,6 +62,15 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
   $transformation['bundle_label'] = $transformation['#entity']->type->entity->label();
   // Add created date formatted with os2date to transformation.
   $transformation['created'] = \Drupal::service('date.formatter')->format($transformation['#entity']->get('created')->value, 'os2date');
+
+  // Check if transformation is full and set is_frontpage variable if current page is set as frontpage.
+  if ($transformation['transform_mode'] === 'full') {
+    if (\Drupal::config('system.site')->get('page.front') === '/node/' . $transformation['#entity']->id()) {
+      $transformation['is_frontpage'] = TRUE;
+    } else {
+      $transformation['is_frontpage'] = FALSE;
+    }
+  }
 }
 
 function os2uol_transform_plugins_user_transform_alter(&$transformation) {
