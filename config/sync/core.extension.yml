@@ -142,6 +142,7 @@ module:
   webform: 0
   webform_rest: 0
   webform_ui: 0
+  webmaster_redirect: 0
   webp: 0
   workbench: 0
   workflows: 0

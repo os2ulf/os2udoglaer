@@ -1,0 +1,7 @@
+name: 'Webmaster Redirect'
+type: module
+description: 'Redirect webmasters from the default content overview page to another view page.'
+core_version_requirement: ^8 || ^9 || ^10
+package: OS2udoglær
+dependencies:
+  - drupal:user

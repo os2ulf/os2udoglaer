@@ -1,0 +1,13 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function webmaster_redirect_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.webmaster_redirect':
+      return '<p>' . t('Redirect webmasters from the default content overview page to another view page.') . '</p>';
+  }
+}
