@@ -14,7 +14,7 @@ jobs:
       - name: Update the Platform Repo Submodule for Backend
         run: |
           repo_owner="os2ulf"
-          repo_name="os2udoglaer"
+          repo_name="os2udoglaer-platform"
           event_type="update-submodule"
 
           # Get the latest commit hash
