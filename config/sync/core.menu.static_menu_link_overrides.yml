@@ -1,4 +1,22 @@
 _core:
   default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM
 langcode: da
-definitions: {  }
+definitions:
+  'admin_toolbar_tools__extra_links:view__files':
+    weight: 1
+    menu_name: admin
+    parent: system.admin_content
+    expanded: false
+    enabled: true
+  entity__scheduled_transition__collection:
+    weight: 2
+    menu_name: admin
+    parent: system.admin_content
+    expanded: false
+    enabled: true
+  'admin_toolbar_tools__extra_links:node__add':
+    weight: 3
+    menu_name: admin
+    parent: system.admin_content
+    expanded: false
+    enabled: true
