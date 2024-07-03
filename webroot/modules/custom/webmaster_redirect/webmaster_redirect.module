@@ -1,0 +1,87 @@
+<?php
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function webmaster_redirect_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.webmaster_redirect':
+      return '<p>' . t('Redirect webmasters from the default content overview page to another view page.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function webmaster_redirect_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
+  if (in_array($route_name, ['view.content.page_2', 'view.moderated_content.page_1'])) {
+    $data['tabs'][0]['system.admin_content'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Content'),
+        'url' => Url::fromRoute('system.admin_content'),
+      ],
+      '#active' => true,
+      '#weight' => 0,
+    ];
+    $data['tabs'][0]['content_hierarchy.content_overview'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Content tree'),
+        'url' => Url::fromRoute('content_hierarchy.content_overview'),
+      ],
+      '#weight' => -20,
+    ];
+    $data['tabs'][0]['entity.block_content.collection'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Blocks'),
+        'url' => Url::fromRoute('entity.block_content.collection'),
+      ],
+      '#weight' => -19,
+    ];
+    $data['tabs'][0]['entity.scheduled_transition.collection'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Scheduled transitions'),
+        'url' => Url::fromRoute('entity.scheduled_transition.collection'),
+      ],
+      '#weight' => -18,
+    ];
+    $data['tabs'][0]['view.files.page_1'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Files'),
+        'url' => Url::fromRoute('view.files.page_1'),
+      ],
+      '#weight' => -17,
+    ];
+    $data['tabs'][0]['atoms.overview'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Atoms'),
+        'url' => Url::fromRoute('atoms.overview'),
+      ],
+      '#weight' => -16,
+    ];
+    $data['tabs'][1]['view.content.page_2'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Overview'),
+        'url' => Url::fromRoute('view.content.page_2'),
+      ],
+      '#weight' => 0,
+    ];
+    $data['tabs'][1]['view.moderated_content.page_1'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Moderated content'),
+        'url' => Url::fromRoute('view.moderated_content.page_1'),
+      ],
+      '#weight' => 0,
+    ];
+  }
+}
