@@ -1,0 +1,20 @@
+uuid: 87a3536b-d9a8-48f6-86ed-179b80cf391d
+langcode: da
+status: true
+dependencies:
+  module:
+    - datetime
+    - paragraphs
+id: paragraph.field_allocated_budget_year
+field_name: field_allocated_budget_year
+entity_type: paragraph
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -3,16 +3,56 @@ name: Update the common Platform.sh Repository
 on:
   push:
     branches:
-      - 'release/**'
-      - 'main'
+      - "release/**"
+      - "main"
 
 jobs:
   update-platform-repo:
     runs-on: ubuntu-latest
+    environment: Staging
     steps:
       - name: Update the Platform Repo Submodule for Backend
-        uses: peter-evans/repository-dispatch@v2
-        with:
-          repository: os2ulf/os2udoglaer
-          event-type: update-submodule
-          client-payload: '{"submodule": "backend", "branch": "${{ github.ref_name }}", "commit": "${{ github.sha }}"}'
+        run: |
+          # Define the repository we are pushing to
+          repo_owner="os2ulf"
+          repo_name="os2udoglaer-platform"
+
+          # Define the event type
+          event_type="update-submodule"
+
+          # Define the branch we are pushing to in platform repo
+          if [[ ${{ github.ref }} == 'refs/heads/main' ]]; then
+            platform_environment="production"
+          else
+            platform_environment="staging"
+          fi
+
+          # Define the commit hash we just pushed
+          commit_hash=${{ github.sha }}
+
+          # Echo out the variables
+          echo "Commit Hash: $commit_hash"
+          echo "Platform Environment: $platform_environment"
+          echo "Push to repository: $repo_owner/$repo_name"
+          echo "Event Type: $event_type"
+
+          # Create the json payload we will send to the repository dispatch event
+          payload='{
+            "event_type": "'$event_type'",
+            "client_payload":
+              {
+                "submodule": "backend",
+                "environment": "'$platform_environment'",
+                "commit": "'$commit_hash'"
+              }
+            }'
+          payload=$(echo $payload | jq -c .)
+
+          # Trigger the repository dispatch event
+          curl -L \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.REPO_ACCESS_TOKEN }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/$repo_owner/$repo_name/dispatches \
+            -d "$payload"

@@ -1,0 +1,16 @@
+uuid: ff5ac6cb-99c9-4c47-9760-abe394651a89
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_mitvadehav_dk
+id: api_mitvadehav_dk
+label: 'mitvadehav.dk sitemap'
+description: 'Sitemap type for domain: mitvadehav.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

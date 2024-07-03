@@ -1,0 +1,16 @@
+uuid: f1ac31d6-f8a4-402e-b82f-7459b20910a7
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_klcviborg_dk
+id: api_klcviborg_dk
+label: 'klcviborg.dk sitemap'
+description: 'Sitemap type for domain: klcviborg.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

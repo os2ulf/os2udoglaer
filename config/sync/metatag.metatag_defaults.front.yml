@@ -7,5 +7,10 @@ _core:
 id: front
 label: Forside
 tags:
-  canonical_url: '[site:url]'
-  shortlink: '[site:url]'
+  description: '[node:field_description:value]'
+  image_src: '[node:field_list_media:entity:url]'
+  og_description: '[node:field_description:value]'
+  og_image: '[node:field_list_media:entity:url]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title] | [site:name]'
+  title: '[node:title] | [site:name]'

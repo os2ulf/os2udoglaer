@@ -23,10 +23,12 @@ dependencies:
     - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
+    - field.field.user.user.field_meta_tags
     - field.field.user.user.field_name
     - field.field.user.user.field_other_info
     - field.field.user.user.field_other_info_description
     - field.field.user.user.field_phone
+    - field.field.user.user.field_posibilities
     - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
@@ -38,7 +40,9 @@ dependencies:
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
+    - responsive_image.styles.isg_course_header
   module:
+    - transform_api_responsive_image
     - user
 id: user.user.default
 targetEntityType: user
@@ -52,6 +56,13 @@ content:
     label: omit
     settings:
       transform_mode: default
+    third_party_settings: {  }
+  field_brancher:
+    type: entity_reference_labels
+    weight: '26'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_contact:
     type: entity_transform
@@ -90,13 +101,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_image:
-    type: image_style
+    type: responsive_image
     weight: '1'
     region: content
     label: omit
     settings:
-      image_style: ''
+      responsive_image_style: isg_course_header
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_intro:
     type: text_format
@@ -149,6 +162,13 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_meta_tags:
+    type: metatag
+    weight: '25'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_name:
     type: value
     weight: '0'
@@ -174,6 +194,20 @@ content:
   field_phone:
     type: value
     weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_posibilities:
+    type: entity_reference_labels
+    weight: '27'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_postnummer:
+    type: entity_reference_labels
+    weight: '28'
     region: content
     label: omit
     settings: {  }
@@ -229,14 +263,11 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_brancher: true
   field_bypass_workflow: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
   field_editor_field: true
-  field_posibilities: true
-  field_postnummer: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true
   field_view_on_map: true

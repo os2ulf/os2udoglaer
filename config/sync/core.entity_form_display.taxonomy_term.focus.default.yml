@@ -1,0 +1,32 @@
+uuid: f3368943-d538-4053-b4f2-99f4f87abcaf
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.focus.domain_access
+    - taxonomy.vocabulary.focus
+id: taxonomy_term.focus.default
+targetEntityType: taxonomy_term
+bundle: focus
+mode: default
+content:
+  domain_access:
+    type: options_buttons
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  simple_sitemap: true
+  status: true

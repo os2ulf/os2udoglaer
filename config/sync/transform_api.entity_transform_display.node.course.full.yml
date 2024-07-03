@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
     - field.field.node.course.field_domain_access
+    - field.field.node.course.field_domain_all_affiliates
     - field.field.node.course.field_duration
     - field.field.node.course.field_duration_unit_taxonomy
     - field.field.node.course.field_exclude_from_profile
@@ -218,6 +219,13 @@ content:
     label: omit
     settings:
       transform_mode: materials
+    third_party_settings: {  }
+  field_meta_tags:
+    type: metatag
+    weight: '50'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
   field_period:
     type: daterange_default
@@ -433,7 +441,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_domain_access: true
+  field_domain_all_affiliates: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
-  field_meta_tags: true
   langcode: true

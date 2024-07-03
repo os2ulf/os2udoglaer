@@ -1,0 +1,16 @@
+uuid: 28aedffd-f37f-4fb9-b244-5f66befdf4f6
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_rum_thisted_dk
+id: api_rum_thisted_dk
+label: 'rum.thisted.dk sitemap'
+description: 'Sitemap type for domain: rum.thisted.dk'
+sitemap_generator: default
+url_generators:
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity

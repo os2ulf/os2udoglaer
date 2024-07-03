@@ -7,8 +7,12 @@ _core:
 id: node
 label: Indhold
 tags:
+  canonical_url: '[node:url:path]'
   description: '[node:field_description:value]'
-  image_src: '[node:field_list_media:entity:field_media_image]'
-  content_language: '[node:langcode]'
+  image_src: '[node:field_image:entity:url]'
+  og_description: '[node:field_description:value]'
+  og_image: '[node:field_image:entity:url]'
+  og_site_name: '[site:name]'
+  og_title: '[node:title] | [site:name]'
+  og_url: '[node:url:path]'
   title: '[node:title] | [site:name]'
-  canonical_url: '[node:url]'

@@ -1,0 +1,32 @@
+uuid: f53a146a-d039-4ece-a12c-cc9de5bc4dbd
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.theme.domain_access
+    - taxonomy.vocabulary.theme
+id: taxonomy_term.theme.default
+targetEntityType: taxonomy_term
+bundle: theme
+mode: default
+content:
+  domain_access:
+    type: options_buttons
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
+  path: true
+  simple_sitemap: true
+  status: true

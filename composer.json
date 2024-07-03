@@ -44,6 +44,8 @@
         "drupal/core-vendor-hardening": "^9.0",
         "drupal/diff": "^1.7",
         "drupal/domain": "^2.0@beta",
+        "drupal/domain_entity": "^1.0@RC",
+        "drupal/domain_simple_sitemap": "^3.0@beta",
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_clone": "^2.0@beta",
         "drupal/entity_diff_ui": "^2.0@alpha",
@@ -206,6 +208,9 @@
                 "(#3359253) Use core route provider with addExtraCacheKeyPart for route caching?": "https://www.drupal.org/files/issues/2023-05-09/domain-route-provider-addextracachekeypart-3359253-02.patch",
                 "(#3397693) Add domain-specific cache tags to config overrides": "https://git.drupalcode.org/project/domain/-/merge_requests/54.diff"
             },
+            "drupal/domain_entity" : {
+                "(#3405907) Make module compatible with PHP 8.2": "https://www.drupal.org/files/issues/2023-12-04/3405907-1.patch"
+            },
             "drupal/paragraphs": {
                 "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch"
             },
@@ -219,7 +224,9 @@
                 "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch",
                 "Add getter for field transform": "patches/transform_api_add_field_transform_getter.patch",
                 "Fix views parameters": "https://git.drupalcode.org/project/transform_api/-/commit/190b4a236137133ecb4710a5067b8510c9cf6661.diff",
-                "Fix views caching": "https://git.drupalcode.org/project/transform_api/-/commit/83e2d5b672ade36a9814681063ef498ef9dd1e68.diff"
+                "Fix views caching": "https://git.drupalcode.org/project/transform_api/-/commit/83e2d5b672ade36a9814681063ef498ef9dd1e68.diff",
+                "Fix views mini pager": "https://git.drupalcode.org/project/transform_api/-/commit/85f532fcf48f0083436d0c4716b328d9c41d66ce.diff",
+                "#(3458752) Empty region transform results in error": "https://www.drupal.org/files/issues/2024-07-03/transform_api_empty_region.patch"
             }
         }
     }

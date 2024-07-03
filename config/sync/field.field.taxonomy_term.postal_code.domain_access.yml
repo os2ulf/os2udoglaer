@@ -1,0 +1,21 @@
+uuid: e9a7db20-bda0-482f-b53c-0e729c7252fb
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.domain_access
+    - taxonomy.vocabulary.postal_code
+id: taxonomy_term.postal_code.domain_access
+field_name: domain_access
+entity_type: taxonomy_term
+bundle: postal_code
+label: 'Domain Access'
+description: 'Select the affiliate domain(s). If nothing was selected: Affiliated to all domains.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: domain_entity_field_default_domains
+settings:
+  handler: 'default:domain'
+  handler_settings: {  }
+field_type: entity_reference
