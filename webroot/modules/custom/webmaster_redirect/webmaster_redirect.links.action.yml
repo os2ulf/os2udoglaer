@@ -1,0 +1,6 @@
+webmaster_redirect.add_content:
+  route_name: 'node.add_page'
+  title: 'Tilføj indhold'
+  appears_on:
+    - view.content.page_2
+    - view.moderated_content.page_1
