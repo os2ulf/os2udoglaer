@@ -21,18 +21,10 @@ function webmaster_redirect_menu_local_tasks_alter(&$data, $route_name, \Drupal\
     $data['tabs'][0]['view.content.page_2'] = [
       '#theme' => 'menu_local_task',
       '#link' => [
-        'title' => t('All content'),
+        'title' => t('Content'),
         'url' => Url::fromRoute('view.content.page_2'),
       ],
       '#active' => true,
-      '#weight' => 0,
-    ];
-    $data['tabs'][0]['content_hierarchy.content_overview'] = [
-      '#theme' => 'menu_local_task',
-      '#link' => [
-        'title' => t('Content tree'),
-        'url' => Url::fromRoute('content_hierarchy.content_overview'),
-      ],
       '#weight' => -20,
     ];
     $data['tabs'][0]['entity.block_content.collection'] = [
