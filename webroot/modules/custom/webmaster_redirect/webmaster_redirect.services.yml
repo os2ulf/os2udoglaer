@@ -1,0 +1,6 @@
+services:
+  webmaster_redirect.subscriber:
+    class: Drupal\webmaster_redirect\EventSubscriber\WebmasterRedirectSubscriber
+    arguments: ['@current_user', '@path.matcher', '@url_generator']
+    tags:
+      - { name: event_subscriber }
