@@ -18,11 +18,11 @@ function webmaster_redirect_help($route_name, RouteMatchInterface $route_match) 
  */
 function webmaster_redirect_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
   if (in_array($route_name, ['view.content.page_2', 'view.moderated_content.page_1'])) {
-    $data['tabs'][0]['system.admin_content'] = [
+    $data['tabs'][0]['view.content.page_2'] = [
       '#theme' => 'menu_local_task',
       '#link' => [
-        'title' => t('Content'),
-        'url' => Url::fromRoute('system.admin_content'),
+        'title' => t('All content'),
+        'url' => Url::fromRoute('view.content.page_2'),
       ],
       '#active' => true,
       '#weight' => 0,
