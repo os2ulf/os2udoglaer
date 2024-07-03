@@ -17,7 +17,7 @@ function webmaster_redirect_help($route_name, RouteMatchInterface $route_match) 
  * Implements hook_menu_local_tasks_alter().
  */
 function webmaster_redirect_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
-  if ($route_name === 'view.moderated_content.page_1') {
+  if (in_array($route_name, ['view.content.page_2', 'view.moderated_content.page_1'])) {
     $data['tabs'][0]['system.admin_content'] = [
       '#theme' => 'menu_local_task',
       '#link' => [
@@ -27,8 +27,6 @@ function webmaster_redirect_menu_local_tasks_alter(&$data, $route_name, \Drupal\
       '#active' => true,
       '#weight' => 0,
     ];
-  }
-  if (in_array($route_name, ['view.content.page_2', 'view.moderated_content.page_1'])) {
     $data['tabs'][0]['content_hierarchy.content_overview'] = [
       '#theme' => 'menu_local_task',
       '#link' => [

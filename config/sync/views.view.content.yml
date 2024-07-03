@@ -657,7 +657,7 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: admin/content-all/node
+      path: admin/content-all
       menu:
         type: none
         title: Indhold
