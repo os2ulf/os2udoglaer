@@ -2,6 +2,7 @@
 
 use Drupal\transform_api\Transform\EntityTransform;
 use Drupal\transform_api_responsive_image\Plugin\Transform\Field\ResponsiveImageTransform;
+use Drupal\transform_api_views\Transform\ViewTransform;
 
 function os2uol_transform_plugins_block_content_transform_alter(&$transformation) {
   if (empty($transformation)) {
@@ -80,6 +81,11 @@ function os2uol_transform_plugins_user_transform_alter(&$transformation) {
   // Add user profile link and user roles to transformation.
   $transformation['link'] = $transformation['#entity']->toUrl()->toString();
   $transformation['roles'] = $transformation['#entity']->getRoles();
+
+  if ($transformation['transform_mode'] == 'default') {
+    // Add related content
+    $transformation['related_content'] = new ViewTransform('related_content', 'block_1');
+  }
 }
 
 function os2uol_transform_plugins_view_latest_news_block_1_transform_alter(&$transformation) {
