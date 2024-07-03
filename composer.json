@@ -88,7 +88,7 @@
         "drupal/transform_api": "1.1.0-beta3",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/view_unpublished": "^1.0",
-        "drupal/webform": "^6.2@beta",
+        "drupal/webform": "^6.2",
         "drupal/webform_rest": "^4.1",
         "drupal/webp": "^1.0@RC",
         "drupal/workbench": "^1.4",
