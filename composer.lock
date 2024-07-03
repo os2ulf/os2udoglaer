@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "807b3bdb232d3fd9bd7f6593e9154f9b",
+    "content-hash": "68cef9fe1c5b2dfec2be6791af250560",
     "packages": [
         {
             "name": "algolia/places",
@@ -7689,28 +7689,6 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v4.19.1"
             },
             "time": "2024-03-17T08:10:35+00:00"
-        },
-        {
-            "name": "novicell/content_hierarchy",
-            "version": "1.5.10",
-            "dist": {
-                "type": "zip",
-                "url": "https://packages.drupal.dk/php/~/up/ver_1gUohi/novicellcontent_hierarchy-1-5-10.zip"
-            },
-            "require": {
-                "drupal/core": "^9 || ^10",
-                "drupal/pathauto": "~1.0",
-                "drupal/token": "~1.0"
-            },
-            "type": "drupal-module",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "Content hierarchy, alternative to content list and breadcrumbs",
-            "homepage": "https://www.novicell.dk",
-            "keywords": [
-                "Novicell"
-            ]
         },
         {
             "name": "novicell/dynamic_key_value",

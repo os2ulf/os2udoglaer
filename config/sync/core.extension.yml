@@ -23,9 +23,6 @@ module:
   config_ignore: 0
   config_split: 0
   config_translation: 0
-  content_hierarchy: 0
-  content_hierarchy_breadcrumb: 0
-  content_hierarchy_path: 0
   content_moderation: 0
   contextual: 0
   crop: 0

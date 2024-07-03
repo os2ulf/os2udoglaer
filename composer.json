@@ -93,7 +93,6 @@
         "drupal/webp": "^1.0@RC",
         "drupal/workbench": "^1.4",
         "drush/drush": "^12",
-        "novicell/content_hierarchy": "^1.0",
         "novicell/dynamic_key_value": "^1.0",
         "novicell/image_style_generator": "^1.0",
         "novicell/media_icons": "^1.0",
