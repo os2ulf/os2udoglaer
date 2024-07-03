@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cdd3132a6705cb4b61e775548085372b",
+    "content-hash": "807b3bdb232d3fd9bd7f6593e9154f9b",
     "packages": [
         {
             "name": "algolia/places",
@@ -5773,17 +5773,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "6.2.2",
+            "version": "6.2.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webform.git",
-                "reference": "6.2.2"
+                "reference": "6.2.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-6.2.2.zip",
-                "reference": "6.2.2",
-                "shasum": "cfd766802232dfdf39edd5a1acf7c738d14dc6eb"
+                "url": "https://ftp.drupal.org/files/projects/webform-6.2.3.zip",
+                "reference": "6.2.3",
+                "shasum": "b23b2746643ef11ee764ac420a02e2162d727930"
             },
             "require": {
                 "drupal/core": "^9.4 || ^10",
@@ -5832,8 +5832,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "6.2.2",
-                    "datestamp": "1701948363",
+                    "version": "6.2.3",
+                    "datestamp": "1719431562",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -12989,6 +12989,7 @@
         "drupal/conditional_fields": 15,
         "drupal/domain": 10,
         "drupal/domain_entity": 5,
+        "drupal/domain_simple_sitemap": 10,
         "drupal/entity_clone": 10,
         "drupal/entity_diff_ui": 15,
         "drupal/gin": 5,
@@ -12997,7 +12998,6 @@
         "drupal/pathologic": 15,
         "drupal/search_api_page": 10,
         "drupal/ultimate_cron": 15,
-        "drupal/webform": 10,
         "drupal/webp": 5
     },
     "prefer-stable": true,
