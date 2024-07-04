@@ -1,4 +1,4 @@
-uuid: 43932279-b8be-4abb-9473-2800046bb663
+uuid: 9cbaaa69-364b-4358-8d40-2e978bd50d12
 langcode: da
 status: true
 dependencies:
@@ -10,7 +10,7 @@ id: node.internship.field_areas_of_interest
 field_name: field_areas_of_interest
 entity_type: node
 bundle: internship
-label: Interesseområder
+label: Interesseområde
 description: ''
 required: false
 translatable: false
@@ -24,6 +24,6 @@ settings:
     sort:
       field: name
       direction: asc
-    auto_create: false
+    auto_create: true
     auto_create_bundle: ''
 field_type: entity_reference

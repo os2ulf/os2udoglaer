@@ -187,9 +187,9 @@ third_party_settings:
         required_fields: true
     group_industry_area_interest:
       children:
-        - field_theme
-        - field_areas_of_interest
         - field_industry
+        - field_areas_of_interest
+        - field_theme
         - field_education_path
       label: 'Branche og interesseområde'
       region: content
@@ -361,7 +361,7 @@ content:
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_autocomplete
-    weight: 24
+    weight: 70
     region: content
     settings:
       match_operator: CONTAINS
@@ -407,7 +407,7 @@ content:
     third_party_settings: {  }
   field_education_path:
     type: text_textarea
-    weight: 26
+    weight: 72
     region: content
     settings:
       rows: 5
@@ -447,7 +447,7 @@ content:
     third_party_settings: {  }
   field_industry:
     type: options_buttons
-    weight: 25
+    weight: 69
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -562,7 +562,7 @@ content:
     third_party_settings: {  }
   field_theme:
     type: options_select
-    weight: 23
+    weight: 71
     region: content
     settings: {  }
     third_party_settings: {  }
