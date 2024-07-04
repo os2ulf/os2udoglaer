@@ -27,9 +27,41 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
 }
 
 /**
- * Implements hook_node_form_alter().
+ * Implements hook_form_alter().
  */
 function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Check if node add or edit forms.
+  if (in_array($form_id,
+    array(
+      'node_course_form', 'node_course_edit_form',
+      'node_course_educators_form', 'node_course_educators_edit_form',
+      'node_exercise_form', 'node_exercise_edit_form',
+      'node_internship_form', 'node_internship_edit_form',
+      'node_news_form', 'node_news_edit_form',
+      'node_page_form', 'node_page_edit_form'
+    )
+  )) {
+    // Get current logged in user.
+    $current_user = \Drupal::currentUser();
+    // Check if current user is administrator or webmaster and grant access to field_domain_access.
+    if ($current_user->hasRole('administrator') || $current_user->hasRole('webmaster')) {
+      $form['field_domain_access']['#access'] = true;
+    } else {
+      // Restrict access to field_domain_access if user is not administrators or webmasters.
+      $form['field_domain_access']['#access'] = false;
+      // Set domain_array for counting multiple domains.
+      $domain_array = $form['field_domain_access']['widget']['#default_value'];
+      // Remove 'api_os2udoglaer_dk' from domain_array to count multiple site domains.
+      if (($key = array_search('api_os2udoglaer_dk', $domain_array)) !== false) {
+        unset($domain_array[$key]);
+      }
+      // Throw access denied if other users except administrators or webmaster try to edit content with more than one domain added.
+      if (count($domain_array) > 1) {
+        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+      }
+    }
+  }
+
   // Check if the form is the node course or course_educators add or edit form and hide the hours and minutes from period field.
   if (in_array($form_id, array('node_course_form', 'node_course_edit_form', 'node_course_educators_form', 'node_course_educators_edit_form'))) {
     $form['field_period']['widget'][0]['value']['#date_time_element'] = 'none';
