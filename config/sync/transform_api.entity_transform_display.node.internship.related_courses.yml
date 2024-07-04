@@ -55,7 +55,7 @@ content:
     region: content
     label: omit
     settings:
-      trim_length: '85'
+      trim_length: '200'
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_labels
