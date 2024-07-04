@@ -1,5 +1,7 @@
 <?php
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\user\Entity\User;
+
 /**
  * implements hook_field_widget_single_element_paragraphs_form_alter().
  */
@@ -49,6 +51,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     } else {
       // Restrict access to field_domain_access if user is not administrators or webmasters.
       $form['field_domain_access']['#access'] = false;
+
       // Set domain_array for counting multiple domains.
       $domain_array = $form['field_domain_access']['widget']['#default_value'];
       // Remove 'api_os2udoglaer_dk' from domain_array to count multiple site domains.
@@ -58,6 +61,21 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       // Throw access denied if other users except administrators or webmaster try to edit content with more than one domain added.
       if (count($domain_array) > 1) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+      } else {
+        // Load current user to get field_domain_access.
+        $user = User::load($current_user->id());
+        $user_domain_array = $user->get('field_domain_access')->getValue();
+        $node_access = FALSE;
+        // Loop through $user_domain_array to check if user has access to the content.
+        foreach ($user_domain_array as $key => $value) {
+          if (in_array($value['target_id'], $domain_array)) {
+            $node_access = TRUE;
+          }
+        }
+        // Throw access denied if user does not have access to the domain.
+        if (!$node_access) {
+          throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+        }
       }
     }
   }
