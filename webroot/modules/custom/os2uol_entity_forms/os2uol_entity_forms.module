@@ -32,91 +32,126 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
  * Implements hook_form_alter().
  */
 function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, $form_id) {
-  // Check if node add forms.
-  if (in_array($form_id,
-    array(
-      'node_course_form',
-      'node_course_educators_form',
-      'node_exercise_form',
-      'node_internship_form',
-      'node_news_form',
-      'node_page_form',
-    )
-  )) {
-    // Get current logged in user.
-    $current_user = \Drupal::currentUser();
-    // Check if current user is administrator or webmaster and grant access to field_domain_access.
-    if ($current_user->hasRole('administrator') || $current_user->hasRole('webmaster')) {
-      $form['field_domain_access']['#access'] = true;
-    } else {
-      // Restrict access to field_domain_access if user is not administrators or webmasters.
-      $form['field_domain_access']['#access'] = false;
-    }
+  // Define node add and edit form IDs.
+  $node_add_forms = [
+    'node_course_form',
+    'node_course_educators_form',
+    'node_exercise_form',
+    'node_internship_form',
+    'node_news_form',
+    'node_page_form'
+  ];
+
+  $node_edit_forms = [
+    'node_course_edit_form',
+    'node_course_educators_edit_form',
+    'node_exercise_edit_form',
+    'node_internship_edit_form',
+    'node_news_edit_form',
+    'node_page_edit_form'
+  ];
+
+  // Get the current logged-in user.
+  $current_user = \Drupal::currentUser();
+  $is_admin_or_webmaster = $current_user->hasRole('administrator') || $current_user->hasRole('webmaster');
+
+  // Check if the form is a node add form.
+  if (in_array($form_id, $node_add_forms)) {
+    // Set access to the 'field_domain_access' field based on the user role.
+    $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
   }
 
-  // Check if node edit forms.
-  if (in_array($form_id,
-    array(
-      'node_course_edit_form',
-      'node_course_educators_edit_form',
-      'node_exercise_edit_form',
-      'node_internship_edit_form',
-      'node_news_edit_form',
-      'node_page_edit_form'
-    )
-  )) {
-    // Get current logged in user.
-    $current_user = \Drupal::currentUser();
-    // Check if current user is administrator or webmaster and grant access to field_domain_access.
-    if ($current_user->hasRole('administrator') || $current_user->hasRole('webmaster')) {
-      $form['field_domain_access']['#access'] = true;
-    } else {
-      // Restrict access to field_domain_access if user is not administrators or webmasters.
-      $form['field_domain_access']['#access'] = false;
-      // Set domain_array for counting multiple domains.
+  // Check if the form is a node edit form.
+  if (in_array($form_id, $node_edit_forms)) {
+    // Set access to the 'field_domain_access' field based on the user role.
+    $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
+
+    if (!$is_admin_or_webmaster) {
+      // Handle domain access restrictions for non-admin users.
       $domain_array = $form['field_domain_access']['widget']['#default_value'];
-      // Remove 'api_os2udoglaer_dk' from domain_array to count multiple site domains.
+
+      // Remove 'api_os2udoglaer_dk' from domain_array.
       if (($key = array_search('api_os2udoglaer_dk', $domain_array)) !== false) {
         unset($domain_array[$key]);
       }
-      // Throw access denied if other users except administrators or webmaster try to edit content with more than one domain added.
+
+      // Deny access if more than one domain is assigned.
       if (count($domain_array) > 1) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-      } else {
-        // Load current user to get field_domain_access.
-        $user = User::load($current_user->id());
-        $user_domain_array = $user->get('field_domain_access')->getValue();
-        $node_access = FALSE;
-        // Loop through $user_domain_array to check if user has access to the content.
-        foreach ($user_domain_array as $key => $value) {
-          if (in_array($value['target_id'], $domain_array)) {
-            $node_access = TRUE;
-          }
-        }
-        // Throw access denied if user does not have access to the domain.
-        if (!$node_access) {
-          throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-        }
+      }
+
+      // Load current user's domain access field.
+      $user = User::load($current_user->id());
+      $user_domain_array = array_column($user->get('field_domain_access')->getValue(), 'target_id');
+
+      // Check if the user has access to the content's domain.
+      $node_access = !empty(array_intersect($user_domain_array, $domain_array));
+
+      if (!$node_access) {
+        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
       }
     }
   }
 
-  // Check if the form is the node course or course_educators add or edit form and hide the hours and minutes from period field.
-  if (in_array($form_id, array('node_course_form', 'node_course_edit_form', 'node_course_educators_form', 'node_course_educators_edit_form'))) {
-    $form['field_period']['widget'][0]['value']['#date_time_element'] = 'none';
-    $form['field_period']['widget'][0]['value']['#date_time_format'] = '';
-    $form['field_period']['widget'][0]['end_value']['#date_time_element'] = 'none';
-    $form['field_period']['widget'][0]['end_value']['#date_time_format'] = '';
-    // Hide time part of registration deadline date field.
-    $form['field_registration_deadline']['widget'][0]['value']['#date_time_element'] = 'none';
-    $form['field_registration_deadline']['widget'][0]['value']['#date_time_format'] = '';
+
+  // Check if user is editor and limit access to author field.
+  if (in_array($form_id, $node_add_forms) || in_array($form_id, $node_edit_forms)) {
+    $user = \Drupal::currentUser();
+    $roles = $user->getRoles();
+
+    // Check if the user has the editor role.
+    if (in_array('editor', $roles)) {
+      // Modify the uid field to use the entity reference view.
+      if (isset($form['uid']['widget'][0]['target_id'])) {
+        $element = &$form['uid']['widget'][0]['target_id'];
+        $element['#selection_handler'] = 'views';
+        $element['#selection_settings'] = [
+          'view' => [
+            'view_name' => 'users_by_domain',
+            'display_name' => 'entity_reference_1',
+          ],
+        ];
+      }
+    }
   }
 
-  // Hide time part of application deadline date field.
-  if (in_array($form_id, array('node_internship_form', 'node_internship_edit_form'))) {
-    $form['field_application_deadline']['widget'][0]['value']['#date_time_element'] = 'none';
-    $form['field_application_deadline']['widget'][0]['value']['#date_time_format'] = '';
+
+  // Define form IDs for course and educator forms.
+  $course_form_ids = [
+    'node_course_form',
+    'node_course_edit_form',
+    'node_course_educators_form',
+    'node_course_educators_edit_form'
+  ];
+
+  // Check if the form is a course or educator form and hide the hours and minutes from the period field.
+  if (in_array($form_id, $course_form_ids)) {
+    $period_field = &$form['field_period']['widget'][0];
+    $period_field['value']['#date_time_element'] = 'none';
+    $period_field['value']['#date_time_format'] = '';
+    $period_field['end_value']['#date_time_element'] = 'none';
+    $period_field['end_value']['#date_time_format'] = '';
+
+    // Hide the time part of the registration deadline date field.
+    $registration_deadline_field = &$form['field_registration_deadline']['widget'][0]['value'];
+    $registration_deadline_field['#date_time_element'] = 'none';
+    $registration_deadline_field['#date_time_format'] = '';
   }
+
+  // Define form IDs for internship forms.
+  $internship_form_ids = [
+    'node_internship_form',
+    'node_internship_edit_form'
+  ];
+
+  // Hide the time part of the application deadline date field for internship forms.
+  if (in_array($form_id, $internship_form_ids)) {
+    $application_deadline_field = &$form['field_application_deadline']['widget'][0]['value'];
+    $application_deadline_field['#date_time_element'] = 'none';
+    $application_deadline_field['#date_time_format'] = '';
+  }
+
+
 
   // If user_register_form or user_form.
   if ($form_id == 'user_register_form' || $form_id == 'user_form') {
@@ -402,5 +437,16 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         }
       }
     }
+  }
+}
+
+function _domain_access_restrictions() {
+  // Get current logged in user.
+  $current_user = \Drupal::currentUser();
+  // Check if current user is administrator or webmaster and grant access to field_domain_access.
+  if ($current_user->hasRole('administrator') || $current_user->hasRole('webmaster')) {
+    return TRUE;
+  } else {
+    return FALSE;
   }
 }
