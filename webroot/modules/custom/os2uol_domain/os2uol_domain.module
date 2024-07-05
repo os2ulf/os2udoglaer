@@ -51,7 +51,13 @@ function os2uol_domain_options_list_alter(array &$options, array $context) {
           ->sort('name')
           ->execute();
         $terms = $term_storage->loadMultiple($tids);
-        $options = [];
+        if (isset($options['_none'])) {
+          $options = [
+            '_none' => t('- None -'),
+          ];
+        } else {
+          $options = [];
+        }
         foreach ($terms as $term) {
           $options[$term->id()] = $term->label();
         }
