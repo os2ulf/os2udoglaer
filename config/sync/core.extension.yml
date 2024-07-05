@@ -6,6 +6,7 @@ module:
   admin_toolbar_tools: 0
   allowed_formats: 0
   atoms: 0
+  author_limit: 0
   automated_cron: 0
   autosave_form: 0
   basic_auth: 0
@@ -37,7 +38,6 @@ module:
   domain_config_ui: 0
   domain_entity: 0
   domain_simple_sitemap: 0
-  domain_user_filter: 0
   dynamic_color: 0
   dynamic_entity_reference: 0
   dynamic_key_value: 0
