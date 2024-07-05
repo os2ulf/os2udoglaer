@@ -15,7 +15,11 @@ function os2uol_domain_entity_create(\Drupal\Core\Entity\EntityInterface $entity
 function os2uol_domain_options_list_alter(array &$options, array $context) {
   /** @var \Drupal\Core\Field\FieldDefinitionInterface $fieldDefinition */
   $fieldDefinition = $context['fieldDefinition'];
-  $target_type = $fieldDefinition->getSettings()['target_type'];
+  if (isset($fieldDefinition->getSettings()['target_type'])) {
+    $target_type = $fieldDefinition->getSettings()['target_type'];
+  } else {
+    $target_type = '';
+  }
   if ($fieldDefinition->getType() == 'entity_reference' && $target_type == 'taxonomy_term') {
     $handler_settings = $fieldDefinition->getSettings()['handler_settings'];
     $target_bundles = $handler_settings['target_bundles'];
