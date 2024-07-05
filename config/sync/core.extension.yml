@@ -37,7 +37,6 @@ module:
   domain_config_ui: 0
   domain_entity: 0
   domain_simple_sitemap: 0
-  domain_user_filter: 0
   dynamic_color: 0
   dynamic_entity_reference: 0
   dynamic_key_value: 0
