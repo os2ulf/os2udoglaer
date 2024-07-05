@@ -1,7 +1,0 @@
-name: 'Author Limit'
-type: module
-description: 'Limits the edit-author field to users with the editor role and current domain.'
-core_version_requirement: ^10
-package: 'OS2udoglær'
-dependencies:
-  - drupal:domain
