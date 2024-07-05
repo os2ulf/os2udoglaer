@@ -35,6 +35,10 @@ class WebmasterRedirectSubscriber implements EventSubscriberInterface {
         $url = $this->urlGenerator->generateFromRoute('view.content.page_2'); // Replace 'view.content_all.page' with the actual route name of your destination view page
         $event->setResponse(new RedirectResponse($url));
       }
+      if (($this->currentUser->hasRole('webmaster') || $this->currentUser->hasRole('administrator')) && $path === '/admin/people') {
+        $url = $this->urlGenerator->generateFromRoute('view.user_admin_people.page_2'); // Replace 'view.content_all.page' with the actual route name of your destination view page
+        $event->setResponse(new RedirectResponse($url));
+      }
     }
   }
 }

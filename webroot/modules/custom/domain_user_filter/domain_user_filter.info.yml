@@ -1,0 +1,7 @@
+name: 'Domain User Filter'
+type: module
+description: 'Filters users by the current domain on the /admin/people page.'
+package: 'OS2udoglær'
+core_version_requirement: ^10
+dependencies:
+  - domain:domain_access

@@ -78,6 +78,7 @@ permissions:
   - 'access workbench'
   - 'administer atoms'
   - 'administer menu'
+  - 'administer nodes'
   - 'administer redirect settings'
   - 'administer redirects'
   - 'administer url aliases'

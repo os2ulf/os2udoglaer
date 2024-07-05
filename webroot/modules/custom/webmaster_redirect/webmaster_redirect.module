@@ -17,6 +17,32 @@ function webmaster_redirect_help($route_name, RouteMatchInterface $route_match) 
  * Implements hook_menu_local_tasks_alter().
  */
 function webmaster_redirect_menu_local_tasks_alter(&$data, $route_name, \Drupal\Core\Cache\RefinableCacheableDependencyInterface &$cacheability) {
+  if ($route_name === 'view.user_admin_people.page_2') {
+    $data['tabs'][0]['user.admin_permissions'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Tilladelser'),
+        'url' => Url::fromRoute('user.admin_permissions'),
+      ],
+      '#weight' => 0,
+    ];
+    $data['tabs'][0]['entity.user_role.collection'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Roller'),
+        'url' => Url::fromRoute('entity.user_role.collection'),
+      ],
+      '#weight' => 10,
+    ];
+    $data['tabs'][0]['user.role.settings'] = [
+      '#theme' => 'menu_local_task',
+      '#link' => [
+        'title' => t('Indstillinger for roller'),
+        'url' => Url::fromRoute('user.role.settings'),
+      ],
+      '#weight' => 11,
+    ];
+  }
   if (in_array($route_name, ['view.content.page_2', 'view.moderated_content.page_1'])) {
     $data['tabs'][0]['view.content.page_2'] = [
       '#theme' => 'menu_local_task',

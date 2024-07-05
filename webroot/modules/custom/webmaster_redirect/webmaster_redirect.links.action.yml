@@ -4,3 +4,9 @@ webmaster_redirect.add_content:
   appears_on:
     - view.content.page_2
     - view.moderated_content.page_1
+
+webmaster_redirect.add_user:
+  route_name: 'user.admin_create'
+  title: 'Tilføj bruger'
+  appears_on:
+    - view.user_admin_people.page_2
