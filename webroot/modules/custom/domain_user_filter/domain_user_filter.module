@@ -1,0 +1,35 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\Sql;
+use Drupal\views\Plugin\views\join\JoinPluginBase;
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function domain_user_filter_views_query_alter(ViewExecutable $view, Sql $query) {
+  // Check if we are altering the admin people view.
+  if ($view->id() == 'user_admin_people' && $view->current_display == 'page_1') {
+    // Get the current domain ID.
+    $domain_negotiator = \Drupal::service('domain.negotiator');
+    $current_domain_id = $domain_negotiator->getActiveDomain()->id();
+
+    // Define the join configuration.
+    $configuration = [
+      'type' => 'LEFT',
+      'table' => 'user__field_domain_access',
+      'field' => 'entity_id',
+      'left_table' => 'users_field_data',
+      'left_field' => 'uid',
+    ];
+
+    // Create the join object.
+    $join = new JoinPluginBase($configuration, 'views_join', []);
+
+    // Add the relationship.
+    $query->addRelationship('user__field_domain_access', $join, 'users_field_data');
+
+    // Add the condition for the current domain.
+    $query->addWhere('AND', 'user__field_domain_access.field_domain_access_target_id', $current_domain_id);
+  }
+}
