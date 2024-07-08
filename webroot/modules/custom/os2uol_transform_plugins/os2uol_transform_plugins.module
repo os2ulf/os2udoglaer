@@ -95,3 +95,43 @@ function os2uol_transform_plugins_view_latest_news_block_1_transform_alter(&$tra
   $transformation['entity_type'] = 'block_content';
   $transformation['bundle'] = $transformation['view_id'];
 }
+
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function os2uol_transform_plugins_view_search_page_1_transform_alter(&$transformation) {
+  /** @var \Drupal\facets\FacetManager\DefaultFacetManager $manager */
+  $manager = Drupal::service('facets.manager');
+
+  $facets = $manager->getEnabledFacets();
+
+  foreach ($facets as $facet) {
+    $transform = [
+      'type' => 'facet',
+      'label' => $facet->label(),
+    ];
+    $build = $manager->build($facet)[0];
+
+    if ($build['#context']['list_style'] !== 'checkbox') {
+      throw new Exception('Facet list style not supported');
+      continue;
+    }
+
+    $items = $build['#items'];
+
+    foreach ($items as $item) {
+      $value = $item['#title']['#raw_value'];
+
+      $item_transform = [
+        'type' => 'facet_item',
+        'label' => $item['#title']['#value'],
+        'count' => $item['#title']['#count'],
+        'value' => $value,
+      ];
+
+      $transform['items'][$value] = $item_transform;
+    }
+
+    $transformation['facets'][$facet->id()] = $transform;
+  }
+}

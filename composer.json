@@ -50,6 +50,7 @@
         "drupal/entity_clone": "^2.0@beta",
         "drupal/entity_diff_ui": "^2.0@alpha",
         "drupal/entity_usage": "^2.0-beta3",
+        "drupal/facets": "^2.0",
         "drupal/field_group": "^3.0",
         "drupal/focal_point": "^2.0",
         "drupal/gin": "^3.0@RC",
