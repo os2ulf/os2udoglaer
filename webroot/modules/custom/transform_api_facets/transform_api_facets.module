@@ -1,0 +1,9 @@
+<?php
+
+
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function transform_api_facets_view_transform_alter(&$transformation) {
+  // TODO: Implement view transformation to add facets.
+}
