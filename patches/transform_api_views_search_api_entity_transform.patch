@@ -1,0 +1,37 @@
+diff --git a/modules/transform_api_views/src/Plugin/views/display_extender/TransformApiViews.php b/modules/transform_api_views/src/Plugin/views/display_extender/TransformApiViews.php
+index 2a8aabf..468802c 100644
+--- a/modules/transform_api_views/src/Plugin/views/display_extender/TransformApiViews.php
++++ b/modules/transform_api_views/src/Plugin/views/display_extender/TransformApiViews.php
+@@ -273,6 +273,10 @@ class TransformApiViews extends DisplayExtenderPluginBase {
+    *   The options for row transform modes.
+    */
+   protected function getRowTransformModes() {
++    if ($this->view->getQuery()->getPluginId() == 'search_api_query') {
++      return $this->getSearchApiIndexTransformModes();
++    }
++
+     $entity_type = $this->view->getBaseEntityType();
+ 
+     if ($entity_type == NULL) {
+@@ -284,4 +288,21 @@ class TransformApiViews extends DisplayExtenderPluginBase {
+     return $this->entityTransformRepository->getTransformModeOptions($entity_type->id());
+   }
+ 
++  protected function getSearchApiIndexTransformModes() {
++    /** @var \Drupal\search_api\Entity\Index $index */
++    $index = $this->view->getQuery()->getIndex();
++
++    $entity_types = $index->getEntityTypes();
++
++    $transform_modes = [
++      'default' => $this->t('Default'),
++    ];
++
++    foreach ($entity_types as $entity_type) {
++      $transform_modes = array_merge($transform_modes, $this->entityTransformRepository->getTransformModeOptions($entity_type));
++    }
++
++    return $transform_modes;
++  }
++
+ }
