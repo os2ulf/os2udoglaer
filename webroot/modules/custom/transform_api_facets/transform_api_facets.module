@@ -1,6 +1,6 @@
 <?php
 
-use Drupal\facets\FacetManager\DefaultFacetManager;
+use Drupal\transform_api_facets\Transform\FacetTransform;
 
 /**
  * Implements hook_HOOK_transform_alter().
@@ -15,55 +15,15 @@ function transform_api_facets_view_transform_alter(&$transformation) {
     return;
   }
 
+  $transformation['facets'] = [];
+
   $enabled_facets = $extender->options['transform_facets'] ?? [];
 
-  /** @var \Drupal\facets\FacetManager\DefaultFacetManager $facet_manager */
-  $facet_manager = \Drupal::service('facets.manager');
-
-  $facets = $facet_manager->getEnabledFacets();
-
-  foreach ($facets as $key => $facet) {
-    if (!in_array($key, $enabled_facets)) {
-      unset($facets[$key]);
-    }
-  }
-
-  $transformation['facets'] = transform_api_facets_transform_facets($facets, $facet_manager);
-}
-
-function transform_api_facets_transform_facets(array $facets, DefaultFacetManager $facetManager): array {
-  $transformed_facets = [];
-
-  foreach ($facets as $facet) {
-    $transform = [
-      'type' => 'facet',
-      'label' => $facet->label(),
-    ];
-    $build = $facetManager->build($facet)[0];
-
-    if ($build['#context']['list_style'] !== 'checkbox') {
-      // TODO: Replace with warning message and error log.
-      throw new Exception('Facet list style not supported');
+  foreach ($enabled_facets as $facet_id => $enabled) {
+    if (!$enabled) {
       continue;
     }
 
-    $items = $build['#items'];
-
-    foreach ($items as $item) {
-      $value = $item['#title']['#raw_value'];
-
-      $item_transform = [
-        'type' => 'facet_item',
-        'label' => $item['#title']['#value'],
-        'count' => $item['#title']['#count'],
-        'value' => $value,
-      ];
-
-      $transform['items'][$value] = $item_transform;
-    }
-
-    $transformed_facets[$facet->id()] = $transform;
+    $transformation['facets'][$facet_id] = new FacetTransform($facet_id);
   }
-
-  return $transformed_facets;
 }
