@@ -62,7 +62,7 @@ class TransformApiFacets extends DisplayExtenderPluginBase {
   public function defineOptions() {
     return [
       'transform_facets' => [
-        'default' => '',
+        'default' => [],
       ],
     ] + parent::defineOptions();
   }

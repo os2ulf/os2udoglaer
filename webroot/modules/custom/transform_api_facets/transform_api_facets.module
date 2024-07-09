@@ -42,6 +42,7 @@ function transform_api_facets_transform_facets(array $facets, DefaultFacetManage
     $build = $facetManager->build($facet)[0];
 
     if ($build['#context']['list_style'] !== 'checkbox') {
+      // TODO: Replace with warning message and error log.
       throw new Exception('Facet list style not supported');
       continue;
     }
