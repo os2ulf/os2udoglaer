@@ -227,7 +227,7 @@
                 "Fix views caching": "https://git.drupalcode.org/project/transform_api/-/commit/83e2d5b672ade36a9814681063ef498ef9dd1e68.diff",
                 "Fix views mini pager": "https://git.drupalcode.org/project/transform_api/-/commit/85f532fcf48f0083436d0c4716b328d9c41d66ce.diff",
                 "#(3458752) Empty region transform results in error": "https://www.drupal.org/files/issues/2024-07-03/transform_api_empty_region.patch",
-                "Allow universal search api entity result transform": "patches/transform_api_views_search_api_entity_transform.patch"
+                "Allow universal search api entity result transform": "https://git.drupalcode.org/project/transform_api/-/commit/802912d2974ab10f4b6fbc7c0e140333d48f0227.diff"
             }
         }
     }
