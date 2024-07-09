@@ -216,6 +216,10 @@ display:
     position: 1
     display_options:
       display_extenders:
+        transform_api_facets:
+          transform_facets:
+            type: type
+            emneomraade: 0
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
