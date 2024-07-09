@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Install and update hooks for the transform_api_facets module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function transform_api_facets_install() {
+  // Enable transform_api_facets plugin.
+  $config = \Drupal::service('config.factory')->getEditable('views.settings');
+  $display_extenders = $config->get('display_extenders') ?: [];
+  $display_extenders[] = 'transform_api_facets';
+  $config->set('display_extenders', $display_extenders);
+  $config->save();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function transform_api_facets_uninstall() {
+  // Disable transform_api_facets plugin.
+  $config = \Drupal::service('config.factory')->getEditable('views.settings');
+  $display_extenders = $config->get('display_extenders') ?: [];
+  $key = array_search('transform_api_facets', $display_extenders);
+  if ($key !== FALSE) {
+    unset($display_extenders[$key]);
+    $config->set('display_extenders', $display_extenders);
+    $config->save();
+  }
+}

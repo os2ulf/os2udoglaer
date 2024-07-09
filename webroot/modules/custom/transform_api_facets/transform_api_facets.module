@@ -1,9 +1,68 @@
 <?php
 
+use Drupal\facets\FacetManager\DefaultFacetManager;
 
 /**
  * Implements hook_HOOK_transform_alter().
  */
 function transform_api_facets_view_transform_alter(&$transformation) {
-  // TODO: Implement view transformation to add facets.
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $transformation['#view'];
+
+  $extender = $view->getDisplay()->getExtenders()['transform_api_facets'] ?? NULL;
+
+  if ($extender === NULL) {
+    return;
+  }
+
+  $enabled_facets = $extender->options['transform_facets'] ?? [];
+
+  /** @var \Drupal\facets\FacetManager\DefaultFacetManager $facet_manager */
+  $facet_manager = \Drupal::service('facets.manager');
+
+  $facets = $facet_manager->getEnabledFacets();
+
+  foreach ($facets as $key => $facet) {
+    if (!in_array($key, $enabled_facets)) {
+      unset($facets[$key]);
+    }
+  }
+
+  $transformation['facets'] = transform_api_facets_transform_facets($facets, $facet_manager);
+}
+
+function transform_api_facets_transform_facets(array $facets, DefaultFacetManager $facetManager): array {
+  $transformed_facets = [];
+
+  foreach ($facets as $facet) {
+    $transform = [
+      'type' => 'facet',
+      'label' => $facet->label(),
+    ];
+    $build = $facetManager->build($facet)[0];
+
+    if ($build['#context']['list_style'] !== 'checkbox') {
+      throw new Exception('Facet list style not supported');
+      continue;
+    }
+
+    $items = $build['#items'];
+
+    foreach ($items as $item) {
+      $value = $item['#title']['#raw_value'];
+
+      $item_transform = [
+        'type' => 'facet_item',
+        'label' => $item['#title']['#value'],
+        'count' => $item['#title']['#count'],
+        'value' => $value,
+      ];
+
+      $transform['items'][$value] = $item_transform;
+    }
+
+    $transformed_facets[$facet->id()] = $transform;
+  }
+
+  return $transformed_facets;
 }
