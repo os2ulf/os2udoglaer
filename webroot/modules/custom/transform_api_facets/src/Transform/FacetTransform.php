@@ -9,7 +9,13 @@ use Drupal\transform_api\Transform\PluginTransformBase;
  */
 class FacetTransform extends PluginTransformBase {
 
-  public function __construct($facet_id) {
+  /**
+   * Construct a FacetTransform.
+   *
+   * @param string $facet_id
+   *   The facet id.
+   */
+  public function __construct(string $facet_id) {
     $this->values = [
       'facet_id' => $facet_id,
     ];

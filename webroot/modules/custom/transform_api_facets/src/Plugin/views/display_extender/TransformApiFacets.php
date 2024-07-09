@@ -4,7 +4,6 @@ namespace Drupal\transform_api_facets\Plugin\views\display_extender;
 
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\facets\FacetManager\DefaultFacetManager;
-use Drupal\transform_api\Repository\EntityTransformRepositoryInterface;
 use Drupal\views\Plugin\views\display_extender\DisplayExtenderPluginBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -22,8 +21,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  */
 class TransformApiFacets extends DisplayExtenderPluginBase {
 
+  /**
+   * The facet manager.
+   *
+   * @var \Drupal\facets\FacetManager\DefaultFacetManager
+   */
   protected DefaultFacetManager $facetManager;
-
 
   /**
    * Constructs a new TransformApiViews object.
@@ -34,7 +37,7 @@ class TransformApiFacets extends DisplayExtenderPluginBase {
    *   The plugin ID.
    * @param mixed $plugin_definition
    *   The plugin definition.
-   * @param DefaultFacetManager $facetManager
+   * @param \Drupal\facets\FacetManager\DefaultFacetManager $facetManager
    *   The entity transform repository.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, DefaultFacetManager $facetManager) {
@@ -55,7 +58,6 @@ class TransformApiFacets extends DisplayExtenderPluginBase {
     );
   }
 
-
   /**
    * {@inheritdoc}
    */
@@ -66,7 +68,6 @@ class TransformApiFacets extends DisplayExtenderPluginBase {
       ],
     ] + parent::defineOptions();
   }
-
 
   /**
    * {@inheritdoc}
@@ -115,8 +116,6 @@ class TransformApiFacets extends DisplayExtenderPluginBase {
       'title' => $this->t('Facets settings'),
       'value' => $this->t('Change'),
     ];
-
   }
-
 
 }
