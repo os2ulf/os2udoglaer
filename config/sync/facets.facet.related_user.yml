@@ -1,4 +1,4 @@
-uuid: c3f79ed3-44c4-4abb-b133-75c157c6d523
+uuid: 2fb03bc6-1cac-4303-99d9-a60738ae73d4
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.search
   module:
     - search_api
-id: emneomraade
-name: Emneområde
+id: related_user
+name: Besøgssteder
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: emneomraade
+url_alias: related_user
 facet_source_id: 'search_api:views_page__search__page_1'
-field_identifier: field_subject
+field_identifier: field_related_user
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -66,8 +66,8 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
-  translate_entity:
-    processor_id: translate_entity
+  uid_to_username_callback:
+    processor_id: uid_to_username_callback
     weights:
       build: 5
     settings: {  }
