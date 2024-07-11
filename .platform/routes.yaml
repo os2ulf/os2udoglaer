@@ -16,6 +16,13 @@
     type: redirect
     to: "https://{default}/"
 
+"https://api.os2udoglaer.dk/":
+  type: upstream
+  upstream: "backend:http"
+  cache:
+    enabled: true
+    cookies: ['/^SS?ESS/', '/^Drupal.visitor/']
+
 "https://api.ulfiaarhus.dk/":
     type: upstream
     upstream: "backend:http"
