@@ -1,0 +1,85 @@
+label: 'Workbench Reviewer: Assigned to me'
+description: 'Provides a more detailed listing of content assigned to the current user from the reviewer field.'
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        options:
+          tags:
+            previous: ‹‹
+            next: ››
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page_label: 'Items per page'
+            items_per_page_options_all_label: '- All -'
+            offset_label: Offset
+      fields:
+        title:
+          label: Title
+          separator: ', '
+        name:
+          label: Author
+          separator: ', '
+        revision_timestamp:
+          label: Changed
+          separator: ', '
+        nid:
+          label: ID
+          separator: ', '
+        vid:
+          label: 'Revision ID'
+          separator: ', '
+        status:
+          label: Published
+          separator: ', '
+        moderation_state:
+          label: 'Workflow State'
+          separator: ', '
+        revision_log:
+          label: Message
+          separator: ', '
+        link_to_revision:
+          label: Actions
+          text: View
+      filters:
+        title:
+          expose:
+            label: Title
+        uid:
+          expose:
+            label: Author
+        nid:
+          expose:
+            label: ID
+        status:
+          expose:
+            label: Published
+        moderation_state_1:
+          expose:
+            label: 'Moderation state'
+      title: 'Assigned to me'
+      header:
+        area:
+          content:
+            value: 'Displays content that is assigned to you through the <em>Reviewer</em> field provided by <em>Workbench Reviewer</em>.'
+      empty:
+        area_text_custom:
+          content: 'No content has been assigned to you for review.'
+      arguments:
+        nodes_moderation_reviewer:
+          exception:
+            title: All
+  page_assigned_to_me:
+    display_title: Page
+    display_options:
+      menu:
+        title: 'Assigned to me'
