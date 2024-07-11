@@ -24,6 +24,7 @@ module:
   config_split: 0
   config_translation: 0
   content_moderation: 0
+  content_moderation_bypass: 0
   contextual: 0
   crop: 0
   datetime: 0
@@ -142,6 +143,7 @@ module:
   webmaster_redirect: 0
   webp: 0
   workbench: 0
+  workbench_reviewer: 0
   workflows: 0
   pathauto: 1
   content_translation: 10
