@@ -33,6 +33,7 @@ dependencies:
     - atoms
     - block_content
     - content_moderation
+    - content_moderation_bypass
     - content_translation
     - contextual
     - domain
@@ -90,6 +91,7 @@ permissions:
   - 'assign place_of_visit role'
   - 'assign school role'
   - 'assign theater_contact role'
+  - 'bypass editorial transition restrictions'
   - 'clone action entity'
   - 'clone base_field_override entity'
   - 'clone block entity'
