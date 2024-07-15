@@ -505,7 +505,8 @@ display:
       display_description: ''
       display_extenders:
         transform_api_facets:
-          transform_facets: {  }
+          transform_facets:
+            news_theme: news_theme
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
