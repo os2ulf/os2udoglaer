@@ -1,4 +1,4 @@
-uuid: 1f4ba4b2-e187-464f-bef7-190232182432
+uuid: f0e79da6-1cee-4e1f-aad4-bfeaa605fd77
 langcode: da
 status: true
 dependencies:
@@ -7,14 +7,14 @@ dependencies:
     - views.view.content_search
   module:
     - search_api
-id: course_educators_is_free
+id: course_is_free
 name: Gratis
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: ceif
-facet_source_id: 'search_api:views_page__content_search__page_2'
+url_alias: cif
+facet_source_id: 'search_api:views_page__content_search__page_4'
 field_identifier: field_is_free
 query_operator: or
 hard_limit: 0

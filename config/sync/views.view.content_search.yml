@@ -626,8 +626,12 @@ display:
       display_extenders:
         transform_api_facets:
           transform_facets:
-            course_type: 0
-            target_group: 0
+            course_course_type: course_course_type
+            course_curriculum_themes: course_curriculum_themes
+            course_is_free: course_is_free
+            course_primary_school_subject: course_primary_school_subject
+            course_target_group: course_target_group
+            course_youth_education_subject: course_youth_education_subject
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
