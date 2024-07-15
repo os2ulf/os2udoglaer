@@ -5,6 +5,12 @@ dependencies:
   config:
     - field.storage.taxonomy_term.domain_access
     - taxonomy.vocabulary.focus
+  module:
+    - domain_entity
+third_party_settings:
+  domain_entity:
+    domains: {  }
+    behavior: auto
 id: taxonomy_term.focus.domain_access
 field_name: domain_access
 entity_type: taxonomy_term
