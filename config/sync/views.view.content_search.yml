@@ -253,13 +253,8 @@ display:
       display_extenders:
         transform_api_facets:
           transform_facets:
-            areas_of_interest: areas_of_interest
-            course_type: course_type
-            related_user: 0
-            subject: 0
-            sustainability_goals: 0
-            theme: 0
-            type: 0
+            internship_areas_of_interest: internship_areas_of_interest
+            internship_industry: internship_industry
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
@@ -752,7 +747,15 @@ display:
       display_description: ''
       display_extenders:
         transform_api_facets:
-          transform_facets: {  }
+          transform_facets:
+            excercise_activity_select: excercise_activity_select
+            excercise_curriculum_themes: excercise_curriculum_themes
+            excercise_duration_select: excercise_duration_select
+            excercise_focus: excercise_focus
+            excercise_period_select: excercise_period_select
+            excercise_primary_school_subject: excercise_primary_school_subject
+            excercise_target_group: excercise_target_group
+            excercise_youth_education_subject: excercise_youth_education_subject
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result

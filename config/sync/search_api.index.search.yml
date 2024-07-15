@@ -14,6 +14,7 @@ dependencies:
     - field.storage.node.field_subject
     - field.storage.node.field_primary_school_subject
     - field.storage.node.field_youth_education_subject
+    - field.storage.node.field_focus
     - field.storage.node.field_preparation
     - field.storage.node.field_course_type
     - field.storage.node.field_purpose
@@ -28,10 +29,11 @@ dependencies:
     - field.storage.node.field_trgt_grp_primary_school
     - field.storage.node.field_trgt_grp_youth_education
     - field.storage.node.field_target_group
-    - field.storage.node.field_period_select
     - field.storage.node.field_period
+    - field.storage.node.field_period_select
     - field.storage.node.field_how_to
     - field.storage.node.field_theme
+    - field.storage.node.field_duration_select
     - field.storage.node.field_sustainability_goals
     - field.storage.node.field_exclude_from_search
     - field.storage.user.field_presentation
@@ -191,6 +193,14 @@ field_settings:
         - field.storage.node.field_curriculum_themes
       module:
         - taxonomy
+  field_duration_select:
+    label: Varighed
+    datasource_id: 'entity:node'
+    property_path: field_duration_select
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_duration_select
   field_educators_target_group:
     label: Målgruppe
     datasource_id: 'entity:node'
@@ -225,6 +235,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_expectations
+  field_focus:
+    label: Fokus
+    datasource_id: 'entity:node'
+    property_path: field_focus
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_focus
   field_how_to:
     label: 'Sådan gør du'
     datasource_id: 'entity:node'
