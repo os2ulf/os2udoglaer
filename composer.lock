@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73a5af2ec08e35a0f7084a7ba79872a9",
+    "content-hash": "08d481ef1910443e810b8e3a3238f1e9",
     "packages": [
         {
             "name": "algolia/places",
@@ -2802,6 +2802,52 @@
             "homepage": "https://www.drupal.org/project/domain",
             "support": {
                 "source": "https://git.drupalcode.org/project/domain"
+            }
+        },
+        {
+            "name": "drupal/domain_access_search_api",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain_access_search_api.git",
+                "reference": "1.0.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain_access_search_api-1.0.5.zip",
+                "reference": "1.0.5",
+                "shasum": "a733ed57af81feabc93738e1615dd2c3b2ace37f"
+            },
+            "require": {
+                "drupal/core": "^10.1 || ^11",
+                "drupal/domain": "*",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.5",
+                    "datestamp": "1719676214",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "andileco",
+                    "homepage": "https://www.drupal.org/user/2054544"
+                }
+            ],
+            "description": "Creates a Views filter to filter by domain",
+            "homepage": "https://www.drupal.org/project/domain_access_search_api",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain_access_search_api"
             }
         },
         {
