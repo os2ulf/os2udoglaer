@@ -87,6 +87,7 @@
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",
         "drupal/transform_api": "1.1.0-beta3",
+        "drupal/transform_api_facets": "^1.0@alpha",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/view_unpublished": "^1.0",
         "drupal/webform": "^6.2",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2931f79fbe79f51178c970627d01b202",
+    "content-hash": "73a5af2ec08e35a0f7084a7ba79872a9",
     "packages": [
         {
             "name": "algolia/places",
@@ -5719,6 +5719,90 @@
             ],
             "description": "Transform API",
             "homepage": "https://drupal.org/project/transform_api",
+            "support": {
+                "source": "https://git.drupalcode.org/project/transform_api"
+            }
+        },
+        {
+            "name": "drupal/transform_api_facets",
+            "version": "1.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/transform_api_facets.git",
+                "reference": "1.0.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-1.0.0-alpha3.zip",
+                "reference": "1.0.0-alpha3",
+                "shasum": "11b051a06b4637881b48f7b85bc5933d56f23802"
+            },
+            "require": {
+                "drupal/core": "^10 || ^11",
+                "drupal/facets": "*",
+                "drupal/transform_api_views": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.0-alpha3",
+                    "datestamp": "1721028557",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "erik_petra",
+                    "homepage": "https://www.drupal.org/user/3622895"
+                }
+            ],
+            "description": "Integrates facets into Transform API",
+            "homepage": "https://www.drupal.org/project/transform_api_facets",
+            "support": {
+                "source": "https://git.drupalcode.org/project/transform_api_facets"
+            }
+        },
+        {
+            "name": "drupal/transform_api_views",
+            "version": "1.1.0-beta4",
+            "require": {
+                "drupal/core": "^9 || ^10",
+                "drupal/transform_api": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.0-beta4",
+                    "datestamp": "1718870963",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "erik_petra",
+                    "homepage": "https://www.drupal.org/user/3622895"
+                },
+                {
+                    "name": "LupusGr3y",
+                    "homepage": "https://www.drupal.org/user/3473625"
+                }
+            ],
+            "description": "Adds support for Views in Transform API.",
+            "homepage": "https://www.drupal.org/project/transform_api",
             "support": {
                 "source": "https://git.drupalcode.org/project/transform_api"
             }
@@ -13049,6 +13133,7 @@
         "drupal/maxlength": 10,
         "drupal/pathologic": 15,
         "drupal/search_api_page": 10,
+        "drupal/transform_api_facets": 15,
         "drupal/ultimate_cron": 15,
         "drupal/webp": 5
     },

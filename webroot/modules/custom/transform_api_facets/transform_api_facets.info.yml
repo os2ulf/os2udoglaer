@@ -1,8 +1,0 @@
-name: 'Transform API Facets'
-type: module
-description: 'Integrates facets into Transform API'
-package: Web services
-core_version_requirement: ^10 || ^11
-dependencies:
-  - facets:facets
-  - transform_api_views:transform_api_views
