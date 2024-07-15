@@ -27,6 +27,7 @@ module:
   content_moderation_bypass: 0
   contextual: 0
   crop: 0
+  csv_serialization: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
@@ -138,6 +139,7 @@ module:
   ultimate_cron: 0
   user: 0
   view_unpublished: 0
+  views_data_export: 0
   views_ui: 0
   webform: 0
   webform_rest: 0
@@ -147,6 +149,7 @@ module:
   workbench: 0
   workbench_reviewer: 0
   workflows: 0
+  xls_serialization: 0
   pathauto: 1
   content_translation: 10
   views: 10
