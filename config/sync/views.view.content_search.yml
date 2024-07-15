@@ -1,0 +1,761 @@
+uuid: 79fea2a8-2d58-4d25-9322-a3c03829ec94
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - search_api.index.search
+  module:
+    - search_api
+    - text
+id: content_search
+label: 'Content search'
+module: views
+description: ''
+tag: ''
+base_table: search_api_index_search
+base_field: search_api_id
+display:
+  default:
+    id: default
+    display_title: Default
+    display_plugin: default
+    position: 0
+    display_options:
+      title: 'Content search'
+      fields:
+        body:
+          id: body
+          table: search_api_index_search
+          field: body
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: null
+          entity_field: null
+          plugin_id: search_api_field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          field_rendering: true
+          fallback_handler: search_api
+          fallback_options:
+            link_to_item: false
+            use_highlighting: false
+            multi_type: separator
+            multi_separator: ', '
+      pager:
+        type: mini
+        options:
+          offset: 0
+          items_per_page: 14
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Antal elementer'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Alle -'
+            offset: false
+            offset_label: Forskydning
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Udfør
+          reset_button: false
+          reset_button_label: Gendan
+          exposed_sorts_label: 'Sortér efter'
+          expose_sort_order: true
+          sort_asc_label: Stigende
+          sort_desc_label: Faldende
+      access:
+        type: none
+        options: {  }
+      cache:
+        type: search_api_none
+        options: {  }
+      empty: {  }
+      sorts: {  }
+      arguments: {  }
+      filters:
+        search_api_datasource:
+          id: search_api_datasource
+          table: search_api_index_search
+          field: search_api_datasource
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_datasource
+          operator: or
+          value:
+            'entity:node': 'entity:node'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        type:
+          id: type
+          table: search_api_index_search
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_options
+          operator: or
+          value:
+            internship: internship
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+      style:
+        type: default
+      row:
+        type: fields
+      query:
+        type: search_api_query
+        options:
+          bypass_access: false
+          skip_access: false
+          preserve_facet_query_args: false
+          query_tags: {  }
+      relationships: {  }
+      header: {  }
+      footer: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+      tags:
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
+        - 'config:field.storage.node.body'
+        - 'config:search_api.index.search'
+        - 'search_api_list:search'
+  page_1:
+    id: page_1
+    display_title: 'Side - Erhvervspraktik'
+    display_plugin: page
+    position: 1
+    display_options:
+      display_description: ''
+      display_extenders:
+        transform_api_facets:
+          transform_facets:
+            areas_of_interest: areas_of_interest
+            related_user: 0
+            subject: 0
+            sustainability_goals: 0
+            theme: 0
+            type: 0
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: search_result
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      path: content/internship
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+      tags:
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
+        - 'config:field.storage.node.body'
+        - 'config:search_api.index.search'
+        - 'search_api_list:search'
+  page_2:
+    id: page_2
+    display_title: 'Side - Kursus'
+    display_plugin: page
+    position: 2
+    display_options:
+      filters:
+        search_api_datasource:
+          id: search_api_datasource
+          table: search_api_index_search
+          field: search_api_datasource
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_datasource
+          operator: or
+          value:
+            'entity:node': 'entity:node'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        type:
+          id: type
+          table: search_api_index_search
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_options
+          operator: or
+          value:
+            course_educators: course_educators
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders:
+        transform_api_facets:
+          transform_facets: {  }
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: search_result
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      path: content/course-educators
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+      tags:
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
+        - 'config:field.storage.node.body'
+        - 'config:search_api.index.search'
+        - 'search_api_list:search'
+  page_3:
+    id: page_3
+    display_title: 'Side - Nyhed'
+    display_plugin: page
+    position: 3
+    display_options:
+      filters:
+        search_api_datasource:
+          id: search_api_datasource
+          table: search_api_index_search
+          field: search_api_datasource
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_datasource
+          operator: or
+          value:
+            'entity:node': 'entity:node'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        type:
+          id: type
+          table: search_api_index_search
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_options
+          operator: or
+          value:
+            news: news
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders:
+        transform_api_facets:
+          transform_facets: {  }
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: search_result
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      path: content/news
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+      tags:
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
+        - 'config:field.storage.node.body'
+        - 'config:search_api.index.search'
+        - 'search_api_list:search'
+  page_4:
+    id: page_4
+    display_title: 'Side - Undervisnings- og læringsforløb'
+    display_plugin: page
+    position: 4
+    display_options:
+      filters:
+        search_api_datasource:
+          id: search_api_datasource
+          table: search_api_index_search
+          field: search_api_datasource
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_datasource
+          operator: or
+          value:
+            'entity:node': 'entity:node'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        type:
+          id: type
+          table: search_api_index_search
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_options
+          operator: or
+          value:
+            course: course
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders:
+        transform_api_facets:
+          transform_facets: {  }
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: search_result
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      path: content/course
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+      tags:
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
+        - 'config:field.storage.node.body'
+        - 'config:search_api.index.search'
+        - 'search_api_list:search'
+  page_5:
+    id: page_5
+    display_title: 'Side - Opgave'
+    display_plugin: page
+    position: 5
+    display_options:
+      filters:
+        search_api_datasource:
+          id: search_api_datasource
+          table: search_api_index_search
+          field: search_api_datasource
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_datasource
+          operator: or
+          value:
+            'entity:node': 'entity:node'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        type:
+          id: type
+          table: search_api_index_search
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_options
+          operator: or
+          value:
+            exercise: exercise
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      defaults:
+        filters: false
+        filter_groups: false
+      display_description: ''
+      display_extenders:
+        transform_api_facets:
+          transform_facets: {  }
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: search_result
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      path: content/excercise
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+      tags:
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
+        - 'config:field.storage.node.body'
+        - 'config:search_api.index.search'
+        - 'search_api_list:search'
