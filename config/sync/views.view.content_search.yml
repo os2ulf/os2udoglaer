@@ -254,6 +254,7 @@ display:
         transform_api_facets:
           transform_facets:
             areas_of_interest: areas_of_interest
+            course_type: course_type
             related_user: 0
             subject: 0
             sustainability_goals: 0
@@ -378,7 +379,13 @@ display:
       display_description: ''
       display_extenders:
         transform_api_facets:
-          transform_facets: {  }
+          transform_facets:
+            course_educators_curriculum_themes: course_educators_curriculum_themes
+            course_educators_is_free: course_educators_is_free
+            course_educators_period: course_educators_period
+            course_educators_primary_school_subject: course_educators_primary_school_subject
+            course_educators_target_group: course_educators_target_group
+            course_educators_youth_education_subject: course_educators_youth_education_subject
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
@@ -618,7 +625,9 @@ display:
       display_description: ''
       display_extenders:
         transform_api_facets:
-          transform_facets: {  }
+          transform_facets:
+            course_type: 0
+            target_group: 0
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
