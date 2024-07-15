@@ -1,0 +1,275 @@
+uuid: 9c3c6872-b7e7-4f05-9f9d-64208c85c5e8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_allocated_budget
+    - field.field.user.user.field_brancher
+    - field.field.user.user.field_bypass_workflow
+    - field.field.user.user.field_contact
+    - field.field.user.user.field_cvr
+    - field.field.user.user.field_domain_access
+    - field.field.user.user.field_domain_admin
+    - field.field.user.user.field_domain_all_affiliates
+    - field.field.user.user.field_editor_field
+    - field.field.user.user.field_educational_profile
+    - field.field.user.user.field_guarantee_partner
+    - field.field.user.user.field_homepage
+    - field.field.user.user.field_image
+    - field.field.user.user.field_intro
+    - field.field.user.user.field_location_city
+    - field.field.user.user.field_location_name
+    - field.field.user.user.field_location_street
+    - field.field.user.user.field_location_zipcode
+    - field.field.user.user.field_logo
+    - field.field.user.user.field_mail
+    - field.field.user.user.field_meta_tags
+    - field.field.user.user.field_name
+    - field.field.user.user.field_other_info
+    - field.field.user.user.field_other_info_description
+    - field.field.user.user.field_phone
+    - field.field.user.user.field_posibilities
+    - field.field.user.user.field_postnummer
+    - field.field.user.user.field_presentation
+    - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_enabled
+    - field.field.user.user.field_pretix_event_form
+    - field.field.user.user.field_pretix_organizer_form
+    - field.field.user.user.field_pretix_url
+    - field.field.user.user.field_video
+    - field.field.user.user.field_video_description
+    - field.field.user.user.field_video_title
+    - field.field.user.user.field_view_on_map
+    - responsive_image.styles.isg_course_header
+    - transform_api.entity_transform_mode.user.search_result
+  module:
+    - transform_api_responsive_image
+    - user
+id: user.user.search_result
+targetEntityType: user
+bundle: user
+mode: search_result
+content:
+  field_allocated_budget:
+    type: entity_transform
+    weight: '15'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_brancher:
+    type: entity_reference_labels
+    weight: '26'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_contact:
+    type: entity_transform
+    weight: '16'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_cvr:
+    type: value
+    weight: '12'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_educational_profile:
+    type: text_format
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_guarantee_partner:
+    type: boolean
+    weight: '24'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_homepage:
+    type: link
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: responsive_image
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      responsive_image_style: isg_course_header
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+  field_intro:
+    type: text_format
+    weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_city:
+    type: value
+    weight: '20'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_name:
+    type: value
+    weight: '17'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_street:
+    type: value
+    weight: '18'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_zipcode:
+    type: value
+    weight: '19'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_logo:
+    type: image_style
+    weight: '8'
+    region: content
+    label: omit
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_mail:
+    type: value
+    weight: '11'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_meta_tags:
+    type: metatag
+    weight: '25'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_name:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_other_info:
+    type: entity_transform
+    weight: '14'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_other_info_description:
+    type: text_format
+    weight: '13'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_phone:
+    type: value
+    weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_posibilities:
+    type: entity_reference_labels
+    weight: '27'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_postnummer:
+    type: entity_reference_labels
+    weight: '28'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_presentation:
+    type: text_format
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_pretix_api_token:
+    type: value
+    weight: '23'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_pretix_enabled:
+    type: boolean
+    weight: '21'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_pretix_url:
+    type: value
+    weight: '22'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_video:
+    type: entity_transform
+    weight: '7'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_video_description:
+    type: text_format
+    weight: '6'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_video_title:
+    type: value
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_bypass_workflow: true
+  field_domain_access: true
+  field_domain_admin: true
+  field_domain_all_affiliates: true
+  field_editor_field: true
+  field_pretix_event_form: true
+  field_pretix_organizer_form: true
+  field_view_on_map: true
+  langcode: true
