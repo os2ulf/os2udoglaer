@@ -125,7 +125,7 @@ field_settings:
     label: Aktivitet
     datasource_id: 'entity:node'
     property_path: field_activity_select
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_activity_select
@@ -143,7 +143,7 @@ field_settings:
     label: Interesseområde
     datasource_id: 'entity:node'
     property_path: field_areas_of_interest
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_areas_of_interest
@@ -161,7 +161,7 @@ field_settings:
     label: Forløbstype
     datasource_id: 'entity:node'
     property_path: field_course_type
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_course_type
@@ -179,7 +179,7 @@ field_settings:
     label: Læreplanstemaer
     datasource_id: 'entity:node'
     property_path: field_curriculum_themes
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_curriculum_themes
@@ -197,7 +197,7 @@ field_settings:
     label: Varighed
     datasource_id: 'entity:node'
     property_path: field_duration_select
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_duration_select
@@ -205,7 +205,7 @@ field_settings:
     label: Målgruppe
     datasource_id: 'entity:node'
     property_path: field_educators_target_group
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_educators_target_group
@@ -213,7 +213,7 @@ field_settings:
     label: 'Målgruppe » Ord i ordforråd » Navn'
     datasource_id: 'entity:node'
     property_path: 'field_educators_target_group:entity:name'
-    type: string
+    type: 'solr_text_custom:ngram'
     dependencies:
       config:
         - field.storage.node.field_educators_target_group
@@ -239,7 +239,7 @@ field_settings:
     label: Fokus
     datasource_id: 'entity:node'
     property_path: field_focus
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_focus
@@ -255,7 +255,7 @@ field_settings:
     label: Branche
     datasource_id: 'entity:node'
     property_path: field_industry
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_industry
@@ -298,7 +298,7 @@ field_settings:
     label: Periode
     datasource_id: 'entity:node'
     property_path: field_period_select
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_period_select
@@ -330,7 +330,7 @@ field_settings:
     label: Fag
     datasource_id: 'entity:node'
     property_path: field_primary_school_subject
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_primary_school_subject
@@ -364,7 +364,7 @@ field_settings:
     label: Besøgssteder
     datasource_id: 'entity:node'
     property_path: field_related_user
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_related_user
@@ -383,7 +383,7 @@ field_settings:
     label: Emneområde
     datasource_id: 'entity:node'
     property_path: field_subject
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_subject
@@ -401,7 +401,7 @@ field_settings:
     label: Verdensmål
     datasource_id: 'entity:node'
     property_path: field_sustainability_goals
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_sustainability_goals
@@ -427,7 +427,7 @@ field_settings:
     label: 'Overordnet målgruppe'
     datasource_id: 'entity:node'
     property_path: field_target_group
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_target_group
@@ -435,7 +435,7 @@ field_settings:
     label: Tema
     datasource_id: 'entity:node'
     property_path: field_theme
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_theme
@@ -453,7 +453,7 @@ field_settings:
     label: Målgruppe
     datasource_id: 'entity:node'
     property_path: field_trgt_grp_daycare
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_trgt_grp_daycare
@@ -471,7 +471,7 @@ field_settings:
     label: Målgruppe
     datasource_id: 'entity:node'
     property_path: field_trgt_grp_primary_school
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_trgt_grp_primary_school
@@ -489,7 +489,7 @@ field_settings:
     label: Målgruppe
     datasource_id: 'entity:node'
     property_path: field_trgt_grp_youth_education
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_trgt_grp_youth_education
@@ -507,7 +507,7 @@ field_settings:
     label: Fag
     datasource_id: 'entity:node'
     property_path: field_youth_education_subject
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.node.field_youth_education_subject
