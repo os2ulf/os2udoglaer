@@ -302,4 +302,4 @@ collaboration:
 This is done using Platform.sh CI/CD and Gitops.
 
 ### Deploy bumper
-This has been done 0 times
+This has been done 1 times
