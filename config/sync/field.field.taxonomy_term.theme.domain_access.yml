@@ -1,20 +1,14 @@
-uuid: e9a7db20-bda0-482f-b53c-0e729c7252fb
+uuid: b3a61177-be1d-4b55-8ad3-299a945a7aa7
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.taxonomy_term.domain_access
-    - taxonomy.vocabulary.postal_code
-  module:
-    - domain_entity
-third_party_settings:
-  domain_entity:
-    domains: {  }
-    behavior: auto
-id: taxonomy_term.postal_code.domain_access
+    - taxonomy.vocabulary.theme
+id: taxonomy_term.theme.domain_access
 field_name: domain_access
 entity_type: taxonomy_term
-bundle: postal_code
+bundle: theme
 label: 'Domain Access'
 description: 'Select the affiliate domain(s). If nothing was selected: Affiliated to all domains.'
 required: false

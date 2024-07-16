@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.theme.domain_access
     - taxonomy.vocabulary.theme
   module:
     - text
@@ -19,5 +20,6 @@ content:
     weight: 0
     region: content
 hidden:
+  domain_access: true
   langcode: true
   search_api_excerpt: true

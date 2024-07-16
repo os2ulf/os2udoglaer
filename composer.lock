@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "44f554a0783ce088a9d897e6448e6d5f",
+    "content-hash": "230cf5e68f2ac45a074d36768fee1dae",
     "packages": [
         {
             "name": "algolia/places",
@@ -2819,6 +2819,10 @@
                 {
                     "name": "nonsie",
                     "homepage": "https://www.drupal.org/user/29899"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
                 }
             ],
             "description": "Creates domain records within a Drupal installation.",
@@ -2857,12 +2861,62 @@
                 {
                     "name": "nonsie",
                     "homepage": "https://www.drupal.org/user/29899"
+                },
+                {
+                    "name": "webflo",
+                    "homepage": "https://www.drupal.org/user/254778"
                 }
             ],
             "description": "Domain-based access control for content.",
             "homepage": "https://www.drupal.org/project/domain",
             "support": {
                 "source": "https://git.drupalcode.org/project/domain"
+            }
+        },
+        {
+            "name": "drupal/domain_access_search_api",
+            "version": "1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain_access_search_api.git",
+                "reference": "1.0.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain_access_search_api-1.0.5.zip",
+                "reference": "1.0.5",
+                "shasum": "a733ed57af81feabc93738e1615dd2c3b2ace37f"
+            },
+            "require": {
+                "drupal/core": "^10.1 || ^11",
+                "drupal/domain": "*",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.5",
+                    "datestamp": "1719676214",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "andileco",
+                    "homepage": "https://www.drupal.org/user/2054544"
+                }
+            ],
+            "description": "Creates a Views filter to filter by domain",
+            "homepage": "https://www.drupal.org/project/domain_access_search_api",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain_access_search_api"
             }
         },
         {
@@ -5672,10 +5726,6 @@
                 {
                     "name": "joseph.olstad",
                     "homepage": "https://www.drupal.org/user/1321830"
-                },
-                {
-                    "name": "josesanmartin",
-                    "homepage": "https://www.drupal.org/user/72012"
                 },
                 {
                     "name": "LukeLast",
@@ -13431,28 +13481,8 @@
             ],
             "authors": [
                 {
-                    "name": "colan",
-                    "homepage": "https://www.drupal.org/user/58704"
-                },
-                {
                     "name": "Gábor Hojtsy",
                     "homepage": "https://www.drupal.org/user/4166"
-                },
-                {
-                    "name": "herczogzoltan",
-                    "homepage": "https://www.drupal.org/user/3528391"
-                },
-                {
-                    "name": "sun",
-                    "homepage": "https://www.drupal.org/user/54136"
-                },
-                {
-                    "name": "webchick",
-                    "homepage": "https://www.drupal.org/user/24967"
-                },
-                {
-                    "name": "xjm",
-                    "homepage": "https://www.drupal.org/user/65776"
                 }
             ],
             "description": "Review Drupal major upgrade readiness of the environment and components of the site.",
