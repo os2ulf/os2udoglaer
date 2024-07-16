@@ -10,6 +10,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\TypedData\ComplexDataDefinitionInterface;
 use Drupal\Core\TypedData\DataReferenceDefinitionInterface;
+use Drupal\domain\DomainNegotiatorInterface;
 use Drupal\facets\FacetInterface;
 use Drupal\facets\Processor\BuildProcessorInterface;
 use Drupal\facets\Processor\ProcessorPluginBase;
@@ -44,6 +45,13 @@ class DomainAccessFilter extends ProcessorPluginBase implements BuildProcessorIn
   protected $entityFieldManager;
 
   /**
+   * The domain negotiator.
+   *
+   * @var \Drupal\domain\DomainNegotiatorInterface
+   */
+  protected $domainNegotiator;
+
+  /**
    * Constructs a new object.
    *
    * @param array $configuration
@@ -55,11 +63,12 @@ class DomainAccessFilter extends ProcessorPluginBase implements BuildProcessorIn
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    */
-  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $entity_field_manager) {
+  public function __construct(array $configuration, $plugin_id, $plugin_definition, EntityTypeManagerInterface $entity_type_manager, EntityFieldManagerInterface $entity_field_manager, DomainNegotiatorInterface $domain_negotiator) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
 
     $this->entityTypeManager = $entity_type_manager;
     $this->entityFieldManager = $entity_field_manager;
+    $this->domainNegotiator = $domain_negotiator;
   }
 
   /**
@@ -71,12 +80,44 @@ class DomainAccessFilter extends ProcessorPluginBase implements BuildProcessorIn
       $plugin_id,
       $plugin_definition,
       $container->get('entity_type.manager'),
-      $container->get('entity_field.manager')
+      $container->get('entity_field.manager'),
+      $container->get('domain.negotiator')
     );
   }
 
   public function build(FacetInterface $facet, array $results) {
-    dpm($results);
+    $data_definition = $facet->getDataDefinition();
+    $target_type = $data_definition->getSettings()['target_type'];
+    $handler_settings = $data_definition->getSettings()['handler_settings'];
+    $target_bundles = $handler_settings['target_bundles'];
+    if (count($target_bundles) == 1) {
+      $target_bundle = reset($target_bundles);
+      $term_storage = $this->entityTypeManager->getStorage($target_type);
+      $query = $term_storage->getQuery()
+        ->condition('vid', $target_bundle)
+        ->condition('status', 1);
+      $domains = [$this->domainNegotiator->getActiveDomain()->id()];
+      if (empty($domains)) {
+        $query->notExists('domain_access');
+      }
+      else {
+        $group = $query->orConditionGroup()
+          ->notExists('domain_access')
+          ->condition('domain_access.target_id', $domains, 'IN');
+        $query->condition($group);
+      }
+      $tids = $query
+        ->accessCheck(FALSE)
+        ->sort('weight')
+        ->sort('name')
+        ->execute();
+
+      foreach ($results as $id => $result) {
+        if (!in_array($result->getRawValue(), $tids)) {
+          unset($results[$id]);
+        }
+      }
+    }
     return $results;
   }
 
