@@ -51,7 +51,6 @@ dependencies:
     - role_delegation
     - scheduled_transitions
     - system
-    - taxonomy
     - toolbar
     - view_unpublished
     - webform
@@ -71,7 +70,6 @@ permissions:
   - 'access files overview'
   - 'access own webform configuration'
   - 'access site reports'
-  - 'access taxonomy overview'
   - 'access toolbar'
   - 'access webform help'
   - 'access webform overview'
