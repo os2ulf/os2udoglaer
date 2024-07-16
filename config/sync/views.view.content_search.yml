@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.body
     - search_api.index.search
   module:
+    - domain_access_search_api
     - search_api
     - text
 id: content_search
@@ -215,6 +216,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        current_all:
+          id: current_all
+          table: search_api_index_search
+          field: current_all
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_access_search_api_current_all_filter
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: default
       row:
@@ -236,6 +275,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
@@ -272,6 +312,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
@@ -368,6 +409,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        current_all:
+          id: current_all
+          table: search_api_index_search
+          field: current_all
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_access_search_api_current_all_filter
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -392,6 +471,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
@@ -488,6 +568,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        current_all:
+          id: current_all
+          table: search_api_index_search
+          field: current_all
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_access_search_api_current_all_filter
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -512,6 +630,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
@@ -608,6 +727,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        current_all:
+          id: current_all
+          table: search_api_index_search
+          field: current_all
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_access_search_api_current_all_filter
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -632,6 +789,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
@@ -728,6 +886,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        current_all:
+          id: current_all
+          table: search_api_index_search
+          field: current_all
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_access_search_api_current_all_filter
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -752,6 +948,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
