@@ -14,11 +14,13 @@ dependencies:
     - field.storage.node.field_subject
     - field.storage.node.field_primary_school_subject
     - field.storage.node.field_youth_education_subject
+    - field.storage.node.field_focus
     - field.storage.node.field_preparation
     - field.storage.node.field_course_type
     - field.storage.node.field_purpose
     - field.storage.node.field_expectations
     - field.storage.node.field_ackground_knowledge
+    - field.storage.node.field_is_free
     - field.storage.node.field_areas_of_interest
     - field.storage.node.field_curriculum_themes
     - field.storage.node.field_purpose_exercise
@@ -26,8 +28,12 @@ dependencies:
     - field.storage.node.field_trgt_grp_daycare
     - field.storage.node.field_trgt_grp_primary_school
     - field.storage.node.field_trgt_grp_youth_education
+    - field.storage.node.field_target_group
+    - field.storage.node.field_period
+    - field.storage.node.field_period_select
     - field.storage.node.field_how_to
     - field.storage.node.field_theme
+    - field.storage.node.field_duration_select
     - field.storage.node.field_sustainability_goals
     - field.storage.node.field_exclude_from_search
     - field.storage.user.field_presentation
@@ -187,6 +193,14 @@ field_settings:
         - field.storage.node.field_curriculum_themes
       module:
         - taxonomy
+  field_duration_select:
+    label: Varighed
+    datasource_id: 'entity:node'
+    property_path: field_duration_select
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_duration_select
   field_educators_target_group:
     label: Målgruppe
     datasource_id: 'entity:node'
@@ -221,6 +235,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_expectations
+  field_focus:
+    label: Fokus
+    datasource_id: 'entity:node'
+    property_path: field_focus
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_focus
   field_how_to:
     label: 'Sådan gør du'
     datasource_id: 'entity:node'
@@ -247,6 +269,14 @@ field_settings:
         - field.storage.node.field_industry
       module:
         - taxonomy
+  field_is_free:
+    label: Gratis
+    datasource_id: 'entity:node'
+    property_path: field_is_free
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_is_free
   field_name:
     label: Navn
     datasource_id: 'entity:user'
@@ -256,6 +286,22 @@ field_settings:
     dependencies:
       config:
         - field.storage.user.field_name
+  field_period:
+    label: Periode
+    datasource_id: 'entity:node'
+    property_path: field_period
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_period
+  field_period_select:
+    label: Periode
+    datasource_id: 'entity:node'
+    property_path: field_period_select
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_period_select
   field_post_processing:
     label: Efterbehandling
     datasource_id: 'entity:node'
@@ -377,6 +423,14 @@ field_settings:
         - field.storage.node.field_sustainability_goals
       module:
         - taxonomy
+  field_target_group:
+    label: 'Overordnet målgruppe'
+    datasource_id: 'entity:node'
+    property_path: field_target_group
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_target_group
   field_theme:
     label: Tema
     datasource_id: 'entity:node'

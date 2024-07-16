@@ -1,4 +1,4 @@
-uuid: de10415a-86d3-4f86-8c67-906d393bac33
+uuid: d60c98a2-57b4-4b65-83b8-a0b21a4d59be
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.content_search
   module:
     - search_api
-id: areas_of_interest
-name: Interesseområde
+id: excercise_curriculum_themes
+name: Læreplanstemaer
 weight: 0
 min_count: 1
 missing: false
 missing_label: others
-url_alias: areas_of_interest
-facet_source_id: 'search_api:views_page__content_search__page_1'
-field_identifier: field_areas_of_interest
+url_alias: ect
+facet_source_id: 'search_api:views_page__content_search__page_5'
+field_identifier: field_curriculum_themes
 query_operator: or
 hard_limit: 0
 exclude: false
