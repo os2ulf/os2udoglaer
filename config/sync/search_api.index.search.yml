@@ -10,6 +10,7 @@ dependencies:
     - field.storage.node.field_related_user
     - field.storage.user.field_name
     - field.storage.node.field_industry
+    - field.storage.node.field_domain_access
     - field.storage.node.field_post_processing
     - field.storage.node.field_subject
     - field.storage.node.field_primary_school_subject
@@ -193,6 +194,14 @@ field_settings:
         - field.storage.node.field_curriculum_themes
       module:
         - taxonomy
+  field_domain_access:
+    label: 'Domain Access'
+    datasource_id: 'entity:node'
+    property_path: field_domain_access
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_domain_access
   field_duration_select:
     label: Varighed
     datasource_id: 'entity:node'
@@ -529,6 +538,15 @@ field_settings:
     dependencies:
       module:
         - user
+  status:
+    label: Status
+    property_path: aggregated_field
+    type: boolean
+    configuration:
+      type: first
+      fields:
+        - 'entity:node/status'
+        - 'entity:user/status'
   title:
     label: Titel
     datasource_id: 'entity:node'
@@ -538,6 +556,15 @@ field_settings:
     dependencies:
       module:
         - node
+  title_universal:
+    label: 'Title (for sorting)'
+    property_path: aggregated_field
+    type: string
+    configuration:
+      type: first
+      fields:
+        - 'entity:node/title'
+        - 'entity:user/name'
   type:
     label: Indholdstype
     datasource_id: 'entity:node'
