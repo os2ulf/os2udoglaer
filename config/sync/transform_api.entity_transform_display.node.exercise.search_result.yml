@@ -40,10 +40,7 @@ dependencies:
     - field.field.node.exercise.field_work_documents
     - field.field.node.exercise.field_youth_education_subject
     - node.type.exercise
-    - responsive_image.styles.isg_course_header
     - transform_api.entity_transform_mode.node.search_result
-  module:
-    - transform_api_responsive_image
 id: node.exercise.search_result
 targetEntityType: node
 bundle: exercise
@@ -56,235 +53,40 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_ackground_knowledge:
-    type: text_format
-    weight: '4'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_activities:
-    type: text_format
-    weight: '5'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_activity_select:
-    type: entity_reference_labels
-    weight: '12'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_banner:
-    type: entity_reference_labels
-    weight: '26'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_curriculum_themes:
-    type: entity_reference_labels
-    weight: '11'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_description_of_duration:
-    type: text_format
-    weight: '16'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_description_of_period:
-    type: text_format
-    weight: '18'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_duration_select:
-    type: entity_reference_labels
-    weight: '15'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_exclude_from_profile:
-    type: boolean
-    weight: '33'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_focus:
-    type: entity_reference_labels
-    weight: '27'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_how_to:
-    type: text_format
-    weight: '3'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_image:
-    type: responsive_image
-    weight: '19'
-    region: content
-    label: omit
-    settings:
-      responsive_image_style: isg_course_header
-      image_link: ''
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-  field_period_select:
-    type: entity_reference_labels
-    weight: '17'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_post_processing:
-    type: text_format
-    weight: '6'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_preparation:
-    type: text_format
-    weight: '28'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_primary_school_subject:
-    type: entity_reference_labels
-    weight: '13'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_purpose_exercise:
-    type: text_format
-    weight: '2'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_related_excercises:
-    type: entity_transform
-    weight: '7'
-    region: content
-    label: omit
-    settings:
-      transform_mode: related_courses
-    third_party_settings: {  }
-  field_related_user:
-    type: entity_transform
-    weight: '23'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_sustainability_goals:
-    type: entity_transform
-    weight: '24'
-    region: content
-    label: omit
-    settings:
-      transform_mode: fn_world_goals
-    third_party_settings: {  }
-  field_sustainability_goals_desc:
-    type: text_format
-    weight: '25'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_target_group:
-    type: entity_reference_labels
-    weight: '0'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_theme:
-    type: entity_reference_labels
-    weight: '29'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_trgt_grp_daycare:
-    type: entity_reference_labels
-    weight: '8'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_trgt_grp_primary_school:
-    type: entity_reference_labels
-    weight: '9'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_trgt_grp_youth_education:
-    type: entity_reference_labels
-    weight: '10'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_video:
-    type: entity_transform
-    weight: '22'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_video_description:
-    type: text_format
-    weight: '21'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_video_title:
-    type: value
-    weight: '20'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_work_documents:
-    type: entity_transform
-    weight: '30'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_youth_education_subject:
-    type: entity_reference_labels
-    weight: '14'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  field_ackground_knowledge: true
+  field_activities: true
+  field_activity_select: true
+  field_banner: true
+  field_curriculum_themes: true
+  field_description_of_duration: true
+  field_description_of_period: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_duration_select: true
+  field_exclude_from_profile: true
   field_exclude_from_search: true
+  field_focus: true
+  field_how_to: true
+  field_image: true
   field_meta_tags: true
+  field_period_select: true
+  field_post_processing: true
+  field_preparation: true
+  field_primary_school_subject: true
+  field_purpose_exercise: true
+  field_related_excercises: true
+  field_related_user: true
+  field_sustainability_goals: true
+  field_sustainability_goals_desc: true
+  field_target_group: true
+  field_theme: true
+  field_trgt_grp_daycare: true
+  field_trgt_grp_primary_school: true
+  field_trgt_grp_youth_education: true
+  field_video: true
+  field_video_description: true
+  field_video_title: true
+  field_work_documents: true
+  field_youth_education_subject: true
   langcode: true
