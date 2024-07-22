@@ -166,7 +166,7 @@ display:
             multi_type: separator
             multi_separator: ', '
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 14
@@ -175,6 +175,8 @@ display:
           tags:
             next: ››
             previous: ‹‹
+            first: '« Første'
+            last: 'Sidste »'
           expose:
             items_per_page: false
             items_per_page_label: 'Antal elementer'
@@ -183,6 +185,7 @@ display:
             items_per_page_options_all_label: '- Alle -'
             offset: false
             offset_label: Forskydning
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -556,7 +559,7 @@ display:
           row_transform: entity
           row_transform_mode: search_result
           pager_transform: mini
-          pager_transform_links: relative
+          pager_transform_links: absolute
           pager_transform_links_destination: current
       path: search
     cache_metadata:
