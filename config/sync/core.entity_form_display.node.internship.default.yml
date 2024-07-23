@@ -42,10 +42,8 @@ dependencies:
     - field.field.node.internship.field_view_on_map
     - image.style.medium
     - node.type.internship
-    - workflows.workflow.editorial
   module:
     - allowed_formats
-    - content_moderation
     - datetime
     - field_group
     - focal_point
@@ -54,6 +52,7 @@ dependencies:
     - paragraphs
     - path
     - text
+    - workflow_buttons
 third_party_settings:
   field_group:
     group_practical_information:
@@ -652,10 +651,11 @@ content:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
-    type: moderation_state_default
+    type: workflow_buttons
     weight: 17
     region: content
-    settings: {  }
+    settings:
+      show_current_state: false
     third_party_settings: {  }
   path:
     type: path
@@ -718,3 +718,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_domain_all_affiliates: true
+  workbench_reviewer: true
