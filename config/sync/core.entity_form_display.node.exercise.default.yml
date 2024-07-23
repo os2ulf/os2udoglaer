@@ -41,16 +41,15 @@ dependencies:
     - field.field.node.exercise.field_youth_education_subject
     - image.style.medium
     - node.type.exercise
-    - workflows.workflow.editorial
   module:
     - conditional_fields
-    - content_moderation
     - field_group
     - focal_point
     - metatag
     - paragraphs
     - path
     - text
+    - workflow_buttons
 third_party_settings:
   field_group:
     group_exercise:
@@ -720,10 +719,11 @@ content:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
-    type: moderation_state_default
+    type: workflow_buttons
     weight: 20
     region: content
-    settings: {  }
+    settings:
+      show_current_state: false
     third_party_settings: {  }
   path:
     type: path
@@ -782,3 +782,4 @@ content:
     third_party_settings: {  }
 hidden:
   field_domain_all_affiliates: true
+  workbench_reviewer: true
