@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.body
     - search_api.index.search
   module:
+    - better_exposed_filters
     - domain_access_search_api
     - search_api
     - text
@@ -115,15 +116,38 @@ display:
             offset: false
             offset_label: Forskydning
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Udfør
           reset_button: false
           reset_button_label: Gendan
           exposed_sorts_label: 'Sortér efter'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Stigende
           sort_desc_label: Faldende
+          text_input_required: 'Vælg et filter og klik på Anvend for at se resultater'
+          text_input_required_format: basic_html
+          bef:
+            general:
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Avancerede indstillinger'
+              secondary_open: false
+              reset_button_always_show: false
+            sort:
+              plugin_id: default
+              advanced:
+                combine: false
+                combine_rewrite: ''
+                reset: false
+                reset_label: ''
+                collapsible: false
+                collapsible_label: 'Sort options'
+                is_secondary: false
       access:
         type: none
         options: {  }
@@ -132,6 +156,19 @@ display:
         options: {  }
       empty: {  }
       sorts:
+        created:
+          id: created
+          table: search_api_index_search
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Nyeste
+            field_identifier: created
+          exposed: true
         search_api_relevance:
           id: search_api_relevance
           table: search_api_index_search
@@ -142,7 +179,7 @@ display:
           plugin_id: search_api
           order: DESC
           expose:
-            label: Relevans
+            label: 'Mest relevante'
             field_identifier: relevance
           exposed: true
         title:
@@ -155,21 +192,8 @@ display:
           plugin_id: search_api
           order: ASC
           expose:
-            label: Titel
+            label: Alfabetisk
             field_identifier: title
-          exposed: true
-        created:
-          id: created
-          table: search_api_index_search
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: DESC
-          expose:
-            label: Opretter
-            field_identifier: created
           exposed: true
       arguments: {  }
       filters:
@@ -315,7 +339,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -350,7 +373,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -517,7 +539,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -679,7 +700,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -846,7 +866,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -1015,7 +1034,6 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'url.query_args:sort_by'
-        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
