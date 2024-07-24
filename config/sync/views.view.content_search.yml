@@ -98,7 +98,7 @@ display:
             multi_type: separator
             multi_separator: ', '
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 14
@@ -107,6 +107,8 @@ display:
           tags:
             next: ››
             previous: ‹‹
+            first: '« Første'
+            last: 'Sidste »'
           expose:
             items_per_page: false
             items_per_page_label: 'Antal elementer'
@@ -115,6 +117,7 @@ display:
             items_per_page_options_all_label: '- Alle -'
             offset: false
             offset_label: Forskydning
+          quantity: 9
       exposed_form:
         type: bef
         options:
@@ -347,10 +350,10 @@ display:
         - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
-  page_1:
-    id: page_1
-    display_title: 'Side - Erhvervspraktik'
-    display_plugin: page
+  block_1:
+    id: block_1
+    display_title: 'Blok - Erhvervspraktik'
+    display_plugin: block
     position: 1
     display_options:
       display_description: ''
@@ -365,7 +368,7 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: content/internship
+      block_description: 'Søg - Erhvervspraktik'
     cache_metadata:
       max-age: -1
       contexts:
@@ -381,10 +384,10 @@ display:
         - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
-  page_2:
-    id: page_2
-    display_title: 'Side - Kursus'
-    display_plugin: page
+  block_2:
+    id: block_2
+    display_title: 'Blok - Kursus'
+    display_plugin: block
     position: 2
     display_options:
       filters:
@@ -531,7 +534,7 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: content/course-educators
+      block_description: 'Søg - Kursus'
     cache_metadata:
       max-age: -1
       contexts:
@@ -547,172 +550,10 @@ display:
         - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
-  page_3:
-    id: page_3
-    display_title: 'Side - Nyhed'
-    display_plugin: page
-    position: 3
-    display_options:
-      filters:
-        search_api_datasource:
-          id: search_api_datasource
-          table: search_api_index_search
-          field: search_api_datasource
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_datasource
-          operator: or
-          value:
-            'entity:node': 'entity:node'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-        type:
-          id: type
-          table: search_api_index_search
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_options
-          operator: or
-          value:
-            news: news
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-        current_all:
-          id: current_all
-          table: search_api_index_search
-          field: current_all
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: domain_access_search_api_current_all_filter
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
-      defaults:
-        filters: false
-        filter_groups: false
-      display_description: ''
-      display_extenders:
-        transform_api_facets:
-          transform_facets:
-            news_author: news_author
-            news_theme: news_theme
-        transform_api_views:
-          row_transform: entity
-          row_transform_mode: search_result
-          pager_transform: basic
-          pager_transform_links: relative
-          pager_transform_links_destination: current
-      path: content/news
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url.query_args
-        - 'url.query_args:sort_by'
-        - url.site
-        - 'user.node_grants:view'
-      tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:field.storage.node.body'
-        - 'config:search_api.index.search'
-        - 'search_api_list:search'
-  page_4:
-    id: page_4
-    display_title: 'Side - Undervisnings- og læringsforløb'
-    display_plugin: page
+  block_4:
+    id: block_4
+    display_title: 'Blok - Undervisnings- og læringsforløb'
+    display_plugin: block
     position: 4
     display_options:
       filters:
@@ -859,7 +700,7 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: content/course
+      block_description: 'Søg - Undervisnings- og læringsforløb'
     cache_metadata:
       max-age: -1
       contexts:
@@ -875,10 +716,10 @@ display:
         - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
-  page_5:
-    id: page_5
-    display_title: 'Side - Opgave'
-    display_plugin: page
+  block_5:
+    id: block_5
+    display_title: 'Blok - Opgave'
+    display_plugin: block
     position: 5
     display_options:
       filters:
@@ -1027,7 +868,7 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: content/excercise
+      block_description: 'Søg - Opgave'
     cache_metadata:
       max-age: -1
       contexts:

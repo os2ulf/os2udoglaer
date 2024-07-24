@@ -1,4 +1,4 @@
-uuid: 28a6be29-cfd3-4994-aa32-73534006ddc9
+uuid: 28a6be29-cfd3-4994-aa32-73534006ddc1
 langcode: da
 status: true
 dependencies:
@@ -14,7 +14,7 @@ min_count: 0
 missing: false
 missing_label: others
 url_alias: ii
-facet_source_id: 'search_api:views_page__content_search__page_1'
+facet_source_id: 'search_api:views_block__content_search__block_1'
 field_identifier: field_industry
 query_operator: or
 hard_limit: 0
