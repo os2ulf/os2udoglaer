@@ -33,6 +33,7 @@
         "drupal/allowed_formats": "^2.0",
         "drupal/atoms": "^1.0",
         "drupal/autosave_form": "^1.0",
+        "drupal/better_exposed_filters": "^6.0",
         "drupal/ckeditor5_paste_filter": "^1.0",
         "drupal/components": "^3.0@beta",
         "drupal/conditional_fields": "^4.0@alpha",
@@ -235,7 +236,8 @@
                 "Fix views mini pager": "https://git.drupalcode.org/project/transform_api/-/commit/85f532fcf48f0083436d0c4716b328d9c41d66ce.diff",
                 "#(3458752) Empty region transform results in error": "https://www.drupal.org/files/issues/2024-07-03/transform_api_empty_region.patch",
                 "Allow universal search api entity result transform": "https://git.drupalcode.org/project/transform_api/-/commit/802912d2974ab10f4b6fbc7c0e140333d48f0227.diff",
-                "Add #view to view transformation": "https://git.drupalcode.org/project/transform_api/-/commit/4332f4e5014b196e9a42b047ec8f0cb3bd0b5ba6.diff"
+                "Add #view to view transformation": "https://git.drupalcode.org/project/transform_api/-/commit/4332f4e5014b196e9a42b047ec8f0cb3bd0b5ba6.diff",
+                "Fix better_exposed_filters label": "https://git.drupalcode.org/project/transform_api/-/commit/ce1b8214ef523ca859509957e5cd7032e452df49.diff"
             }
         }
     }

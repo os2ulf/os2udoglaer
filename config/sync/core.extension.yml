@@ -9,6 +9,7 @@ module:
   automated_cron: 0
   autosave_form: 0
   basic_auth: 0
+  better_exposed_filters: 0
   big_pipe: 0
   block: 0
   block_content: 0

@@ -288,19 +288,34 @@ display:
           parse_mode: terms
           min_length: null
           fields:
+            - body
+            - field_ackground_knowledge
             - field_activities
+            - field_activity_select_name
+            - field_areas_of_interest_name
             - field_course_type_name
+            - field_curriculum_themes_name
+            - field_educators_target_group_name
+            - field_expectations
+            - field_how_to
+            - field_industry_name
             - field_name
             - field_post_processing
             - field_preparation
             - field_presentation
+            - field_primary_school_subject_name
             - field_purpose
+            - field_purpose_exercise
+            - field_related_user_field_name
             - field_subject_name
-            - field_trgt_grp_daycare
-            - field_trgt_grp_primary_school
-            - field_trgt_grp_youth_education
-            - field_video_description
+            - field_sustainability_goals_name
+            - field_theme_name
+            - field_trgt_grp_daycare_name
+            - field_trgt_grp_primary_school_name
+            - field_trgt_grp_youth_education_name
+            - field_youth_education_subject_name
             - title
+            - uid_name
         status:
           id: status
           table: search_api_index_search
