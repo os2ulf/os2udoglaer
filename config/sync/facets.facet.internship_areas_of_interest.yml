@@ -1,4 +1,4 @@
-uuid: 22dfb025-b5f5-444e-9235-9569b6e7c7f4
+uuid: 22dfb025-b5f5-444e-9235-9569b6e7c7f5
 langcode: da
 status: true
 dependencies:
@@ -14,7 +14,7 @@ min_count: 0
 missing: false
 missing_label: others
 url_alias: iaoi
-facet_source_id: 'search_api:views_page__content_search__page_1'
+facet_source_id: 'search_api:views_block__content_search__block_1'
 field_identifier: field_areas_of_interest
 query_operator: or
 hard_limit: 0
