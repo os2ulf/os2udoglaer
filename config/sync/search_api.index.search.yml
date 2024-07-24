@@ -106,6 +106,15 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.body
+  created:
+    label: Created
+    property_path: aggregated_field
+    type: string
+    configuration:
+      type: first
+      fields:
+        - 'entity:node/created'
+        - 'entity:user/created'
   field_ackground_knowledge:
     label: 'Før besøget'
     datasource_id: 'entity:node'

@@ -131,7 +131,46 @@ display:
         type: search_api_none
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_search
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Relevans
+            field_identifier: relevance
+          exposed: true
+        title:
+          id: title
+          table: search_api_index_search
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Titel
+            field_identifier: title
+          exposed: true
+        created:
+          id: created
+          table: search_api_index_search
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Opretter
+            field_identifier: created
+          exposed: true
       arguments: {  }
       filters:
         search_api_datasource:
@@ -275,6 +314,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -308,6 +349,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -473,6 +516,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -633,6 +678,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -798,6 +845,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
@@ -965,6 +1014,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - 'url.query_args:sort_by'
+        - 'url.query_args:sort_order'
         - url.site
         - 'user.node_grants:view'
       tags:
