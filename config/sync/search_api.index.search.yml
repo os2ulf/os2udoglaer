@@ -582,6 +582,25 @@ field_settings:
     dependencies:
       module:
         - node
+  uid:
+    label: Udbyer
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - node
+  uid_name:
+    label: 'Udbyer » Bruger » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'uid:entity:field_name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.user.field_name
+      module:
+        - node
+        - user
 datasource_settings:
   'entity:node':
     bundles:
