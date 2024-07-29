@@ -320,6 +320,88 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_search
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Søg
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search_string
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+            expose_fields: false
+            placeholder: ''
+            searched_fields_id: search_api_fulltext_searched_fields
+            value_maxlength: 128
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields:
+            - body
+            - field_ackground_knowledge
+            - field_activities
+            - field_activity_select_name
+            - field_areas_of_interest_name
+            - field_course_type_name
+            - field_curriculum_themes_name
+            - field_educators_target_group_name
+            - field_expectations
+            - field_how_to
+            - field_industry_name
+            - field_post_processing
+            - field_preparation
+            - field_primary_school_subject_name
+            - field_purpose
+            - field_purpose_exercise
+            - field_related_user_field_name
+            - field_subject_name
+            - field_sustainability_goals_name
+            - field_theme_name
+            - field_trgt_grp_daycare_name
+            - field_trgt_grp_primary_school_name
+            - field_trgt_grp_youth_education_name
+            - field_youth_education_subject_name
+            - title
+            - uid_name
       style:
         type: default
       row:
@@ -340,6 +422,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'url.query_args:sort_by'
         - url.site
@@ -374,6 +457,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'url.query_args:sort_by'
         - url.site
@@ -511,6 +595,88 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_search
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Søg
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search_string
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+            expose_fields: false
+            placeholder: ''
+            searched_fields_id: search_api_fulltext_searched_fields
+            value_maxlength: 128
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields:
+            - body
+            - field_ackground_knowledge
+            - field_activities
+            - field_activity_select_name
+            - field_areas_of_interest_name
+            - field_course_type_name
+            - field_curriculum_themes_name
+            - field_educators_target_group_name
+            - field_expectations
+            - field_how_to
+            - field_industry_name
+            - field_post_processing
+            - field_preparation
+            - field_primary_school_subject_name
+            - field_purpose
+            - field_purpose_exercise
+            - field_related_user_field_name
+            - field_subject_name
+            - field_sustainability_goals_name
+            - field_theme_name
+            - field_trgt_grp_daycare_name
+            - field_trgt_grp_primary_school_name
+            - field_trgt_grp_youth_education_name
+            - field_youth_education_subject_name
+            - title
+            - uid_name
       filter_groups:
         operator: AND
         groups:
@@ -540,6 +706,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'url.query_args:sort_by'
         - url.site
@@ -677,6 +844,88 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_search
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Søg
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search_string
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+            expose_fields: false
+            placeholder: ''
+            searched_fields_id: search_api_fulltext_searched_fields
+            value_maxlength: 128
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields:
+            - body
+            - field_ackground_knowledge
+            - field_activities
+            - field_activity_select_name
+            - field_areas_of_interest_name
+            - field_course_type_name
+            - field_curriculum_themes_name
+            - field_educators_target_group_name
+            - field_expectations
+            - field_how_to
+            - field_industry_name
+            - field_post_processing
+            - field_preparation
+            - field_primary_school_subject_name
+            - field_purpose
+            - field_purpose_exercise
+            - field_related_user_field_name
+            - field_subject_name
+            - field_sustainability_goals_name
+            - field_theme_name
+            - field_trgt_grp_daycare_name
+            - field_trgt_grp_primary_school_name
+            - field_trgt_grp_youth_education_name
+            - field_youth_education_subject_name
+            - title
+            - uid_name
       filter_groups:
         operator: AND
         groups:
@@ -706,6 +955,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'url.query_args:sort_by'
         - url.site
@@ -843,6 +1093,88 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        search_api_fulltext:
+          id: search_api_fulltext
+          table: search_api_index_search
+          field: search_api_fulltext
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_fulltext
+          operator: and
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: search_api_fulltext_op
+            label: Søg
+            description: ''
+            use_operator: false
+            operator: search_api_fulltext_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: search_string
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+            expose_fields: false
+            placeholder: ''
+            searched_fields_id: search_api_fulltext_searched_fields
+            value_maxlength: 128
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          parse_mode: terms
+          min_length: null
+          fields:
+            - body
+            - field_ackground_knowledge
+            - field_activities
+            - field_activity_select_name
+            - field_areas_of_interest_name
+            - field_course_type_name
+            - field_curriculum_themes_name
+            - field_educators_target_group_name
+            - field_expectations
+            - field_how_to
+            - field_industry_name
+            - field_post_processing
+            - field_preparation
+            - field_primary_school_subject_name
+            - field_purpose
+            - field_purpose_exercise
+            - field_related_user_field_name
+            - field_subject_name
+            - field_sustainability_goals_name
+            - field_theme_name
+            - field_trgt_grp_daycare_name
+            - field_trgt_grp_primary_school_name
+            - field_trgt_grp_youth_education_name
+            - field_youth_education_subject_name
+            - title
+            - uid_name
       filter_groups:
         operator: AND
         groups:
@@ -874,6 +1206,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'url.query_args:sort_by'
         - url.site
