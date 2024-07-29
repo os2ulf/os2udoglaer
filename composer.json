@@ -238,7 +238,8 @@
                 "Allow universal search api entity result transform": "https://git.drupalcode.org/project/transform_api/-/commit/802912d2974ab10f4b6fbc7c0e140333d48f0227.diff",
                 "Add #view to view transformation": "https://git.drupalcode.org/project/transform_api/-/commit/4332f4e5014b196e9a42b047ec8f0cb3bd0b5ba6.diff",
                 "Fix better_exposed_filters label": "https://git.drupalcode.org/project/transform_api/-/commit/ce1b8214ef523ca859509957e5cd7032e452df49.diff",
-                "Fixed view results route for search_api usage": "https://git.drupalcode.org/project/transform_api/-/commit/11ec5670060f96bcafb815e0ee5691480530f1e6.diff"
+                "Fixed view results route for search_api usage": "https://git.drupalcode.org/project/transform_api/-/commit/11ec5670060f96bcafb815e0ee5691480530f1e6.diff",
+                "Added label to view transform": "https://git.drupalcode.org/project/transform_api/-/commit/e4721c4d8d73749ddbbd71a71ee4959c66318106.diff"
             }
         }
     }
