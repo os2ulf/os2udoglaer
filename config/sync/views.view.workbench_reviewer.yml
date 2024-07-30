@@ -25,7 +25,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Assigned to me'
+      title: 'Afventer review'
       fields:
         title:
           id: title
