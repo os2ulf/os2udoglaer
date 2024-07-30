@@ -1108,9 +1108,10 @@ display:
       path: admin/content/assigned-to-me
       menu:
         type: normal
-        title: 'Assigned to me'
+        title: 'Afventer review'
         description: ''
-        weight: 15
+        weight: -46
+        enabled: true
         expanded: false
         menu_name: workbench
         parent: ''

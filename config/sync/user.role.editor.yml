@@ -33,7 +33,6 @@ dependencies:
     - atoms
     - block_content
     - content_moderation
-    - content_moderation_bypass
     - content_translation
     - contextual
     - domain
@@ -89,7 +88,6 @@ permissions:
   - 'assign place_of_visit role'
   - 'assign school role'
   - 'assign theater_contact role'
-  - 'bypass editorial transition restrictions'
   - 'clone action entity'
   - 'clone base_field_override entity'
   - 'clone block entity'
@@ -273,9 +271,16 @@ permissions:
   - 'translate menu_link_content'
   - 'use domain nav block'
   - 'use editorial transition accept'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition delete'
   - 'use editorial transition reject'
-  - 'use editorial transition submit_for_review'
+  - 'use editorial transition restore_draft'
+  - 'use editorial transition restore_publish'
+  - 'use editorial transition save_draft_leave_current_published'
+  - 'use editorial transition save_review'
+  - 'use editorial transition save_unpublished'
   - 'use editorial transition unpublish'
+  - 'use editorial transition update'
   - 'use text format basic_html'
   - 'use text format full_html'
   - 'view all revisions'

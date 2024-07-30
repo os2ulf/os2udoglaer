@@ -151,6 +151,7 @@ module:
   workbench: 0
   workbench_reviewer: 0
   workflow_buttons: 0
+  workflow_buttons_trash: 0
   workflows: 0
   xls_serialization: 0
   pathauto: 1
