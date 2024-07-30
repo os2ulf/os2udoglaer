@@ -397,14 +397,25 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      display_extenders: {  }
-      path: papirkurv
+      display_extenders:
+        transform_api_facets:
+          transform_facets: {  }
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: default
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      path: admin/content/trash
       menu:
         type: normal
         title: Papirkurv
+        description: ''
         weight: -44
+        expanded: false
         menu_name: workbench
         parent: ''
+        context: '0'
     cache_metadata:
       max-age: -1
       contexts:
