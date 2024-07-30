@@ -5,7 +5,6 @@ dependencies:
   config:
     - field.field.user.user.field_allocated_budget
     - field.field.user.user.field_brancher
-    - field.field.user.user.field_bypass_workflow
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
     - field.field.user.user.field_domain_access
@@ -263,7 +262,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_bypass_workflow: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
