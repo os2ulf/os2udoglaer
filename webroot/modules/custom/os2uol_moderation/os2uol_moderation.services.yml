@@ -1,0 +1,7 @@
+services:
+  os2uol_moderation.purger:
+    class: Drupal\os2uol_moderation\Purger
+    arguments: ['@entity_type.manager', '@date.formatter', '@logger.channel.os2uol_moderation', '@database', '@config.factory']
+  logger.channel.os2uol_moderation:
+    class: Drupal\Core\Logger\LoggerChannel
+    arguments: ['os2uol_moderation']

@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * Implements hook_help().
+ */
+function os2uol_moderation_help($route_name, $route_match) {
+  switch ($route_name) {
+    case 'help.page.os2uol_moderation':
+      return '<p>' . t('Provides content moderation functionality.') . '</p>';
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function os2uol_moderation_cron() {
+  \Drupal::service('os2uol_moderation.purger')->purgeOldTrashNodes();
+}

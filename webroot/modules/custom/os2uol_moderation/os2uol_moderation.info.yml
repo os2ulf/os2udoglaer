@@ -1,0 +1,8 @@
+name: 'OS2UOL Moderation'
+type: module
+description: 'Provides content moderation functionality, including purging nodes in the trash state after 30 days.'
+core_version_requirement: ^10
+package: OS2udoglær
+dependencies:
+  - drupal:node
+  - drupal:content_moderation
