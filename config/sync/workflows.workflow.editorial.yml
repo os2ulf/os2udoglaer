@@ -9,7 +9,7 @@ dependencies:
     - node.type.internship
     - node.type.news
   module:
-    - content_moderation
+    - content_moderation_bypass
 _core:
   default_config_hash: S15d9uky9v-NcZ8f-mLyK9BwEd4XAbyd7YvqceCbgDM
 id: editorial
@@ -32,31 +32,92 @@ type_settings:
       weight: -1
       published: false
       default_revision: false
+    trash:
+      label: Papirkurv
+      weight: 2
+      published: false
+      default_revision: true
+    unpublished:
+      label: Afpubliceret
+      weight: 1
+      published: false
+      default_revision: false
   transitions:
     accept:
       label: Godkend
       from:
         - review
       to: published
-      weight: 1
+      weight: 0
+    create_new_draft:
+      label: Gem
+      from:
+        - draft
+      to: draft
+      weight: -6
+    delete:
+      label: Slet
+      from:
+        - draft
+        - published
+        - review
+        - unpublished
+      to: trash
+      weight: 5
     reject:
-      label: Afvis
+      label: 'Fjern fra redaktion'
       from:
         - review
       to: draft
-      weight: 2
+      weight: 1
+    restore_draft:
+      label: 'Gendan som kladde'
+      from:
+        - trash
+      to: draft
+      weight: 3
+    restore_publish:
+      label: 'Gendan og udgiv'
+      from:
+        - trash
+      to: published
+      weight: 4
+    save_draft_leave_current_published:
+      label: 'Opret kladde (behold udgivet version)'
+      from:
+        - published
+      to: draft
+      weight: -2
+    save_review:
+      label: Gem
+      from:
+        - review
+      to: review
+      weight: -4
+    save_unpublished:
+      label: Gem
+      from:
+        - unpublished
+      to: unpublished
+      weight: -5
     submit_for_review:
       label: Review
       from:
         - draft
       to: review
-      weight: 0
+      weight: -1
     unpublish:
-      label: Afpublicer
+      label: Afpublicér
       from:
         - published
-      to: draft
-      weight: 3
+      to: unpublished
+      weight: 2
+    update:
+      label: Gem
+      from:
+        - published
+      to: published
+      weight: -3
   entity_types:
     node:
       - course

@@ -1,0 +1,14 @@
+uuid: 812d80c4-b942-4a5c-b75d-cd04830ba1b0
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.bypass_workflow
+  module:
+    - user
+id: user_remove_role_action.bypass_workflow
+label: 'Remove the Bypass workflow role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: bypass_workflow

@@ -1,4 +1,4 @@
-uuid: 774dedff-f3a9-4309-a20a-b350d238b089
+uuid: 35256903-8453-48ad-a007-98171f9ee417
 langcode: da
 status: true
 dependencies:
@@ -12,6 +12,7 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - content_moderation_bypass
     - domain_access
     - entity_clone
     - filter
@@ -19,13 +20,14 @@ dependencies:
     - system
     - toolbar
     - workbench
-id: course_provider
-label: Udbyder
-weight: -5
+id: bypass_workflow
+label: 'Bypass workflow'
+weight: 2
 is_admin: null
 permissions:
   - 'access toolbar'
   - 'access workbench'
+  - 'bypass editorial transition restrictions'
   - 'change own username'
   - 'clone node entity'
   - 'create course content'
@@ -52,12 +54,18 @@ permissions:
   - 'update course_educators content on assigned domains'
   - 'update exercise content on assigned domains'
   - 'update internship content on assigned domains'
+  - 'use editorial transition accept'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition delete'
+  - 'use editorial transition reject'
   - 'use editorial transition restore_draft'
+  - 'use editorial transition restore_publish'
+  - 'use editorial transition save_draft_leave_current_published'
   - 'use editorial transition save_review'
+  - 'use editorial transition save_unpublished'
   - 'use editorial transition submit_for_review'
   - 'use editorial transition unpublish'
+  - 'use editorial transition update'
   - 'use text format basic_html'
   - 'view all revisions'
   - 'view any unpublished content'
@@ -65,6 +73,7 @@ permissions:
   - 'view course_educators revisions'
   - 'view exercise revisions'
   - 'view internship revisions'
+  - 'view latest version'
   - 'view news revisions'
   - 'view own unpublished content'
   - 'view the administration theme'

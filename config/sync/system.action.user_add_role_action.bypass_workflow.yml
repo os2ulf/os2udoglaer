@@ -1,0 +1,14 @@
+uuid: 23c650c7-d76e-4d5c-a29a-74ce00cf638f
+langcode: da
+status: true
+dependencies:
+  config:
+    - user.role.bypass_workflow
+  module:
+    - user
+id: user_add_role_action.bypass_workflow
+label: 'Add the Bypass workflow role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: bypass_workflow
