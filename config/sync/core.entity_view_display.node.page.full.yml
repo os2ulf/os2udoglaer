@@ -66,12 +66,13 @@ third_party_settings:
           - 'inline_block:slideshow'
       allowlisted_blocks:
         'Lists (Views)':
-          - 'views_block:content_search-block_1'
-          - 'views_block:content_search-block_2'
-          - 'views_block:content_search-block_3'
-          - 'views_block:content_search-block_5'
-          - 'views_block:content_search-block_4'
           - 'views_block:latest_news-block_1'
+          - 'views_block:content_search-block_1'
+          - 'views_block:course_providers-block_2'
+          - 'views_block:content_search-block_2'
+          - 'views_block:content_search-block_5'
+          - 'views_block:course_providers-block_1'
+          - 'views_block:content_search-block_4'
       restricted_categories:
         - Block
         - Bruger

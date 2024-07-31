@@ -48,7 +48,15 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content: {  }
+content:
+  field_name:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_allocated_budget: true
   field_brancher: true
@@ -70,7 +78,6 @@ hidden:
   field_logo: true
   field_mail: true
   field_meta_tags: true
-  field_name: true
   field_other_info: true
   field_other_info_description: true
   field_phone: true

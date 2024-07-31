@@ -49,57 +49,6 @@ targetEntityType: user
 bundle: user
 mode: search_result
 content:
-  field_allocated_budget:
-    type: entity_transform
-    weight: '15'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_brancher:
-    type: entity_reference_labels
-    weight: '26'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_contact:
-    type: entity_transform
-    weight: '16'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_cvr:
-    type: value
-    weight: '12'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_educational_profile:
-    type: text_format
-    weight: '3'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_guarantee_partner:
-    type: boolean
-    weight: '24'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_homepage:
-    type: link
-    weight: '10'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '1'
@@ -111,64 +60,6 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-  field_intro:
-    type: text_format
-    weight: '4'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_city:
-    type: value
-    weight: '20'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_name:
-    type: value
-    weight: '17'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_street:
-    type: value
-    weight: '18'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_zipcode:
-    type: value
-    weight: '19'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_logo:
-    type: image_style
-    weight: '8'
-    region: content
-    label: omit
-    settings:
-      image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-  field_mail:
-    type: value
-    weight: '11'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_meta_tags:
-    type: metatag
-    weight: '25'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_name:
     type: value
     weight: '0'
@@ -176,98 +67,39 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_other_info:
-    type: entity_transform
-    weight: '14'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_other_info_description:
-    type: text_format
-    weight: '13'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_phone:
-    type: value
-    weight: '9'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_posibilities:
-    type: entity_reference_labels
-    weight: '27'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_postnummer:
-    type: entity_reference_labels
-    weight: '28'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_presentation:
-    type: text_format
-    weight: '2'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_pretix_api_token:
-    type: value
-    weight: '23'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_pretix_enabled:
-    type: boolean
-    weight: '21'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_pretix_url:
-    type: value
-    weight: '22'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_video:
-    type: entity_transform
-    weight: '7'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_video_description:
-    type: text_format
-    weight: '6'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_video_title:
-    type: value
-    weight: '5'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  field_allocated_budget: true
+  field_brancher: true
+  field_contact: true
+  field_cvr: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
   field_editor_field: true
+  field_educational_profile: true
+  field_guarantee_partner: true
+  field_homepage: true
+  field_intro: true
+  field_location_city: true
+  field_location_name: true
+  field_location_street: true
+  field_location_zipcode: true
+  field_logo: true
+  field_mail: true
+  field_meta_tags: true
+  field_other_info: true
+  field_other_info_description: true
+  field_phone: true
+  field_posibilities: true
+  field_postnummer: true
+  field_presentation: true
+  field_pretix_api_token: true
+  field_pretix_enabled: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true
+  field_pretix_url: true
+  field_video: true
+  field_video_description: true
+  field_video_title: true
   field_view_on_map: true
   langcode: true
