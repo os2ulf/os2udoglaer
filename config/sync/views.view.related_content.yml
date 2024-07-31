@@ -7,6 +7,7 @@ dependencies:
     - node.type.course_educators
     - node.type.exercise
     - node.type.internship
+    - node.type.news
     - taxonomy.vocabulary.target_group
   module:
     - domain_access
@@ -194,6 +195,7 @@ display:
           value:
             internship: internship
             course_educators: course_educators
+            news: news
             exercise: exercise
             course: course
           group: 1
@@ -315,6 +317,7 @@ display:
           value:
             internship: internship
             course_educators: course_educators
+            news: news
             exercise: exercise
             course: course
           group: 1
@@ -344,6 +347,7 @@ display:
               place_of_visit: '0'
               theater_contact: '0'
               monitor: '0'
+              bypass_workflow: '0'
             reduce: true
           is_grouped: false
           group_info:
