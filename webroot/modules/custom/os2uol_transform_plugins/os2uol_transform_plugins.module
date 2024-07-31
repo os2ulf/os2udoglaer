@@ -110,6 +110,17 @@ function os2uol_transform_plugins_view_content_search_transform_alter(&$transfor
 /**
  * Implements hook_HOOK_transform_alter().
  */
+function os2uol_transform_plugins_view_course_providers_transform_alter(&$transformation) {
+  if (!str_starts_with($transformation['display_id'], 'block_')) {
+    return;
+  }
+  $transformation['entity_type'] = 'block_content';
+  $transformation['bundle'] = $transformation['view_id'];
+}
+
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
 function os2uol_transform_plugins_view_transform_alter(&$transformation) {
   if (!empty($transformation['exposed_filters']['sort_by'])) {
     $options = $transformation['exposed_filters']['sort_by']['options'];
