@@ -39,7 +39,7 @@ dependencies:
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
-    - responsive_image.styles.isg_course_header
+    - responsive_image.styles.isg_appetizer
     - transform_api.entity_transform_mode.user.search_result
   module:
     - transform_api_responsive_image
@@ -55,7 +55,7 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_course_header
+      responsive_image_style: isg_appetizer
       image_link: ''
       image_loading:
         attribute: lazy
