@@ -37,6 +37,7 @@ dependencies:
     - field.storage.node.field_duration_select
     - field.storage.node.field_sustainability_goals
     - field.storage.node.field_exclude_from_search
+    - field.storage.user.field_guarantee_partner
     - field.storage.user.field_presentation
     - search_api.server.solr
   module:
@@ -261,6 +262,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_focus
+  field_guarantee_partner:
+    label: Garantipartner
+    datasource_id: 'entity:user'
+    property_path: field_guarantee_partner
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.user.field_guarantee_partner
   field_how_to:
     label: 'Sådan gør du'
     datasource_id: 'entity:node'
