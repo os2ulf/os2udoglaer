@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - system.menu.workbench
+    - workflows.workflow.editorial
   module:
     - content_moderation
     - node
     - user
-    - workbench_reviewer
 _core:
   default_config_hash: Jl6DqYigS6c2FAxaQ0K-IiHu9rONJdFbc81AnldVAd0
 id: workbench_reviewer
@@ -193,7 +193,7 @@ display:
           click_sort_column: value
           type: timestamp
           settings:
-            date_format: us_date
+            date_format: os2date
             custom_date_format: ''
             timezone: ''
             tooltip:
@@ -205,6 +205,7 @@ display:
               past_format: '@interval ago'
               granularity: 2
               refresh: 60
+              description: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -257,7 +258,6 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -323,7 +323,6 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -389,7 +388,6 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -583,7 +581,6 @@ display:
           element_type: ''
           element_class: ''
           element_label_type: ''
-          element_label_class: ''
           element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
@@ -659,42 +656,6 @@ display:
             label: ''
           exposed: false
           granularity: second
-      arguments:
-        nodes_moderation_reviewer:
-          id: nodes_moderation_reviewer
-          table: node_field_revision
-          field: nodes_moderation_reviewer
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          entity_field: workbench_reviewer
-          plugin_id: numeric
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: Alle
-          title_enable: false
-          title: ''
-          default_argument_type: current_user
-          default_argument_options: {  }
-          summary_options:
-            base_path: ''
-            count: true
-            override: false
-            items_per_page: 25
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-          break_phrase: false
-          not: false
       filters:
         title:
           id: title
@@ -727,7 +688,6 @@ display:
               blog_contributor: '0'
               content_contributor: '0'
               content_manager: '0'
-              directory_manager: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -771,7 +731,6 @@ display:
               blog_contributor: '0'
               content_contributor: '0'
               content_manager: '0'
-              directory_manager: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -819,7 +778,6 @@ display:
               blog_contributor: '0'
               content_contributor: '0'
               content_manager: '0'
-              directory_manager: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -924,15 +882,18 @@ display:
           entity_type: node
           plugin_id: moderation_state_filter
           operator: in
-          value: {  }
+          value:
+            editorial-review: editorial-review
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: moderation_state_1_op
             label: Godkendelsestilstand
             description: ''
             use_operator: false
             operator: moderation_state_1_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: moderation_state_1
             required: false
             remember: false
@@ -1093,7 +1054,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -1123,7 +1083,6 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
