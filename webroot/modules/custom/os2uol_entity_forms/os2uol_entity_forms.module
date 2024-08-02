@@ -75,6 +75,15 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         unset($domain_array[$key]);
       }
 
+      // Load the node to check the author.
+      $node = \Drupal\node\Entity\Node::load($form_state->getFormObject()->getEntity()->id());
+      $is_author = ($node->getOwnerId() == $current_user->id());
+
+      // Allow access if the user is the author.
+      if ($is_author) {
+        return;
+      }
+
       // Deny access if more than one domain is assigned.
       if (count($domain_array) > 1) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
@@ -115,7 +124,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     }
   }
 
-
   // Define form IDs for course and educator forms.
   $course_form_ids = [
     'node_course_form',
@@ -150,8 +158,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     $application_deadline_field['#date_time_element'] = 'none';
     $application_deadline_field['#date_time_format'] = '';
   }
-
-
 
   // If user_register_form or user_form.
   if ($form_id == 'user_register_form' || $form_id == 'user_form') {

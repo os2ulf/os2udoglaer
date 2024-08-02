@@ -74,10 +74,6 @@ display:
       empty:
         area_text_custom:
           content: 'No content has been assigned to you for review.'
-      arguments:
-        nodes_moderation_reviewer:
-          exception:
-            title: All
   page_assigned_to_me:
     display_title: Page
     display_options:
