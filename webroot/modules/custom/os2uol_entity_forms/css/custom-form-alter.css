@@ -1,0 +1,7 @@
+.form-actions span.submit-trash {
+  display: none;
+}
+
+.form-actions input.submit-trash {
+  left: auto;
+}
