@@ -32,6 +32,9 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
  * Implements hook_form_alter().
  */
 function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Attach library for jQuery functionality.
+  $form['#attached']['library'][] = 'os2uol_entity_forms/field-group-form-alter';
+
   // Define node add and edit form IDs.
   $node_add_forms = [
     'node_course_form',
@@ -166,9 +169,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
 
     //Get edit form user id from url.
     $edit_user = \Drupal::routeMatch()->getParameter('user');
-
-    // Attach library for jQuery functionality.
-    $form['#attached']['library'][] = 'os2uol_entity_forms/user-edit-form-alter';
 
     // Hidden fields for user role editor.
     $editor_hidden_fields = [
