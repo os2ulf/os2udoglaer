@@ -1,6 +1,6 @@
-user-edit-form-alter:
+field-group-form-alter:
   version: VERSION
   js:
-    js/user-edit-form-alter.js: {}
+    js/field-group-form-alter.js: {}
   dependencies:
     - core/jquery

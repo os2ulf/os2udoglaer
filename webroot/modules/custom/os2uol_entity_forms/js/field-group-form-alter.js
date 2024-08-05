@@ -1,9 +1,9 @@
 jQuery(function($){
-  // Set variables for details elements in user form.
-  const userFormDetails = $('form.user-form details');
+  // Set variables for details elements in all forms.
+  const userFormDetails = $('form details');
   let currentDetails;
 
-  // Loop through details elements in user form.
+  // Loop through details elements in all forms.
   for (let i = 0; i < userFormDetails.length; i++) {
     currentDetails = userFormDetails[i];
     if (currentDetails.children.length <= 1) {

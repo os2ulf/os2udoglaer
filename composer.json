@@ -211,6 +211,9 @@
             "drupal/conditional_fields": {
                 "(#2988937) An invalid form control with name='body[0][value]' is not focusable. with ckeditor enabled": "https://www.drupal.org/files/issues/2023-04-25/dependency-using-body-as-target-2988937-12.patch"
             },
+            "drupal/scheduled_transitions": {
+                "(#3264674) Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
+            },
             "drupal/domain": {
                 "(#3367785) Available on Current Domain doesn't instantiate": "https://www.drupal.org/files/issues/2023-11-10/3367785-domain-php8-boolean-14.patch",
                 "(#3359253) Use core route provider with addExtraCacheKeyPart for route caching?": "https://www.drupal.org/files/issues/2023-05-09/domain-route-provider-addextracachekeypart-3359253-02.patch",
