@@ -34,6 +34,7 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
 function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, $form_id) {
   // Attach library for jQuery functionality.
   $form['#attached']['library'][] = 'os2uol_entity_forms/field-group-form-alter';
+  $form['#attached']['library'][] = 'os2uol_entity_forms/custom-form-alter';
 
   // Define node add and edit form IDs.
   $node_add_forms = [
