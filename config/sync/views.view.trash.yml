@@ -426,3 +426,30 @@ display:
         - user.permissions
       tags:
         - 'config:workflow_list'
+    arguments:
+      uid:
+        id: uid
+        table: node_field_data
+        field: uid
+        relationship: none
+        group_type: group
+        admin_label: ''
+        entity_type: node
+        entity_field: uid
+        plugin_id: user
+        default_action: default
+        exception:
+          title: ''
+          value: ''
+        title: ''
+        wildcard: ''
+        default_argument_type: current_user
+        default_argument_skip_url: false
+        break_phrase: false
+        not:
+          negation: false
+        specify_validation: false
+        validation:
+          type: none
+        more: false
+        more_help_text: ''
