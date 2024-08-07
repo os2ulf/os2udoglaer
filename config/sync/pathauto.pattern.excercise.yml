@@ -1,0 +1,22 @@
+uuid: 3322ce1f-3aae-4b61-866a-138417150cdb
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: excercise
+label: Opgave
+type: 'canonical_entities:node'
+pattern: 'opgave/[node:title]'
+selection_criteria:
+  6cf81561-30fa-43d7-9eeb-efefb0c4fe2d:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 6cf81561-30fa-43d7-9eeb-efefb0c4fe2d
+    context_mapping:
+      node: node
+    bundles:
+      exercise: exercise
+selection_logic: and
+weight: -5
+relationships: {  }
