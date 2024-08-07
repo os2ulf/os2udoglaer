@@ -1,0 +1,22 @@
+uuid: 492a3036-984c-4264-9564-098142a5fcf1
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: internship
+label: Erhvervspraktik
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  6ffa79d2-e8c4-46bd-928f-d833e1838fb7:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 6ffa79d2-e8c4-46bd-928f-d833e1838fb7
+    context_mapping:
+      node: node
+    bundles:
+      internship: internship
+selection_logic: and
+weight: -5
+relationships: {  }
