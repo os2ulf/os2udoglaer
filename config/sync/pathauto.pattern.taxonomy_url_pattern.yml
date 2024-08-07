@@ -1,0 +1,14 @@
+uuid: 8c8bf2d8-cafd-4088-9595-e23cd27738a7
+langcode: da
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_url_pattern
+label: Taxonomy
+type: 'canonical_entities:taxonomy_term'
+pattern: 'taksonomi/term/[term:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

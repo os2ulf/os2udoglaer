@@ -1,0 +1,22 @@
+uuid: e67f0e24-b800-4b13-855a-36e502f33396
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: course_educators
+label: Kursus
+type: 'canonical_entities:node'
+pattern: 'kursus/[node:title]'
+selection_criteria:
+  ff1bafd8-2f2a-4946-ad11-5e5db8bc284a:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: ff1bafd8-2f2a-4946-ad11-5e5db8bc284a
+    context_mapping:
+      node: node
+    bundles:
+      course_educators: course_educators
+selection_logic: and
+weight: -5
+relationships: {  }

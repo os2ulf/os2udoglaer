@@ -1,0 +1,22 @@
+uuid: b1572ad2-5d34-4096-8802-daae6fb29b2c
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: course_provider
+label: 'Undervisnings og læringsforløb'
+type: 'canonical_entities:node'
+pattern: '[node:field_target_group]/[node:title]'
+selection_criteria:
+  fadcd7d7-ab06-4d88-bc62-1d6228f48637:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: fadcd7d7-ab06-4d88-bc62-1d6228f48637
+    context_mapping:
+      node: node
+    bundles:
+      course: course
+selection_logic: and
+weight: -5
+relationships: {  }
