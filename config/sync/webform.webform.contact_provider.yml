@@ -21,6 +21,9 @@ elements: |-
   name:
     '#type': textfield
     '#title': Navn
+  phone:
+    '#type': tel
+    '#title': Telefonnummer
   email:
     '#type': email
     '#title': Email

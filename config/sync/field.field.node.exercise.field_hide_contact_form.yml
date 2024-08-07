@@ -1,0 +1,21 @@
+uuid: b66d2cd3-2e9d-4bd5-a2d6-1af398617216
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_contact_form
+    - node.type.exercise
+id: node.exercise.field_hide_contact_form
+field_name: field_hide_contact_form
+entity_type: node
+bundle: exercise
+label: 'Skjul kontaktformular'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

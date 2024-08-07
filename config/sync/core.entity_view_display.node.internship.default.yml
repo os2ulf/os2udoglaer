@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.internship.field_exclude_from_profile
     - field.field.node.internship.field_exclude_from_search
     - field.field.node.internship.field_expectations
+    - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -172,6 +173,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 21
+    region: content
+  field_hide_contact_form:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 54
     region: content
   field_image:
     type: image
