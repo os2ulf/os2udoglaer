@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.internship.field_exclude_from_profile
     - field.field.node.internship.field_exclude_from_search
     - field.field.node.internship.field_expectations
+    - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -143,6 +144,13 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_hide_contact_form:
+    type: boolean
+    weight: '32'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '0'
@@ -213,7 +221,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag
-    weight: '32'
+    weight: '33'
     region: content
     label: omit
     settings: {  }
