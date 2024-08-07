@@ -1,0 +1,21 @@
+uuid: c85dd9ee-40de-4d80-8202-cb015875330c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_contact_form
+    - node.type.course
+id: node.course.field_hide_contact_form
+field_name: field_hide_contact_form
+entity_type: node
+bundle: course
+label: 'Skjul kontaktformular'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "58e400a79f1e74affddbb3db8cb39a47",
+    "content-hash": "1f0d289437732ede1cbaca8502dd4418",
     "packages": [
         {
             "name": "algolia/places",
@@ -1662,6 +1662,56 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/better_exposed_filters",
                 "issues": "https://www.drupal.org/project/issues/better_exposed_filters"
+            }
+        },
+        {
+            "name": "drupal/better_permissions_page",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/better_permissions_page.git",
+                "reference": "1.0.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/better_permissions_page-1.0.3.zip",
+                "reference": "1.0.3",
+                "shasum": "46c67e2c718d1c210e0c5321434abe361f7d0369"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.3",
+                    "datestamp": "1719220425",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Andrei Vesterli (andrei.vesterli)",
+                    "homepage": "https://www.drupal.org/u/andreivesterli",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "dmitri.daranuta",
+                    "homepage": "https://www.drupal.org/user/2788949"
+                }
+            ],
+            "description": "Provides a simplified, elegant, easy-to-use admin permissions page.",
+            "homepage": "https://drupal.org/project/better_permissions_page",
+            "support": {
+                "source": "https://git.drupalcode.org/project/better_permissions_page",
+                "issues": "https://drupal.org/project/issues/better_permissions_page"
             }
         },
         {

@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.exercise.field_exclude_from_profile
     - field.field.node.exercise.field_exclude_from_search
     - field.field.node.exercise.field_focus
+    - field.field.node.exercise.field_hide_contact_form
     - field.field.node.exercise.field_how_to
     - field.field.node.exercise.field_image
     - field.field.node.exercise.field_meta_tags
@@ -146,6 +147,16 @@ content:
       link: true
     third_party_settings: {  }
     weight: 33
+    region: content
+  field_hide_contact_form:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 54
     region: content
   field_how_to:
     type: text_default

@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
+    - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
     - field.field.node.course.field_location_city
@@ -437,6 +438,7 @@ third_party_settings:
       children:
         - field_exclude_from_search
         - field_exclude_from_profile
+        - field_hide_contact_form
         - field_domain_access
       label: 'Visning af indhold'
       region: content
@@ -563,7 +565,7 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 23
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -582,14 +584,14 @@ content:
     third_party_settings: {  }
   field_exclude_from_profile:
     type: boolean_checkbox
-    weight: 22
+    weight: 25
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_exclude_from_search:
     type: boolean_checkbox
-    weight: 21
+    weight: 24
     region: content
     settings:
       display_label: true
@@ -607,6 +609,13 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_hide_contact_form:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_image:
     type: image_focal_point
@@ -687,7 +696,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 16
+    weight: 17
     region: content
     settings:
       sidebar: true
@@ -1103,39 +1112,39 @@ content:
               recurse: '0'
   moderation_state:
     type: workflow_buttons
-    weight: 20
+    weight: 21
     region: content
     settings:
       show_current_state: false
     third_party_settings: {  }
   path:
     type: path
-    weight: 18
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 21
+    weight: 22
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 17
+    weight: 18
     region: content
     settings:
       display_label: true
@@ -1163,7 +1172,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
