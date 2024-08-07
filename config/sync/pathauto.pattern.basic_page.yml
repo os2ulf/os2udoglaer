@@ -1,0 +1,22 @@
+uuid: 7be533f0-bd74-4367-a7de-1feaba21e5dc
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: basic_page
+label: 'Simpel Side'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  6bee3855-3ea8-4895-8b9e-52e46a63da36:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 6bee3855-3ea8-4895-8b9e-52e46a63da36
+    context_mapping:
+      node: node
+    bundles:
+      page: page
+selection_logic: and
+weight: -5
+relationships: {  }
