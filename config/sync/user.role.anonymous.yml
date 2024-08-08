@@ -8,6 +8,7 @@ dependencies:
     - rest
     - search_api_page
     - system
+    - view_profiles_perms
 _core:
   default_config_hash: 4R6P6lAZFB8dW4LyVpVdUF-55Gsx0Q6LCqi5qxYaQXA
 id: anonymous
@@ -16,6 +17,12 @@ weight: -10
 is_admin: false
 permissions:
   - 'access content'
+  - 'access corporation users profiles'
+  - 'access course_provider users profiles'
+  - 'access institution users profiles'
+  - 'access place_of_visit users profiles'
+  - 'access school users profiles'
+  - 'access theater_contact users profiles'
   - 'access user profiles'
   - 'restful post webform_rest_submit'
   - 'view search api pages'

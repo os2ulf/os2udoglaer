@@ -142,6 +142,7 @@ module:
   transform_api_views: 0
   ultimate_cron: 0
   user: 0
+  view_profiles_perms: 0
   view_unpublished: 0
   views_data_export: 0
   views_ui: 0

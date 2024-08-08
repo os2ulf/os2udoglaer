@@ -22,7 +22,7 @@ dependencies:
 id: course_provider
 label: Udbyder
 weight: -5
-is_admin: null
+is_admin: false
 permissions:
   - 'access toolbar'
   - 'access workbench'
