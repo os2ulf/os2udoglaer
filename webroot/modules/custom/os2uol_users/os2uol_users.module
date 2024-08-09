@@ -36,6 +36,9 @@ function os2uol_get_public_user_roles(): array {
     'course_provider',
     'place_of_visit',
     'corporation',
+    'institution',
+    'school',
+    'theater_contact'
   ];
 }
 
