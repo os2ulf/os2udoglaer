@@ -1,12 +1,12 @@
-uuid: 3c709829-6894-4258-903f-edde13ad59fc
+uuid: 9de01806-5c65-4132-a835-9364ed1b684d
 langcode: da
 status: true
 dependencies:
   module:
-    - user
-id: user.field_bypass_workflow
-field_name: field_bypass_workflow
-entity_type: user
+    - node
+id: node.field_hide_contact_form
+field_name: field_hide_contact_form
+entity_type: node
 type: boolean
 settings: {  }
 module: core

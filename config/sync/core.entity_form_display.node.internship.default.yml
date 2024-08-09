@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.internship.field_exclude_from_profile
     - field.field.node.internship.field_exclude_from_search
     - field.field.node.internship.field_expectations
+    - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -42,10 +43,8 @@ dependencies:
     - field.field.node.internship.field_view_on_map
     - image.style.medium
     - node.type.internship
-    - workflows.workflow.editorial
   module:
     - allowed_formats
-    - content_moderation
     - datetime
     - field_group
     - focal_point
@@ -54,6 +53,7 @@ dependencies:
     - paragraphs
     - path
     - text
+    - workflow_buttons
 third_party_settings:
   field_group:
     group_practical_information:
@@ -273,6 +273,7 @@ third_party_settings:
       children:
         - field_exclude_from_search
         - field_exclude_from_profile
+        - field_hide_contact_form
         - field_domain_access
       label: 'Visning af indhold'
       region: content
@@ -317,7 +318,7 @@ content:
         maxlength_js_enforce: false
   created:
     type: datetime_timestamp
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -393,7 +394,7 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 22
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -434,6 +435,13 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_hide_contact_form:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_image:
     type: image_focal_point
@@ -521,7 +529,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 19
+    weight: 20
     region: content
     settings:
       sidebar: true
@@ -652,39 +660,40 @@ content:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
-    type: moderation_state_default
-    weight: 17
+    type: workflow_buttons
+    weight: 18
     region: content
-    settings: {  }
+    settings:
+      show_current_state: false
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 18
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -712,9 +721,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_domain_all_affiliates: true
+  workbench_reviewer: true

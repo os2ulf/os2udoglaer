@@ -1,0 +1,14 @@
+uuid: 26c5b1ee-e1a2-4dd7-9982-6c1595184e38
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user_profile_url_pattern
+label: Brugerprofil
+type: 'canonical_entities:user'
+pattern: 'udbyder/[user:name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

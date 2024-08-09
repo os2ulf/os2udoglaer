@@ -1,0 +1,641 @@
+uuid: 8407ca19-51c7-4306-9ffc-1d580d66d73b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_activity_select
+    - field.storage.node.field_activities
+    - field.storage.node.body
+    - field.storage.node.field_sustainability_goals_desc
+    - field.storage.node.field_related_user
+    - field.storage.user.field_name
+    - field.storage.node.field_industry
+    - field.storage.node.field_domain_access
+    - field.storage.node.field_post_processing
+    - field.storage.node.field_subject
+    - field.storage.node.field_primary_school_subject
+    - field.storage.node.field_youth_education_subject
+    - field.storage.node.field_focus
+    - field.storage.node.field_preparation
+    - field.storage.node.field_course_type
+    - field.storage.node.field_purpose
+    - field.storage.node.field_expectations
+    - field.storage.node.field_ackground_knowledge
+    - field.storage.node.field_is_free
+    - field.storage.node.field_areas_of_interest
+    - field.storage.node.field_curriculum_themes
+    - field.storage.node.field_purpose_exercise
+    - field.storage.node.field_educators_target_group
+    - field.storage.node.field_trgt_grp_daycare
+    - field.storage.node.field_trgt_grp_primary_school
+    - field.storage.node.field_trgt_grp_youth_education
+    - field.storage.node.field_target_group
+    - field.storage.node.field_period
+    - field.storage.node.field_period_select
+    - field.storage.node.field_how_to
+    - field.storage.node.field_theme
+    - field.storage.node.field_duration_select
+    - field.storage.node.field_sustainability_goals
+    - field.storage.node.field_exclude_from_search
+    - field.storage.user.field_guarantee_partner
+    - field.storage.user.field_presentation
+    - search_api.server.solr
+  module:
+    - search_api_solr
+    - taxonomy
+    - user
+    - node
+    - search_api
+third_party_settings:
+  search_api_solr:
+    finalize: false
+    commit_before_finalize: false
+    commit_after_finalize: false
+    debug_finalize: false
+    highlighter:
+      maxAnalyzedChars: 51200
+      fragmenter: gap
+      usePhraseHighlighter: true
+      highlightMultiTerm: true
+      preserveMulti: false
+      regex:
+        slop: 0.5
+        pattern: blank
+        maxAnalyzedChars: 10000
+      highlight:
+        mergeContiguous: false
+        requireFieldMatch: false
+        snippets: 3
+        fragsize: 0
+    mlt:
+      mintf: 1
+      mindf: 1
+      maxdf: 0
+      maxdfpct: 0
+      minwl: 0
+      maxwl: 0
+      maxqt: 100
+      maxntp: 2000
+      boost: false
+      interestingTerms: none
+    term_modifiers:
+      slop: 3
+      fuzzy: 1
+      fuzzy_analyzer: true
+    advanced:
+      index_prefix: ''
+      collection: ''
+      timezone: ''
+    multilingual:
+      limit_to_content_language: false
+      include_language_independent: true
+      use_language_undefined_as_fallback_language: false
+      specific_languages:
+        en: '0'
+        da: '0'
+      use_universal_collation: false
+id: search
+name: Search
+description: ''
+read_only: false
+field_settings:
+  body:
+    label: Beskrivelse
+    datasource_id: 'entity:node'
+    property_path: body
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.body
+  created:
+    label: Created
+    property_path: aggregated_field
+    type: string
+    configuration:
+      type: first
+      fields:
+        - 'entity:node/created'
+        - 'entity:user/created'
+  field_ackground_knowledge:
+    label: 'Før besøget'
+    datasource_id: 'entity:node'
+    property_path: field_ackground_knowledge
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_ackground_knowledge
+  field_activities:
+    label: Aktiviteter
+    datasource_id: 'entity:node'
+    property_path: field_activities
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_activities
+  field_activity_select:
+    label: Aktivitet
+    datasource_id: 'entity:node'
+    property_path: field_activity_select
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_activity_select
+  field_activity_select_name:
+    label: 'Aktivitet » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_activity_select:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_activity_select
+      module:
+        - taxonomy
+  field_areas_of_interest:
+    label: Interesseområde
+    datasource_id: 'entity:node'
+    property_path: field_areas_of_interest
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_areas_of_interest
+  field_areas_of_interest_name:
+    label: 'Interesseområde » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_areas_of_interest:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_areas_of_interest
+      module:
+        - taxonomy
+  field_course_type:
+    label: Forløbstype
+    datasource_id: 'entity:node'
+    property_path: field_course_type
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_course_type
+  field_course_type_name:
+    label: 'Forløbstype » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_course_type:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_course_type
+      module:
+        - taxonomy
+  field_curriculum_themes:
+    label: Læreplanstemaer
+    datasource_id: 'entity:node'
+    property_path: field_curriculum_themes
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_curriculum_themes
+  field_curriculum_themes_name:
+    label: 'Læreplanstemaer » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_curriculum_themes:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_curriculum_themes
+      module:
+        - taxonomy
+  field_domain_access:
+    label: 'Domain Access'
+    datasource_id: 'entity:node'
+    property_path: field_domain_access
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_domain_access
+  field_duration_select:
+    label: Varighed
+    datasource_id: 'entity:node'
+    property_path: field_duration_select
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_duration_select
+  field_educators_target_group:
+    label: Målgruppe
+    datasource_id: 'entity:node'
+    property_path: field_educators_target_group
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_educators_target_group
+  field_educators_target_group_name:
+    label: 'Målgruppe » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_educators_target_group:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_educators_target_group
+      module:
+        - taxonomy
+  field_exclude_from_search:
+    label: 'Vis ikke i intern søgning'
+    datasource_id: 'entity:node'
+    property_path: field_exclude_from_search
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_exclude_from_search
+  field_expectations:
+    label: Forventninger
+    datasource_id: 'entity:node'
+    property_path: field_expectations
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_expectations
+  field_focus:
+    label: Fokus
+    datasource_id: 'entity:node'
+    property_path: field_focus
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_focus
+  field_guarantee_partner:
+    label: Garantipartner
+    datasource_id: 'entity:user'
+    property_path: field_guarantee_partner
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.user.field_guarantee_partner
+  field_how_to:
+    label: 'Sådan gør du'
+    datasource_id: 'entity:node'
+    property_path: field_how_to
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_how_to
+  field_industry:
+    label: Branche
+    datasource_id: 'entity:node'
+    property_path: field_industry
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_industry
+  field_industry_name:
+    label: 'Branche » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_industry:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_industry
+      module:
+        - taxonomy
+  field_is_free:
+    label: Gratis
+    datasource_id: 'entity:node'
+    property_path: field_is_free
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_is_free
+  field_name:
+    label: Navn
+    datasource_id: 'entity:user'
+    property_path: field_name
+    type: 'solr_text_custom:ngram'
+    boost: 5.0
+    dependencies:
+      config:
+        - field.storage.user.field_name
+  field_period:
+    label: Periode
+    datasource_id: 'entity:node'
+    property_path: field_period
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_period
+  field_period_select:
+    label: Periode
+    datasource_id: 'entity:node'
+    property_path: field_period_select
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_period_select
+  field_post_processing:
+    label: Efterbehandling
+    datasource_id: 'entity:node'
+    property_path: field_post_processing
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_post_processing
+  field_preparation:
+    label: Forberedelse
+    datasource_id: 'entity:node'
+    property_path: field_preparation
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_preparation
+  field_presentation:
+    label: Præsentation
+    datasource_id: 'entity:user'
+    property_path: field_presentation
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.user.field_presentation
+  field_primary_school_subject:
+    label: Fag
+    datasource_id: 'entity:node'
+    property_path: field_primary_school_subject
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_primary_school_subject
+  field_primary_school_subject_name:
+    label: 'Fag » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_primary_school_subject:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_primary_school_subject
+      module:
+        - taxonomy
+  field_purpose:
+    label: Formål
+    datasource_id: 'entity:node'
+    property_path: field_purpose
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_purpose
+  field_purpose_exercise:
+    label: Mål
+    datasource_id: 'entity:node'
+    property_path: field_purpose_exercise
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_purpose_exercise
+  field_related_user:
+    label: Besøgssteder
+    datasource_id: 'entity:node'
+    property_path: field_related_user
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_related_user
+  field_related_user_field_name:
+    label: 'Besøgssteder » Bruger » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_related_user:entity:field_name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_related_user
+        - field.storage.user.field_name
+      module:
+        - user
+  field_subject:
+    label: Emneområde
+    datasource_id: 'entity:node'
+    property_path: field_subject
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_subject
+  field_subject_name:
+    label: 'Emneområde » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_subject:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_subject
+      module:
+        - taxonomy
+  field_sustainability_goals:
+    label: Verdensmål
+    datasource_id: 'entity:node'
+    property_path: field_sustainability_goals
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_sustainability_goals
+  field_sustainability_goals_desc:
+    label: 'Beskrivelse af verdensmål'
+    datasource_id: 'entity:node'
+    property_path: field_sustainability_goals_desc
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_sustainability_goals_desc
+  field_sustainability_goals_name:
+    label: 'Verdensmål » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_sustainability_goals:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_sustainability_goals
+      module:
+        - taxonomy
+  field_target_group:
+    label: 'Overordnet målgruppe'
+    datasource_id: 'entity:node'
+    property_path: field_target_group
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_target_group
+  field_theme:
+    label: Tema
+    datasource_id: 'entity:node'
+    property_path: field_theme
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_theme
+  field_theme_name:
+    label: 'Tema » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_theme:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_theme
+      module:
+        - taxonomy
+  field_trgt_grp_daycare:
+    label: Målgruppe
+    datasource_id: 'entity:node'
+    property_path: field_trgt_grp_daycare
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_trgt_grp_daycare
+  field_trgt_grp_daycare_name:
+    label: 'Målgruppe » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_trgt_grp_daycare:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_trgt_grp_daycare
+      module:
+        - taxonomy
+  field_trgt_grp_primary_school:
+    label: Målgruppe
+    datasource_id: 'entity:node'
+    property_path: field_trgt_grp_primary_school
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_trgt_grp_primary_school
+  field_trgt_grp_primary_school_name:
+    label: 'Målgruppe » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_trgt_grp_primary_school:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_trgt_grp_primary_school
+      module:
+        - taxonomy
+  field_trgt_grp_youth_education:
+    label: Målgruppe
+    datasource_id: 'entity:node'
+    property_path: field_trgt_grp_youth_education
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_trgt_grp_youth_education
+  field_trgt_grp_youth_education_name:
+    label: 'Målgruppe » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_trgt_grp_youth_education:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_trgt_grp_youth_education
+      module:
+        - taxonomy
+  field_youth_education_subject:
+    label: Fag
+    datasource_id: 'entity:node'
+    property_path: field_youth_education_subject
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_youth_education_subject
+  field_youth_education_subject_name:
+    label: 'Fag » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_youth_education_subject:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_youth_education_subject
+      module:
+        - taxonomy
+  roles:
+    label: Roller
+    datasource_id: 'entity:user'
+    property_path: roles
+    type: string
+    dependencies:
+      module:
+        - user
+  status:
+    label: Status
+    property_path: aggregated_field
+    type: boolean
+    configuration:
+      type: first
+      fields:
+        - 'entity:node/status'
+        - 'entity:user/status'
+  title:
+    label: Titel
+    datasource_id: 'entity:node'
+    property_path: title
+    type: 'solr_text_custom:ngram'
+    boost: 5.0
+    dependencies:
+      module:
+        - node
+  title_universal:
+    label: 'Title (for sorting)'
+    property_path: aggregated_field
+    type: string
+    configuration:
+      type: first
+      fields:
+        - 'entity:node/title'
+        - 'entity:user/name'
+  type:
+    label: Indholdstype
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+    dependencies:
+      module:
+        - node
+  uid:
+    label: Udbyer
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    dependencies:
+      module:
+        - node
+  uid_name:
+    label: 'Udbyer » Bruger » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'uid:entity:field_name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.user.field_name
+      module:
+        - node
+        - user
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+  'entity:user':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  auto_aggregated_fulltext_field: {  }
+  custom_value: {  }
+  entity_type: {  }
+  language_with_fallback: {  }
+  rendered_item: {  }
+  solr_date_range: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  cron_limit: 50
+  index_directly: true
+  track_changes_in_references: true
+server: solr

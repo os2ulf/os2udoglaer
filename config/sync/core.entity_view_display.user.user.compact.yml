@@ -6,7 +6,6 @@ dependencies:
     - core.entity_view_mode.user.compact
     - field.field.user.user.field_allocated_budget
     - field.field.user.user.field_brancher
-    - field.field.user.user.field_bypass_workflow
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
     - field.field.user.user.field_domain_access
@@ -49,11 +48,18 @@ id: user.user.compact
 targetEntityType: user
 bundle: user
 mode: compact
-content: {  }
+content:
+  field_name:
+    type: string
+    label: visually_hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
 hidden:
   field_allocated_budget: true
   field_brancher: true
-  field_bypass_workflow: true
   field_contact: true
   field_cvr: true
   field_domain_access: true
@@ -72,7 +78,6 @@ hidden:
   field_logo: true
   field_mail: true
   field_meta_tags: true
-  field_name: true
   field_other_info: true
   field_other_info_description: true
   field_phone: true

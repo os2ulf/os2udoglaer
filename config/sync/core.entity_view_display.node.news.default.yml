@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.news.field_video
     - field.field.node.news.field_video_description
     - field.field.node.news.field_video_title
+    - image.style.medium
     - node.type.news
   module:
     - entity_reference_revisions
@@ -35,11 +36,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 2
-    region: content
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 0
     region: content
   field_audience:
     type: text_default
@@ -81,7 +77,7 @@ content:
     label: above
     settings:
       image_link: ''
-      image_style: ''
+      image_style: medium
       image_loading:
         attribute: lazy
     third_party_settings: {  }
@@ -92,7 +88,7 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 1
+    weight: 0
     region: content
   field_other_info:
     type: entity_reference_revisions_entity_view
@@ -141,7 +137,10 @@ content:
     weight: 1
     region: content
 hidden:
+  content_moderation_control: true
   field_domain_access: true
   field_domain_all_affiliates: true
   langcode: true
   search_api_excerpt: true
+  workbench_reviewer: true
+  workflow_buttons: true

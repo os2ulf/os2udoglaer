@@ -32,6 +32,10 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
  * Implements hook_form_alter().
  */
 function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Attach library for jQuery functionality.
+  $form['#attached']['library'][] = 'os2uol_entity_forms/field-group-form-alter';
+  $form['#attached']['library'][] = 'os2uol_entity_forms/custom-form-alter';
+
   // Define node add and edit form IDs.
   $node_add_forms = [
     'node_course_form',
@@ -75,6 +79,15 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         unset($domain_array[$key]);
       }
 
+      // Load the node to check the author.
+      $node = \Drupal\node\Entity\Node::load($form_state->getFormObject()->getEntity()->id());
+      $is_author = ($node->getOwnerId() == $current_user->id());
+
+      // Allow access if the user is the author.
+      if ($is_author) {
+        return;
+      }
+
       // Deny access if more than one domain is assigned.
       if (count($domain_array) > 1) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
@@ -115,7 +128,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     }
   }
 
-
   // Define form IDs for course and educator forms.
   $course_form_ids = [
     'node_course_form',
@@ -151,8 +163,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     $application_deadline_field['#date_time_format'] = '';
   }
 
-
-
   // If user_register_form or user_form.
   if ($form_id == 'user_register_form' || $form_id == 'user_form') {
     // Get current logged in user.
@@ -160,9 +170,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
 
     //Get edit form user id from url.
     $edit_user = \Drupal::routeMatch()->getParameter('user');
-
-    // Attach library for jQuery functionality.
-    $form['#attached']['library'][] = 'os2uol_entity_forms/user-edit-form-alter';
 
     // Hidden fields for user role editor.
     $editor_hidden_fields = [

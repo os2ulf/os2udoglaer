@@ -9,6 +9,8 @@ module:
   automated_cron: 0
   autosave_form: 0
   basic_auth: 0
+  better_exposed_filters: 0
+  better_permissions_page: 0
   big_pipe: 0
   block: 0
   block_content: 0
@@ -27,12 +29,14 @@ module:
   content_moderation_bypass: 0
   contextual: 0
   crop: 0
+  csv_serialization: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
   diff: 0
   domain: 0
   domain_access: 0
+  domain_access_search_api: 0
   domain_alias: 0
   domain_config: 0
   domain_config_ui: 0
@@ -48,6 +52,7 @@ module:
   entity_diff_ui: 0
   entity_reference_revisions: 0
   entity_usage: 0
+  facets: 0
   field: 0
   field_group: 0
   field_ui: 0
@@ -88,6 +93,7 @@ module:
   os2uol_domain: 0
   os2uol_entity_forms: 0
   os2uol_menus: 0
+  os2uol_moderation: 0
   os2uol_settings: 0
   os2uol_transform_plugins: 0
   os2uol_users: 0
@@ -131,11 +137,14 @@ module:
   token: 0
   toolbar: 0
   transform_api: 0
+  transform_api_facets: 0
   transform_api_responsive_image: 0
   transform_api_views: 0
   ultimate_cron: 0
   user: 0
+  view_profiles_perms: 0
   view_unpublished: 0
+  views_data_export: 0
   views_ui: 0
   webform: 0
   webform_rest: 0
@@ -144,7 +153,10 @@ module:
   webp: 0
   workbench: 0
   workbench_reviewer: 0
+  workflow_buttons: 0
+  workflow_buttons_trash: 0
   workflows: 0
+  xls_serialization: 0
   pathauto: 1
   content_translation: 10
   views: 10

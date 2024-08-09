@@ -1,0 +1,79 @@
+uuid: 35256903-8453-48ad-a007-98171f9ee417
+langcode: da
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - node.type.course
+    - node.type.course_educators
+    - node.type.exercise
+    - node.type.internship
+    - node.type.news
+    - workflows.workflow.editorial
+  module:
+    - content_moderation
+    - content_moderation_bypass
+    - domain_access
+    - entity_clone
+    - filter
+    - node
+    - system
+    - toolbar
+    - workbench
+id: bypass_workflow
+label: 'Bypass workflow'
+weight: 2
+is_admin: null
+permissions:
+  - 'access toolbar'
+  - 'access workbench'
+  - 'bypass editorial transition restrictions'
+  - 'change own username'
+  - 'clone node entity'
+  - 'create course content'
+  - 'create course content on assigned domains'
+  - 'create course_educators content'
+  - 'create course_educators content on assigned domains'
+  - 'create exercise content'
+  - 'create exercise content on assigned domains'
+  - 'create internship content'
+  - 'create internship content on assigned domains'
+  - 'create news content'
+  - 'create news content on assigned domains'
+  - 'delete own course content'
+  - 'delete own course_educators content'
+  - 'delete own exercise content'
+  - 'delete own internship content'
+  - 'delete own news content'
+  - 'edit own course content'
+  - 'edit own course_educators content'
+  - 'edit own exercise content'
+  - 'edit own internship content'
+  - 'edit own news content'
+  - 'update course content on assigned domains'
+  - 'update course_educators content on assigned domains'
+  - 'update exercise content on assigned domains'
+  - 'update internship content on assigned domains'
+  - 'use editorial transition accept'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition delete'
+  - 'use editorial transition reject'
+  - 'use editorial transition restore_draft'
+  - 'use editorial transition restore_publish'
+  - 'use editorial transition save_draft_leave_current_published'
+  - 'use editorial transition save_review'
+  - 'use editorial transition save_unpublished'
+  - 'use editorial transition submit_for_review'
+  - 'use editorial transition unpublish'
+  - 'use editorial transition update'
+  - 'use text format basic_html'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view course revisions'
+  - 'view course_educators revisions'
+  - 'view exercise revisions'
+  - 'view internship revisions'
+  - 'view latest version'
+  - 'view news revisions'
+  - 'view own unpublished content'
+  - 'view the administration theme'

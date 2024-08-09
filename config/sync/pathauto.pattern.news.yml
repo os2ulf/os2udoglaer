@@ -1,0 +1,22 @@
+uuid: a0b72cf0-57bb-4055-b164-297d21a6f82a
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: news
+label: Nyhed
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  55977382-a31b-460a-b7fc-a31fe3c07c93:
+    id: 'entity_bundle:node'
+    negate: false
+    uuid: 55977382-a31b-460a-b7fc-a31fe3c07c93
+    context_mapping:
+      node: node
+    bundles:
+      news: news
+selection_logic: and
+weight: -5
+relationships: {  }

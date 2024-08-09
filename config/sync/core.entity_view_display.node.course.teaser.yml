@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
+    - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
     - field.field.node.course.field_location_city
@@ -103,6 +104,7 @@ hidden:
   field_exclude_from_search: true
   field_faciliteter: true
   field_facilities_description: true
+  field_hide_contact_form: true
   field_image: true
   field_is_free: true
   field_location_city: true
@@ -143,3 +145,5 @@ hidden:
   field_youth_education_subject: true
   langcode: true
   search_api_excerpt: true
+  workbench_reviewer: true
+  workflow_buttons: true

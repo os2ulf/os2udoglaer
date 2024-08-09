@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
+    - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
     - field.field.node.course.field_location_city
@@ -159,6 +160,13 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_hide_contact_form:
+    type: boolean
+    weight: '50'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '0'
@@ -222,7 +230,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag
-    weight: '50'
+    weight: '51'
     region: content
     label: omit
     settings: {  }

@@ -33,6 +33,8 @@
         "drupal/allowed_formats": "^2.0",
         "drupal/atoms": "^1.0",
         "drupal/autosave_form": "^1.0",
+        "drupal/better_exposed_filters": "^6.0",
+        "drupal/better_permissions_page": "^1.0",
         "drupal/ckeditor5_paste_filter": "^1.0",
         "drupal/components": "^3.0@beta",
         "drupal/conditional_fields": "^4.0@alpha",
@@ -45,12 +47,14 @@
         "drupal/core-vendor-hardening": "^9.0",
         "drupal/diff": "^1.7",
         "drupal/domain": "^2.0@beta",
+        "drupal/domain_access_search_api": "^1.0",
         "drupal/domain_entity": "^1.0@RC",
         "drupal/domain_simple_sitemap": "^3.0@beta",
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_clone": "^2.0@beta",
         "drupal/entity_diff_ui": "^2.0@alpha",
         "drupal/entity_usage": "^2.0-beta3",
+        "drupal/facets": "^2.0",
         "drupal/field_group": "^3.0",
         "drupal/focal_point": "^2.0",
         "drupal/gin": "^3.0@RC",
@@ -87,13 +91,18 @@
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",
         "drupal/transform_api": "1.1.0-beta3",
+        "drupal/transform_api_facets": "^1.0@alpha",
         "drupal/ultimate_cron": "^2.0@alpha",
+        "drupal/view_profiles_perms": "^2.1",
         "drupal/view_unpublished": "^1.0",
+        "drupal/views_data_export": "^1.4",
         "drupal/webform": "^6.2",
         "drupal/webform_rest": "^4.1",
         "drupal/webp": "^1.0@RC",
         "drupal/workbench": "^1.4",
         "drupal/workbench_reviewer": "^3.0@beta",
+        "drupal/workflow_buttons": "^1.0@beta",
+        "drupal/xls_serialization": "^1.3",
         "drush/drush": "^12",
         "novicell/dynamic_key_value": "^1.0",
         "novicell/image_style_generator": "^1.0",
@@ -204,6 +213,9 @@
             "drupal/conditional_fields": {
                 "(#2988937) An invalid form control with name='body[0][value]' is not focusable. with ckeditor enabled": "https://www.drupal.org/files/issues/2023-04-25/dependency-using-body-as-target-2988937-12.patch"
             },
+            "drupal/scheduled_transitions": {
+                "(#3264674) Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
+            },
             "drupal/domain": {
                 "(#3367785) Available on Current Domain doesn't instantiate": "https://www.drupal.org/files/issues/2023-11-10/3367785-domain-php8-boolean-14.patch",
                 "(#3359253) Use core route provider with addExtraCacheKeyPart for route caching?": "https://www.drupal.org/files/issues/2023-05-09/domain-route-provider-addextracachekeypart-3359253-02.patch",
@@ -227,7 +239,12 @@
                 "Fix views parameters": "https://git.drupalcode.org/project/transform_api/-/commit/190b4a236137133ecb4710a5067b8510c9cf6661.diff",
                 "Fix views caching": "https://git.drupalcode.org/project/transform_api/-/commit/83e2d5b672ade36a9814681063ef498ef9dd1e68.diff",
                 "Fix views mini pager": "https://git.drupalcode.org/project/transform_api/-/commit/85f532fcf48f0083436d0c4716b328d9c41d66ce.diff",
-                "#(3458752) Empty region transform results in error": "https://www.drupal.org/files/issues/2024-07-03/transform_api_empty_region.patch"
+                "#(3458752) Empty region transform results in error": "https://www.drupal.org/files/issues/2024-07-03/transform_api_empty_region.patch",
+                "Allow universal search api entity result transform": "https://git.drupalcode.org/project/transform_api/-/commit/802912d2974ab10f4b6fbc7c0e140333d48f0227.diff",
+                "Add #view to view transformation": "https://git.drupalcode.org/project/transform_api/-/commit/4332f4e5014b196e9a42b047ec8f0cb3bd0b5ba6.diff",
+                "Fix better_exposed_filters label": "https://git.drupalcode.org/project/transform_api/-/commit/ce1b8214ef523ca859509957e5cd7032e452df49.diff",
+                "Fixed view results route for search_api usage": "https://git.drupalcode.org/project/transform_api/-/commit/11ec5670060f96bcafb815e0ee5691480530f1e6.diff",
+                "Added label to view transform": "https://git.drupalcode.org/project/transform_api/-/commit/e4721c4d8d73749ddbbd71a71ee4959c66318106.diff"
             }
         }
     }

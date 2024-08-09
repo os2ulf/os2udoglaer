@@ -3,12 +3,19 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.taxonomy_term.theme.domain_access
     - taxonomy.vocabulary.theme
 id: taxonomy_term.theme.default
 targetEntityType: taxonomy_term
 bundle: theme
 mode: default
 content:
+  domain_access:
+    type: options_buttons
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   name:
     type: string_textfield
     weight: 0

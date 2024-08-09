@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
+    - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
     - field.field.node.course.field_location_city
@@ -60,11 +61,9 @@ dependencies:
     - field.field.node.course.field_youth_education_subject
     - image.style.medium
     - node.type.course
-    - workflows.workflow.editorial
   module:
     - allowed_formats
     - conditional_fields
-    - content_moderation
     - datetime
     - datetime_range
     - field_group
@@ -74,6 +73,7 @@ dependencies:
     - paragraphs
     - path
     - text
+    - workflow_buttons
 third_party_settings:
   field_group:
     group_duration_and_price:
@@ -438,6 +438,7 @@ third_party_settings:
       children:
         - field_exclude_from_search
         - field_exclude_from_profile
+        - field_hide_contact_form
         - field_domain_access
       label: 'Visning af indhold'
       region: content
@@ -482,7 +483,7 @@ content:
         maxlength_js_enforce: true
   created:
     type: datetime_timestamp
-    weight: 14
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -564,7 +565,7 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 23
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -583,14 +584,14 @@ content:
     third_party_settings: {  }
   field_exclude_from_profile:
     type: boolean_checkbox
-    weight: 22
+    weight: 25
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_exclude_from_search:
     type: boolean_checkbox
-    weight: 21
+    weight: 24
     region: content
     settings:
       display_label: true
@@ -608,6 +609,13 @@ content:
     settings:
       rows: 5
       placeholder: ''
+    third_party_settings: {  }
+  field_hide_contact_form:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_image:
     type: image_focal_point
@@ -1103,10 +1111,11 @@ content:
               apply_to_parent: '0'
               recurse: '0'
   moderation_state:
-    type: moderation_state_default
+    type: workflow_buttons
     weight: 21
     region: content
-    settings: {  }
+    settings:
+      show_current_state: false
     third_party_settings: {  }
   path:
     type: path
@@ -1154,7 +1163,7 @@ content:
         maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 12
     region: content
     settings:
       match_operator: CONTAINS
@@ -1170,3 +1179,4 @@ content:
 hidden:
   field_domain_all_affiliates: true
   langcode: true
+  workbench_reviewer: true

@@ -1,0 +1,21 @@
+uuid: 1ff4ae4a-595f-4eda-81cd-73e0139f5796
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_contact_form
+    - node.type.internship
+id: node.internship.field_hide_contact_form
+field_name: field_hide_contact_form
+entity_type: node
+bundle: internship
+label: 'Skjul kontaktformular'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

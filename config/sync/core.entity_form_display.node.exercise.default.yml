@@ -17,6 +17,7 @@ dependencies:
     - field.field.node.exercise.field_exclude_from_profile
     - field.field.node.exercise.field_exclude_from_search
     - field.field.node.exercise.field_focus
+    - field.field.node.exercise.field_hide_contact_form
     - field.field.node.exercise.field_how_to
     - field.field.node.exercise.field_image
     - field.field.node.exercise.field_meta_tags
@@ -41,16 +42,15 @@ dependencies:
     - field.field.node.exercise.field_youth_education_subject
     - image.style.medium
     - node.type.exercise
-    - workflows.workflow.editorial
   module:
     - conditional_fields
-    - content_moderation
     - field_group
     - focal_point
     - metatag
     - paragraphs
     - path
     - text
+    - workflow_buttons
 third_party_settings:
   field_group:
     group_exercise:
@@ -293,6 +293,7 @@ third_party_settings:
       children:
         - field_exclude_from_search
         - field_exclude_from_profile
+        - field_hide_contact_form
         - field_domain_access
       label: 'Visning af indhold'
       region: content
@@ -403,7 +404,7 @@ content:
     third_party_settings: {  }
   field_domain_access:
     type: options_buttons
-    weight: 23
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -415,14 +416,14 @@ content:
     third_party_settings: {  }
   field_exclude_from_profile:
     type: boolean_checkbox
-    weight: 22
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_exclude_from_search:
     type: boolean_checkbox
-    weight: 21
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -432,6 +433,13 @@ content:
     weight: 7
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_hide_contact_form:
+    type: boolean_checkbox
+    weight: 17
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_how_to:
     type: text_textarea
@@ -453,7 +461,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 17
+    weight: 18
     region: content
     settings:
       sidebar: true
@@ -720,39 +728,40 @@ content:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
-    type: moderation_state_default
-    weight: 20
+    type: workflow_buttons
+    weight: 21
     region: content
-    settings: {  }
+    settings:
+      show_current_state: false
     third_party_settings: {  }
   path:
     type: path
-    weight: 18
+    weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 21
+    weight: 22
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 16
+    weight: 17
     region: content
     settings:
       display_label: true
@@ -776,9 +785,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 19
+    weight: 20
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_domain_all_affiliates: true
+  workbench_reviewer: true

@@ -1,5 +1,5 @@
 name: 'OS2UOL Settings'
 type: module
 description: 'Describes project specific configuration settings'
-package: Custom
+package: OS2udoglær
 core_version_requirement: ^10 || ^11

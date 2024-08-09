@@ -22,7 +22,7 @@ dependencies:
 id: course_provider
 label: Udbyder
 weight: -5
-is_admin: null
+is_admin: false
 permissions:
   - 'access toolbar'
   - 'access workbench'
@@ -52,7 +52,10 @@ permissions:
   - 'update course_educators content on assigned domains'
   - 'update exercise content on assigned domains'
   - 'update internship content on assigned domains'
-  - 'use editorial transition reject'
+  - 'use editorial transition create_new_draft'
+  - 'use editorial transition delete'
+  - 'use editorial transition restore_draft'
+  - 'use editorial transition save_review'
   - 'use editorial transition submit_for_review'
   - 'use editorial transition unpublish'
   - 'use text format basic_html'

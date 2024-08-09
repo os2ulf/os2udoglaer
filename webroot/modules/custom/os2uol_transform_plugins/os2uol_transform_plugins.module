@@ -95,3 +95,49 @@ function os2uol_transform_plugins_view_latest_news_block_1_transform_alter(&$tra
   $transformation['entity_type'] = 'block_content';
   $transformation['bundle'] = $transformation['view_id'];
 }
+
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function os2uol_transform_plugins_view_content_search_transform_alter(&$transformation) {
+  if (!str_starts_with($transformation['display_id'], 'block_')) {
+    return;
+  }
+  $transformation['entity_type'] = 'block_content';
+  $transformation['bundle'] = $transformation['view_id'];
+}
+
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function os2uol_transform_plugins_view_course_providers_transform_alter(&$transformation) {
+  if (!str_starts_with($transformation['display_id'], 'block_')) {
+    return;
+  }
+  $transformation['entity_type'] = 'block_content';
+  $transformation['bundle'] = $transformation['view_id'];
+}
+
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function os2uol_transform_plugins_view_transform_alter(&$transformation) {
+  if (!empty($transformation['exposed_filters']['sort_by'])) {
+    $options = $transformation['exposed_filters']['sort_by']['options'];
+
+    $new_options = [];
+
+    foreach ($options as $key => $value) {
+      $object = new stdClass();
+
+      $object->key = $key;
+      $object->value = $value;
+
+      $new_options[] = $object;
+    }
+
+    $transformation['exposed_filters']['sort_by']['options'] = $new_options;
+    $transformation['exposed_filters']['sort_by']['default_value'] = $transformation['exposed_filters']['sort_by']['value'];
+    unset($transformation['exposed_filters']['sort_by']['value']);
+  }
+}
