@@ -11,7 +11,7 @@ dependencies:
     - node
     - user
     - search_api
-    - premium_search
+    - layoutbuilder_search_api
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -67,6 +67,11 @@ name: Indhold
 description: ''
 read_only: false
 field_settings:
+  body:
+    label: 'Layoutbuilder Block Content: Simpel blok (1/2/3) » Brødtekst'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_basic:body'
+    type: 'solr_text_custom:ngram'
   changed:
     label: Changed
     datasource_id: 'entity:node'
@@ -83,6 +88,26 @@ field_settings:
     dependencies:
       module:
         - node
+  field_accordion_headline:
+    label: 'Layoutbuilder Block Content: Accordion (1/2/3) » Headline'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_accordion:field_accordion_headline'
+    type: 'solr_text_custom:ngram'
+  field_accordion_items:
+    label: 'Layoutbuilder Block Content: Accordion (1/2/3) » Overskrifter'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_accordion:field_accordion_items'
+    type: 'solr_text_custom:ngram'
+  field_appetizer_headline:
+    label: 'Layoutbuilder Block Content: Appetizer (1) » Headline'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_appetizer:field_appetizer_headline'
+    type: 'solr_text_custom:ngram'
+  field_appetizer_text:
+    label: 'Layoutbuilder Block Content: Appetizer (1) » Tekst'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_appetizer:field_appetizer_text'
+    type: 'solr_text_custom:ngram'
   field_description:
     label: Description
     datasource_id: 'entity:node'
@@ -92,6 +117,24 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_description
+  field_description_1:
+    label: Beskrivelse
+    datasource_id: 'entity:node'
+    property_path: field_description
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_description
+  field_quote_text:
+    label: 'Layoutbuilder Block Content: Citat (1/2/3) » Tekst'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_quote:field_quote_text'
+    type: 'solr_text_custom:ngram'
+  field_text:
+    label: 'Layoutbuilder Block Content: Tekst » Tekst'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_rte:field_text'
+    type: 'solr_text_custom:ngram'
   name:
     label: Username
     datasource_id: 'entity:node'
@@ -173,7 +216,6 @@ processor_settings:
   custom_value: {  }
   entity_status: {  }
   entity_type: {  }
-  hierarchy_ancestors: {  }
   html_filter:
     weights:
       preprocess_index: -3
@@ -190,21 +232,36 @@ processor_settings:
       h3: 2
       strong: 2
   ignorecase:
-    weights:
-      preprocess_index: -5
-      preprocess_query: -8
     all_fields: false
     fields:
       - field_description
       - rendered_item
       - title
   language_with_fallback: {  }
+  layout_builder_references:
+    block_content_types:
+      accordion: accordion
+      appetizer: appetizer
+      basic: basic
+      quote: quote
+      rte: rte
+      button: 0
+      code: 0
+      divider: 0
+      document_list: 0
+      footer: 0
+      hero: 0
+      image: 0
+      inline_navigation: 0
+      inspiration: 0
+      slideshow: 0
+      spacer: 0
+      video: 0
   rendered_item: {  }
-  solr_date_range: {  }
-  stopwords:
+  solr_date_range:
     weights:
-      preprocess_index: -10
-      preprocess_query: -10
+      preprocess_index: 0
+  stopwords:
     all_fields: false
     fields:
       - field_description
@@ -247,9 +304,6 @@ processor_settings:
       - will
       - with
   tokenizer:
-    weights:
-      preprocess_index: -2
-      preprocess_query: -5
     all_fields: false
     fields:
       - field_description

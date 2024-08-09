@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_activity_select
     - field.storage.node.field_activities
     - field.storage.node.body
+    - field.storage.node.field_description
     - field.storage.node.field_sustainability_goals_desc
     - field.storage.node.field_related_user
     - field.storage.user.field_name
@@ -46,6 +47,7 @@ dependencies:
     - user
     - node
     - search_api
+    - layoutbuilder_search_api
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -107,6 +109,11 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.body
+  body_1:
+    label: 'Layoutbuilder Block Content: Simpel blok (1/2/3) » Brødtekst'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_basic:body'
+    type: 'solr_text_custom:ngram'
   created:
     label: Created
     property_path: aggregated_field
@@ -116,6 +123,16 @@ field_settings:
       fields:
         - 'entity:node/created'
         - 'entity:user/created'
+  field_accordion_headline:
+    label: 'Layoutbuilder Block Content: Accordion (1/2/3) » Headline'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_accordion:field_accordion_headline'
+    type: 'solr_text_custom:ngram'
+  field_accordion_items:
+    label: 'Layoutbuilder Block Content: Accordion (1/2/3) » Overskrifter'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_accordion:field_accordion_items'
+    type: 'solr_text_custom:ngram'
   field_ackground_knowledge:
     label: 'Før besøget'
     datasource_id: 'entity:node'
@@ -150,6 +167,16 @@ field_settings:
         - field.storage.node.field_activity_select
       module:
         - taxonomy
+  field_appetizer_headline:
+    label: 'Layoutbuilder Block Content: Appetizer (1) » Headline'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_appetizer:field_appetizer_headline'
+    type: 'solr_text_custom:ngram'
+  field_appetizer_text:
+    label: 'Layoutbuilder Block Content: Appetizer (1) » Tekst'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_appetizer:field_appetizer_text'
+    type: 'solr_text_custom:ngram'
   field_areas_of_interest:
     label: Interesseområde
     datasource_id: 'entity:node'
@@ -204,6 +231,14 @@ field_settings:
         - field.storage.node.field_curriculum_themes
       module:
         - taxonomy
+  field_description:
+    label: Beskrivelse
+    datasource_id: 'entity:node'
+    property_path: field_description
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_description
   field_domain_access:
     label: 'Domain Access'
     datasource_id: 'entity:node'
@@ -387,6 +422,11 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_purpose_exercise
+  field_quote_text:
+    label: 'Layoutbuilder Block Content: Citat (1/2/3) » Tekst'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_quote:field_quote_text'
+    type: 'solr_text_custom:ngram'
   field_related_user:
     label: Besøgssteder
     datasource_id: 'entity:node'
@@ -458,6 +498,11 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_target_group
+  field_text:
+    label: 'Layoutbuilder Block Content: Tekst » Tekst'
+    datasource_id: 'entity:node'
+    property_path: 'search_api_layoutbuilder_references_rte:field_text'
+    type: 'solr_text_custom:ngram'
   field_theme:
     label: Tema
     datasource_id: 'entity:node'
@@ -629,8 +674,29 @@ processor_settings:
   custom_value: {  }
   entity_type: {  }
   language_with_fallback: {  }
+  layout_builder_references:
+    block_content_types:
+      accordion: accordion
+      appetizer: appetizer
+      basic: basic
+      quote: quote
+      rte: rte
+      button: 0
+      code: 0
+      divider: 0
+      document_list: 0
+      footer: 0
+      hero: 0
+      image: 0
+      inline_navigation: 0
+      inspiration: 0
+      slideshow: 0
+      spacer: 0
+      video: 0
   rendered_item: {  }
-  solr_date_range: {  }
+  solr_date_range:
+    weights:
+      preprocess_index: 0
 tracker_settings:
   default:
     indexing_order: fifo
