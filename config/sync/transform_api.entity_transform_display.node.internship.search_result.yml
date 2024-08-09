@@ -77,7 +77,7 @@ content:
         attribute: lazy
     third_party_settings: {  }
   field_industry:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '3'
     region: content
     label: omit

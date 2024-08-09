@@ -137,7 +137,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_target_group:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '10'
     region: content
     label: omit
