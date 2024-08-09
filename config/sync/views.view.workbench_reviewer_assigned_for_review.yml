@@ -1059,7 +1059,7 @@ display:
           plugin_id: text
           empty: false
           content:
-            value: 'Displays content that is assigned to you through the <em>Reviewer</em> field provided by <em>Workbench Reviewer</em>.'
+            value: 'Viser indhold, der er tildelt dig gennem feltet <em>Reviewer</em>, som leveres af <em>Workbench Reviewer</em>.'
             format: basic_html
           tokenize: false
       footer: {  }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a0d315f1f9cbc8d438a8360410000e77",
+    "content-hash": "a1a6f35d8142c4a9bc1182fd632695aa",
     "packages": [
         {
             "name": "algolia/places",
@@ -4537,6 +4537,55 @@
             "support": {
                 "source": "https://git.drupalcode.org/project/layout_builder_restrictions",
                 "issues": "https://www.drupal.org/project/issues/layout_builder_restrictions"
+            }
+        },
+        {
+            "name": "drupal/layoutbuilder_search_api",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/layoutbuilder_search_api.git",
+                "reference": "1.0.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/layoutbuilder_search_api-1.0.2.zip",
+                "reference": "1.0.2",
+                "shasum": "6d0efaa92b80a1b4f267f2996db1e9c5509867f0"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10",
+                "drupal/search_api": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.0.2",
+                    "datestamp": "1688626772",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ayalon",
+                    "homepage": "https://www.drupal.org/user/419226"
+                },
+                {
+                    "name": "heddn",
+                    "homepage": "https://www.drupal.org/user/1463982"
+                }
+            ],
+            "description": "Support for indexing Layout Builder blocks",
+            "homepage": "https://www.drupal.org/project/layoutbuilder_search_api",
+            "support": {
+                "source": "https://git.drupalcode.org/project/layoutbuilder_search_api"
             }
         },
         {
@@ -14361,5 +14410,5 @@
     "platform-overrides": {
         "php": "8.1"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.3.0"
 }

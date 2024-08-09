@@ -136,30 +136,37 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_target_group:
+    type: entity_reference_labels
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_theme:
     type: entity_reference_links
-    weight: '13'
+    weight: '14'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_daycare:
     type: entity_reference_links
-    weight: '10'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_primary_school:
     type: entity_reference_links
-    weight: '11'
+    weight: '12'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_youth_education:
     type: entity_reference_links
-    weight: '12'
+    weight: '13'
     region: content
     label: omit
     settings: {  }
@@ -209,7 +216,6 @@ hidden:
   field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
-  field_target_group: true
   field_video: true
   field_video_description: true
   field_video_title: true
