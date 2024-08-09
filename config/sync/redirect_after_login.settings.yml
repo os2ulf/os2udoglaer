@@ -1,0 +1,15 @@
+login_redirection:
+  anonymous: null
+  authenticated: /
+  administrator: /
+  webmaster: /admin/workbench
+  editor: /admin/workbench
+  course_provider: /admin/workbench/create
+  corporation: /admin/workbench/create
+  institution: /admin/workbench/create
+  school: /admin/workbench/create
+  place_of_visit: /admin/workbench/create
+  theater_contact: /admin/workbench/create
+  monitor: /
+  bypass_workflow: /admin/workbench
+exclude_urls: ''
