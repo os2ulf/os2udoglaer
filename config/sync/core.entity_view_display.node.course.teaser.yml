@@ -145,3 +145,5 @@ hidden:
   field_youth_education_subject: true
   langcode: true
   search_api_excerpt: true
+  workbench_reviewer: true
+  workflow_buttons: true

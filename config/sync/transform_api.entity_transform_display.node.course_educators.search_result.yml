@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.course_educators.field_exclude_from_search
     - field.field.node.course_educators.field_faciliteter
     - field.field.node.course_educators.field_food_service
+    - field.field.node.course_educators.field_hide_contact_form
     - field.field.node.course_educators.field_image
     - field.field.node.course_educators.field_is_free
     - field.field.node.course_educators.field_location_city
@@ -66,6 +67,27 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_banner:
+    type: entity_reference_links
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_curriculum_themes:
+    type: entity_reference_links
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_educators_target_group:
+    type: entity_reference_links
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '1'
@@ -77,10 +99,50 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
+  field_is_free:
+    type: boolean
+    weight: '6'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_city:
+    type: value
+    weight: '7'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_street:
+    type: value
+    weight: '8'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_zipcode:
+    type: value
+    weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_primary_school_subject:
+    type: entity_reference_links
+    weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_theme:
+    type: entity_reference_links
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_all_year: true
-  field_banner: true
-  field_curriculum_themes: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true
@@ -88,22 +150,17 @@ hidden:
   field_domain_all_affiliates: true
   field_duration: true
   field_duration_unit_taxonomy: true
-  field_educators_target_group: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
   field_faciliteter: true
   field_food_service: true
-  field_is_free: true
-  field_location_city: true
+  field_hide_contact_form: true
   field_location_description: true
   field_location_name: true
-  field_location_street: true
-  field_location_zipcode: true
   field_materials: true
   field_meta_tags: true
   field_period: true
   field_price: true
-  field_primary_school_subject: true
   field_quantity: true
   field_quantity_description: true
   field_registration_deadline: true
@@ -116,7 +173,6 @@ hidden:
   field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
-  field_theme: true
   field_video: true
   field_video_description: true
   field_video_title: true

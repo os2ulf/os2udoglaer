@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.internship.field_exclude_from_profile
     - field.field.node.internship.field_exclude_from_search
     - field.field.node.internship.field_expectations
+    - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -57,6 +58,13 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_areas_of_interest:
+    type: entity_reference_links
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '1'
@@ -68,13 +76,40 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
+  field_industry:
+    type: entity_reference_links
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_city:
+    type: value
+    weight: '4'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_street:
+    type: value
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_zipcode:
+    type: value
+    weight: '6'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_application_deadline: true
   field_application_email: true
   field_application_phone: true
   field_application_title: true
   field_application_url: true
-  field_areas_of_interest: true
   field_banner: true
   field_desc_application_procedure: true
   field_description_of_period: true
@@ -85,12 +120,9 @@ hidden:
   field_exclude_from_profile: true
   field_exclude_from_search: true
   field_expectations: true
-  field_industry: true
-  field_location_city: true
+  field_hide_contact_form: true
   field_location_description: true
   field_location_name: true
-  field_location_street: true
-  field_location_zipcode: true
   field_materials: true
   field_meeting_times: true
   field_meta_tags: true
