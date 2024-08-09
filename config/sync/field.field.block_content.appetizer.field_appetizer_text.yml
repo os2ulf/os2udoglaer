@@ -17,7 +17,7 @@ id: block_content.appetizer.field_appetizer_text
 field_name: field_appetizer_text
 entity_type: block_content
 bundle: appetizer
-label: Tekst
+label: 'Tekst'
 description: ''
 required: false
 translatable: false

@@ -66,6 +66,7 @@
         "drupal/layout_builder_at": "^2.0",
         "drupal/layout_builder_modal": "^1.0",
         "drupal/layout_builder_restrictions": "^2.0",
+        "drupal/layoutbuilder_search_api": "^1.0",
         "drupal/linkit": "^6.0",
         "drupal/maxlength": "^3.0@beta",
         "drupal/menu_item_fields": "^1.10",
