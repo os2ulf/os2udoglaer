@@ -216,7 +216,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
             $form[$field]['#access'] = FALSE;
           }
         }
-      } elseif ($edit_user && $edit_user->hasRole('webmaster')) {
+      } elseif ($edit_user && ($edit_user->hasRole('webmaster') || $edit_user->hasRole('editor') || $edit_user->hasRole('administrator'))) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
 
       } elseif (($edit_user && $edit_user->hasRole('course_provider')) || ($edit_user && $edit_user->hasRole('place_of_visit'))) {
