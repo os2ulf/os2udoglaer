@@ -44,7 +44,7 @@ type_settings:
       default_revision: false
   transitions:
     accept:
-      label: Godkend
+      label: Udgiv
       from:
         - review
       to: published
@@ -101,7 +101,7 @@ type_settings:
       to: unpublished
       weight: -5
     submit_for_review:
-      label: Review
+      label: 'Send til redaktion'
       from:
         - draft
       to: review
