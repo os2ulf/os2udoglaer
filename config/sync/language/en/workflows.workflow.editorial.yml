@@ -5,3 +5,6 @@ type_settings:
       label: Draft
     published:
       label: Published
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'

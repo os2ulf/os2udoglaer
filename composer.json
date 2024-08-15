@@ -78,6 +78,7 @@
         "drupal/pathologic": "^2.0@alpha",
         "drupal/rdf": "^2.0",
         "drupal/redirect": "^1.0",
+        "drupal/redirect_after_login": "^3.0",
         "drupal/redis": "^1.5",
         "drupal/restui": "^1.21",
         "drupal/role_delegation": "^1.1",
