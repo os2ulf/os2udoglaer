@@ -290,6 +290,8 @@ permissions:
   - 'use editorial transition restore_publish'
   - 'use editorial transition save_draft_leave_current_published'
   - 'use editorial transition save_review'
+  - 'use editorial transition save_unpublished'
+  - 'use editorial transition unpublish'
   - 'use editorial transition update'
   - 'use text format basic_html'
   - 'use text format full_html'
