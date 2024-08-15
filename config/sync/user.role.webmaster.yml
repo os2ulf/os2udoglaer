@@ -112,6 +112,7 @@ permissions:
   - 'administer nodes'
   - 'administer redirect settings'
   - 'administer redirects'
+  - 'administer site configuration'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer users'
