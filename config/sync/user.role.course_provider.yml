@@ -58,6 +58,7 @@ permissions:
   - 'use editorial transition save_review'
   - 'use editorial transition save_unpublished'
   - 'use editorial transition submit_for_review'
+  - 'use editorial transition unpublish'
   - 'use text format basic_html'
   - 'view all revisions'
   - 'view any unpublished content'
