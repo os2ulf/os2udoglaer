@@ -50,7 +50,7 @@ type_settings:
       to: published
       weight: 0
     create_new_draft:
-      label: 'Gem (kladde)'
+      label: Gem
       from:
         - draft
       to: draft
@@ -89,13 +89,13 @@ type_settings:
       to: draft
       weight: -2
     save_review:
-      label: 'Gem (review)'
+      label: Gem
       from:
         - review
       to: review
       weight: -4
     save_unpublished:
-      label: 'Gem (afpubliceret)'
+      label: Gem
       from:
         - unpublished
       to: unpublished
@@ -113,7 +113,7 @@ type_settings:
       to: unpublished
       weight: 2
     update:
-      label: 'Gem (udgivet)'
+      label: Gem
       from:
         - published
       to: published
