@@ -33,6 +33,12 @@ elements: |-
   provider_email:
     '#type': textfield
     '#title': 'Udbyder email'
+  url:
+    '#type': url
+    '#title': URL
+  title:
+    '#type': textfield
+    '#title': Titel
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
