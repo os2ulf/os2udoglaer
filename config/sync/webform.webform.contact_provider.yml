@@ -325,8 +325,8 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
-      subject: Kontaktformular
-      body: '<p><strong>Navn:</strong> [webform_submission:values:name]</p><p><strong>Telefonnummer:</strong> [webform_submission:values:phone]</p><p><strong>E-mail adresse:</strong> [webform_submission:values:email]</p><p><strong>Besked:</strong>&nbsp;<br>[webform_submission:values:message]</p>'
+      subject: 'Henvendelse ang. [webform_submission:values:title] fra [webform_submission:values:name]'
+      body: '<p>Henvendelse ang. <strong>[webform_submission:values:title]</strong> ([webform_submission:values:url]) fra [webform_submission:values:name]</p><p><strong>Fra:</strong> [webform_submission:values:name]</p><p><strong>Telefon:</strong> [webform_submission:values:phone]</p><p><strong>E-mail:</strong> [webform_submission:values:email]</p><p><strong>[webform_submission:values:title]</strong><br>[webform_submission:values:url]</p><p><strong>Besked:</strong>&nbsp;<br>[webform_submission:values:message]</p><p>Med venlig hilsen<br><strong>[current-domain:name]</strong></p>'
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
