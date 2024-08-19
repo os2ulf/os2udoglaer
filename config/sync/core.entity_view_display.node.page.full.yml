@@ -54,14 +54,12 @@ third_party_settings:
       denylisted_blocks:
         'Custom block types':
           - accordion
-          - application_form
           - basic
           - footer
           - quote
           - slideshow
         'Inline blocks':
           - 'inline_block:accordion'
-          - 'inline_block:application_form'
           - 'inline_block:quote'
           - 'inline_block:footer'
           - 'inline_block:basic'
