@@ -1,0 +1,19 @@
+uuid: d4e9dad5-b987-44c9-bcd2-1303bf99552f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_payment_date
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_payment_date
+field_name: field_rfc_payment_date
+entity_type: node
+bundle: free_course_request
+label: Udbetalingsdato
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

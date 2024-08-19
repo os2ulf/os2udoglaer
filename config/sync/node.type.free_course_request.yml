@@ -1,0 +1,17 @@
+uuid: 94c9ba3e-f630-460d-9ed3-bf2922ad2320
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Ansøg om udgiftsdækning'
+type: free_course_request
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,11 @@
+uuid: 532d4aea-61c1-45f1-b64d-d4158a4484cb
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.free_course_request
+id: node.free_course_request
+target_entity_type_id: node
+target_bundle: free_course_request
+default_langcode: site_default
+language_alterable: false

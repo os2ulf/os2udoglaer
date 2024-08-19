@@ -1,0 +1,19 @@
+uuid: 4fe4c2ed-10fe-4c2a-a3cb-dfb432df9171
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_rfc_remarks
+field_name: field_rfc_remarks
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
