@@ -1,0 +1,30 @@
+uuid: e5bdc906-878b-4580-bd9f-928dd87b276b
+langcode: da
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_form_type
+field_name: field_form_type
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: free_course
+      label: 'Gratis forløb'
+    -
+      value: theater_refund
+      label: Teaterrefusion
+    -
+      value: transport_arrangement
+      label: Transportordning
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

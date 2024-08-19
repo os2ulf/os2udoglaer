@@ -1,0 +1,8 @@
+uuid: 3062e984-2494-4a4c-b8f3-80c0c0683fe8
+langcode: da
+status: true
+dependencies: {  }
+id: application_form
+label: Ansøgningsformular
+revision: 0
+description: ''
