@@ -1,0 +1,19 @@
+uuid: 9f0c2f3a-62f9-476c-b524-f878616bb663
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_phone
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_phone
+field_name: field_rfc_phone
+entity_type: node
+bundle: free_course_request
+label: Telefonnr
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

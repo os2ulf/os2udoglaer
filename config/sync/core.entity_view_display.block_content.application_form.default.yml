@@ -1,0 +1,41 @@
+uuid: 2a7a9709-74eb-40ea-aab6-54b8ec17fa80
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.application_form
+    - field.field.block_content.application_form.field_form_type
+    - field.field.block_content.application_form.field_gdpr
+    - field.field.block_content.application_form.field_mail_to
+  module:
+    - options
+    - text
+id: block_content.application_form.default
+targetEntityType: block_content
+bundle: application_form
+mode: default
+content:
+  field_form_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_gdpr:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_mail_to:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,19 @@
+uuid: ff827c69-8e8c-4972-891b-b106dc6bc967
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_course_name
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_course_name
+field_name: field_rfc_course_name
+entity_type: node
+bundle: free_course_request
+label: Forløb
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

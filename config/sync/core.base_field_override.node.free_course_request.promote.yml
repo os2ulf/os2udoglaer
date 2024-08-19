@@ -1,0 +1,22 @@
+uuid: b63f1dbb-3913-4143-be36-6dd994b28139
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.free_course_request
+id: node.free_course_request.promote
+field_name: promote
+entity_type: node
+bundle: free_course_request
+label: 'Forfremmet til forside'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

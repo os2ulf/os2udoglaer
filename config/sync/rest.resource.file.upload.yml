@@ -1,15 +1,13 @@
-uuid: 071ea0be-797f-4b7f-963d-925cc24acbc7
+uuid: cfd5379b-05a8-4146-8ff7-3a17e7557522
 langcode: da
 status: true
 dependencies:
   module:
     - basic_auth
-    - node
+    - file
     - serialization
-_core:
-  default_config_hash: 6ONvVCbif1qZnRfa8XmPzMwNKLDhF6K7eTrTgIVtP5E
-id: entity.node
-plugin_id: 'entity:node'
+id: file.upload
+plugin_id: 'file:upload'
 granularity: resource
 configuration:
   methods:
