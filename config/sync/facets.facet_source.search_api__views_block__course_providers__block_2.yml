@@ -1,0 +1,9 @@
+uuid: 874f9185-41d4-49ac-96a8-0e3ddb5d613f
+langcode: da
+status: true
+dependencies: {  }
+id: search_api__views_block__course_providers__block_2
+name: 'search_api:views_block__course_providers__block_2'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }
