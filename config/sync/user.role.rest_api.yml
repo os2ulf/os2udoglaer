@@ -1,4 +1,4 @@
-uuid: b9771334-4620-43d7-9a09-961096ea56d9
+uuid: 1f2b4373-b417-40ca-862a-9a2f1de14e46
 langcode: da
 status: true
 dependencies:
@@ -7,8 +7,8 @@ dependencies:
   module:
     - domain_access
     - node
-id: node_rest
-label: 'Node REST'
+id: rest_api
+label: 'REST API'
 weight: 3
 is_admin: null
 permissions:
