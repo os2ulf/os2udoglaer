@@ -38,7 +38,10 @@ dependencies:
     - field.storage.node.field_duration_select
     - field.storage.node.field_sustainability_goals
     - field.storage.node.field_exclude_from_search
+    - field.storage.user.field_brancher
     - field.storage.user.field_guarantee_partner
+    - field.storage.user.field_posibilities
+    - field.storage.user.field_postnummer
     - field.storage.user.field_presentation
     - search_api.server.solr
   module:
@@ -195,6 +198,14 @@ field_settings:
         - field.storage.node.field_areas_of_interest
       module:
         - taxonomy
+  field_brancher:
+    label: Brancher
+    datasource_id: 'entity:user'
+    property_path: field_brancher
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_brancher
   field_course_type:
     label: Forløbstype
     datasource_id: 'entity:node'
@@ -364,6 +375,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_period_select
+  field_posibilities:
+    label: Muligheder
+    datasource_id: 'entity:user'
+    property_path: field_posibilities
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_posibilities
   field_post_processing:
     label: Efterbehandling
     datasource_id: 'entity:node'
@@ -372,6 +391,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_post_processing
+  field_postnummer:
+    label: Postnummer
+    datasource_id: 'entity:user'
+    property_path: field_postnummer
+    type: integer
+    dependencies:
+      config:
+        - field.storage.user.field_postnummer
   field_preparation:
     label: Forberedelse
     datasource_id: 'entity:node'

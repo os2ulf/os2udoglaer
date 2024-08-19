@@ -67,6 +67,14 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_presentation:
+    type: text_summary_or_trimmed
+    weight: '2'
+    region: content
+    label: omit
+    settings:
+      trim_length: '300'
+    third_party_settings: {  }
 hidden:
   field_allocated_budget: true
   field_brancher: true
@@ -92,7 +100,6 @@ hidden:
   field_phone: true
   field_posibilities: true
   field_postnummer: true
-  field_presentation: true
   field_pretix_api_token: true
   field_pretix_enabled: true
   field_pretix_event_form: true
