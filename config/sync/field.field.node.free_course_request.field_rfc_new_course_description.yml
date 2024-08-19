@@ -1,0 +1,19 @@
+uuid: aa630728-6c5e-49f6-9b1c-c337e6580ea8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_new_course_description
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_new_course_description
+field_name: field_rfc_new_course_description
+entity_type: node
+bundle: free_course_request
+label: 'Beskrivelse af forløbet'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

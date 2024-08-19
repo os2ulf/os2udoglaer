@@ -1,0 +1,11 @@
+uuid: e5a11a59-483e-4fe6-91f0-6ea567d42752
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.application_form
+id: block_content.application_form
+target_entity_type_id: block_content
+target_bundle: application_form
+default_langcode: site_default
+language_alterable: false

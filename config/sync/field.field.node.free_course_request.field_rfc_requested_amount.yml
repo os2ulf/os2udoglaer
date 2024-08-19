@@ -1,0 +1,23 @@
+uuid: 068675d2-0754-4e27-b5a0-8ed80457f711
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_requested_amount
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_requested_amount
+field_name: field_rfc_requested_amount
+entity_type: node
+bundle: free_course_request
+label: 'Ansøgt beløb'
+description: "Skriv forløbets totale pris i hele tal - eks. '400'. Det er den pris, der er aftalt med udbyderen af forløbet og som ULF i Aarhus skal betale totalt. Hvis du ansøger for flere klasser, så skriv den samlede pris for alle forløb."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' kr.'
+field_type: decimal

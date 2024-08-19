@@ -1,0 +1,10 @@
+status: 1
+pattern: '[node:nid]'
+escape: false
+preserve_titles: false
+save: false
+chunk: 50
+dependencies:
+  config:
+    - node.type.free_course_request
+new_content_behavior: 1

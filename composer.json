@@ -32,6 +32,7 @@
         "drupal/admin_toolbar": "^3.4",
         "drupal/allowed_formats": "^2.0",
         "drupal/atoms": "^1.0",
+        "drupal/auto_entitylabel": "^3.3",
         "drupal/autosave_form": "^1.0",
         "drupal/better_exposed_filters": "^6.0",
         "drupal/better_permissions_page": "^1.0",

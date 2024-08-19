@@ -1,0 +1,20 @@
+uuid: 86cd2fe3-b54c-4045-84a3-321d5ef66db6
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_rfc_subject
+field_name: field_rfc_subject
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

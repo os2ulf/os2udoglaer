@@ -1,0 +1,19 @@
+uuid: d5a8ea49-f3d2-4c5c-95ec-e9bc3853c12e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_mails_sent
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_mails_sent
+field_name: field_rfc_mails_sent
+entity_type: node
+bundle: free_course_request
+label: 'Sendte mails'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

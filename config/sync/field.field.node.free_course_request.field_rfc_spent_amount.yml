@@ -1,0 +1,23 @@
+uuid: e87b52f1-9ba0-4f88-91cd-c0db20c8b02e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_spent_amount
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_spent_amount
+field_name: field_rfc_spent_amount
+entity_type: node
+bundle: free_course_request
+label: 'Forbrugt beløb (eks. moms)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' kr.'
+field_type: decimal

@@ -1,0 +1,21 @@
+uuid: 9cd6aaf7-547d-4efc-a23d-988fb4c6e5ef
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_receiving_class
+    - node.type.free_course_request
+id: node.free_course_request.field_receiving_class
+field_name: field_receiving_class
+entity_type: node
+bundle: free_course_request
+label: Modtageklasse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

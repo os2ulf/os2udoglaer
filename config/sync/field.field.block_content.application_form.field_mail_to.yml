@@ -1,0 +1,19 @@
+uuid: a38c6945-0476-4f75-9fb0-7221524fffd6
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.application_form
+    - field.storage.block_content.field_mail_to
+id: block_content.application_form.field_mail_to
+field_name: field_mail_to
+entity_type: block_content
+bundle: application_form
+label: 'Modtager mail'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

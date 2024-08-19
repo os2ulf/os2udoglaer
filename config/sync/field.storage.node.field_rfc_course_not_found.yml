@@ -1,0 +1,18 @@
+uuid: a5a23fce-257d-4585-9c09-b4bb6a6d022b
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_rfc_course_not_found
+field_name: field_rfc_course_not_found
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

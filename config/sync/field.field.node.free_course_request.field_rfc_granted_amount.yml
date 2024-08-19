@@ -1,0 +1,23 @@
+uuid: 4e7ba0af-95ba-4b04-8afe-25b57bed1edc
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_granted_amount
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_granted_amount
+field_name: field_rfc_granted_amount
+entity_type: node
+bundle: free_course_request
+label: 'Bevilget beløb'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' kr.'
+field_type: decimal
