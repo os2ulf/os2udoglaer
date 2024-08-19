@@ -1,0 +1,16 @@
+uuid: b9771334-4620-43d7-9a09-961096ea56d9
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.free_course_request
+  module:
+    - domain_access
+    - node
+id: node_rest
+label: 'Node REST'
+weight: 3
+is_admin: null
+permissions:
+  - 'create free_course_request content'
+  - 'publish to any assigned domain'
