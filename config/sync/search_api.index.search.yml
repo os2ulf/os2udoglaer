@@ -202,7 +202,7 @@ field_settings:
     label: Brancher
     datasource_id: 'entity:user'
     property_path: field_brancher
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.user.field_brancher
@@ -363,7 +363,7 @@ field_settings:
     label: Periode
     datasource_id: 'entity:node'
     property_path: field_period
-    type: date
+    type: string
     dependencies:
       config:
         - field.storage.node.field_period
@@ -379,7 +379,7 @@ field_settings:
     label: Muligheder
     datasource_id: 'entity:user'
     property_path: field_posibilities
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.user.field_posibilities
@@ -395,7 +395,7 @@ field_settings:
     label: Postnummer
     datasource_id: 'entity:user'
     property_path: field_postnummer
-    type: integer
+    type: string
     dependencies:
       config:
         - field.storage.user.field_postnummer
@@ -667,7 +667,7 @@ field_settings:
     label: Udbyer
     datasource_id: 'entity:node'
     property_path: uid
-    type: integer
+    type: string
     dependencies:
       module:
         - node
