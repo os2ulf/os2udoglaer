@@ -246,7 +246,8 @@
                 "Add #view to view transformation": "https://git.drupalcode.org/project/transform_api/-/commit/4332f4e5014b196e9a42b047ec8f0cb3bd0b5ba6.diff",
                 "Fix better_exposed_filters label": "https://git.drupalcode.org/project/transform_api/-/commit/ce1b8214ef523ca859509957e5cd7032e452df49.diff",
                 "Fixed view results route for search_api usage": "https://git.drupalcode.org/project/transform_api/-/commit/11ec5670060f96bcafb815e0ee5691480530f1e6.diff",
-                "Added label to view transform": "https://git.drupalcode.org/project/transform_api/-/commit/e4721c4d8d73749ddbbd71a71ee4959c66318106.diff"
+                "Added label to view transform": "https://git.drupalcode.org/project/transform_api/-/commit/e4721c4d8d73749ddbbd71a71ee4959c66318106.diff",
+                "Fixed sorting of view exposed filters": "https://git.drupalcode.org/project/transform_api/-/commit/c97e8259a5eaffedb55f0628ac4f3614067484c3.diff"
             },
             "drupal/webform": {
                 "(#3435903) Fix incompatibility with devel ^5.2": "https://www.drupal.org/files/issues/2024-08-01/fix_incompatibility_with_devel_5.2.patch"
