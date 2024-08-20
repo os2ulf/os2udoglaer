@@ -269,6 +269,8 @@ display:
               place_of_visit: '0'
               theater_contact: '0'
               monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -289,9 +291,14 @@ display:
           min_length: null
           fields:
             - body
+            - body_1
+            - field_accordion_headline
+            - field_accordion_items
             - field_ackground_knowledge
             - field_activities
             - field_activity_select_name
+            - field_appetizer_headline
+            - field_appetizer_text
             - field_areas_of_interest_name
             - field_course_type_name
             - field_curriculum_themes_name
@@ -306,9 +313,11 @@ display:
             - field_primary_school_subject_name
             - field_purpose
             - field_purpose_exercise
+            - field_quote_text
             - field_related_user_field_name
             - field_subject_name
             - field_sustainability_goals_name
+            - field_text
             - field_theme_name
             - field_trgt_grp_daycare_name
             - field_trgt_grp_primary_school_name
