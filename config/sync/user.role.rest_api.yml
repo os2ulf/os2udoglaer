@@ -7,10 +7,12 @@ dependencies:
   module:
     - domain_access
     - node
+    - views_ui
 id: rest_api
 label: 'REST API'
 weight: 3
 is_admin: null
 permissions:
+  - 'administer views'
   - 'create free_course_request content'
   - 'publish to any assigned domain'

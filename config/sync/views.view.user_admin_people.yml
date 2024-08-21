@@ -5,6 +5,15 @@ dependencies:
   config:
     - field.storage.user.field_domain_access
     - user.role.administrator
+    - user.role.bypass_workflow
+    - user.role.corporation
+    - user.role.course_provider
+    - user.role.editor
+    - user.role.institution
+    - user.role.monitor
+    - user.role.place_of_visit
+    - user.role.school
+    - user.role.theater_contact
     - user.role.webmaster
   module:
     - domain_access
@@ -1044,7 +1053,18 @@ display:
           admin_label: ''
           plugin_id: user_roles
           operator: or
-          value: {  }
+          value:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
+            course_provider: course_provider
+            corporation: corporation
+            institution: institution
+            school: school
+            place_of_visit: place_of_visit
+            theater_contact: theater_contact
+            monitor: monitor
+            bypass_workflow: bypass_workflow
           group: 1
           exposed: true
           expose:
@@ -1063,7 +1083,18 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            reduce: false
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -1859,7 +1890,18 @@ display:
           admin_label: ''
           plugin_id: user_roles
           operator: or
-          value: {  }
+          value:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
+            course_provider: course_provider
+            corporation: corporation
+            institution: institution
+            school: school
+            place_of_visit: place_of_visit
+            theater_contact: theater_contact
+            monitor: monitor
+            bypass_workflow: bypass_workflow
           group: 1
           exposed: true
           expose:
@@ -1878,7 +1920,18 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            reduce: false
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''

@@ -1,0 +1,19 @@
+uuid: 2620e3a9-aa7f-4c50-a99d-774ee08ca083
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.application_form
+    - field.storage.block_content.field_information_text_title
+id: block_content.application_form.field_information_text_title
+field_name: field_information_text_title
+entity_type: block_content
+bundle: application_form
+label: 'Oplysningstekst overskrift'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

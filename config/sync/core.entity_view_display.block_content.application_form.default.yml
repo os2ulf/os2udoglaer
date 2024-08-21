@@ -5,8 +5,10 @@ dependencies:
   config:
     - block_content.type.application_form
     - field.field.block_content.application_form.field_form_type
-    - field.field.block_content.application_form.field_gdpr
+    - field.field.block_content.application_form.field_information_text
+    - field.field.block_content.application_form.field_information_text_title
     - field.field.block_content.application_form.field_mail_to
+    - field.field.block_content.application_form.field_show_in_modal
   module:
     - options
     - text
@@ -22,12 +24,20 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-  field_gdpr:
+  field_information_text:
     type: text_default
     label: above
     settings: {  }
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_information_text_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
     region: content
   field_mail_to:
     type: basic_string
@@ -35,6 +45,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_show_in_modal:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
     region: content
 hidden:
   langcode: true

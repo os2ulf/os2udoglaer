@@ -5,8 +5,10 @@ dependencies:
   config:
     - block_content.type.application_form
     - field.field.block_content.application_form.field_form_type
-    - field.field.block_content.application_form.field_gdpr
+    - field.field.block_content.application_form.field_information_text
+    - field.field.block_content.application_form.field_information_text_title
     - field.field.block_content.application_form.field_mail_to
+    - field.field.block_content.application_form.field_show_in_modal
 id: block_content.application_form.default
 targetEntityType: block_content
 bundle: application_form
@@ -19,8 +21,16 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_gdpr:
-    type: text_format
+  field_information_text:
+    type: plain_text
+    weight: '3'
+    region: content
+    label: omit
+    settings:
+      text_length: 0
+    third_party_settings: {  }
+  field_information_text_title:
+    type: value
     weight: '2'
     region: content
     label: omit
@@ -29,6 +39,13 @@ content:
   field_mail_to:
     type: value
     weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_show_in_modal:
+    type: boolean
+    weight: '4'
     region: content
     label: omit
     settings: {  }

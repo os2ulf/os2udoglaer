@@ -1,16 +1,15 @@
-uuid: 08ebe789-5c54-48f8-92b7-11268e8c6481
+uuid: f890e72f-32ab-4554-9a63-8149c37106b3
 langcode: da
 status: true
 dependencies:
   module:
     - block_content
-    - text
-id: block_content.field_gdpr
-field_name: field_gdpr
+id: block_content.field_show_in_modal
+field_name: field_show_in_modal
 entity_type: block_content
-type: text_long
+type: boolean
 settings: {  }
-module: text
+module: core
 locked: false
 cardinality: 1
 translatable: true
