@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b05e5a64c00c59fd0317855b43abb45b",
+    "content-hash": "7e8d3d3974c2173952ec2fccdd65d714",
     "packages": [
         {
             "name": "algolia/places",
@@ -6467,17 +6467,17 @@
         },
         {
             "name": "drupal/transform_api_facets",
-            "version": "1.0.0-alpha5",
+            "version": "1.0.0-alpha6",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api_facets.git",
-                "reference": "1.0.0-alpha5"
+                "reference": "1.0.0-alpha6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-1.0.0-alpha5.zip",
-                "reference": "1.0.0-alpha5",
-                "shasum": "d16838fbbc76b943084a634ac679910a6ec52962"
+                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-1.0.0-alpha6.zip",
+                "reference": "1.0.0-alpha6",
+                "shasum": "cf8959f76c6807c40ca8814e3fe14e24507543ac"
             },
             "require": {
                 "drupal/core": "^10 || ^11",
@@ -6487,8 +6487,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-alpha5",
-                    "datestamp": "1721134318",
+                    "version": "1.0.0-alpha6",
+                    "datestamp": "1724139086",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
