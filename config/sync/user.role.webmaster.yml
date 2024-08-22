@@ -393,6 +393,8 @@ permissions:
   - 'use editorial transition accept'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition delete'
+  - 'use editorial transition publish'
+  - 'use editorial transition publish_unpublished'
   - 'use editorial transition reject'
   - 'use editorial transition restore_draft'
   - 'use editorial transition restore_publish'
