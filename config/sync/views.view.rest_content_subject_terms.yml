@@ -1,21 +1,22 @@
-uuid: 954c1308-2e29-4233-a6b1-8f9a5372dfdb
+uuid: ceb34118-42f6-463e-9d35-0889fe9682bb
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.user.field_name
+    - field.storage.node.field_subject
   module:
     - domain_access
+    - node
     - rest
     - serialization
     - user
-id: rest_users
-label: 'REST Users'
+id: rest_content_subject_terms
+label: 'REST Content Subject Terms'
 module: views
 description: ''
 tag: ''
-base_table: users_field_data
-base_field: uid
+base_table: node_field_data
+base_field: nid
 display:
   default:
     id: default
@@ -24,15 +25,13 @@ display:
     position: 0
     display_options:
       fields:
-        uid:
-          id: uid
-          table: users_field_data
-          field: uid
+        field_subject:
+          id: field_subject
+          table: node__field_subject
+          field: field_subject
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: uid
           plugin_id: field
           label: ''
           exclude: false
@@ -75,14 +74,12 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: false
-          group_column: value
+          click_sort_column: target_id
+          type: entity_reference_entity_id
+          settings: {  }
+          group_column: target_id
           group_columns: {  }
-          group_rows: true
+          group_rows: false
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
@@ -90,75 +87,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          entity_field: name
-          plugin_id: field
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: false
-            ellipsis: false
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
-          settings:
-            link_to_entity: false
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_name:
-          id: field_name
-          table: user__field_name
-          field: field_name
+        field_subject_1:
+          id: field_subject_1
+          table: node__field_subject
+          field: field_subject
           relationship: none
           group_type: group
           admin_label: ''
@@ -200,17 +132,17 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: '{{ name }}'
+          empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            link_to_entity: false
-          group_column: value
+            link: false
+          group_column: target_id
           group_columns: {  }
-          group_rows: true
+          group_rows: false
           delta_limit: 0
           delta_offset: 0
           delta_reversed: false
@@ -218,63 +150,24 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        roles_target_id:
-          id: roles_target_id
-          table: user__roles
-          field: roles_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          entity_field: roles
-          plugin_id: user_roles
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          type: separator
-          separator: ', '
       pager:
-        type: none
+        type: mini
         options:
           offset: 0
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: ››
+            previous: ‹‹
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Antal elementer'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- Alle -'
+            offset: false
+            offset_label: Forskydning
       exposed_form:
         type: basic
         options:
@@ -290,14 +183,14 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: none
+        type: tag
         options: {  }
       empty: {  }
       sorts:
-        field_name_value:
-          id: field_name_value
-          table: user__field_name
-          field: field_name_value
+        field_subject_target_id:
+          id: field_subject_target_id
+          table: node__field_subject
+          field: field_subject_target_id
           relationship: none
           group_type: group
           admin_label: ''
@@ -308,16 +201,16 @@ display:
             field_identifier: ''
           exposed: false
       arguments:
-        roles_target_id:
-          id: roles_target_id
-          table: user__roles
-          field: roles_target_id
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: user
-          entity_field: roles
-          plugin_id: user__roles_rid
+          entity_type: node
+          entity_field: nid
+          plugin_id: node_nid
           default_action: ignore
           exception:
             value: all
@@ -342,13 +235,11 @@ display:
             type: none
             fail: 'not found'
           validate_options: {  }
-          break_phrase: true
-          add_table: false
-          require_value: false
-          reduce_duplicates: false
+          break_phrase: false
+          not: false
         field_domain_access_target_id:
           id: field_domain_access_target_id
-          table: user__field_domain_access
+          table: node__field_domain_access
           field: field_domain_access_target_id
           relationship: none
           group_type: group
@@ -386,9 +277,9 @@ display:
       filters:
         status:
           id: status
-          table: users_field_data
+          table: node_field_data
           field: status
-          entity_type: user
+          entity_type: node
           entity_field: status
           plugin_id: boolean
           value: '1'
@@ -420,55 +311,41 @@ display:
       relationships: {  }
       header: {  }
       footer: {  }
-      display_extenders:
-        transform_api_facets:
-          transform_facets: {  }
-        transform_api_views:
-          row_transform: entity
-          row_transform_mode: default
-          pager_transform: basic
-          pager_transform_links: relative
-          pager_transform_links_destination: current
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
         - url.site
+        - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
-        - 'config:field.storage.user.field_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
+        - 'config:field.storage.node.field_subject'
   rest_export_1:
     id: rest_export_1
     display_title: 'REST eksport'
     display_plugin: rest_export
     position: 1
     display_options:
-      pager:
-        type: none
-        options:
-          offset: 0
       style:
         type: serializer
         options:
-          uses_fields: true
           formats:
             json: json
       row:
         type: data_field
         options:
           field_options:
-            uid:
-              alias: uid
+            field_subject:
+              alias: tid
               raw_output: false
-            field_name:
-              alias: name
-              raw_output: false
-            roles_target_id:
-              alias: role
+            field_subject_1:
+              alias: label
               raw_output: false
       display_extenders:
         transform_api_facets:
@@ -479,7 +356,7 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: rest-export/users/%
+      path: rest-export/content-subject-terms/%
       auth: {  }
     cache_metadata:
       max-age: -1
@@ -489,8 +366,9 @@ display:
         - request_format
         - url
         - url.site
+        - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
-        - 'config:field.storage.user.field_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
+        - 'config:field.storage.node.field_subject'
