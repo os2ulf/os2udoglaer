@@ -2,6 +2,8 @@ uuid: e2397602-a0df-4389-b43b-8f3600ea96d6
 langcode: da
 status: true
 dependencies:
+  config:
+    - user.role.rest_api
   module:
     - rest
     - serialization
@@ -169,9 +171,10 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            rest_api: rest_api
       cache:
         type: tag
         options: {  }
@@ -281,7 +284,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags: {  }
   rest_export_1:
     id: rest_export_1
@@ -314,7 +317,8 @@ display:
           pager_transform_links: relative
           pager_transform_links_destination: current
       path: rest-export/terms/%
-      auth: {  }
+      auth:
+        - basic_auth
     cache_metadata:
       max-age: -1
       contexts:
@@ -322,5 +326,5 @@ display:
         - 'languages:language_interface'
         - request_format
         - url
-        - user.permissions
+        - user.roles
       tags: {  }
