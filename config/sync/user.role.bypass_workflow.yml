@@ -12,7 +12,6 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - content_moderation
-    - content_moderation_bypass
     - domain_access
     - entity_clone
     - filter
@@ -27,7 +26,6 @@ is_admin: null
 permissions:
   - 'access toolbar'
   - 'access workbench'
-  - 'bypass editorial transition restrictions'
   - 'change own username'
   - 'clone node entity'
   - 'create course content'
@@ -57,12 +55,16 @@ permissions:
   - 'use editorial transition accept'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition delete'
+  - 'use editorial transition publish'
+  - 'use editorial transition publish_unpublished'
   - 'use editorial transition reject'
   - 'use editorial transition restore_draft'
   - 'use editorial transition restore_publish'
   - 'use editorial transition save_draft_leave_current_published'
   - 'use editorial transition save_review'
+  - 'use editorial transition save_unpublished'
   - 'use editorial transition submit_for_review'
+  - 'use editorial transition unpublish'
   - 'use editorial transition update'
   - 'use text format basic_html'
   - 'view all revisions'
