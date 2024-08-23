@@ -1,0 +1,30 @@
+uuid: ddbfc824-b047-4e29-b0b5-7a4cea7baafc
+langcode: da
+status: true
+dependencies:
+  config:
+    - views.view.workbench_edited
+  module:
+    - system
+    - views
+  theme:
+    - os2udoglaer
+id: os2udoglaer_views_block__workbench_edited_block_2
+theme: os2udoglaer
+region: content
+weight: -3
+provider: null
+plugin: 'views_block:workbench_edited-block_2'
+settings:
+  id: 'views_block:workbench_edited-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /admin/workbench/my-workbench

@@ -21,32 +21,32 @@ definitions:
     expanded: false
     enabled: true
   workbench__content:
+    enabled: false
     menu_name: workbench
     parent: ''
-    weight: -50
+    weight: -44
     expanded: false
-    enabled: true
   workbench__create_content:
-    menu_name: workbench
-    parent: ''
-    weight: -49
-    expanded: false
-    enabled: true
-  workbench__my_edited:
-    menu_name: workbench
-    parent: ''
-    weight: -48
-    expanded: false
-    enabled: true
-  workbench__all_content:
-    menu_name: workbench
-    parent: ''
     weight: -47
-    expanded: false
-    enabled: true
-  workbench__configure:
     menu_name: workbench
     parent: ''
+    enabled: true
+    expanded: false
+  workbench__my_edited:
     weight: -43
+    menu_name: workbench
+    parent: ''
+    expanded: false
+    enabled: false
+  workbench__all_content:
+    weight: -49
+    menu_name: workbench
+    parent: ''
+    enabled: true
+    expanded: false
+  workbench__configure:
+    weight: -45
+    menu_name: workbench
+    parent: ''
     expanded: false
     enabled: true
