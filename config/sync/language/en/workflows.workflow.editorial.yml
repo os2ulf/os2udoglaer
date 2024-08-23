@@ -8,3 +8,5 @@ type_settings:
   transitions:
     create_new_draft:
       label: 'Create New Draft'
+    publish:
+      label: Publish

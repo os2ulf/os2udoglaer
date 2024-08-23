@@ -66,3 +66,4 @@ cloneable_entities:
   - solr_cache
   - solr_request_dispatcher
   - rest_resource_config
+  - content_moderation_notification

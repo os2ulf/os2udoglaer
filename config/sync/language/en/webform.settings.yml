@@ -6,7 +6,7 @@ settings:
   default_reset_button_label: Reset
   default_delete_button_label: Delete
   default_form_confidential_message: 'This form is confidential. You must <a href="[site:login-url]/logout?destination=[current-page:url:relative]">Log out</a> to submit it.'
-  default_form_access_denied_message: 'Please login to access this form.'
+  default_form_access_denied_message: 'Please log in to access this form.'
   default_form_required_label: 'Indicates required field'
   default_wizard_prev_button_label: '< Previous'
   default_wizard_next_button_label: 'Next >'
@@ -27,7 +27,7 @@ settings:
   default_confirmation_message: 'New submission added to [webform:title].'
   default_confirmation_back_label: 'Back to form'
   default_submission_label: '[webform_submission:submitted-to]: Submission #[webform_submission:serial]'
-  default_submission_access_denied_message: 'Please login to access this submission.'
+  default_submission_access_denied_message: 'Please log in to access this submission.'
   default_submission_exception_message: 'Unable to process this submission. Please contact the site administrator.'
   default_submission_locked_message: 'This submission has been locked.'
   default_previous_submission_message: 'You have already submitted this webform. <a href="#">View your previous submission</a>.'
@@ -47,7 +47,7 @@ element:
   default_more_title: More
   default_section_title_tag: h2
 file:
-  file_private_redirect_message: 'Please login to access the uploaded file.'
+  file_private_redirect_message: 'Please log in to access the uploaded file.'
 mail:
   default_from_name: '[site:name]'
   default_subject: 'Webform submission from: [webform_submission:source-title]'
