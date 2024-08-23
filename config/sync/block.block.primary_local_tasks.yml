@@ -2,6 +2,8 @@ uuid: 50b47658-b9eb-42d4-bc7d-603e87e9429b
 langcode: da
 status: true
 dependencies:
+  module:
+    - system
   theme:
     - os2udoglaer
 _core:
@@ -19,4 +21,8 @@ settings:
   provider: core
   primary: true
   secondary: false
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: /admin/workbench/my-workbench
