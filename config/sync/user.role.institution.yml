@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - node.type.free_course_request
   module:
     - filter
+    - node
     - system
     - toolbar
 id: institution
@@ -14,5 +16,6 @@ weight: -3
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'edit own free_course_request content'
   - 'use text format basic_html'
   - 'view the administration theme'

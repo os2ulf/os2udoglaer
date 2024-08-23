@@ -1,0 +1,11 @@
+uuid: f4d182a4-1717-4fce-b03d-0c8f8325b4b1
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user.name
+label: Navn
+description: ''
+targetEntityType: user
+cache: true
