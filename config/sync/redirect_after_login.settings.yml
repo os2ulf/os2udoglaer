@@ -2,14 +2,15 @@ login_redirection:
   anonymous: null
   authenticated: /
   administrator: /
-  webmaster: /admin/workbench
-  editor: /admin/workbench
-  course_provider: /admin/workbench/create
-  corporation: /admin/workbench/create
+  webmaster: /admin/workbench/content/all
+  editor: /admin/workbench/content/all
+  course_provider: /admin/workbench/content/all
+  corporation: /admin/workbench/content/all
   institution: /admin/workbench/create
   school: /admin/workbench/create
   place_of_visit: /admin/workbench/create
   theater_contact: /admin/workbench/create
   monitor: /
   bypass_workflow: /admin/workbench
+  rest_api: /
 exclude_urls: ''

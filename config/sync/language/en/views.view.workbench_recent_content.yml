@@ -77,22 +77,6 @@ display:
         status:
           expose:
             label: Published
-      fields:
-        title:
-          label: Title
-          separator: ', '
-        type:
-          label: Type
-          separator: ', '
-        name:
-          label: Author
-          separator: ', '
-        changed:
-          label: 'Last updated'
-          separator: ', '
-        edit_node:
-          label: Actions
-          text: edit
       header:
         area:
           content:

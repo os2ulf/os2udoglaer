@@ -446,12 +446,12 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: admin/content/trash
+      path: admin/workbench/trash
       menu:
         type: normal
         title: Papirkurv
         description: ''
-        weight: -44
+        weight: -46
         expanded: false
         menu_name: workbench
         parent: ''
