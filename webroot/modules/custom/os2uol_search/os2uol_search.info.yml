@@ -1,0 +1,5 @@
+name: 'OS2UOL Search'
+type: module
+description: 'Provides custom functionality for search purposes for OS2 project'
+package: OS2udoglær
+core_version_requirement: ^10 || ^11
