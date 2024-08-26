@@ -138,3 +138,22 @@ function os2uol_transform_plugins_view_transform_alter(&$transformation) {
     unset($transformation['exposed_filters']['sort_by']['value']);
   }
 }
+
+/**
+ * Implements hook_views_post_build().
+ */
+function os2uol_transform_plugins_views_post_build(\Drupal\views\ViewExecutable $view): void {
+  if ($view->id() == 'related_content') {
+    $options = $view->exposed_widgets['target_group']['#options'];
+
+    foreach ($options as $key => $option) {
+      if ($option == 'All') {
+        continue;
+      }
+
+      $new_option = t('Progress to @option', ['@option' => strtolower($option)]);
+
+      $view->exposed_widgets['target_group']['#options'][$key] = $new_option;
+    }
+  }
+}
