@@ -110,9 +110,9 @@ display:
             first: '« Første'
             last: 'Sidste »'
           expose:
-            items_per_page: false
+            items_per_page: true
             items_per_page_label: 'Antal elementer'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options: '1,2,3,4,5,6,10,12,14,20,24,40,48'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
@@ -282,6 +282,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        status:
+          id: status
+          table: search_api_index_search
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         current_all:
           id: current_all
           table: search_api_index_search
@@ -402,6 +440,10 @@ display:
             - field_youth_education_subject_name
             - title
             - uid_name
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: default
       row:
@@ -557,6 +599,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        status:
+          id: status
+          table: search_api_index_search
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         current_all:
           id: current_all
           table: search_api_index_search
@@ -806,6 +886,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        status:
+          id: status
+          table: search_api_index_search
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         current_all:
           id: current_all
           table: search_api_index_search
@@ -1051,6 +1169,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        status:
+          id: status
+          table: search_api_index_search
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         current_all:
           id: current_all
           table: search_api_index_search
@@ -1300,6 +1456,44 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
+        status:
+          id: status
+          table: search_api_index_search
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         current_all:
           id: current_all
           table: search_api_index_search
