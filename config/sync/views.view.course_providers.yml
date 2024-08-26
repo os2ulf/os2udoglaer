@@ -109,9 +109,9 @@ display:
             first: '« Første'
             last: 'Sidste »'
           expose:
-            items_per_page: false
+            items_per_page: true
             items_per_page_label: 'Antal elementer'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options: '1,2,3,4,5,6,10,12,14,20,24,40,48'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
