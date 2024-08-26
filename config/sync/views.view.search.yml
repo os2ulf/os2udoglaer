@@ -302,6 +302,7 @@ display:
             - field_areas_of_interest_name
             - field_course_type_name
             - field_curriculum_themes_name
+            - field_description
             - field_educators_target_group_name
             - field_expectations
             - field_how_to
