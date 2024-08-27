@@ -12,7 +12,7 @@ field_name: field_logo
 entity_type: user
 bundle: user
 label: Logo
-description: ''
+description: 'OBS! Det er udbyders ansvar at sikre, at der er styr på rettigheder og tilladelser, når I uploader billeder.'
 required: false
 translatable: false
 default_value: {  }
