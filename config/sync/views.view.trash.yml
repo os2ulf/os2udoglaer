@@ -4,6 +4,10 @@ status: true
 dependencies:
   config:
     - system.menu.workbench
+    - user.role.administrator
+    - user.role.bypass_workflow
+    - user.role.editor
+    - user.role.webmaster
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -299,9 +303,13 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
+            bypass_workflow: bypass_workflow
       cache:
         type: tag
         options: {  }
@@ -428,7 +436,7 @@ display:
         - url.query_args
         - url.site
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:workflow_list'
   page_1:
@@ -464,7 +472,7 @@ display:
         - url.query_args
         - url.site
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:workflow_list'
     arguments:

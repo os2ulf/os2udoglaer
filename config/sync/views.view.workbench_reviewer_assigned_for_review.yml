@@ -6,8 +6,12 @@ dependencies:
     - field.storage.node.field_target_group
     - system.menu.workbench
     - user.role.administrator
-    - user.role.bypass_workflow
-    - user.role.editor
+    - user.role.corporation
+    - user.role.course_provider
+    - user.role.institution
+    - user.role.place_of_visit
+    - user.role.school
+    - user.role.theater_contact
     - user.role.webmaster
     - workflows.workflow.editorial
   module:
@@ -315,7 +319,7 @@ display:
           entity_field: nid
           plugin_id: field
           label: ID
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -381,7 +385,7 @@ display:
           entity_field: vid
           plugin_id: field
           label: Versions-ID
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -719,8 +723,12 @@ display:
           role:
             administrator: administrator
             webmaster: webmaster
-            editor: editor
-            bypass_workflow: bypass_workflow
+            course_provider: course_provider
+            corporation: corporation
+            institution: institution
+            school: school
+            place_of_visit: place_of_visit
+            theater_contact: theater_contact
       cache:
         type: tag
         options: {  }
