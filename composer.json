@@ -84,7 +84,6 @@
         "drupal/redis": "^1.5",
         "drupal/restui": "^1.21",
         "drupal/role_delegation": "^1.1",
-        "drupal/rules": "^3.0@alpha",
         "drupal/scheduled_transitions": "^2.0",
         "drupal/search_api": "^1.0",
         "drupal/search_api_exclude_entity": "^1.0",

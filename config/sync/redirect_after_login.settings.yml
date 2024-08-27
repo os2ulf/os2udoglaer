@@ -6,11 +6,11 @@ login_redirection:
   editor: /admin/workbench/content/all
   course_provider: /admin/workbench/content/all
   corporation: /admin/workbench/content/all
-  institution: /admin/workbench/create
-  school: /admin/workbench/create
-  place_of_visit: /admin/workbench/create
-  theater_contact: /admin/workbench/create
+  institution: /admin/workbench/content/all
+  school: /admin/workbench/content/all
+  place_of_visit: /admin/workbench/content/all
+  theater_contact: /admin/workbench/content/all
   monitor: /
-  bypass_workflow: /admin/workbench
+  bypass_workflow: /admin/workbench/content/all
   rest_api: /
 exclude_urls: ''
