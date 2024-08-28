@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
+    - field.field.node.free_course_request.field_old_id
     - field.field.node.free_course_request.field_receiving_class
     - field.field.node.free_course_request.field_rfc_attachment
     - field.field.node.free_course_request.field_rfc_course
@@ -17,7 +18,6 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_granted_amount
     - field.field.node.free_course_request.field_rfc_latest_editor
     - field.field.node.free_course_request.field_rfc_mail
-    - field.field.node.free_course_request.field_rfc_mails_sent
     - field.field.node.free_course_request.field_rfc_name
     - field.field.node.free_course_request.field_rfc_new_course_description
     - field.field.node.free_course_request.field_rfc_new_course_name
@@ -48,6 +48,7 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_old_id: true
   field_receiving_class: true
   field_rfc_attachment: true
   field_rfc_course: true
@@ -59,7 +60,6 @@ hidden:
   field_rfc_granted_amount: true
   field_rfc_latest_editor: true
   field_rfc_mail: true
-  field_rfc_mails_sent: true
   field_rfc_name: true
   field_rfc_new_course_description: true
   field_rfc_new_course_name: true
