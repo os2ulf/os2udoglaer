@@ -464,7 +464,7 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: rest-export/content/%/%
+      path: rest-export/courses/primary-school/%
       auth:
         - basic_auth
     cache_metadata:
