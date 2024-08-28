@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
+    - field.field.node.free_course_request.field_old_id
     - field.field.node.free_course_request.field_receiving_class
     - field.field.node.free_course_request.field_rfc_attachment
     - field.field.node.free_course_request.field_rfc_course
@@ -16,7 +17,6 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_granted_amount
     - field.field.node.free_course_request.field_rfc_latest_editor
     - field.field.node.free_course_request.field_rfc_mail
-    - field.field.node.free_course_request.field_rfc_mails_sent
     - field.field.node.free_course_request.field_rfc_name
     - field.field.node.free_course_request.field_rfc_new_course_description
     - field.field.node.free_course_request.field_rfc_new_course_name
@@ -44,7 +44,6 @@ third_party_settings:
         - field_rfc_granted_amount
         - field_rfc_remarks
         - field_rfc_send_mail
-        - field_rfc_mails_sent
         - field_rfc_latest_editor
       label: Redaktion
       region: content
@@ -120,6 +119,14 @@ targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
+  field_old_id:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_receiving_class:
     type: boolean_checkbox
     weight: 15
@@ -203,14 +210,6 @@ content:
     settings:
       placeholder: ''
       size: 60
-    third_party_settings: {  }
-  field_rfc_mails_sent:
-    type: string_textfield
-    weight: 16
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   field_rfc_name:
     type: string_textfield
