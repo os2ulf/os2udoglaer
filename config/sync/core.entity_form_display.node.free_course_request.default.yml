@@ -119,9 +119,15 @@ targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
+  created:
+    type: datetime_timestamp
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_old_id:
     type: string_textfield
-    weight: 26
+    weight: 5
     region: content
     settings:
       size: 60
@@ -323,7 +329,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  created: true
   field_domain_access: true
   field_domain_all_affiliates: true
   langcode: true

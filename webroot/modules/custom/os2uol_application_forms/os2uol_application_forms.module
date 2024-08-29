@@ -30,3 +30,34 @@ function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterfa
     }
   }
 }
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node edit forms.
+ *
+ * This example demonstrates how to access the node's created date
+ * in the node edit form alter function.
+ *
+ * @param array $form
+ *   An associative array containing the structure of the form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ * @param string $form_id
+ *   The unique string identifying the form.
+ */
+function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'node_free_course_request_edit_form') {
+    $node = $form_state->getFormObject()->getEntity();
+    $author = $node->getOwner();
+    $created_date = $node->getCreatedTime();
+    $formatted_created_date = \Drupal::service('date.formatter')->format($created_date, 'custom', 'd/m/Y - H:i');
+    $form['meta']['author']['#markup'] = $author->get('field_name')->value;
+    $form['meta']['published'] = [
+      '#type' => 'item',
+      '#title' => t('Published'),
+      '#markup' => $formatted_created_date,
+      '#wrapper_attributes' => [
+        'class' => ['entity-meta__published'],
+      ],
+    ];
+  }
+}
