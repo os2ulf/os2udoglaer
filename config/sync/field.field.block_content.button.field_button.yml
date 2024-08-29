@@ -13,7 +13,7 @@ id: block_content.button.field_button
 field_name: field_button
 entity_type: block_content
 bundle: button
-label: 'Knap'
+label: Knap
 description: ''
 required: false
 translatable: true
