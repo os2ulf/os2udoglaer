@@ -1,0 +1,5 @@
+views:
+  version: VERSION
+  css:
+    theme:
+      css/os2uol-application-forms-views.css: {}

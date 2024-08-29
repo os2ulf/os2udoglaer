@@ -1,0 +1,113 @@
+<?php
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_node_presave().
+ *
+ * Alters the author of a node before it is saved, specifically for nodes of
+ * type "free_course_request". The new author is determined by the user ID
+ * stored in the "field_rfc_school" field.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+  // Ensure we are dealing with a node entity and the node type is "free_course_request".
+  if ($entity instanceof \Drupal\node\NodeInterface && $entity->bundle() === 'free_course_request') {
+
+    // Check if the node has the field "field_rfc_school".
+    if ($entity->hasField('field_rfc_school') && !$entity->get('field_rfc_school')->isEmpty()) {
+
+      // Get the target_id from "field_rfc_school".
+      $new_author_id = $entity->get('field_rfc_school')->target_id;
+
+      // Load the user entity using the retrieved target_id.
+      $new_author = \Drupal\user\Entity\User::load($new_author_id);
+
+      // Check if the user entity was successfully loaded.
+      if ($new_author) {
+        // Set the node's author to the loaded user.
+        $entity->setOwner($new_author);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node edit forms.
+ *
+ * This example demonstrates how to access the node's created date
+ * in the node edit form alter function.
+ *
+ * @param array $form
+ *   An associative array containing the structure of the form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ * @param string $form_id
+ *   The unique string identifying the form.
+ */
+function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'node_free_course_request_edit_form') {
+    $node = $form_state->getFormObject()->getEntity();
+    $author = $node->getOwner();
+    $created_date = $node->getCreatedTime();
+    $formatted_created_date = \Drupal::service('date.formatter')->format($created_date, 'custom', 'd/m/Y - H:i');
+
+    // Change author name to field_name.
+    $form['meta']['author']['#markup'] = $author->get('field_name')->value;
+
+    // Add published node info in meta section.
+    $form['meta']['published'] = [
+      '#type' => 'item',
+      '#title' => t('Published'),
+      '#markup' => $formatted_created_date,
+      '#wrapper_attributes' => [
+        'class' => ['entity-meta__published'],
+      ],
+    ];
+
+    // Hide the time part of the date fields.
+    $form['field_rfc_date']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_rfc_date']['widget'][0]['value']['#date_time_format'] = '';
+    $form['field_rfc_payment_date']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_rfc_payment_date']['widget'][0]['value']['#date_time_format'] = '';
+    $form['field_rfc_follow_up_mail_sent']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_rfc_follow_up_mail_sent']['widget'][0]['value']['#date_time_format'] = '';
+  }
+}
+
+function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
+
+  if ($view->id() == 'free_course_request') { // Replace with your View ID
+    $requested_amount = 0;
+    $granted_amount = 0;
+    $spent_amount = 0;
+
+    foreach ($view->result as $row) {
+      $requested_amount += $row->_entity->get('field_rfc_requested_amount')->value;
+      $granted_amount += $row->_entity->get('field_rfc_granted_amount')->value;
+      $spent_amount += $row->_entity->get('field_rfc_spent_amount')->value;
+    }
+
+    // Construct the sum markup
+    $sum_markup = Markup::create(
+      '<table class="applications-summary">' .
+      '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
+      '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
+      '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
+      '</table>'
+    );
+    // Add the sum markup as the first item in the header
+    $view->attachment_before['sum_markup'] = [
+      '#markup' => $sum_markup,
+      '#weight' => -10,  // Ensures it appears before other elements
+    ];
+  }
+}
+
+// Attach library to the view.
+function os2uol_application_forms_preprocess_views_view(&$variables) {
+  if ($variables['view']->id() == 'free_course_request') {
+    $variables['#attached']['library'][] = 'os2uol_application_forms/views';
+  }
+}

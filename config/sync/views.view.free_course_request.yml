@@ -1420,8 +1420,8 @@ display:
               monitor: '0'
               bypass_workflow: '0'
               rest_api: '0'
-            min_placeholder: ''
-            max_placeholder: ''
+            min_placeholder: dd/mm/yyyy
+            max_placeholder: dd/mm/yyyy
             placeholder: ''
           is_grouped: false
           group_info:

@@ -121,7 +121,7 @@ mode: default
 content:
   field_old_id:
     type: string_textfield
-    weight: 26
+    weight: 5
     region: content
     settings:
       size: 60
