@@ -27,31 +27,13 @@
   border: none;
 }
 
-.view-free-course-request .view-filters fieldset .fieldset__wrapper {
-  margin: 0 !important;
-}
-
-.view-free-course-request .view-filters fieldset .fieldset__wrapper .form-item:last-child {
-  margin-right: 0 !important;
-}
-
-.view-free-course-request .view-filters fieldset .fieldset__label {
-  margin-bottom: 8px !important;
-  line-height: 18px;
-}
-
-.view-free-course-request .view-filters .form-item.form-item--field-rfc-date-value-min label,
-.view-free-course-request .view-filters .form-item.form-item--field-rfc-date-value-max label {
-  display: none;
-}
-
-.view-free-course-request .view-filters .form-item.form-item--field-rfc-date-value-min input,
-.view-free-course-request .view-filters .form-item.form-item--field-rfc-date-value-max input {
+.view-free-course-request .view-filters .form-item.form-item--field-rfc-date-value-1 input,
+.view-free-course-request .view-filters .form-item.form-item--field-rfc-date-value-2 input {
   max-width: 150px;
 }
 
 .view-free-course-request .view-filters .form-item.form-item--combine input {
-  min-width: 300px;
+  min-width: 310px;
 }
 
 .applications-summary {
