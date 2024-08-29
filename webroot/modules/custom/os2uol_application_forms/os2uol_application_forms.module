@@ -1,0 +1,32 @@
+<?php
+
+/**
+ * Implements hook_node_presave().
+ *
+ * Alters the author of a node before it is saved, specifically for nodes of
+ * type "free_course_request". The new author is determined by the user ID
+ * stored in the "field_rfc_school" field.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+  // Ensure we are dealing with a node entity and the node type is "free_course_request".
+  if ($entity instanceof \Drupal\node\NodeInterface && $entity->bundle() === 'free_course_request') {
+
+    // Check if the node has the field "field_rfc_school".
+    if ($entity->hasField('field_rfc_school') && !$entity->get('field_rfc_school')->isEmpty()) {
+
+      // Get the target_id from "field_rfc_school".
+      $new_author_id = $entity->get('field_rfc_school')->target_id;
+
+      // Load the user entity using the retrieved target_id.
+      $new_author = \Drupal\user\Entity\User::load($new_author_id);
+
+      // Check if the user entity was successfully loaded.
+      if ($new_author) {
+        // Set the node's author to the loaded user.
+        $entity->setOwner($new_author);
+      }
+    }
+  }
+}
