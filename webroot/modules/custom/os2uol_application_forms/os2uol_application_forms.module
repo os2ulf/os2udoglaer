@@ -50,7 +50,11 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
     $author = $node->getOwner();
     $created_date = $node->getCreatedTime();
     $formatted_created_date = \Drupal::service('date.formatter')->format($created_date, 'custom', 'd/m/Y - H:i');
+
+    // Change author name to field_name.
     $form['meta']['author']['#markup'] = $author->get('field_name')->value;
+
+    // Add published node info in meta section.
     $form['meta']['published'] = [
       '#type' => 'item',
       '#title' => t('Published'),
@@ -59,5 +63,13 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
         'class' => ['entity-meta__published'],
       ],
     ];
+
+    // Hide the time part of the date fields.
+    $form['field_rfc_date']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_rfc_date']['widget'][0]['value']['#date_time_format'] = '';
+    $form['field_rfc_payment_date']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_rfc_payment_date']['widget'][0]['value']['#date_time_format'] = '';
+    $form['field_rfc_follow_up_mail_sent']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_rfc_follow_up_mail_sent']['widget'][0]['value']['#date_time_format'] = '';
   }
 }
