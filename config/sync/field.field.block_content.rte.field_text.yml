@@ -17,7 +17,7 @@ id: block_content.rte.field_text
 field_name: field_text
 entity_type: block_content
 bundle: rte
-label: 'Tekst'
+label: Tekst
 description: ''
 required: false
 translatable: true
