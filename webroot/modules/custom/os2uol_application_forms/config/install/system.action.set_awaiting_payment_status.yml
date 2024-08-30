@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_awaiting_payment_status
+label: 'Set status to Awaiting payment'
+type: node
+plugin: set_awaiting_payment_status

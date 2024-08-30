@@ -1,0 +1,13 @@
+uuid: 810f46dd-c188-4d48-9f2c-2f3b3cfa05b0
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+_core:
+  default_config_hash: KNF1dIkoRnv0vSlpcYSeK3nFw7_E40tWAVrDaS-MMVw
+id: set_cancelled_status
+label: 'Sæt status til Annulleret'
+type: node
+plugin: set_cancelled_status
+configuration: {  }
