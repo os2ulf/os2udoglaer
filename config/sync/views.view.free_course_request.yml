@@ -97,14 +97,14 @@ display:
           action_title: Handlinger
           include_exclude: include
           selected_actions:
+            - set_accepted_status
             - set_awaiting_payment_status
+            - set_awaiting_status
             - set_cancelled_status
             - set_closed_status
             - set_payment_completed_status
             - set_ready_for_payment_status
             - set_refused_status
-            - set_accepted_status
-            - set_awaiting_status
         nid:
           id: nid
           table: node_field_data

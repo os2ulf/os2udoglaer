@@ -1,3 +1,8 @@
+# Danish translation of OS2UOL Application Forms
+
+msgid ""
+msgstr ""
+
 msgid "Set status to Awaiting"
 msgstr "Sæt status til Afventer"
 
@@ -11,7 +16,7 @@ msgid "Set status to Ready for payment"
 msgstr "Sæt status til Klar til udbetaling"
 
 msgid "Set status to Payment completed"
-msgstr "Sæt status til Udbetalt
+msgstr "Sæt status til Udbetalt"
 
 msgid "Set status to Refused"
 msgstr "Sæt status til Afvist"
