@@ -1,0 +1,23 @@
+uuid: 469ad54f-8f06-4c1b-ab7c-e0a8ff42dca1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_shop_url
+    - node.type.internship
+  module:
+    - link
+id: node.internship.field_pretix_shop_url
+field_name: field_pretix_shop_url
+entity_type: node
+bundle: internship
+label: 'Pretix shop URL'
+description: 'Efterlad tom for a bruge Pretix integrationen istedet.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

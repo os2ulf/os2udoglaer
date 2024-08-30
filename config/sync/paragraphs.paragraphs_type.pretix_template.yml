@@ -1,0 +1,10 @@
+uuid: 96ed6f8c-28b6-491d-ae64-a4ba35184103
+langcode: da
+status: true
+dependencies: {  }
+id: pretix_template
+label: 'Pretix skabelon'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

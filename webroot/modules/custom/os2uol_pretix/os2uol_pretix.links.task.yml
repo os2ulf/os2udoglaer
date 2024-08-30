@@ -1,0 +1,3 @@
+os2uol_pretix.tasks:
+  deriver: 'Drupal\os2uol_pretix\Plugin\Derivative\PretixLocalTasks'
+  weight: 100

@@ -1,0 +1,21 @@
+services:
+  os2uol_pretix.pretix_connector:
+    class: Drupal\os2uol_pretix\PretixConnector
+    arguments:
+      - '@http_client'
+
+  os2uol_pretix.event_manager:
+    class: Drupal\os2uol_pretix\PretixEventManager
+    arguments:
+      - '@os2uol_pretix.pretix_connector'
+      - '@logger.factory'
+      - '@messenger'
+
+  os2uol_pretix.order_manager:
+    class: Drupal\os2uol_pretix\PretixOrderManager
+    arguments:
+      - '@os2uol_pretix.pretix_connector'
+      - '@logger.factory'
+      - '@messenger'
+      - '@date.formatter'
+      - '@plugin.manager.mail'

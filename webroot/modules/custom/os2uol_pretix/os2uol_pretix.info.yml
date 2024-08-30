@@ -1,0 +1,7 @@
+name: 'OS2udoglær Pretix'
+type: module
+description: 'Handles integration with Pretix.'
+core_version_requirement: ^10
+package: 'OS2udoglær'
+dependencies:
+  - drupal:node

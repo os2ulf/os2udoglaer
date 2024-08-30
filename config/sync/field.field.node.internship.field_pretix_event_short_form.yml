@@ -1,0 +1,19 @@
+uuid: fe8f9916-4fb5-474f-bb72-70f839a3f167
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_event_short_form
+    - node.type.internship
+id: node.internship.field_pretix_event_short_form
+field_name: field_pretix_event_short_form
+entity_type: node
+bundle: internship
+label: 'Pretix event short form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

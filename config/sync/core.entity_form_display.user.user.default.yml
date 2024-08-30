@@ -31,8 +31,8 @@ dependencies:
     - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_default_events
     - field.field.user.user.field_pretix_enabled
-    - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
     - field.field.user.user.field_video
@@ -57,7 +57,7 @@ third_party_settings:
         - field_pretix_url
         - field_pretix_api_token
         - field_pretix_organizer_form
-        - field_pretix_event_form
+        - field_pretix_default_events
       label: Pretix
       region: content
       parent_name: ''
@@ -581,6 +581,24 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_pretix_default_events:
+    type: paragraphs
+    weight: 12
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
   field_pretix_enabled:
     type: boolean_checkbox
     weight: 7
@@ -589,20 +607,12 @@ content:
       display_label: true
     third_party_settings:
       conditional_fields: {  }
-  field_pretix_event_form:
-    type: string_textarea
-    weight: 11
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_pretix_organizer_form:
-    type: string_textarea
+    type: string_textfield
     weight: 10
     region: content
     settings:
-      rows: 5
+      size: 60
       placeholder: ''
     third_party_settings: {  }
   field_pretix_url:
