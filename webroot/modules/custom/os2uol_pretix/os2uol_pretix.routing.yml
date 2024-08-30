@@ -1,0 +1,32 @@
+os2uol_pretix.edit_subevent:
+  path: '/admin/pretix/subevent/{entity_type_id}/{entity_id}/{subevent}'
+  defaults:
+    _form: '\Drupal\os2uol_pretix\Form\PretixSubEventEditForm'
+    _title: 'Edit Pretix date'
+  requirements:
+    _permission: 'edit all pretix events'
+
+os2uol_pretix.delete_subevent:
+  path: '/admin/pretix/subevent/{entity_type_id}/{entity_id}/{subevent}/delete'
+  defaults:
+    _form: '\Drupal\os2uol_pretix\Form\PretixSubEventDeleteForm'
+    _title: 'Delete Pretix date'
+  requirements:
+    _permission: 'delete all pretix events'
+
+os2uol_pretix.webhooks.order:
+  path: '/pretix/webhooks/order/{organizer}'
+  defaults:
+    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::order'
+    _title: 'Pretix webhook'
+  requirements:
+    _access: 'TRUE'
+  methods: [POST]
+
+os2uol_pretix.test.order:
+  path: '/pretix/test/order/{node}/{order}'
+  defaults:
+    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::test'
+    _title: 'Pretix test order'
+  requirements:
+    _access: 'TRUE'

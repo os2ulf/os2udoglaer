@@ -1,0 +1,23 @@
+uuid: 153019ad-76ee-4ec0-b67e-abfdcdb96611
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_widget_type
+    - node.type.page
+  module:
+    - options
+id: node.page.field_pretix_widget_type
+field_name: field_pretix_widget_type
+entity_type: node
+bundle: page
+label: 'Pretix widget type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: list
+default_value_callback: ''
+settings: {  }
+field_type: list_string

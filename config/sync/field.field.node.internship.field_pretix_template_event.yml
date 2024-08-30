@@ -1,0 +1,19 @@
+uuid: fa49e0e8-48f6-4a9f-a3df-36b331c23044
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_template_event
+    - node.type.internship
+id: node.internship.field_pretix_template_event
+field_name: field_pretix_template_event
+entity_type: node
+bundle: internship
+label: 'Pretix template event'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

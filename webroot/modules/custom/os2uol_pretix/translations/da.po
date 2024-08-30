@@ -1,0 +1,84 @@
+# Danish translation of Pretix (all releases)
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Pretix (all releases)\n"
+"POT-Creation-Date: 2021-08-31 11:59+0000\n"
+"PO-Revision-Date: 2021-08-31 13:08+0100\n"
+"Language-Team: Danish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Last-Translator: \n"
+"Language: da\n"
+"X-Generator: Poedit 1.8.11\n"
+
+msgid "Event"
+msgstr "Begivenhed"
+
+msgid "Free"
+msgstr "Gratis"
+
+msgid "Price"
+msgstr "Pris"
+
+msgid "Quota"
+msgstr "Kvote"
+
+msgid "Event start time"
+msgstr "Begivenhedens starttidspunkt"
+
+msgid "Event end time"
+msgstr "Begivenhedens sluttidspunkt"
+
+msgid "Start of presale"
+msgstr "Start af forsalg"
+
+msgid "End of presale"
+msgstr "Slut af forsalg"
+
+msgid "Add new date"
+msgstr "Tilføj ny dato"
+
+msgid "Edit date"
+msgstr "Redigér dato"
+
+msgid "Event"
+msgstr "Begivenhed"
+
+msgid "Quantity"
+msgstr "Antal"
+
+msgid "Start time"
+msgstr "Start tid"
+
+msgid "Availability"
+msgstr "Tilgængelighed"
+
+msgid "Availability"
+msgstr "Tilgængelighed"
+
+msgid "@count of @total"
+msgstr "@count af @total"
+
+msgid "Item price"
+msgstr "Produkt prid"
+
+msgid "Total price"
+msgstr "Total pris"
+
+msgid "Successfully edited date"
+msgstr "Successfuldt redigeret dato"
+
+msgid "Successfully set <a href=\"@pretix_event_url\">the pretix event</a> live."
+msgstr "Successfuldt sat <a href=\"@pretix_event_url\">Pretix begivenheden</a> live."
+
+msgid "Successfully set <a href=\"@pretix_event_url\">the pretix event</a> not live."
+msgstr "Successfuldt sat <a href=\"@pretix_event_url\">Pretix begivenheden</a> ikke live."
+
+msgid "User don't support Pretix"
+msgstr "Brugeren understøtter ikke Pretix"
+
+msgid "The user does not have all the information necessary for Pretix integration."
+msgstr "Brugeren har ikke alle de påkrævede information nødvendig for Pretix integration."

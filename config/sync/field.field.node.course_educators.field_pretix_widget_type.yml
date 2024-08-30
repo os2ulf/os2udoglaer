@@ -1,0 +1,23 @@
+uuid: fb8c2669-2194-4837-b468-6d4aa270e0e0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_widget_type
+    - node.type.course_educators
+  module:
+    - options
+id: node.course_educators.field_pretix_widget_type
+field_name: field_pretix_widget_type
+entity_type: node
+bundle: course_educators
+label: 'Pretix widget type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: list
+default_value_callback: ''
+settings: {  }
+field_type: list_string

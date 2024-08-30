@@ -1,0 +1,19 @@
+uuid: f0532f8d-6410-4720-baf4-9bfe0c58a3af
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_event_short_form
+    - paragraphs.paragraphs_type.pretix_template
+id: paragraph.pretix_template.field_event_short_form
+field_name: field_event_short_form
+entity_type: paragraph
+bundle: pretix_template
+label: 'Event short form'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

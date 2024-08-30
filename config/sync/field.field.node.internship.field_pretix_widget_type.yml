@@ -1,0 +1,23 @@
+uuid: 942ea9cf-ceeb-4d2b-b85b-66e95392b666
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_widget_type
+    - node.type.internship
+  module:
+    - options
+id: node.internship.field_pretix_widget_type
+field_name: field_pretix_widget_type
+entity_type: node
+bundle: internship
+label: 'Pretix widget type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: list
+default_value_callback: ''
+settings: {  }
+field_type: list_string

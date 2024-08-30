@@ -1,0 +1,19 @@
+uuid: d0ac2029-6658-45c8-88f9-a2c2851f8e12
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_event_short_form
+    - node.type.page
+id: node.page.field_pretix_event_short_form
+field_name: field_pretix_event_short_form
+entity_type: node
+bundle: page
+label: 'Pretix event short form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
