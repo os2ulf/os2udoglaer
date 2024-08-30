@@ -1,0 +1,13 @@
+uuid: 27a21193-f4c4-4a10-b1c1-d595a080b67d
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+_core:
+  default_config_hash: I6kXNF2oeE7gCRqejJRDubMFIh6zMU643MqANa-FXQg
+id: set_refused_status
+label: 'Sæt status til Afvist'
+type: node
+plugin: set_refused_status
+configuration: {  }

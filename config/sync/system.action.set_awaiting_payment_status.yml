@@ -1,0 +1,13 @@
+uuid: 440c9099-6802-45a0-afe2-586932853c8f
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+_core:
+  default_config_hash: PDLAIcKuLaALGwAhLZLfqwTtMbDas51VSPQWM4NbHWA
+id: set_awaiting_payment_status
+label: 'Sæt status til Afventer udbetaling'
+type: node
+plugin: set_awaiting_payment_status
+configuration: {  }

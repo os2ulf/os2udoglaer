@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_refused_status
+label: 'Set status to Refused'
+type: node
+plugin: set_refused_status

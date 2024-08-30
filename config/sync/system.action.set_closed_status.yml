@@ -1,0 +1,13 @@
+uuid: 344fa093-e9d6-4fc1-a0c4-b35fc107bb83
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+_core:
+  default_config_hash: rZoX_SvfGGXDgGORgNxpzSFQ8D723RWnbVvNoXT3jw4
+id: set_closed_status
+label: 'Sæt status til Lukket'
+type: node
+plugin: set_closed_status
+configuration: {  }

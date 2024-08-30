@@ -111,3 +111,13 @@ function os2uol_application_forms_preprocess_views_view(&$variables) {
     $variables['#attached']['library'][] = 'os2uol_application_forms/views';
   }
 }
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function os2uol_application_forms_locale_translation_projects_alter(&$projects) {
+  $module_handler = \Drupal::service('module_handler');
+  $path = $module_handler->getModule('os2uol_application_forms')->getPath();
+  $projects['os2uol_application_forms']['info']['interface translation server pattern']
+    = $path . '/translations/%language.po';
+}

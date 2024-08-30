@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_accepted_status
+label: 'Set status to Accepted'
+type: node
+plugin: set_accepted_status

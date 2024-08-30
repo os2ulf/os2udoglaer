@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_awaiting_status
+label: 'Set status to Awaiting'
+type: node
+plugin: set_awaiting_status

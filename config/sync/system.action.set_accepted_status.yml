@@ -1,0 +1,13 @@
+uuid: 9339cf1a-2249-432f-b3fa-990113c740df
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+_core:
+  default_config_hash: Dollt72AGNQEUNgSiCTOHm9MqGHshRawxEDeG8HsTpY
+id: set_accepted_status
+label: 'Sæt status til Godkendt'
+type: node
+plugin: set_accepted_status
+configuration: {  }

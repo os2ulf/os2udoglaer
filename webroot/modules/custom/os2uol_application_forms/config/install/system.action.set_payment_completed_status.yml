@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_payment_completed_status
+label: 'Set status to Payment completed'
+type: node
+plugin: set_payment_completed_status

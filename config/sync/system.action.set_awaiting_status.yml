@@ -1,0 +1,13 @@
+uuid: da60a58e-1d46-45f8-85c4-3947624edb1b
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+_core:
+  default_config_hash: yIU_sVxWorkr6PaA_di1x57Wvh_efjafp4_xsvwsk9U
+id: set_awaiting_status
+label: 'Sæt status til Afventer'
+type: node
+plugin: set_awaiting_status
+configuration: {  }

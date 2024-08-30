@@ -1,0 +1,13 @@
+uuid: a8bee524-367f-439e-bd3f-0dd50d936b7b
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+_core:
+  default_config_hash: E0cGbdMPwI1pw6kyfPs-zLuqeophJrcOp2TLZtutTrE
+id: set_ready_for_payment_status
+label: 'Sæt status til Klar til udbetaling'
+type: node
+plugin: set_ready_for_payment_status
+configuration: {  }
