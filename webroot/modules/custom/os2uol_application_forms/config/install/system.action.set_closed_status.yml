@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_closed_status
+label: 'Set status to Closed'
+type: node
+plugin: set_closed_status

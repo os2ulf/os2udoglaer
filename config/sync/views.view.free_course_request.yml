@@ -21,6 +21,7 @@ dependencies:
     - node.type.free_course_request
     - taxonomy.vocabulary.subject
   module:
+    - better_exposed_filters
     - file
     - node
     - options
@@ -94,8 +95,16 @@ display:
           empty_zero: false
           hide_alter_empty: true
           action_title: Handlinger
-          include_exclude: exclude
-          selected_actions: {  }
+          include_exclude: include
+          selected_actions:
+            - set_awaiting_payment_status
+            - set_cancelled_status
+            - set_closed_status
+            - set_payment_completed_status
+            - set_ready_for_payment_status
+            - set_refused_status
+            - set_accepted_status
+            - set_awaiting_status
         nid:
           id: nid
           table: node_field_data
@@ -1213,7 +1222,7 @@ display:
             offset_label: Forskydning
           quantity: 9
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Udfør
           reset_button: false
@@ -1222,6 +1231,68 @@ display:
           expose_sort_order: true
           sort_asc_label: Stigende
           sort_desc_label: Faldende
+          text_input_required: 'Vælg et filter og klik på Anvend for at se resultater'
+          text_input_required_format: basic_html
+          bef:
+            general:
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Avancerede indstillinger'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              combine:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ''
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+              field_rfc_status_value:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+              field_rfc_date_value_1:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ''
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+              field_rfc_date_value_2:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ''
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+              combine_1:
+                plugin_id: default
+                advanced:
+                  placeholder_text: ''
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+              field_subject_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
       access:
         type: perm
         options:

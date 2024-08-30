@@ -1,0 +1,23 @@
+msgid "Set status to Awaiting"
+msgstr "Sæt status til Afventer"
+
+msgid "Set status to Accepted"
+msgstr "Sæt status til Godkendt"
+
+msgid "Set status to Awaiting payment"
+msgstr "Sæt status til Afventer udbetaling"
+
+msgid "Set status to Ready for payment"
+msgstr "Sæt status til Klar til udbetaling"
+
+msgid "Set status to Payment completed"
+msgstr "Sæt status til Udbetalt
+
+msgid "Set status to Refused"
+msgstr "Sæt status til Afvist"
+
+msgid "Set status to Cancelled"
+msgstr "Sæt status til Annulleret"
+
+msgid "Set status to Closed"
+msgstr "Sæt status til Lukket"
