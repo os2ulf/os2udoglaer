@@ -1192,7 +1192,7 @@ display:
           output_url_as_text: false
           absolute: false
       pager:
-        type: mini
+        type: full
         options:
           offset: 0
           items_per_page: 50
@@ -1201,6 +1201,8 @@ display:
           tags:
             next: ››
             previous: ‹‹
+            first: '« Første'
+            last: 'Sidste »'
           expose:
             items_per_page: false
             items_per_page_label: 'Antal elementer'
@@ -1209,6 +1211,7 @@ display:
             items_per_page_options_all_label: '- Alle -'
             offset: false
             offset_label: Forskydning
+          quantity: 9
       exposed_form:
         type: basic
         options:
@@ -1378,15 +1381,15 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           reduce_duplicates: false
-        field_rfc_date_value:
-          id: field_rfc_date_value
+        field_rfc_date_value_1:
+          id: field_rfc_date_value_1
           table: node__field_rfc_date
           field: field_rfc_date_value
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: numeric
-          operator: between
+          operator: '>='
           value:
             min: ''
             max: ''
@@ -1394,14 +1397,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_rfc_date_value_op
-            label: Afviklingsdato
-            description: ''
+            operator_id: field_rfc_date_value_1_op
+            label: 'Afviklingsdato fra'
+            description: 'F.eks. 29/08/2024'
             use_operator: false
-            operator: field_rfc_date_value_op
+            operator: field_rfc_date_value_1_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_rfc_date_value
+            identifier: field_rfc_date_value_1
             required: false
             remember: false
             multiple: false
@@ -1420,8 +1423,65 @@ display:
               monitor: '0'
               bypass_workflow: '0'
               rest_api: '0'
-            min_placeholder: dd/mm/yyyy
-            max_placeholder: dd/mm/yyyy
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_rfc_date_value_2:
+          id: field_rfc_date_value_2
+          table: node__field_rfc_date
+          field: field_rfc_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: numeric
+          operator: '<='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: field_rfc_date_value_2_op
+            label: 'Afviklingsdato til'
+            description: 'F.eks. 29/08/2024'
+            use_operator: false
+            operator: field_rfc_date_value_2_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: field_rfc_date_value_2
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            min_placeholder: ''
+            max_placeholder: ''
             placeholder: ''
           is_grouped: false
           group_info:
