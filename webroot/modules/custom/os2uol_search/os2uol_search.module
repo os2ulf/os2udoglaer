@@ -21,3 +21,28 @@ function os2uol_search_views_pre_build(\Drupal\views\ViewExecutable $view) {
   }
 }
 
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function os2uol_search_view_content_search_transform_alter(&$transformation) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $transformation['#view'];
+
+  if (!empty($view->filter['field_period'])) {
+    $query_param_name = $view->filter['field_period']->options['expose']['identifier'];
+
+    $exposed_input = $view->getExposedInput()[$query_param_name];
+
+    $build = [
+      'type' => 'date_range',
+      'label' => $view->filter['field_period']->options['expose']['label'],
+      'value' => [
+        'min' => $exposed_input['min'] ?? 0,
+        'max' => $exposed_input['max'] ?? '*',
+      ]
+    ];
+
+    $transformation['exposed_filters'][$query_param_name] = $build;
+  }
+}
+
