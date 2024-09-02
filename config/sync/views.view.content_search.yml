@@ -3,13 +3,11 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.body
     - search_api.index.search
   module:
     - better_exposed_filters
     - domain_access_search_api
     - search_api
-    - text
 id: content_search
 label: 'Content search'
 module: views
@@ -26,15 +24,14 @@ display:
     display_options:
       title: 'Content search'
       fields:
-        body:
-          id: body
-          table: search_api_index_search
-          field: body
+        title:
+          id: title
+          table: search_api_datasource_search_entity_node
+          field: title
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: null
-          entity_field: null
+          entity_type: node
           plugin_id: search_api_field
           label: ''
           exclude: false
@@ -69,7 +66,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -78,8 +75,9 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: text_default
-          settings: {  }
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -470,9 +468,6 @@ display:
         - url.site
         - 'user.node_grants:view'
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
   block_1:
@@ -505,9 +500,6 @@ display:
         - url.site
         - 'user.node_grants:view'
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
   block_2:
@@ -757,10 +749,107 @@ display:
             - field_youth_education_subject_name
             - title
             - uid_name
+        field_all_year:
+          id: field_all_year
+          table: search_api_index_search
+          field: field_all_year
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_period:
+          id: field_period
+          table: search_api_index_search
+          field: field_period
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_date
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 2
+          exposed: true
+          expose:
+            operator_id: field_period_op
+            label: Periode
+            description: ''
+            use_operator: false
+            operator: field_period_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: period
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
+          2: OR
       defaults:
         filters: false
         filter_groups: false
@@ -792,9 +881,6 @@ display:
         - url.site
         - 'user.node_grants:view'
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
   block_3:
@@ -1075,9 +1161,6 @@ display:
         - url.site
         - 'user.node_grants:view'
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
   block_4:
@@ -1327,10 +1410,107 @@ display:
             - field_youth_education_subject_name
             - title
             - uid_name
+        field_all_year:
+          id: field_all_year
+          table: search_api_index_search
+          field: field_all_year
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '='
+          value: '1'
+          group: 2
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_period:
+          id: field_period
+          table: search_api_index_search
+          field: field_period
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_date
+          operator: between
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: date
+          group: 2
+          exposed: true
+          expose:
+            operator_id: field_period_op
+            label: Periode
+            description: ''
+            use_operator: false
+            operator: field_period_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: period
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
           1: AND
+          2: OR
       defaults:
         filters: false
         filter_groups: false
@@ -1362,9 +1542,6 @@ display:
         - url.site
         - 'user.node_grants:view'
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
   block_5:
@@ -1651,8 +1828,5 @@ display:
         - url.site
         - 'user.node_grants:view'
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:field.storage.node.body'
         - 'config:search_api.index.search'
         - 'search_api_list:search'
