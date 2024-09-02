@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function os2uol_search_views_pre_build(\Drupal\views\ViewExecutable $view) {
+  if (!empty($view->filter['field_period'])) {
+    $query_param_name = $view->filter['field_period']->options['expose']['identifier'];
+    $exposed_input = $view->getExposedInput();
+
+    // Add default value to the filter to include all results.
+    if (empty($exposed_input[$query_param_name]['min'])) {
+      $exposed_input[$query_param_name]['min'] = 0;
+    }
+
+    if (empty($exposed_input[$query_param_name]['max'])) {
+      $exposed_input[$query_param_name]['max'] = '*';
+    }
+
+    $view->setExposedInput($exposed_input);
+  }
+}
+
