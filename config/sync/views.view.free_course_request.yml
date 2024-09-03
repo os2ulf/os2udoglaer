@@ -19,11 +19,17 @@ dependencies:
     - field.storage.node.field_subject
     - node.type.free_course_request
     - taxonomy.vocabulary.subject
+    - user.role.administrator
+    - user.role.corporation
+    - user.role.course_provider
+    - user.role.editor
+    - user.role.webmaster
     - workflows.workflow.application
   module:
     - better_exposed_filters
     - content_moderation
     - datetime
+    - domain_access
     - file
     - node
     - taxonomy
@@ -1285,9 +1291,14 @@ display:
                   collapsible_disable_automatic_open: false
                   is_secondary: false
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
+            course_provider: course_provider
+            corporation: corporation
       cache:
         type: tag
         options: {  }
@@ -1680,6 +1691,44 @@ display:
           hierarchy: false
           limit: true
           error_message: true
+        current_all:
+          id: current_all
+          table: node__field_domain_access
+          field: current_all
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_access_current_all_filter
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1871,8 +1920,9 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_afviklingsdato'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
@@ -1940,8 +1990,9 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_afviklingsdato'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'

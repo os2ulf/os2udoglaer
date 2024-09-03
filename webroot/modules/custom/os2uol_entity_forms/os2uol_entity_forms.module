@@ -1,7 +1,8 @@
 <?php
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;
-
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\user\UserInterface;
 /**
  * implements hook_field_widget_single_element_paragraphs_form_alter().
  */
@@ -455,5 +456,28 @@ function _domain_access_restrictions() {
     return TRUE;
   } else {
     return FALSE;
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ *
+ * Assigns the current domain to a newly created user.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function os2uol_entity_forms_entity_insert(EntityInterface $entity) {
+  if ($entity instanceof UserInterface) {
+    // Get the current active domain.
+    $current_domain = \Drupal::service('domain.negotiator')->getActiveDomain();
+
+    if ($current_domain) {
+      // Check if the user has a domain access field.
+      if ($entity->hasField('domain_access')) {
+        // Assign the current domain to the user.
+        $entity->set('domain_access', [$current_domain->id()]);
+        $entity->save();
+      }
+    }
   }
 }
