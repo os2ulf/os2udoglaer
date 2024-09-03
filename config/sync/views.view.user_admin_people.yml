@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_domain_access
+    - system.menu.admin
     - user.role.administrator
     - user.role.bypass_workflow
     - user.role.corporation
@@ -1256,14 +1257,16 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: people
+      path: admin/people
       menu:
-        type: 'default tab'
+        type: normal
         title: Vis
         description: 'Find og håndtér personer som bruger dit site.'
         weight: -10
+        expanded: false
         menu_name: admin
-        context: ''
+        parent: ''
+        context: '0'
       tab_options:
         type: normal
         title: Personer
@@ -2142,14 +2145,16 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: people-all
+      path: admin/people-all
       menu:
-        type: 'default tab'
+        type: normal
         title: Vis
         description: 'Find og håndtér personer som bruger dit site.'
         weight: -10
+        expanded: false
         menu_name: admin
-        context: ''
+        parent: ''
+        context: '0'
       tab_options:
         type: normal
         title: Personer
