@@ -70,6 +70,7 @@ permissions:
   - 'access own webform configuration'
   - 'access site reports'
   - 'access toolbar'
+  - 'access user profiles'
   - 'access webform help'
   - 'access webform overview'
   - 'access webform submission user'
@@ -310,3 +311,4 @@ permissions:
   - 'view private user information'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
+  - 'view user email addresses'
