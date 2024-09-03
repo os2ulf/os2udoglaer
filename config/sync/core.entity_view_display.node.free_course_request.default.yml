@@ -3,6 +3,8 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.node.free_course_request.field_afviklingsdato
+    - field.field.node.free_course_request.field_datotest
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
     - field.field.node.free_course_request.field_old_id
@@ -11,7 +13,6 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_course
     - field.field.node.free_course_request.field_rfc_course_name
     - field.field.node.free_course_request.field_rfc_course_not_found
-    - field.field.node.free_course_request.field_rfc_date
     - field.field.node.free_course_request.field_rfc_follow_up_mail_sent
     - field.field.node.free_course_request.field_rfc_grade
     - field.field.node.free_course_request.field_rfc_granted_amount
@@ -29,12 +30,11 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_school
     - field.field.node.free_course_request.field_rfc_send_mail
     - field.field.node.free_course_request.field_rfc_spent_amount
-    - field.field.node.free_course_request.field_rfc_status
     - field.field.node.free_course_request.field_rfc_subject
     - node.type.free_course_request
   module:
+    - datetime
     - file
-    - options
     - text
     - user
 id: node.free_course_request.default
@@ -42,6 +42,29 @@ targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_afviklingsdato:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_datotest:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 128
+    region: content
   field_old_id:
     type: string
     label: above
@@ -93,25 +116,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 117
-    region: content
-  field_rfc_date:
-    type: timestamp
-    label: above
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-      tooltip:
-        date_format: long
-        custom_date_format: ''
-      time_diff:
-        enabled: false
-        future_format: '@interval hence'
-        past_format: '@interval ago'
-        granularity: 2
-        refresh: 60
-    third_party_settings: {  }
-    weight: 122
     region: content
   field_rfc_follow_up_mail_sent:
     type: timestamp
@@ -279,13 +283,6 @@ content:
     third_party_settings: {  }
     weight: 123
     region: content
-  field_rfc_status:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 101
-    region: content
   field_rfc_subject:
     type: entity_reference_label
     label: above
@@ -304,3 +301,5 @@ hidden:
   field_domain_all_affiliates: true
   langcode: true
   search_api_excerpt: true
+  workbench_reviewer: true
+  workflow_buttons: true

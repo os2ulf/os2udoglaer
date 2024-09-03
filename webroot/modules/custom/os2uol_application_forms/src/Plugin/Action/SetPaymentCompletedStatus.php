@@ -19,7 +19,7 @@ class SetPaymentCompletedStatus extends ActionBase {
    */
   public function execute($entity = NULL) {
     if ($entity instanceof Node) {
-      $entity->set('field_rfc_status', 'payment_completed');
+      $entity->set('moderation_state', 'published');
       $entity->save();
     }
   }

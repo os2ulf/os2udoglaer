@@ -9,6 +9,7 @@ dependencies:
     - node.type.exercise
     - node.type.internship
     - node.type.news
+    - workflows.workflow.application
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -52,6 +53,13 @@ permissions:
   - 'update course_educators content on assigned domains'
   - 'update exercise content on assigned domains'
   - 'update internship content on assigned domains'
+  - 'use application transition accept'
+  - 'use application transition await_payment'
+  - 'use application transition cancel'
+  - 'use application transition complete_payment'
+  - 'use application transition luk'
+  - 'use application transition ready_for_payment'
+  - 'use application transition reject'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition delete'
   - 'use editorial transition reject'

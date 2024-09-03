@@ -19,7 +19,7 @@ class SetClosedStatus extends ActionBase {
    */
   public function execute($entity = NULL) {
     if ($entity instanceof Node) {
-      $entity->set('field_rfc_status', 'closed');
+      $entity->set('moderation_state', 'closed');
       $entity->save();
     }
   }

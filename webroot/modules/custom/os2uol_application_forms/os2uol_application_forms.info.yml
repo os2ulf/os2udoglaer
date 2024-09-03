@@ -7,3 +7,5 @@ dependencies:
   - drupal:user
   - drupal:views
   - drupal:node
+  - drupal:views_bulk_operations
+  - drupal:content_moderation

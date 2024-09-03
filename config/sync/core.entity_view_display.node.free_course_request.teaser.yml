@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.free_course_request.field_afviklingsdato
+    - field.field.node.free_course_request.field_datotest
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
     - field.field.node.free_course_request.field_old_id
@@ -12,7 +14,6 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_course
     - field.field.node.free_course_request.field_rfc_course_name
     - field.field.node.free_course_request.field_rfc_course_not_found
-    - field.field.node.free_course_request.field_rfc_date
     - field.field.node.free_course_request.field_rfc_follow_up_mail_sent
     - field.field.node.free_course_request.field_rfc_grade
     - field.field.node.free_course_request.field_rfc_granted_amount
@@ -30,7 +31,6 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_school
     - field.field.node.free_course_request.field_rfc_send_mail
     - field.field.node.free_course_request.field_rfc_spent_amount
-    - field.field.node.free_course_request.field_rfc_status
     - field.field.node.free_course_request.field_rfc_subject
     - node.type.free_course_request
   module:
@@ -40,12 +40,19 @@ targetEntityType: node
 bundle: free_course_request
 mode: teaser
 content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
   links:
     settings: {  }
     third_party_settings: {  }
     weight: 100
     region: content
 hidden:
+  field_afviklingsdato: true
+  field_datotest: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_old_id: true
@@ -54,7 +61,6 @@ hidden:
   field_rfc_course: true
   field_rfc_course_name: true
   field_rfc_course_not_found: true
-  field_rfc_date: true
   field_rfc_follow_up_mail_sent: true
   field_rfc_grade: true
   field_rfc_granted_amount: true
@@ -72,7 +78,8 @@ hidden:
   field_rfc_school: true
   field_rfc_send_mail: true
   field_rfc_spent_amount: true
-  field_rfc_status: true
   field_rfc_subject: true
   langcode: true
   search_api_excerpt: true
+  workbench_reviewer: true
+  workflow_buttons: true
