@@ -1,0 +1,7 @@
+_core:
+  default_config_hash: 0CBjJYwv3B0l8HMuecqp3DaXOOyUY1zJTTxrmpb8TQ4
+langcode: da
+admin_bypass_access_front: false
+admin_bypass_access_admin: true
+hide_show: 0
+hide_on_content: 2

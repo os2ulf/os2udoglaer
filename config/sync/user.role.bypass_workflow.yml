@@ -12,6 +12,7 @@ dependencies:
     - workflows.workflow.editorial
   module:
     - content_moderation
+    - content_moderation_bypass
     - domain_access
     - entity_clone
     - filter
@@ -26,6 +27,7 @@ is_admin: null
 permissions:
   - 'access toolbar'
   - 'access workbench'
+  - 'bypass application transition restrictions'
   - 'change own username'
   - 'clone node entity'
   - 'create course content'

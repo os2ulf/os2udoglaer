@@ -32,6 +32,7 @@ module:
   contextual: 0
   crop: 0
   csv_serialization: 0
+  date_popup: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
@@ -86,6 +87,7 @@ module:
   menu_item_fields: 0
   menu_item_fields_ui: 0
   menu_link_content: 0
+  menu_per_role: 0
   menu_ui: 0
   metatag: 0
   metatag_open_graph: 0
@@ -151,6 +153,7 @@ module:
   user: 0
   view_profiles_perms: 0
   view_unpublished: 0
+  views_bulk_operations: 0
   views_data_export: 0
   views_ui: 0
   webform: 0

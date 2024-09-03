@@ -1,12 +1,14 @@
-uuid: 2eb64792-cc20-4220-866d-e130e81ed040
+uuid: bccc77fd-2c90-42e6-82a8-4d41ad4842b9
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_rfc_date
+    - field.storage.node.field_afviklingsdato
     - node.type.free_course_request
-id: node.free_course_request.field_rfc_date
-field_name: field_rfc_date
+  module:
+    - datetime
+id: node.free_course_request.field_afviklingsdato
+field_name: field_afviklingsdato
 entity_type: node
 bundle: free_course_request
 label: Afviklingsdato
@@ -16,4 +18,4 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: timestamp
+field_type: datetime

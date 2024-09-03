@@ -19,7 +19,7 @@ class SetCancelledStatus extends ActionBase {
    */
   public function execute($entity = NULL) {
     if ($entity instanceof Node) {
-      $entity->set('field_rfc_status', 'cancelled');
+      $entity->set('moderation_state', 'cancelled');
       $entity->save();
     }
   }
