@@ -1,7 +1,7 @@
 login_redirection:
   anonymous: null
-  authenticated: /
-  administrator: /
+  authenticated: /admin/workbench/content/all
+  administrator: /admin/workbench/content/all
   webmaster: /admin/workbench/content/all
   editor: /admin/workbench/content/all
   course_provider: /admin/workbench/content/all

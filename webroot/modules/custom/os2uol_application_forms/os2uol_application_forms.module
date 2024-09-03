@@ -7,7 +7,8 @@ use Drupal\Core\Render\Markup;
  *
  * Alters the author of a node before it is saved, specifically for nodes of
  * type "free_course_request". The new author is determined by the user ID
- * stored in the "field_rfc_school" field.
+ * stored in the "field_rfc_school" field. Additionally, it updates the
+ * "field_rfc_latest_editor" field with the ID of the user who last edited the node.
  *
  * @param \Drupal\Core\Entity\EntityInterface $entity
  */
@@ -15,9 +16,8 @@ function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterfa
   // Ensure we are dealing with a node entity and the node type is "free_course_request".
   if ($entity instanceof \Drupal\node\NodeInterface && $entity->bundle() === 'free_course_request') {
 
-    // Check if the node has the field "field_rfc_school".
+    // Update the node author if "field_rfc_school" is set.
     if ($entity->hasField('field_rfc_school') && !$entity->get('field_rfc_school')->isEmpty()) {
-
       // Get the target_id from "field_rfc_school".
       $new_author_id = $entity->get('field_rfc_school')->target_id;
 
@@ -30,8 +30,18 @@ function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterfa
         $entity->setOwner($new_author);
       }
     }
+
+    // Update the "field_rfc_latest_editor" with the current user ID.
+    if ($entity->hasField('field_rfc_latest_editor')) {
+      // Get the current user ID.
+      $current_user_id = \Drupal::currentUser()->id();
+
+      // Set the "field_rfc_latest_editor" field to the current user ID.
+      $entity->set('field_rfc_latest_editor', $current_user_id);
+    }
   }
 }
+
 
 /**
  * Implements hook_form_FORM_ID_alter() for node edit forms.
@@ -67,8 +77,8 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
     ];
 
     // Hide the time part of the date fields.
-    $form['field_rfc_date']['widget'][0]['value']['#date_time_element'] = 'none';
-    $form['field_rfc_date']['widget'][0]['value']['#date_time_format'] = '';
+    $form['field_afviklingsdato']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_afviklingsdato']['widget'][0]['value']['#date_time_format'] = '';
     $form['field_rfc_payment_date']['widget'][0]['value']['#date_time_element'] = 'none';
     $form['field_rfc_payment_date']['widget'][0]['value']['#date_time_format'] = '';
     $form['field_rfc_follow_up_mail_sent']['widget'][0]['value']['#date_time_element'] = 'none';

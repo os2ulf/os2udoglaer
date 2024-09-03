@@ -19,7 +19,7 @@ class SetAwaitingPaymentStatus extends ActionBase {
    */
   public function execute($entity = NULL) {
     if ($entity instanceof Node) {
-      $entity->set('field_rfc_status', 'awaiting_payment');
+      $entity->set('moderation_state', 'awaiting_payment');
       $entity->save();
     }
   }

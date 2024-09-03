@@ -746,6 +746,7 @@ content:
     third_party_settings:
       conditional_fields: {  }
 hidden:
+  field_pretix_event_form: true
   langcode: true
   language: true
   path: true

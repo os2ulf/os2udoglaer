@@ -19,7 +19,7 @@ class SetRefusedStatus extends ActionBase {
    */
   public function execute($entity = NULL) {
     if ($entity instanceof Node) {
-      $entity->set('field_rfc_status', 'refused');
+      $entity->set('moderation_state', 'refused');
       $entity->save();
     }
   }

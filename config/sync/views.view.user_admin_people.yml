@@ -1245,13 +1245,15 @@ display:
       relationships: {  }
       show_admin_links: false
       display_extenders:
+        transform_api_facets:
+          transform_facets: {  }
         transform_api_views:
           row_transform: entity
           row_transform_mode: default
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: admin/people
+      path: admin/people-all
       menu:
         type: 'default tab'
         title: Vis

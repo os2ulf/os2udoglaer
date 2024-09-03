@@ -49,12 +49,14 @@ dependencies:
     - taxonomy.vocabulary.target_group_youth_education
     - taxonomy.vocabulary.theme
     - taxonomy.vocabulary.youth_education_subject
+    - workflows.workflow.application
     - workflows.workflow.editorial
   module:
     - atoms
     - block
     - block_content
     - content_moderation
+    - content_moderation_bypass
     - content_moderation_notifications
     - content_translation
     - contextual
@@ -126,6 +128,7 @@ permissions:
   - 'assign school role'
   - 'assign theater_contact role'
   - 'assign webmaster role'
+  - 'bypass application transition restrictions'
   - 'bypass node access'
   - 'clone action entity'
   - 'clone base_field_override entity'
@@ -378,6 +381,13 @@ permissions:
   - 'translate menu_link_content'
   - 'translate page node'
   - 'update content translations'
+  - 'use application transition accept'
+  - 'use application transition await_payment'
+  - 'use application transition cancel'
+  - 'use application transition complete_payment'
+  - 'use application transition luk'
+  - 'use application transition ready_for_payment'
+  - 'use application transition reject'
   - 'use domain config ui'
   - 'use domain nav block'
   - 'use domain switcher block'

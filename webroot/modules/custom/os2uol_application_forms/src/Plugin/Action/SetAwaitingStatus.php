@@ -19,7 +19,7 @@ class SetAwaitingStatus extends ActionBase {
    */
   public function execute($entity = NULL) {
     if ($entity instanceof Node) {
-      $entity->set('field_rfc_status', 'awaiting');
+      $entity->set('moderation_state', 'draft');
       $entity->save();
     }
   }
