@@ -25,4 +25,4 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: "/admin/workbench/my-workbench\r\n/people-all"
+    pages: "/admin/workbench/my-workbench\r\n/admin/people-all"
