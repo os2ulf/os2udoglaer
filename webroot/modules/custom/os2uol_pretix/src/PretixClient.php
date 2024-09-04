@@ -3,6 +3,8 @@
 namespace Drupal\os2uol_pretix;
 
 use Drupal\Core\Entity\EditorialContentEntityBase;
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\GuzzleException;
 
 class PretixClient {
 
@@ -35,14 +37,25 @@ class PretixClient {
    * @param array $event
    *
    * @return array
-   * @throws \GuzzleHttp\Exception\GuzzleException
    */
   public function createEvent(string $default_event, array $event): array {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $default_event . '/clone/';
     $event['has_subevents'] = TRUE;
     $options = $this->getOptions();
     $options['json'] = $event;
-    return json_decode($this->client->request('POST', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('POST', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getCode(),
+        'code' => $e->getCode(),
+        'message' => $e->getMessage(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   public function createSubEvent(string $eventSlug, array $subevent) {
@@ -63,6 +76,13 @@ class PretixClient {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/subevents/' . $subevent_id . '/';
     $options = $this->getOptions();
     return $this->client->request('DELETE', $url, $options)->getStatusCode();
+  }
+
+  public function createMetadata(string $eventSlug, array $metadata) {
+    $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/item_meta_properties/';
+    $options = $this->getOptions();
+    $options['json'] = $metadata;
+    return json_decode($this->client->request('POST', $url, $options)->getBody()->getContents(), TRUE);
   }
 
   /**
@@ -94,7 +114,19 @@ class PretixClient {
     $options = $this->getOptions();
     $options['json'] = $data;
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug. '/';
-    return json_decode($this->client->request('PATCH', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('PATCH', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getCode(),
+        'code' => $e->getCode(),
+        'message' => $e->getMessage(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -138,7 +170,18 @@ class PretixClient {
   public function getSubEvents(string $eventSlug): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/subevents/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getCode(),
+        'code' => $e->getCode(),
+        'message' => $e->getMessage(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+
   }
 
   /**

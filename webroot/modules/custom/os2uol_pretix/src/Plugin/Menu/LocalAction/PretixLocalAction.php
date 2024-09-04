@@ -90,6 +90,18 @@ class PretixLocalAction extends LocalActionDefault implements ContainerFactoryPl
   }
 
   /**
+   * {@inheritdoc}
+   */
+  public function getCacheTags() {
+    $tags = parent::getCacheTags();
+    $entity = $this->getEntityFromRouteMatch();
+    if (!empty($entity)) {
+      $tags += $this->getEntityFromRouteMatch()->getCacheTagsToInvalidate();
+    }
+    return $tags;
+  }
+
+  /**
    * Get entity from route match.
    *
    * @return \Drupal\Core\Entity\ContentEntityInterface|null

@@ -163,7 +163,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     // Important: meta_data value must be an object!
     $data['meta_data'] = (object) [];
-    $data['meta_data'] = ['DrupalURL' => $entity->toUrl()->toString()];
+    $data['item_meta_properties'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
   }
 
   public function getEvents(EditorialContentEntityBase $entity) {
@@ -173,12 +173,18 @@ class PretixEventManager extends PretixAbstractManager {
 
   public function getEventUrl(EditorialContentEntityBase $entity): string {
     $client = $this->getClient($entity);
-    return $client->getPretixUrl() . '/control/event/' . $client->getOrganizer() . '/' . $this->getEventSlug($entity) . '/';
+    return $client->getPretixUrl() . 'control/event/' . $client->getOrganizer() . '/' . $this->getEventSlug($entity) . '/';
   }
 
   public function getEventShopUrl(EditorialContentEntityBase $entity): string {
     $client = $this->getClient($entity);
-    return $client->getPretixUrl() . '/' . $client->getOrganizer() . '/' . $this->getEventSlug($entity) . '/';
+    if ($this->isPretixEventEntity($entity)) {
+      return $client->getPretixUrl() . $client->getOrganizer() . '/' . $this->getEventSlug($entity) . '/';
+    } elseif ($this->hasPretixShopURL($entity)) {
+      return $entity->get('field_pretix_shop_url')->first()->getString();
+    } else {
+      return '';
+    }
   }
 
   public function getQuotas(EditorialContentEntityBase $entity, $subevent) {
@@ -213,13 +219,28 @@ class PretixEventManager extends PretixAbstractManager {
     if ($this->isApiError($result)) {
       return $this->apiError($result, 'Cannot get event');
     }
-    $event = $result;
 
-    $result = $client->updateEvent($this->getEventSlug($entity), ['live' => $live]);
+    $result = $client->updateEvent($this->getEventSlug($entity), [
+      'live' => $live,
+      'item_meta_properties' => ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()]
+    ]);
     if ($this->isApiError($result)) {
-      return $this->apiError($result, $live ? 'Cannot set pretix event live' : 'Cannot set pretix event not live');
+      foreach ($result['json'] as $type => $errors) {
+        if ($type == 'live') {
+          foreach ($errors as $error) {
+            if ($error == 'You need to configure at least one quota to sell anything.') {
+              $this->messenger->addWarning(t('Shop is not live until dates are added.'));
+            }
+            else {
+              $this->apiError($result, $live ? 'Cannot set pretix event live' : 'Cannot set pretix event not live');
+            }
+          }
+        } else {
+          $this->apiError($result, $live ? 'Cannot set pretix event live' : 'Cannot set pretix event not live');
+        }
+      }
+      return [];
     }
-    $event = $result;
 
     $message = $live
       ? t('Successfully set <a href="@pretix_event_url">the pretix event</a> live.', [
@@ -286,7 +307,7 @@ class PretixEventManager extends PretixAbstractManager {
     }
   }
 
-  public function createEvent(EditorialContentEntityBase $entity, array $event) {
+  public function createEvent(EditorialContentEntityBase $entity, $template, array $event): array {
     $client = $this->getClient($entity);
     $data = [
       'name' => $this->formatEventName($entity),
@@ -295,8 +316,26 @@ class PretixEventManager extends PretixAbstractManager {
       'date_from' => $event['date_from']
     ];
     $data['has_subevents'] = TRUE;
-    $data['meta_data'] = ['DrupalURL' => $entity->toUrl()->toString()];
-    return $client->createEvent($this->getEventTemplate($entity), $data);
+    $data['item_meta_properties'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
+    $result = $client->createEvent($template, $data);
+    if ($this->isApiError($result)) {
+      foreach ($result['json'] as $type => $errors) {
+        if ($type == 'slug') {
+          foreach ($errors as $error) {
+            if ($error == 'This slug has already been used for a different event.') {
+              $this->apiError($result, 'The event already exists.');
+            }
+            else {
+              $this->apiError($result, 'Could not create event');
+            }
+          }
+        } else {
+          $this->apiError($result, 'Could not create event');
+        }
+      }
+      return [];
+    }
+    return $result;
   }
 
   protected function formatEventName($entity): array {
