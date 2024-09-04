@@ -1,0 +1,33 @@
+uuid: e72a15a1-9bff-4025-a80a-95d867029498
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_semester
+field_name: field_semester
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 1_halvar_2024_2025
+      label: '1. halvår 2024/2025'
+    -
+      value: 2_halvar_2024_2025
+      label: '2. halvår 2024/2025'
+    -
+      value: 1_halvar_2025_2026
+      label: '1. halvår 2025/2026'
+    -
+      value: 2_halvar_2025_2026
+      label: '2. halvår 2025/2026'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
