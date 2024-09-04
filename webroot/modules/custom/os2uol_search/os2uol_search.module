@@ -31,7 +31,7 @@ function os2uol_search_view_content_search_transform_alter(&$transformation) {
   if (!empty($view->filter['field_period'])) {
     $query_param_name = $view->filter['field_period']->options['expose']['identifier'];
 
-    $exposed_input = $view->getExposedInput()[$query_param_name];
+    $exposed_input = $view->getExposedInput()[$query_param_name] ?? [];
 
     $build = [
       'type' => 'date_range',
