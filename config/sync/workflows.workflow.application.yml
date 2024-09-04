@@ -58,6 +58,12 @@ type_settings:
         - draft
       to: accepted
       weight: 0
+    afventer:
+      label: Afventer
+      from:
+        - draft
+      to: draft
+      weight: 7
     await_payment:
       label: 'Afvent betaling'
       from:

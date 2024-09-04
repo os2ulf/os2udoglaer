@@ -3,9 +3,9 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_afviklingsdato
     - field.storage.node.field_rfc_attachment
     - field.storage.node.field_rfc_course_name
+    - field.storage.node.field_rfc_date
     - field.storage.node.field_rfc_grade
     - field.storage.node.field_rfc_granted_amount
     - field.storage.node.field_rfc_latest_editor
@@ -622,10 +622,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_afviklingsdato:
-          id: field_afviklingsdato
-          table: node__field_afviklingsdato
-          field: field_afviklingsdato
+        field_rfc_date:
+          id: field_rfc_date
+          table: node__field_rfc_date
+          field: field_rfc_date
           relationship: none
           group_type: group
           admin_label: ''
@@ -672,10 +672,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_default
+          type: datetime_custom
           settings:
             timezone_override: ''
-            format_type: os2date
+            date_format: d/m/Y
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1222,8 +1222,8 @@ display:
         type: bef
         options:
           submit_button: Udfør
-          reset_button: false
-          reset_button_label: Gendan
+          reset_button: true
+          reset_button_label: Nulstil
           exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
           sort_asc_label: Stigende
@@ -1249,7 +1249,7 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
-              field_rfc_status_value:
+              moderation_state:
                 plugin_id: default
                 advanced:
                   sort_options: false
@@ -1259,17 +1259,15 @@ display:
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
-              field_rfc_date_value_1:
+              field_rfc_date_value:
                 plugin_id: default
                 advanced:
-                  placeholder_text: ''
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
-              field_rfc_date_value_2:
+              field_rfc_date_value_1:
                 plugin_id: default
                 advanced:
-                  placeholder_text: ''
                   collapsible: false
                   collapsible_disable_automatic_open: false
                   is_secondary: false
@@ -1451,10 +1449,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_afviklingsdato_value:
-          id: field_afviklingsdato_value
-          table: node__field_afviklingsdato
-          field: field_afviklingsdato_value
+        field_rfc_date_value:
+          id: field_rfc_date_value
+          table: node__field_rfc_date
+          field: field_rfc_date_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -1468,14 +1466,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_afviklingsdato_value_op
+            operator_id: field_rfc_date_value_op
             label: 'Afviklingsdato fra'
             description: ''
             use_operator: false
-            operator: field_afviklingsdato_value_op
+            operator: field_rfc_date_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_afviklingsdato_value
+            identifier: field_rfc_date_value
             required: false
             remember: false
             multiple: false
@@ -1509,10 +1507,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_afviklingsdato_value_1:
-          id: field_afviklingsdato_value_1
-          table: node__field_afviklingsdato
-          field: field_afviklingsdato_value
+        field_rfc_date_value_1:
+          id: field_rfc_date_value_1
+          table: node__field_rfc_date
+          field: field_rfc_date_value
           relationship: none
           group_type: group
           admin_label: ''
@@ -1526,14 +1524,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_afviklingsdato_value_1_op
+            operator_id: field_rfc_date_value_1_op
             label: 'Afviklingsdato til'
             description: ''
             use_operator: false
-            operator: field_afviklingsdato_value_1_op
+            operator: field_rfc_date_value_1_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_afviklingsdato_value_1
+            identifier: field_rfc_date_value_1
             required: false
             remember: false
             multiple: false
@@ -1924,9 +1922,9 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_afviklingsdato'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
@@ -1938,9 +1936,9 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_afviklingsdato'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
@@ -1952,9 +1950,9 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
-        - 'config:field.storage.node.field_afviklingsdato'
         - 'config:field.storage.node.field_rfc_attachment'
         - 'config:field.storage.node.field_rfc_course_name'
+        - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
         - 'config:field.storage.node.field_rfc_latest_editor'
@@ -1994,9 +1992,9 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_afviklingsdato'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
@@ -2008,9 +2006,9 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_afviklingsdato'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
@@ -2022,9 +2020,9 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
-        - 'config:field.storage.node.field_afviklingsdato'
         - 'config:field.storage.node.field_rfc_attachment'
         - 'config:field.storage.node.field_rfc_course_name'
+        - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
         - 'config:field.storage.node.field_rfc_latest_editor'

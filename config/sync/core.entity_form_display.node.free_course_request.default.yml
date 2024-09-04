@@ -3,16 +3,16 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.free_course_request.field_afviklingsdato
-    - field.field.node.free_course_request.field_datotest
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
+    - field.field.node.free_course_request.field_mailto
     - field.field.node.free_course_request.field_old_id
     - field.field.node.free_course_request.field_receiving_class
     - field.field.node.free_course_request.field_rfc_attachment
     - field.field.node.free_course_request.field_rfc_course
     - field.field.node.free_course_request.field_rfc_course_name
     - field.field.node.free_course_request.field_rfc_course_not_found
+    - field.field.node.free_course_request.field_rfc_date
     - field.field.node.free_course_request.field_rfc_follow_up_mail_sent
     - field.field.node.free_course_request.field_rfc_grade
     - field.field.node.free_course_request.field_rfc_granted_amount
@@ -87,7 +87,7 @@ third_party_settings:
         - field_rfc_new_course_description
         - field_rfc_subject
         - field_rfc_requested_amount
-        - field_afviklingsdato
+        - field_rfc_date
       label: Forløb
       region: content
       parent_name: ''
@@ -107,7 +107,7 @@ third_party_settings:
       label: Udbetaling
       region: content
       parent_name: ''
-      weight: 5
+      weight: 6
       format_type: fieldset
       format_settings:
         classes: ''
@@ -120,21 +120,17 @@ targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
-  field_afviklingsdato:
-    type: datetime_default
-    weight: 23
+  field_mailto:
+    type: email_default
+    weight: 9
     region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_datotest:
-    type: datetime_default
-    weight: 26
-    region: content
-    settings: {  }
+    settings:
+      placeholder: ''
+      size: 60
     third_party_settings: {  }
   field_old_id:
     type: string_textfield
-    weight: 7
+    weight: 8
     region: content
     settings:
       size: 60
@@ -142,7 +138,7 @@ content:
     third_party_settings: {  }
   field_receiving_class:
     type: boolean_checkbox
-    weight: 15
+    weight: 19
     region: content
     settings:
       display_label: true
@@ -179,15 +175,21 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_rfc_date:
+    type: datetime_default
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_rfc_follow_up_mail_sent:
     type: datetime_timestamp
-    weight: 6
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_rfc_grade:
     type: string_textfield
-    weight: 14
+    weight: 18
     region: content
     settings:
       size: 60
@@ -212,7 +214,7 @@ content:
     third_party_settings: {  }
   field_rfc_mail:
     type: email_default
-    weight: 18
+    weight: 22
     region: content
     settings:
       placeholder: ''
@@ -220,7 +222,7 @@ content:
     third_party_settings: {  }
   field_rfc_name:
     type: string_textfield
-    weight: 16
+    weight: 20
     region: content
     settings:
       size: 60
@@ -250,7 +252,7 @@ content:
     third_party_settings: {  }
   field_rfc_phone:
     type: string_textfield
-    weight: 17
+    weight: 21
     region: content
     settings:
       size: 60
@@ -291,7 +293,7 @@ content:
     third_party_settings: {  }
   field_rfc_school:
     type: entity_reference_autocomplete
-    weight: 13
+    weight: 17
     region: content
     settings:
       match_operator: CONTAINS

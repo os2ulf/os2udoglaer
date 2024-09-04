@@ -1,0 +1,19 @@
+uuid: d6f04b9e-549e-4ee2-8546-c6287660c1af
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mailto
+    - node.type.free_course_request
+id: node.free_course_request.field_mailto
+field_name: field_mailto
+entity_type: node
+bundle: free_course_request
+label: 'Send mail til'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email
