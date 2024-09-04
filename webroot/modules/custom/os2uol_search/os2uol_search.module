@@ -43,6 +43,12 @@ function os2uol_search_view_content_search_transform_alter(&$transformation) {
     ];
 
     $transformation['exposed_filters'][$query_param_name] = $build;
+
+    $transformation['facets']['field_period'] = [
+      'type' => 'facet',
+      'facet_type' => 'exposed_filter',
+      'exposed_filter' => $query_param_name,
+    ];
   }
 }
 
