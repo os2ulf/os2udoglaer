@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_send_mail
     - field.field.node.free_course_request.field_rfc_spent_amount
     - field.field.node.free_course_request.field_rfc_subject
+    - field.field.node.free_course_request.field_semester
     - node.type.free_course_request
   module:
     - user
@@ -79,6 +80,7 @@ hidden:
   field_rfc_send_mail: true
   field_rfc_spent_amount: true
   field_rfc_subject: true
+  field_semester: true
   langcode: true
   search_api_excerpt: true
   workbench_reviewer: true

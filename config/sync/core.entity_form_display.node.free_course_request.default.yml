@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_send_mail
     - field.field.node.free_course_request.field_rfc_spent_amount
     - field.field.node.free_course_request.field_rfc_subject
+    - field.field.node.free_course_request.field_semester
     - node.type.free_course_request
   module:
     - datetime
@@ -107,7 +108,7 @@ third_party_settings:
       label: Udbetaling
       region: content
       parent_name: ''
-      weight: 6
+      weight: 5
       format_type: fieldset
       format_settings:
         classes: ''
@@ -122,7 +123,7 @@ mode: default
 content:
   field_mailto:
     type: email_default
-    weight: 9
+    weight: 8
     region: content
     settings:
       placeholder: ''
@@ -130,7 +131,7 @@ content:
     third_party_settings: {  }
   field_old_id:
     type: string_textfield
-    weight: 8
+    weight: 7
     region: content
     settings:
       size: 60
@@ -183,7 +184,7 @@ content:
     third_party_settings: {  }
   field_rfc_follow_up_mail_sent:
     type: datetime_timestamp
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -346,6 +347,7 @@ hidden:
   created: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_semester: true
   langcode: true
   path: true
   promote: true

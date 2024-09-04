@@ -31,9 +31,11 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_send_mail
     - field.field.node.free_course_request.field_rfc_spent_amount
     - field.field.node.free_course_request.field_rfc_subject
+    - field.field.node.free_course_request.field_semester
     - node.type.free_course_request
   module:
     - datetime
+    - options
     - text
     - user
 id: node.free_course_request.default
@@ -203,6 +205,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 120
+    region: content
+  field_semester:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 130
     region: content
 hidden:
   content_moderation_control: true
