@@ -10,11 +10,7 @@ function os2uol_search_views_pre_build(\Drupal\views\ViewExecutable $view) {
 
     // Add default value to the filter to include all results.
     if (empty($exposed_input[$query_param_name]['min'])) {
-      $exposed_input[$query_param_name]['min'] = 0;
-    }
-
-    if (empty($exposed_input[$query_param_name]['max'])) {
-      $exposed_input[$query_param_name]['max'] = '*';
+      $exposed_input[$query_param_name]['min'] = '00.00.0000';
     }
 
     $view->setExposedInput($exposed_input);
@@ -37,8 +33,8 @@ function os2uol_search_view_content_search_transform_alter(&$transformation) {
       'type' => 'date_range',
       'label' => $view->filter['field_period']->options['expose']['label'],
       'value' => [
-        'min' => $exposed_input['min'] ?? 0,
-        'max' => $exposed_input['max'] ?? '*',
+        'min' => $exposed_input['min'] ?? '00.00.0000',
+        'max' => $exposed_input['max'] ?? '',
       ]
     ];
 
