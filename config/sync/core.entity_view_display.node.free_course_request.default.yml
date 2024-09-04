@@ -3,16 +3,16 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.free_course_request.field_afviklingsdato
-    - field.field.node.free_course_request.field_datotest
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
+    - field.field.node.free_course_request.field_mailto
     - field.field.node.free_course_request.field_old_id
     - field.field.node.free_course_request.field_receiving_class
     - field.field.node.free_course_request.field_rfc_attachment
     - field.field.node.free_course_request.field_rfc_course
     - field.field.node.free_course_request.field_rfc_course_name
     - field.field.node.free_course_request.field_rfc_course_not_found
+    - field.field.node.free_course_request.field_rfc_date
     - field.field.node.free_course_request.field_rfc_follow_up_mail_sent
     - field.field.node.free_course_request.field_rfc_grade
     - field.field.node.free_course_request.field_rfc_granted_amount
@@ -34,7 +34,6 @@ dependencies:
     - node.type.free_course_request
   module:
     - datetime
-    - file
     - text
     - user
 id: node.free_course_request.default
@@ -42,37 +41,6 @@ targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
-  content_moderation_control:
-    settings: {  }
-    third_party_settings: {  }
-    weight: -20
-    region: content
-  field_afviklingsdato:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 129
-    region: content
-  field_datotest:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 128
-    region: content
-  field_old_id:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 127
-    region: content
   field_receiving_class:
     type: boolean
     label: above
@@ -83,14 +51,6 @@ content:
     third_party_settings: {  }
     weight: 109
     region: content
-  field_rfc_attachment:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 124
-    region: content
   field_rfc_course:
     type: entity_reference_label
     label: above
@@ -98,14 +58,6 @@ content:
       link: true
     third_party_settings: {  }
     weight: 116
-    region: content
-  field_rfc_course_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 115
     region: content
   field_rfc_course_not_found:
     type: boolean
@@ -117,24 +69,14 @@ content:
     third_party_settings: {  }
     weight: 117
     region: content
-  field_rfc_follow_up_mail_sent:
-    type: timestamp
+  field_rfc_date:
+    type: datetime_default
     label: above
     settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-      tooltip:
-        date_format: long
-        custom_date_format: ''
-      time_diff:
-        enabled: false
-        future_format: '@interval hence'
-        past_format: '@interval ago'
-        granularity: 2
-        refresh: 60
+      timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    weight: 126
+    weight: 129
     region: content
   field_rfc_grade:
     type: string
@@ -228,14 +170,6 @@ content:
     third_party_settings: {  }
     weight: 114
     region: content
-  field_rfc_provider_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 113
-    region: content
   field_rfc_remarks:
     type: text_default
     label: above
@@ -262,27 +196,6 @@ content:
     third_party_settings: {  }
     weight: 107
     region: content
-  field_rfc_send_mail:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 104
-    region: content
-  field_rfc_spent_amount:
-    type: number_decimal
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 123
-    region: content
   field_rfc_subject:
     type: entity_reference_label
     label: above
@@ -291,15 +204,20 @@ content:
     third_party_settings: {  }
     weight: 120
     region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 100
-    region: content
 hidden:
+  content_moderation_control: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_mailto: true
+  field_old_id: true
+  field_rfc_attachment: true
+  field_rfc_course_name: true
+  field_rfc_follow_up_mail_sent: true
+  field_rfc_provider_name: true
+  field_rfc_send_mail: true
+  field_rfc_spent_amount: true
   langcode: true
+  links: true
   search_api_excerpt: true
   workbench_reviewer: true
   workflow_buttons: true
