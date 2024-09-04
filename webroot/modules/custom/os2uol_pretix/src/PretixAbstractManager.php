@@ -89,6 +89,27 @@ abstract class PretixAbstractManager {
     return FALSE;
   }
 
+  public function hasPretixShopURL(EntityInterface $entity): bool {
+    if (!$entity instanceof EditorialContentEntityBase) {
+      return FALSE;
+    }
+    /** @var EditorialContentEntityBase $editorialEntity */
+    $editorialEntity = $entity;
+    if ($editorialEntity->hasField('field_pretix_shop_url')) {
+      if (!$editorialEntity->get('field_pretix_shop_url')->isEmpty()) {
+        return TRUE;
+      }
+    }
+    return $this->isPretixEventEntity($entity);
+  }
+
+  public function isPretixEnabledUser(UserInterface $user): bool {
+    if ($user->get('field_pretix_url')->isEmpty() || $user->get('field_pretix_api_token')->isEmpty() || $user->get('field_pretix_organizer_form')->isEmpty()) {
+      return FALSE;
+    }
+    return TRUE;
+  }
+
   /**
    * @param array $result
    *
@@ -102,8 +123,8 @@ abstract class PretixAbstractManager {
     }
   }
 
-  protected function apiError($result, $message, $addToMessenger = TRUE) {
-    $this->logger->error(t($message), $result);
+  protected function apiError(array $result, string $message, $addToMessenger = TRUE) {
+    $this->logger->error(t($message) . ': ' . json_encode($result));
     if ($addToMessenger) {
       $this->messenger->addError(t($message));
     }

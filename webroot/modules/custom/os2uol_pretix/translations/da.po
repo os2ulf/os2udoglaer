@@ -82,3 +82,27 @@ msgstr "Brugeren understøtter ikke Pretix"
 
 msgid "The user does not have all the information necessary for Pretix integration."
 msgstr "Brugeren har ikke alle de påkrævede information nødvendig for Pretix integration."
+
+msgid "Choose an action"
+msgstr "Vælg en handling"
+
+msgid "Create new event"
+msgstr "Opret ny begivenhed"
+
+msgid "Choose existing event"
+msgstr "Vælg eksisterende begivenhed"
+
+msgid "Enter shop URL"
+msgstr "Indtast butiks URL"
+
+msgid "Event shop URL"
+msgstr "Begivenhedens butiks URL"
+
+msgid "The event already exists."
+msgstr "Begivenheden eksisterer allerede"
+
+msgid "The event is missing the DrupalURL meta data property."
+msgstr "Begivenheden mangler meta data feltet DrupalURL."
+
+msgid "Shop is not live until dates are added."
+msgstr "Butikken er ikke live før det tilføjes datoer."
