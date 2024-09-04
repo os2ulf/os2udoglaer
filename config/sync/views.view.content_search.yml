@@ -805,7 +805,7 @@ display:
           exposed: true
           expose:
             operator_id: field_period_op
-            label: Periode
+            label: Kalender
             description: ''
             use_operator: false
             operator: field_period_op
@@ -859,7 +859,6 @@ display:
           transform_facets:
             course_educators_curriculum_themes: course_educators_curriculum_themes
             course_educators_is_free: course_educators_is_free
-            course_educators_period: course_educators_period
             course_educators_primary_school_subject: course_educators_primary_school_subject
             course_educators_target_group: course_educators_target_group
             course_educators_youth_education_subject: course_educators_youth_education_subject
@@ -1466,7 +1465,7 @@ display:
           exposed: true
           expose:
             operator_id: field_period_op
-            label: Periode
+            label: Kalender
             description: ''
             use_operator: false
             operator: field_period_op
