@@ -80,6 +80,10 @@ class PretixOrderManager extends PretixAbstractManager {
    *   The result from calling the Pretix api.
    */
   public function ensureWebhook(UserInterface $user): array {
+    if (!$this->isPretixEnabledUser($user)) {
+      return [];
+    }
+
     $client = $this->getClientByUser($user);
 
     $targetUrl = new Url('os2uol_pretix.webhooks.order', ['organizer' => $client->getOrganizer()], ['absolute' => TRUE]);
