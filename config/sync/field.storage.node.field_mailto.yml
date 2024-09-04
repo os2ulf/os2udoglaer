@@ -1,17 +1,15 @@
-uuid: 757df472-0e66-4ad6-adaf-1fbf19909759
+uuid: bbf4d869-8fe1-42cb-80ab-842bf76020f4
 langcode: da
 status: true
 dependencies:
   module:
-    - datetime
     - node
-id: node.field_afviklingsdato
-field_name: field_afviklingsdato
+id: node.field_mailto
+field_name: field_mailto
 entity_type: node
-type: datetime
-settings:
-  datetime_type: datetime
-module: datetime
+type: email
+settings: {  }
+module: core
 locked: false
 cardinality: 1
 translatable: true
