@@ -50,9 +50,8 @@ class PretixClient {
     }
     catch (ClientException $e) {
       return [
-        'error' => $e->getCode(),
+        'error' => $e->getMessage(),
         'code' => $e->getCode(),
-        'message' => $e->getMessage(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
@@ -62,27 +61,69 @@ class PretixClient {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/subevents/';
     $options = $this->getOptions();
     $options['json'] = $subevent;
-    return json_decode($this->client->request('POST', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('POST', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   public function updateSubEvent(string $eventSlug, array $subevent) {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/subevents/' . $subevent['id'] . '/';
     $options = $this->getOptions();
     $options['json'] = $subevent;
-    return json_decode($this->client->request('PATCH', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('PATCH', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   public function deleteSubEvent(string $eventSlug, string $subevent_id) {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/subevents/' . $subevent_id . '/';
     $options = $this->getOptions();
-    return $this->client->request('DELETE', $url, $options)->getStatusCode();
+    try {
+      return $this->client->request('DELETE', $url, $options)->getStatusCode();
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   public function createMetadata(string $eventSlug, array $metadata) {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/item_meta_properties/';
     $options = $this->getOptions();
     $options['json'] = $metadata;
-    return json_decode($this->client->request('POST', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('POST', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -96,7 +137,18 @@ class PretixClient {
   public function getEvent(string $eventSlug): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug;
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -121,9 +173,8 @@ class PretixClient {
     }
     catch (ClientException $e) {
       return [
-        'error' => $e->getCode(),
+        'error' => $e->getMessage(),
         'code' => $e->getCode(),
-        'message' => $e->getMessage(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
@@ -138,7 +189,18 @@ class PretixClient {
   public function getEvents(): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -155,7 +217,18 @@ class PretixClient {
   public function getSubEvent(string $eventSlug, string $subevent_id): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/subevents/' . $subevent_id . '/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -175,13 +248,11 @@ class PretixClient {
     }
     catch (ClientException $e) {
       return [
-        'error' => $e->getCode(),
+        'error' => $e->getMessage(),
         'code' => $e->getCode(),
-        'message' => $e->getMessage(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
-
   }
 
   /**
@@ -196,7 +267,18 @@ class PretixClient {
   public function getProducts(string $eventSlug): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/items/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -216,7 +298,18 @@ class PretixClient {
       $options['query'] = ['subevent' => $subevent['id']];
     }
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/quotas/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -233,7 +326,18 @@ class PretixClient {
   public function getQuotaAvailability(string $eventSlug, int $quotaId): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/quotas/' . $quotaId . '/availability/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -251,14 +355,25 @@ class PretixClient {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/quotas/';
     $options = $this->getOptions();
     $options['json'] = $quota;
-    return json_decode($this->client->request('POST', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('POST', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
    * Update quota.
    *
-   * @param object|string $event
-   *   The event or event slug.
+   * @param string $eventSlug
+   *   The event slug.
    * @param int $quotaId
    *   The quota id.
    * @param array $quota
@@ -267,11 +382,22 @@ class PretixClient {
    * @return array
    *   The result.
    */
-  public function updateQuota($eventSlug, $quotaId, array $quota) {
+  public function updateQuota(string $eventSlug, $quotaId, array $quota) {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/quotas/' . $quotaId . '/';
     $options = $this->getOptions();
     $options['json'] = $quota;
-    return json_decode($this->client->request('PATCH', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('PATCH', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -283,7 +409,18 @@ class PretixClient {
   public function getWebhooks(): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/webhooks/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -299,7 +436,18 @@ class PretixClient {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/webhooks/';
     $options = $this->getOptions();
     $options['json'] = $data;
-    return json_decode($this->client->request('POST', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('POST', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -317,7 +465,18 @@ class PretixClient {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/webhooks/' . $webhook['id'];
     $options = $this->getOptions();
     $options['json'] = $data;
-    return json_decode($this->client->request('PATCH', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('PATCH', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   /**
@@ -334,7 +493,18 @@ class PretixClient {
   public function getOrder($eventSlug, $code): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/orders/' . $code . '/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
   protected function getOptions(): array {
     return [
@@ -356,7 +526,18 @@ class PretixClient {
   public function getQuestions(string $eventSlug): array {
     $options = $this->getOptions();
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/questions/';
-    return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
   }
 
   public function getPretixUrl(): string {
