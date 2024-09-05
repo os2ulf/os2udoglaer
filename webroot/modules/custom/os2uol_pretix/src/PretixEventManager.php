@@ -17,22 +17,22 @@ class PretixEventManager extends PretixAbstractManager {
   }
 
   public function addSubEvent(EditorialContentEntityBase $entity, array $subevent) {
-    if (is_null($this->getEventSlug($entity)) || is_null($this->getEventTemplate($entity))) {
-      \Drupal::messenger()->addError(t('Event has not yet been set up for Pretix'));
+    if (!$this->isPretixEventEntity($entity)) {
+      $this->messenger->addError(t('Event has not yet been set up for Pretix'));
       return NULL;
     }
     $eventSlug = $this->getEventSlug($entity);
     $client = $this->getClient($entity);
 
     $templateSubEvent = $this->getEventSubEventTemplate($entity);
-    if (empty($templateSubEvent)) {
-      \Drupal::messenger()->addError(t('Cannot get template event sub-event'));
+    if ($this->isApiError($templateSubEvent)) {
+      $this->apiError($templateSubEvent, 'Cannot get template event sub-event');
       return NULL;
     }
 
     $product = $this->getEventProduct($entity);
-    if (empty($product)) {
-      \Drupal::messenger()->addError(t('Cannot get template event items'));
+    if ($this->isApiError($product)) {
+      $this->apiError($product, 'Cannot get template event items');
       return NULL;
     }
 
@@ -55,8 +55,8 @@ class PretixEventManager extends PretixAbstractManager {
   }
 
   public function editSubEvent(EditorialContentEntityBase $entity, array $subevent) {
-    if (is_null($this->getEventSlug($entity)) || is_null($this->getEventTemplate($entity))) {
-      \Drupal::messenger()->addError(t('Event has not yet been set up for Pretix'));
+    if (!$this->isPretixEventEntity($entity)) {
+      $this->messenger->addError(t('Event has not yet been set up for Pretix'));
       return NULL;
     }
     $eventSlug = $this->getEventSlug($entity);
@@ -82,20 +82,20 @@ class PretixEventManager extends PretixAbstractManager {
     $client = $this->getClient($entity);
 
     $templateSubEvent = $this->getEventSubEventTemplate($entity);
-    if (empty($templateSubEvent)) {
-      \Drupal::messenger()->addError(t('Cannot get template event sub-event'));
+    if ($this->isApiError($templateSubEvent)) {
+      $this->apiError($templateSubEvent, 'Cannot get template event sub-event');
       return NULL;
     }
     $product = $this->getEventProduct($entity);
-    if (empty($product)) {
-      \Drupal::messenger()->addError(t('Cannot get template event items'));
+    if ($this->isApiError($product)) {
+      $this->apiError($product, 'Cannot get template event items');
       return NULL;
     }
 
     // Get sub-event quotas.
     $result = $client->getQuotas($eventSlug, $subEvent);
-    if (isset($result['error'])) {
-      \Drupal::messenger()->addError(t('Cannot get sub-event quotas'));
+    if ($this->isApiError($result)) {
+      $this->apiError($result, 'Cannot get sub-event quotas');
       return NULL;
     }
 
@@ -105,8 +105,8 @@ class PretixEventManager extends PretixAbstractManager {
         $eventTemplate,
         $templateSubEvent
       );
-      if (isset($result['error']) || 0 === $result['count']) {
-        \Drupal::messenger()->addError(t('Cannot get template sub-event quotas'));
+      if ($this->isApiError($result) || 0 === $result['count']) {
+        $this->apiError($result, 'Cannot get template sub-event quotas');
         return NULL;
       }
 
@@ -116,16 +116,16 @@ class PretixEventManager extends PretixAbstractManager {
       $data['subevent'] = $subEvent['id'];
       $data['items'] = [$product['id']];
       $result = $client->createQuota($eventSlug, $data);
-      if (isset($result['error'])) {
-        \Drupal::messenger()->addError(t('Cannot create quota for sub-event'));
+      if ($this->isApiError($result)) {
+        $this->apiError($result, 'Cannot create quota for sub-event');
         return NULL;
       }
       $result = $client->getQuotas($eventSlug, $subEvent);
     }
 
     // Update the quota.
-    if (isset($result['error']) || 1 !== $result['count']) {
-      \Drupal::messenger()->addError(t('Cannot get sub-event quota'));
+    if ($this->isApiError($result) || 1 !== $result['count']) {
+      $this->apiError($result, 'Cannot get sub-event quota');
       return NULL;
     }
 
@@ -133,8 +133,8 @@ class PretixEventManager extends PretixAbstractManager {
 
     $data = ['size' => $size];
     $result = $client->updateQuota($eventSlug, $quota['id'], $data);
-    if (isset($result['error'])) {
-      \Drupal::messenger()->addError(t('Cannot update sub-event quota'));
+    if ($this->isApiError($result)) {
+      $this->apiError($result, 'Cannot update sub-event quota');
       return NULL;
     }
     return $result;
