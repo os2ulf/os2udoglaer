@@ -57,6 +57,7 @@ class DomainSettingsBlock extends TransformBlockBase {
       'text_positive_color' => $config->get('text_positive_color'),
       'text_negative_color' => $config->get('text_negative_color'),
       'site_tracking_script' => $config->get('site_tracking_script'),
+      'free_course_application_reference' => $config->get('free_course_application_reference') ? \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $config->get('free_course_application_reference')) : '',
     ];
   }
 

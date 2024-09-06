@@ -9,7 +9,6 @@ dependencies:
     - field.storage.paragraph.field_price_vat
     - node.type.course
     - node.type.course_educators
-    - user.role.rest_api
   module:
     - node
     - paragraphs
@@ -368,10 +367,9 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: role
+        type: perm
         options:
-          role:
-            rest_api: rest_api
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -527,7 +525,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_description_of_price'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_price'
@@ -579,8 +577,7 @@ display:
           pager_transform_links: relative
           pager_transform_links_destination: current
       path: rest-export/course-price/%
-      auth:
-        - basic_auth
+      auth: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -589,7 +586,7 @@ display:
         - request_format
         - url
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_description_of_price'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_price'
