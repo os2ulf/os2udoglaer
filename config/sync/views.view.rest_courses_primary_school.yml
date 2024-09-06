@@ -5,7 +5,6 @@ dependencies:
   config:
     - node.type.course
     - taxonomy.vocabulary.target_group
-    - user.role.rest_api
   content:
     - 'taxonomy_term:target_group:4edee790-70bd-4890-a4dd-b481dd6843f1'
   module:
@@ -190,10 +189,9 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: role
+        type: perm
         options:
-          role:
-            rest_api: rest_api
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -423,7 +421,7 @@ display:
         - url.query_args
         - url.site
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }
   rest_export_1:
     id: rest_export_1
@@ -465,8 +463,7 @@ display:
           pager_transform_links: relative
           pager_transform_links_destination: current
       path: rest-export/courses/primary-school/%
-      auth:
-        - basic_auth
+      auth: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -476,5 +473,5 @@ display:
         - url
         - url.site
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags: {  }

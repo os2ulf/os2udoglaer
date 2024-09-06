@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_subject
-    - user.role.rest_api
   module:
     - domain_access
     - node
@@ -180,10 +179,9 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: role
+        type: perm
         options:
-          role:
-            rest_api: rest_api
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -323,7 +321,7 @@ display:
         - url.query_args
         - url.site
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
@@ -359,8 +357,7 @@ display:
           pager_transform_links: relative
           pager_transform_links_destination: current
       path: rest-export/content-subject-terms/%
-      auth:
-        - basic_auth
+      auth: {  }
     cache_metadata:
       max-age: -1
       contexts:
@@ -370,7 +367,7 @@ display:
         - url
         - url.site
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
