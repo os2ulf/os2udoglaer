@@ -30,3 +30,6 @@ os2uol_settings.settings:
     site_tracking_script:
       type: string
       label: 'Site tracking script'
+    free_course_application_reference:
+      type: reference
+      label: 'Free course application page'
