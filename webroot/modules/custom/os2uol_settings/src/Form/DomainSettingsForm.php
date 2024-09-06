@@ -6,6 +6,7 @@ namespace Drupal\os2uol_settings\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
 
 /**
  * Configure OS2UOL Domain settings.
@@ -24,6 +25,16 @@ final class DomainSettingsForm extends ConfigFormBase {
    */
   protected function getEditableConfigNames(): array {
     return ['os2uol_settings.settings'];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  protected function getDefaultPageNode($nid) {
+    if ($nid && is_numeric($nid)) {
+      return Node::load($nid);
+    }
+    return NULL;
   }
 
   /**
@@ -87,6 +98,17 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('site_tracking_script'),
     ];
 
+    $form['free_course_application_reference'] = [
+      '#type' => 'entity_autocomplete',
+      '#title' => $this->t('Free course application page'),
+      '#target_type' => 'node',
+      '#selection_settings' => [
+        'target_bundles' => ['page'],
+      ],
+      '#default_value' => $this->getDefaultPageNode($config->get('free_course_application_reference')),
+      '#tags' => FALSE,
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -113,6 +135,7 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('text_positive_color', $form_state->getValue('text_positive_color'))
       ->set('text_negative_color', $form_state->getValue('text_negative_color'))
       ->set('site_tracking_script', $form_state->getValue('site_tracking_script'))
+      ->set('free_course_application_reference', $form_state->getValue('free_course_application_reference'))
       ->save();
 
     parent::submitForm($form, $form_state);
