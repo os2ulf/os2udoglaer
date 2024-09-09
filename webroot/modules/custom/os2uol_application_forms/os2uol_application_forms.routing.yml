@@ -1,0 +1,7 @@
+os2uol_application_forms.gdpr_anonymization_settings:
+  path: '/admin/config/gdpr/anonymization-settings'
+  defaults:
+    _form: '\Drupal\os2uol_application_forms\Form\GdprAnonymizationSettingsForm'
+    _title: 'GDPR Anonymization Settings'
+  requirements:
+    _permission: 'administer site configuration'

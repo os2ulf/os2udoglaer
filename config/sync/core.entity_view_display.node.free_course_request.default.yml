@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.node.free_course_request.field_data_anonymized
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
     - field.field.node.free_course_request.field_mailto
@@ -43,6 +44,16 @@ targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
+  field_data_anonymized:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 131
+    region: content
   field_receiving_class:
     type: boolean
     label: above

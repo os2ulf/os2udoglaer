@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.node.free_course_request.field_data_anonymized
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
     - field.field.node.free_course_request.field_mailto
@@ -327,6 +328,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_data_anonymized: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_mailto: true
