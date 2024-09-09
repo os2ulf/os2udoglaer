@@ -1,0 +1,19 @@
+uuid: 61f9da23-dc5b-4536-949a-f2a6005f8bb8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_follow_up_mail_sent
+    - node.type.theater_refund
+id: node.theater_refund.field_rfc_follow_up_mail_sent
+field_name: field_rfc_follow_up_mail_sent
+entity_type: node
+bundle: theater_refund
+label: 'Sendte mails'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

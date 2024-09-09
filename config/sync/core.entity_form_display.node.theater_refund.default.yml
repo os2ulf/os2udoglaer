@@ -6,7 +6,14 @@ dependencies:
     - field.field.node.theater_refund.body
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
-    - field.field.node.theater_refund.field_tr_granted_amount
+    - field.field.node.theater_refund.field_rfc_follow_up_mail_sent
+    - field.field.node.theater_refund.field_rfc_grade
+    - field.field.node.theater_refund.field_rfc_granted_amount
+    - field.field.node.theater_refund.field_rfc_latest_editor
+    - field.field.node.theater_refund.field_rfc_name
+    - field.field.node.theater_refund.field_rfc_remarks
+    - field.field.node.theater_refund.field_rfc_school
+    - field.field.node.theater_refund.field_rfc_send_mail
     - field.field.node.theater_refund.field_tr_status
     - node.type.theater_refund
   module:
@@ -19,7 +26,11 @@ third_party_settings:
     group_tr_editors:
       children:
         - field_tr_status
-        - field_tr_granted_amount
+        - field_rfc_granted_amount
+        - field_rfc_remarks
+        - field_rfc_send_mail
+        - field_rfc_follow_up_mail_sent
+        - field_rfc_latest_editor
       label: Redaktion
       region: content
       parent_name: ''
@@ -38,7 +49,10 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_tr_school:
-      children: {  }
+      children:
+        - field_rfc_school
+        - field_rfc_grade
+        - field_rfc_name
       label: Skole
       region: content
       parent_name: ''
@@ -153,12 +167,69 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_tr_granted_amount:
+  field_rfc_follow_up_mail_sent:
+    type: datetime_timestamp
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_rfc_grade:
+    type: string_textfield
+    weight: 18
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_granted_amount:
     type: number
     weight: 27
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_rfc_latest_editor:
+    type: entity_reference_autocomplete
+    weight: 31
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_name:
+    type: string_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_remarks:
+    type: text_textarea
+    weight: 28
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_school:
+    type: entity_reference_autocomplete
+    weight: 17
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_send_mail:
+    type: boolean_checkbox
+    weight: 29
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_tr_status:
     type: options_select
