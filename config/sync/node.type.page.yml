@@ -11,7 +11,7 @@ third_party_settings:
     parent: 'main:'
 _core:
   default_config_hash: F9lS2X3VyFwsFON4Qr-Y-pD4n9Cam3YniCuMkJGdNvM
-name: 'Simpel side'
+name: Indholdsside
 type: page
 description: 'Brug <em>simple sider</em> til dit statiske indhold, som f.eks. en "om os"-side.'
 help: ''
