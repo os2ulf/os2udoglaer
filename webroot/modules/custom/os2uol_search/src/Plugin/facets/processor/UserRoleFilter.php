@@ -23,7 +23,12 @@ use Drupal\user\Entity\User;
 class UserRoleFilter extends UidToUserNameCallbackProcessor {
 
   public function build(FacetInterface $facet, array $results) {
-    $allowed_roles = $this->getConfiguration()['roles'];
+    $allowed_roles = $this->getConfiguration()['roles'] ?? [];
+
+    // If no roles are selected, return no results.
+    if (empty($allowed_roles)) {
+      return [];
+    }
 
     /** @var \Drupal\facets\Result\ResultInterface $result */
     foreach ($results as $key => $result) {
@@ -48,7 +53,7 @@ class UserRoleFilter extends UidToUserNameCallbackProcessor {
       '#type' => 'checkboxes',
       '#title' => $this->t('Roles'),
       '#options' => $this->getRoles(),
-      '#default_value' => $config['roles'],
+      '#default_value' => $config['roles'] ?? [],
       '#description' => $this->t('Select the roles to filter by.'),
     ];
 
