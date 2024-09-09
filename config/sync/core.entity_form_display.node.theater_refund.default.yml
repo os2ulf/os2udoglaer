@@ -6,10 +6,14 @@ dependencies:
     - field.field.node.theater_refund.body
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_price
+    - field.field.node.theater_refund.field_tr_granted_amount
     - field.field.node.theater_refund.field_tr_status
     - node.type.theater_refund
   module:
+    - conditional_fields
     - field_group
+    - paragraphs
     - path
     - text
     - workflow_buttons
@@ -18,6 +22,7 @@ third_party_settings:
     group_tr_editors:
       children:
         - field_tr_status
+        - field_price
       label: Redaktion
       region: content
       parent_name: ''
@@ -150,6 +155,49 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_price:
+    type: paragraphs
+    weight: 27
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings:
+      conditional_fields:
+        139488b8-81c6-4798-a7a6-e9b5b4c60eda:
+          entity_type: node
+          bundle: course
+          dependee: field_is_free
+          settings:
+            state: visible
+            reset: false
+            condition: '!checked'
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+  field_tr_granted_amount:
+    type: number
+    weight: 27
+    region: content
+    settings:
+      placeholder: ''
     third_party_settings: {  }
   field_tr_status:
     type: options_select

@@ -6,9 +6,12 @@ dependencies:
     - field.field.node.theater_refund.body
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_price
+    - field.field.node.theater_refund.field_tr_granted_amount
     - field.field.node.theater_refund.field_tr_status
     - node.type.theater_refund
   module:
+    - entity_reference_revisions
     - options
     - text
     - user
@@ -23,6 +26,26 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_price:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 27
+    region: content
+  field_tr_granted_amount:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 103
     region: content
   field_tr_status:
     type: list_default
