@@ -1,4 +1,4 @@
-uuid: 2fb03bc6-1cac-4303-99d9-a60738ae73d4
+uuid: 25912f18-0bd2-42c9-9908-a71faa32aefd
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.search
   module:
     - search_api
-id: related_user
-name: Besøgssteder
+id: search_course_provider
+name: Udbyer
 weight: 0
 min_count: 0
 missing: false
 missing_label: others
-url_alias: related_user
+url_alias: scp
 facet_source_id: 'search_api:views_page__search__page_1'
-field_identifier: field_related_user
+field_identifier: uid
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -66,8 +66,8 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
-  uid_to_username_callback:
-    processor_id: uid_to_username_callback
+  uid_to_field_name_callback:
+    processor_id: uid_to_field_name_callback
     weights:
       build: 5
     settings: {  }
@@ -77,3 +77,28 @@ processor_configs:
       pre_query: 50
       build: 15
     settings: {  }
+  user_domain_access_filter:
+    processor_id: user_domain_access_filter
+    weights:
+      build: 1
+    settings: {  }
+  user_role_filter:
+    processor_id: user_role_filter
+    weights:
+      build: 2
+    settings:
+      roles:
+        course_provider: course_provider
+        anonymous: 0
+        authenticated: 0
+        administrator: 0
+        webmaster: 0
+        editor: 0
+        corporation: 0
+        institution: 0
+        school: 0
+        place_of_visit: 0
+        theater_contact: 0
+        monitor: 0
+        bypass_workflow: 0
+        rest_api: 0

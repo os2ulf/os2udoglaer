@@ -61,6 +61,14 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  exclude_specified_items:
+    processor_id: exclude_specified_items
+    weights:
+      build: 50
+    settings:
+      exclude: free_course_request
+      regex: false
+      invert: false
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
