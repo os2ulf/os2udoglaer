@@ -1,0 +1,11 @@
+uuid: 13752e03-9dd0-491f-be23-42cb9b76c6f2
+langcode: da
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.theater
+id: taxonomy_term.theater
+target_entity_type_id: taxonomy_term
+target_bundle: theater
+default_langcode: site_default
+language_alterable: false
