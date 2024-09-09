@@ -117,6 +117,7 @@ module:
   premium_search: 0
   premium_theme_helper: 0
   premium_tools: 0
+  r4032login: 0
   rdf: 0
   redirect: 0
   redirect_after_login: 0
