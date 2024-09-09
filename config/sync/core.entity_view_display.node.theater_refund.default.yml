@@ -1,0 +1,34 @@
+uuid: e9e83741-7552-4866-8247-538000d1e378
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.theater_refund.body
+    - field.field.node.theater_refund.field_domain_access
+    - field.field.node.theater_refund.field_domain_all_affiliates
+    - node.type.theater_refund
+  module:
+    - text
+    - user
+id: node.theater_refund.default
+targetEntityType: node
+bundle: theater_refund
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  langcode: true
+  search_api_excerpt: true

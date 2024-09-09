@@ -1,0 +1,36 @@
+uuid: 2fba8116-a7da-4ff3-830f-8a9987d39ff2
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.theater_refund.body
+    - field.field.node.theater_refund.field_domain_access
+    - field.field.node.theater_refund.field_domain_all_affiliates
+    - node.type.theater_refund
+  module:
+    - text
+    - user
+id: node.theater_refund.teaser
+targetEntityType: node
+bundle: theater_refund
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  langcode: true
+  search_api_excerpt: true

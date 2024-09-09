@@ -1,0 +1,24 @@
+uuid: fb1dedb7-b608-43df-886c-62523ec41982
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.theater_refund
+  module:
+    - text
+id: node.theater_refund.body
+field_name: body
+entity_type: node
+bundle: theater_refund
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats: {  }
+field_type: text_with_summary
