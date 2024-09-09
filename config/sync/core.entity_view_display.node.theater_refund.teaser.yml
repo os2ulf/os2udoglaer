@@ -7,15 +7,23 @@ dependencies:
     - field.field.node.theater_refund.body
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_rfc_date
     - field.field.node.theater_refund.field_rfc_follow_up_mail_sent
     - field.field.node.theater_refund.field_rfc_grade
     - field.field.node.theater_refund.field_rfc_granted_amount
     - field.field.node.theater_refund.field_rfc_latest_editor
+    - field.field.node.theater_refund.field_rfc_mail
     - field.field.node.theater_refund.field_rfc_name
+    - field.field.node.theater_refund.field_rfc_new_course_name
+    - field.field.node.theater_refund.field_rfc_phone
+    - field.field.node.theater_refund.field_rfc_provider_name
     - field.field.node.theater_refund.field_rfc_remarks
+    - field.field.node.theater_refund.field_rfc_requested_amount
     - field.field.node.theater_refund.field_rfc_school
     - field.field.node.theater_refund.field_rfc_send_mail
+    - field.field.node.theater_refund.field_tr_quantity
     - field.field.node.theater_refund.field_tr_status
+    - field.field.node.theater_refund.field_tr_theater
     - node.type.theater_refund
   module:
     - text
@@ -41,14 +49,22 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_rfc_date: true
   field_rfc_follow_up_mail_sent: true
   field_rfc_grade: true
   field_rfc_granted_amount: true
   field_rfc_latest_editor: true
+  field_rfc_mail: true
   field_rfc_name: true
+  field_rfc_new_course_name: true
+  field_rfc_phone: true
+  field_rfc_provider_name: true
   field_rfc_remarks: true
+  field_rfc_requested_amount: true
   field_rfc_school: true
   field_rfc_send_mail: true
+  field_tr_quantity: true
   field_tr_status: true
+  field_tr_theater: true
   langcode: true
   search_api_excerpt: true
