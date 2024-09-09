@@ -1,0 +1,23 @@
+uuid: d47a76e3-d5fa-4d33-9c62-d5ec9c4ce374
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tr_granted_amount
+    - node.type.theater_refund
+id: node.theater_refund.field_tr_granted_amount
+field_name: field_tr_granted_amount
+entity_type: node
+bundle: theater_refund
+label: 'Bevilget beløb'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: kr.
+field_type: decimal
