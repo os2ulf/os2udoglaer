@@ -50,7 +50,7 @@ third_party_settings:
       label: Redaktion
       region: content
       parent_name: ''
-      weight: 2
+      weight: 1
       format_type: fieldset
       format_settings:
         classes: ''
@@ -69,7 +69,7 @@ third_party_settings:
       label: Skole
       region: content
       parent_name: ''
-      weight: 3
+      weight: 2
       format_type: fieldset
       format_settings:
         classes: ''
@@ -92,7 +92,7 @@ third_party_settings:
       label: Forløb
       region: content
       parent_name: ''
-      weight: 4
+      weight: 3
       format_type: fieldset
       format_settings:
         classes: ''
@@ -108,7 +108,7 @@ third_party_settings:
       label: Udbetaling
       region: content
       parent_name: ''
-      weight: 5
+      weight: 4
       format_type: fieldset
       format_settings:
         classes: ''
@@ -121,17 +121,9 @@ targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
-  field_mailto:
-    type: email_default
-    weight: 8
-    region: content
-    settings:
-      placeholder: ''
-      size: 60
-    third_party_settings: {  }
   field_old_id:
     type: string_textfield
-    weight: 7
+    weight: 6
     region: content
     settings:
       size: 60
@@ -184,7 +176,7 @@ content:
     third_party_settings: {  }
   field_rfc_follow_up_mail_sent:
     type: datetime_timestamp
-    weight: 6
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -328,25 +320,16 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: workflow_buttons
-    weight: 1
-    region: content
-    settings:
-      show_current_state: false
-    third_party_settings: {  }
-  workbench_reviewer:
-    type: entity_reference_autocomplete
     weight: 0
     region: content
     settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
+      show_current_state: true
     third_party_settings: {  }
 hidden:
   created: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_mailto: true
   field_semester: true
   langcode: true
   path: true
@@ -357,3 +340,4 @@ hidden:
   title: true
   uid: true
   url_redirects: true
+  workbench_reviewer: true

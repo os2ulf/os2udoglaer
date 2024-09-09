@@ -460,24 +460,21 @@ function _domain_access_restrictions() {
 }
 
 /**
- * Implements hook_entity_insert().
+ * Implements hook_entity_presave().
  *
- * Assigns the current domain to a newly created user.
+ * Assigns the current domain to a newly created user before saving.
  *
  * @param \Drupal\Core\Entity\EntityInterface $entity
  */
-function os2uol_entity_forms_entity_insert(EntityInterface $entity) {
+function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
   if ($entity instanceof UserInterface) {
     // Get the current active domain.
     $current_domain = \Drupal::service('domain.negotiator')->getActiveDomain();
 
-    if ($current_domain) {
-      // Check if the user has a domain access field.
-      if ($entity->hasField('domain_access')) {
-        // Assign the current domain to the user.
-        $entity->set('domain_access', [$current_domain->id()]);
-        $entity->save();
-      }
+    // Check if the user entity has the correct field (field_domain_access) and if the current domain is available.
+    if ($current_domain && $entity->hasField('field_domain_access')) {
+      // Assign the current domain to the user before saving.
+      $entity->set('field_domain_access', [$current_domain->id()]);
     }
   }
 }
