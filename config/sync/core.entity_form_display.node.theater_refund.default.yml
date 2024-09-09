@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.theater_refund.body
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_tr_status
     - node.type.theater_refund
   module:
     - field_group
@@ -15,7 +16,8 @@ dependencies:
 third_party_settings:
   field_group:
     group_tr_editors:
-      children: {  }
+      children:
+        - field_tr_status
       label: Redaktion
       region: content
       parent_name: ''
@@ -146,6 +148,12 @@ content:
   created:
     type: datetime_timestamp
     weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tr_status:
+    type: options_select
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

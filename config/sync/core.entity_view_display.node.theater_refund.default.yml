@@ -6,8 +6,10 @@ dependencies:
     - field.field.node.theater_refund.body
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_tr_status
     - node.type.theater_refund
   module:
+    - options
     - text
     - user
 id: node.theater_refund.default
@@ -21,6 +23,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 101
+    region: content
+  field_tr_status:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 102
     region: content
   links:
     settings: {  }

@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.theater_refund.body
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_tr_status
     - node.type.theater_refund
   module:
     - text
@@ -32,5 +33,6 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_tr_status: true
   langcode: true
   search_api_excerpt: true
