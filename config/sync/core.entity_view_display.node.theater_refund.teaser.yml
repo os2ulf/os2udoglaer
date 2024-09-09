@@ -15,12 +15,17 @@ dependencies:
     - field.field.node.theater_refund.field_rfc_mail
     - field.field.node.theater_refund.field_rfc_name
     - field.field.node.theater_refund.field_rfc_new_course_name
+    - field.field.node.theater_refund.field_rfc_payment_date
     - field.field.node.theater_refund.field_rfc_phone
     - field.field.node.theater_refund.field_rfc_provider_name
     - field.field.node.theater_refund.field_rfc_remarks
     - field.field.node.theater_refund.field_rfc_requested_amount
     - field.field.node.theater_refund.field_rfc_school
     - field.field.node.theater_refund.field_rfc_send_mail
+    - field.field.node.theater_refund.field_rfc_spent_amount
+    - field.field.node.theater_refund.field_tr_conditions
+    - field.field.node.theater_refund.field_tr_gdpr
+    - field.field.node.theater_refund.field_tr_mails_sent
     - field.field.node.theater_refund.field_tr_quantity
     - field.field.node.theater_refund.field_tr_status
     - field.field.node.theater_refund.field_tr_theater
@@ -57,12 +62,17 @@ hidden:
   field_rfc_mail: true
   field_rfc_name: true
   field_rfc_new_course_name: true
+  field_rfc_payment_date: true
   field_rfc_phone: true
   field_rfc_provider_name: true
   field_rfc_remarks: true
   field_rfc_requested_amount: true
   field_rfc_school: true
   field_rfc_send_mail: true
+  field_rfc_spent_amount: true
+  field_tr_conditions: true
+  field_tr_gdpr: true
+  field_tr_mails_sent: true
   field_tr_quantity: true
   field_tr_status: true
   field_tr_theater: true

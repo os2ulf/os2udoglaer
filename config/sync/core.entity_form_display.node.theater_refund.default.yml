@@ -14,12 +14,17 @@ dependencies:
     - field.field.node.theater_refund.field_rfc_mail
     - field.field.node.theater_refund.field_rfc_name
     - field.field.node.theater_refund.field_rfc_new_course_name
+    - field.field.node.theater_refund.field_rfc_payment_date
     - field.field.node.theater_refund.field_rfc_phone
     - field.field.node.theater_refund.field_rfc_provider_name
     - field.field.node.theater_refund.field_rfc_remarks
     - field.field.node.theater_refund.field_rfc_requested_amount
     - field.field.node.theater_refund.field_rfc_school
     - field.field.node.theater_refund.field_rfc_send_mail
+    - field.field.node.theater_refund.field_rfc_spent_amount
+    - field.field.node.theater_refund.field_tr_conditions
+    - field.field.node.theater_refund.field_tr_gdpr
+    - field.field.node.theater_refund.field_tr_mails_sent
     - field.field.node.theater_refund.field_tr_quantity
     - field.field.node.theater_refund.field_tr_status
     - field.field.node.theater_refund.field_tr_theater
@@ -38,7 +43,7 @@ third_party_settings:
         - field_rfc_granted_amount
         - field_rfc_remarks
         - field_rfc_send_mail
-        - field_rfc_follow_up_mail_sent
+        - field_tr_mails_sent
         - field_rfc_latest_editor
       label: Redaktion
       region: content
@@ -106,7 +111,9 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_tr_payment:
-      children: {  }
+      children:
+        - field_rfc_spent_amount
+        - field_rfc_payment_date
       label: Udbetaling
       region: content
       parent_name: ''
@@ -125,7 +132,8 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_tr_submission:
-      children: {  }
+      children:
+        - field_tr_conditions
       label: 'Det med småt'
       region: content
       parent_name: ''
@@ -144,7 +152,8 @@ third_party_settings:
         speed: fast
         required_fields: true
     group_gdpr:
-      children: {  }
+      children:
+        - field_tr_gdpr
       label: Databeskyttelse
       region: content
       parent_name: ''
@@ -169,7 +178,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 18
+    weight: 19
     region: content
     settings:
       rows: 9
@@ -179,7 +188,7 @@ content:
     third_party_settings: {  }
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -191,7 +200,7 @@ content:
     third_party_settings: {  }
   field_rfc_follow_up_mail_sent:
     type: datetime_timestamp
-    weight: 30
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -244,6 +253,12 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_rfc_payment_date:
+    type: datetime_timestamp
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_rfc_phone:
     type: string_textfield
     weight: 20
@@ -254,7 +269,7 @@ content:
     third_party_settings: {  }
   field_rfc_provider_name:
     type: string_textfield
-    weight: 14
+    weight: 16
     region: content
     settings:
       size: 60
@@ -292,6 +307,35 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_rfc_spent_amount:
+    type: number
+    weight: 15
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tr_conditions:
+    type: boolean_checkbox
+    weight: 37
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_tr_gdpr:
+    type: boolean_checkbox
+    weight: 38
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_tr_mails_sent:
+    type: string_textfield
+    weight: 30
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_tr_quantity:
     type: number
     weight: 34
@@ -317,53 +361,53 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 7
+    weight: 8
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: workflow_buttons
-    weight: 9
+    weight: 10
     region: content
     settings:
       show_current_state: false
     third_party_settings: {  }
   path:
     type: path
-    weight: 14
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
-    type: boolean_checkbox
-    weight: 12
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  simple_sitemap:
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    weight: 16
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
     type: boolean_checkbox
     weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  simple_sitemap:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 18
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 14
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 6
+    weight: 7
     region: content
     settings:
       size: 60
@@ -371,7 +415,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 9
     region: content
     settings:
       match_operator: CONTAINS
@@ -380,7 +424,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 15
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
