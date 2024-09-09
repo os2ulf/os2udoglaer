@@ -6,6 +6,7 @@ dependencies:
     - system.menu.workbench
     - user.role.administrator
     - user.role.bypass_workflow
+    - user.role.course_provider
     - user.role.editor
     - user.role.webmaster
     - workflows.workflow.editorial
@@ -309,6 +310,7 @@ display:
             administrator: administrator
             webmaster: webmaster
             editor: editor
+            course_provider: course_provider
             bypass_workflow: bypass_workflow
       cache:
         type: tag

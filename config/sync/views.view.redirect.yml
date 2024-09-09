@@ -412,14 +412,14 @@ display:
                   max: ''
                   value: '300'
               2:
-                title: '301 Moved Permanently'
+                title: '301 Flyttet permanent'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '301'
               3:
-                title: '302 Found'
+                title: '302 Fundet'
                 operator: '='
                 value:
                   min: ''
@@ -447,7 +447,7 @@ display:
                   max: ''
                   value: '305'
               7:
-                title: '307 Temporary Redirect'
+                title: '307 Midlertidig omdirigering'
                 operator: '='
                 value:
                   min: ''

@@ -735,15 +735,24 @@ display:
           row_class: ''
           default_row_class: true
           columns:
+            nid: nid
             title: title
             type: type
             field_target_group: field_target_group
-            status: status
             name: name
+            status: status
+            created: created
             changed: changed
             edit_node: edit_node
           default: changed
           info:
+            nid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             title:
               sortable: true
               default_sort_order: asc
@@ -759,13 +768,6 @@ display:
               empty_column: false
               responsive: ''
             field_target_group:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: true
-              responsive: ''
-            status:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -775,6 +777,20 @@ display:
             name:
               sortable: true
               default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: true
+              default_sort_order: desc
               align: ''
               separator: ''
               empty_column: false
@@ -1219,7 +1235,7 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: true
+          hide_empty: false
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id

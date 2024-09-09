@@ -80,6 +80,7 @@
         "drupal/paragraphs_asymmetric_translation_widgets": "^1.0",
         "drupal/pathauto": "^1.0",
         "drupal/pathologic": "^2.0@alpha",
+        "drupal/r4032login": "^2.2",
         "drupal/rdf": "^2.0",
         "drupal/redirect": "^1.0",
         "drupal/redirect_after_login": "^3.0",
