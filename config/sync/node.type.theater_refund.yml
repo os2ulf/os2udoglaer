@@ -1,0 +1,17 @@
+uuid: 465cff48-0399-4ee6-9da1-ed9bc30bc70a
+langcode: da
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Ansøg om teaterrefusion'
+type: theater_refund
+description: 'Ansøg om teaterrefusion'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

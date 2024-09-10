@@ -1,0 +1,42 @@
+uuid: 9c6dd996-0e4d-43f4-a864-99388af2f9b4
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_tr_status
+field_name: field_tr_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: awaiting
+      label: Afventer
+    -
+      value: processing
+      label: 'Under behandling'
+    -
+      value: accepted
+      label: Godkendt
+    -
+      value: payment_completed
+      label: Betalt
+    -
+      value: refused
+      label: Afvist
+    -
+      value: cancelled
+      label: Annulleret
+    -
+      value: closed
+      label: Lukket
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

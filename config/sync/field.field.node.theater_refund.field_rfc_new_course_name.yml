@@ -1,0 +1,19 @@
+uuid: 993ea038-119c-4d6c-9b74-1e68f1871713
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_new_course_name
+    - node.type.theater_refund
+id: node.theater_refund.field_rfc_new_course_name
+field_name: field_rfc_new_course_name
+entity_type: node
+bundle: theater_refund
+label: Forestilling
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -128,6 +128,11 @@ hidden:
   field_hide_title: true
   field_list_media: true
   field_meta_tags: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   langcode: true
   layout_builder__layout: true
   links: true

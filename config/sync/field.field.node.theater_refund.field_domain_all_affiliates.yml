@@ -1,0 +1,21 @@
+uuid: d57a45b7-e147-458b-875e-89d4893531d1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.theater_refund
+id: node.theater_refund.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: theater_refund
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
