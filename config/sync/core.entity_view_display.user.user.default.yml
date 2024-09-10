@@ -31,6 +31,7 @@ dependencies:
     - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_default_events
     - field.field.user.user.field_pretix_enabled
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
@@ -179,12 +180,11 @@ content:
     weight: 12
     region: content
   field_mail:
-    type: string
+    type: basic_string
     label: above
-    settings:
-      link_to_entity: false
+    settings: {  }
     third_party_settings: {  }
-    weight: 15
+    weight: 37
     region: content
   field_meta_tags:
     type: metatag_empty_formatter
@@ -304,6 +304,7 @@ hidden:
   field_domain_all_affiliates: true
   field_editor_field: true
   field_pretix_api_token: true
+  field_pretix_default_events: true
   field_pretix_enabled: true
   field_pretix_url: true
   langcode: true
