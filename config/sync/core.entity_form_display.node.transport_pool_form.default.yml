@@ -8,9 +8,107 @@ dependencies:
     - field.field.node.transport_pool_form.field_domain_all_affiliates
     - node.type.transport_pool_form
   module:
+    - field_group
     - path
     - text
     - workflow_buttons
+third_party_settings:
+  field_group:
+    group_tpf_course:
+      children: {  }
+      label: Forløb
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: summary
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_tpf_institution:
+      children: {  }
+      label: Institution
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: summary
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_tpf_transport_expenses:
+      children: {  }
+      label: Transportudgifter
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: summary
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_tpf_contact_info:
+      children: {  }
+      label: Kontaktinformation
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: summary
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_tpf_admin:
+      children: {  }
+      label: 'Admin felter'
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: summary
+        show_label: true
+        label_element: h3
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
 id: node.transport_pool_form.default
 targetEntityType: node
 bundle: transport_pool_form
@@ -18,7 +116,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 121
+    weight: 17
     region: content
     settings:
       rows: 9
@@ -34,53 +132,53 @@ content:
     third_party_settings: {  }
   langcode:
     type: language_select
-    weight: 2
+    weight: 7
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: workflow_buttons
-    weight: 5
+    weight: 9
     region: content
     settings:
       show_current_state: false
     third_party_settings: {  }
   path:
     type: path
-    weight: 30
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 15
+    weight: 12
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 10
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
-    type: boolean_checkbox
-    weight: 120
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
     type: boolean_checkbox
     weight: 16
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    weight: 13
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: -5
+    weight: 6
     region: content
     settings:
       size: 60
@@ -88,7 +186,7 @@ content:
     third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
@@ -97,9 +195,19 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 50
+    weight: 15
     region: content
     settings: {  }
+    third_party_settings: {  }
+  workbench_reviewer:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   field_domain_access: true
