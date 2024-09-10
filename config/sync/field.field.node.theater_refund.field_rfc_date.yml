@@ -1,0 +1,21 @@
+uuid: 141ce433-e35b-4d0b-becf-242a5c39a4ff
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_date
+    - node.type.theater_refund
+  module:
+    - datetime
+id: node.theater_refund.field_rfc_date
+field_name: field_rfc_date
+entity_type: node
+bundle: theater_refund
+label: Afviklingsdato
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

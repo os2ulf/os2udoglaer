@@ -19,10 +19,13 @@ use Drupal\Core\Datetime\DrupalDateTime;
  *
  * @param \Drupal\Core\Entity\EntityInterface $entity
  */
-function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterface $entity)
+{
   // Ensure we are dealing with a node entity and the node type is "free_course_request".
-  if ($entity instanceof \Drupal\node\NodeInterface && $entity->bundle() === 'free_course_request') {
-
+  if (
+    $entity instanceof \Drupal\node\NodeInterface &&
+    ($entity->bundle() === 'free_course_request' || $entity->bundle() === 'theater_refund')
+  ) {
     // Update the node author if "field_rfc_school" is set.
     if ($entity->hasField('field_rfc_school') && !$entity->get('field_rfc_school')->isEmpty()) {
       // Get the target_id from "field_rfc_school".
@@ -70,7 +73,8 @@ function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterfa
  * @return string
  *   Returns the machine-readable value for the semester, e.g., "1_halvar_2025_2026" or "2_halvar_2025_2026".
  */
-function calculateSemesterMachineName($afviklingsdato) {
+function calculateSemesterMachineName($afviklingsdato)
+{
   // Get the timestamp of the given date (Afviklingsdato).
   $event_date = new \DateTime();
   $event_date->setTimestamp($afviklingsdato);
@@ -106,7 +110,8 @@ function calculateSemesterMachineName($afviklingsdato) {
  * @param string $form_id
  *   The unique string identifying the form.
  */
-function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
   if ($form_id == 'node_free_course_request_edit_form') {
     $node = $form_state->getFormObject()->getEntity();
     $author = $node->getOwner();
@@ -137,7 +142,8 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
 /**
  * Implements hook_views_pre_render().
  */
-function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
+function os2uol_application_forms_views_pre_render(ViewExecutable $view)
+{
   if ($view->id() == 'free_course_request') { // Replace with your View ID
     $requested_amount = 0;
     $granted_amount = 0;
@@ -152,10 +158,10 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
     // Construct the sum markup
     $sum_markup = Markup::create(
       '<table class="applications-summary">' .
-      '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
-      '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
-      '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
-      '</table>'
+        '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '</table>'
     );
     // Add the sum markup as the first item in the header
     $view->attachment_before['sum_markup'] = [
@@ -168,7 +174,8 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
 /**
  * Implements hook_preprocess_views_view().
  */
-function os2uol_application_forms_preprocess_views_view(&$variables) {
+function os2uol_application_forms_preprocess_views_view(&$variables)
+{
   if ($variables['view']->id() == 'free_course_request') {
     $variables['#attached']['library'][] = 'os2uol_application_forms/views';
   }
@@ -177,7 +184,8 @@ function os2uol_application_forms_preprocess_views_view(&$variables) {
 /**
  * Implements hook_locale_translation_projects_alter().
  */
-function os2uol_application_forms_locale_translation_projects_alter(&$projects) {
+function os2uol_application_forms_locale_translation_projects_alter(&$projects)
+{
   $module_handler = \Drupal::service('module_handler');
   $path = $module_handler->getModule('os2uol_application_forms')->getPath();
   $projects['os2uol_application_forms']['info']['interface translation server pattern']
@@ -187,7 +195,8 @@ function os2uol_application_forms_locale_translation_projects_alter(&$projects) 
 /**
  * Implements hook_cron().
  */
-function os2uol_application_forms_cron() {
+function os2uol_application_forms_cron()
+{
   // Call the GDPR anonymization logic during cron runs.
   os2uol_application_forms_gdpr_anonymization_cron();
 }
@@ -195,7 +204,8 @@ function os2uol_application_forms_cron() {
 /**
  * Anonymizes personal data fields in a safe manner.
  */
-function os2uol_application_forms_gdpr_anonymization_cron() {
+function os2uol_application_forms_gdpr_anonymization_cron()
+{
   \Drupal::logger('os2uol_application_forms')->info('GDPR Anonymization cron started.');
 
   $config = \Drupal::config('os2uol_application_forms.gdpr_settings');
@@ -206,7 +216,7 @@ function os2uol_application_forms_gdpr_anonymization_cron() {
 
   // Query to get nodes that need anonymization based on Afviklingsdato.
   $query = \Drupal::entityQuery('node')
-    ->condition('type', 'free_course_request')
+    ->condition('type', ['free_course_request', 'theater_refund'], 'IN')
     ->condition('field_rfc_date', $cutoff_date->format('Y-m-d'), '<=')
     ->condition('field_data_anonymized', 0) // Only non-anonymized data
     ->accessCheck(FALSE); // Disable access checks for cron job

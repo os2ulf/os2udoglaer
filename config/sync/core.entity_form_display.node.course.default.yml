@@ -1197,5 +1197,10 @@ content:
     third_party_settings: {  }
 hidden:
   field_domain_all_affiliates: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   langcode: true
   workbench_reviewer: true

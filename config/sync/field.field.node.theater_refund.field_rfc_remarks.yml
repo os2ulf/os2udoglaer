@@ -1,0 +1,28 @@
+uuid: 07128e5e-0030-4682-bbd8-b4c59f1bc301
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_remarks
+    - filter.format.basic_html
+    - node.type.theater_refund
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.theater_refund.field_rfc_remarks
+field_name: field_rfc_remarks
+entity_type: node
+bundle: theater_refund
+label: Bemærkninger
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

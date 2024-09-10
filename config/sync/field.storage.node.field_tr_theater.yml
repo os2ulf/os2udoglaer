@@ -1,0 +1,20 @@
+uuid: 6ad6913e-3ad5-491a-bcca-725224a99929
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_tr_theater
+field_name: field_tr_theater
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

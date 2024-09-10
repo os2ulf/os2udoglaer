@@ -1,0 +1,23 @@
+uuid: 34c399a5-fa4b-4708-bc07-282a3d20e53f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_spent_amount
+    - node.type.theater_refund
+id: node.theater_refund.field_rfc_spent_amount
+field_name: field_rfc_spent_amount
+entity_type: node
+bundle: theater_refund
+label: 'Forbrugt beløb (eks. moms)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ' kr.'
+field_type: decimal

@@ -1,0 +1,21 @@
+uuid: 766caa3a-7454-4737-95f3-4f0df85fb619
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_semester
+    - node.type.theater_refund
+  module:
+    - options
+id: node.theater_refund.field_semester
+field_name: field_semester
+entity_type: node
+bundle: theater_refund
+label: Semester
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 451d5cfa-ce1e-4253-a539-6f9622ba1b91
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tr_mails_sent
+    - node.type.theater_refund
+id: node.theater_refund.field_tr_mails_sent
+field_name: field_tr_mails_sent
+entity_type: node
+bundle: theater_refund
+label: 'Sendte mails'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

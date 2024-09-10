@@ -1,0 +1,19 @@
+uuid: dd367165-3bd9-40c2-b31e-d2cda450d400
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_mail
+    - node.type.theater_refund
+id: node.theater_refund.field_rfc_mail
+field_name: field_rfc_mail
+entity_type: node
+bundle: theater_refund
+label: Mailadresse
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

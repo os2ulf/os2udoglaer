@@ -1,0 +1,21 @@
+uuid: 039d3d4d-ab7c-4f9f-910c-18bf1600a0b9
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_send_mail
+    - node.type.theater_refund
+id: node.theater_refund.field_rfc_send_mail
+field_name: field_rfc_send_mail
+entity_type: node
+bundle: theater_refund
+label: 'Send mail ved gem'
+description: "Send mail til brugeren om status på ansøgningen når formularen gemmes. \r\nMail sendes dog kun hvis status er godkendt eller afvist."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

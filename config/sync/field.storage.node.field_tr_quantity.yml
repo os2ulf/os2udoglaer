@@ -1,0 +1,20 @@
+uuid: 11a94818-4c12-492b-bdbd-574634d800f5
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_tr_quantity
+field_name: field_tr_quantity
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
