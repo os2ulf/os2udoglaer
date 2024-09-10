@@ -89,8 +89,17 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         return;
       }
 
-      // Deny access if more than one domain is assigned.
-      if (count($domain_array) > 1) {
+      // Get the default domain.
+      $default_domain = $this->domainStorage()->loadDefaultDomain();
+      $default_domain_id = $default_domain ? $default_domain->id() : null;
+
+      // Filter the domain array to exclude the default domain.
+      $filtered_domains = array_filter($domain_array, function($domain) use ($default_domain_id) {
+        return $domain !== $default_domain_id;
+      });
+
+      // Deny access if more than one domain is assigned, excluding the default domain.
+      if (count($filtered_domains) > 1) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
       }
 
@@ -99,7 +108,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       $user_domain_array = array_column($user->get('field_domain_access')->getValue(), 'target_id');
 
       // Check if the user has access to the content's domain.
-      $node_access = !empty(array_intersect($user_domain_array, $domain_array));
+      $node_access = !empty(array_intersect($user_domain_array, $filtered_domains));
 
       if (!$node_access) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
