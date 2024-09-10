@@ -575,10 +575,9 @@ display:
       display_extenders:
         transform_api_facets:
           transform_facets:
-            related_user: related_user
-            subject: subject
-            sustainability_goals: sustainability_goals
-            theme: theme
+            search_company: search_company
+            search_course_provider: search_course_provider
+            search_place_of_visit: search_place_of_visit
             type: type
         transform_api_views:
           row_transform: entity
