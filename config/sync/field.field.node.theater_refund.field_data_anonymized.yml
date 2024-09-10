@@ -1,0 +1,21 @@
+uuid: 1e3e8b90-c4ce-401b-8bc0-977e24b8710e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_anonymized
+    - node.type.theater_refund
+id: node.theater_refund.field_data_anonymized
+field_name: field_data_anonymized
+entity_type: node
+bundle: theater_refund
+label: Anonymiseret
+description: 'Er data fra denne ansøgning anonymiseret?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

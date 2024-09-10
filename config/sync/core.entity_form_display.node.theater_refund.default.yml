@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.theater_refund.body
+    - field.field.node.theater_refund.field_data_anonymized
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
     - field.field.node.theater_refund.field_rfc_date
@@ -192,6 +193,13 @@ content:
     weight: 11
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_data_anonymized:
+    type: boolean_checkbox
+    weight: 40
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_rfc_date:
     type: datetime_default

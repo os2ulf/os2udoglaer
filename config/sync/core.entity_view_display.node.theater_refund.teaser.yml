@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.theater_refund.body
+    - field.field.node.theater_refund.field_data_anonymized
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
     - field.field.node.theater_refund.field_rfc_date
@@ -58,6 +59,7 @@ content:
     weight: 100
     region: content
 hidden:
+  field_data_anonymized: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_rfc_date: true
