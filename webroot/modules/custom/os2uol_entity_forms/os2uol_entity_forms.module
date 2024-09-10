@@ -3,6 +3,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\user\UserInterface;
+
 /**
  * implements hook_field_widget_single_element_paragraphs_form_alter().
  */
@@ -90,7 +91,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       }
 
       // Get the default domain.
-      $default_domain = $this->domainStorage()->loadDefaultDomain();
+      $default_domain = \Drupal::service('domain.negotiator')->getActiveDomain();
       $default_domain_id = $default_domain ? $default_domain->id() : null;
 
       // Filter the domain array to exclude the default domain.
