@@ -39,6 +39,9 @@ elements: |-
   title:
     '#type': textfield
     '#title': Titel
+  email_send_to:
+    '#type': email
+    '#title': 'Email (Send to)'
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
