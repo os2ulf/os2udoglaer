@@ -32,6 +32,7 @@ dependencies:
     - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_default_events
     - field.field.user.user.field_pretix_enabled
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
@@ -90,6 +91,7 @@ hidden:
   field_postnummer: true
   field_presentation: true
   field_pretix_api_token: true
+  field_pretix_default_events: true
   field_pretix_enabled: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true

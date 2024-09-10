@@ -321,7 +321,7 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: '[site:name]'
-      reply_to: ''
+      reply_to: '[webform_submission:values:provider_email:raw]'
       return_path: ''
       sender_mail: ''
       sender_name: ''

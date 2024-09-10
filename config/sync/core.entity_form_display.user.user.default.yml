@@ -33,6 +33,7 @@ dependencies:
     - field.field.user.user.field_pretix_api_token
     - field.field.user.user.field_pretix_default_events
     - field.field.user.user.field_pretix_enabled
+    - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
     - field.field.user.user.field_video
@@ -197,9 +198,9 @@ third_party_settings:
       children:
         - field_contact
         - field_phone
-        - field_mail
         - field_cvr
         - field_homepage
+        - field_mail
       label: Kontaktoplysninger
       region: content
       parent_name: ''
@@ -244,7 +245,6 @@ third_party_settings:
         - field_domain_access
         - field_domain_admin
         - field_domain_all_affiliates
-        - field_bypass_workflow
         - field_editor_field
       label: Redaktørindstillinger
       region: content
@@ -492,14 +492,13 @@ content:
       offsets: '50,50'
     third_party_settings: {  }
   field_mail:
-    type: string_textfield
-    weight: 4
+    type: email_default
+    weight: 61
     region: content
     settings:
-      size: 60
       placeholder: ''
-    third_party_settings:
-      conditional_fields: {  }
+      size: 60
+    third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
     weight: 60
