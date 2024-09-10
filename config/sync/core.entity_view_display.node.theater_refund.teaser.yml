@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.theater_refund.field_rfc_school
     - field.field.node.theater_refund.field_rfc_send_mail
     - field.field.node.theater_refund.field_rfc_spent_amount
+    - field.field.node.theater_refund.field_semester
     - field.field.node.theater_refund.field_tr_conditions
     - field.field.node.theater_refund.field_tr_gdpr
     - field.field.node.theater_refund.field_tr_mails_sent
@@ -45,6 +46,11 @@ content:
       trim_length: 600
     third_party_settings: {  }
     weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
     region: content
   links:
     settings: {  }
@@ -70,6 +76,7 @@ hidden:
   field_rfc_school: true
   field_rfc_send_mail: true
   field_rfc_spent_amount: true
+  field_semester: true
   field_tr_conditions: true
   field_tr_gdpr: true
   field_tr_mails_sent: true
@@ -78,3 +85,5 @@ hidden:
   field_tr_theater: true
   langcode: true
   search_api_excerpt: true
+  workbench_reviewer: true
+  workflow_buttons: true

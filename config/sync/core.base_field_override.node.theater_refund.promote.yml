@@ -1,0 +1,22 @@
+uuid: d1aa7221-a4e1-4fb7-a776-98b13ee7e670
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.theater_refund
+id: node.theater_refund.promote
+field_name: promote
+entity_type: node
+bundle: theater_refund
+label: 'Forfremmet til forside'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

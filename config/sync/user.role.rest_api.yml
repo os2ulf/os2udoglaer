@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - node.type.free_course_request
+    - node.type.theater_refund
     - workflows.workflow.application
   module:
     - content_moderation
@@ -17,5 +18,6 @@ is_admin: null
 permissions:
   - 'administer views'
   - 'create free_course_request content'
+  - 'create theater_refund content'
   - 'publish to any assigned domain'
   - 'use application transition afventer'
