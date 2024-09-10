@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.free_course_request.field_data_anonymized
     - field.field.node.free_course_request.field_domain_access
     - field.field.node.free_course_request.field_domain_all_affiliates
     - field.field.node.free_course_request.field_mailto
@@ -53,7 +52,6 @@ content:
     weight: 100
     region: content
 hidden:
-  field_data_anonymized: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_mailto: true
