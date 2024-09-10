@@ -31,7 +31,7 @@ elements: |-
     '#type': textarea
     '#title': Besked
   provider_email:
-    '#type': textfield
+    '#type': email
     '#title': 'Udbyder email'
   url:
     '#type': url
@@ -39,9 +39,6 @@ elements: |-
   title:
     '#type': textfield
     '#title': Titel
-  email_send_to:
-    '#type': email
-    '#title': 'Email (Send to)'
   actions:
     '#type': webform_actions
     '#title': 'Submit button(s)'
@@ -324,7 +321,7 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: '[site:name]'
-      reply_to: '[webform_submission:values:provider_email:raw]'
+      reply_to: '[webform_submission:values:email:raw]'
       return_path: ''
       sender_mail: ''
       sender_name: ''
