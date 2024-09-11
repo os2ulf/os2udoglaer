@@ -144,7 +144,7 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
  */
 function os2uol_application_forms_views_pre_render(ViewExecutable $view)
 {
-  if ($view->id() == 'free_course_request') { // Replace with your View ID
+  if ($view->id() == 'free_course_request' || $view->id() == 'theater_refund') { // Replace with your View ID
     $requested_amount = 0;
     $granted_amount = 0;
     $spent_amount = 0;
@@ -176,7 +176,7 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view)
  */
 function os2uol_application_forms_preprocess_views_view(&$variables)
 {
-  if ($variables['view']->id() == 'free_course_request') {
+  if ($variables['view']->id() == 'free_course_request' || $variables['view']->id() == 'theater_refund') {
     $variables['#attached']['library'][] = 'os2uol_application_forms/views';
   }
 }
