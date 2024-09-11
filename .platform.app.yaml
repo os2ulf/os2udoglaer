@@ -14,7 +14,7 @@ variables:
 dependencies:
   php:
     composer/composer: "^2.1"
-disk: 5000
+disk: 10000
 mounts:
   "/webroot/sites/default/files": "shared:files/files"
   "/webroot/sites/default/files/translations": "shared:files/translations"
