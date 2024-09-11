@@ -472,7 +472,7 @@ function _domain_access_restrictions() {
 /**
  * Implements hook_entity_presave().
  *
- * Assigns the current domain to a newly created user before saving.
+ * Assigns the current domain to a newly created and updated user before saving.
  *
  * @param \Drupal\Core\Entity\EntityInterface $entity
  */
@@ -483,8 +483,34 @@ function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
 
     // Check if the user entity has the correct field (field_domain_access) and if the current domain is available.
     if ($current_domain && $entity->hasField('field_domain_access')) {
-      // Assign the current domain to the user before saving.
-      $entity->set('field_domain_access', [$current_domain->id()]);
+      // Get the roles assigned to the user.
+      $roles = $entity->getRoles();
+
+      // Initialize an array to hold the domain IDs.
+      $domain_ids = [];
+
+      // Add the current domain ID.
+      $domain_ids[] = $current_domain->id();
+
+      // Retrieve the selected domains from the edit form.
+      $selected_domains = $entity->get('field_domain_access')->getValue();
+      foreach ($selected_domains as $selected_domain) {
+        $domain_ids[] = $selected_domain['target_id'];
+      }
+
+      // Logic to determine additional domains based on roles.
+      foreach ($roles as $role) {
+        if ($role == 'editor') {
+          // Add a specific domain ID for editors.
+          $domain_ids[] = 'editor_domain_id';
+        } elseif ($role == 'administrator') {
+          // Add a specific domain ID for administrators.
+          $domain_ids[] = 'admin_domain_id';
+        }
+      }
+
+      // Assign the domains to the user before saving.
+      $entity->set('field_domain_access', array_unique($domain_ids));
     }
   }
 }

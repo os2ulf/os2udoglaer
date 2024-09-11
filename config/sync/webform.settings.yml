@@ -181,7 +181,7 @@ format: {  }
 mail:
   default_to_mail: '[site:mail]'
   default_from_mail: '[site:mail]'
-  default_from_name: '[site:name]'
+  default_from_name: '[user:field_other_info_description:value]'
   default_reply_to: ''
   default_return_path: ''
   default_sender_mail: ''
