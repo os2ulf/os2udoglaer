@@ -1,22 +1,38 @@
-.view-free-course-request {
+.view-free-course-request,
+.view-theater-refund {
   display: flex;
   flex-flow: column;
 }
 
-.view-free-course-request .contextual {
+.view-free-course-request .contextual,
+.view-theater-refund .contextual {
   order: 1;
 }
 
-.view-free-course-request .view-filters {
+.view-free-course-request .view-filters,
+.view-theater-refund .view-filters {
   order: 3;
 }
 
-.view-free-course-request .attachment-before {
+.view-free-course-request .attachment-before,
+.view-theater-refund .attachment-before {
   order: 2;
 }
 
-.view-free-course-request .view-content {
+.view-free-course-request .view-content,
+.view-theater-refund .view-content {
   order: 4;
+}
+
+.view-free-course-request .pager,
+.view-theater-refund .pager {
+  order: 5;
+}
+
+.view-free-course-request .feed-icons,
+.view-theater-refund .feed-icons {
+  order: 6;
+  padding-top: 20px;
 }
 
 .view-free-course-request .view-filters fieldset {

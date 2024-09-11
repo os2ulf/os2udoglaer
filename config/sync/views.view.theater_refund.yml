@@ -3364,11 +3364,11 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: admin/free-course-request-export/xlsx
+      path: admin/theater-refund-export/xlsx
       displays:
         page_1: page_1
         default: '0'
-      filename: 'os2uol-free-course-request-export-[date:html_date].xlsx'
+      filename: 'os2uol-theater-refund-export-[date:html_date].xlsx'
       automatic_download: true
       store_in_public_file_directory: false
       custom_redirect_path: false
