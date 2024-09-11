@@ -4,20 +4,21 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_rfc_attachment
-    - field.storage.node.field_rfc_course_name
+    - field.storage.node.field_rfc_course
     - field.storage.node.field_rfc_date
     - field.storage.node.field_rfc_grade
     - field.storage.node.field_rfc_granted_amount
     - field.storage.node.field_rfc_latest_editor
     - field.storage.node.field_rfc_name
+    - field.storage.node.field_rfc_new_course_name
     - field.storage.node.field_rfc_payment_date
     - field.storage.node.field_rfc_provider
     - field.storage.node.field_rfc_remarks
     - field.storage.node.field_rfc_requested_amount
     - field.storage.node.field_rfc_school
     - field.storage.node.field_rfc_spent_amount
+    - field.storage.node.field_rfc_subject
     - field.storage.node.field_semester
-    - field.storage.node.field_subject
     - node.type.free_course_request
     - taxonomy.vocabulary.subject
     - user.role.administrator
@@ -436,10 +437,73 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_course_name:
-          id: field_rfc_course_name
-          table: node__field_rfc_course_name
-          field: field_rfc_course_name
+        field_rfc_new_course_name:
+          id: field_rfc_new_course_name
+          table: node__field_rfc_new_course_name
+          field: field_rfc_new_course_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_rfc_course:
+          id: field_rfc_course
+          table: node__field_rfc_course
+          field: field_rfc_course
           relationship: none
           group_type: group
           admin_label: ''
@@ -481,15 +545,15 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: '{{ field_rfc_new_course_name }}'
           hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          empty_zero: true
+          hide_alter_empty: false
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            link_to_entity: true
-          group_column: value
+            link: true
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -499,10 +563,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_subject:
-          id: field_subject
-          table: node__field_subject
-          field: field_subject
+        field_rfc_subject:
+          id: field_rfc_subject
+          table: node__field_rfc_subject
+          field: field_rfc_subject
           relationship: none
           group_type: group
           admin_label: ''
@@ -551,7 +615,7 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -1455,7 +1519,9 @@ display:
             field_rfc_school: field_rfc_school
             field_rfc_name: field_rfc_name
             field_rfc_provider: field_rfc_provider
-            field_rfc_course_name: field_rfc_course_name
+            field_rfc_new_course_name: field_rfc_new_course_name
+            field_rfc_course: field_rfc_course
+            field_rfc_subject: field_rfc_subject
         moderation_state:
           id: moderation_state
           table: node_field_data
@@ -1686,7 +1752,8 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           fields:
-            field_rfc_course_name: field_rfc_course_name
+            field_rfc_new_course_name: field_rfc_new_course_name
+            field_rfc_course: field_rfc_course
         field_subject_target_id:
           id: field_subject_target_id
           table: node__field_subject
@@ -1859,15 +1926,17 @@ display:
           row_class: ''
           default_row_class: true
           columns:
+            node_bulk_form: node_bulk_form
             nid: nid
             field_rfc_school: field_rfc_school
             field_rfc_grade: field_rfc_grade
             field_rfc_name: field_rfc_name
             field_rfc_provider: field_rfc_provider
-            field_rfc_course_name: field_rfc_course_name
+            field_rfc_new_course_name: field_rfc_new_course_name
+            field_rfc_course: field_rfc_course
             field_subject: field_subject
-            field_rfc_date: field_rfc_date
             field_rfc_requested_amount: field_rfc_requested_amount
+            field_rfc_date: field_rfc_date
             moderation_state: moderation_state
             field_rfc_granted_amount: field_rfc_granted_amount
             field_rfc_spent_amount: field_rfc_spent_amount
@@ -1876,9 +1945,14 @@ display:
             field_rfc_remarks: field_rfc_remarks
             field_rfc_latest_editor: field_rfc_latest_editor
             edit_node: edit_node
-            node_bulk_form: node_bulk_form
+            field_semester: field_semester
           default: nid
           info:
+            node_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             nid:
               sortable: true
               default_sort_order: desc
@@ -1914,7 +1988,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_rfc_course_name:
+            field_rfc_new_course_name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_rfc_course:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -1926,14 +2007,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_rfc_date:
+            field_rfc_requested_amount:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_rfc_requested_amount:
+            field_rfc_date:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -1996,7 +2077,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            node_bulk_form:
+            field_semester:
               align: ''
               separator: ''
               empty_column: false
@@ -2044,50 +2125,53 @@ display:
         - user.roles
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_subject'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
         - 'config:field.storage.node.field_rfc_attachment'
-        - 'config:field.storage.node.field_rfc_course_name'
+        - 'config:field.storage.node.field_rfc_course'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
         - 'config:field.storage.node.field_rfc_latest_editor'
         - 'config:field.storage.node.field_rfc_name'
+        - 'config:field.storage.node.field_rfc_new_course_name'
         - 'config:field.storage.node.field_rfc_payment_date'
         - 'config:field.storage.node.field_rfc_provider'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
         - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
+        - 'config:field.storage.node.field_rfc_subject'
         - 'config:field.storage.node.field_semester'
-        - 'config:field.storage.node.field_subject'
         - 'config:workflow_list'
   data_export_1:
     id: data_export_1
@@ -2475,15 +2559,78 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_course_name:
-          id: field_rfc_course_name
-          table: node__field_rfc_course_name
-          field: field_rfc_course_name
+        field_rfc_new_course_name:
+          id: field_rfc_new_course_name
+          table: node__field_rfc_new_course_name
+          field: field_rfc_new_course_name
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Forløb
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_rfc_course:
+          id: field_rfc_course
+          table: node__field_rfc_course
+          field: field_rfc_course
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -2516,19 +2663,19 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: '{{ field_rfc_new_course_name }}'
           hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: string
+          empty_zero: true
+          hide_alter_empty: false
+          click_sort_column: target_id
+          type: entity_reference_label
           settings:
-            link_to_entity: true
-          group_column: value
+            link: true
+          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2538,10 +2685,10 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_subject:
-          id: field_subject
-          table: node__field_subject
-          field: field_subject
+        field_rfc_subject:
+          id: field_rfc_subject
+          table: node__field_rfc_subject
+          field: field_rfc_subject
           relationship: none
           group_type: group
           admin_label: ''
@@ -2590,7 +2737,7 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -3354,50 +3501,53 @@ display:
         - user.roles
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_subject'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
         - 'config:field.storage.node.field_rfc_attachment'
-        - 'config:field.storage.node.field_rfc_course_name'
+        - 'config:field.storage.node.field_rfc_course'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
         - 'config:field.storage.node.field_rfc_latest_editor'
         - 'config:field.storage.node.field_rfc_name'
+        - 'config:field.storage.node.field_rfc_new_course_name'
         - 'config:field.storage.node.field_rfc_payment_date'
         - 'config:field.storage.node.field_rfc_provider'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
         - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
+        - 'config:field.storage.node.field_rfc_subject'
         - 'config:field.storage.node.field_semester'
-        - 'config:field.storage.node.field_subject'
         - 'config:workflow_list'
   page_1:
     id: page_1
@@ -3427,48 +3577,51 @@ display:
         - user.roles
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_subject'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
         - 'config:field.storage.node.field_rfc_attachment'
-        - 'config:field.storage.node.field_rfc_course_name'
+        - 'config:field.storage.node.field_rfc_course'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
         - 'config:field.storage.node.field_rfc_latest_editor'
         - 'config:field.storage.node.field_rfc_name'
+        - 'config:field.storage.node.field_rfc_new_course_name'
         - 'config:field.storage.node.field_rfc_payment_date'
         - 'config:field.storage.node.field_rfc_provider'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
         - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
+        - 'config:field.storage.node.field_rfc_subject'
         - 'config:field.storage.node.field_semester'
-        - 'config:field.storage.node.field_subject'
         - 'config:workflow_list'

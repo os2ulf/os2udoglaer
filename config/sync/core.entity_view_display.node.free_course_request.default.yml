@@ -11,7 +11,6 @@ dependencies:
     - field.field.node.free_course_request.field_receiving_class
     - field.field.node.free_course_request.field_rfc_attachment
     - field.field.node.free_course_request.field_rfc_course
-    - field.field.node.free_course_request.field_rfc_course_name
     - field.field.node.free_course_request.field_rfc_course_not_found
     - field.field.node.free_course_request.field_rfc_date
     - field.field.node.free_course_request.field_rfc_follow_up_mail_sent
@@ -231,7 +230,6 @@ hidden:
   field_mailto: true
   field_old_id: true
   field_rfc_attachment: true
-  field_rfc_course_name: true
   field_rfc_follow_up_mail_sent: true
   field_rfc_provider_name: true
   field_rfc_send_mail: true
