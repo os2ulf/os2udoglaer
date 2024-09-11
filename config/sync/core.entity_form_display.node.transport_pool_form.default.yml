@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.transport_pool_form.body
     - field.field.node.transport_pool_form.field_domain_access
     - field.field.node.transport_pool_form.field_domain_all_affiliates
+    - field.field.node.transport_pool_form.field_rfc_course
     - node.type.transport_pool_form
   module:
     - field_group
@@ -15,7 +16,8 @@ dependencies:
 third_party_settings:
   field_group:
     group_tpf_course:
-      children: {  }
+      children:
+        - field_rfc_course
       label: Forløb
       region: content
       parent_name: ''
@@ -129,6 +131,16 @@ content:
     weight: 10
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_rfc_course:
+    type: entity_reference_autocomplete
+    weight: 17
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   langcode:
     type: language_select
