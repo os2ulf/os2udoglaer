@@ -6,6 +6,9 @@ dependencies:
     - field.field.node.transport_pool_form.body
     - field.field.node.transport_pool_form.field_domain_access
     - field.field.node.transport_pool_form.field_domain_all_affiliates
+    - field.field.node.transport_pool_form.field_location_city
+    - field.field.node.transport_pool_form.field_location_street
+    - field.field.node.transport_pool_form.field_location_zipcode
     - field.field.node.transport_pool_form.field_rfc_course
     - field.field.node.transport_pool_form.field_rfc_date
     - field.field.node.transport_pool_form.field_rfc_mail
@@ -45,6 +48,30 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: -20
+    region: content
+  field_location_city:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_location_street:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_location_zipcode:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
     region: content
   field_rfc_course:
     type: entity_reference_label
@@ -132,7 +159,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 121
+    weight: 135
     region: content
   field_tpf_institution_type:
     type: list_default

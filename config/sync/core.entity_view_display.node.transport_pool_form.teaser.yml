@@ -7,6 +7,9 @@ dependencies:
     - field.field.node.transport_pool_form.body
     - field.field.node.transport_pool_form.field_domain_access
     - field.field.node.transport_pool_form.field_domain_all_affiliates
+    - field.field.node.transport_pool_form.field_location_city
+    - field.field.node.transport_pool_form.field_location_street
+    - field.field.node.transport_pool_form.field_location_zipcode
     - field.field.node.transport_pool_form.field_rfc_course
     - field.field.node.transport_pool_form.field_rfc_date
     - field.field.node.transport_pool_form.field_rfc_mail
@@ -54,6 +57,9 @@ content:
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_location_city: true
+  field_location_street: true
+  field_location_zipcode: true
   field_rfc_course: true
   field_rfc_date: true
   field_rfc_mail: true

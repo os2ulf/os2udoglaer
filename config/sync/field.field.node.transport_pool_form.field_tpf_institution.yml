@@ -1,29 +1,25 @@
-uuid: 3e621a09-0b11-4721-adc2-ac575c842714
+uuid: b2654e42-4f49-4a86-ad00-7045281b84b7
 langcode: da
 status: true
 dependencies:
   config:
     - field.storage.node.field_tpf_institution
     - node.type.transport_pool_form
-    - taxonomy.vocabulary.institution
 id: node.transport_pool_form.field_tpf_institution
 field_name: field_tpf_institution
 entity_type: node
 bundle: transport_pool_form
-label: Institution
+label: 'Vælg institution'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:taxonomy_term'
+  handler: views
   handler_settings:
-    target_bundles:
-      institution: institution
-    sort:
-      field: name
-      direction: asc
-    auto_create: false
-    auto_create_bundle: ''
+    view:
+      view_name: show_providers_based_on_user_role_filtering
+      display_name: entity_reference_1
+      arguments: {  }
 field_type: entity_reference

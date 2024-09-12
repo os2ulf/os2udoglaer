@@ -1,16 +1,16 @@
-uuid: 4d30c5fc-74de-49f7-bddf-13ef5bdf20e6
+uuid: 0dbf7e30-2bc3-4d5e-965e-f3ce5b28433f
 langcode: da
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
+    - user
 id: node.field_tpf_institution
 field_name: field_tpf_institution
 entity_type: node
 type: entity_reference
 settings:
-  target_type: taxonomy_term
+  target_type: user
 module: core
 locked: false
 cardinality: 1
