@@ -17,6 +17,7 @@ dependencies:
     - entity_clone
     - filter
     - node
+    - os2uol_pretix
     - system
     - toolbar
     - workbench
@@ -27,6 +28,8 @@ is_admin: null
 permissions:
   - 'access toolbar'
   - 'access workbench'
+  - 'add all pretix events'
+  - 'add own pretix events'
   - 'change own username'
   - 'clone node entity'
   - 'create course content'
@@ -43,10 +46,12 @@ permissions:
   - 'delete own exercise content'
   - 'delete own internship content'
   - 'delete own news content'
+  - 'edit all pretix events'
   - 'edit own course content'
   - 'edit own course_educators content'
   - 'edit own exercise content'
   - 'edit own internship content'
+  - 'edit own pretix events'
   - 'update course content on assigned domains'
   - 'update course_educators content on assigned domains'
   - 'update exercise content on assigned domains'
@@ -67,6 +72,7 @@ permissions:
   - 'use editorial transition submit_for_review'
   - 'use editorial transition unpublish'
   - 'use text format basic_html'
+  - 'view all pretix events'
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view course revisions'
@@ -74,5 +80,6 @@ permissions:
   - 'view exercise revisions'
   - 'view internship revisions'
   - 'view news revisions'
+  - 'view own pretix events'
   - 'view own unpublished content'
   - 'view the administration theme'

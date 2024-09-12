@@ -69,6 +69,7 @@ dependencies:
     - layout_builder
     - menu_link_content
     - node
+    - os2uol_pretix
     - os2uol_users
     - paragraphs
     - path
@@ -103,6 +104,8 @@ permissions:
   - 'access webform overview'
   - 'access webform submission user'
   - 'access workbench'
+  - 'add all pretix events'
+  - 'add own pretix events'
   - 'administer atoms'
   - 'administer blocks'
   - 'administer content moderation notifications'
@@ -306,6 +309,7 @@ permissions:
   - 'delete terms in target_group_youth_education'
   - 'delete terms in theme'
   - 'delete terms in youth_education_subject'
+  - 'edit all pretix events'
   - 'edit any accordion block content'
   - 'edit any appetizer block content'
   - 'edit any basic block content'
@@ -339,6 +343,7 @@ permissions:
   - 'edit own internship content'
   - 'edit own news content'
   - 'edit own page content'
+  - 'edit own pretix events'
   - 'edit own webform'
   - 'edit own webform submission'
   - 'edit terms in areas_of_interest'
@@ -406,6 +411,7 @@ permissions:
   - 'use editorial transition update'
   - 'use text format basic_html'
   - 'use text format full_html'
+  - 'view all pretix events'
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view any unpublished course content'
@@ -423,6 +429,7 @@ permissions:
   - 'view internship revisions'
   - 'view latest version'
   - 'view news revisions'
+  - 'view own pretix events'
   - 'view own unpublished content'
   - 'view own webform submission'
   - 'view page revisions'
