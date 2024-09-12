@@ -33,3 +33,6 @@ os2uol_settings.settings:
     free_course_application_reference:
       type: reference
       label: 'Free course application page'
+    email_signature:
+      type: string
+      label: 'Email signature'

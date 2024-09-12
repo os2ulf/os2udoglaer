@@ -109,6 +109,13 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#tags' => FALSE,
     ];
 
+    $form['email_signature'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Email signature'),
+      '#default_value' => $config->get('email_signature'),
+      '#description' => $this->t('Enter the HTML for the email signature. This will be used as a token in email sendouts.'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -136,6 +143,7 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('text_negative_color', $form_state->getValue('text_negative_color'))
       ->set('site_tracking_script', $form_state->getValue('site_tracking_script'))
       ->set('free_course_application_reference', $form_state->getValue('free_course_application_reference'))
+      ->set('email_signature', $form_state->getValue('email_signature'))
       ->save();
 
     parent::submitForm($form, $form_state);
