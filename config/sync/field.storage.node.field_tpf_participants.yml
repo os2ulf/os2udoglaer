@@ -1,0 +1,20 @@
+uuid: 07cd9ee2-5095-4a49-8608-70120bda3723
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_tpf_participants
+field_name: field_tpf_participants
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

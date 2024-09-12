@@ -9,7 +9,7 @@ id: node.transport_pool_form.field_rfc_course
 field_name: field_rfc_course
 entity_type: node
 bundle: transport_pool_form
-label: Forløb
+label: 'Vælg forløb'
 description: ''
 required: false
 translatable: false

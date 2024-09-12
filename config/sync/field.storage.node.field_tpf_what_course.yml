@@ -1,0 +1,19 @@
+uuid: 0d5c1c53-65e0-4035-8806-d088d7ba94ad
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_tpf_what_course
+field_name: field_tpf_what_course
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

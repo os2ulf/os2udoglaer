@@ -7,8 +7,18 @@ dependencies:
     - field.field.node.transport_pool_form.field_domain_access
     - field.field.node.transport_pool_form.field_domain_all_affiliates
     - field.field.node.transport_pool_form.field_rfc_course
+    - field.field.node.transport_pool_form.field_rfc_date
+    - field.field.node.transport_pool_form.field_tpf_expense
+    - field.field.node.transport_pool_form.field_tpf_grade
+    - field.field.node.transport_pool_form.field_tpf_institution
+    - field.field.node.transport_pool_form.field_tpf_institution_type
+    - field.field.node.transport_pool_form.field_tpf_participants
+    - field.field.node.transport_pool_form.field_tpf_purpose_course
+    - field.field.node.transport_pool_form.field_tpf_what_course
     - node.type.transport_pool_form
   module:
+    - datetime
+    - options
     - text
     - user
 id: node.transport_pool_form.default
@@ -35,6 +45,71 @@ content:
       link: true
     third_party_settings: {  }
     weight: 116
+    region: content
+  field_rfc_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 129
+    region: content
+  field_tpf_expense:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 123
+    region: content
+  field_tpf_grade:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 122
+    region: content
+  field_tpf_institution:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 121
+    region: content
+  field_tpf_institution_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 120
+    region: content
+  field_tpf_participants:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 124
+    region: content
+  field_tpf_purpose_course:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 118
+    region: content
+  field_tpf_what_course:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 117
     region: content
   links:
     settings: {  }

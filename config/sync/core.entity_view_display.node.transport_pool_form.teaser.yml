@@ -8,6 +8,14 @@ dependencies:
     - field.field.node.transport_pool_form.field_domain_access
     - field.field.node.transport_pool_form.field_domain_all_affiliates
     - field.field.node.transport_pool_form.field_rfc_course
+    - field.field.node.transport_pool_form.field_rfc_date
+    - field.field.node.transport_pool_form.field_tpf_expense
+    - field.field.node.transport_pool_form.field_tpf_grade
+    - field.field.node.transport_pool_form.field_tpf_institution
+    - field.field.node.transport_pool_form.field_tpf_institution_type
+    - field.field.node.transport_pool_form.field_tpf_participants
+    - field.field.node.transport_pool_form.field_tpf_purpose_course
+    - field.field.node.transport_pool_form.field_tpf_what_course
     - node.type.transport_pool_form
   module:
     - text
@@ -39,6 +47,14 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_rfc_course: true
+  field_rfc_date: true
+  field_tpf_expense: true
+  field_tpf_grade: true
+  field_tpf_institution: true
+  field_tpf_institution_type: true
+  field_tpf_participants: true
+  field_tpf_purpose_course: true
+  field_tpf_what_course: true
   langcode: true
   search_api_excerpt: true
   workbench_reviewer: true
