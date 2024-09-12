@@ -1,0 +1,23 @@
+uuid: 07d2d5f1-12ba-49fd-bf3c-29229d1e6171
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_address_variation
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_tpf_address_variation
+field_name: field_tpf_address_variation
+entity_type: node
+bundle: transport_pool_form
+label: 'Adresse varierer fra indhold'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

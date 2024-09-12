@@ -1,0 +1,19 @@
+uuid: f35628c1-0e8b-4bd8-899d-e3546943700c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_name
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_rfc_name
+field_name: field_rfc_name
+entity_type: node
+bundle: transport_pool_form
+label: Navn
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
