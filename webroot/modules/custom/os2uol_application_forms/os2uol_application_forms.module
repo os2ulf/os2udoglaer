@@ -254,3 +254,18 @@ function os2uol_application_forms_gdpr_anonymization_cron()
     \Drupal::logger('os2uol_application_forms')->info('No nodes found for anonymization.');
   }
 }
+
+/**
+ * Implements hook_entity_presave().
+ */
+function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_payment_date')) {
+    // Check if the moderation state is being changed to published.
+    $original_entity = $entity->original;
+    if ($original_entity && $original_entity->get('moderation_state')->value !== 'published' && $entity->get('moderation_state')->value === 'published') {
+      // Update the field_rfc_payment_date with the current timestamp.
+      $current_timestamp = time();
+      $entity->set('field_rfc_payment_date', $current_timestamp);
+    }
+  }
+}
