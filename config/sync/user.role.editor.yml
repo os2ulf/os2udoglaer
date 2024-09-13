@@ -44,6 +44,7 @@ dependencies:
     - layout_builder
     - menu_link_content
     - node
+    - os2uol_pretix
     - os2uol_users
     - paragraphs
     - path
@@ -75,6 +76,8 @@ permissions:
   - 'access webform overview'
   - 'access webform submission user'
   - 'access workbench'
+  - 'add all pretix events'
+  - 'add own pretix events'
   - 'administer atoms'
   - 'administer menu'
   - 'administer nodes'
@@ -221,6 +224,7 @@ permissions:
   - 'delete own webform'
   - 'delete own webform submission'
   - 'delete page revisions'
+  - 'edit all pretix events'
   - 'edit any accordion block content'
   - 'edit any appetizer block content'
   - 'edit any basic block content'
@@ -254,6 +258,7 @@ permissions:
   - 'edit own internship content'
   - 'edit own news content'
   - 'edit own page content'
+  - 'edit own pretix events'
   - 'edit own webform'
   - 'edit own webform submission'
   - 'edit webform assets'
@@ -289,6 +294,7 @@ permissions:
   - 'use editorial transition update'
   - 'use text format basic_html'
   - 'use text format full_html'
+  - 'view all pretix events'
   - 'view all revisions'
   - 'view any unpublished content'
   - 'view any unpublished course content'
@@ -305,6 +311,7 @@ permissions:
   - 'view internship revisions'
   - 'view latest version'
   - 'view news revisions'
+  - 'view own pretix events'
   - 'view own unpublished content'
   - 'view own webform submission'
   - 'view page revisions'
