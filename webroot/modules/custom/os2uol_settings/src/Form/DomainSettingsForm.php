@@ -113,7 +113,7 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#type' => 'text_format',
       '#title' => $this->t('Email signature'),
       '#default_value' => $config->get('email_signature')['value'] ?? '',
-      '#format' => $config->get('email_signature')['format'] ?? 'full_html',
+      '#format' => $config->get('email_signature')['format'] ?? 'basic_html',
       '#description' => $this->t('Enter the HTML for the email signature. This will be used as a token in email sendouts.'),
     ];
 
