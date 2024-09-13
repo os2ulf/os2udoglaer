@@ -20,6 +20,8 @@ class SetPaymentCompletedStatus extends ActionBase {
   public function execute($entity = NULL) {
     if ($entity instanceof Node) {
       $entity->set('moderation_state', 'published');
+      $current_timestamp = time();
+      $entity->set('field_rfc_payment_date', $current_timestamp);
       $entity->save();
     }
   }
