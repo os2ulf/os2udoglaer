@@ -7,3 +7,8 @@
 .node-form  input.submit-trash {
   left: auto;
 }
+
+.position-sticky thead {
+  position: relative !important;
+  top: auto !important;
+}
