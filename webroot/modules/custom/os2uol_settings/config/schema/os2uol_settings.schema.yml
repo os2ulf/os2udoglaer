@@ -34,5 +34,12 @@ os2uol_settings.settings:
       type: reference
       label: 'Free course application page'
     email_signature:
-      type: string
+      type: map
       label: 'Email signature'
+      mapping:
+        value:
+          type: string
+          label: 'Email signature value'
+        format:
+          type: string
+          label: 'Email signature format'
