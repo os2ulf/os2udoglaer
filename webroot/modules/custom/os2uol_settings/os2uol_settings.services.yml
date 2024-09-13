@@ -1,0 +1,4 @@
+services:
+  os2uol_settings.email_signature_token_service:
+    class: Drupal\os2uol_settings\Service\EmailSignatureTokenService
+    arguments: ['@config.factory']
