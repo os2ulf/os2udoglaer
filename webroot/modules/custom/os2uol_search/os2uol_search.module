@@ -48,3 +48,16 @@ function os2uol_search_view_content_search_transform_alter(&$transformation) {
   }
 }
 
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function os2uol_search_view_related_content_transform_alter(&$transformation) {
+  // Remove course filter option form exposed filter
+  // This is done to keep default filtering working, while frontend option is removed.
+  foreach ($transformation['exposed_filters']['type']['options'] as $key => $option) {
+    if ($option->value === 'course') {
+      unset($transformation['exposed_filters']['type']['options'][$key]);
+    }
+  }
+}
+
