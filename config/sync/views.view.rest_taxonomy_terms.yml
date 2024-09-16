@@ -299,7 +299,7 @@ display:
         options:
           field_options:
             name:
-              alias: label
+              alias: name
               raw_output: false
             tid:
               alias: tid
