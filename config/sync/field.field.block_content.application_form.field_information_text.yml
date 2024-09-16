@@ -1,0 +1,29 @@
+uuid: a5c4b9fd-6523-4aaf-846f-28c9d04c4165
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.application_form
+    - field.storage.block_content.field_information_text
+    - filter.format.basic_html
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: block_content.application_form.field_information_text
+field_name: field_information_text
+entity_type: block_content
+bundle: application_form
+label: Oplysningstekst
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

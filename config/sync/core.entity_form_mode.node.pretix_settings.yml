@@ -1,0 +1,11 @@
+uuid: 9a78c6a0-db8c-4211-ab3b-d07e15048e80
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.pretix_settings
+label: 'Pretix settings'
+description: 'Form mode til brug som Pretix indstillinger.'
+targetEntityType: node
+cache: true

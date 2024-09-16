@@ -49,12 +49,15 @@ dependencies:
     - taxonomy.vocabulary.target_group_youth_education
     - taxonomy.vocabulary.theme
     - taxonomy.vocabulary.youth_education_subject
+    - workflows.workflow.application
     - workflows.workflow.editorial
   module:
     - atoms
     - block
     - block_content
     - content_moderation
+    - content_moderation_bypass
+    - content_moderation_notifications
     - content_translation
     - contextual
     - domain
@@ -66,12 +69,12 @@ dependencies:
     - layout_builder
     - menu_link_content
     - node
+    - os2uol_pretix
     - os2uol_users
     - paragraphs
     - path
     - redirect
     - role_delegation
-    - scheduled_transitions
     - system
     - taxonomy
     - toolbar
@@ -101,13 +104,11 @@ permissions:
   - 'access webform overview'
   - 'access webform submission user'
   - 'access workbench'
-  - 'add scheduled transitions node course'
-  - 'add scheduled transitions node course_educators'
-  - 'add scheduled transitions node exercise'
-  - 'add scheduled transitions node internship'
-  - 'add scheduled transitions node news'
+  - 'add all pretix events'
+  - 'add own pretix events'
   - 'administer atoms'
   - 'administer blocks'
+  - 'administer content moderation notifications'
   - 'administer menu'
   - 'administer nodes'
   - 'administer redirect settings'
@@ -130,6 +131,7 @@ permissions:
   - 'assign school role'
   - 'assign theater_contact role'
   - 'assign webmaster role'
+  - 'bypass application transition restrictions'
   - 'bypass node access'
   - 'clone action entity'
   - 'clone base_field_override entity'
@@ -307,6 +309,7 @@ permissions:
   - 'delete terms in target_group_youth_education'
   - 'delete terms in theme'
   - 'delete terms in youth_education_subject'
+  - 'edit all pretix events'
   - 'edit any accordion block content'
   - 'edit any appetizer block content'
   - 'edit any basic block content'
@@ -340,6 +343,7 @@ permissions:
   - 'edit own internship content'
   - 'edit own news content'
   - 'edit own page content'
+  - 'edit own pretix events'
   - 'edit own webform'
   - 'edit own webform submission'
   - 'edit terms in areas_of_interest'
@@ -365,11 +369,6 @@ permissions:
   - 'edit webform assets'
   - 'publish to any assigned domain'
   - 'publish to any domain'
-  - 'reschedule scheduled transitions node course'
-  - 'reschedule scheduled transitions node course_educators'
-  - 'reschedule scheduled transitions node exercise'
-  - 'reschedule scheduled transitions node internship'
-  - 'reschedule scheduled transitions node news'
   - 'revert all revisions'
   - 'revert any footer block content revisions'
   - 'revert course revisions'
@@ -387,12 +386,21 @@ permissions:
   - 'translate menu_link_content'
   - 'translate page node'
   - 'update content translations'
+  - 'use application transition accept'
+  - 'use application transition await_payment'
+  - 'use application transition cancel'
+  - 'use application transition complete_payment'
+  - 'use application transition luk'
+  - 'use application transition ready_for_payment'
+  - 'use application transition reject'
   - 'use domain config ui'
   - 'use domain nav block'
   - 'use domain switcher block'
   - 'use editorial transition accept'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition delete'
+  - 'use editorial transition publish'
+  - 'use editorial transition publish_unpublished'
   - 'use editorial transition reject'
   - 'use editorial transition restore_draft'
   - 'use editorial transition restore_publish'
@@ -403,8 +411,8 @@ permissions:
   - 'use editorial transition update'
   - 'use text format basic_html'
   - 'use text format full_html'
+  - 'view all pretix events'
   - 'view all revisions'
-  - 'view all scheduled transitions'
   - 'view any unpublished content'
   - 'view any unpublished course content'
   - 'view any unpublished course_educators content'
@@ -421,15 +429,11 @@ permissions:
   - 'view internship revisions'
   - 'view latest version'
   - 'view news revisions'
+  - 'view own pretix events'
   - 'view own unpublished content'
   - 'view own webform submission'
   - 'view page revisions'
   - 'view private user information'
-  - 'view scheduled transitions node course'
-  - 'view scheduled transitions node course_educators'
-  - 'view scheduled transitions node exercise'
-  - 'view scheduled transitions node internship'
-  - 'view scheduled transitions node news'
   - 'view the administration theme'
   - 'view unpublished domain content'
   - 'view unpublished paragraphs'

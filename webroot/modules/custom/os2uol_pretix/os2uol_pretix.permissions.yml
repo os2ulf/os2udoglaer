@@ -1,0 +1,26 @@
+view all pretix events:
+  title: 'View all Pretix events'
+  description: 'Allow viewing all Pretix events.'
+  restrict access: TRUE
+
+view own pretix events:
+  title: 'View own Pretix events'
+  description: 'Only allow viewing Pretix events owned by the user.'
+
+add all pretix events:
+  title: 'Add to all Pretix events'
+  description: 'Allow adding to all Pretix events.'
+  restrict access: TRUE
+
+add own pretix events:
+  title: 'Add to own Pretix events'
+  description: 'Only allow adding to Pretix events owned by the user.'
+
+edit all pretix events:
+  title: 'Edit all Pretix events'
+  description: 'Allow editing all Pretix events.'
+  restrict access: TRUE
+
+edit own pretix events:
+  title: 'Edit own Pretix events'
+  description: 'Only allow editing Pretix events owned by the user.'

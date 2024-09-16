@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - system.menu.workbench
+    - user.role.administrator
+    - user.role.bypass_workflow
+    - user.role.course_provider
+    - user.role.editor
+    - user.role.webmaster
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -299,9 +304,14 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
+            course_provider: course_provider
+            bypass_workflow: bypass_workflow
       cache:
         type: tag
         options: {  }
@@ -428,7 +438,7 @@ display:
         - url.query_args
         - url.site
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:workflow_list'
   page_1:
@@ -446,12 +456,12 @@ display:
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: admin/content/trash
+      path: admin/workbench/trash
       menu:
         type: normal
         title: Papirkurv
         description: ''
-        weight: -44
+        weight: -46
         expanded: false
         menu_name: workbench
         parent: ''
@@ -464,7 +474,7 @@ display:
         - url.query_args
         - url.site
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:workflow_list'
     arguments:

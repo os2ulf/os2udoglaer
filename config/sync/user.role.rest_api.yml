@@ -1,0 +1,23 @@
+uuid: 1f2b4373-b417-40ca-862a-9a2f1de14e46
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.free_course_request
+    - node.type.theater_refund
+    - workflows.workflow.application
+  module:
+    - content_moderation
+    - domain_access
+    - node
+    - views_ui
+id: rest_api
+label: 'REST API'
+weight: 3
+is_admin: null
+permissions:
+  - 'administer views'
+  - 'create free_course_request content'
+  - 'create theater_refund content'
+  - 'publish to any assigned domain'
+  - 'use application transition afventer'

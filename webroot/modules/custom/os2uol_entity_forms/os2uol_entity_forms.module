@@ -1,6 +1,8 @@
 <?php
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\user\Entity\User;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\user\UserInterface;
 
 /**
  * implements hook_field_widget_single_element_paragraphs_form_alter().
@@ -88,8 +90,17 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         return;
       }
 
-      // Deny access if more than one domain is assigned.
-      if (count($domain_array) > 1) {
+      // Get the default domain.
+      $default_domain = \Drupal::service('domain.negotiator')->getActiveDomain();
+      $default_domain_id = $default_domain ? $default_domain->id() : null;
+
+      // Filter the domain array to exclude the default domain.
+      $filtered_domains = array_filter($domain_array, function($domain) use ($default_domain_id) {
+        return $domain !== $default_domain_id;
+      });
+
+      // Deny access if more than one domain is assigned, excluding the default domain.
+      if (count($filtered_domains) > 1) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
       }
 
@@ -98,7 +109,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       $user_domain_array = array_column($user->get('field_domain_access')->getValue(), 'target_id');
 
       // Check if the user has access to the content's domain.
-      $node_access = !empty(array_intersect($user_domain_array, $domain_array));
+      $node_access = !empty(array_intersect($user_domain_array, $filtered_domains));
 
       if (!$node_access) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
@@ -455,5 +466,51 @@ function _domain_access_restrictions() {
     return TRUE;
   } else {
     return FALSE;
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ *
+ * Assigns the current domain to a newly created and updated user before saving.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
+  if ($entity instanceof UserInterface) {
+    // Get the current active domain.
+    $current_domain = \Drupal::service('domain.negotiator')->getActiveDomain();
+
+    // Check if the user entity has the correct field (field_domain_access) and if the current domain is available.
+    if ($current_domain && $entity->hasField('field_domain_access')) {
+      // Get the roles assigned to the user.
+      $roles = $entity->getRoles();
+
+      // Initialize an array to hold the domain IDs.
+      $domain_ids = [];
+
+      // Add the current domain ID.
+      $domain_ids[] = $current_domain->id();
+
+      // Retrieve the selected domains from the edit form.
+      $selected_domains = $entity->get('field_domain_access')->getValue();
+      foreach ($selected_domains as $selected_domain) {
+        $domain_ids[] = $selected_domain['target_id'];
+      }
+
+      // Logic to determine additional domains based on roles.
+      foreach ($roles as $role) {
+        if ($role == 'editor') {
+          // Add a specific domain ID for editors.
+          $domain_ids[] = 'editor_domain_id';
+        } elseif ($role == 'administrator') {
+          // Add a specific domain ID for administrators.
+          $domain_ids[] = 'admin_domain_id';
+        }
+      }
+
+      // Assign the domains to the user before saving.
+      $entity->set('field_domain_access', array_unique($domain_ids));
+    }
   }
 }

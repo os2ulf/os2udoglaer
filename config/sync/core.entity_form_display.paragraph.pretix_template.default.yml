@@ -1,0 +1,32 @@
+uuid: dfcae959-40e2-4e7f-beb5-0461cb3e34d8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.pretix_template.field_event_short_form
+    - field.field.paragraph.pretix_template.field_name
+    - paragraphs.paragraphs_type.pretix_template
+id: paragraph.pretix_template.default
+targetEntityType: paragraph
+bundle: pretix_template
+mode: default
+content:
+  field_event_short_form:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

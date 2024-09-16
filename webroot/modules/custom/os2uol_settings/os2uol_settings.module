@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Render\BubbleableMetadata;
 
 /**
  * Define available fonts for the OS2UOL settings.
@@ -55,4 +56,47 @@ function os2uol_settings_preprocess_styles_preview(&$variables) {
       $variables['secondary_bg_txt_color'] = $secondary_bg_txt_color;
     }
   }
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function os2uol_settings_token_info() {
+  $info = array();
+
+  // Define a new group of tokens.
+  $info['types']['os2uol_settings'] = array(
+    'name' => t('OS2UOL Settings'),
+    'description' => t('Tokens for OS2UOL settings.'),
+  );
+
+  // Define tokens in the group.
+  $info['tokens']['os2uol_settings'] = array(
+    'email_signature' => array(
+      'name' => t('Email Signature'),
+      'description' => t('The HTML email signature from the configuration.'),
+    ),
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function os2uol_settings_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = array();
+
+  if ($type == 'os2uol_settings') {
+    foreach ($tokens as $name => $original) {
+      switch ($name) {
+        case 'email_signature':
+          $email_signature_service = \Drupal::service('os2uol_settings.email_signature_token_service');
+          $replacements[$original] = $email_signature_service->getEmailSignature();
+          break;
+      }
+    }
+  }
+
+  return $replacements;
 }

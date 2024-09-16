@@ -32,6 +32,7 @@
         "drupal/admin_toolbar": "^3.4",
         "drupal/allowed_formats": "^2.0",
         "drupal/atoms": "^1.0",
+        "drupal/auto_entitylabel": "^3.3",
         "drupal/autosave_form": "^1.0",
         "drupal/better_exposed_filters": "^6.0",
         "drupal/better_permissions_page": "^1.0",
@@ -41,10 +42,12 @@
         "drupal/config_ignore": "^3.3",
         "drupal/config_split": "^1.7.0",
         "drupal/content_moderation_bypass": "^1.0@alpha",
+        "drupal/content_moderation_notifications": "^3.6",
         "drupal/core-composer-scaffold": "^10",
         "drupal/core-project-message": "^10",
         "drupal/core-recommended": "^10",
         "drupal/core-vendor-hardening": "^9.0",
+        "drupal/date_popup": "^2.0",
         "drupal/diff": "^1.7",
         "drupal/domain": "^2.0@beta",
         "drupal/domain_access_search_api": "^1.0",
@@ -70,12 +73,14 @@
         "drupal/linkit": "^6.0",
         "drupal/maxlength": "^3.0@beta",
         "drupal/menu_item_fields": "^1.10",
+        "drupal/menu_per_role": "^1.7",
         "drupal/metatag": "^1.0",
         "drupal/noreferrer": "^1.0",
         "drupal/paragraphs": "^1.0",
         "drupal/paragraphs_asymmetric_translation_widgets": "^1.0",
         "drupal/pathauto": "^1.0",
         "drupal/pathologic": "^2.0@alpha",
+        "drupal/r4032login": "^2.2",
         "drupal/rdf": "^2.0",
         "drupal/redirect": "^1.0",
         "drupal/redirect_after_login": "^3.0",
@@ -97,6 +102,7 @@
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/view_profiles_perms": "^2.1",
         "drupal/view_unpublished": "^1.0",
+        "drupal/views_bulk_operations": "^4.2",
         "drupal/views_data_export": "^1.4",
         "drupal/webform": "^6.2",
         "drupal/webform_rest": "^4.1",
@@ -246,7 +252,14 @@
                 "Add #view to view transformation": "https://git.drupalcode.org/project/transform_api/-/commit/4332f4e5014b196e9a42b047ec8f0cb3bd0b5ba6.diff",
                 "Fix better_exposed_filters label": "https://git.drupalcode.org/project/transform_api/-/commit/ce1b8214ef523ca859509957e5cd7032e452df49.diff",
                 "Fixed view results route for search_api usage": "https://git.drupalcode.org/project/transform_api/-/commit/11ec5670060f96bcafb815e0ee5691480530f1e6.diff",
-                "Added label to view transform": "https://git.drupalcode.org/project/transform_api/-/commit/e4721c4d8d73749ddbbd71a71ee4959c66318106.diff"
+                "Added label to view transform": "https://git.drupalcode.org/project/transform_api/-/commit/e4721c4d8d73749ddbbd71a71ee4959c66318106.diff",
+                "Fixed sorting of view exposed filters": "https://git.drupalcode.org/project/transform_api/-/commit/c97e8259a5eaffedb55f0628ac4f3614067484c3.diff",
+                "Fixed error of exposed filters": "https://git.drupalcode.org/project/transform_api/-/commit/c38b7060b9e1333469a877fe393303ac148eaf9f.diff",
+                "Fixed error message": "https://git.drupalcode.org/project/transform_api/-/commit/12d92a3e541c0c144b7d89aacdff879f761a6a68.diff",
+                "Fixed view results bug": "https://git.drupalcode.org/project/transform_api/-/commit/81cb0b94fdbd1c20317748d3bcce563306268b77.diff"
+            },
+            "drupal/webform": {
+                "(#3435903) Fix incompatibility with devel ^5.2": "https://www.drupal.org/files/issues/2024-08-01/fix_incompatibility_with_devel_5.2.patch"
             }
         }
     }

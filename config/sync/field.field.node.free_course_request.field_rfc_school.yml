@@ -1,0 +1,29 @@
+uuid: a5ea2504-1f77-429e-b466-5c34fc7dcbb0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_school
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_school
+field_name: field_rfc_school
+entity_type: node
+bundle: free_course_request
+label: Skole
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: false
+field_type: entity_reference

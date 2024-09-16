@@ -1,0 +1,11 @@
+uuid: ae8441f1-b38a-4524-9fcf-5b66110057d0
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.theater_refund
+id: node.theater_refund
+target_entity_type_id: node
+target_bundle: theater_refund
+default_langcode: site_default
+language_alterable: false

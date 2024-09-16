@@ -1,4 +1,4 @@
-uuid: bd02a555-d0dc-427b-b56e-a26d11d2b0e2
+uuid: 63030ed9-c0b4-4d74-b753-e472f21723a3
 langcode: da
 status: true
 dependencies:
@@ -7,11 +7,8 @@ dependencies:
 id: user.field_mail
 field_name: field_mail
 entity_type: user
-type: string
-settings:
-  max_length: 255
-  case_sensitive: false
-  is_ascii: false
+type: email
+settings: {  }
 module: core
 locked: false
 cardinality: 1

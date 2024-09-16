@@ -23,6 +23,7 @@ dependencies:
     - field.storage.node.field_expectations
     - field.storage.node.field_ackground_knowledge
     - field.storage.node.field_is_free
+    - field.storage.node.field_all_year
     - field.storage.node.field_areas_of_interest
     - field.storage.node.field_curriculum_themes
     - field.storage.node.field_purpose_exercise
@@ -38,7 +39,10 @@ dependencies:
     - field.storage.node.field_duration_select
     - field.storage.node.field_sustainability_goals
     - field.storage.node.field_exclude_from_search
+    - field.storage.user.field_brancher
     - field.storage.user.field_guarantee_partner
+    - field.storage.user.field_posibilities
+    - field.storage.user.field_postnummer
     - field.storage.user.field_presentation
     - search_api.server.solr
   module:
@@ -101,6 +105,15 @@ name: Search
 description: ''
 read_only: false
 field_settings:
+  aggregated_type:
+    label: Type
+    property_path: aggregated_field
+    type: string
+    configuration:
+      type: union
+      fields:
+        - 'entity:node/type'
+        - 'entity:user/roles'
   body:
     label: Beskrivelse
     datasource_id: 'entity:node'
@@ -167,6 +180,14 @@ field_settings:
         - field.storage.node.field_activity_select
       module:
         - taxonomy
+  field_all_year:
+    label: 'Hele året'
+    datasource_id: 'entity:node'
+    property_path: field_all_year
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_all_year
   field_appetizer_headline:
     label: 'Layoutbuilder Block Content: Appetizer (1) » Headline'
     datasource_id: 'entity:node'
@@ -195,6 +216,14 @@ field_settings:
         - field.storage.node.field_areas_of_interest
       module:
         - taxonomy
+  field_brancher:
+    label: Brancher
+    datasource_id: 'entity:user'
+    property_path: field_brancher
+    type: string
+    dependencies:
+      config:
+        - field.storage.user.field_brancher
   field_course_type:
     label: Forløbstype
     datasource_id: 'entity:node'
@@ -352,7 +381,7 @@ field_settings:
     label: Periode
     datasource_id: 'entity:node'
     property_path: field_period
-    type: date
+    type: solr_date_range
     dependencies:
       config:
         - field.storage.node.field_period
@@ -364,6 +393,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_period_select
+  field_posibilities:
+    label: Muligheder
+    datasource_id: 'entity:user'
+    property_path: field_posibilities
+    type: string
+    dependencies:
+      config:
+        - field.storage.user.field_posibilities
   field_post_processing:
     label: Efterbehandling
     datasource_id: 'entity:node'
@@ -372,6 +409,14 @@ field_settings:
     dependencies:
       config:
         - field.storage.node.field_post_processing
+  field_postnummer:
+    label: Postnummer
+    datasource_id: 'entity:user'
+    property_path: field_postnummer
+    type: string
+    dependencies:
+      config:
+        - field.storage.user.field_postnummer
   field_preparation:
     label: Forberedelse
     datasource_id: 'entity:node'
@@ -640,7 +685,7 @@ field_settings:
     label: Udbyer
     datasource_id: 'entity:node'
     property_path: uid
-    type: integer
+    type: string
     dependencies:
       module:
         - node
@@ -659,7 +704,8 @@ datasource_settings:
   'entity:node':
     bundles:
       default: true
-      selected: {  }
+      selected:
+        - free_course_request
     languages:
       default: true
       selected: {  }

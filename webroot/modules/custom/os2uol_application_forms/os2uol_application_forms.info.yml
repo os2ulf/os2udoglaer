@@ -1,0 +1,11 @@
+name: 'OS2udoglær Application Forms'
+type: module
+description: 'This module alters the application forms.'
+core_version_requirement: ^10 || ^11
+package: 'OS2udoglær'
+dependencies:
+  - drupal:user
+  - drupal:views
+  - drupal:node
+  - drupal:views_bulk_operations
+  - drupal:content_moderation

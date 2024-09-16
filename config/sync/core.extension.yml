@@ -2,6 +2,8 @@ _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 langcode: da
 module:
+  auto_entitylabel: -100
+  transform_api_facets: -100
   admin_toolbar: 0
   admin_toolbar_tools: 0
   allowed_formats: 0
@@ -27,9 +29,11 @@ module:
   config_translation: 0
   content_moderation: 0
   content_moderation_bypass: 0
+  content_moderation_notifications: 0
   contextual: 0
   crop: 0
   csv_serialization: 0
+  date_popup: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
@@ -84,6 +88,7 @@ module:
   menu_item_fields: 0
   menu_item_fields_ui: 0
   menu_link_content: 0
+  menu_per_role: 0
   menu_ui: 0
   metatag: 0
   metatag_open_graph: 0
@@ -91,10 +96,13 @@ module:
   node: 0
   noreferrer: 0
   options: 0
+  os2uol_application_forms: 0
   os2uol_domain: 0
   os2uol_entity_forms: 0
   os2uol_menus: 0
   os2uol_moderation: 0
+  os2uol_pretix: 0
+  os2uol_search: 0
   os2uol_settings: 0
   os2uol_transform_plugins: 0
   os2uol_users: 0
@@ -109,6 +117,7 @@ module:
   premium_search: 0
   premium_theme_helper: 0
   premium_tools: 0
+  r4032login: 0
   rdf: 0
   redirect: 0
   redirect_after_login: 0
@@ -139,13 +148,13 @@ module:
   token: 0
   toolbar: 0
   transform_api: 0
-  transform_api_facets: 0
   transform_api_responsive_image: 0
   transform_api_views: 0
   ultimate_cron: 0
   user: 0
   view_profiles_perms: 0
   view_unpublished: 0
+  views_bulk_operations: 0
   views_data_export: 0
   views_ui: 0
   webform: 0

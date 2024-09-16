@@ -1,0 +1,19 @@
+uuid: e7fd638f-5b5d-4344-925d-a9d83941325f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_email_notifiers
+    - node.type.internship
+id: node.internship.field_pretix_email_notifiers
+field_name: field_pretix_email_notifiers
+entity_type: node
+bundle: internship
+label: 'Pretix email notifiers'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

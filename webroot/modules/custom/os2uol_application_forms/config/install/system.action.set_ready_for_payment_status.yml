@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_ready_for_payment_status
+label: 'Set status to Ready for payment'
+type: node
+plugin: set_ready_for_payment_status

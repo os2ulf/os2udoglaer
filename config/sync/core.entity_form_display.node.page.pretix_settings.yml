@@ -1,0 +1,137 @@
+uuid: 99df7e6e-48c9-45b4-90be-a60e7fbe678f
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.pretix_settings
+    - field.field.node.page.body
+    - field.field.node.page.field_description
+    - field.field.node.page.field_domain_access
+    - field.field.node.page.field_domain_all_affiliates
+    - field.field.node.page.field_exclude_from_profile
+    - field.field.node.page.field_exclude_from_search
+    - field.field.node.page.field_header
+    - field.field.node.page.field_hide_breadcrumb
+    - field.field.node.page.field_hide_title
+    - field.field.node.page.field_list_media
+    - field.field.node.page.field_meta_tags
+    - field.field.node.page.field_pretix_email_notifiers
+    - field.field.node.page.field_pretix_event_short_form
+    - field.field.node.page.field_pretix_shop_url
+    - field.field.node.page.field_pretix_template_event
+    - field.field.node.page.field_pretix_widget_type
+    - field.field.node.page.layout_builder__layout
+    - node.type.page
+  module:
+    - field_group
+    - link
+third_party_settings:
+  field_group:
+    group_page_header:
+      children:
+        - field_header
+      label: 'Page header'
+      region: hidden
+      parent_name: ''
+      weight: 7
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        id: ''
+        description: ''
+        required_fields: true
+        open: false
+        weight: 0
+    group_page_settings:
+      children:
+        - field_hide_breadcrumb
+      label: Sideindstillinger
+      region: hidden
+      parent_name: ''
+      weight: 8
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+    group_content_visibility:
+      children:
+        - field_exclude_from_search
+        - field_exclude_from_profile
+        - field_domain_access
+      label: 'Visning af indhold'
+      region: hidden
+      parent_name: ''
+      weight: 9
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+        required_fields: true
+_core:
+  default_config_hash: yLuxC1AtF9CJMNubF_D7VH8MdElyNmQE1JNlL5d1xDo
+id: node.page.pretix_settings
+targetEntityType: node
+bundle: page
+mode: pretix_settings
+content:
+  field_pretix_email_notifiers:
+    type: email_default
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_pretix_shop_url:
+    type: link_default
+    weight: -2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_pretix_widget_type:
+    type: options_select
+    weight: -1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  created: true
+  field_description: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_exclude_from_profile: true
+  field_exclude_from_search: true
+  field_header: true
+  field_hide_breadcrumb: true
+  field_hide_title: true
+  field_list_media: true
+  field_meta_tags: true
+  field_pretix_event_short_form: true
+  field_pretix_template_event: true
+  langcode: true
+  layout_builder__layout: true
+  moderation_state: true
+  path: true
+  promote: true
+  simple_sitemap: true
+  status: true
+  sticky: true
+  title: true
+  translation: true
+  uid: true
+  url_redirects: true

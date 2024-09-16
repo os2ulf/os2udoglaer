@@ -1,0 +1,19 @@
+uuid: ac0c6982-1807-4c14-9f92-33806a64ba67
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_email_notifiers
+    - node.type.course
+id: node.course.field_pretix_email_notifiers
+field_name: field_pretix_email_notifiers
+entity_type: node
+bundle: course
+label: 'Pretix email notifiers'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

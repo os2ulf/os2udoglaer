@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_cancelled_status
+label: 'Set status to Cancelled'
+type: node
+plugin: set_cancelled_status

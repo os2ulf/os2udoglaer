@@ -1,0 +1,77 @@
+uuid: 0eef0de3-32be-4882-83ae-1cbbec365421
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.application_form
+    - field.field.block_content.application_form.field_form_type
+    - field.field.block_content.application_form.field_information_text
+    - field.field.block_content.application_form.field_information_text_title
+    - field.field.block_content.application_form.field_mail_to
+    - field.field.block_content.application_form.field_show_in_modal
+  module:
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_oplysningstekst:
+      children:
+        - field_information_text_title
+        - field_information_text
+        - field_show_in_modal
+      label: Oplysningstekst
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: block_content.application_form.default
+targetEntityType: block_content
+bundle: application_form
+mode: default
+content:
+  field_form_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_information_text:
+    type: text_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_information_text_title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_mail_to:
+    type: email_default
+    weight: 1
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_show_in_modal:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+hidden:
+  info: true
+  langcode: true

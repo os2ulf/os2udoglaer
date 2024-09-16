@@ -1,0 +1,29 @@
+uuid: 030fc3ad-b11a-47c0-a874-96bd3daa2731
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_latest_editor
+    - node.type.theater_refund
+id: node.theater_refund.field_rfc_latest_editor
+field_name: field_rfc_latest_editor
+entity_type: node
+bundle: theater_refund
+label: 'Senest ændret af'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

@@ -1,0 +1,106 @@
+uuid: 449c13ed-7040-462f-88bf-d9b13ba80e8f
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.free_course_request
+  module:
+    - content_moderation_bypass
+id: application
+label: Ansøgning
+type: content_moderation
+type_settings:
+  states:
+    accepted:
+      label: Accepteret
+      weight: -3
+      published: true
+      default_revision: true
+    awaiting_payment:
+      label: 'Afventer betaling'
+      weight: -2
+      published: false
+      default_revision: true
+    cancelled:
+      label: Annulleret
+      weight: 2
+      published: false
+      default_revision: false
+    closed:
+      label: Lukket
+      weight: 3
+      published: true
+      default_revision: false
+    draft:
+      label: Afventer
+      weight: -4
+      published: false
+      default_revision: false
+    published:
+      label: 'Betaling fuldført'
+      weight: 0
+      published: true
+      default_revision: true
+    ready_for_payment:
+      label: 'Klar til betaling'
+      weight: -1
+      published: false
+      default_revision: true
+    refused:
+      label: Afvist
+      weight: 1
+      published: false
+      default_revision: false
+  transitions:
+    accept:
+      label: Acceptér
+      from:
+        - draft
+      to: accepted
+      weight: 0
+    afventer:
+      label: Afventer
+      from:
+        - draft
+      to: draft
+      weight: 7
+    await_payment:
+      label: 'Afvent betaling'
+      from:
+        - accepted
+      to: awaiting_payment
+      weight: 1
+    cancel:
+      label: Annullér
+      from:
+        - draft
+      to: cancelled
+      weight: 5
+    complete_payment:
+      label: 'Fuldfør betaling'
+      from:
+        - ready_for_payment
+      to: published
+      weight: 3
+    luk:
+      label: Luk
+      from:
+        - draft
+      to: closed
+      weight: 6
+    ready_for_payment:
+      label: 'Klar til betaling'
+      from:
+        - awaiting_payment
+      to: ready_for_payment
+      weight: 2
+    reject:
+      label: Afvis
+      from:
+        - draft
+      to: refused
+      weight: 4
+  entity_types:
+    node:
+      - free_course_request
+  default_moderation_state: draft

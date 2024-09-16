@@ -1,0 +1,17 @@
+uuid: 3770f33f-b1d6-412c-b909-9127d9b261d7
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+title: 'Default cron handler'
+id: os2uol_application_forms_cron
+weight: 0
+module: os2uol_application_forms
+callback: os2uol_application_forms_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

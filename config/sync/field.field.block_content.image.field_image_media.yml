@@ -12,7 +12,7 @@ field_name: field_image_media
 entity_type: block_content
 bundle: image
 label: Image
-description: ''
+description: 'OBS! Det er udbyders ansvar at sikre, at der er styr på rettigheder og tilladelser, når I uploader billeder.'
 required: true
 translatable: false
 default_value: {  }

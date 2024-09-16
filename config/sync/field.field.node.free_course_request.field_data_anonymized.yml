@@ -1,0 +1,21 @@
+uuid: d546732b-0d99-4151-9a44-89cc9902f5a7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_data_anonymized
+    - node.type.free_course_request
+id: node.free_course_request.field_data_anonymized
+field_name: field_data_anonymized
+entity_type: node
+bundle: free_course_request
+label: Anonymiseret
+description: 'Er data fra denne ansøgning anonymiseret?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

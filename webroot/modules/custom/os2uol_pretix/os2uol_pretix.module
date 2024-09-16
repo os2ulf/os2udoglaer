@@ -1,0 +1,77 @@
+<?php
+
+use Drupal\Core\Access\AccessResultInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Url;
+use Drupal\os2uol_pretix\PretixEntityHooks;
+use Drupal\os2uol_pretix\Routing\PretixRouteProvider;
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function os2uol_pretix_locale_translation_projects_alter(&$projects) {
+  /** @var \Drupal\Core\Extension\ModuleHandlerInterface $module_handler */
+  $module_handler = \Drupal::service('module_handler');
+  $path = $module_handler->getModule('os2uol_pretix')->getPath();
+  $projects['os2uol_pretix']['info']['interface translation server pattern']
+    = $path . '/translations/%language.po';
+}
+
+/**
+ * Implements hook_entity_access().
+ *
+ * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityAccess
+ */
+function os2uol_pretix_entity_access(EntityInterface $entity, $operation, AccountInterface $account): AccessResultInterface {
+  return \Drupal::classResolver(PretixEntityHooks::class)
+    ->entityAccess($entity, $operation, $account);
+}
+
+/**
+ * Implements hook_entity_delete().
+ *
+ * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityAccess
+ */
+function os2uol_pretix_entity_delete(EntityInterface $entity): void {
+  \Drupal::classResolver(PretixEntityHooks::class)
+    ->entityDelete($entity);
+}
+
+/**
+ * Implements hook_entity_insert().
+ *
+ * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityAccess
+ */
+function os2uol_pretix_entity_insert(EntityInterface $entity): void {
+  \Drupal::classResolver(PretixEntityHooks::class)
+    ->entityInsert($entity);
+}
+
+/**
+ * Implements hook_entity_update().
+ *
+ * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityAccess
+ */
+function os2uol_pretix_entity_update(EntityInterface $entity): void {
+  \Drupal::classResolver(PretixEntityHooks::class)
+    ->entityUpdate($entity);
+}
+
+/**
+ * Implements hook_entity_type_build().
+ *
+ * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityTypeBuild
+ */
+function os2uol_pretix_entity_type_build(array &$entity_types): void {
+  \Drupal::classResolver(PretixEntityHooks::class)
+    ->entityTypeBuild($entity_types);
+}
+
+/**
+ * Implements hook_mail().
+ */
+function os2uol_pretix_mail($key, &$message, $params) {
+  $message['body'] = $params['content'];
+  $message['subject'] = $params['subject'];
+}

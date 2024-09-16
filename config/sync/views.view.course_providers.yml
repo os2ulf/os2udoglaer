@@ -109,9 +109,9 @@ display:
             first: '« Første'
             last: 'Sidste »'
           expose:
-            items_per_page: false
+            items_per_page: true
             items_per_page_label: 'Antal elementer'
-            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options: '1,2,3,4,5,6,10,12,14,20,24,40,48'
             items_per_page_options_all: false
             items_per_page_options_all_label: '- Alle -'
             offset: false
@@ -585,7 +585,10 @@ display:
         filter_groups: false
       display_extenders:
         transform_api_facets:
-          transform_facets: {  }
+          transform_facets:
+            course_providers_brancher: course_providers_brancher
+            course_providers_posibilities: course_providers_posibilities
+            course_providers_postnummer: course_providers_postnummer
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
@@ -803,7 +806,10 @@ display:
         filter_groups: false
       display_extenders:
         transform_api_facets:
-          transform_facets: {  }
+          transform_facets:
+            guarantee_partners_brancher: guarantee_partners_brancher
+            guarantee_partners_posibilities: guarantee_partners_posibilities
+            guarantee_partners_postnummer: guarantee_partners_postnummer
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result

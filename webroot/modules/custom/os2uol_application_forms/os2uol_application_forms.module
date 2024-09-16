@@ -1,0 +1,271 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Form\ConfigFormBase;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Datetime\DrupalDateTime;
+
+/**
+ * Implements hook_node_presave().
+ *
+ * Alters the author of a node before it is saved, specifically for nodes of
+ * type "free_course_request". The new author is determined by the user ID
+ * stored in the "field_rfc_school" field. Additionally, it updates the
+ * "field_rfc_latest_editor" field with the ID of the user who last edited the node.
+ *
+ * Also updates the "field_semester" field based on the "Afviklingsdato".
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ */
+function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterface $entity)
+{
+  // Ensure we are dealing with a node entity and the node type is "free_course_request".
+  if (
+    $entity instanceof \Drupal\node\NodeInterface &&
+    ($entity->bundle() === 'free_course_request' || $entity->bundle() === 'theater_refund')
+  ) {
+    // Update the node author if "field_rfc_school" is set.
+    if ($entity->hasField('field_rfc_school') && !$entity->get('field_rfc_school')->isEmpty()) {
+      // Get the target_id from "field_rfc_school".
+      $new_author_id = $entity->get('field_rfc_school')->target_id;
+
+      // Load the user entity using the retrieved target_id.
+      $new_author = \Drupal\user\Entity\User::load($new_author_id);
+
+      // Check if the user entity was successfully loaded.
+      if ($new_author) {
+        // Set the node's author to the loaded user.
+        $entity->setOwner($new_author);
+      }
+    }
+
+    // Update the "field_rfc_latest_editor" with the current user ID.
+    if ($entity->hasField('field_rfc_latest_editor')) {
+      // Get the current user ID.
+      $current_user_id = \Drupal::currentUser()->id();
+
+      // Set the "field_rfc_latest_editor" field to the current user ID.
+      $entity->set('field_rfc_latest_editor', $current_user_id);
+    }
+
+    // Update the "field_semester" based on "Afviklingsdato".
+    if ($entity->hasField('field_semester') && !$entity->get('field_rfc_date')->isEmpty()) {
+      // Get the date value from "field_rfc_date".
+      $afviklingsdato = $entity->get('field_rfc_date')->date;
+
+      // Calculate the semester and school year dynamically.
+      $calculated_semester = calculateSemesterMachineName($afviklingsdato->getTimestamp());
+
+      // Set the calculated value to "field_semester".
+      $entity->set('field_semester', $calculated_semester);
+    }
+  }
+}
+
+/**
+ * Function to calculate the semester and return the machine name.
+ *
+ * @param string $afviklingsdato
+ *   The date of the event (Afviklingsdato) in timestamp format.
+ *
+ * @return string
+ *   Returns the machine-readable value for the semester, e.g., "1_halvar_2025_2026" or "2_halvar_2025_2026".
+ */
+function calculateSemesterMachineName($afviklingsdato)
+{
+  // Get the timestamp of the given date (Afviklingsdato).
+  $event_date = new \DateTime();
+  $event_date->setTimestamp($afviklingsdato);
+
+  // Get the year and month of the event.
+  $year = $event_date->format('Y');
+  $month = $event_date->format('m');
+
+  // Calculate the school year.
+  if ($month >= 1 && $month <= 6) {
+    // First half of the year (1. halvår)
+    $school_year_start = $year - 1; // Previous year.
+    $school_year_end = $year; // Current year.
+    return '1_halvar_' . $school_year_start . '_' . $school_year_end;
+  } else {
+    // Second half of the year (2. halvår)
+    $school_year_start = $year; // Current year.
+    $school_year_end = $year + 1; // Next year.
+    return '2_halvar_' . $school_year_start . '_' . $school_year_end;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter() for node edit forms.
+ *
+ * This example demonstrates how to access the node's created date
+ * in the node edit form alter function.
+ *
+ * @param array $form
+ *   An associative array containing the structure of the form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The current state of the form.
+ * @param string $form_id
+ *   The unique string identifying the form.
+ */
+function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id)
+{
+  if ($form_id == 'node_free_course_request_edit_form') {
+    $node = $form_state->getFormObject()->getEntity();
+    $author = $node->getOwner();
+    $created_date = $node->getCreatedTime();
+    $formatted_created_date = \Drupal::service('date.formatter')->format($created_date, 'custom', 'd/m/Y - H:i');
+
+    // Change author name to field_name.
+    $form['meta']['author']['#markup'] = $author->get('field_name')->value;
+
+    // Add published node info in meta section.
+    $form['meta']['published'] = [
+      '#type' => 'item',
+      '#title' => t('Published'),
+      '#markup' => $formatted_created_date,
+      '#wrapper_attributes' => [
+        'class' => ['entity-meta__published'],
+      ],
+    ];
+
+    // Hide the time part of the date fields.
+    $form['field_rfc_payment_date']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_rfc_payment_date']['widget'][0]['value']['#date_time_format'] = '';
+    $form['field_rfc_follow_up_mail_sent']['widget'][0]['value']['#date_time_element'] = 'none';
+    $form['field_rfc_follow_up_mail_sent']['widget'][0]['value']['#date_time_format'] = '';
+  }
+}
+
+/**
+ * Implements hook_views_pre_render().
+ */
+function os2uol_application_forms_views_pre_render(ViewExecutable $view)
+{
+  if ($view->id() == 'free_course_request' || $view->id() == 'theater_refund') { // Replace with your View ID
+    $requested_amount = 0;
+    $granted_amount = 0;
+    $spent_amount = 0;
+
+    foreach ($view->result as $row) {
+      $requested_amount += $row->_entity->get('field_rfc_requested_amount')->value;
+      $granted_amount += $row->_entity->get('field_rfc_granted_amount')->value;
+      $spent_amount += $row->_entity->get('field_rfc_spent_amount')->value;
+    }
+
+    // Construct the sum markup
+    $sum_markup = Markup::create(
+      '<table class="applications-summary">' .
+        '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '</table>'
+    );
+    // Add the sum markup as the first item in the header
+    $view->attachment_before['sum_markup'] = [
+      '#markup' => $sum_markup,
+      '#weight' => -10,  // Ensures it appears before other elements
+    ];
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function os2uol_application_forms_preprocess_views_view(&$variables)
+{
+  if ($variables['view']->id() == 'free_course_request' || $variables['view']->id() == 'theater_refund') {
+    $variables['#attached']['library'][] = 'os2uol_application_forms/views';
+  }
+}
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function os2uol_application_forms_locale_translation_projects_alter(&$projects)
+{
+  $module_handler = \Drupal::service('module_handler');
+  $path = $module_handler->getModule('os2uol_application_forms')->getPath();
+  $projects['os2uol_application_forms']['info']['interface translation server pattern']
+    = $path . '/translations/%language.po';
+}
+
+/**
+ * Implements hook_cron().
+ */
+function os2uol_application_forms_cron()
+{
+  // Call the GDPR anonymization logic during cron runs.
+  os2uol_application_forms_gdpr_anonymization_cron();
+}
+
+/**
+ * Anonymizes personal data fields in a safe manner.
+ */
+function os2uol_application_forms_gdpr_anonymization_cron()
+{
+  \Drupal::logger('os2uol_application_forms')->info('GDPR Anonymization cron started.');
+
+  $config = \Drupal::config('os2uol_application_forms.gdpr_settings');
+  $anonymization_days = $config->get('anonymization_days');
+
+  // Calculate the cutoff date for anonymization.
+  $cutoff_date = new \Drupal\Core\Datetime\DrupalDateTime('-' . $anonymization_days . ' days');
+
+  // Query to get nodes that need anonymization based on Afviklingsdato.
+  $query = \Drupal::entityQuery('node')
+    ->condition('type', ['free_course_request', 'theater_refund'], 'IN')
+    ->condition('field_rfc_date', $cutoff_date->format('Y-m-d'), '<=')
+    ->condition('field_data_anonymized', 0) // Only non-anonymized data
+    ->accessCheck(FALSE); // Disable access checks for cron job
+
+  $nids = $query->execute();
+
+  if (!empty($nids)) {
+    \Drupal::logger('os2uol_application_forms')->info('Nodes found for anonymization: @nids', ['@nids' => implode(',', $nids)]);
+
+    $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
+    foreach ($nodes as $node) {
+      // Generate a unique anonymized identifier (UUID-like).
+      $random_id = substr(hash('sha256', uniqid(rand(), true)), 0, 8);
+
+      // Generate a fake email address.
+      $fake_email = 'anon_' . $random_id . '@anon.invalid';
+
+      // Anonymize personal data fields with safe values.
+      $node->set('field_rfc_mail', $fake_email);
+      $node->set('field_mailto', $fake_email);
+      $node->set('field_rfc_name', 'Anonymous User ' . $random_id); // Clearly fake and unique.
+      $node->set('field_rfc_phone', '00000000'); // Fake, non-real phone number.
+
+      // Mark as anonymized.
+      $node->set('field_data_anonymized', TRUE);
+
+      // Save the node.
+      $node->save();
+
+      // Log the operation.
+      \Drupal::logger('os2uol_application_forms')->info('Personal data anonymized for node ID ' . $node->id());
+    }
+    \Drupal::logger('os2uol_application_forms')->info('Anonymization completed for ' . count($nodes) . ' nodes.');
+  } else {
+    \Drupal::logger('os2uol_application_forms')->info('No nodes found for anonymization.');
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_payment_date')) {
+    // Check if the moderation state is being changed to published.
+    $original_entity = $entity->original;
+    if ($original_entity && $original_entity->get('moderation_state')->value !== 'published' && $entity->get('moderation_state')->value === 'published') {
+      // Update the field_rfc_payment_date with the current timestamp.
+      $current_timestamp = time();
+      $entity->set('field_rfc_payment_date', $current_timestamp);
+    }
+  }
+}

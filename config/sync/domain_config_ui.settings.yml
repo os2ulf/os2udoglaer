@@ -2,4 +2,4 @@ _core:
   default_config_hash: PJP3-sJN2SQZTgCupMBEHry3ui7zsl93xtTovoTanFU
 langcode: da
 remember_domain: false
-path_pages: "/admin/appearance\r\n/admin/config/system/site-information\r\n/admin/domain-settings"
+path_pages: "/admin/appearance\r\n/admin/config/system/site-information\r\n/admin/domain-settings\r\n/admin/config/gdpr/anonymization-settings"

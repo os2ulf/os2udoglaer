@@ -1,0 +1,20 @@
+uuid: a10489e3-b31b-4bba-b56f-047418b81865
+langcode: da
+status: true
+dependencies:
+  module:
+    - datetime
+    - node
+id: node.field_rfc_date
+field_name: field_rfc_date
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

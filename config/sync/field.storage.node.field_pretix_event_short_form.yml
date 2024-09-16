@@ -1,0 +1,21 @@
+uuid: b3b3dca2-e9e0-4a69-94b1-af8bef323b0a
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_pretix_event_short_form
+field_name: field_pretix_event_short_form
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 8198a3e4-71b7-4556-916c-46aaa179dcd0
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.application_form
+    - field.storage.block_content.field_show_in_modal
+id: block_content.application_form.field_show_in_modal
+field_name: field_show_in_modal
+entity_type: block_content
+bundle: application_form
+label: 'Vis text i modal'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

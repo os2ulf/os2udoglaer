@@ -70,6 +70,7 @@ third_party_settings:
           - 'views_block:content_search-block_1'
           - 'views_block:course_providers-block_2'
           - 'views_block:content_search-block_2'
+          - 'views_block:content_search-block_3'
           - 'views_block:content_search-block_5'
           - 'views_block:course_providers-block_1'
           - 'views_block:content_search-block_4'
@@ -127,6 +128,11 @@ hidden:
   field_hide_title: true
   field_list_media: true
   field_meta_tags: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   langcode: true
   layout_builder__layout: true
   links: true

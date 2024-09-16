@@ -4,8 +4,12 @@ langcode: da
 mode: simple
 ignored_config_entities:
   - 'block.block.*footer*'
+  - 'content_moderation_notifications.content_moderation_notification.*'
+  - 'domain.config.*.*.system.site'
   - 'domain.config.*.os2uol_settings.settings'
+  - 'domain.config.*.system.site'
   - headless_domain_simple_sitemap.settings
   - os2uol_settings.settings
   - sendgrid_integration.settings
+  - system.site
   - 'transform_api.transform_block.*footer*'

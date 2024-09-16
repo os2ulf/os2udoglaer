@@ -1,0 +1,13 @@
+uuid: 4c74797e-fe06-403e-88a4-282cac2b5df1
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_application_forms
+_core:
+  default_config_hash: SIqobh1iP1Ed2FqhOzvcW13imFi-_AFuPWLIqyespAU
+id: set_payment_completed_status
+label: 'Sæt status til Udbetalt'
+type: node
+plugin: set_payment_completed_status
+configuration: {  }

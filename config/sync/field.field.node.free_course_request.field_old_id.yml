@@ -1,0 +1,19 @@
+uuid: f867c7c6-2b8a-4570-89bf-a0ad130c7b6f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_old_id
+    - node.type.free_course_request
+id: node.free_course_request.field_old_id
+field_name: field_old_id
+entity_type: node
+bundle: free_course_request
+label: 'Gammelt ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

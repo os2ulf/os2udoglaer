@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function os2uol_search_views_pre_build(\Drupal\views\ViewExecutable $view) {
+  if (!empty($view->filter['field_period'])) {
+    $query_param_name = $view->filter['field_period']->options['expose']['identifier'];
+    $exposed_input = $view->getExposedInput();
+
+    // Add default value to the filter to include all results.
+    if (empty($exposed_input[$query_param_name]['min'])) {
+      $exposed_input[$query_param_name]['min'] = '00.00.0000';
+    }
+
+    $view->setExposedInput($exposed_input);
+  }
+}
+
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function os2uol_search_view_content_search_transform_alter(&$transformation) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $transformation['#view'];
+
+  if (!empty($view->filter['field_period'])) {
+    $query_param_name = $view->filter['field_period']->options['expose']['identifier'];
+
+    $exposed_input = $view->getExposedInput()[$query_param_name] ?? [];
+
+    $build = [
+      'type' => 'date_range',
+      'label' => $view->filter['field_period']->options['expose']['label'],
+      'value' => [
+        'min' => $exposed_input['min'] ?? '00.00.0000',
+        'max' => $exposed_input['max'] ?? '',
+      ]
+    ];
+
+    $transformation['exposed_filters'][$query_param_name] = $build;
+
+    $transformation['facets']['field_period'] = [
+      'type' => 'facet',
+      'facet_type' => 'exposed_filter',
+      'exposed_filter' => $query_param_name,
+    ];
+  }
+}
+
+/**
+ * Implements hook_HOOK_transform_alter().
+ */
+function os2uol_search_view_related_content_transform_alter(&$transformation) {
+  // Remove course filter option form exposed filter
+  // This is done to keep default filtering working, while frontend option is removed.
+  foreach ($transformation['exposed_filters']['type']['options'] as $key => $option) {
+    if ($option->value === 'course') {
+      unset($transformation['exposed_filters']['type']['options'][$key]);
+    }
+  }
+}
+

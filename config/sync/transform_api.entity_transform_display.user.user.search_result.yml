@@ -31,6 +31,7 @@ dependencies:
     - field.field.user.user.field_postnummer
     - field.field.user.user.field_presentation
     - field.field.user.user.field_pretix_api_token
+    - field.field.user.user.field_pretix_default_events
     - field.field.user.user.field_pretix_enabled
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
@@ -60,12 +61,27 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
+  field_mail:
+    type: value
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_name:
     type: value
     weight: '0'
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_presentation:
+    type: text_summary_or_trimmed
+    weight: '2'
+    region: content
+    label: omit
+    settings:
+      trim_length: '300'
     third_party_settings: {  }
 hidden:
   field_allocated_budget: true
@@ -85,15 +101,14 @@ hidden:
   field_location_street: true
   field_location_zipcode: true
   field_logo: true
-  field_mail: true
   field_meta_tags: true
   field_other_info: true
   field_other_info_description: true
   field_phone: true
   field_posibilities: true
   field_postnummer: true
-  field_presentation: true
   field_pretix_api_token: true
+  field_pretix_default_events: true
   field_pretix_enabled: true
   field_pretix_event_form: true
   field_pretix_organizer_form: true

@@ -54,7 +54,7 @@ type_settings:
       from:
         - draft
       to: draft
-      weight: -6
+      weight: -7
     delete:
       label: Slet
       from:
@@ -63,61 +63,73 @@ type_settings:
         - review
         - unpublished
       to: trash
-      weight: 5
+      weight: 6
+    publish:
+      label: Udgiv
+      from:
+        - draft
+      to: published
+      weight: -1
+    publish_unpublished:
+      label: Udgiv
+      from:
+        - unpublished
+      to: published
+      weight: 1
     reject:
       label: 'Fjern fra redaktion'
       from:
         - review
       to: draft
-      weight: 1
+      weight: 2
     restore_draft:
       label: 'Gendan som kladde'
       from:
         - trash
       to: draft
-      weight: 3
+      weight: 4
     restore_publish:
       label: 'Gendan og udgiv'
       from:
         - trash
       to: published
-      weight: 4
+      weight: 5
     save_draft_leave_current_published:
       label: 'Opret kladde (behold udgivet version)'
       from:
         - published
       to: draft
-      weight: -2
+      weight: -3
     save_review:
       label: Gem
       from:
         - review
       to: review
-      weight: -4
+      weight: -5
     save_unpublished:
       label: Gem
       from:
         - unpublished
       to: unpublished
-      weight: -5
+      weight: -6
     submit_for_review:
       label: 'Send til redaktion'
       from:
         - draft
       to: review
-      weight: -1
+      weight: -2
     unpublish:
       label: Afpublicér
       from:
         - published
       to: unpublished
-      weight: 2
+      weight: 3
     update:
       label: Gem
       from:
         - published
       to: published
-      weight: -3
+      weight: -4
   entity_types:
     node:
       - course

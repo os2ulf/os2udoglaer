@@ -4,7 +4,17 @@ status: true
 dependencies:
   config:
     - field.storage.user.field_domain_access
+    - system.menu.admin
     - user.role.administrator
+    - user.role.bypass_workflow
+    - user.role.corporation
+    - user.role.course_provider
+    - user.role.editor
+    - user.role.institution
+    - user.role.monitor
+    - user.role.place_of_visit
+    - user.role.school
+    - user.role.theater_contact
     - user.role.webmaster
   module:
     - domain_access
@@ -496,9 +506,12 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: perm
+        type: role
         options:
-          perm: 'administer users'
+          role:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
       cache:
         type: tag
       empty:
@@ -895,7 +908,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.permissions
+        - user.roles
       tags: {  }
   page_1:
     id: page_1
@@ -1044,7 +1057,18 @@ display:
           admin_label: ''
           plugin_id: user_roles
           operator: or
-          value: {  }
+          value:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
+            course_provider: course_provider
+            corporation: corporation
+            institution: institution
+            school: school
+            place_of_visit: place_of_visit
+            theater_contact: theater_contact
+            monitor: monitor
+            bypass_workflow: bypass_workflow
           group: 1
           exposed: true
           expose:
@@ -1063,7 +1087,18 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            reduce: false
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -1214,6 +1249,8 @@ display:
       relationships: {  }
       show_admin_links: false
       display_extenders:
+        transform_api_facets:
+          transform_facets: {  }
         transform_api_views:
           row_transform: entity
           row_transform_mode: default
@@ -1222,12 +1259,14 @@ display:
           pager_transform_links_destination: current
       path: admin/people
       menu:
-        type: 'default tab'
+        type: normal
         title: Vis
         description: 'Find og håndtér personer som bruger dit site.'
         weight: -10
+        expanded: false
         menu_name: admin
-        context: ''
+        parent: ''
+        context: '0'
       tab_options:
         type: normal
         title: Personer
@@ -1242,7 +1281,7 @@ display:
         - url
         - url.query_args
         - url.site
-        - user.permissions
+        - user.roles
       tags: {  }
   page_2:
     id: page_2
@@ -1751,11 +1790,9 @@ display:
           separator: ', '
           field_api_classes: false
       access:
-        type: role
+        type: perm
         options:
-          role:
-            administrator: administrator
-            webmaster: webmaster
+          perm: 'administer users'
       filters:
         combine:
           id: combine
@@ -1859,7 +1896,18 @@ display:
           admin_label: ''
           plugin_id: user_roles
           operator: or
-          value: {  }
+          value:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
+            course_provider: course_provider
+            corporation: corporation
+            institution: institution
+            school: school
+            place_of_visit: place_of_visit
+            theater_contact: theater_contact
+            monitor: monitor
+            bypass_workflow: bypass_workflow
           group: 1
           exposed: true
           expose:
@@ -1878,7 +1926,18 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
-            reduce: false
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
@@ -2078,20 +2137,24 @@ display:
         filter_groups: false
       show_admin_links: false
       display_extenders:
+        transform_api_facets:
+          transform_facets: {  }
         transform_api_views:
           row_transform: entity
           row_transform_mode: default
           pager_transform: basic
           pager_transform_links: relative
           pager_transform_links_destination: current
-      path: admin/people-all/list
+      path: admin/people-all
       menu:
-        type: 'default tab'
+        type: normal
         title: Vis
         description: 'Find og håndtér personer som bruger dit site.'
         weight: -10
+        expanded: false
         menu_name: admin
-        context: ''
+        parent: ''
+        context: '0'
       tab_options:
         type: normal
         title: Personer
@@ -2105,7 +2168,7 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.roles
+        - user.permissions
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_domain_access'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_domain_access'

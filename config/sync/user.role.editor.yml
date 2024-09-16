@@ -25,6 +25,7 @@ dependencies:
     - node.type.course
     - node.type.course_educators
     - node.type.exercise
+    - node.type.free_course_request
     - node.type.internship
     - node.type.news
     - node.type.page
@@ -43,12 +44,12 @@ dependencies:
     - layout_builder
     - menu_link_content
     - node
+    - os2uol_pretix
     - os2uol_users
     - paragraphs
     - path
     - redirect
     - role_delegation
-    - scheduled_transitions
     - system
     - toolbar
     - view_unpublished
@@ -70,15 +71,13 @@ permissions:
   - 'access own webform configuration'
   - 'access site reports'
   - 'access toolbar'
+  - 'access user profiles'
   - 'access webform help'
   - 'access webform overview'
   - 'access webform submission user'
   - 'access workbench'
-  - 'add scheduled transitions node course'
-  - 'add scheduled transitions node course_educators'
-  - 'add scheduled transitions node exercise'
-  - 'add scheduled transitions node internship'
-  - 'add scheduled transitions node news'
+  - 'add all pretix events'
+  - 'add own pretix events'
   - 'administer atoms'
   - 'administer menu'
   - 'administer nodes'
@@ -225,6 +224,7 @@ permissions:
   - 'delete own webform'
   - 'delete own webform submission'
   - 'delete page revisions'
+  - 'edit all pretix events'
   - 'edit any accordion block content'
   - 'edit any appetizer block content'
   - 'edit any basic block content'
@@ -235,6 +235,7 @@ permissions:
   - 'edit any divider block content'
   - 'edit any document_list block content'
   - 'edit any exercise content'
+  - 'edit any free_course_request content'
   - 'edit any hero block content'
   - 'edit any image block content'
   - 'edit any inline_navigation block content'
@@ -257,16 +258,12 @@ permissions:
   - 'edit own internship content'
   - 'edit own news content'
   - 'edit own page content'
+  - 'edit own pretix events'
   - 'edit own webform'
   - 'edit own webform submission'
   - 'edit webform assets'
   - 'publish to any assigned domain'
   - 'publish to any domain'
-  - 'reschedule scheduled transitions node course'
-  - 'reschedule scheduled transitions node course_educators'
-  - 'reschedule scheduled transitions node exercise'
-  - 'reschedule scheduled transitions node internship'
-  - 'reschedule scheduled transitions node news'
   - 'revert all revisions'
   - 'revert course revisions'
   - 'revert course_educators revisions'
@@ -285,6 +282,8 @@ permissions:
   - 'use editorial transition accept'
   - 'use editorial transition create_new_draft'
   - 'use editorial transition delete'
+  - 'use editorial transition publish'
+  - 'use editorial transition publish_unpublished'
   - 'use editorial transition reject'
   - 'use editorial transition restore_draft'
   - 'use editorial transition restore_publish'
@@ -295,8 +294,8 @@ permissions:
   - 'use editorial transition update'
   - 'use text format basic_html'
   - 'use text format full_html'
+  - 'view all pretix events'
   - 'view all revisions'
-  - 'view all scheduled transitions'
   - 'view any unpublished content'
   - 'view any unpublished course content'
   - 'view any unpublished course_educators content'
@@ -312,14 +311,11 @@ permissions:
   - 'view internship revisions'
   - 'view latest version'
   - 'view news revisions'
+  - 'view own pretix events'
   - 'view own unpublished content'
   - 'view own webform submission'
   - 'view page revisions'
   - 'view private user information'
-  - 'view scheduled transitions node course'
-  - 'view scheduled transitions node course_educators'
-  - 'view scheduled transitions node exercise'
-  - 'view scheduled transitions node internship'
-  - 'view scheduled transitions node news'
   - 'view the administration theme'
   - 'view unpublished paragraphs'
+  - 'view user email addresses'

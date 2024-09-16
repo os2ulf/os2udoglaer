@@ -1,0 +1,19 @@
+uuid: fb16d81b-88a6-4963-b02e-7e8c5b18e4f3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_provider_name
+    - node.type.free_course_request
+id: node.free_course_request.field_rfc_provider_name
+field_name: field_rfc_provider_name
+entity_type: node
+bundle: free_course_request
+label: 'Udbyder navn'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

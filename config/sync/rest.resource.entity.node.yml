@@ -1,6 +1,6 @@
 uuid: 071ea0be-797f-4b7f-963d-925cc24acbc7
 langcode: da
-status: false
+status: true
 dependencies:
   module:
     - basic_auth
@@ -13,10 +13,7 @@ plugin_id: 'entity:node'
 granularity: resource
 configuration:
   methods:
-    - GET
     - POST
-    - PATCH
-    - DELETE
   formats:
     - json
   authentication:

@@ -1,0 +1,336 @@
+uuid: 77bd50aa-264a-444d-a93e-52ef8d58988a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.free_course_request.field_data_anonymized
+    - field.field.node.free_course_request.field_domain_access
+    - field.field.node.free_course_request.field_domain_all_affiliates
+    - field.field.node.free_course_request.field_mailto
+    - field.field.node.free_course_request.field_old_id
+    - field.field.node.free_course_request.field_receiving_class
+    - field.field.node.free_course_request.field_rfc_attachment
+    - field.field.node.free_course_request.field_rfc_course
+    - field.field.node.free_course_request.field_rfc_course_not_found
+    - field.field.node.free_course_request.field_rfc_date
+    - field.field.node.free_course_request.field_rfc_follow_up_mail_sent
+    - field.field.node.free_course_request.field_rfc_grade
+    - field.field.node.free_course_request.field_rfc_granted_amount
+    - field.field.node.free_course_request.field_rfc_latest_editor
+    - field.field.node.free_course_request.field_rfc_mail
+    - field.field.node.free_course_request.field_rfc_name
+    - field.field.node.free_course_request.field_rfc_new_course_description
+    - field.field.node.free_course_request.field_rfc_new_course_name
+    - field.field.node.free_course_request.field_rfc_payment_date
+    - field.field.node.free_course_request.field_rfc_phone
+    - field.field.node.free_course_request.field_rfc_provider
+    - field.field.node.free_course_request.field_rfc_provider_name
+    - field.field.node.free_course_request.field_rfc_remarks
+    - field.field.node.free_course_request.field_rfc_requested_amount
+    - field.field.node.free_course_request.field_rfc_school
+    - field.field.node.free_course_request.field_rfc_send_mail
+    - field.field.node.free_course_request.field_rfc_spent_amount
+    - field.field.node.free_course_request.field_rfc_subject
+    - field.field.node.free_course_request.field_semester
+    - node.type.free_course_request
+  module:
+    - datetime
+    - field_group
+    - file
+    - text
+    - workflow_buttons
+third_party_settings:
+  field_group:
+    group_rfc_editors:
+      children:
+        - field_rfc_granted_amount
+        - field_rfc_remarks
+        - field_rfc_send_mail
+        - field_rfc_latest_editor
+      label: Redaktion
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_rfc_school:
+      children:
+        - field_rfc_school
+        - field_rfc_grade
+        - field_receiving_class
+        - field_rfc_name
+        - field_rfc_phone
+        - field_rfc_mail
+      label: Skole
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_rfc_course:
+      children:
+        - field_rfc_provider_name
+        - field_rfc_provider
+        - field_rfc_course_name
+        - field_rfc_course
+        - field_rfc_course_not_found
+        - field_rfc_new_course_name
+        - field_rfc_new_course_description
+        - field_rfc_subject
+        - field_rfc_requested_amount
+        - field_rfc_date
+      label: Forløb
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+    group_rfc_payment:
+      children:
+        - field_rfc_spent_amount
+        - field_rfc_attachment
+        - field_rfc_payment_date
+      label: Udbetaling
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        description: ''
+        required_fields: true
+id: node.free_course_request.default
+targetEntityType: node
+bundle: free_course_request
+mode: default
+content:
+  field_old_id:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_receiving_class:
+    type: boolean_checkbox
+    weight: 19
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_rfc_attachment:
+    type: file_generic
+    weight: 16
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_rfc_course:
+    type: entity_reference_autocomplete
+    weight: 17
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_course_not_found:
+    type: boolean_checkbox
+    weight: 18
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_rfc_date:
+    type: datetime_default
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_rfc_follow_up_mail_sent:
+    type: datetime_timestamp
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_rfc_grade:
+    type: string_textfield
+    weight: 18
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_granted_amount:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_latest_editor:
+    type: entity_reference_autocomplete
+    weight: 17
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_mail:
+    type: email_default
+    weight: 22
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_rfc_name:
+    type: string_textfield
+    weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_new_course_description:
+    type: string_textarea
+    weight: 20
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_new_course_name:
+    type: string_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_payment_date:
+    type: datetime_timestamp
+    weight: 17
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_rfc_phone:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_provider:
+    type: entity_reference_autocomplete
+    weight: 15
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_provider_name:
+    type: string_textfield
+    weight: 14
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_remarks:
+    type: text_textarea
+    weight: 14
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_requested_amount:
+    type: number
+    weight: 22
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_school:
+    type: entity_reference_autocomplete
+    weight: 17
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_send_mail:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_rfc_spent_amount:
+    type: number
+    weight: 15
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_subject:
+    type: entity_reference_autocomplete
+    weight: 21
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: workflow_buttons
+    weight: 0
+    region: content
+    settings:
+      show_current_state: true
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_data_anonymized: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_mailto: true
+  field_semester: true
+  langcode: true
+  path: true
+  promote: true
+  simple_sitemap: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  url_redirects: true
+  workbench_reviewer: true

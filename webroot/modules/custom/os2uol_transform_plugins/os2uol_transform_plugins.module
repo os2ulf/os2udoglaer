@@ -41,6 +41,17 @@ function os2uol_transform_plugins_block_content_transform_alter(&$transformation
       }
     }
   }
+
+  if ($transformation['bundle'] == 'application_form') {
+    $node = \Drupal::routeMatch()->getParameter('node');
+    // Get the field_domain_access values.
+    $domain_access_array = $node->get('field_domain_access');
+    $domain_array = [];
+    foreach ($domain_access_array as $domain_access) {
+      $domain_array[] = $domain_access->getString();
+    }
+    $transformation['field_domain_access'] = $domain_array;
+  }
 }
 
 function os2uol_transform_plugins_node_transform_alter(&$transformation) {
@@ -123,21 +134,26 @@ function os2uol_transform_plugins_view_course_providers_transform_alter(&$transf
  */
 function os2uol_transform_plugins_view_transform_alter(&$transformation) {
   if (!empty($transformation['exposed_filters']['sort_by'])) {
-    $options = $transformation['exposed_filters']['sort_by']['options'];
-
-    $new_options = [];
-
-    foreach ($options as $key => $value) {
-      $object = new stdClass();
-
-      $object->key = $key;
-      $object->value = $value;
-
-      $new_options[] = $object;
-    }
-
-    $transformation['exposed_filters']['sort_by']['options'] = $new_options;
     $transformation['exposed_filters']['sort_by']['default_value'] = $transformation['exposed_filters']['sort_by']['value'];
     unset($transformation['exposed_filters']['sort_by']['value']);
+  }
+}
+
+/**
+ * Implements hook_views_post_build().
+ */
+function os2uol_transform_plugins_views_post_build(\Drupal\views\ViewExecutable $view): void {
+  if ($view->id() == 'related_content') {
+    $options = $view->exposed_widgets['target_group']['#options'];
+
+    foreach ($options as $key => $option) {
+      if ($key == 'All') {
+        continue;
+      }
+
+      $new_option = t('Progress to @option', ['@option' => strtolower($option)]);
+
+      $view->exposed_widgets['target_group']['#options'][$key] = $new_option;
+    }
   }
 }

@@ -134,7 +134,7 @@ third_party_settings:
       label: Tilmelding
       region: content
       parent_name: ''
-      weight: 6
+      weight: 7
       format_type: html_element
       format_settings:
         classes: trailer
@@ -169,7 +169,7 @@ third_party_settings:
       label: Materialer
       region: content
       parent_name: ''
-      weight: 8
+      weight: 9
       format_type: html_element
       format_settings:
         classes: trailer
@@ -192,7 +192,7 @@ third_party_settings:
       label: Lokation
       region: content
       parent_name: ''
-      weight: 9
+      weight: 10
       format_type: html_element
       format_settings:
         classes: trailer
@@ -374,7 +374,6 @@ third_party_settings:
         required_fields: true
     group_further_information:
       children:
-        - field_practical_info_buttons
         - field_banner
       label: 'Yderligere information'
       region: content
@@ -400,7 +399,7 @@ third_party_settings:
       label: Billeder/medier
       region: content
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: html_element
       format_settings:
         classes: trailer
@@ -420,7 +419,7 @@ third_party_settings:
       label: 'Relaterede forløb'
       region: content
       parent_name: ''
-      weight: 10
+      weight: 11
       format_type: html_element
       format_settings:
         classes: trailer
@@ -443,10 +442,30 @@ third_party_settings:
       label: 'Visning af indhold'
       region: content
       parent_name: ''
-      weight: 11
+      weight: 12
       format_type: html_element
       format_settings:
         classes: ''
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: true
+    group_application:
+      children:
+        - field_practical_info_buttons
+      label: Ansøgning
+      region: content
+      parent_name: ''
+      weight: 6
+      format_type: html_element
+      format_settings:
+        classes: trailer
         show_empty_fields: false
         id: ''
         element: details
@@ -483,7 +502,7 @@ content:
         maxlength_js_enforce: true
   created:
     type: datetime_timestamp
-    weight: 13
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1163,7 +1182,7 @@ content:
         maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 13
     region: content
     settings:
       match_operator: CONTAINS
@@ -1178,5 +1197,10 @@ content:
     third_party_settings: {  }
 hidden:
   field_domain_all_affiliates: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   langcode: true
   workbench_reviewer: true
