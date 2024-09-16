@@ -578,7 +578,7 @@ display:
             search_company: search_company
             search_course_provider: search_course_provider
             search_place_of_visit: search_place_of_visit
-            type: type
+            search_type: search_type
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result

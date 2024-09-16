@@ -1,4 +1,4 @@
-uuid: abed052d-114d-4636-8a34-78700b724ce1
+uuid: a81e0816-97af-41a4-ba13-9a32e4271f4c
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.search
   module:
     - search_api
-id: type
-name: Indholdstype
+id: search_type
+name: Type
 weight: 0
-min_count: 0
+min_count: 1
 missing: false
 missing_label: others
-url_alias: type
+url_alias: st
 facet_source_id: 'search_api:views_page__search__page_1'
-field_identifier: type
+field_identifier: aggregated_type
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -66,16 +66,16 @@ processor_configs:
     weights:
       build: 50
     settings:
-      exclude: free_course_request
+      exclude: 'internship,page,course_educators,news,exercise,course,place_of_visit,course_provider,corporation'
       regex: false
-      invert: false
+      invert: true
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
       build: 100
     settings: {  }
-  translate_entity:
-    processor_id: translate_entity
+  translate_entity_aggregated_fields:
+    processor_id: translate_entity_aggregated_fields
     weights:
       build: 5
     settings: {  }

@@ -105,6 +105,15 @@ name: Search
 description: ''
 read_only: false
 field_settings:
+  aggregated_type:
+    label: Type
+    property_path: aggregated_field
+    type: string
+    configuration:
+      type: union
+      fields:
+        - 'entity:node/type'
+        - 'entity:user/roles'
   body:
     label: Beskrivelse
     datasource_id: 'entity:node'
