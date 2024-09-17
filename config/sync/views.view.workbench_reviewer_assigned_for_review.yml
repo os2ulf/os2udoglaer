@@ -742,7 +742,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: 'No content has been assigned to you for review.'
+          content: "Intet indhold er blevet tildelt dig til gennemgang."
           tokenize: false
       sorts:
         revision_timestamp:

@@ -48,5 +48,5 @@ definitions:
     weight: -42
     menu_name: workbench
     parent: ''
-    enabled: true
     expanded: false
+    enabled: true
