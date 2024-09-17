@@ -221,6 +221,9 @@
             "drupal/conditional_fields": {
                 "(#2988937) An invalid form control with name='body[0][value]' is not focusable. with ckeditor enabled": "https://www.drupal.org/files/issues/2023-04-25/dependency-using-body-as-target-2988937-12.patch"
             },
+            "drupal/content_moderation_notifications": {
+                "Enable token support for ad-hoc email addresses": "https://www.drupal.org/files/issues/2024-02-15/content_moderation_notifications-support_tokens_in_adhoc_emails-3319124-8.patch"
+            },
             "drupal/scheduled_transitions": {
                 "(#3264674) Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
             },
