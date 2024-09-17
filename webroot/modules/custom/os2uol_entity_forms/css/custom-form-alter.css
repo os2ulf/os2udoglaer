@@ -12,3 +12,7 @@
   position: relative !important;
   top: auto !important;
 }
+
+.node-form .field--name-field-practical-info-buttons {
+  display: block !important;
+}
