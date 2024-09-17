@@ -12,12 +12,12 @@ type: content_moderation
 type_settings:
   states:
     accepted:
-      label: Accepteret
+      label: Godkendt
       weight: -3
       published: true
       default_revision: true
     awaiting_payment:
-      label: 'Afventer betaling'
+      label: 'Afventer udbetaling'
       weight: -2
       published: false
       default_revision: true
@@ -37,12 +37,12 @@ type_settings:
       published: false
       default_revision: false
     published:
-      label: 'Betaling fuldført'
+      label: Udbetalt
       weight: 0
       published: true
       default_revision: true
     ready_for_payment:
-      label: 'Klar til betaling'
+      label: 'Klar til udbetaling'
       weight: -1
       published: false
       default_revision: true
@@ -53,7 +53,7 @@ type_settings:
       default_revision: false
   transitions:
     accept:
-      label: Acceptér
+      label: Godkendt
       from:
         - draft
       to: accepted
@@ -65,37 +65,37 @@ type_settings:
       to: draft
       weight: 7
     await_payment:
-      label: 'Afvent betaling'
+      label: 'Afventer udbetaling'
       from:
         - accepted
       to: awaiting_payment
       weight: 1
     cancel:
-      label: Annullér
+      label: Annulleret
       from:
         - draft
       to: cancelled
       weight: 5
     complete_payment:
-      label: 'Fuldfør betaling'
+      label: Udbetalt
       from:
         - ready_for_payment
       to: published
       weight: 3
     luk:
-      label: Luk
+      label: Lukket
       from:
         - draft
       to: closed
       weight: 6
     ready_for_payment:
-      label: 'Klar til betaling'
+      label: 'Klar til udbetaling'
       from:
         - awaiting_payment
       to: ready_for_payment
       weight: 2
     reject:
-      label: Afvis
+      label: Afvist
       from:
         - draft
       to: refused
