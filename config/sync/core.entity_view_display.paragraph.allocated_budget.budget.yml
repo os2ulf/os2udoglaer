@@ -1,0 +1,31 @@
+uuid: 47601dab-7efe-4d51-8e86-8670c7176f85
+langcode: da
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.budget
+    - field.field.paragraph.allocated_budget.field_allocated_budget
+    - field.field.paragraph.allocated_budget.field_allocated_budget_year
+    - paragraphs.paragraphs_type.allocated_budget
+  module:
+    - layout_builder
+third_party_settings:
+  layout_builder:
+    enabled: false
+    allow_custom: false
+id: paragraph.allocated_budget.budget
+targetEntityType: paragraph
+bundle: allocated_budget
+mode: budget
+content:
+  field_allocated_budget:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_allocated_budget_year: true
+  search_api_excerpt: true
