@@ -201,8 +201,14 @@ field_settings:
 datasource_settings:
   'entity:node':
     bundles:
-      default: true
-      selected: {  }
+      default: false
+      selected:
+        - course
+        - course_educators
+        - exercise
+        - internship
+        - news
+        - page
     languages:
       default: true
       selected: {  }
