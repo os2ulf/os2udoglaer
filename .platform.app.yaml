@@ -15,6 +15,9 @@ dependencies:
   php:
     composer/composer: "^2.1"
 disk: 10000
+resources:
+    base_memory: 512
+    memory_ratio: 256
 mounts:
   "/webroot/sites/default/files": "shared:files/files"
   "/webroot/sites/default/files/translations": "shared:files/translations"
