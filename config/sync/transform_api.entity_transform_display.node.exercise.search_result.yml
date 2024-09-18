@@ -41,7 +41,7 @@ dependencies:
     - field.field.node.exercise.field_work_documents
     - field.field.node.exercise.field_youth_education_subject
     - node.type.exercise
-    - responsive_image.styles.isg_appetizer
+    - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.search_result
   module:
     - transform_api_responsive_image
@@ -77,7 +77,7 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_appetizer
+      responsive_image_style: isg_related_courses
       image_link: ''
       image_loading:
         attribute: lazy

@@ -139,11 +139,17 @@ hidden:
   field_exclude_from_profile: true
   field_exclude_from_search: true
   field_expectations: true
+  field_hide_contact_form: true
   field_location_description: true
   field_location_name: true
   field_materials: true
   field_meeting_times: true
   field_meta_tags: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   field_purpose_internship: true
   field_quantity: true
   field_related_courses: true
