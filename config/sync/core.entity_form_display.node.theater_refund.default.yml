@@ -23,12 +23,8 @@ dependencies:
     - field.field.node.theater_refund.field_rfc_school
     - field.field.node.theater_refund.field_rfc_send_mail
     - field.field.node.theater_refund.field_rfc_spent_amount
-    - field.field.node.theater_refund.field_semester
-    - field.field.node.theater_refund.field_tr_conditions
-    - field.field.node.theater_refund.field_tr_gdpr
     - field.field.node.theater_refund.field_tr_mails_sent
     - field.field.node.theater_refund.field_tr_quantity
-    - field.field.node.theater_refund.field_tr_status
     - field.field.node.theater_refund.field_tr_theater
     - node.type.theater_refund
   module:
@@ -323,26 +319,6 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_semester:
-    type: options_select
-    weight: 39
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_tr_conditions:
-    type: boolean_checkbox
-    weight: 37
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_tr_gdpr:
-    type: boolean_checkbox
-    weight: 38
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_tr_mails_sent:
     type: string_textfield
     weight: 30
@@ -357,12 +333,6 @@ content:
     region: content
     settings:
       placeholder: ''
-    third_party_settings: {  }
-  field_tr_status:
-    type: options_select
-    weight: 26
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_tr_theater:
     type: entity_reference_autocomplete
