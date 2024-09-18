@@ -40,7 +40,7 @@ dependencies:
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
-    - responsive_image.styles.isg_appetizer
+    - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.user.search_result
   module:
     - transform_api_responsive_image
@@ -56,10 +56,19 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_appetizer
+      responsive_image_style: isg_related_courses
       image_link: ''
       image_loading:
         attribute: lazy
+    third_party_settings: {  }
+  field_logo:
+    type: image_style
+    weight: '4'
+    region: content
+    label: omit
+    settings:
+      image_style: medium
+      image_link: ''
     third_party_settings: {  }
   field_mail:
     type: value
@@ -100,7 +109,6 @@ hidden:
   field_location_name: true
   field_location_street: true
   field_location_zipcode: true
-  field_logo: true
   field_meta_tags: true
   field_other_info: true
   field_other_info_description: true

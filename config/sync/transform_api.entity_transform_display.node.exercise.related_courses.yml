@@ -142,6 +142,7 @@ hidden:
   field_exclude_from_profile: true
   field_exclude_from_search: true
   field_focus: true
+  field_hide_contact_form: true
   field_how_to: true
   field_meta_tags: true
   field_period_select: true
