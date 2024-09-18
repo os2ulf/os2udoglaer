@@ -40,7 +40,7 @@ dependencies:
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
-    - responsive_image.styles.isg_related_courses
+    - responsive_image.styles.isg_provider_logo
     - transform_api.entity_transform_mode.user.search_result
   module:
     - transform_api_responsive_image
@@ -62,13 +62,15 @@ content:
         attribute: lazy
     third_party_settings: {  }
   field_logo:
-    type: image_style
+    type: responsive_image
     weight: '4'
     region: content
     label: omit
     settings:
-      image_style: medium
+      responsive_image_style: isg_provider_logo
       image_link: ''
+      image_loading:
+        attribute: lazy
     third_party_settings: {  }
   field_mail:
     type: value
