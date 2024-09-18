@@ -50,13 +50,20 @@ targetEntityType: user
 bundle: user
 mode: search_result
 content:
+  field_guarantee_partner:
+    type: boolean
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '1'
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_related_courses
+      responsive_image_style: isg_provider_logo
       image_link: ''
       image_loading:
         attribute: lazy
@@ -104,7 +111,6 @@ hidden:
   field_domain_all_affiliates: true
   field_editor_field: true
   field_educational_profile: true
-  field_guarantee_partner: true
   field_homepage: true
   field_intro: true
   field_location_city: true
