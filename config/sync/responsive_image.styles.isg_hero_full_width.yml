@@ -6,9 +6,10 @@ dependencies:
     - image.style.isg_focal_point_1199_675
     - image.style.isg_focal_point_1648_927
     - image.style.isg_focal_point_1920_1080
+    - image.style.isg_focal_point_2300_1294
     - image.style.isg_focal_point_3068_1726
     - image.style.isg_focal_point_412_232
-    - image.style.isg_focal_point_480_270
+    - image.style.isg_focal_point_575_324
     - image.style.isg_focal_point_767_432
     - image.style.isg_focal_point_991_558
   theme:
@@ -48,12 +49,12 @@ image_style_mappings:
     multiplier: 2x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_480_270
+    image_mapping: isg_focal_point_575_324
     breakpoint_id: os2udoglaer.xxs
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_1920_1080
+    image_mapping: isg_focal_point_2300_1294
     breakpoint_id: os2udoglaer.xxs
     multiplier: 2x
   -
