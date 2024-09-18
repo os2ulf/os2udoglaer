@@ -21,18 +21,19 @@ class RelatedCourses extends StyleGroupBase {
 
     if ($breakpoint === 'lighthouse') {
       $calculated_width = 384 * $multiplier;
-      $calculated_height = 250 * $multiplier;
+      $calculated_height = 280 * $multiplier;
     } else if ($breakpoint === 'xxs') {
-      $calculated_width = 452 * $multiplier;
-      $calculated_height = 250 * $multiplier;
+      $calculated_width = 547 * $multiplier;
+      $calculated_height = 280 * $multiplier;
     } else if ($breakpoint === 'xs') {
       $calculated_width = 739 * $multiplier;
-      $calculated_height = 320 * $multiplier;
+      $calculated_height = 280 * $multiplier;
     } else if ($breakpoint === 'sm') {
-      $calculated_width = 482;
-      $calculated_height = 370;
+      $calculated_width = 468;
+      $calculated_height = 320;
     } else if ($breakpoint === 'md') {
-      $calculated_width = 574;
+      $calculated_width = 280;
+      $calculated_height = 320;
     }
 
     return [
