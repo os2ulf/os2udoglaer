@@ -25,7 +25,6 @@ dependencies:
     - field.field.node.transport_pool_form.field_tpf_participants
     - field.field.node.transport_pool_form.field_tpf_purpose_course
     - field.field.node.transport_pool_form.field_tpf_what_course
-    - field.field.node.transport_pool_form.tpf_email_repeat
     - node.type.transport_pool_form
   module:
     - datetime
@@ -312,14 +311,6 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
-  tpf_email_repeat:
-    type: email_default
-    weight: 23
-    region: content
-    settings:
-      placeholder: ''
-      size: 60
     third_party_settings: {  }
   url_redirects:
     weight: 35

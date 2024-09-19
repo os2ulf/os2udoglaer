@@ -11,7 +11,7 @@ entity_type: node
 bundle: transport_pool_form
 label: 'Vælg institution'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
@@ -38,5 +38,5 @@ settings:
         monitor: '0'
         bypass_workflow: '0'
         rest_api: '0'
-    include_anonymous: true
+    include_anonymous: false
 field_type: entity_reference
