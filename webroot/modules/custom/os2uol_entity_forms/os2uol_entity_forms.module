@@ -60,17 +60,28 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   // Get the current logged-in user.
   $current_user = \Drupal::currentUser();
   $is_admin_or_webmaster = $current_user->hasRole('administrator') || $current_user->hasRole('webmaster');
+  $is_editor= $current_user->hasRole('editor');
 
   // Check if the form is a node add form.
   if (in_array($form_id, $node_add_forms)) {
     // Set access to the 'field_domain_access' field based on the user role.
     $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
+
+    // If user is not admin or editor or webmaster hide fields.
+    if (!$is_admin_or_webmaster and !$is_editor) {
+      $form['field_practical_info_buttons']['#access'] = FALSE;
+    }
   }
 
   // Check if the form is a node edit form.
   if (in_array($form_id, $node_edit_forms)) {
     // Set access to the 'field_domain_access' field based on the user role.
     $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
+
+    // If user is not admin or editor or webmaster hide fields.
+    if (!$is_admin_or_webmaster and !$is_editor) {
+      $form['field_practical_info_buttons']['#access'] = FALSE;
+    }
 
     if (!$is_admin_or_webmaster) {
       // Handle domain access restrictions for non-admin users.

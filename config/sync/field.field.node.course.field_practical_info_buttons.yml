@@ -15,7 +15,9 @@ label: Ansøgningsknap
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: show_free_course_request
 default_value_callback: ''
 settings: {  }
 field_type: list_string
