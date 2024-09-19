@@ -1,0 +1,176 @@
+uuid: e92b76ab-5f54-42f2-918f-0dc8d6dabd82
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.transport_pool_form.field_data_anonymized
+    - field.field.node.transport_pool_form.field_domain_access
+    - field.field.node.transport_pool_form.field_domain_all_affiliates
+    - field.field.node.transport_pool_form.field_location_city
+    - field.field.node.transport_pool_form.field_location_street
+    - field.field.node.transport_pool_form.field_location_zipcode
+    - field.field.node.transport_pool_form.field_old_id
+    - field.field.node.transport_pool_form.field_rfc_course
+    - field.field.node.transport_pool_form.field_rfc_date
+    - field.field.node.transport_pool_form.field_rfc_mail
+    - field.field.node.transport_pool_form.field_rfc_name
+    - field.field.node.transport_pool_form.field_tpf_address_variation
+    - field.field.node.transport_pool_form.field_tpf_backend_submission
+    - field.field.node.transport_pool_form.field_tpf_course_not_found
+    - field.field.node.transport_pool_form.field_tpf_expense
+    - field.field.node.transport_pool_form.field_tpf_grade
+    - field.field.node.transport_pool_form.field_tpf_institution
+    - field.field.node.transport_pool_form.field_tpf_institution_type
+    - field.field.node.transport_pool_form.field_tpf_message
+    - field.field.node.transport_pool_form.field_tpf_participants
+    - field.field.node.transport_pool_form.field_tpf_purpose_course
+    - field.field.node.transport_pool_form.field_tpf_what_course
+    - field.field.node.transport_pool_form.tpf_email_repeat
+    - node.type.transport_pool_form
+  module:
+    - datetime
+    - options
+    - user
+id: node.transport_pool_form.default
+targetEntityType: node
+bundle: transport_pool_form
+mode: default
+content:
+  field_location_city:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_location_street:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_location_zipcode:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_rfc_course:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_rfc_date:
+    type: datetime_default
+    label: above
+    settings:
+      timezone_override: ''
+      format_type: medium
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_rfc_mail:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_rfc_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_tpf_expense:
+    type: number_decimal
+    label: above
+    settings:
+      thousand_separator: ''
+      decimal_separator: .
+      scale: 2
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_tpf_grade:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_tpf_institution:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_tpf_institution_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_tpf_message:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_tpf_participants:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_tpf_purpose_course:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_tpf_what_course:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  content_moderation_control: true
+  field_data_anonymized: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_old_id: true
+  field_tpf_address_variation: true
+  field_tpf_backend_submission: true
+  field_tpf_course_not_found: true
+  langcode: true
+  search_api_excerpt: true
+  tpf_email_repeat: true
+  workbench_reviewer: true
+  workflow_buttons: true

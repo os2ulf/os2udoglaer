@@ -12,7 +12,7 @@ entity_type: node
 bundle: free_course_request
 label: 'Vælg emneområde'
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''

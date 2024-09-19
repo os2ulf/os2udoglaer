@@ -1,0 +1,22 @@
+uuid: a8c00d62-ed44-42c0-998d-43e7c4b845bc
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.transport_pool_form
+id: node.transport_pool_form.promote
+field_name: promote
+entity_type: node
+bundle: transport_pool_form
+label: 'Forfremmet til forside'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

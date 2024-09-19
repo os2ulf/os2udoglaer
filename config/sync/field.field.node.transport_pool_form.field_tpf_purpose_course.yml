@@ -1,0 +1,19 @@
+uuid: b70de668-91bb-434f-8737-b2fd9dd402da
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_purpose_course
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_tpf_purpose_course
+field_name: field_tpf_purpose_course
+entity_type: node
+bundle: transport_pool_form
+label: "Beskriv læringsfomålet\t"
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

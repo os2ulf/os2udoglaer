@@ -1,0 +1,23 @@
+uuid: b3c97234-853e-4697-a529-9bfa7fa662de
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_participants
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_tpf_participants
+field_name: field_tpf_participants
+entity_type: node
+bundle: transport_pool_form
+label: 'Antal deltagere'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

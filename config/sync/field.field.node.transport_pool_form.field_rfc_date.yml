@@ -1,0 +1,21 @@
+uuid: 3519a1a3-5189-4e61-90f0-b45e39508df3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_date
+    - node.type.transport_pool_form
+  module:
+    - datetime
+id: node.transport_pool_form.field_rfc_date
+field_name: field_rfc_date
+entity_type: node
+bundle: transport_pool_form
+label: Dato
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

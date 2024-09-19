@@ -1,0 +1,75 @@
+uuid: f4648c1b-233c-411d-a124-531b66d2d7bb
+langcode: da
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.transport_pool_form.field_data_anonymized
+    - field.field.node.transport_pool_form.field_domain_access
+    - field.field.node.transport_pool_form.field_domain_all_affiliates
+    - field.field.node.transport_pool_form.field_location_city
+    - field.field.node.transport_pool_form.field_location_street
+    - field.field.node.transport_pool_form.field_location_zipcode
+    - field.field.node.transport_pool_form.field_old_id
+    - field.field.node.transport_pool_form.field_rfc_course
+    - field.field.node.transport_pool_form.field_rfc_date
+    - field.field.node.transport_pool_form.field_rfc_mail
+    - field.field.node.transport_pool_form.field_rfc_name
+    - field.field.node.transport_pool_form.field_tpf_address_variation
+    - field.field.node.transport_pool_form.field_tpf_backend_submission
+    - field.field.node.transport_pool_form.field_tpf_course_not_found
+    - field.field.node.transport_pool_form.field_tpf_expense
+    - field.field.node.transport_pool_form.field_tpf_grade
+    - field.field.node.transport_pool_form.field_tpf_institution
+    - field.field.node.transport_pool_form.field_tpf_institution_type
+    - field.field.node.transport_pool_form.field_tpf_message
+    - field.field.node.transport_pool_form.field_tpf_participants
+    - field.field.node.transport_pool_form.field_tpf_purpose_course
+    - field.field.node.transport_pool_form.field_tpf_what_course
+    - field.field.node.transport_pool_form.tpf_email_repeat
+    - node.type.transport_pool_form
+  module:
+    - user
+id: node.transport_pool_form.teaser
+targetEntityType: node
+bundle: transport_pool_form
+mode: teaser
+content:
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_data_anonymized: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_location_city: true
+  field_location_street: true
+  field_location_zipcode: true
+  field_old_id: true
+  field_rfc_course: true
+  field_rfc_date: true
+  field_rfc_mail: true
+  field_rfc_name: true
+  field_tpf_address_variation: true
+  field_tpf_backend_submission: true
+  field_tpf_course_not_found: true
+  field_tpf_expense: true
+  field_tpf_grade: true
+  field_tpf_institution: true
+  field_tpf_institution_type: true
+  field_tpf_message: true
+  field_tpf_participants: true
+  field_tpf_purpose_course: true
+  field_tpf_what_course: true
+  langcode: true
+  search_api_excerpt: true
+  tpf_email_repeat: true
+  workbench_reviewer: true
+  workflow_buttons: true

@@ -1,0 +1,23 @@
+uuid: c59e1f37-3be5-4f03-b728-eabdd7a64452
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_course_not_found
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_tpf_course_not_found
+field_name: field_tpf_course_not_found
+entity_type: node
+bundle: transport_pool_form
+label: 'Jeg kunne ikke finde forløbet'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

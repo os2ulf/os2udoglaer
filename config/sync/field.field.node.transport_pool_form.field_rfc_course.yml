@@ -1,0 +1,29 @@
+uuid: 12a630c8-02fb-4057-90cf-20564a91e517
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_course
+    - node.type.course
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_rfc_course
+field_name: field_rfc_course
+entity_type: node
+bundle: transport_pool_form
+label: 'Vælg forløb'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      course: course
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

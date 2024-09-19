@@ -1,0 +1,23 @@
+uuid: 298e8063-6c51-4530-87b1-c20eccb8f5fc
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_expense
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_tpf_expense
+field_name: field_tpf_expense
+entity_type: node
+bundle: transport_pool_form
+label: Udgift
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: kr.
+field_type: decimal

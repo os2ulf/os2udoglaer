@@ -1,15 +1,15 @@
-uuid: f7418267-ee75-4476-b059-3a5f17f81049
+uuid: 6c72d72d-9c79-42ee-9711-249c70f9561f
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_rfc_provider_name
+    - field.storage.node.field_old_id
     - node.type.theater_refund
-id: node.theater_refund.field_rfc_provider_name
-field_name: field_rfc_provider_name
+id: node.theater_refund.field_old_id
+field_name: field_old_id
 entity_type: node
 bundle: theater_refund
-label: 'Udbyder navn'
+label: 'Gammelt ID'
 description: ''
 required: false
 translatable: false

@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - node.type.free_course_request
+    - node.type.theater_refund
+    - node.type.transport_pool_form
   module:
     - content_moderation_bypass
 id: application
@@ -103,4 +105,6 @@ type_settings:
   entity_types:
     node:
       - free_course_request
+      - theater_refund
+      - transport_pool_form
   default_moderation_state: draft

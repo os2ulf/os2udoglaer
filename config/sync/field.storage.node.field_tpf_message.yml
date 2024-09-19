@@ -1,17 +1,15 @@
-uuid: 77cb94e8-a3b7-4c44-a8fb-238faeb5ff8a
+uuid: 378ece55-9233-4457-9349-90a97f1791c2
 langcode: da
 status: true
 dependencies:
   module:
     - node
-id: node.field_rfc_provider_name
-field_name: field_rfc_provider_name
+id: node.field_tpf_message
+field_name: field_tpf_message
 entity_type: node
-type: string
+type: string_long
 settings:
-  max_length: 255
   case_sensitive: false
-  is_ascii: false
 module: core
 locked: false
 cardinality: 1

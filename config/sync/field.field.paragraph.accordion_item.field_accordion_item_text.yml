@@ -17,7 +17,7 @@ id: paragraph.accordion_item.field_accordion_item_text
 field_name: field_accordion_item_text
 entity_type: paragraph
 bundle: accordion_item
-label: Tekst
+label: 'Tekst (1/2/3)'
 description: ''
 required: false
 translatable: true

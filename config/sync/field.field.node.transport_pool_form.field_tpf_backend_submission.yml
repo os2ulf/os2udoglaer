@@ -1,0 +1,23 @@
+uuid: 3dd570f6-1a32-4094-afbb-bf7257dadd87
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_backend_submission
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_tpf_backend_submission
+field_name: field_tpf_backend_submission
+entity_type: node
+bundle: transport_pool_form
+label: 'Udfyldt i backend'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

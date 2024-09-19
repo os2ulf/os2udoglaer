@@ -1,0 +1,21 @@
+uuid: f42d147e-2960-4736-9eb2-9f03e574e8f7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_grade
+    - node.type.transport_pool_form
+  module:
+    - options
+id: node.transport_pool_form.field_tpf_grade
+field_name: field_tpf_grade
+entity_type: node
+bundle: transport_pool_form
+label: 'Vælg trin'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

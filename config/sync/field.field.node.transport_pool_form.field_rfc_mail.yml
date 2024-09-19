@@ -1,0 +1,19 @@
+uuid: c45219d1-d870-4997-a94e-cb383fa80feb
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_mail
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_rfc_mail
+field_name: field_rfc_mail
+entity_type: node
+bundle: transport_pool_form
+label: E-mail
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email
