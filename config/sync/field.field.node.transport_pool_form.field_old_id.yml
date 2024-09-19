@@ -1,0 +1,19 @@
+uuid: 4c70d068-d117-49ad-8acd-65a266addddc
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_old_id
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_old_id
+field_name: field_old_id
+entity_type: node
+bundle: transport_pool_form
+label: 'Gammelt ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

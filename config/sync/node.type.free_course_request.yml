@@ -12,6 +12,6 @@ name: 'Ansøg om udgiftsdækning'
 type: free_course_request
 description: ''
 help: ''
-new_revision: false
+new_revision: true
 preview_mode: 0
 display_submitted: false

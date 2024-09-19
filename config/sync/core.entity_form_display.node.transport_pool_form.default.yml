@@ -3,12 +3,13 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.node.transport_pool_form.body
+    - field.field.node.transport_pool_form.field_data_anonymized
     - field.field.node.transport_pool_form.field_domain_access
     - field.field.node.transport_pool_form.field_domain_all_affiliates
     - field.field.node.transport_pool_form.field_location_city
     - field.field.node.transport_pool_form.field_location_street
     - field.field.node.transport_pool_form.field_location_zipcode
+    - field.field.node.transport_pool_form.field_old_id
     - field.field.node.transport_pool_form.field_rfc_course
     - field.field.node.transport_pool_form.field_rfc_date
     - field.field.node.transport_pool_form.field_rfc_mail
@@ -23,20 +24,17 @@ dependencies:
     - field.field.node.transport_pool_form.field_tpf_message
     - field.field.node.transport_pool_form.field_tpf_participants
     - field.field.node.transport_pool_form.field_tpf_purpose_course
-    - field.field.node.transport_pool_form.field_tpf_status
     - field.field.node.transport_pool_form.field_tpf_what_course
     - field.field.node.transport_pool_form.tpf_email_repeat
     - node.type.transport_pool_form
   module:
     - datetime
     - field_group
-    - path
-    - text
-    - workflow_buttons
 third_party_settings:
   field_group:
     group_tpf_course:
       children:
+        - moderation_state
         - field_rfc_course
         - field_tpf_what_course
         - field_tpf_purpose_course
@@ -46,17 +44,17 @@ third_party_settings:
       label: Forløb
       region: content
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         classes: trailer
         show_empty_fields: false
         id: ''
-        element: summary
+        element: details
         show_label: true
-        label_element: h3
+        label_element: summary
         label_element_classes: ''
-        attributes: ''
+        attributes: 'open="open"'
         effect: none
         speed: fast
         required_fields: true
@@ -68,17 +66,17 @@ third_party_settings:
       label: Institution
       region: content
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: html_element
       format_settings:
         classes: trailer
         show_empty_fields: false
         id: ''
-        element: summary
+        element: details
         show_label: true
-        label_element: h3
+        label_element: summary
         label_element_classes: ''
-        attributes: ''
+        attributes: 'open="open"'
         effect: none
         speed: fast
         required_fields: true
@@ -90,17 +88,17 @@ third_party_settings:
       label: Transportudgifter
       region: content
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: html_element
       format_settings:
         classes: trailer
         show_empty_fields: false
         id: ''
-        element: summary
+        element: details
         show_label: true
-        label_element: h3
+        label_element: summary
         label_element_classes: ''
-        attributes: ''
+        attributes: 'open="open"'
         effect: none
         speed: fast
         required_fields: true
@@ -113,17 +111,17 @@ third_party_settings:
       label: Kontaktinformation
       region: content
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         classes: trailer
         show_empty_fields: false
         id: ''
-        element: summary
+        element: details
         show_label: true
-        label_element: h3
+        label_element: summary
         label_element_classes: ''
-        attributes: ''
+        attributes: 'open="open"'
         effect: none
         speed: fast
         required_fields: true
@@ -133,21 +131,20 @@ third_party_settings:
         - field_tpf_course_not_found
         - field_tpf_address_variation
         - url_redirects
-        - field_tpf_status
       label: 'Admin felter'
       region: content
       parent_name: ''
-      weight: 4
+      weight: 5
       format_type: html_element
       format_settings:
-        classes: trailer
+        classes: ''
         show_empty_fields: false
         id: ''
-        element: summary
+        element: details
         show_label: true
-        label_element: h3
+        label_element: summary
         label_element_classes: ''
-        attributes: ''
+        attributes: 'open="open"'
         effect: none
         speed: fast
         required_fields: true
@@ -156,25 +153,16 @@ targetEntityType: node
 bundle: transport_pool_form
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 18
+  field_data_anonymized:
+    type: boolean_checkbox
+    weight: 7
     region: content
     settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-      show_summary: false
-    third_party_settings: {  }
-  created:
-    type: datetime_timestamp
-    weight: 10
-    region: content
-    settings: {  }
+      display_label: true
     third_party_settings: {  }
   field_location_city:
     type: string_textfield
-    weight: 22
+    weight: 23
     region: content
     settings:
       size: 60
@@ -182,7 +170,7 @@ content:
     third_party_settings: {  }
   field_location_street:
     type: string_textfield
-    weight: 20
+    weight: 21
     region: content
     settings:
       size: 60
@@ -190,7 +178,15 @@ content:
     third_party_settings: {  }
   field_location_zipcode:
     type: string_textfield
-    weight: 21
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_old_id:
+    type: string_textfield
+    weight: 6
     region: content
     settings:
       size: 60
@@ -214,7 +210,7 @@ content:
     third_party_settings: {  }
   field_rfc_mail:
     type: email_default
-    weight: 21
+    weight: 22
     region: content
     settings:
       placeholder: ''
@@ -280,7 +276,7 @@ content:
     third_party_settings: {  }
   field_tpf_message:
     type: string_textarea
-    weight: 23
+    weight: 24
     region: content
     settings:
       rows: 5
@@ -295,17 +291,11 @@ content:
     third_party_settings: {  }
   field_tpf_purpose_course:
     type: string_textarea
-    weight: 19
+    weight: 20
     region: content
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
-  field_tpf_status:
-    type: options_select
-    weight: 36
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_tpf_what_course:
     type: string_textarea
@@ -315,55 +305,9 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  langcode:
-    type: language_select
-    weight: 7
-    region: content
-    settings:
-      include_locked: true
-    third_party_settings: {  }
   moderation_state:
-    type: workflow_buttons
-    weight: 9
-    region: content
-    settings:
-      show_current_state: false
-    third_party_settings: {  }
-  path:
-    type: path
-    weight: 15
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    weight: 12
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  simple_sitemap:
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    weight: 17
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    weight: 13
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  title:
     type: string_textfield
-    weight: 6
+    weight: 0
     region: content
     settings:
       size: 60
@@ -371,37 +315,27 @@ content:
     third_party_settings: {  }
   tpf_email_repeat:
     type: email_default
-    weight: 22
+    weight: 23
     region: content
     settings:
       placeholder: ''
       size: 60
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 8
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
     third_party_settings: {  }
   url_redirects:
     weight: 35
     region: content
     settings: {  }
     third_party_settings: {  }
-  workbench_reviewer:
-    type: entity_reference_autocomplete
-    weight: 5
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
+  created: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  langcode: true
+  path: true
+  promote: true
+  simple_sitemap: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  workbench_reviewer: true

@@ -24,7 +24,6 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_payment_date
     - field.field.node.free_course_request.field_rfc_phone
     - field.field.node.free_course_request.field_rfc_provider
-    - field.field.node.free_course_request.field_rfc_provider_name
     - field.field.node.free_course_request.field_rfc_remarks
     - field.field.node.free_course_request.field_rfc_requested_amount
     - field.field.node.free_course_request.field_rfc_school
@@ -35,24 +34,12 @@ dependencies:
     - node.type.free_course_request
   module:
     - datetime
-    - options
-    - text
     - user
 id: node.free_course_request.default
 targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
-  field_data_anonymized:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 131
-    region: content
   field_receiving_class:
     type: boolean
     label: above
@@ -61,7 +48,7 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
-    weight: 109
+    weight: 2
     region: content
   field_rfc_course:
     type: entity_reference_label
@@ -69,17 +56,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 116
-    region: content
-  field_rfc_course_not_found:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 117
+    weight: 7
     region: content
   field_rfc_date:
     type: datetime_default
@@ -88,7 +65,7 @@ content:
       timezone_override: ''
       format_type: medium
     third_party_settings: {  }
-    weight: 129
+    weight: 12
     region: content
   field_rfc_grade:
     type: string
@@ -96,33 +73,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 108
-    region: content
-  field_rfc_granted_amount:
-    type: number_decimal
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 102
-    region: content
-  field_rfc_latest_editor:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 106
+    weight: 1
     region: content
   field_rfc_mail:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 112
+    weight: 5
     region: content
   field_rfc_name:
     type: string
@@ -130,14 +88,14 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 110
+    weight: 3
     region: content
   field_rfc_new_course_description:
     type: basic_string
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 119
+    weight: 9
     region: content
   field_rfc_new_course_name:
     type: string
@@ -145,26 +103,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 118
-    region: content
-  field_rfc_payment_date:
-    type: timestamp
-    label: above
-    settings:
-      date_format: medium
-      custom_date_format: ''
-      timezone: ''
-      tooltip:
-        date_format: long
-        custom_date_format: ''
-      time_diff:
-        enabled: false
-        future_format: '@interval hence'
-        past_format: '@interval ago'
-        granularity: 2
-        refresh: 60
-    third_party_settings: {  }
-    weight: 125
+    weight: 8
     region: content
   field_rfc_phone:
     type: string
@@ -172,7 +111,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 111
+    weight: 4
     region: content
   field_rfc_provider:
     type: entity_reference_label
@@ -180,14 +119,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 114
-    region: content
-  field_rfc_remarks:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 103
+    weight: 6
     region: content
   field_rfc_requested_amount:
     type: number_decimal
@@ -198,7 +130,7 @@ content:
       scale: 2
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 121
+    weight: 11
     region: content
   field_rfc_school:
     type: entity_reference_label
@@ -206,7 +138,7 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 107
+    weight: 0
     region: content
   field_rfc_subject:
     type: entity_reference_label
@@ -214,26 +146,25 @@ content:
     settings:
       link: true
     third_party_settings: {  }
-    weight: 120
-    region: content
-  field_semester:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 130
+    weight: 10
     region: content
 hidden:
   content_moderation_control: true
+  field_data_anonymized: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_mailto: true
   field_old_id: true
   field_rfc_attachment: true
+  field_rfc_course_not_found: true
   field_rfc_follow_up_mail_sent: true
-  field_rfc_provider_name: true
+  field_rfc_granted_amount: true
+  field_rfc_latest_editor: true
+  field_rfc_payment_date: true
+  field_rfc_remarks: true
   field_rfc_send_mail: true
   field_rfc_spent_amount: true
+  field_semester: true
   langcode: true
   links: true
   search_api_excerpt: true
