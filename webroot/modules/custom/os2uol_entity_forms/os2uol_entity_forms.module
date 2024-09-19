@@ -503,6 +503,10 @@ function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
       // Add the current domain ID.
       $domain_ids[] = $current_domain->id();
 
+      // Add the default "Databrønden" domain ID.
+      $databroenden_domain_id = 'api_os2udoglaer_dk';
+      $domain_ids[] = $databroenden_domain_id;
+
       // Retrieve the selected domains from the edit form.
       $selected_domains = $entity->get('field_domain_access')->getValue();
       foreach ($selected_domains as $selected_domain) {
