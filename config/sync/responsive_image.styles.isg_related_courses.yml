@@ -3,15 +3,15 @@ langcode: da
 status: true
 dependencies:
   config:
-    - image.style.isg_focal_point_1478_640
-    - image.style.isg_focal_point_384_250
+    - image.style.isg_focal_point_1094_560
+    - image.style.isg_focal_point_1478_560
+    - image.style.isg_focal_point_280_320
+    - image.style.isg_focal_point_384_280
     - image.style.isg_focal_point_388_320
-    - image.style.isg_focal_point_452_250
-    - image.style.isg_focal_point_482_370
-    - image.style.isg_focal_point_574_320
-    - image.style.isg_focal_point_739_320
-    - image.style.isg_focal_point_768_500
-    - image.style.isg_focal_point_904_500
+    - image.style.isg_focal_point_468_320
+    - image.style.isg_focal_point_547_280
+    - image.style.isg_focal_point_739_280
+    - image.style.isg_focal_point_768_560
   theme:
     - os2udoglaer
 id: isg_related_courses
@@ -29,43 +29,43 @@ image_style_mappings:
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_574_320
+    image_mapping: isg_focal_point_280_320
     breakpoint_id: os2udoglaer.md
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_482_370
+    image_mapping: isg_focal_point_468_320
     breakpoint_id: os2udoglaer.sm
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_739_320
+    image_mapping: isg_focal_point_739_280
     breakpoint_id: os2udoglaer.xs
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_1478_640
+    image_mapping: isg_focal_point_1478_560
     breakpoint_id: os2udoglaer.xs
     multiplier: 2x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_452_250
+    image_mapping: isg_focal_point_547_280
     breakpoint_id: os2udoglaer.xxs
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_904_500
+    image_mapping: isg_focal_point_1094_560
     breakpoint_id: os2udoglaer.xxs
     multiplier: 2x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_384_250
+    image_mapping: isg_focal_point_384_280
     breakpoint_id: os2udoglaer.lighthouse
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_768_500
+    image_mapping: isg_focal_point_768_560
     breakpoint_id: os2udoglaer.lighthouse
     multiplier: 2x
 breakpoint_group: os2udoglaer
-fallback_image_style: isg_focal_point_384_250
+fallback_image_style: isg_focal_point_384_280

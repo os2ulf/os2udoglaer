@@ -3,22 +3,20 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_rfc_attachment
     - field.storage.node.field_rfc_date
     - field.storage.node.field_rfc_grade
     - field.storage.node.field_rfc_granted_amount
     - field.storage.node.field_rfc_latest_editor
     - field.storage.node.field_rfc_name
+    - field.storage.node.field_rfc_new_course_name
     - field.storage.node.field_rfc_payment_date
-    - field.storage.node.field_rfc_provider
     - field.storage.node.field_rfc_remarks
     - field.storage.node.field_rfc_requested_amount
     - field.storage.node.field_rfc_school
     - field.storage.node.field_rfc_spent_amount
-    - field.storage.node.field_semester
-    - field.storage.node.field_subject
+    - field.storage.node.field_tr_quantity
+    - field.storage.node.field_tr_theater
     - node.type.theater_refund
-    - taxonomy.vocabulary.subject
     - user.role.administrator
     - user.role.corporation
     - user.role.course_provider
@@ -30,12 +28,9 @@ dependencies:
     - content_moderation
     - datetime
     - domain_access
-    - file
     - node
-    - options
     - rest
     - serialization
-    - taxonomy
     - text
     - user
     - views_data_export
@@ -372,78 +367,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_provider:
-          id: field_rfc_provider
-          table: node__field_rfc_provider
-          field: field_rfc_provider
+        field_tr_theater:
+          id: field_tr_theater
+          table: node__field_tr_theater
+          field: field_tr_theater
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Udbyder
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_view
-          settings:
-            view_mode: name
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_subject:
-          id: field_subject
-          table: node__field_subject
-          field: field_subject
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Emneområde
+          label: Teater
           exclude: false
           alter:
             alter_text: false
@@ -487,8 +419,199 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_rfc_new_course_name:
+          id: field_rfc_new_course_name
+          table: node__field_rfc_new_course_name
+          field: field_rfc_new_course_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Forestilling
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_tr_quantity:
+          id: field_tr_quantity
+          table: node__field_tr_quantity
+          field: field_tr_quantity
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Antal
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_rfc_date:
+          id: field_rfc_date
+          table: node__field_rfc_date
+          field: field_rfc_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Afviklingsdato
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: d/m/Y
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -554,70 +677,6 @@ display:
             decimal_separator: .
             scale: 2
             prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_rfc_date:
-          id: field_rfc_date
-          table: node__field_rfc_date
-          field: field_rfc_date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Afviklingsdato
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_custom
-          settings:
-            timezone_override: ''
-            date_format: d/m/Y
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -814,69 +873,6 @@ display:
             scale: 2
             prefix_suffix: true
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_rfc_attachment:
-          id: field_rfc_attachment
-          table: node__field_rfc_attachment
-          field: field_rfc_attachment
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Bilag
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: file_default
-          settings:
-            use_description_as_link_text: true
-          group_column: ''
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -1139,68 +1135,6 @@ display:
           text: redigér
           output_url_as_text: false
           absolute: false
-        field_semester:
-          id: field_semester
-          table: node__field_semester
-          field: field_semester
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Semester
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
       pager:
         type: full
         options:
@@ -1422,8 +1356,6 @@ display:
             nid: nid
             field_rfc_school: field_rfc_school
             field_rfc_name: field_rfc_name
-            field_rfc_provider: field_rfc_provider
-            field_rfc_course_name: field_rfc_course_name
         moderation_state:
           id: moderation_state
           table: node_field_data
@@ -1601,130 +1533,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        combine_1:
-          id: combine_1
-          table: views
-          field: combine
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: combine
-          operator: contains
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: combine_1_op
-            label: Forløb
-            description: ''
-            use_operator: false
-            operator: combine_1_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: combine_1
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          fields:
-            field_rfc_course_name: field_rfc_course_name
-        field_subject_target_id:
-          id: field_subject_target_id
-          table: node__field_subject
-          field: field_subject_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: taxonomy_index_tid
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_subject_target_id_op
-            label: Emneområde
-            description: ''
-            use_operator: false
-            operator: field_subject_target_id_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_subject_target_id
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: 'Emneområde (field_subject)'
-            description: ''
-            identifier: field_subject_target_id
-            optional: true
-            widget: select
-            multiple: true
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items:
-              1:
-                title: ''
-                operator: or
-                value: null
-              2:
-                title: ''
-                operator: or
-                value: null
-              3:
-                title: ''
-                operator: or
-                value: null
-          reduce_duplicates: false
-          vid: subject
-          type: select
-          hierarchy: false
-          limit: true
-          error_message: true
         current_all:
           id: current_all
           table: node__field_domain_access
@@ -1763,59 +1571,6 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_semester_value:
-          id: field_semester_value
-          table: node__field_semester
-          field: field_semester_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: list_field
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_semester_value_op
-            label: Semester
-            description: ''
-            use_operator: false
-            operator: field_semester_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_semester_value
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
       filter_groups:
         operator: AND
         groups:
@@ -2011,48 +1766,45 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_quantity'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_theater'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
-        - 'config:field.storage.node.field_rfc_attachment'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_quantity'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_theater'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
         - 'config:field.storage.node.field_rfc_latest_editor'
         - 'config:field.storage.node.field_rfc_name'
+        - 'config:field.storage.node.field_rfc_new_course_name'
         - 'config:field.storage.node.field_rfc_payment_date'
-        - 'config:field.storage.node.field_rfc_provider'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
         - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
-        - 'config:field.storage.node.field_semester'
-        - 'config:field.storage.node.field_subject'
+        - 'config:field.storage.node.field_tr_quantity'
+        - 'config:field.storage.node.field_tr_theater'
         - 'config:workflow_list'
   data_export_1:
     id: data_export_1
@@ -2377,78 +2129,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_provider:
-          id: field_rfc_provider
-          table: node__field_rfc_provider
-          field: field_rfc_provider
+        field_tr_theater:
+          id: field_tr_theater
+          table: node__field_tr_theater
+          field: field_tr_theater
           relationship: none
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Udbyder
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_view
-          settings:
-            view_mode: name
-          group_column: target_id
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-        field_subject:
-          id: field_subject
-          table: node__field_subject
-          field: field_subject
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Emneområde
+          label: Teater
           exclude: false
           alter:
             alter_text: false
@@ -2492,8 +2181,135 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_rfc_new_course_name:
+          id: field_rfc_new_course_name
+          table: node__field_rfc_new_course_name
+          field: field_rfc_new_course_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Forestilling
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_tr_quantity:
+          id: field_tr_quantity
+          table: node__field_tr_quantity
+          field: field_tr_quantity
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Antal
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2828,69 +2644,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_attachment:
-          id: field_rfc_attachment
-          table: node__field_rfc_attachment
-          field: field_rfc_attachment
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Bilag
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: file_default
-          settings:
-            use_description_as_link_text: true
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
         field_rfc_payment_date:
           id: field_rfc_payment_date
           table: node__field_rfc_payment_date
@@ -3144,68 +2897,6 @@ display:
           text: redigér
           output_url_as_text: false
           absolute: false
-        field_semester:
-          id: field_semester
-          table: node__field_semester
-          field: field_semester
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Semester
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
       style:
         type: excel_export
         options:
@@ -3255,48 +2946,45 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_quantity'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_theater'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
-        - 'config:field.storage.node.field_rfc_attachment'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_quantity'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_theater'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
         - 'config:field.storage.node.field_rfc_latest_editor'
         - 'config:field.storage.node.field_rfc_name'
+        - 'config:field.storage.node.field_rfc_new_course_name'
         - 'config:field.storage.node.field_rfc_payment_date'
-        - 'config:field.storage.node.field_rfc_provider'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
         - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
-        - 'config:field.storage.node.field_semester'
-        - 'config:field.storage.node.field_subject'
+        - 'config:field.storage.node.field_tr_quantity'
+        - 'config:field.storage.node.field_tr_theater'
         - 'config:workflow_list'
   page_1:
     id: page_1
@@ -3325,46 +3013,43 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_quantity'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_theater'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
-        - 'config:field.storage.node.field_rfc_attachment'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_quantity'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_theater'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
         - 'config:field.storage.node.field_rfc_latest_editor'
         - 'config:field.storage.node.field_rfc_name'
+        - 'config:field.storage.node.field_rfc_new_course_name'
         - 'config:field.storage.node.field_rfc_payment_date'
-        - 'config:field.storage.node.field_rfc_provider'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
         - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
-        - 'config:field.storage.node.field_semester'
-        - 'config:field.storage.node.field_subject'
+        - 'config:field.storage.node.field_tr_quantity'
+        - 'config:field.storage.node.field_tr_theater'
         - 'config:workflow_list'

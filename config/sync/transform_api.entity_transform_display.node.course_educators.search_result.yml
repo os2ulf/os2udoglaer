@@ -30,6 +30,11 @@ dependencies:
     - field.field.node.course_educators.field_materials
     - field.field.node.course_educators.field_meta_tags
     - field.field.node.course_educators.field_period
+    - field.field.node.course_educators.field_pretix_email_notifiers
+    - field.field.node.course_educators.field_pretix_event_short_form
+    - field.field.node.course_educators.field_pretix_shop_url
+    - field.field.node.course_educators.field_pretix_template_event
+    - field.field.node.course_educators.field_pretix_widget_type
     - field.field.node.course_educators.field_price
     - field.field.node.course_educators.field_primary_school_subject
     - field.field.node.course_educators.field_quantity
@@ -51,7 +56,7 @@ dependencies:
     - field.field.node.course_educators.field_view_on_map
     - field.field.node.course_educators.field_youth_education_subject
     - node.type.course_educators
-    - responsive_image.styles.isg_appetizer
+    - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.search_result
   module:
     - transform_api_responsive_image
@@ -94,7 +99,7 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_appetizer
+      responsive_image_style: isg_related_courses
       image_link: ''
       image_loading:
         attribute: lazy
@@ -134,6 +139,14 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_subject:
+    type: entity_transform
+    weight: '11'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
   field_theme:
     type: entity_reference_links
     weight: '10'
@@ -160,6 +173,11 @@ hidden:
   field_materials: true
   field_meta_tags: true
   field_period: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   field_price: true
   field_quantity: true
   field_quantity_description: true
@@ -170,7 +188,6 @@ hidden:
   field_registration_title: true
   field_registration_url: true
   field_related_courses: true
-  field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
   field_video: true

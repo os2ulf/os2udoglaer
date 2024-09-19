@@ -5,10 +5,10 @@ dependencies:
   config:
     - image.style.isg_focal_point_1040_585
     - image.style.isg_focal_point_1552_873
-    - image.style.isg_focal_point_1824_1026
+    - image.style.isg_focal_point_2204_1240
     - image.style.isg_focal_point_2972_1672
     - image.style.isg_focal_point_388_219
-    - image.style.isg_focal_point_456_257
+    - image.style.isg_focal_point_551_310
     - image.style.isg_focal_point_743_418
     - image.style.isg_focal_point_751_423
     - image.style.isg_focal_point_967_544
@@ -49,12 +49,12 @@ image_style_mappings:
     multiplier: 2x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_456_257
+    image_mapping: isg_focal_point_551_310
     breakpoint_id: os2udoglaer.xxs
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_focal_point_1824_1026
+    image_mapping: isg_focal_point_2204_1240
     breakpoint_id: os2udoglaer.xxs
     multiplier: 2x
   -

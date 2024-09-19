@@ -7,14 +7,14 @@ os2udoglaer.lighthouse:
     - 2x
 os2udoglaer.xxs:
   label: 'Extra extra small'
-  mediaQuery: 'all and (min-width : 413px) and (max-width: 480px)'
+  mediaQuery: 'all and (min-width : 413px) and (max-width: 575px)'
   weight: 1
   multipliers:
     - 1x
     - 2x
 os2udoglaer.xs:
   label: 'Extra small'
-  mediaQuery: 'all and (min-width : 481px) and (max-width: 767px)'
+  mediaQuery: 'all and (min-width : 576px) and (max-width: 767px)'
   weight: 2
   multipliers:
     - 1x

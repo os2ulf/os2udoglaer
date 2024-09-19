@@ -1,0 +1,18 @@
+uuid: f59baa32-a93f-45f9-809d-0f53bca84061
+langcode: da
+status: true
+dependencies:
+  module:
+    - focal_point
+name: isg_focal_point_575_324
+label: 'Focal point scale (575x324)'
+effects:
+  395e7d28-64c3-404d-b3f0-c5871db2c51f:
+    uuid: 395e7d28-64c3-404d-b3f0-c5871db2c51f
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 575
+      height: 324
+      crop_type: focal_point
+pipeline: __default__

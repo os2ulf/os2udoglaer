@@ -34,6 +34,11 @@ dependencies:
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
     - field.field.node.course.field_preparation
+    - field.field.node.course.field_pretix_email_notifiers
+    - field.field.node.course.field_pretix_event_short_form
+    - field.field.node.course.field_pretix_shop_url
+    - field.field.node.course.field_pretix_template_event
+    - field.field.node.course.field_pretix_widget_type
     - field.field.node.course.field_price
     - field.field.node.course.field_primary_school_subject
     - field.field.node.course.field_purpose
@@ -60,7 +65,7 @@ dependencies:
     - field.field.node.course.field_view_on_map
     - field.field.node.course.field_youth_education_subject
     - node.type.course
-    - responsive_image.styles.isg_appetizer
+    - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.search_result
   module:
     - transform_api_responsive_image
@@ -96,7 +101,7 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_appetizer
+      responsive_image_style: isg_related_courses
       image_link: ''
       image_loading:
         attribute: lazy
@@ -202,6 +207,11 @@ hidden:
   field_post_processing: true
   field_practical_info_buttons: true
   field_preparation: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   field_price: true
   field_purpose: true
   field_quantity: true

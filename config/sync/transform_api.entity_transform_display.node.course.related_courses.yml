@@ -199,6 +199,7 @@ hidden:
   field_exclude_from_search: true
   field_faciliteter: true
   field_facilities_description: true
+  field_hide_contact_form: true
   field_location_description: true
   field_location_name: true
   field_materials: true
@@ -207,6 +208,11 @@ hidden:
   field_post_processing: true
   field_practical_info_buttons: true
   field_preparation: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   field_price: true
   field_purpose: true
   field_quantity: true

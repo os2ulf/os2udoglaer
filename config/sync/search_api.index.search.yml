@@ -3,47 +3,46 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.body
-    - field.storage.node.field_ackground_knowledge
-    - field.storage.node.field_activities
     - field.storage.node.field_activity_select
+    - field.storage.node.field_activities
+    - field.storage.node.body
+    - field.storage.node.field_description
+    - field.storage.node.field_sustainability_goals_desc
+    - field.storage.node.field_related_user
+    - field.storage.user.field_name
+    - field.storage.node.field_industry
+    - field.storage.node.field_post_processing
+    - field.storage.node.field_subject
+    - field.storage.node.field_primary_school_subject
+    - field.storage.node.field_youth_education_subject
+    - field.storage.node.field_focus
+    - field.storage.node.field_preparation
+    - field.storage.node.field_course_type
+    - field.storage.node.field_purpose
+    - field.storage.node.field_expectations
+    - field.storage.node.field_ackground_knowledge
+    - field.storage.node.field_is_free
     - field.storage.node.field_all_year
     - field.storage.node.field_areas_of_interest
-    - field.storage.user.field_brancher
-    - field.storage.node.field_course_type
     - field.storage.node.field_curriculum_themes
-    - field.storage.node.field_description
-    - field.storage.node.field_domain_access
-    - field.storage.node.field_duration_select
-    - field.storage.node.field_educators_target_group
-    - field.storage.node.field_exclude_from_search
-    - field.storage.node.field_expectations
-    - field.storage.node.field_focus
-    - field.storage.user.field_guarantee_partner
-    - field.storage.node.field_how_to
-    - field.storage.node.field_industry
-    - field.storage.node.field_is_free
-    - field.storage.user.field_name
-    - field.storage.node.field_period
-    - field.storage.node.field_period_select
-    - field.storage.user.field_posibilities
-    - field.storage.node.field_post_processing
-    - field.storage.user.field_postnummer
-    - field.storage.node.field_preparation
-    - field.storage.user.field_presentation
-    - field.storage.node.field_primary_school_subject
-    - field.storage.node.field_purpose
     - field.storage.node.field_purpose_exercise
-    - field.storage.node.field_related_user
-    - field.storage.node.field_subject
-    - field.storage.node.field_sustainability_goals
-    - field.storage.node.field_sustainability_goals_desc
-    - field.storage.node.field_target_group
-    - field.storage.node.field_theme
+    - field.storage.node.field_educators_target_group
     - field.storage.node.field_trgt_grp_daycare
     - field.storage.node.field_trgt_grp_primary_school
     - field.storage.node.field_trgt_grp_youth_education
-    - field.storage.node.field_youth_education_subject
+    - field.storage.node.field_target_group
+    - field.storage.node.field_period
+    - field.storage.node.field_period_select
+    - field.storage.node.field_how_to
+    - field.storage.node.field_theme
+    - field.storage.node.field_duration_select
+    - field.storage.node.field_sustainability_goals
+    - field.storage.node.field_exclude_from_search
+    - field.storage.user.field_brancher
+    - field.storage.user.field_guarantee_partner
+    - field.storage.user.field_posibilities
+    - field.storage.user.field_postnummer
+    - field.storage.user.field_presentation
     - search_api.server.solr
   module:
     - search_api_solr
@@ -270,12 +269,13 @@ field_settings:
         - field.storage.node.field_description
   field_domain_access:
     label: 'Domain Access'
-    datasource_id: 'entity:node'
-    property_path: field_domain_access
+    property_path: aggregated_field
     type: string
-    dependencies:
-      config:
-        - field.storage.node.field_domain_access
+    configuration:
+      type: union
+      fields:
+        - 'entity:node/field_domain_access'
+        - 'entity:user/field_domain_access'
   field_duration_select:
     label: Varighed
     datasource_id: 'entity:node'
@@ -682,7 +682,7 @@ field_settings:
       module:
         - node
   uid:
-    label: Udbyer
+    label: Udbyder
     datasource_id: 'entity:node'
     property_path: uid
     type: string
@@ -690,7 +690,7 @@ field_settings:
       module:
         - node
   uid_name:
-    label: 'Udbyer » Bruger » Navn'
+    label: 'Udbyder » Bruger » Navn'
     datasource_id: 'entity:node'
     property_path: 'uid:entity:field_name'
     type: 'solr_text_custom:ngram'
