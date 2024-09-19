@@ -7,7 +7,7 @@ dependencies:
 _core:
   default_config_hash: a_qq5xXJmMiy13a7wgeTkQoWLEFNuyJuA9QrJXLcAUk
 name: hero
-label: Hero
+label: 'Hero (1/2/3)'
 effects:
   304d62dc-4988-4c70-9b82-4b0a0ddf36da:
     uuid: 304d62dc-4988-4c70-9b82-4b0a0ddf36da

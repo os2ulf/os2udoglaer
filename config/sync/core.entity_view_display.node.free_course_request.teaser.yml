@@ -1,6 +1,6 @@
 uuid: e4d2416a-12fe-415d-8425-bde4a571d383
 langcode: da
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -25,7 +25,6 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_payment_date
     - field.field.node.free_course_request.field_rfc_phone
     - field.field.node.free_course_request.field_rfc_provider
-    - field.field.node.free_course_request.field_rfc_provider_name
     - field.field.node.free_course_request.field_rfc_remarks
     - field.field.node.free_course_request.field_rfc_requested_amount
     - field.field.node.free_course_request.field_rfc_school
@@ -73,7 +72,6 @@ hidden:
   field_rfc_payment_date: true
   field_rfc_phone: true
   field_rfc_provider: true
-  field_rfc_provider_name: true
   field_rfc_remarks: true
   field_rfc_requested_amount: true
   field_rfc_school: true

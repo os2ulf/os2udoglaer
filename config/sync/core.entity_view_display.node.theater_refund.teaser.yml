@@ -1,13 +1,13 @@
 uuid: 2fba8116-a7da-4ff3-830f-8a9987d39ff2
 langcode: da
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.theater_refund.body
     - field.field.node.theater_refund.field_data_anonymized
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_old_id
     - field.field.node.theater_refund.field_rfc_date
     - field.field.node.theater_refund.field_rfc_follow_up_mail_sent
     - field.field.node.theater_refund.field_rfc_grade
@@ -18,7 +18,6 @@ dependencies:
     - field.field.node.theater_refund.field_rfc_new_course_name
     - field.field.node.theater_refund.field_rfc_payment_date
     - field.field.node.theater_refund.field_rfc_phone
-    - field.field.node.theater_refund.field_rfc_provider_name
     - field.field.node.theater_refund.field_rfc_remarks
     - field.field.node.theater_refund.field_rfc_requested_amount
     - field.field.node.theater_refund.field_rfc_school
@@ -29,21 +28,12 @@ dependencies:
     - field.field.node.theater_refund.field_tr_theater
     - node.type.theater_refund
   module:
-    - text
     - user
 id: node.theater_refund.teaser
 targetEntityType: node
 bundle: theater_refund
 mode: teaser
 content:
-  body:
-    type: text_summary_or_trimmed
-    label: hidden
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    weight: 101
-    region: content
   content_moderation_control:
     settings: {  }
     third_party_settings: {  }
@@ -58,6 +48,7 @@ hidden:
   field_data_anonymized: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_old_id: true
   field_rfc_date: true
   field_rfc_follow_up_mail_sent: true
   field_rfc_grade: true
@@ -68,7 +59,6 @@ hidden:
   field_rfc_new_course_name: true
   field_rfc_payment_date: true
   field_rfc_phone: true
-  field_rfc_provider_name: true
   field_rfc_remarks: true
   field_rfc_requested_amount: true
   field_rfc_school: true

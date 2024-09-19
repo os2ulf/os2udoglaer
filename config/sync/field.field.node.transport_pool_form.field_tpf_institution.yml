@@ -1,0 +1,42 @@
+uuid: b2654e42-4f49-4a86-ad00-7045281b84b7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_institution
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_tpf_institution
+field_name: field_tpf_institution
+entity_type: node
+bundle: transport_pool_form
+label: 'Vælg institution'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        institution: institution
+        school: school
+        administrator: '0'
+        webmaster: '0'
+        editor: '0'
+        course_provider: '0'
+        corporation: '0'
+        place_of_visit: '0'
+        theater_contact: '0'
+        monitor: '0'
+        bypass_workflow: '0'
+        rest_api: '0'
+    include_anonymous: true
+field_type: entity_reference

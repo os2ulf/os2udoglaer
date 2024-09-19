@@ -1,0 +1,8 @@
+uuid: 508757fa-06c8-420f-911a-a90079d7730a
+langcode: da
+status: true
+dependencies: {  }
+name: Institution
+vid: institution
+description: ''
+weight: 0

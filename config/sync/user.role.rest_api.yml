@@ -5,6 +5,7 @@ dependencies:
   config:
     - node.type.free_course_request
     - node.type.theater_refund
+    - node.type.transport_pool_form
     - workflows.workflow.application
   module:
     - content_moderation
@@ -19,5 +20,6 @@ permissions:
   - 'administer views'
   - 'create free_course_request content'
   - 'create theater_refund content'
+  - 'create transport_pool_form content'
   - 'publish to any assigned domain'
   - 'use application transition afventer'

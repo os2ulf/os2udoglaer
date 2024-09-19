@@ -1,0 +1,341 @@
+uuid: 2f9d2042-2603-482d-a2cf-33e9d5b5fed1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.transport_pool_form.field_data_anonymized
+    - field.field.node.transport_pool_form.field_domain_access
+    - field.field.node.transport_pool_form.field_domain_all_affiliates
+    - field.field.node.transport_pool_form.field_location_city
+    - field.field.node.transport_pool_form.field_location_street
+    - field.field.node.transport_pool_form.field_location_zipcode
+    - field.field.node.transport_pool_form.field_old_id
+    - field.field.node.transport_pool_form.field_rfc_course
+    - field.field.node.transport_pool_form.field_rfc_date
+    - field.field.node.transport_pool_form.field_rfc_mail
+    - field.field.node.transport_pool_form.field_rfc_name
+    - field.field.node.transport_pool_form.field_tpf_address_variation
+    - field.field.node.transport_pool_form.field_tpf_backend_submission
+    - field.field.node.transport_pool_form.field_tpf_course_not_found
+    - field.field.node.transport_pool_form.field_tpf_expense
+    - field.field.node.transport_pool_form.field_tpf_grade
+    - field.field.node.transport_pool_form.field_tpf_institution
+    - field.field.node.transport_pool_form.field_tpf_institution_type
+    - field.field.node.transport_pool_form.field_tpf_message
+    - field.field.node.transport_pool_form.field_tpf_participants
+    - field.field.node.transport_pool_form.field_tpf_purpose_course
+    - field.field.node.transport_pool_form.field_tpf_what_course
+    - field.field.node.transport_pool_form.tpf_email_repeat
+    - node.type.transport_pool_form
+  module:
+    - datetime
+    - field_group
+third_party_settings:
+  field_group:
+    group_tpf_course:
+      children:
+        - moderation_state
+        - field_rfc_course
+        - field_tpf_what_course
+        - field_tpf_purpose_course
+        - field_location_street
+        - field_location_zipcode
+        - field_location_city
+      label: Forløb
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+        required_fields: true
+    group_tpf_institution:
+      children:
+        - field_tpf_institution
+        - field_tpf_institution_type
+        - field_tpf_grade
+      label: Institution
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+        required_fields: true
+    group_tpf_transport_expenses:
+      children:
+        - field_tpf_expense
+        - field_tpf_participants
+        - field_rfc_date
+      label: Transportudgifter
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+        required_fields: true
+    group_tpf_contact_info:
+      children:
+        - field_rfc_name
+        - field_rfc_mail
+        - tpf_email_repeat
+        - field_tpf_message
+      label: Kontaktinformation
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: html_element
+      format_settings:
+        classes: trailer
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+        required_fields: true
+    group_tpf_admin:
+      children:
+        - field_tpf_backend_submission
+        - field_tpf_course_not_found
+        - field_tpf_address_variation
+        - url_redirects
+      label: 'Admin felter'
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: html_element
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
+        required_fields: true
+id: node.transport_pool_form.default
+targetEntityType: node
+bundle: transport_pool_form
+mode: default
+content:
+  field_data_anonymized:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_location_city:
+    type: string_textfield
+    weight: 23
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_street:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_location_zipcode:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_old_id:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_course:
+    type: entity_reference_autocomplete
+    weight: 17
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_date:
+    type: datetime_default
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_rfc_mail:
+    type: email_default
+    weight: 22
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  field_rfc_name:
+    type: string_textfield
+    weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tpf_address_variation:
+    type: boolean_checkbox
+    weight: 34
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_tpf_backend_submission:
+    type: boolean_checkbox
+    weight: 32
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_tpf_course_not_found:
+    type: boolean_checkbox
+    weight: 33
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_tpf_expense:
+    type: number
+    weight: 29
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tpf_grade:
+    type: options_select
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tpf_institution:
+    type: entity_reference_autocomplete
+    weight: 28
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_tpf_institution_type:
+    type: options_select
+    weight: 29
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tpf_message:
+    type: string_textarea
+    weight: 24
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_tpf_participants:
+    type: number
+    weight: 30
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_tpf_purpose_course:
+    type: string_textarea
+    weight: 20
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_tpf_what_course:
+    type: string_textarea
+    weight: 18
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  moderation_state:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  tpf_email_repeat:
+    type: email_default
+    weight: 23
+    region: content
+    settings:
+      placeholder: ''
+      size: 60
+    third_party_settings: {  }
+  url_redirects:
+    weight: 35
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  langcode: true
+  path: true
+  promote: true
+  simple_sitemap: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  workbench_reviewer: true

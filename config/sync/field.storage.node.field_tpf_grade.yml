@@ -1,0 +1,63 @@
+uuid: 02f5ecad-5c91-4849-b126-f3e175f0a1e2
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_tpf_grade
+field_name: field_tpf_grade
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: grade_0
+      label: '0. klasse'
+    -
+      value: grade_1
+      label: '1. klasse'
+    -
+      value: grade_2
+      label: '2. klasse'
+    -
+      value: grade_3
+      label: '3. klasse'
+    -
+      value: grade_4
+      label: '4. klasse'
+    -
+      value: grade_5
+      label: '5. klasse'
+    -
+      value: grade_6
+      label: '6. klasse'
+    -
+      value: grade_7
+      label: '7. klasse'
+    -
+      value: grade_8
+      label: '8. klasse'
+    -
+      value: grade_9
+      label: '9. klasse'
+    -
+      value: grade_10
+      label: '10. klasse'
+    -
+      value: special_in
+      label: 'Specialklasse indskoling'
+    -
+      value: special_intermediate
+      label: 'Specialklasse mellemtrin'
+    -
+      value: special_out
+      label: 'Specialklasse udskoling'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

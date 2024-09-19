@@ -1,0 +1,11 @@
+uuid: fcf52a47-aaf7-4a42-bcf8-4c7c42557e5e
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.transport_pool_form
+id: node.transport_pool_form
+target_entity_type_id: node
+target_bundle: transport_pool_form
+default_langcode: site_default
+language_alterable: false
