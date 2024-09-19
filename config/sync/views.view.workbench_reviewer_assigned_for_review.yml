@@ -5,14 +5,6 @@ dependencies:
   config:
     - field.storage.node.field_target_group
     - system.menu.workbench
-    - user.role.administrator
-    - user.role.corporation
-    - user.role.course_provider
-    - user.role.institution
-    - user.role.place_of_visit
-    - user.role.school
-    - user.role.theater_contact
-    - user.role.webmaster
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -718,17 +710,9 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: role
+        type: perm
         options:
-          role:
-            administrator: administrator
-            webmaster: webmaster
-            course_provider: course_provider
-            corporation: corporation
-            institution: institution
-            school: school
-            place_of_visit: place_of_visit
-            theater_contact: theater_contact
+          perm: 'access workbench'
       cache:
         type: tag
         options: {  }
@@ -742,7 +726,7 @@ display:
           admin_label: ''
           plugin_id: text_custom
           empty: true
-          content: "Intet indhold er blevet tildelt dig til gennemgang."
+          content: 'Intet indhold er blevet tildelt dig til gennemgang.'
           tokenize: false
       sorts:
         revision_timestamp:
@@ -1217,7 +1201,7 @@ display:
         - url.query_args
         - url.site
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:workflow_list'
   block_1:
@@ -2245,7 +2229,7 @@ display:
         - url.query_args
         - url.site
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
@@ -2341,6 +2325,6 @@ display:
         - url.site
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:workflow_list'
