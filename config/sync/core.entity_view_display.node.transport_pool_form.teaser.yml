@@ -26,7 +26,6 @@ dependencies:
     - field.field.node.transport_pool_form.field_tpf_participants
     - field.field.node.transport_pool_form.field_tpf_purpose_course
     - field.field.node.transport_pool_form.field_tpf_what_course
-    - field.field.node.transport_pool_form.tpf_email_repeat
     - node.type.transport_pool_form
   module:
     - user
@@ -70,6 +69,5 @@ hidden:
   field_tpf_what_course: true
   langcode: true
   search_api_excerpt: true
-  tpf_email_repeat: true
   workbench_reviewer: true
   workflow_buttons: true
