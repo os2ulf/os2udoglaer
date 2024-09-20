@@ -78,7 +78,7 @@ class PretixEventManager extends PretixAbstractManager {
 
   protected function updateSubEventQuota(EditorialContentEntityBase $entity, array $subEvent, $size) {
     $eventSlug = $this->getEventSlug($entity);
-    $eventTemplate = $this->getEventTemplate($entity);
+    $eventTemplate = $this->getEventSlug($entity);
     $client = $this->getClient($entity);
 
     $templateSubEvent = $this->getEventSubEventTemplate($entity);
@@ -140,16 +140,39 @@ class PretixEventManager extends PretixAbstractManager {
     return $result;
   }
 
+    /**
+   * Convert a date string to UTC format.
+   *
+   * @param string $date_string
+   *   The date string to convert.
+   *
+   * @return string
+   *   The date in UTC formatted as ATOM.
+   */
+  protected function convertToUTC($date_string) {
+    $date = new \DateTime($date_string, new \DateTimeZone(date_default_timezone_get()));
+    $date->setTimezone(new \DateTimeZone('UTC'));
+    return $date->format(DateTimeInterface::ATOM);
+  }
+
+  /**
+   * Updates sub-event data before sending it to Pretix.
+   */
   protected function updateSubEventData(EditorialContentEntityBase $entity, $subevent, &$data) {
+    // Ensure that the date is formatted in UTC before sending it to Pretix
+    $date_from = new \DateTime($subevent['date_from'], new \DateTimeZone(date_default_timezone_get()));
+    $date_from->setTimezone(new \DateTimeZone('UTC'));  // Convert to UTC
+
     $data['name'] = $this->formatEventName($entity);
-    $data['date_from'] = $subevent['date_from'];
-    $data['presale_start'] = $subevent['presale_start'] ?? NULL;
+    $data['date_from'] = $date_from->format(DateTimeInterface::ATOM);  // Send the UTC-formatted date
+    $data['presale_start'] = !empty($subevent['presale_start']) ? $this->convertToUTC($subevent['presale_start']) : NULL;
     $data['location'] = NULL;
     $data['active'] = TRUE;
     $data['is_public'] = TRUE;
-    $data['date_to'] = $subevent['date_to'] ?? NULL;
+    $data['date_to'] = !empty($subevent['date_to']) ? $this->convertToUTC($subevent['date_to']) : NULL;
     $data['date_admission'] = NULL;
-    $data['presale_end'] = $subevent['presale_end'] ?? NULL;
+    $data['presale_end'] = !empty($subevent['presale_end']) ? $this->convertToUTC($subevent['presale_end']) : NULL;
+
     $data['seating_plan'] = NULL;
     $data['seat_category_mapping'] = (object) [];
     $price = TRUE === $subevent['free'] ? 0 : (float) $subevent['price'];
@@ -253,32 +276,44 @@ class PretixEventManager extends PretixAbstractManager {
     return TRUE;
   }
 
-  protected function getEventTemplate(EditorialContentEntityBase $entity) {
-    $templates = &drupal_static(__FUNCTION__);
-    $key = $this->getEntityKey($entity);
-    if (!isset($templates[$key])) {
-      if ($entity->get('field_pretix_template_event')->isEmpty()) {
-        $templates[$key] = NULL;
-      } else {
-        $templates[$key] = $entity->get('field_pretix_template_event')->first()->getString();
-      }
+  public function submitForm(array &$form, FormStateInterface $form_state) {
+    $entity = $this->entity;
+
+    // Check if the field_pretix_template_event is populated
+    if ($entity->get('field_pretix_template_event')->isEmpty()) {
+      $this->messenger()->addError($this->t('The event template is missing. Please ensure the event template field is filled.'));
+      return;
     }
-    return $templates[$key];
+
+    // Continue with the rest of the submit handler
+    parent::submitForm($form, $form_state);
   }
 
   protected function getEventSubEventTemplate(EditorialContentEntityBase $entity) {
     $templates = &drupal_static(__FUNCTION__);
     $key = $this->getEntityKey($entity);
+
+    // Check if the event template is set
     if (!isset($templates[$key])) {
+      $event_template = $this->getEventSlug($entity);  // Use getEventSlug instead of getEventTemplate
+
+      // If the event template is null or empty, return an error or handle the case
+      if (empty($event_template)) {
+        throw new \Exception('No event template found for the sub-event.');
+      }
+
       $client = $this->getClient($entity);
-      // Get first sub-event from template event.
-      $result = $client->getSubEvents($this->getEventTemplate($entity));
+
+      // Proceed only if the event template exists
+      $result = $client->getSubEvents($event_template);
+
       if (isset($result['error']) || 0 === $result['count']) {
         $templates[$key] = NULL;
       } else {
         $templates[$key] = $result['results'][0];
       }
     }
+
     return $templates[$key];
   }
 
