@@ -18,6 +18,7 @@ use Drupal\os2uol_pretix\Form\PretixSubEventAddForm;
 use Drupal\os2uol_pretix\Form\PretixOverviewForm;
 use Drupal\os2uol_pretix\Routing\PretixRouteProvider;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Entity\EntityOwnerInterface;
 
 /**
  * Entity related hooks for Scheduled Transitions module.
@@ -144,30 +145,38 @@ class PretixEntityHooks implements ContainerInjectionInterface {
    * @see \os2uol_pretix_entity_access()
    */
   public function entityAccess(EntityInterface $entity, string $operation, AccountInterface $account): AccessResultInterface {
-    // Determines if a user has access to Pretix events for
-    // an entity.
+    // Initialize access as neutral
     $access = AccessResult::neutral();
 
+    // Check if the operation is for viewing or editing Pretix events
+    if ($operation === PretixRouteProvider::ENTITY_OPERATION_VIEW || $operation === PretixRouteProvider::ENTITY_OPERATION_EDIT) {
 
-    if ($operation === PretixRouteProvider::ENTITY_OPERATION_VIEW) {
-      /*if (!$entity instanceof EditorialContentEntityBase) {
-        return AccessResult::forbidden('Bundle does not support Pretix');
-      } else {
-        if (!$entity->hasField('field_pretix_template_event') || !$entity->hasField('field_pretix_event_short_form')) {
-          return AccessResult::forbidden('Bundle does not support Pretix');
-        }
-      }*/
-
+      // Cache permissions to avoid rechecking
       $access->cachePerPermissions();
+
+      // Check if the user has permission to manage all events
       if ($account->hasPermission(PretixRouteProvider::ALL_PERMISSION)) {
         $access = AccessResult::allowed();
       }
+      // Check if the user has permission to manage their own events
       elseif ($account->hasPermission(PretixRouteProvider::OWN_PERMISSION)) {
-        $access->addCacheTags($entity->getCacheTagsToInvalidate());
-        $access = AccessResult::allowed();
+        // Check if the entity supports ownership
+        if ($entity instanceof EntityOwnerInterface) {
+          // If the user owns the entity, allow access
+          if ($entity->getOwnerId() === $account->id()) {
+            $access = AccessResult::allowed()->addCacheTags($entity->getCacheTagsToInvalidate());
+          } else {
+            // Deny access if the user doesn't own the entity
+            $access = AccessResult::forbidden();
+          }
+        } else {
+          // Deny access if the entity doesn't support ownership
+          $access = AccessResult::forbidden();
+        }
       }
       else {
-        $access = $access->andIf(AccessResult::forbidden());
+        // Deny access if neither permission is present
+        $access = AccessResult::forbidden();
       }
     }
 
