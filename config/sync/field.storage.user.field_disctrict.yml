@@ -1,0 +1,39 @@
+uuid: 4453a255-b6d5-4156-b8a1-8bba14fdd6e6
+langcode: da
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_disctrict
+field_name: field_disctrict
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: district_1
+      label: 'Distrikt 1'
+    -
+      value: district_2
+      label: 'Distrikt 2'
+    -
+      value: district_3
+      label: 'Distrikt 3'
+    -
+      value: district_4
+      label: 'Distrikt 4'
+    -
+      value: district_5
+      label: 'Distrikt 5'
+    -
+      value: no_district
+      label: 'Intet distrikt'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

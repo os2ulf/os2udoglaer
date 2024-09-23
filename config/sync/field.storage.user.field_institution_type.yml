@@ -1,0 +1,30 @@
+uuid: 12aa9e0d-6d08-4f4b-b727-d2dfd3eb7d3d
+langcode: da
+status: true
+dependencies:
+  module:
+    - options
+    - user
+id: user.field_institution_type
+field_name: field_institution_type
+entity_type: user
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: tpf_kindergarten
+      label: Børnehave
+    -
+      value: tpf_nursery
+      label: Vuggestue
+    -
+      value: tpf_daycare
+      label: Dagplejer
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

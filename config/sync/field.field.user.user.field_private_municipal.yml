@@ -1,0 +1,21 @@
+uuid: 7876ffce-e106-48d5-af61-e3184eaffb3a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_private_municipal
+  module:
+    - options
+    - user
+id: user.user.field_private_municipal
+field_name: field_private_municipal
+entity_type: user
+bundle: user
+label: Privat/kommunal
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
