@@ -1,4 +1,4 @@
-uuid: 6429579a-3df2-4e4e-b4a2-5eba83323aaa
+uuid: c0cd3f65-becd-4ef3-a825-13f42863a9eb
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.content_search
   module:
     - search_api
-id: course_primary_school_subject
-name: Fag
+id: course_is_free_youth_education
+name: Gratis
 weight: 0
 min_count: 0
 missing: false
 missing_label: others
-url_alias: cpss
-facet_source_id: 'search_api:views_block__content_search__block_6'
-field_identifier: field_primary_school_subject
+url_alias: cifye
+facet_source_id: 'search_api:views_block__content_search__block_7'
+field_identifier: field_is_free
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -49,6 +49,13 @@ processor_configs:
       sort: 20
     settings:
       sort: DESC
+  boolean_item:
+    processor_id: boolean_item
+    weights:
+      build: 35
+    settings:
+      on_value: 'On'
+      off_value: 'Off'
   count_widget_order:
     processor_id: count_widget_order
     weights:
@@ -65,11 +72,6 @@ processor_configs:
     processor_id: hierarchy_processor
     weights:
       build: 100
-    settings: {  }
-  translate_entity:
-    processor_id: translate_entity
-    weights:
-      build: 5
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler

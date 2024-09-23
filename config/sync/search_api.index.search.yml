@@ -567,7 +567,7 @@ field_settings:
       module:
         - taxonomy
   field_trgt_grp_daycare:
-    label: Målgruppe
+    label: 'Målgruppe - Dagtilbud'
     datasource_id: 'entity:node'
     property_path: field_trgt_grp_daycare
     type: string
@@ -575,7 +575,7 @@ field_settings:
       config:
         - field.storage.node.field_trgt_grp_daycare
   field_trgt_grp_daycare_name:
-    label: 'Målgruppe » Ord i ordforråd » Navn'
+    label: 'Målgruppe - Dagtilbud » Ord i ordforråd » Navn'
     datasource_id: 'entity:node'
     property_path: 'field_trgt_grp_daycare:entity:name'
     type: 'solr_text_custom:ngram'
@@ -585,7 +585,7 @@ field_settings:
       module:
         - taxonomy
   field_trgt_grp_primary_school:
-    label: Målgruppe
+    label: 'Målgruppe - Grundskole'
     datasource_id: 'entity:node'
     property_path: field_trgt_grp_primary_school
     type: string
@@ -593,7 +593,7 @@ field_settings:
       config:
         - field.storage.node.field_trgt_grp_primary_school
   field_trgt_grp_primary_school_name:
-    label: 'Målgruppe » Ord i ordforråd » Navn'
+    label: 'Målgruppe - Grundskole » Ord i ordforråd » Navn'
     datasource_id: 'entity:node'
     property_path: 'field_trgt_grp_primary_school:entity:name'
     type: 'solr_text_custom:ngram'
@@ -603,7 +603,7 @@ field_settings:
       module:
         - taxonomy
   field_trgt_grp_youth_education:
-    label: Målgruppe
+    label: 'Målgruppe - Ungdomsuddannelse'
     datasource_id: 'entity:node'
     property_path: field_trgt_grp_youth_education
     type: string
@@ -611,7 +611,7 @@ field_settings:
       config:
         - field.storage.node.field_trgt_grp_youth_education
   field_trgt_grp_youth_education_name:
-    label: 'Målgruppe » Ord i ordforråd » Navn'
+    label: 'Målgruppe - Ungdomsuddannelse » Ord i ordforråd » Navn'
     datasource_id: 'entity:node'
     property_path: 'field_trgt_grp_youth_education:entity:name'
     type: 'solr_text_custom:ngram'

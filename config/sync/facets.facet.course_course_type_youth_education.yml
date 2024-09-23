@@ -1,4 +1,4 @@
-uuid: 6429579a-3df2-4e4e-b4a2-5eba83323aaa
+uuid: 9c04c69b-3b7c-4cfd-896e-f6e73279fdd5
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.content_search
   module:
     - search_api
-id: course_primary_school_subject
-name: Fag
+id: course_course_type_youth_education
+name: Forløbstype
 weight: 0
 min_count: 0
 missing: false
 missing_label: others
-url_alias: cpss
-facet_source_id: 'search_api:views_block__content_search__block_6'
-field_identifier: field_primary_school_subject
+url_alias: cctye
+facet_source_id: 'search_api:views_block__content_search__block_7'
+field_identifier: field_course_type
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -65,11 +65,6 @@ processor_configs:
     processor_id: hierarchy_processor
     weights:
       build: 100
-    settings: {  }
-  translate_entity:
-    processor_id: translate_entity
-    weights:
-      build: 5
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
