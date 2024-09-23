@@ -43,13 +43,11 @@ final class DomainSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state): array {
     $config = $this->config('os2uol_settings.settings');
 
-    // Add vertical tabs wrapper
     $form['tabs'] = [
       '#type' => 'vertical_tabs',
-      '#title' => $this->t('Tabs'),
+      '#default_tab' => 'tab_theme',
     ];
 
-    // First tab content
     $form['tab_theme'] = [
       '#type' => 'details',
       '#title' => $this->t('Theme'),
