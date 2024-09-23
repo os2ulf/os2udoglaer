@@ -224,6 +224,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role editor.
@@ -235,7 +238,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
             $form[$field]['#access'] = FALSE;
           }
         }
-      } elseif ($edit_user && ($edit_user->hasRole('webmaster') || $edit_user->hasRole('editor') || $edit_user->hasRole('administrator'))) {
+      } elseif ($edit_user && ($edit_user->hasRole('webmaster') || $edit_user->hasRole('editor') || $edit_user->hasRole('administrator') || $edit_user->hasRole('rest_api'))) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
 
       } elseif (($edit_user && $edit_user->hasRole('course_provider')) || ($edit_user && $edit_user->hasRole('place_of_visit'))) {
@@ -244,9 +247,12 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         $form['field_brancher']['#access'] = FALSE;
         $form['field_posibilities']['#access'] = FALSE;
         $form['field_postnummer']['#access'] = FALSE;
+        $form['field_institution_type']['#access'] = FALSE;
+        $form['field_private_municipal']['#access'] = FALSE;
+        $form['field_disctrict']['#access'] = FALSE;
       } elseif ($edit_user && $edit_user->hasRole('corporation')) {
         $form['field_allocated_budget']['#access'] = FALSE;
-      } elseif (($edit_user && $edit_user->hasRole('school')) || ($edit_user && $edit_user->hasRole('institution'))) {
+      } elseif ($edit_user && $edit_user->hasRole('school')) {
         foreach ($editor_hidden_fields as $field) {
           if (isset($form[$field])) {
             $form[$field]['#access'] = FALSE;
@@ -256,6 +262,26 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         $form['field_location_name']['#access'] = TRUE;
         $form['field_location_zipcode']['#access'] = TRUE;
         $form['field_location_city']['#access'] = TRUE;
+        $form['field_private_municipal']['#access'] = TRUE;
+        $form['field_private_municipal']['widget']['#required'] = TRUE;
+        $form['field_disctrict']['#access'] = TRUE;
+        $form['field_disctrict']['widget']['#required'] = TRUE;
+      } elseif ($edit_user && $edit_user->hasRole('institution')) {
+        foreach ($editor_hidden_fields as $field) {
+          if (isset($form[$field])) {
+            $form[$field]['#access'] = FALSE;
+          }
+        }
+        $form['field_location_street']['#access'] = TRUE;
+        $form['field_location_name']['#access'] = TRUE;
+        $form['field_location_zipcode']['#access'] = TRUE;
+        $form['field_location_city']['#access'] = TRUE;
+        $form['field_institution_type']['#access'] = TRUE;
+        $form['field_institution_type']['widget']['#required'] = TRUE;
+        $form['field_private_municipal']['#access'] = TRUE;
+        $form['field_private_municipal']['widget']['#required'] = TRUE;
+        $form['field_disctrict']['#access'] = TRUE;
+        $form['field_disctrict']['widget']['#required'] = TRUE;
       } elseif ($edit_user && $edit_user->hasRole('theater_contact')) {
         $form['field_allocated_budget']['#access'] = TRUE;
         $form['field_editor_field']['#access'] = TRUE;
@@ -277,6 +303,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role course_provider.
@@ -302,6 +331,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role place_of_visit.
@@ -326,6 +358,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_guarantee_partner',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role corporation.
@@ -367,6 +402,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role school.
@@ -408,6 +446,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role institution.
@@ -453,6 +494,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role theater_contact.
