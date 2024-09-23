@@ -45,7 +45,7 @@ final class DomainSettingsForm extends ConfigFormBase {
 
     $form['tabs'] = [
       '#type' => 'vertical_tabs',
-      '#title' => $this->t('Tabs'),
+      '#default_tab' => 'tab_theme',
     ];
 
     $form['tab_theme'] = [
