@@ -1,0 +1,21 @@
+uuid: 6a0c45b6-2277-4d92-9e1e-32861496175b
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_disctrict
+  module:
+    - options
+    - user
+id: user.user.field_disctrict
+field_name: field_disctrict
+entity_type: user
+bundle: user
+label: Distrikt
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

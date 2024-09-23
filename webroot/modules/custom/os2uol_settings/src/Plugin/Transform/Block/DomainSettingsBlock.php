@@ -57,7 +57,14 @@ class DomainSettingsBlock extends TransformBlockBase {
       'text_positive_color' => $config->get('text_positive_color'),
       'text_negative_color' => $config->get('text_negative_color'),
       'site_tracking_script' => $config->get('site_tracking_script'),
+      'district_1' => $config->get('district_1'),
+      'district_2' => $config->get('district_2'),
+      'district_3' => $config->get('district_3'),
+      'district_4' => $config->get('district_4'),
+      'district_5' => $config->get('district_5'),
+      'no__district' => $config->get('no__district'),
       'free_course_application_reference' => $config->get('free_course_application_reference') ? \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $config->get('free_course_application_reference')) : '',
+      'transport_pool_application_reference' => $config->get('transport_pool_application_reference') ? \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $config->get('transport_pool_application_reference')) : '',
     ];
   }
 

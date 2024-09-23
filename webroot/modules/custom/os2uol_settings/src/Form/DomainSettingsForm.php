@@ -43,7 +43,20 @@ final class DomainSettingsForm extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state): array {
     $config = $this->config('os2uol_settings.settings');
 
-    $form['logo'] = [
+    // Add vertical tabs wrapper
+    $form['tabs'] = [
+      '#type' => 'vertical_tabs',
+      '#title' => $this->t('Tabs'),
+    ];
+
+    // First tab content
+    $form['tab_theme'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Theme'),
+      '#group' => 'tabs',
+    ];
+
+    $form['tab_theme']['logo'] = [
       '#type' => 'managed_file',
       '#title' => $this->t('Logo'),
       // Default value must be an array of file IDs.
@@ -55,50 +68,76 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => 'Upload a logo in PNG or SVG format.',
     ];
 
-    $form['font'] = [
+    $form['tab_theme']['font'] = [
       '#type' => 'select',
       '#title' => $this->t('Font'),
       '#options' => os2uol_settings_get_available_fonts(),
       '#default_value' => $config->get('font'),
     ];
 
-    $form['primary_background_color'] = [
+    $form['tab_theme']['primary_background_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Primary background color'),
       '#default_value' => $config->get('primary_background_color'),
     ];
 
-    $form['primary_background_text_color'] = [
+    $form['tab_theme']['primary_background_text_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Primary background text color'),
       '#default_value' => $config->get('primary_background_text_color'),
     ];
 
-    $form['secondary_background_color'] = [
+    $form['tab_theme']['secondary_background_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Secondary background color'),
       '#default_value' => $config->get('secondary_background_color'),
     ];
 
-    $form['secondary_background_text_color'] = [
+    $form['tab_theme']['secondary_background_text_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Secondary background text color'),
       '#default_value' => $config->get('secondary_background_text_color'),
     ];
 
-    $form['text_positive_color'] = [
+    $form['tab_theme']['text_positive_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Text color'),
       '#default_value' => $config->get('text_positive_color'),
     ];
 
-    $form['site_tracking_script'] = [
+    $form['tab_tracking'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Site tracking'),
+      '#group' => 'tabs',
+    ];
+
+    $form['tab_tracking']['site_tracking_script'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Site tracking script'),
       '#default_value' => $config->get('site_tracking_script'),
     ];
 
-    $form['free_course_application_reference'] = [
+    $form['tab_emails'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Emails'),
+      '#group' => 'tabs',
+    ];
+
+    $form['tab_emails']['email_signature'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Email signature'),
+      '#default_value' => $config->get('email_signature')['value'] ?? '',
+      '#format' => $config->get('email_signature')['format'] ?? 'basic_html',
+      '#description' => $this->t('Enter the HTML for the email signature. This will be used as a token in email sendouts.'),
+    ];
+
+    $form['tab_applications'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Applications'),
+      '#group' => 'tabs',
+    ];
+
+    $form['tab_applications']['free_course_application_reference'] = [
       '#type' => 'entity_autocomplete',
       '#title' => $this->t('Free course application page'),
       '#target_type' => 'node',
@@ -107,14 +146,67 @@ final class DomainSettingsForm extends ConfigFormBase {
       ],
       '#default_value' => $this->getDefaultPageNode($config->get('free_course_application_reference')),
       '#tags' => FALSE,
+      '#description' => $this->t('Reference the free course application page for use on courses.'),
     ];
 
-    $form['email_signature'] = [
+    $form['tab_applications']['transport_pool_application_reference'] = [
+      '#type' => 'entity_autocomplete',
+      '#title' => $this->t('Transport pool application page'),
+      '#target_type' => 'node',
+      '#selection_settings' => [
+        'target_bundles' => ['page'],
+      ],
+      '#default_value' => $this->getDefaultPageNode($config->get('transport_pool_application_reference')),
+      '#tags' => FALSE,
+      '#description' => $this->t('Reference the transport pool application page for use on courses.'),
+    ];
+
+    $form['tab_applications']['district_1'] = [
       '#type' => 'text_format',
-      '#title' => $this->t('Email signature'),
-      '#default_value' => $config->get('email_signature')['value'] ?? '',
-      '#format' => $config->get('email_signature')['format'] ?? 'basic_html',
-      '#description' => $this->t('Enter the HTML for the email signature. This will be used as a token in email sendouts.'),
+      '#title' => $this->t('District 1'),
+      '#default_value' => $config->get('district_1')['value'] ?? '',
+      '#format' => $config->get('district_1')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a description for district 1.'),
+    ];
+
+    $form['tab_applications']['district_2'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('District 2'),
+      '#default_value' => $config->get('district_2')['value'] ?? '',
+      '#format' => $config->get('district_2')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a description for district 2.'),
+    ];
+
+    $form['tab_applications']['district_3'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('District 3'),
+      '#default_value' => $config->get('district_3')['value'] ?? '',
+      '#format' => $config->get('district_3')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a description for district 3.'),
+    ];
+
+    $form['tab_applications']['district_4'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('District 4'),
+      '#default_value' => $config->get('district_4')['value'] ?? '',
+      '#format' => $config->get('district_4')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a description for district 4.'),
+    ];
+
+    $form['tab_applications']['district_5'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('District 5'),
+      '#default_value' => $config->get('district_5')['value'] ?? '',
+      '#format' => $config->get('district_5')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a description for district 5.'),
+    ];
+
+    $form['tab_applications']['no__district'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('No district'),
+      '#default_value' => $config->get('no__district')['value'] ?? '',
+      '#format' => $config->get('no__district')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a description for no district.'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -143,8 +235,15 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('text_positive_color', $form_state->getValue('text_positive_color'))
       ->set('text_negative_color', $form_state->getValue('text_negative_color'))
       ->set('site_tracking_script', $form_state->getValue('site_tracking_script'))
-      ->set('free_course_application_reference', $form_state->getValue('free_course_application_reference'))
       ->set('email_signature', $form_state->getValue('email_signature'))
+      ->set('free_course_application_reference', $form_state->getValue('free_course_application_reference'))
+      ->set('transport_pool_application_reference', $form_state->getValue('transport_pool_application_reference'))
+      ->set('district_1', $form_state->getValue('district_1'))
+      ->set('district_2', $form_state->getValue('district_2'))
+      ->set('district_3', $form_state->getValue('district_3'))
+      ->set('district_4', $form_state->getValue('district_4'))
+      ->set('district_5', $form_state->getValue('district_5'))
+      ->set('no__district', $form_state->getValue('no__district'))
       ->save();
 
     parent::submitForm($form, $form_state);
