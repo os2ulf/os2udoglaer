@@ -16,6 +16,7 @@ dependencies:
     - field.storage.node.field_rfc_spent_amount
     - field.storage.node.field_tr_quantity
     - field.storage.node.field_tr_theater
+    - field.storage.taxonomy_term.field_government_subsidy
     - node.type.theater_refund
     - user.role.administrator
     - user.role.corporation
@@ -31,6 +32,7 @@ dependencies:
     - node
     - rest
     - serialization
+    - taxonomy
     - text
     - user
     - views_data_export
@@ -483,6 +485,71 @@ display:
           type: string
           settings:
             link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_government_subsidy:
+          id: field_government_subsidy
+          table: taxonomy_term__field_government_subsidy
+          field: field_government_subsidy
+          relationship: field_tr_theater
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Statstilskud
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: Nej
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: false
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: yes-no
+            format_custom_false: ''
+            format_custom_true: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1582,26 +1649,31 @@ display:
           row_class: ''
           default_row_class: true
           columns:
+            node_bulk_form: node_bulk_form
             nid: nid
             field_rfc_school: field_rfc_school
             field_rfc_grade: field_rfc_grade
             field_rfc_name: field_rfc_name
-            field_rfc_provider: field_rfc_provider
-            field_rfc_course_name: field_rfc_course_name
-            field_subject: field_subject
+            field_tr_theater: field_tr_theater
+            field_rfc_new_course_name: field_rfc_new_course_name
+            field_government_subsidy: field_government_subsidy
+            field_tr_quantity: field_tr_quantity
             field_rfc_date: field_rfc_date
             field_rfc_requested_amount: field_rfc_requested_amount
             moderation_state: moderation_state
             field_rfc_granted_amount: field_rfc_granted_amount
             field_rfc_spent_amount: field_rfc_spent_amount
-            field_rfc_attachment: field_rfc_attachment
             field_rfc_payment_date: field_rfc_payment_date
             field_rfc_remarks: field_rfc_remarks
             field_rfc_latest_editor: field_rfc_latest_editor
             edit_node: edit_node
-            node_bulk_form: node_bulk_form
           default: nid
           info:
+            node_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             nid:
               sortable: true
               default_sort_order: desc
@@ -1630,21 +1702,30 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_rfc_provider:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_rfc_course_name:
+            field_tr_theater:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_subject:
+            field_rfc_new_course_name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_government_subsidy:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_tr_quantity:
+              sortable: true
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -1684,13 +1765,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_rfc_attachment:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_rfc_payment_date:
               sortable: true
               default_sort_order: asc
@@ -1715,11 +1789,6 @@ display:
             edit_node:
               sortable: false
               default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            node_bulk_form:
               align: ''
               separator: ''
               empty_column: false
@@ -1752,6 +1821,15 @@ display:
           entity_field: uid
           plugin_id: standard
           required: false
+        field_tr_theater:
+          id: field_tr_theater
+          table: node__field_tr_theater
+          field: field_tr_theater
+          relationship: none
+          group_type: group
+          admin_label: 'field_tr_theater: Ord i ordforråd'
+          plugin_id: standard
+          required: false
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -1779,6 +1857,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_quantity'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_theater'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.taxonomy_term.field_government_subsidy'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
@@ -1792,6 +1871,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_quantity'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_theater'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.taxonomy_term.field_government_subsidy'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
@@ -1805,6 +1885,7 @@ display:
         - 'config:field.storage.node.field_rfc_spent_amount'
         - 'config:field.storage.node.field_tr_quantity'
         - 'config:field.storage.node.field_tr_theater'
+        - 'config:field.storage.taxonomy_term.field_government_subsidy'
         - 'config:workflow_list'
   data_export_1:
     id: data_export_1
@@ -2245,6 +2326,71 @@ display:
           type: string
           settings:
             link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_government_subsidy:
+          id: field_government_subsidy
+          table: taxonomy_term__field_government_subsidy
+          field: field_government_subsidy
+          relationship: field_tr_theater
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: Nej
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: false
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: yes-no
+            format_custom_false: ''
+            format_custom_true: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2959,6 +3105,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_quantity'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_theater'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.taxonomy_term.field_government_subsidy'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
@@ -2972,6 +3119,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_quantity'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_theater'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.taxonomy_term.field_government_subsidy'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
@@ -2985,6 +3133,7 @@ display:
         - 'config:field.storage.node.field_rfc_spent_amount'
         - 'config:field.storage.node.field_tr_quantity'
         - 'config:field.storage.node.field_tr_theater'
+        - 'config:field.storage.taxonomy_term.field_government_subsidy'
         - 'config:workflow_list'
   page_1:
     id: page_1
@@ -3026,6 +3175,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_quantity'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_tr_theater'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.taxonomy_term.field_government_subsidy'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
@@ -3039,6 +3189,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_quantity'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_tr_theater'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.taxonomy_term.field_government_subsidy'
         - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.node.field_rfc_grade'
         - 'config:field.storage.node.field_rfc_granted_amount'
@@ -3052,4 +3203,5 @@ display:
         - 'config:field.storage.node.field_rfc_spent_amount'
         - 'config:field.storage.node.field_tr_quantity'
         - 'config:field.storage.node.field_tr_theater'
+        - 'config:field.storage.taxonomy_term.field_government_subsidy'
         - 'config:workflow_list'
