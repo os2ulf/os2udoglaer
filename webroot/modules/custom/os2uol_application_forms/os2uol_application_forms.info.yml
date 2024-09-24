@@ -1,6 +1,6 @@
-name: 'OS2udoglær Application Forms'
+name: 'OS2udoglær Application Forms (GDPR)'
 type: module
-description: 'This module alters the application forms.'
+description: 'This module alters the application forms per GDPR requirements per domain.'
 core_version_requirement: ^10 || ^11
 package: 'OS2udoglær'
 dependencies:
