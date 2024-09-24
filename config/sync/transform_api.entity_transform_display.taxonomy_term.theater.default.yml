@@ -1,0 +1,22 @@
+uuid: e344bbff-49ae-4f5e-932f-d74c0baf8c68
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.theater.field_government_subsidy
+    - taxonomy.vocabulary.theater
+id: taxonomy_term.theater.default
+targetEntityType: taxonomy_term
+bundle: theater
+mode: default
+content:
+  field_government_subsidy:
+    type: boolean
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  description: true
+  langcode: true
