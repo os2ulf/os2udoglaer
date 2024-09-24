@@ -6,6 +6,7 @@ use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\node\Entity\Node;
 use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Entity\RevisionableStorageInterface;
 
 /**
  * Implements hook_node_presave().
@@ -206,53 +207,64 @@ function os2uol_application_forms_cron()
  */
 function os2uol_application_forms_gdpr_anonymization_cron()
 {
-  \Drupal::logger('os2uol_application_forms')->info('GDPR Anonymization cron started.');
+    \Drupal::logger('os2uol_application_forms')->info('GDPR Anonymization cron started.');
 
-  $config = \Drupal::config('os2uol_application_forms.gdpr_settings');
-  $anonymization_days = $config->get('anonymization_days');
+    $config = \Drupal::config('os2uol_application_forms.gdpr_settings');
+    $anonymization_days = $config->get('anonymization_days');
 
-  // Calculate the cutoff date for anonymization.
-  $cutoff_date = new \Drupal\Core\Datetime\DrupalDateTime('-' . $anonymization_days . ' days');
+    // Calculate the cutoff date for anonymization.
+    $cutoff_date = new \Drupal\Core\Datetime\DrupalDateTime('-' . $anonymization_days . ' days');
 
-  // Query to get nodes that need anonymization based on Afviklingsdato.
-  $query = \Drupal::entityQuery('node')
-    ->condition('type', ['free_course_request', 'theater_refund'], 'IN')
-    ->condition('field_rfc_date', $cutoff_date->format('Y-m-d'), '<=')
-    ->condition('field_data_anonymized', 0) // Only non-anonymized data
-    ->accessCheck(FALSE); // Disable access checks for cron job
+    // Query to get nodes that need anonymization based on Afviklingsdato.
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', ['free_course_request', 'theater_refund', 'transport_pool_form'], 'IN')
+      ->condition('field_rfc_date', $cutoff_date->format('Y-m-d'), '<=')
+      ->condition('field_data_anonymized', 0) // Only non-anonymized data
+      ->accessCheck(FALSE); // Disable access checks for cron job
 
-  $nids = $query->execute();
+    $nids = $query->execute();
 
-  if (!empty($nids)) {
-    \Drupal::logger('os2uol_application_forms')->info('Nodes found for anonymization: @nids', ['@nids' => implode(',', $nids)]);
+    if (!empty($nids)) {
+        \Drupal::logger('os2uol_application_forms')->info('Nodes found for anonymization: @nids', ['@nids' => implode(',', $nids)]);
 
-    $nodes = \Drupal\node\Entity\Node::loadMultiple($nids);
-    foreach ($nodes as $node) {
-      // Generate a unique anonymized identifier (UUID-like).
-      $random_id = substr(hash('sha256', uniqid(rand(), true)), 0, 8);
+        // Get the storage handler for nodes and ensure it is cast as RevisionableStorageInterface.
+        /** @var \Drupal\Core\Entity\RevisionableStorageInterface $node_storage */
+        $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 
-      // Generate a fake email address.
-      $fake_email = 'anon_' . $random_id . '@anon.invalid';
+        foreach ($nids as $nid) {
+            $node = $node_storage->load($nid);
+            $revisions = $node_storage->revisionIds($node);
 
-      // Anonymize personal data fields with safe values.
-      $node->set('field_rfc_mail', $fake_email);
-      $node->set('field_mailto', $fake_email);
-      $node->set('field_rfc_name', 'Anonymous User ' . $random_id); // Clearly fake and unique.
-      $node->set('field_rfc_phone', '00000000'); // Fake, non-real phone number.
+            foreach ($revisions as $revision_id) {
+                // Use RevisionableStorageInterface::loadRevision explicitly
+                $revision = $node_storage->loadRevision($revision_id);
 
-      // Mark as anonymized.
-      $node->set('field_data_anonymized', TRUE);
+                // Generate a unique anonymized identifier (UUID-like).
+                $random_id = substr(hash('sha256', uniqid(rand(), true)), 0, 8);
 
-      // Save the node.
-      $node->save();
+                // Generate a fake email address.
+                $fake_email = 'anon_' . $random_id . '@anon.invalid';
 
-      // Log the operation.
-      \Drupal::logger('os2uol_application_forms')->info('Personal data anonymized for node ID ' . $node->id());
+                // Anonymize personal data fields with safe values.
+                $revision->set('field_rfc_mail', $fake_email);
+                $revision->set('field_mailto', $fake_email);
+                $revision->set('field_rfc_name', 'Anonymous User ' . $random_id); // Clearly fake and unique.
+                $revision->set('field_rfc_phone', '00000000'); // Fake, non-real phone number.
+
+                // Mark as anonymized.
+                $revision->set('field_data_anonymized', TRUE);
+
+                // Save the revision.
+                $revision->save();
+
+                // Log the operation.
+                \Drupal::logger('os2uol_application_forms')->info('Personal data anonymized for node ID ' . $revision->id() . ' revision ID ' . $revision_id);
+            }
+        }
+        \Drupal::logger('os2uol_application_forms')->info('Anonymization completed for ' . count($nids) . ' nodes.');
+    } else {
+        \Drupal::logger('os2uol_application_forms')->info('No nodes found for anonymization.');
     }
-    \Drupal::logger('os2uol_application_forms')->info('Anonymization completed for ' . count($nodes) . ' nodes.');
-  } else {
-    \Drupal::logger('os2uol_application_forms')->info('No nodes found for anonymization.');
-  }
 }
 
 /**
