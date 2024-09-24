@@ -3698,6 +3698,7 @@ display:
           action_title: Handlinger
           include_exclude: include
           selected_actions:
+            - node_delete_action
             - set_accepted_status
             - set_awaiting_payment_status
             - set_awaiting_status
