@@ -271,6 +271,8 @@ function os2uol_application_forms_gdpr_anonymization_cron()
  * Implements hook_entity_presave().
  */
 function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterface $entity) {
+
+  // Update the field_rfc_payment_date with the current timestamp when the moderation state is changed to published.
   if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_payment_date')) {
     // Check if the moderation state is being changed to published.
     $original_entity = $entity->original;
@@ -278,6 +280,24 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
       // Update the field_rfc_payment_date with the current timestamp.
       $current_timestamp = time();
       $entity->set('field_rfc_payment_date', $current_timestamp);
+    }
+  }
+
+  // Prevent email notification when "Send mail ved gem" (field_rfc_send_mail) is false.
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_send_mail')) {
+    // Check if the field_rfc_send_mail is false.
+    $send_mail = $entity->get('field_rfc_send_mail')->value;
+
+    // Only proceed with notifications if send_mail is true.
+    if (!$send_mail) {
+      // Retrieve the moderation state.
+      $status = $entity->get('moderation_state')->value;
+
+      // Only allow notification for "approved" or "rejected".
+      if (in_array($status, ['approved', 'rejected'])) {
+        // Prevent email notification from being sent.
+        \Drupal::service('content_moderation_notifications.manager')->stopNotification($entity);
+      }
     }
   }
 }
@@ -294,4 +314,35 @@ function cos2uol_application_forms_mail_alter(&$message) {
   if (strpos($message['id'], 'content_moderation_notifications') === 0) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
   }
+}
+
+/**
+ * Implements hook_node_access().
+ *
+ * Restrict editing access to certain moderation states for "Skole" and "Institution" roles.
+ */
+function os2uol_application_forms_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
+  // Check if this is an application node and the operation is 'update' (edit).
+  if ($node->getType() === 'application' && $op === 'update') {
+
+    // Get the moderation state of the application.
+    if ($node->hasField('moderation_state')) {
+      $moderation_state = $node->get('moderation_state')->value;
+
+      // Define the states that should restrict editing.
+      $restricted_states = ['ready_for_payment', 'published', 'refused', 'cancelled', 'closed'];
+
+      // Check if the current user has the 'Skole' or 'Institution' role.
+      if ($account->hasRole('school') || $account->hasRole('institution')) {
+
+        // If the application is in a restricted state, deny edit access.
+        if (in_array($moderation_state, $restricted_states)) {
+          return \Drupal\Core\Access\AccessResult::forbidden();
+        }
+      }
+    }
+  }
+
+  // Return neutral result if no restrictions apply.
+  return \Drupal\Core\Access\AccessResult::neutral();
 }
