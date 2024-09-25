@@ -129,13 +129,13 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Enter the HTML for the email signature. This will be used as a token in email sendouts.'),
     ];
 
-    $form['tab_applications'] = [
+    $form['tab_free_course_request'] = [
       '#type' => 'details',
-      '#title' => $this->t('Applications'),
+      '#title' => $this->t('Free course request'),
       '#group' => 'tabs',
     ];
 
-    $form['tab_applications']['free_course_application_reference'] = [
+    $form['tab_free_course_request']['free_course_application_reference'] = [
       '#type' => 'entity_autocomplete',
       '#title' => $this->t('Free course application page'),
       '#target_type' => 'node',
@@ -147,7 +147,21 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Reference the free course application page for use on courses.'),
     ];
 
-    $form['tab_applications']['transport_pool_application_reference'] = [
+    $form['tab_free_course_request']['ufcr_receipt'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Receipt text'),
+      '#default_value' => $config->get('ufcr_receipt')['value'] ?? '',
+      '#format' => $config->get('ufcr_receipt')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a "Receipt" message.'),
+    ];
+
+    $form['tab_transport_pool'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Transport pool request'),
+      '#group' => 'tabs',
+    ];
+
+    $form['tab_transport_pool']['transport_pool_application_reference'] = [
       '#type' => 'entity_autocomplete',
       '#title' => $this->t('Transport pool application page'),
       '#target_type' => 'node',
@@ -159,52 +173,92 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Reference the transport pool application page for use on courses.'),
     ];
 
-    $form['tab_applications']['district_1'] = [
+    $form['tab_transport_pool']['free_choice'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Free choice of transport'),
+      '#default_value' => $config->get('free_choice')['value'] ?? '',
+      '#format' => $config->get('free_choice')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a "Free choice of transport" message.'),
+    ];
+
+    $form['tab_transport_pool']['course_not_found'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Course not found'),
+      '#default_value' => $config->get('course_not_found')['value'] ?? '',
+      '#format' => $config->get('course_not_found')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a "Course not found" message.'),
+    ];
+
+    $form['tab_transport_pool']['district_1'] = [
       '#type' => 'text_format',
       '#title' => $this->t('District 1'),
       '#default_value' => $config->get('district_1')['value'] ?? '',
       '#format' => $config->get('district_1')['format'] ?? 'basic_html',
-      '#description' => $this->t('Write a description for district 1.'),
+      '#description' => $this->t('Write a "District 1" message".'),
     ];
 
-    $form['tab_applications']['district_2'] = [
+    $form['tab_transport_pool']['district_2'] = [
       '#type' => 'text_format',
       '#title' => $this->t('District 2'),
       '#default_value' => $config->get('district_2')['value'] ?? '',
       '#format' => $config->get('district_2')['format'] ?? 'basic_html',
-      '#description' => $this->t('Write a description for district 2.'),
+      '#description' => $this->t('Write a "District 2" message".'),
     ];
 
-    $form['tab_applications']['district_3'] = [
+    $form['tab_transport_pool']['district_3'] = [
       '#type' => 'text_format',
       '#title' => $this->t('District 3'),
       '#default_value' => $config->get('district_3')['value'] ?? '',
       '#format' => $config->get('district_3')['format'] ?? 'basic_html',
-      '#description' => $this->t('Write a description for district 3.'),
+      '#description' => $this->t('Write a "District 3" message".'),
     ];
 
-    $form['tab_applications']['district_4'] = [
+    $form['tab_transport_pool']['district_4'] = [
       '#type' => 'text_format',
       '#title' => $this->t('District 4'),
       '#default_value' => $config->get('district_4')['value'] ?? '',
       '#format' => $config->get('district_4')['format'] ?? 'basic_html',
-      '#description' => $this->t('Write a description for district 4.'),
+      '#description' => $this->t('Write a "District 4" message".'),
     ];
 
-    $form['tab_applications']['district_5'] = [
+    $form['tab_transport_pool']['district_5'] = [
       '#type' => 'text_format',
       '#title' => $this->t('District 5'),
       '#default_value' => $config->get('district_5')['value'] ?? '',
       '#format' => $config->get('district_5')['format'] ?? 'basic_html',
-      '#description' => $this->t('Write a description for district 5.'),
+      '#description' => $this->t('Write a "District 5" message".'),
     ];
 
-    $form['tab_applications']['no__district'] = [
+    $form['tab_transport_pool']['no__district'] = [
       '#type' => 'text_format',
       '#title' => $this->t('No district'),
       '#default_value' => $config->get('no__district')['value'] ?? '',
       '#format' => $config->get('no__district')['format'] ?? 'basic_html',
-      '#description' => $this->t('Write a description for no district.'),
+      '#description' => $this->t('Write a "No district" message.'),
+    ];
+
+    $form['tab_transport_pool']['denied_distance'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Denied for 6th grade+ because distance to course is less than 6 km'),
+      '#default_value' => $config->get('denied_distance')['value'] ?? '',
+      '#format' => $config->get('denied_distance')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a "Denied for 6th grade+ because distance to course is less than 6 km" message.'),
+    ];
+
+    $form['tab_transport_pool']['denied_private'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Denied for private institution requesting funding for public only courses'),
+      '#default_value' => $config->get('denied_private')['value'] ?? '',
+      '#format' => $config->get('denied_private')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a "Denied for private institution requesting funding for public only courses" message.'),
+    ];
+
+    $form['tab_transport_pool']['confirmation'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Request confirmed'),
+      '#default_value' => $config->get('confirmation')['value'] ?? '',
+      '#format' => $config->get('confirmation')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a "Request confirmed" message.'),
     ];
 
     return parent::buildForm($form, $form_state);

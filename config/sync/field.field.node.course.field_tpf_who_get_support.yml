@@ -1,0 +1,23 @@
+uuid: 651a590d-2bdc-4064-a2d6-788cbed10fc2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_who_get_support
+    - node.type.course
+  module:
+    - options
+id: node.course.field_tpf_who_get_support
+field_name: field_tpf_who_get_support
+entity_type: node
+bundle: course
+label: 'Hvem kan få tilskud'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: municipal
+default_value_callback: ''
+settings: {  }
+field_type: list_string

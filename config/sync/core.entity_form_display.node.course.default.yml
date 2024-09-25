@@ -57,6 +57,7 @@ dependencies:
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
     - field.field.node.course.field_theme
+    - field.field.node.course.field_tpf_who_get_support
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
@@ -465,6 +466,7 @@ third_party_settings:
     group_application:
       children:
         - field_practical_info_buttons
+        - field_tpf_who_get_support
       label: Ansøgning
       region: content
       parent_name: ''
@@ -962,6 +964,12 @@ content:
   field_theme:
     type: options_select
     weight: 20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_tpf_who_get_support:
+    type: options_select
+    weight: 24
     region: content
     settings: {  }
     third_party_settings: {  }

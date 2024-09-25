@@ -57,6 +57,7 @@ dependencies:
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
     - field.field.node.course.field_theme
+    - field.field.node.course.field_tpf_who_get_support
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
@@ -463,6 +464,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 40
+    region: content
+  field_tpf_who_get_support:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 55
     region: content
   field_trgt_grp_daycare:
     type: entity_reference_label

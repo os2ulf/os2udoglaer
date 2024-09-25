@@ -1,0 +1,27 @@
+uuid: 25ad7dc6-44fe-487f-8e7f-50ab98799c32
+langcode: da
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_tpf_who_get_support
+field_name: field_tpf_who_get_support
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: all
+      label: Alle
+    -
+      value: municipal
+      label: 'Kommunale institutioner'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
