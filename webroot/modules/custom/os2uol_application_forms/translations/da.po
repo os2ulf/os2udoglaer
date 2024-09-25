@@ -1,3 +1,5 @@
+# Danish translation of OS2UOL Application Forms
+
 msgid ""
 msgstr ""
 
