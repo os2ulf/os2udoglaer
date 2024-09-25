@@ -2,6 +2,7 @@ _core:
   default_config_hash: RaRd9EIcwA4u3qCSRLL8EnCicbda1kV__ASmVbyehvQ
 langcode: da
 display_extenders:
+  os2uol_search: os2uol_search
   transform_api_facets: transform_api_facets
   transform_api_views: transform_api_views
 sql_signature: false

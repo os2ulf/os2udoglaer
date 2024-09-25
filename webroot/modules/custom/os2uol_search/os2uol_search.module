@@ -61,3 +61,28 @@ function os2uol_search_view_related_content_transform_alter(&$transformation) {
   }
 }
 
+/**
+ * Implements hook_transform_alter().
+ */
+function os2uol_search_view_transform_alter(&$transformation) {
+  /** @var \Drupal\views\ViewExecutable $view */
+  $view = $transformation['#view'];
+
+  $extender = $view->getDisplay()->getExtenders()['os2uol_search'] ?? NULL;
+
+  if ($extender === NULL) {
+    return;
+  }
+
+  $result_string = $extender->options['os2uol_search_result_string'] ?? '';
+
+  if (empty($result_string)) {
+    return;
+  }
+
+  // Replace the default result string with the custom one.
+  $result_string = str_replace('@count', $view->total_rows, $result_string);
+
+  $transformation['result_string'] = $result_string;
+}
+

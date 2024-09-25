@@ -1,4 +1,4 @@
-uuid: 13f1bdce-6fde-4675-98a7-c363f384f3df
+uuid: 328ffc07-0e35-422a-82c2-30f4914d66e2
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.content_search
   module:
     - search_api
-id: excercise_activity_select
-name: Aktivitet
-weight: -3
+id: excercise_course_target_group_youth_education
+name: 'Målgruppe - Ungdomsuddannelse'
+weight: 2
 min_count: 0
 missing: false
 missing_label: others
-url_alias: eas
-facet_source_id: 'search_api:views_block__content_search__block_5'
-field_identifier: field_activity_select
+url_alias: extgye
+facet_source_id: 'search_api:views_block__content_search__block_9'
+field_identifier: field_trgt_grp_youth_education
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -39,7 +39,7 @@ widget:
       show_more_label: 'Show more'
 empty_behavior:
   behavior: none
-only_visible_when_facet_source_is_visible: true
+only_visible_when_facet_source_is_visible: false
 show_only_one_result: false
 show_title: false
 processor_configs:
