@@ -29,6 +29,8 @@ dependencies:
     - node.type.internship
     - node.type.news
     - node.type.page
+    - node.type.theater_refund
+    - node.type.transport_pool_form
     - workflows.workflow.editorial
   module:
     - atoms
@@ -247,6 +249,7 @@ permissions:
   - 'edit any rte block content'
   - 'edit any slideshow block content'
   - 'edit any spacer block content'
+  - 'edit any theater_refund content'
   - 'edit any video block content'
   - 'edit any webform'
   - 'edit any webform submission'
@@ -259,6 +262,7 @@ permissions:
   - 'edit own news content'
   - 'edit own page content'
   - 'edit own pretix events'
+  - 'edit own transport_pool_form content'
   - 'edit own webform'
   - 'edit own webform submission'
   - 'edit webform assets'
@@ -308,6 +312,7 @@ permissions:
   - 'view course_educators revisions'
   - 'view domain list'
   - 'view exercise revisions'
+  - 'view free_course_request revisions'
   - 'view internship revisions'
   - 'view latest version'
   - 'view news revisions'
@@ -317,5 +322,7 @@ permissions:
   - 'view page revisions'
   - 'view private user information'
   - 'view the administration theme'
+  - 'view theater_refund revisions'
+  - 'view transport_pool_form revisions'
   - 'view unpublished paragraphs'
   - 'view user email addresses'

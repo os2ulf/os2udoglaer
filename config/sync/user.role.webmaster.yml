@@ -26,9 +26,12 @@ dependencies:
     - node.type.course
     - node.type.course_educators
     - node.type.exercise
+    - node.type.free_course_request
     - node.type.internship
     - node.type.news
     - node.type.page
+    - node.type.theater_refund
+    - node.type.transport_pool_form
     - taxonomy.vocabulary.areas_of_interest
     - taxonomy.vocabulary.banner
     - taxonomy.vocabulary.course_type
@@ -332,6 +335,7 @@ permissions:
   - 'edit any rte block content'
   - 'edit any slideshow block content'
   - 'edit any spacer block content'
+  - 'edit any theater_refund content'
   - 'edit any video block content'
   - 'edit any webform'
   - 'edit any webform submission'
@@ -344,6 +348,7 @@ permissions:
   - 'edit own news content'
   - 'edit own page content'
   - 'edit own pretix events'
+  - 'edit own transport_pool_form content'
   - 'edit own webform'
   - 'edit own webform submission'
   - 'edit terms in areas_of_interest'
@@ -374,6 +379,7 @@ permissions:
   - 'revert course revisions'
   - 'revert course_educators revisions'
   - 'revert exercise revisions'
+  - 'view free_course_request revisions'
   - 'revert internship revisions'
   - 'revert news revisions'
   - 'revert page revisions'
@@ -426,6 +432,7 @@ permissions:
   - 'view course_educators revisions'
   - 'view domain list'
   - 'view exercise revisions'
+  - 'view free_course_request revisions'
   - 'view internship revisions'
   - 'view latest version'
   - 'view news revisions'
@@ -435,6 +442,8 @@ permissions:
   - 'view page revisions'
   - 'view private user information'
   - 'view the administration theme'
+  - 'view theater_refund revisions'
+  - 'view transport_pool_form revisions'
   - 'view unpublished domain content'
   - 'view unpublished paragraphs'
   - 'view user email addresses'

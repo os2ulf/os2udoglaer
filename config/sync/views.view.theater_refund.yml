@@ -51,7 +51,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Alle ansøgninger'
+      title: 'Ansøgninger: teaterrefusion'
       fields:
         node_bulk_form:
           id: node_bulk_form

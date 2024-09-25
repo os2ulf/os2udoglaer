@@ -26,3 +26,21 @@ msgstr "Sæt status til Annulleret"
 
 msgid "Set status to Closed"
 msgstr "Sæt status til Lukket"
+
+msgid "Set status to Accepted (No Email)"
+msgstr "Sæt status til Godkendt (Ingen Email)"
+
+msgid "Set status to Refused (No Email)"
+msgstr "Sæt status til Afvist (Ingen Email)"
+
+msgid "No items selected"
+msgstr "Ingen elementer valgt"
+
+msgid "Apply to selected items"
+msgstr "Anvend handling på udvalgte"
+
+msgid "1 item selected"
+msgstr "1 element valgt"
+
+msgid "@count items selected"
+msgstr "@count elementer er valgt"

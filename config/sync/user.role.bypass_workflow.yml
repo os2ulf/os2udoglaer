@@ -9,6 +9,7 @@ dependencies:
     - node.type.exercise
     - node.type.internship
     - node.type.news
+    - node.type.transport_pool_form
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -79,3 +80,4 @@ permissions:
   - 'view news revisions'
   - 'view own unpublished content'
   - 'view the administration theme'
+  - 'view transport_pool_form revisions'

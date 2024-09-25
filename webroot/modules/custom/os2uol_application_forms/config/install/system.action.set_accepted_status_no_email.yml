@@ -1,0 +1,6 @@
+langcode: en
+status: true
+id: set_accepted_status_no_email
+label: 'Sæt status til Godkendt (Ingen Email)'
+type: node
+plugin: set_accepted_status_no_email
