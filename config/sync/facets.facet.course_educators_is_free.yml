@@ -49,13 +49,15 @@ processor_configs:
       sort: 20
     settings:
       sort: DESC
-  boolean_item:
-    processor_id: boolean_item
+  boolean_empty_option:
+    processor_id: boolean_empty_option
     weights:
+      pre_query: 70
       build: 35
     settings:
-      on_value: Ja
-      off_value: Nej
+      on_value: 'Gratis kurser'
+      off_value: ''
+      all_value: 'Alle kurser'
   count_widget_order:
     processor_id: count_widget_order
     weights:
