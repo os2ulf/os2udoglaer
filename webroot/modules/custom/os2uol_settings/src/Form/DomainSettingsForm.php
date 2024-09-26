@@ -289,13 +289,19 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('site_tracking_script', $form_state->getValue('site_tracking_script'))
       ->set('email_signature', $form_state->getValue('email_signature'))
       ->set('free_course_application_reference', $form_state->getValue('free_course_application_reference'))
+      ->set('ufcr_receipt', $form_state->getValue('ufcr_receipt'))
       ->set('transport_pool_application_reference', $form_state->getValue('transport_pool_application_reference'))
+      ->set('free_choice', $form_state->getValue('free_choice'))
+      ->set('course_not_found', $form_state->getValue('course_not_found'))
       ->set('district_1', $form_state->getValue('district_1'))
       ->set('district_2', $form_state->getValue('district_2'))
       ->set('district_3', $form_state->getValue('district_3'))
       ->set('district_4', $form_state->getValue('district_4'))
       ->set('district_5', $form_state->getValue('district_5'))
       ->set('no__district', $form_state->getValue('no__district'))
+      ->set('denied_distance', $form_state->getValue('denied_distance'))
+      ->set('denied_private', $form_state->getValue('denied_private'))
+      ->set('confirmation', $form_state->getValue('confirmation'))
       ->save();
 
     parent::submitForm($form, $form_state);
