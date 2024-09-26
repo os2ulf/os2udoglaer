@@ -22,11 +22,3 @@ os2uol_pretix.webhooks.order:
   requirements:
     _access: 'TRUE'
   methods: [POST]
-
-os2uol_pretix.test.order:
-  path: '/pretix/test/order/{node}/{order}'
-  defaults:
-    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::test'
-    _title: 'Pretix test order'
-  requirements:
-    _access: 'TRUE'
