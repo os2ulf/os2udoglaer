@@ -5,6 +5,7 @@ namespace Drupal\os2uol_pretix\Controller;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\node\NodeInterface;
 use Drupal\os2uol_pretix\PretixOrderManager;
+use Drupal\os2uol_pretix\PretixEventManager;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
@@ -17,8 +18,14 @@ class WebhooksController extends ControllerBase {
    */
   private PretixOrderManager $orderManager;
 
-  public function __construct(PretixOrderManager $orderManager) {
+  /**
+   * @var \Drupal\os2uol_pretix\PretixEventManager
+   */
+  private PretixEventManager $eventManager;
+
+  public function __construct(PretixOrderManager $orderManager, PretixEventManager $eventManager) {
     $this->orderManager = $orderManager;
+    $this->eventManager = $eventManager;
   }
 
   /**
@@ -26,7 +33,8 @@ class WebhooksController extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('os2uol_pretix.order_manager')
+      $container->get('os2uol_pretix.order_manager'),
+      $container->get('os2uol_pretix.pretix_event_manager')
     );
   }
 
@@ -91,6 +99,20 @@ class WebhooksController extends ControllerBase {
   }
 
   /**
+   * Unlinks the Pretix event from a Drupal node.
+   *
+   * @param int $node
+   *   The ID of the node representing the Drupal event.
+   *
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   *   JSON response indicating the result.
+   */
+  public function unlinkEvent($node) {
+    // Call the unlinkEvent method from PretixEventManager
+    return $this->eventManager->unlinkEvent($node);
+  }
+
+  /**
    * Maps the Pretix event ID to a Drupal node ID for allowed content types.
    *
    * @param string $eventId
@@ -117,5 +139,4 @@ class WebhooksController extends ControllerBase {
     // Return NULL if no node was found.
     return NULL;
   }
-
 }
