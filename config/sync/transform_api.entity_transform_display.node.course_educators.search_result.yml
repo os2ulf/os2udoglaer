@@ -46,6 +46,7 @@ dependencies:
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
     - field.field.node.course_educators.field_related_courses
+    - field.field.node.course_educators.field_sold_out
     - field.field.node.course_educators.field_subject
     - field.field.node.course_educators.field_sustainability_goals
     - field.field.node.course_educators.field_sustainability_goals_desc
@@ -81,14 +82,14 @@ content:
     third_party_settings: {  }
   field_curriculum_themes:
     type: entity_reference_links
-    weight: '3'
+    weight: '4'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_educators_target_group:
     type: entity_reference_links
-    weight: '5'
+    weight: '6'
     region: content
     label: omit
     settings: {  }
@@ -106,42 +107,49 @@ content:
     third_party_settings: {  }
   field_is_free:
     type: boolean
-    weight: '6'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '7'
+    weight: '8'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '8'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '9'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_primary_school_subject:
     type: entity_reference_links
-    weight: '4'
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_sold_out:
+    type: boolean
+    weight: '3'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_subject:
     type: entity_transform
-    weight: '11'
+    weight: '12'
     region: content
     label: omit
     settings:
@@ -149,7 +157,7 @@ content:
     third_party_settings: {  }
   field_theme:
     type: entity_reference_links
-    weight: '10'
+    weight: '11'
     region: content
     label: omit
     settings: {  }

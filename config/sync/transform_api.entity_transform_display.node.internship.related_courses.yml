@@ -14,11 +14,13 @@ dependencies:
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_description_of_period
     - field.field.node.internship.field_domain_access
+    - field.field.node.internship.field_domain_all_affiliates
     - field.field.node.internship.field_duration_rte
     - field.field.node.internship.field_education_path
     - field.field.node.internship.field_exclude_from_profile
     - field.field.node.internship.field_exclude_from_search
     - field.field.node.internship.field_expectations
+    - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -29,10 +31,16 @@ dependencies:
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
+    - field.field.node.internship.field_pretix_email_notifiers
+    - field.field.node.internship.field_pretix_event_short_form
+    - field.field.node.internship.field_pretix_shop_url
+    - field.field.node.internship.field_pretix_template_event
+    - field.field.node.internship.field_pretix_widget_type
     - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
+    - field.field.node.internship.field_sold_out
     - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
@@ -51,7 +59,7 @@ mode: related_courses
 content:
   body:
     type: text_summary_or_trimmed
-    weight: '2'
+    weight: '3'
     region: content
     label: omit
     settings:
@@ -59,7 +67,7 @@ content:
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_labels
-    weight: '3'
+    weight: '4'
     region: content
     label: omit
     settings: {  }
@@ -84,42 +92,49 @@ content:
     third_party_settings: {  }
   field_industry:
     type: entity_reference_labels
-    weight: '4'
+    weight: '5'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_city:
     type: value
-    weight: '8'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_street:
     type: value
-    weight: '6'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_location_zipcode:
     type: value
-    weight: '7'
+    weight: '8'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_sold_out:
+    type: boolean
+    weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_theme:
     type: entity_reference_labels
-    weight: '9'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_view_on_map:
     type: value
-    weight: '5'
+    weight: '6'
     region: content
     label: omit
     settings: {  }
