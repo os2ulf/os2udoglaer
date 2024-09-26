@@ -45,8 +45,8 @@ definitions:
     expanded: false
     enabled: true
   workbench__configure:
-    weight: -42
     menu_name: workbench
     parent: ''
+    weight: -42
     expanded: false
     enabled: true

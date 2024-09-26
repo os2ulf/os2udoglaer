@@ -27,6 +27,8 @@ dependencies:
     - user.role.corporation
     - user.role.course_provider
     - user.role.editor
+    - user.role.institution
+    - user.role.school
     - user.role.webmaster
     - workflows.workflow.application
   module:
@@ -1510,6 +1512,8 @@ display:
             editor: editor
             course_provider: course_provider
             corporation: corporation
+            institution: institution
+            school: school
       cache:
         type: tag
         options: {  }
@@ -5551,6 +5555,8 @@ display:
           plugin_id: standard
           required: false
       display_extenders:
+        os2uol_search:
+          os2uol_search_result_string: ''
         transform_api_facets:
           transform_facets: {  }
         transform_api_views:
