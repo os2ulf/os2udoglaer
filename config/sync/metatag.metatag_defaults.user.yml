@@ -8,7 +8,7 @@ id: user
 label: Bruger
 tags:
   canonical_url: '[user:url:path]'
-  description: '[site:name]'
+  description: '[user:field_other_info_description:value]'
   image_src: '[user:field_image:entity:url]'
   og_description: '[user:field_presentation:value]'
   og_image: '[user:field_image:entity:url]'
