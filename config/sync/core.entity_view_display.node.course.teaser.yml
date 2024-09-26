@@ -35,6 +35,11 @@ dependencies:
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
     - field.field.node.course.field_preparation
+    - field.field.node.course.field_pretix_email_notifiers
+    - field.field.node.course.field_pretix_event_short_form
+    - field.field.node.course.field_pretix_shop_url
+    - field.field.node.course.field_pretix_template_event
+    - field.field.node.course.field_pretix_widget_type
     - field.field.node.course.field_price
     - field.field.node.course.field_primary_school_subject
     - field.field.node.course.field_purpose
@@ -47,6 +52,7 @@ dependencies:
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
     - field.field.node.course.field_related_courses
+    - field.field.node.course.field_sold_out
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
@@ -118,6 +124,11 @@ hidden:
   field_post_processing: true
   field_practical_info_buttons: true
   field_preparation: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   field_price: true
   field_primary_school_subject: true
   field_purpose: true
@@ -130,6 +141,7 @@ hidden:
   field_registration_title: true
   field_registration_url: true
   field_related_courses: true
+  field_sold_out: true
   field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
