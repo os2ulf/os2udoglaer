@@ -7,7 +7,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
-    - field.field.user.user.field_disctrict
+    - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
@@ -92,12 +92,12 @@ content:
     third_party_settings: {  }
     weight: 16
     region: content
-  field_disctrict:
+  field_district:
     type: list_default
     label: above
     settings: {  }
     third_party_settings: {  }
-    weight: 40
+    weight: 41
     region: content
   field_educational_profile:
     type: text_default

@@ -1,0 +1,19 @@
+uuid: 896bb3d5-005b-4fe9-94ea-0e3ff644f544
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mailto
+    - node.type.theater_refund
+id: node.theater_refund.field_mailto
+field_name: field_mailto
+entity_type: node
+bundle: theater_refund
+label: 'Send mail til'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

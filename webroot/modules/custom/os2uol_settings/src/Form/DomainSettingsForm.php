@@ -229,11 +229,11 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Write a "District 5" message".'),
     ];
 
-    $form['tab_transport_pool']['no__district'] = [
+    $form['tab_transport_pool']['no_district'] = [
       '#type' => 'text_format',
       '#title' => $this->t('No district'),
-      '#default_value' => $config->get('no__district')['value'] ?? '',
-      '#format' => $config->get('no__district')['format'] ?? 'basic_html',
+      '#default_value' => $config->get('no_district')['value'] ?? '',
+      '#format' => $config->get('no_district')['format'] ?? 'basic_html',
       '#description' => $this->t('Write a "No district" message.'),
     ];
 
@@ -298,7 +298,7 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('district_3', $form_state->getValue('district_3'))
       ->set('district_4', $form_state->getValue('district_4'))
       ->set('district_5', $form_state->getValue('district_5'))
-      ->set('no__district', $form_state->getValue('no__district'))
+      ->set('no_district', $form_state->getValue('no_district'))
       ->set('denied_distance', $form_state->getValue('denied_distance'))
       ->set('denied_private', $form_state->getValue('denied_private'))
       ->set('confirmation', $form_state->getValue('confirmation'))

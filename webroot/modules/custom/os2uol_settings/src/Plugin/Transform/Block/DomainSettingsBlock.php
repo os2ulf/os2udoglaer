@@ -68,7 +68,7 @@ class DomainSettingsBlock extends TransformBlockBase {
       'district_3' => $config->get('district_3'),
       'district_4' => $config->get('district_4'),
       'district_5' => $config->get('district_5'),
-      'no__district' => $config->get('no__district'),
+      'no_district' => $config->get('no_district'),
       'denied_distance' => $config->get('denied_distance'),
       'denied_private' => $config->get('denied_private'),
       'confirmation' => $config->get('confirmation'),

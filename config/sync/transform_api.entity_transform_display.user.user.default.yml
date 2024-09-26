@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
@@ -81,6 +82,13 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_district:
+    type: value
+    weight: '31'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_educational_profile:
     type: text_format
     weight: '3'
@@ -115,7 +123,7 @@ content:
     third_party_settings: {  }
   field_institution_type:
     type: value
-    weight: '30'
+    weight: '29'
     region: content
     label: omit
     settings: {  }
@@ -251,7 +259,7 @@ content:
     third_party_settings: {  }
   field_private_municipal:
     type: value
-    weight: '29'
+    weight: '30'
     region: content
     label: omit
     settings: {  }

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.transport_pool_form.field_location_city
     - field.field.node.transport_pool_form.field_location_street
     - field.field.node.transport_pool_form.field_location_zipcode
+    - field.field.node.transport_pool_form.field_mailto
     - field.field.node.transport_pool_form.field_old_id
     - field.field.node.transport_pool_form.field_rfc_course
     - field.field.node.transport_pool_form.field_rfc_date
@@ -51,6 +52,7 @@ hidden:
   field_location_city: true
   field_location_street: true
   field_location_zipcode: true
+  field_mailto: true
   field_old_id: true
   field_rfc_course: true
   field_rfc_date: true
