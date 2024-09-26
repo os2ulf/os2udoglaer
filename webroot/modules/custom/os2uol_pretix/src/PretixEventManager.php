@@ -9,6 +9,8 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Messenger\MessengerInterface;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Drupal\Core\Controller\ControllerBase;
 
 class PretixEventManager extends PretixAbstractManager {
 
@@ -375,6 +377,29 @@ class PretixEventManager extends PretixAbstractManager {
 
   protected function formatEventName($entity): array {
     return ['da' => $entity->label()];
+  }
+
+  /**
+   * Unlinks the Pretix event from a Drupal node.
+   *
+   * @param int $node
+   *   The ID of the node representing the Drupal event.
+   *
+   * @return \Symfony\Component\HttpFoundation\JsonResponse
+   *   JSON response indicating the result.
+   */
+  public function unlinkEvent($node) {
+    $node_entity = \Drupal::entityTypeManager()->getStorage('node')->load($node);
+
+    if ($node_entity && $node_entity->hasField('field_pretix_event_id')) {
+      // Clear the Pretix event ID field to drop the connection.
+      $node_entity->set('field_pretix_event_id', NULL);
+      $node_entity->save();
+
+      return new JsonResponse(['status' => 'Pretix event connection removed']);
+    }
+
+    return new JsonResponse(['status' => 'Node not found or no Pretix connection'], 404);
   }
 
 }

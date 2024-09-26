@@ -55,6 +55,8 @@ class PretixLocalActions extends DeriverBase implements ContainerDeriverInterfac
     foreach ($this->entityTypeManager->getDefinitions() as $entityType) {
       if ($entityType->hasLinkTemplate(PretixRouteProvider::LINK_TEMPLATE)) {
         $entityTypeId = $entityType->id();
+
+        // Add the "Add date" action
         $this->derivatives["$entityTypeId.add_pretix"] = [
           'route_name' => PretixRouteProvider::getPretixAddRouteName($entityType),
           'appears_on' => [PretixRouteProvider::getPretixRouteName($entityType)],
@@ -67,6 +69,24 @@ class PretixLocalActions extends DeriverBase implements ContainerDeriverInterfac
               'data-dialog-type' => 'modal',
               'data-dialog-options' => Json::encode([
                 'width' => '80%',
+              ]),
+            ],
+          ],
+        ] + $base_plugin_definition;
+
+        // Add the "Remove event connection" action
+        $this->derivatives["$entityTypeId.remove_pretix"] = [
+          'route_name' => 'os2uol_pretix.remove_event_connection',
+          'appears_on' => [PretixRouteProvider::getPretixRouteName($entityType)],
+          'base_route' => "entity.$entityTypeId.canonical",
+          'class' => PretixLocalAction::class,
+          'title' => $this->t('Remove event connection'),
+          'options' => [
+            'attributes' => [
+              'class' => ['use-ajax'],
+              'data-dialog-type' => 'modal',
+              'data-dialog-options' => Json::encode([
+                'width' => '50%',
               ]),
             ],
           ],
