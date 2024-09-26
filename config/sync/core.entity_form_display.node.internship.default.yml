@@ -31,10 +31,16 @@ dependencies:
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
+    - field.field.node.internship.field_pretix_email_notifiers
+    - field.field.node.internship.field_pretix_event_short_form
+    - field.field.node.internship.field_pretix_shop_url
+    - field.field.node.internship.field_pretix_template_event
+    - field.field.node.internship.field_pretix_widget_type
     - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
+    - field.field.node.internship.field_sold_out
     - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
@@ -318,7 +324,7 @@ content:
         maxlength_js_enforce: false
   created:
     type: datetime_timestamp
-    weight: 12
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -529,7 +535,7 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 20
+    weight: 19
     region: content
     settings:
       sidebar: true
@@ -661,39 +667,39 @@ content:
     third_party_settings: {  }
   moderation_state:
     type: workflow_buttons
-    weight: 18
+    weight: 17
     region: content
     settings:
       show_current_state: false
     third_party_settings: {  }
   path:
     type: path
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 14
+    weight: 13
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 13
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 19
+    weight: 18
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 15
+    weight: 14
     region: content
     settings:
       display_label: true
@@ -721,10 +727,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 17
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_domain_all_affiliates: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
+  field_sold_out: true
   workbench_reviewer: true

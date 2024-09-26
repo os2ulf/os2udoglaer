@@ -31,10 +31,16 @@ dependencies:
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
+    - field.field.node.internship.field_pretix_email_notifiers
+    - field.field.node.internship.field_pretix_event_short_form
+    - field.field.node.internship.field_pretix_shop_url
+    - field.field.node.internship.field_pretix_template_event
+    - field.field.node.internship.field_pretix_widget_type
     - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
+    - field.field.node.internship.field_sold_out
     - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
@@ -298,6 +304,16 @@ content:
     third_party_settings: {  }
     weight: 10
     region: content
+  field_sold_out:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 55
+    region: content
   field_theme:
     type: entity_reference_label
     label: above
@@ -353,6 +369,11 @@ hidden:
   content_moderation_control: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   langcode: true
   search_api_excerpt: true
   workbench_reviewer: true

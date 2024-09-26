@@ -30,6 +30,11 @@ dependencies:
     - field.field.node.course_educators.field_materials
     - field.field.node.course_educators.field_meta_tags
     - field.field.node.course_educators.field_period
+    - field.field.node.course_educators.field_pretix_email_notifiers
+    - field.field.node.course_educators.field_pretix_event_short_form
+    - field.field.node.course_educators.field_pretix_shop_url
+    - field.field.node.course_educators.field_pretix_template_event
+    - field.field.node.course_educators.field_pretix_widget_type
     - field.field.node.course_educators.field_price
     - field.field.node.course_educators.field_primary_school_subject
     - field.field.node.course_educators.field_quantity
@@ -41,6 +46,7 @@ dependencies:
     - field.field.node.course_educators.field_registration_title
     - field.field.node.course_educators.field_registration_url
     - field.field.node.course_educators.field_related_courses
+    - field.field.node.course_educators.field_sold_out
     - field.field.node.course_educators.field_subject
     - field.field.node.course_educators.field_sustainability_goals
     - field.field.node.course_educators.field_sustainability_goals_desc
@@ -373,6 +379,16 @@ content:
     third_party_settings: {  }
     weight: 40
     region: content
+  field_sold_out:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 55
+    region: content
   field_subject:
     type: entity_reference_label
     label: above
@@ -451,6 +467,11 @@ content:
 hidden:
   content_moderation_control: true
   field_domain_all_affiliates: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   langcode: true
   search_api_excerpt: true
   workbench_reviewer: true
