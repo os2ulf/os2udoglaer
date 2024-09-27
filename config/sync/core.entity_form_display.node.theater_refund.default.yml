@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.theater_refund.field_data_anonymized
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_mailto
     - field.field.node.theater_refund.field_old_id
     - field.field.node.theater_refund.field_rfc_date
     - field.field.node.theater_refund.field_rfc_follow_up_mail_sent
@@ -296,6 +297,7 @@ hidden:
   created: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_mailto: true
   langcode: true
   path: true
   promote: true

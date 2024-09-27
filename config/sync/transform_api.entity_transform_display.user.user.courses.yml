@@ -141,6 +141,7 @@ hidden:
   field_brancher: true
   field_contact: true
   field_disctrict: true
+  field_district: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true

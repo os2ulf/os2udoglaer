@@ -66,10 +66,12 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   if (in_array($form_id, $node_add_forms)) {
     // Set access to the 'field_domain_access' field based on the user role.
     $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
+    $form['field_tpf_who_get_support']['widget']['#required'] = $is_admin_or_webmaster || $is_editor;
 
     // If user is not admin or editor or webmaster, hide fields.
     if (!$is_admin_or_webmaster && !$is_editor) {
       $form['field_practical_info_buttons']['#access'] = FALSE;
+      $form['field_tpf_who_get_support']['#access'] = FALSE;
     }
   }
 
@@ -77,10 +79,12 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   if (in_array($form_id, $node_edit_forms)) {
     // Set access to the 'field_domain_access' field based on the user role.
     $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
+    $form['field_tpf_who_get_support']['widget']['#required'] = $is_admin_or_webmaster || $is_editor;
 
     // If user is not admin or editor or webmaster, hide fields.
     if (!$is_admin_or_webmaster && !$is_editor) {
       $form['field_practical_info_buttons']['#access'] = FALSE;
+      $form['field_tpf_who_get_support']['#access'] = FALSE;
     }
 
     if (!$is_admin_or_webmaster) {

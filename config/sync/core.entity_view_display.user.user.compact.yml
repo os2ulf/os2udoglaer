@@ -8,7 +8,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
-    - field.field.user.user.field_disctrict
+    - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
@@ -66,7 +66,7 @@ hidden:
   field_brancher: true
   field_contact: true
   field_cvr: true
-  field_disctrict: true
+  field_district: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
