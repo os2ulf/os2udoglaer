@@ -1,0 +1,19 @@
+uuid: 469d4a5f-152c-42a1-891d-742d2fe96517
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mailto
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_mailto
+field_name: field_mailto
+entity_type: node
+bundle: transport_pool_form
+label: 'Send mail til'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,12 +1,12 @@
-uuid: 4453a255-b6d5-4156-b8a1-8bba14fdd6e6
+uuid: 23b1817f-fb3a-43f3-825f-06290f8e8226
 langcode: da
 status: true
 dependencies:
   module:
     - options
     - user
-id: user.field_disctrict
-field_name: field_disctrict
+id: user.field_district
+field_name: field_district
 entity_type: user
 type: list_string
 settings:

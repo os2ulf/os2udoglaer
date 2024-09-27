@@ -6,6 +6,7 @@ dependencies:
     - field.field.node.theater_refund.field_data_anonymized
     - field.field.node.theater_refund.field_domain_access
     - field.field.node.theater_refund.field_domain_all_affiliates
+    - field.field.node.theater_refund.field_mailto
     - field.field.node.theater_refund.field_old_id
     - field.field.node.theater_refund.field_rfc_date
     - field.field.node.theater_refund.field_rfc_follow_up_mail_sent
@@ -34,6 +35,13 @@ targetEntityType: node
 bundle: theater_refund
 mode: default
 content:
+  field_mailto:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
   field_rfc_date:
     type: datetime_default
     label: above

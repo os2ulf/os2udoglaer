@@ -457,4 +457,5 @@ hidden:
   field_pretix_shop_url: true
   field_pretix_template_event: true
   field_pretix_widget_type: true
+  field_tpf_who_get_support: true
   langcode: true
