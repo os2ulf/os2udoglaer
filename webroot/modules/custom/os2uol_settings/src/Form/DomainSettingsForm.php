@@ -261,6 +261,20 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Write a "Request confirmed" message.'),
     ];
 
+    $form['tab_theater_refund'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Theater refund request'),
+      '#group' => 'tabs',
+    ];
+
+    $form['tab_theater_refund']['tr_receipt'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Receipt text'),
+      '#default_value' => $config->get('tr_receipt')['value'] ?? '',
+      '#format' => $config->get('tr_receipt')['format'] ?? 'basic_html',
+      '#description' => $this->t('Write a "Receipt text" message.'),
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -302,6 +316,7 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('denied_distance', $form_state->getValue('denied_distance'))
       ->set('denied_private', $form_state->getValue('denied_private'))
       ->set('confirmation', $form_state->getValue('confirmation'))
+      ->set('tr_receipt', $form_state->getValue('tr_receipt'))
       ->save();
 
     parent::submitForm($form, $form_state);
