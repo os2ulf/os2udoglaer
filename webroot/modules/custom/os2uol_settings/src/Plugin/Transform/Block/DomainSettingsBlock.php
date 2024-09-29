@@ -72,6 +72,7 @@ class DomainSettingsBlock extends TransformBlockBase {
       'denied_distance' => $config->get('denied_distance'),
       'denied_private' => $config->get('denied_private'),
       'confirmation' => $config->get('confirmation'),
+      'tr_receipt' => $config->get('tr_receipt'),
     ];
   }
 
