@@ -41,7 +41,6 @@ dependencies:
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_sold_out
-    - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -249,13 +248,6 @@ content:
   field_sold_out:
     type: boolean
     weight: '4'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_theme:
-    type: entity_reference_links
-    weight: '7'
     region: content
     label: omit
     settings: {  }

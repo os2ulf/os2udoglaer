@@ -13,7 +13,6 @@ dependencies:
     - field.field.node.news.field_image
     - field.field.node.news.field_meta_tags
     - field.field.node.news.field_other_info
-    - field.field.node.news.field_theme
     - field.field.node.news.field_video
     - field.field.node.news.field_video_description
     - field.field.node.news.field_video_title
@@ -42,12 +41,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_banner:
-    type: entity_transform
+    type: entity_reference_labels
     weight: '6'
     region: content
     label: omit
-    settings:
-      transform_mode: default
+    settings: {  }
     third_party_settings: {  }
   field_image:
     type: responsive_image
@@ -70,14 +68,6 @@ content:
   field_other_info:
     type: entity_transform
     weight: '8'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
-    third_party_settings: {  }
-  field_theme:
-    type: entity_transform
-    weight: '7'
     region: content
     label: omit
     settings:

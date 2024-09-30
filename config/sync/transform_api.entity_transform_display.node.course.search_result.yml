@@ -57,6 +57,7 @@ dependencies:
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
     - field.field.node.course.field_theme
+    - field.field.node.course.field_tpf_who_get_support
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
@@ -83,14 +84,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_banner:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_curriculum_themes:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '4'
     region: content
     label: omit
@@ -136,7 +137,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_primary_school_subject:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '9'
     region: content
     label: omit
@@ -157,35 +158,35 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_theme:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '15'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_daycare:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '12'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_primary_school:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '13'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_youth_education:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '14'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_youth_education_subject:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '10'
     region: content
     label: omit

@@ -149,12 +149,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_subject:
-    type: entity_transform
+    type: entity_reference_labels
     weight: '14'
     region: content
     label: omit
-    settings:
-      transform_mode: default
+    settings: {  }
     third_party_settings: {  }
   field_theme:
     type: entity_reference_labels

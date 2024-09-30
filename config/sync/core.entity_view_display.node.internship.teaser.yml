@@ -42,7 +42,6 @@ dependencies:
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_sold_out
-    - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -113,7 +112,6 @@ hidden:
   field_related_courses: true
   field_show_application_link: true
   field_sold_out: true
-  field_theme: true
   field_todo_list: true
   field_video: true
   field_video_description: true
