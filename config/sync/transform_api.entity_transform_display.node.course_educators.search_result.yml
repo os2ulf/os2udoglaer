@@ -74,21 +74,21 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_banner:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_curriculum_themes:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '4'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_educators_target_group:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '6'
     region: content
     label: omit
@@ -134,7 +134,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_primary_school_subject:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '5'
     region: content
     label: omit
@@ -148,15 +148,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_subject:
-    type: entity_transform
+    type: entity_reference_labels
     weight: '12'
     region: content
     label: omit
-    settings:
-      transform_mode: default
+    settings: {  }
     third_party_settings: {  }
   field_theme:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '11'
     region: content
     label: omit

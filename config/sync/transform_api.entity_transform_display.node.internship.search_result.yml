@@ -41,7 +41,6 @@ dependencies:
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
     - field.field.node.internship.field_sold_out
-    - field.field.node.internship.field_theme
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -65,19 +64,18 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_areas_of_interest:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_banner:
-    type: entity_transform
+    type: entity_reference_labels
     weight: '7'
     region: content
     label: omit
-    settings:
-      transform_mode: default
+    settings: {  }
     third_party_settings: {  }
   field_image:
     type: responsive_image
@@ -124,14 +122,6 @@ content:
     region: content
     label: omit
     settings: {  }
-    third_party_settings: {  }
-  field_theme:
-    type: entity_transform
-    weight: '10'
-    region: content
-    label: omit
-    settings:
-      transform_mode: default
     third_party_settings: {  }
   field_view_on_map:
     type: value
