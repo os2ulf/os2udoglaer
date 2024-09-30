@@ -29,7 +29,6 @@ dependencies:
     - field.field.node.exercise.field_sustainability_goals
     - field.field.node.exercise.field_sustainability_goals_desc
     - field.field.node.exercise.field_target_group
-    - field.field.node.exercise.field_theme
     - field.field.node.exercise.field_trgt_grp_daycare
     - field.field.node.exercise.field_trgt_grp_primary_school
     - field.field.node.exercise.field_trgt_grp_youth_education
@@ -70,6 +69,13 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_focus:
+    type: entity_reference_labels
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '8'
@@ -91,13 +97,6 @@ content:
   field_target_group:
     type: entity_reference_labels
     weight: '0'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_theme:
-    type: entity_reference_labels
-    weight: '10'
     region: content
     label: omit
     settings: {  }
@@ -141,7 +140,6 @@ hidden:
   field_duration_select: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
-  field_focus: true
   field_hide_contact_form: true
   field_how_to: true
   field_meta_tags: true
