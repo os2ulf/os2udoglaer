@@ -89,9 +89,22 @@ function os2uol_transform_plugins_user_transform_alter(&$transformation) {
   if (empty($transformation)) {
     return;
   }
+
+  /** @var \Drupal\user\Entity\User $user */
+  $user = $transformation['#entity'];
+
   // Add user profile link and user roles to transformation.
-  $transformation['link'] = $transformation['#entity']->toUrl()->toString();
-  $transformation['roles'] = $transformation['#entity']->getRoles();
+  $transformation['link'] = $user->toUrl()->toString();
+  $transformation['roles'] = $user->getRoles();
+
+  $roles = $user->getRoles(TRUE);
+  $role_id = reset($roles) ?? NULL;
+
+  // Add user role label to transformation as bundle label.
+  if ($role_id) {
+    $role = \Drupal::entityTypeManager()->getStorage('user_role')->load($role_id);
+    $transformation['bundle_label'] = $role->label();
+  }
 
   if ($transformation['transform_mode'] == 'default') {
     // Add related content
