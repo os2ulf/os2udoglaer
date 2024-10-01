@@ -623,11 +623,10 @@ display:
         filters: false
         filter_groups: false
       display_extenders:
+        os2uol_search:
+          os2uol_search_result_string: ''
         transform_api_facets:
-          transform_facets:
-            course_providers_brancher: course_providers_brancher
-            course_providers_posibilities: course_providers_posibilities
-            course_providers_postnummer: course_providers_postnummer
+          transform_facets: {  }
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result

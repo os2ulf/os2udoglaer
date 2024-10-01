@@ -277,5 +277,6 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_exclude_from_search: true
+  field_hide_contact_form: true
   field_meta_tags: true
   langcode: true
