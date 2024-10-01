@@ -77,10 +77,13 @@ third_party_settings:
           - 'views_block:content_search-block_2'
           - 'views_block:content_search-block_3'
           - 'views_block:content_search-block_5'
+          - 'views_block:content_search-block_8'
+          - 'views_block:content_search-block_9'
           - 'views_block:course_providers-block_1'
           - 'views_block:content_search-block_4'
           - 'views_block:content_search-block_6'
           - 'views_block:content_search-block_7'
+          - 'views_block:course_providers-block_3'
       restricted_categories:
         - Block
         - Bruger
