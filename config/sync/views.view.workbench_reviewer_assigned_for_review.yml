@@ -2267,8 +2267,8 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_target_group'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
         - 'config:field.storage.node.field_target_group'
         - 'config:workflow_list'
   page_1:
