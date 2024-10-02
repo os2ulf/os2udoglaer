@@ -79,6 +79,7 @@ permissions:
   - 'use editorial transition save_unpublished'
   - 'use editorial transition submit_for_review'
   - 'use editorial transition unpublish'
+  - 'use editorial transition update'
   - 'use text format basic_html'
   - 'view all pretix events'
   - 'view all revisions'
