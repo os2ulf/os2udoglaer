@@ -45,57 +45,23 @@ class WebhooksController extends ControllerBase {
     $payload = json_decode($request->getContent(), TRUE);
 
     if (empty($payload)) {
-      throw new BadRequestHttpException('Invalid or empty payload');
+        throw new BadRequestHttpException('Invalid or empty payload');
     }
 
     $action = $payload['action'] ?? NULL;
     switch ($action) {
-      case PretixOrderManager::PRETIX_EVENT_ORDER_PLACED:
-      case PretixOrderManager::PRETIX_EVENT_ORDER_CANCELED:
-        return $this->orderManager->handleOrderUpdated($payload, $action);
+        case PretixOrderManager::PRETIX_EVENT_ORDER_PLACED:
+        case PretixOrderManager::PRETIX_EVENT_ORDER_CANCELED:
+            return new JsonResponse($this->orderManager->handleOrderUpdated($payload, $action));
 
-      case 'event.soldout':
-        return $this->handleSoldOutEvent($payload);
+        case 'event.soldout':
+            return new JsonResponse($this->orderManager->handleSoldOutEvent($payload));
 
-      case 'event.available':
-        return $this->handleAvailableEvent($payload);
+        case 'event.available':
+            return new JsonResponse($this->orderManager->handleAvailableEvent($payload));
     }
 
     return new JsonResponse(['status' => 'unhandled action']);
-  }
-
-  /**
-   * Handle the sold-out event.
-   */
-  public function handleSoldOutEvent(array $payload) {
-    $eventId = $payload['event']['id'];
-    $nodeId = $this->getNodeIdFromPretixEventId($eventId);
-    $node = \Drupal::entityTypeManager()->getStorage('node')->load($nodeId);
-
-    if ($node) {
-      // Set the Boolean field for "Sold Out" to TRUE.
-      $node->set('field_sold_out', TRUE);
-      $node->save();
-    }
-
-    return new JsonResponse(['status' => 'event marked as sold out']);
-  }
-
-  /**
-   * Handle the available event (when tickets become available again).
-   */
-  public function handleAvailableEvent(array $payload) {
-    $eventId = $payload['event']['id'];
-    $nodeId = $this->getNodeIdFromPretixEventId($eventId);
-    $node = \Drupal::entityTypeManager()->getStorage('node')->load($nodeId);
-
-    if ($node) {
-      // Set the Boolean field for "Sold Out" to FALSE.
-      $node->set('field_sold_out', FALSE);
-      $node->save();
-    }
-
-    return new JsonResponse(['status' => 'event marked as available']);
   }
 
   /**
