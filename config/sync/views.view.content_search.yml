@@ -27,7 +27,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Content search'
+      title: Førlob
       fields:
         title:
           id: title
@@ -481,6 +481,9 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      title: Erhvervspraktiker
+      defaults:
+        title: false
       display_description: ''
       display_extenders:
         os2uol_search:
@@ -515,6 +518,7 @@ display:
     display_plugin: block
     position: 2
     display_options:
+      title: Kurser
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -858,6 +862,7 @@ display:
           1: AND
           2: OR
       defaults:
+        title: false
         filters: false
         filter_groups: false
       display_description: ''
@@ -897,6 +902,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
+      title: Nyheder
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -1143,6 +1149,7 @@ display:
         groups:
           1: AND
       defaults:
+        title: false
         filters: false
         filter_groups: false
       display_description: ''
@@ -1606,6 +1613,7 @@ display:
     display_plugin: block
     position: 5
     display_options:
+      title: Opgaver
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -1898,6 +1906,7 @@ display:
         groups:
           1: AND
       defaults:
+        title: false
         filters: false
         filter_groups: false
       display_description: ''
@@ -2794,6 +2803,7 @@ display:
     display_plugin: block
     position: 5
     display_options:
+      title: Opgaver
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -3086,6 +3096,7 @@ display:
         groups:
           1: AND
       defaults:
+        title: false
         filters: false
         filter_groups: false
       display_description: ''
@@ -3126,6 +3137,7 @@ display:
     display_plugin: block
     position: 5
     display_options:
+      title: Opgaver
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -3418,6 +3430,7 @@ display:
         groups:
           1: AND
       defaults:
+        title: false
         filters: false
         filter_groups: false
       display_description: ''
