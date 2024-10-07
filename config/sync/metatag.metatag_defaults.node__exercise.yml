@@ -1,0 +1,9 @@
+uuid: ec9c4c45-ea36-4105-a4ba-6fe1b0c6c235
+langcode: da
+status: true
+dependencies: {  }
+id: node__exercise
+label: 'Indhold: Opgave'
+tags:
+  description: '[node:body]'
+  og_description: '[node:body]'
