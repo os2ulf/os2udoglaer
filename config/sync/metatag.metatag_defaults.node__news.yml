@@ -1,0 +1,9 @@
+uuid: d68dec6f-5cad-4083-b1d8-d80d708610fd
+langcode: da
+status: true
+dependencies: {  }
+id: node__news
+label: 'Indhold: Nyhed'
+tags:
+  description: '[node:body]'
+  og_description: '[node:body]'

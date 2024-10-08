@@ -1,0 +1,9 @@
+uuid: c9af6baf-ff70-4020-8317-551504ac8236
+langcode: da
+status: true
+dependencies: {  }
+id: node__internship
+label: 'Indhold: Erhvervspraktik'
+tags:
+  description: '[node:body]'
+  og_description: '[node:body]'

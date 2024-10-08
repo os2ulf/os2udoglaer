@@ -1,0 +1,9 @@
+uuid: 0d6e6656-6854-4026-92ee-7f84a703fd7c
+langcode: da
+status: true
+dependencies: {  }
+id: node__course
+label: 'Indhold: Undervisnings- og læringsforløb'
+tags:
+  description: '[node:body]'
+  og_description: '[node:body]'

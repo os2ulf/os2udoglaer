@@ -1,0 +1,9 @@
+uuid: ef440e56-2b9f-4f75-be40-e43f93930033
+langcode: da
+status: true
+dependencies: {  }
+id: node__course_educators
+label: 'Indhold: Kursus'
+tags:
+  description: '[node:body]'
+  og_description: '[node:body]'
