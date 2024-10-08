@@ -1,0 +1,21 @@
+uuid: 2002a25d-c684-4965-9547-73ddf3c528cd
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_institution_type
+    - node.type.transport_pool_form
+  module:
+    - options
+id: node.transport_pool_form.field_tpf_institution_type
+field_name: field_tpf_institution_type
+entity_type: node
+bundle: transport_pool_form
+label: Type
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

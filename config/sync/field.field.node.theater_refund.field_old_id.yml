@@ -1,0 +1,19 @@
+uuid: 6c72d72d-9c79-42ee-9711-249c70f9561f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_old_id
+    - node.type.theater_refund
+id: node.theater_refund.field_old_id
+field_name: field_old_id
+entity_type: node
+bundle: theater_refund
+label: 'Gammelt ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

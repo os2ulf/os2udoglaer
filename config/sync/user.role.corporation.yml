@@ -7,8 +7,11 @@ dependencies:
     - node.type.course
     - node.type.course_educators
     - node.type.exercise
+    - node.type.free_course_request
     - node.type.internship
     - node.type.news
+    - node.type.theater_refund
+    - node.type.transport_pool_form
     - workflows.workflow.application
     - workflows.workflow.editorial
   module:
@@ -46,17 +49,20 @@ permissions:
   - 'delete own exercise content'
   - 'delete own internship content'
   - 'delete own news content'
+  - 'delete own transport_pool_form content'
   - 'edit all pretix events'
   - 'edit own course content'
   - 'edit own course_educators content'
   - 'edit own exercise content'
   - 'edit own internship content'
   - 'edit own pretix events'
+  - 'edit own transport_pool_form content'
   - 'update course content on assigned domains'
   - 'update course_educators content on assigned domains'
   - 'update exercise content on assigned domains'
   - 'update internship content on assigned domains'
   - 'use application transition accept'
+  - 'use application transition afventer'
   - 'use application transition await_payment'
   - 'use application transition cancel'
   - 'use application transition complete_payment'
@@ -71,6 +77,7 @@ permissions:
   - 'use editorial transition save_unpublished'
   - 'use editorial transition submit_for_review'
   - 'use editorial transition unpublish'
+  - 'use editorial transition update'
   - 'use text format basic_html'
   - 'view all pretix events'
   - 'view all revisions'
@@ -78,8 +85,11 @@ permissions:
   - 'view course revisions'
   - 'view course_educators revisions'
   - 'view exercise revisions'
+  - 'view free_course_request revisions'
   - 'view internship revisions'
   - 'view news revisions'
   - 'view own pretix events'
   - 'view own unpublished content'
   - 'view the administration theme'
+  - 'view theater_refund revisions'
+  - 'view transport_pool_form revisions'

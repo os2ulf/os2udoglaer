@@ -32,11 +32,16 @@ dependencies:
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
+    - field.field.node.internship.field_pretix_email_notifiers
+    - field.field.node.internship.field_pretix_event_short_form
+    - field.field.node.internship.field_pretix_shop_url
+    - field.field.node.internship.field_pretix_template_event
+    - field.field.node.internship.field_pretix_widget_type
     - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
-    - field.field.node.internship.field_theme
+    - field.field.node.internship.field_sold_out
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -97,11 +102,16 @@ hidden:
   field_materials: true
   field_meeting_times: true
   field_meta_tags: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   field_purpose_internship: true
   field_quantity: true
   field_related_courses: true
   field_show_application_link: true
-  field_theme: true
+  field_sold_out: true
   field_todo_list: true
   field_video: true
   field_video_description: true

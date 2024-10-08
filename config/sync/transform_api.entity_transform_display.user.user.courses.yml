@@ -15,6 +15,7 @@ dependencies:
     - field.field.user.user.field_guarantee_partner
     - field.field.user.user.field_homepage
     - field.field.user.user.field_image
+    - field.field.user.user.field_institution_type
     - field.field.user.user.field_intro
     - field.field.user.user.field_location_city
     - field.field.user.user.field_location_name
@@ -36,6 +37,7 @@ dependencies:
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
+    - field.field.user.user.field_private_municipal
     - field.field.user.user.field_video
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
@@ -58,6 +60,13 @@ content:
   field_homepage:
     type: link
     weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_institution_type:
+    type: value
+    weight: '11'
     region: content
     label: omit
     settings: {  }
@@ -120,10 +129,19 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_private_municipal:
+    type: value
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_allocated_budget: true
   field_brancher: true
   field_contact: true
+  field_disctrict: true
+  field_district: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true

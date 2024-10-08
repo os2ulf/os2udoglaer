@@ -60,17 +60,32 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   // Get the current logged-in user.
   $current_user = \Drupal::currentUser();
   $is_admin_or_webmaster = $current_user->hasRole('administrator') || $current_user->hasRole('webmaster');
+  $is_editor = $current_user->hasRole('editor');
 
   // Check if the form is a node add form.
   if (in_array($form_id, $node_add_forms)) {
     // Set access to the 'field_domain_access' field based on the user role.
     $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
+    $form['field_tpf_who_get_support']['widget']['#required'] = $is_admin_or_webmaster || $is_editor;
+
+    // If user is not admin or editor or webmaster, hide fields.
+    if (!$is_admin_or_webmaster && !$is_editor) {
+      $form['field_practical_info_buttons']['#access'] = FALSE;
+      $form['field_tpf_who_get_support']['#access'] = FALSE;
+    }
   }
 
   // Check if the form is a node edit form.
   if (in_array($form_id, $node_edit_forms)) {
     // Set access to the 'field_domain_access' field based on the user role.
     $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
+    $form['field_tpf_who_get_support']['widget']['#required'] = $is_admin_or_webmaster || $is_editor;
+
+    // If user is not admin or editor or webmaster, hide fields.
+    if (!$is_admin_or_webmaster && !$is_editor) {
+      $form['field_practical_info_buttons']['#access'] = FALSE;
+      $form['field_tpf_who_get_support']['#access'] = FALSE;
+    }
 
     if (!$is_admin_or_webmaster) {
       // Handle domain access restrictions for non-admin users.
@@ -90,33 +105,30 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         return;
       }
 
-      // Get the default domain.
-      $default_domain = \Drupal::service('domain.negotiator')->getActiveDomain();
-      $default_domain_id = $default_domain ? $default_domain->id() : null;
+      // Set the default domain ID to 'api_os2udoglaer_dk'.
+      $default_domain_id = 'api_os2udoglaer_dk';
 
-      // Filter the domain array to exclude the default domain.
+      // Modify the filtering logic to exclude only the default domain.
       $filtered_domains = array_filter($domain_array, function($domain) use ($default_domain_id) {
         return $domain !== $default_domain_id;
       });
 
-      // Deny access if more than one domain is assigned, excluding the default domain.
-      if (count($filtered_domains) > 1) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
-      }
-
       // Load current user's domain access field.
-      $user = User::load($current_user->id());
+      $user = \Drupal\user\Entity\User::load($current_user->id());
       $user_domain_array = array_column($user->get('field_domain_access')->getValue(), 'target_id');
 
-      // Check if the user has access to the content's domain.
-      $node_access = !empty(array_intersect($user_domain_array, $filtered_domains));
+      // Ensure both arrays are properly formatted for comparison.
+      $user_domains = array_map('strtolower', array_map('strval', $user_domain_array)); // Cast to string and lowercase for consistency
+      $filtered_domains = array_map('strtolower', array_map('strval', $filtered_domains));
+
+      // Check if the user has access to the node's domain(s).
+      $node_access = !empty(array_intersect($user_domains, $filtered_domains));
 
       if (!$node_access) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
+        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException('User does not have access to the content\'s domain.');
       }
     }
   }
-
 
   // Check if user is editor and limit access to author field.
   if (in_array($form_id, $node_add_forms) || in_array($form_id, $node_edit_forms)) {
@@ -216,6 +228,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role editor.
@@ -227,7 +242,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
             $form[$field]['#access'] = FALSE;
           }
         }
-      } elseif ($edit_user && ($edit_user->hasRole('webmaster') || $edit_user->hasRole('editor') || $edit_user->hasRole('administrator'))) {
+      } elseif ($edit_user && ($edit_user->hasRole('webmaster') || $edit_user->hasRole('editor') || $edit_user->hasRole('administrator') || $edit_user->hasRole('rest_api'))) {
         throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException();
 
       } elseif (($edit_user && $edit_user->hasRole('course_provider')) || ($edit_user && $edit_user->hasRole('place_of_visit'))) {
@@ -236,9 +251,12 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         $form['field_brancher']['#access'] = FALSE;
         $form['field_posibilities']['#access'] = FALSE;
         $form['field_postnummer']['#access'] = FALSE;
+        $form['field_institution_type']['#access'] = FALSE;
+        $form['field_private_municipal']['#access'] = FALSE;
+        $form['field_disctrict']['#access'] = FALSE;
       } elseif ($edit_user && $edit_user->hasRole('corporation')) {
         $form['field_allocated_budget']['#access'] = FALSE;
-      } elseif (($edit_user && $edit_user->hasRole('school')) || ($edit_user && $edit_user->hasRole('institution'))) {
+      } elseif ($edit_user && $edit_user->hasRole('school')) {
         foreach ($editor_hidden_fields as $field) {
           if (isset($form[$field])) {
             $form[$field]['#access'] = FALSE;
@@ -248,6 +266,26 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         $form['field_location_name']['#access'] = TRUE;
         $form['field_location_zipcode']['#access'] = TRUE;
         $form['field_location_city']['#access'] = TRUE;
+        $form['field_private_municipal']['#access'] = TRUE;
+        $form['field_private_municipal']['widget']['#required'] = TRUE;
+        $form['field_disctrict']['#access'] = TRUE;
+        $form['field_disctrict']['widget']['#required'] = TRUE;
+      } elseif ($edit_user && $edit_user->hasRole('institution')) {
+        foreach ($editor_hidden_fields as $field) {
+          if (isset($form[$field])) {
+            $form[$field]['#access'] = FALSE;
+          }
+        }
+        $form['field_location_street']['#access'] = TRUE;
+        $form['field_location_name']['#access'] = TRUE;
+        $form['field_location_zipcode']['#access'] = TRUE;
+        $form['field_location_city']['#access'] = TRUE;
+        $form['field_institution_type']['#access'] = TRUE;
+        $form['field_institution_type']['widget']['#required'] = TRUE;
+        $form['field_private_municipal']['#access'] = TRUE;
+        $form['field_private_municipal']['widget']['#required'] = TRUE;
+        $form['field_disctrict']['#access'] = TRUE;
+        $form['field_disctrict']['widget']['#required'] = TRUE;
       } elseif ($edit_user && $edit_user->hasRole('theater_contact')) {
         $form['field_allocated_budget']['#access'] = TRUE;
         $form['field_editor_field']['#access'] = TRUE;
@@ -269,6 +307,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role course_provider.
@@ -294,6 +335,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role place_of_visit.
@@ -318,6 +362,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_guarantee_partner',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role corporation.
@@ -359,6 +406,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role school.
@@ -400,6 +450,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role institution.
@@ -445,6 +498,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_postnummer',
       'field_editor_field',
       'field_bypass_workflow',
+      'field_institution_type',
+      'field_private_municipal',
+      'field_disctrict',
     ];
 
     // Hide fields for user role theater_contact.
@@ -492,21 +548,14 @@ function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
       // Add the current domain ID.
       $domain_ids[] = $current_domain->id();
 
+      // Add the default "Databrønden" domain ID.
+      $databroenden_domain_id = 'api_os2udoglaer_dk';
+      $domain_ids[] = $databroenden_domain_id;
+
       // Retrieve the selected domains from the edit form.
       $selected_domains = $entity->get('field_domain_access')->getValue();
       foreach ($selected_domains as $selected_domain) {
         $domain_ids[] = $selected_domain['target_id'];
-      }
-
-      // Logic to determine additional domains based on roles.
-      foreach ($roles as $role) {
-        if ($role == 'editor') {
-          // Add a specific domain ID for editors.
-          $domain_ids[] = 'editor_domain_id';
-        } elseif ($role == 'administrator') {
-          // Add a specific domain ID for administrators.
-          $domain_ids[] = 'admin_domain_id';
-        }
       }
 
       // Assign the domains to the user before saving.

@@ -1,0 +1,19 @@
+uuid: 3aece1fb-5ad3-431d-97d4-0f13d8ec2692
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_street
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_location_street
+field_name: field_location_street
+entity_type: node
+bundle: transport_pool_form
+label: Gade
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 6ceb36ea-7ab1-4b0c-a64e-682742528a32
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tpf_what_course
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_tpf_what_course
+field_name: field_tpf_what_course
+entity_type: node
+bundle: transport_pool_form
+label: 'Hvad er forløbet'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

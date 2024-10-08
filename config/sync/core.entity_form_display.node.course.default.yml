@@ -34,6 +34,11 @@ dependencies:
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
     - field.field.node.course.field_preparation
+    - field.field.node.course.field_pretix_email_notifiers
+    - field.field.node.course.field_pretix_event_short_form
+    - field.field.node.course.field_pretix_shop_url
+    - field.field.node.course.field_pretix_template_event
+    - field.field.node.course.field_pretix_widget_type
     - field.field.node.course.field_price
     - field.field.node.course.field_primary_school_subject
     - field.field.node.course.field_purpose
@@ -46,11 +51,13 @@ dependencies:
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
     - field.field.node.course.field_related_courses
+    - field.field.node.course.field_sold_out
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
     - field.field.node.course.field_theme
+    - field.field.node.course.field_tpf_who_get_support
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
@@ -459,6 +466,7 @@ third_party_settings:
     group_application:
       children:
         - field_practical_info_buttons
+        - field_tpf_who_get_support
       label: Ansøgning
       region: content
       parent_name: ''
@@ -959,6 +967,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_tpf_who_get_support:
+    type: options_select
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_trgt_grp_daycare:
     type: options_buttons
     weight: 19
@@ -1202,5 +1216,6 @@ hidden:
   field_pretix_shop_url: true
   field_pretix_template_event: true
   field_pretix_widget_type: true
+  field_sold_out: true
   langcode: true
   workbench_reviewer: true

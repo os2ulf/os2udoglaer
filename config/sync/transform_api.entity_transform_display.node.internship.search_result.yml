@@ -31,18 +31,23 @@ dependencies:
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
+    - field.field.node.internship.field_pretix_email_notifiers
+    - field.field.node.internship.field_pretix_event_short_form
+    - field.field.node.internship.field_pretix_shop_url
+    - field.field.node.internship.field_pretix_template_event
+    - field.field.node.internship.field_pretix_widget_type
     - field.field.node.internship.field_purpose_internship
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
-    - field.field.node.internship.field_theme
+    - field.field.node.internship.field_sold_out
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
     - field.field.node.internship.field_video_title
     - field.field.node.internship.field_view_on_map
     - node.type.internship
-    - responsive_image.styles.isg_appetizer
+    - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.search_result
   module:
     - transform_api_responsive_image
@@ -59,8 +64,15 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_areas_of_interest:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_banner:
+    type: entity_reference_labels
+    weight: '7'
     region: content
     label: omit
     settings: {  }
@@ -71,7 +83,7 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_appetizer
+      responsive_image_style: isg_related_courses
       image_link: ''
       image_loading:
         attribute: lazy
@@ -104,13 +116,26 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_sold_out:
+    type: boolean
+    weight: '8'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_view_on_map:
+    type: value
+    weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_application_deadline: true
   field_application_email: true
   field_application_phone: true
   field_application_title: true
   field_application_url: true
-  field_banner: true
   field_desc_application_procedure: true
   field_description_of_period: true
   field_domain_access: true
@@ -126,14 +151,17 @@ hidden:
   field_materials: true
   field_meeting_times: true
   field_meta_tags: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   field_purpose_internship: true
   field_quantity: true
   field_related_courses: true
   field_show_application_link: true
-  field_theme: true
   field_todo_list: true
   field_video: true
   field_video_description: true
   field_video_title: true
-  field_view_on_map: true
   langcode: true

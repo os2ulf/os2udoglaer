@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.course.field_exclude_from_search
     - field.field.node.course.field_faciliteter
     - field.field.node.course.field_facilities_description
+    - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
     - field.field.node.course.field_location_city
@@ -51,11 +52,13 @@ dependencies:
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
     - field.field.node.course.field_related_courses
+    - field.field.node.course.field_sold_out
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
     - field.field.node.course.field_theme
+    - field.field.node.course.field_tpf_who_get_support
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
@@ -552,11 +555,13 @@ hidden:
   field_registration_title: true
   field_registration_url: true
   field_related_courses: true
+  field_sold_out: true
   field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true
   field_target_group: true
   field_theme: true
+  field_tpf_who_get_support: true
   field_trgt_grp_daycare: true
   field_trgt_grp_primary_school: true
   field_trgt_grp_youth_education: true

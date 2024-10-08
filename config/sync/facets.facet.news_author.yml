@@ -8,7 +8,7 @@ dependencies:
   module:
     - search_api
 id: news_author
-name: Udbyer
+name: Udbyder
 weight: 0
 min_count: 1
 missing: false

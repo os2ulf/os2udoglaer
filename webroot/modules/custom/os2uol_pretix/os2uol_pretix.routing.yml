@@ -23,10 +23,11 @@ os2uol_pretix.webhooks.order:
     _access: 'TRUE'
   methods: [POST]
 
-os2uol_pretix.test.order:
-  path: '/pretix/test/order/{node}/{order}'
+os2uol_pretix.remove_event_connection:
+  path: '/admin/pretix/remove/{node}'
   defaults:
-    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::test'
-    _title: 'Pretix test order'
+    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::unlinkEvent'
+    _title: 'Remove Pretix Event Connection'
   requirements:
-    _access: 'TRUE'
+    _permission: 'administer nodes'
+    node: \d+

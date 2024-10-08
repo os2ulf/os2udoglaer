@@ -24,7 +24,6 @@ dependencies:
     - field.field.node.free_course_request.field_rfc_payment_date
     - field.field.node.free_course_request.field_rfc_phone
     - field.field.node.free_course_request.field_rfc_provider
-    - field.field.node.free_course_request.field_rfc_provider_name
     - field.field.node.free_course_request.field_rfc_remarks
     - field.field.node.free_course_request.field_rfc_requested_amount
     - field.field.node.free_course_request.field_rfc_school
@@ -51,12 +50,18 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 1
-      format_type: fieldset
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
         required_fields: true
     group_rfc_school:
       children:
@@ -70,18 +75,22 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 2
-      format_type: fieldset
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
         required_fields: true
     group_rfc_course:
       children:
-        - field_rfc_provider_name
         - field_rfc_provider
-        - field_rfc_course_name
         - field_rfc_course
         - field_rfc_course_not_found
         - field_rfc_new_course_name
@@ -93,12 +102,18 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 3
-      format_type: fieldset
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
         required_fields: true
     group_rfc_payment:
       children:
@@ -109,18 +124,31 @@ third_party_settings:
       region: content
       parent_name: ''
       weight: 4
-      format_type: fieldset
+      format_type: html_element
       format_settings:
-        classes: ''
+        classes: trailer
         show_empty_fields: false
         id: ''
-        description: ''
+        element: details
+        show_label: true
+        label_element: summary
+        label_element_classes: ''
+        attributes: 'open="open"'
+        effect: none
+        speed: fast
         required_fields: true
 id: node.free_course_request.default
 targetEntityType: node
 bundle: free_course_request
 mode: default
 content:
+  field_data_anonymized:
+    type: boolean_checkbox
+    weight: 7
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_old_id:
     type: string_textfield
     weight: 6
@@ -253,14 +281,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_rfc_provider_name:
-    type: string_textfield
-    weight: 14
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_rfc_remarks:
     type: text_textarea
     weight: 14
@@ -319,7 +339,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_data_anonymized: true
   field_domain_access: true
   field_domain_all_affiliates: true
   field_mailto: true

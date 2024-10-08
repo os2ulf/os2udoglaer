@@ -57,7 +57,22 @@ class DomainSettingsBlock extends TransformBlockBase {
       'text_positive_color' => $config->get('text_positive_color'),
       'text_negative_color' => $config->get('text_negative_color'),
       'site_tracking_script' => $config->get('site_tracking_script'),
+      'email_signature' => $config->get('email_signature'),
       'free_course_application_reference' => $config->get('free_course_application_reference') ? \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $config->get('free_course_application_reference')) : '',
+      'ufcr_receipt' => $config->get('ufcr_receipt'),
+      'transport_pool_application_reference' => $config->get('transport_pool_application_reference') ? \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $config->get('transport_pool_application_reference')) : '',
+      'free_choice' => $config->get('free_choice'),
+      'course_not_found' => $config->get('course_not_found'),
+      'district_1' => $config->get('district_1'),
+      'district_2' => $config->get('district_2'),
+      'district_3' => $config->get('district_3'),
+      'district_4' => $config->get('district_4'),
+      'district_5' => $config->get('district_5'),
+      'no_district' => $config->get('no_district'),
+      'denied_distance' => $config->get('denied_distance'),
+      'denied_private' => $config->get('denied_private'),
+      'confirmation' => $config->get('confirmation'),
+      'tr_receipt' => $config->get('tr_receipt'),
     ];
   }
 

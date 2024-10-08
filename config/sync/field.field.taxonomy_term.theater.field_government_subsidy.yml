@@ -1,0 +1,21 @@
+uuid: 470a898d-2a66-4d42-b35a-9fbe3fe68ea0
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_government_subsidy
+    - taxonomy.vocabulary.theater
+id: taxonomy_term.theater.field_government_subsidy
+field_name: field_government_subsidy
+entity_type: taxonomy_term
+bundle: theater
+label: Statstilskud
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Ja
+  off_label: Nej
+field_type: boolean

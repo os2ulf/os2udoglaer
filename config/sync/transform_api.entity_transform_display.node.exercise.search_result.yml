@@ -31,7 +31,6 @@ dependencies:
     - field.field.node.exercise.field_sustainability_goals
     - field.field.node.exercise.field_sustainability_goals_desc
     - field.field.node.exercise.field_target_group
-    - field.field.node.exercise.field_theme
     - field.field.node.exercise.field_trgt_grp_daycare
     - field.field.node.exercise.field_trgt_grp_primary_school
     - field.field.node.exercise.field_trgt_grp_youth_education
@@ -41,7 +40,7 @@ dependencies:
     - field.field.node.exercise.field_work_documents
     - field.field.node.exercise.field_youth_education_subject
     - node.type.exercise
-    - responsive_image.styles.isg_appetizer
+    - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.search_result
   module:
     - transform_api_responsive_image
@@ -58,15 +57,22 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_banner:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_curriculum_themes:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_focus:
+    type: entity_reference_labels
+    weight: '10'
     region: content
     label: omit
     settings: {  }
@@ -77,55 +83,48 @@ content:
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_appetizer
+      responsive_image_style: isg_related_courses
       image_link: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
   field_primary_school_subject:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '4'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_target_group:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '6'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_theme:
-    type: entity_reference_links
+  field_trgt_grp_daycare:
+    type: entity_reference_labels
     weight: '7'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_trgt_grp_daycare:
-    type: entity_reference_links
+  field_trgt_grp_primary_school:
+    type: entity_reference_labels
     weight: '8'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_trgt_grp_primary_school:
-    type: entity_reference_links
+  field_trgt_grp_youth_education:
+    type: entity_reference_labels
     weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_trgt_grp_youth_education:
-    type: entity_reference_links
-    weight: '10'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_youth_education_subject:
-    type: entity_reference_links
+    type: entity_reference_labels
     weight: '5'
     region: content
     label: omit
@@ -142,7 +141,6 @@ hidden:
   field_duration_select: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
-  field_focus: true
   field_hide_contact_form: true
   field_how_to: true
   field_meta_tags: true

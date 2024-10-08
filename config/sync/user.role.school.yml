@@ -5,17 +5,31 @@ dependencies:
   config:
     - filter.format.basic_html
     - node.type.free_course_request
+    - node.type.theater_refund
+    - node.type.transport_pool_form
+    - workflows.workflow.application
   module:
+    - content_moderation
     - filter
     - node
     - system
     - toolbar
+    - workbench
 id: school
 label: Skole
 weight: -2
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'access workbench'
+  - 'delete own transport_pool_form content'
+  - 'edit any free_course_request content'
+  - 'edit any theater_refund content'
+  - 'edit any transport_pool_form content'
   - 'edit own free_course_request content'
+  - 'edit own theater_refund content'
+  - 'use application transition accept'
+  - 'use application transition afventer'
   - 'use text format basic_html'
+  - 'view own unpublished content'
   - 'view the administration theme'

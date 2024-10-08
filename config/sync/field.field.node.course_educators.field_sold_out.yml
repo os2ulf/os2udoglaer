@@ -1,0 +1,23 @@
+uuid: 6a1eb6b1-689a-4394-8a4e-0c2428d50ca2
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sold_out
+    - node.type.course_educators
+id: node.course_educators.field_sold_out
+field_name: field_sold_out
+entity_type: node
+bundle: course_educators
+label: Udsolgt
+description: 'Dette felt er gemt og benyttes i vores Pretix webhook integration.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Udsolgt
+  off_label: 'Ikke udsolgt'
+field_type: boolean

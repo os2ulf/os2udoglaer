@@ -21,6 +21,7 @@ dependencies:
     - field.field.node.internship.field_exclude_from_profile
     - field.field.node.internship.field_exclude_from_search
     - field.field.node.internship.field_expectations
+    - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
     - field.field.node.internship.field_location_city
@@ -40,7 +41,7 @@ dependencies:
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
-    - field.field.node.internship.field_theme
+    - field.field.node.internship.field_sold_out
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -378,7 +379,7 @@ hidden:
   field_quantity: true
   field_related_courses: true
   field_show_application_link: true
-  field_theme: true
+  field_sold_out: true
   field_todo_list: true
   field_video: true
   field_video_description: true

@@ -34,6 +34,11 @@ dependencies:
     - field.field.node.course.field_post_processing
     - field.field.node.course.field_practical_info_buttons
     - field.field.node.course.field_preparation
+    - field.field.node.course.field_pretix_email_notifiers
+    - field.field.node.course.field_pretix_event_short_form
+    - field.field.node.course.field_pretix_shop_url
+    - field.field.node.course.field_pretix_template_event
+    - field.field.node.course.field_pretix_widget_type
     - field.field.node.course.field_price
     - field.field.node.course.field_primary_school_subject
     - field.field.node.course.field_purpose
@@ -46,11 +51,13 @@ dependencies:
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
     - field.field.node.course.field_related_courses
+    - field.field.node.course.field_sold_out
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
     - field.field.node.course.field_target_group
     - field.field.node.course.field_theme
+    - field.field.node.course.field_tpf_who_get_support
     - field.field.node.course.field_trgt_grp_daycare
     - field.field.node.course.field_trgt_grp_primary_school
     - field.field.node.course.field_trgt_grp_youth_education
@@ -409,6 +416,16 @@ content:
     third_party_settings: {  }
     weight: 50
     region: content
+  field_sold_out:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 55
+    region: content
   field_subject:
     type: entity_reference_label
     label: above
@@ -447,6 +464,13 @@ content:
       link: true
     third_party_settings: {  }
     weight: 40
+    region: content
+  field_tpf_who_get_support:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 55
     region: content
   field_trgt_grp_daycare:
     type: entity_reference_label
@@ -520,6 +544,11 @@ hidden:
   content_moderation_control: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   langcode: true
   search_api_excerpt: true
   workbench_reviewer: true

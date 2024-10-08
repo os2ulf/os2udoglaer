@@ -1,0 +1,21 @@
+uuid: f603ddb4-9065-4c82-8f6d-0256454c9ed1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_district
+  module:
+    - options
+    - user
+id: user.user.field_district
+field_name: field_district
+entity_type: user
+bundle: user
+label: Distrikt
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

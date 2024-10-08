@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
@@ -15,6 +16,7 @@ dependencies:
     - field.field.user.user.field_guarantee_partner
     - field.field.user.user.field_homepage
     - field.field.user.user.field_image
+    - field.field.user.user.field_institution_type
     - field.field.user.user.field_intro
     - field.field.user.user.field_location_city
     - field.field.user.user.field_location_name
@@ -36,6 +38,7 @@ dependencies:
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
+    - field.field.user.user.field_private_municipal
     - field.field.user.user.field_video
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
@@ -89,6 +92,13 @@ content:
     third_party_settings: {  }
     weight: 16
     region: content
+  field_district:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 41
+    region: content
   field_educational_profile:
     type: text_default
     label: above
@@ -128,6 +138,13 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_institution_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 38
     region: content
   field_intro:
     type: text_default
@@ -261,6 +278,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 17
+    region: content
+  field_private_municipal:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 39
     region: content
   field_video:
     type: entity_reference_revisions_entity_view

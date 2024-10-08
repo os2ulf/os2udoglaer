@@ -19,3 +19,7 @@ services:
       - '@messenger'
       - '@date.formatter'
       - '@plugin.manager.mail'
+
+  os2uol_pretix.pretix_event_manager:
+    class: 'Drupal\os2uol_pretix\PretixEventManager'
+    arguments: ['@os2uol_pretix.pretix_connector', '@logger.factory', '@messenger']

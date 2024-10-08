@@ -15,6 +15,7 @@ dependencies:
     - field.field.user.user.field_guarantee_partner
     - field.field.user.user.field_homepage
     - field.field.user.user.field_image
+    - field.field.user.user.field_institution_type
     - field.field.user.user.field_intro
     - field.field.user.user.field_location_city
     - field.field.user.user.field_location_name
@@ -36,11 +37,12 @@ dependencies:
     - field.field.user.user.field_pretix_event_form
     - field.field.user.user.field_pretix_organizer_form
     - field.field.user.user.field_pretix_url
+    - field.field.user.user.field_private_municipal
     - field.field.user.user.field_video
     - field.field.user.user.field_video_description
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
-    - responsive_image.styles.isg_appetizer
+    - responsive_image.styles.isg_provider_logo
     - transform_api.entity_transform_mode.user.search_result
   module:
     - transform_api_responsive_image
@@ -50,13 +52,38 @@ targetEntityType: user
 bundle: user
 mode: search_result
 content:
+  field_guarantee_partner:
+    type: boolean
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '1'
     region: content
     label: omit
     settings:
-      responsive_image_style: isg_appetizer
+      responsive_image_style: isg_provider_logo
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+  field_institution_type:
+    type: value
+    weight: '7'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_logo:
+    type: responsive_image
+    weight: '4'
+    region: content
+    label: omit
+    settings:
+      responsive_image_style: isg_provider_logo
       image_link: ''
       image_loading:
         attribute: lazy
@@ -83,24 +110,31 @@ content:
     settings:
       trim_length: '300'
     third_party_settings: {  }
+  field_private_municipal:
+    type: value
+    weight: '6'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_allocated_budget: true
   field_brancher: true
   field_contact: true
   field_cvr: true
+  field_disctrict: true
+  field_district: true
   field_domain_access: true
   field_domain_admin: true
   field_domain_all_affiliates: true
   field_editor_field: true
   field_educational_profile: true
-  field_guarantee_partner: true
   field_homepage: true
   field_intro: true
   field_location_city: true
   field_location_name: true
   field_location_street: true
   field_location_zipcode: true
-  field_logo: true
   field_meta_tags: true
   field_other_info: true
   field_other_info_description: true

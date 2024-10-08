@@ -6,10 +6,10 @@ dependencies:
     - image.style.isg_image_scale_1151
     - image.style.isg_image_scale_1552
     - image.style.isg_image_scale_1584
-    - image.style.isg_image_scale_1824
+    - image.style.isg_image_scale_2204
     - image.style.isg_image_scale_2972
     - image.style.isg_image_scale_388
-    - image.style.isg_image_scale_456
+    - image.style.isg_image_scale_551
     - image.style.isg_image_scale_743
     - image.style.isg_image_scale_967
   theme:
@@ -49,12 +49,12 @@ image_style_mappings:
     multiplier: 2x
   -
     image_mapping_type: image_style
-    image_mapping: isg_image_scale_456
+    image_mapping: isg_image_scale_551
     breakpoint_id: os2udoglaer.xxs
     multiplier: 1x
   -
     image_mapping_type: image_style
-    image_mapping: isg_image_scale_1824
+    image_mapping: isg_image_scale_2204
     breakpoint_id: os2udoglaer.xxs
     multiplier: 2x
   -
