@@ -293,7 +293,6 @@ permissions:
   - 'use editorial transition reject'
   - 'use editorial transition restore_draft'
   - 'use editorial transition restore_publish'
-  - 'use editorial transition save_draft_leave_current_published'
   - 'use editorial transition save_review'
   - 'use editorial transition save_unpublished'
   - 'use editorial transition unpublish'

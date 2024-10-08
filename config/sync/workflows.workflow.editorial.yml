@@ -116,6 +116,7 @@ type_settings:
       label: 'Send til redaktion'
       from:
         - draft
+        - published
       to: review
       weight: -2
     unpublish:
