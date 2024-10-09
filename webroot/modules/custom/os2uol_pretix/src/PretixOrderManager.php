@@ -12,9 +12,9 @@ use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Url;
-use Drupal\ulf_pretix\Pretix\OrderHelper;
 use Drupal\user\EntityOwnerTrait;
 use Drupal\user\UserInterface;
+use Drupal\os2uol_pretix\OrderHelper;
 
 class PretixOrderManager extends PretixAbstractManager {
 
@@ -176,7 +176,7 @@ class PretixOrderManager extends PretixAbstractManager {
 
       $content = $this->renderOrder($order, $orderLines);
 
-      $to = $this->getMailRecipients($entity);
+      $to = implode(',', $this->getMailRecipients($entity));
       $langcode = $entity->language()->getId();
       /** @var EntityOwnerTrait $entity_owner */
       $entity_owner = $entity;
@@ -430,14 +430,57 @@ class PretixOrderManager extends PretixAbstractManager {
     catch (InvalidPluginDefinitionException|PluginNotFoundException $e) {
       return NULL;
     }
+
     $ids = $nodeStorage->getQuery()
       ->condition('field_pretix_event_short_form', $eventSlug)
+      ->accessCheck(TRUE)
       ->execute();
+
     if (!empty($ids)) {
       /** @var EditorialContentEntityBase $entity */
       $entity = $nodeStorage->load($ids[array_key_first($ids)]);
     }
+
     return $entity;
+  }
+
+  public function handleSoldOutEvent(array $payload) {
+    $eventId = $payload['event']['id'];
+    $nodeId = $this->getNodeIdFromPretixEventId($eventId);
+    $node = \Drupal::entityTypeManager()->getStorage('node')->load($nodeId);
+
+    if ($node) {
+        // Set the Boolean field for "Sold Out" to TRUE.
+        $node->set('field_sold_out', TRUE);
+        $node->save();
+    }
+
+    return new JsonResponse(['status' => 'event marked as sold out']);
+  }
+
+  public function handleAvailableEvent(array $payload) {
+      $eventId = $payload['event']['id'];
+      $nodeId = $this->getNodeIdFromPretixEventId($eventId);
+      $node = \Drupal::entityTypeManager()->getStorage('node')->load($nodeId);
+
+      if ($node) {
+          // Set the Boolean field for "Sold Out" to FALSE.
+          $node->set('field_sold_out', FALSE);
+          $node->save();
+      }
+
+      return new JsonResponse(['status' => 'event marked as available']);
+  }
+
+  private function getNodeIdFromPretixEventId($eventId) {
+      // Your entityQuery to map eventId to Drupal node.
+      $query = \Drupal::entityQuery('node')
+      ->condition('type', ['internship', 'course_educators', 'course'], 'IN')
+      ->condition('field_pretix_event_id', $eventId)
+      ->accessCheck(TRUE)
+      ->range(0, 1);
+
+    $nids = $query->execute();
   }
 
 }

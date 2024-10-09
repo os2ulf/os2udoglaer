@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ulf_pretix\Pretix;
+namespace Drupal\os2uol_pretix;
 
 /**
  * Abstract helper.

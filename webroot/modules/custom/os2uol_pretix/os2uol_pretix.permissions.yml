@@ -7,14 +7,15 @@ view own pretix events:
   title: 'View own Pretix events'
   description: 'Only allow viewing Pretix events owned by the user.'
 
-add all pretix events:
-  title: 'Add to all Pretix events'
-  description: 'Allow adding to all Pretix events.'
+add own pretix events:
+  title: 'Add own Pretix events'
+  description: 'Allows users to add dates to their own Pretix events.'
   restrict access: TRUE
 
-add own pretix events:
-  title: 'Add to own Pretix events'
-  description: 'Only allow adding to Pretix events owned by the user.'
+add all pretix events:
+  title: 'Add to all Pretix events'
+  description: 'Allows users to add dates to any Pretix events.'
+  restrict access: TRUE
 
 edit all pretix events:
   title: 'Edit all Pretix events'
@@ -24,3 +25,8 @@ edit all pretix events:
 edit own pretix events:
   title: 'Edit own Pretix events'
   description: 'Only allow editing Pretix events owned by the user.'
+
+remove pretix event connection:
+  title: 'Remove Pretix event connection'
+  description: 'Allows users to remove the connection between a Pretix event and a Drupal node.'
+  restrict access: TRUE
