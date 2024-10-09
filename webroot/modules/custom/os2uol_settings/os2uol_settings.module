@@ -59,6 +59,64 @@ function os2uol_settings_preprocess_styles_preview(&$variables) {
 }
 
 /**
+ * Implements hook_preprocess_html().
+ */
+function os2uol_settings_preprocess_html(array &$variables) {
+  // Initialize an array to hold CSS variables.
+  $css_variables = [];
+
+  // Fetch global theme color settings.
+  $config = \Drupal::config('os2uol_settings.settings');
+  $primary_bg_color = $config->get('primary_background_color');
+  $primary_bg_txt_color = $config->get('primary_background_text_color');
+  $secondary_bg_color = $config->get('secondary_background_color');
+  $secondary_bg_txt_color = $config->get('secondary_background_text_color');
+
+  // Create an array of CSS variable declarations.
+  if ($primary_bg_color && $primary_bg_txt_color) {
+    $css_variables[] = ".theme-primary {
+    --theme-background-color: {$primary_bg_color};
+    --theme-color: {$primary_bg_txt_color};
+    --theme-button-color: {$primary_bg_color};
+    --theme-link-color: {$primary_bg_txt_color};
+    --theme-divider-background-color: {$primary_bg_txt_color};
+    --theme-accordion-border-color: {$primary_bg_color};
+    --theme-accordion-background-color: {$primary_bg_color};
+    --theme-accordion-text-color: {$primary_bg_txt_color};
+    --theme-input-border: {$primary_bg_txt_color};
+    --theme-input-color-marked: {$primary_bg_txt_color};
+    }";
+  }
+  if ($secondary_bg_color && $secondary_bg_txt_color) {
+    $css_variables[] = ".theme-secondary {
+    --theme-background-color: {$secondary_bg_color};
+    --theme-color: {$secondary_bg_txt_color};
+    --theme-button-color: {$secondary_bg_color};
+    --theme-link-color: {$secondary_bg_txt_color};
+    --theme-divider-background-color: {$secondary_bg_txt_color};
+    --theme-accordion-border-color: {$secondary_bg_color};
+    --theme-accordion-background-color: {$secondary_bg_color};
+    --theme-accordion-text-color: {$secondary_bg_txt_color};
+    --theme-input-border: {$secondary_bg_txt_color};
+    --theme-input-color-marked: {$secondary_bg_txt_color};
+    }";
+  }
+
+  // Join the array into a string of CSS variables.
+  $css_variable_string = ':root { ' . implode(' ', $css_variables) . ' }';
+
+  // Attach the CSS variables to the <head> of the page.
+  $variables['#attached']['html_head'][] = [
+    [
+      '#type' => 'html_tag',
+      '#tag' => 'style',
+      '#value' => $css_variable_string,
+    ],
+    'global_css_variables',
+  ];
+}
+
+/**
  * Implements hook_token_info().
  */
 function os2uol_settings_token_info() {
