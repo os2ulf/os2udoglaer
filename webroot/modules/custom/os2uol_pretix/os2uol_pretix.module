@@ -2,6 +2,7 @@
 
 use Drupal\Core\Access\AccessResultInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Url;
 use Drupal\os2uol_pretix\PretixEntityHooks;
@@ -74,4 +75,67 @@ function os2uol_pretix_entity_type_build(array &$entity_types): void {
 function os2uol_pretix_mail($key, &$message, $params) {
   $message['body'] = $params['content'];
   $message['subject'] = $params['subject'];
+}
+
+/**
+ * Implements hook_element_info_alter().
+ */
+function os2uol_pretix_element_info_alter(array &$types) {
+  // Add the custom process function to datetime fields.
+  $types['datetime']['#process'][] = 'os2uol_pretix_process_element';
+}
+
+/**
+ * Custom process callback for datetime fields.
+ */
+function os2uol_pretix_process_element($element) {
+  // Only alter fields where the "hide seconds" is enabled.
+  if (!empty($element['#datetimehideseconds']['hide'])) {
+    // Adjust the element's time format to exclude seconds.
+    $element['time']['#attributes']['title'] = t('Enter a valid time - e.g. @format', [
+      '@format' => (new \DateTime())->format('H:i'),
+    ]);
+
+    if ($element['#date_time_element'] !== 'none') {
+      $element['#date_time_format'] = 'H:i';
+    }
+
+    if (!empty($element['time']['#value'])) {
+      $parts = explode(':', $element['time']['#value']);
+      $parts = array_splice($parts, 0, 2); // Keep only hours and minutes.
+      $element['time']['#value'] = implode(':', $parts);
+    }
+
+    // Remove seconds from browsers that support HTML5 type=date.
+    $element['time']['#attributes']['step'] = 60;
+  }
+
+  return $element;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function os2uol_pretix_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'node_course_pretix_add_form_form') {
+    // Add the 'hide seconds' functionality to date fields.
+    foreach (['date_from', 'date_to', 'presale_start', 'presale_end'] as $field) {
+      if (isset($form[$field])) {
+        $form[$field]['#datetimehideseconds']['hide'] = TRUE;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function os2uol_pretix_field_widget_single_element_form_alter(&$element, FormStateInterface $form_state, $context) {
+  // Ensure the datetimehideseconds functionality is applied for hiding seconds.
+  if (!empty($context['widget']->getThirdPartySetting('datetimehideseconds', 'hide'))) {
+    $element['value']['#datetimehideseconds']['hide'] = TRUE;
+    if (isset($element['end_value'])) {
+      $element['end_value']['#datetimehideseconds']['hide'] = TRUE;
+    }
+  }
 }
