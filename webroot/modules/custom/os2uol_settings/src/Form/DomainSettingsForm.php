@@ -103,16 +103,24 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('text_positive_color'),
     ];
 
-    $form['tab_tracking'] = [
+    $form['tab_scripts'] = [
       '#type' => 'details',
-      '#title' => $this->t('Site tracking'),
+      '#title' => $this->t('Scripts'),
       '#group' => 'tabs',
     ];
 
-    $form['tab_tracking']['site_tracking_script'] = [
+    $form['tab_scripts']['site_cookie_script'] = [
+      '#type' => 'textarea',
+      '#title' => $this->t('Site cookie script'),
+      '#default_value' => $config->get('site_cookie_script'),
+      '#description' => $this->t('Insert Cookiebot or CookieInformation scripts here.'),
+    ];
+
+    $form['tab_scripts']['site_tracking_script'] = [
       '#type' => 'textarea',
       '#title' => $this->t('Site tracking script'),
       '#default_value' => $config->get('site_tracking_script'),
+      '#description' => $this->t('Insert site tracking scripts here. E.g. Siteimprove, etc.'),
     ];
 
     $form['tab_emails'] = [
@@ -301,6 +309,7 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('text_positive_color', $form_state->getValue('text_positive_color'))
       ->set('text_negative_color', $form_state->getValue('text_negative_color'))
       ->set('site_tracking_script', $form_state->getValue('site_tracking_script'))
+      ->set('site_cookie_script', $form_state->getValue('site_cookie_script'))
       ->set('email_signature', $form_state->getValue('email_signature'))
       ->set('free_course_application_reference', $form_state->getValue('free_course_application_reference'))
       ->set('ufcr_receipt', $form_state->getValue('ufcr_receipt'))
