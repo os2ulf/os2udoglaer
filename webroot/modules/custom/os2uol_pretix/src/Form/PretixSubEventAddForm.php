@@ -143,8 +143,10 @@ class PretixSubEventAddForm extends ContentEntityForm {
     $subevent = [
       'slug' => $entity->id(),
       'is_public' => $entity->isPublished(),
-      'date_from' => $eventManager->formatDateFormValue($form_state->getValue('date_from'))
+      'date_from' => $eventManager->formatDateFormValue($form_state->getValue('date_from')),
+      'quota' => $form_state->getValue('quota')
     ];
+
     if (!empty($form_state->getValue('date_to'))) {
       $subevent['date_to'] = $eventManager->formatDateFormValue($form_state->getValue('date_to'));
     }
@@ -154,21 +156,17 @@ class PretixSubEventAddForm extends ContentEntityForm {
     if (!empty($form_state->getValue('presale_end'))) {
       $subevent['presale_end'] = $eventManager->formatDateFormValue($form_state->getValue('presale_end'));
     }
-    if (empty($form_state->getValue('free'))) {
-      $subevent['free'] = FALSE;
-    } else {
-      $subevent['free'] = TRUE;
-    }
+    $subevent['free'] = !empty($form_state->getValue('free'));
+
     if (!empty($form_state->getValue('price'))) {
       $subevent['price'] = $form_state->getValue('price');
     }
-    if (!empty($form_state->getValue('quota'))) {
-      $subevent['quota'] = $form_state->getValue('quota');
-    }
 
     if (!is_null($eventManager->addSubEvent($entity, $subevent))) {
-      $this->messenger()
-        ->addStatus($this->t('Successfully created new event'));
+      $this->messenger()->addStatus($this->t('Successfully created new event'));
+
+      // Redirect to the Pretix page after form submission.
+      $form_state->setRedirect('entity.node.pretix', ['node' => $entity->id()]);
     }
   }
 
