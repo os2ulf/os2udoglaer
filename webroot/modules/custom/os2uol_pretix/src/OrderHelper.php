@@ -1,6 +1,8 @@
 <?php
 
-namespace Drupal\ulf_pretix\Pretix;
+namespace Drupal\os2uol_pretix;
+
+use Drupal\os2uol_pretix\AbstractHelper;
 
 /**
  * Pretix order helper.
