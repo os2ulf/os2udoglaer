@@ -40,6 +40,7 @@ dependencies:
     - contextual
     - domain
     - domain_access
+    - domain_menus
     - entity_clone
     - file
     - filter
@@ -81,7 +82,6 @@ permissions:
   - 'add all pretix events'
   - 'add own pretix events'
   - 'administer atoms'
-  - 'administer menu'
   - 'administer nodes'
   - 'administer redirect settings'
   - 'administer redirects'
@@ -255,6 +255,7 @@ permissions:
   - 'edit any video block content'
   - 'edit any webform'
   - 'edit any webform submission'
+  - 'edit assigned domain menus'
   - 'edit atom'
   - 'edit domain content'
   - 'edit own course content'

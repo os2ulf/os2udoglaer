@@ -1,0 +1,30 @@
+uuid: d1ee818c-224d-410c-9158-6350206717b4
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm14581620-meta
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforrum.thisted.dkmeta
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm14581620-meta'
+settings:
+  id: 'custom_menu_block:dm14581620-meta'
+  label: 'Domain menu for rum.thisted.dk (meta)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_rum_thisted_dk: api_rum_thisted_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

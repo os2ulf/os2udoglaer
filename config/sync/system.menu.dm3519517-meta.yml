@@ -1,0 +1,15 @@
+uuid: 3fabe670-a697-45c6-a937-38b7768703f7
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_klcviborg_dk: api_klcviborg_dk
+    auto-created: 1
+id: dm3519517-meta
+label: 'Domain menu for klcviborg.dk (meta)'
+description: null
+locked: false

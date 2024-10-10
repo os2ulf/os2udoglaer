@@ -1,0 +1,30 @@
+uuid: 3913ffaa-1c0e-4f62-9632-1c0793cc1ed7
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm3519517-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforklcviborg.dkmain
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm3519517-main'
+settings:
+  id: 'custom_menu_block:dm3519517-main'
+  label: 'Domain menu for klcviborg.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_klcviborg_dk: api_klcviborg_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
