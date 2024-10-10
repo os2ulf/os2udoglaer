@@ -112,6 +112,7 @@ permissions:
   - 'administer atoms'
   - 'administer blocks'
   - 'administer content moderation notifications'
+  - 'administer domains'
   - 'administer menu'
   - 'administer nodes'
   - 'administer redirect settings'
