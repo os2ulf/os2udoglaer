@@ -9,7 +9,7 @@ _core:
 id: page_title
 theme: os2udoglaer
 region: header
-weight: -30
+weight: 2
 provider: null
 plugin: page_title_block
 settings:

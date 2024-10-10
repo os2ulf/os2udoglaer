@@ -1,0 +1,15 @@
+uuid: 850656de-38ed-4c8d-8750-6c5c577a9fa5
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_ungegarantien_dk: api_ungegarantien_dk
+    auto-created: 1
+id: dm13940715-main
+label: 'Domain menu for ungegarantien.dk (main)'
+description: null
+locked: false

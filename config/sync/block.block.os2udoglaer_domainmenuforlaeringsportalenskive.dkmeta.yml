@@ -1,0 +1,35 @@
+uuid: 5fa33b6e-5072-4697-971a-0be5a1238196
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm12325470-meta
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuforlaeringsportalenskive.dkmeta
+theme: os2udoglaer
+region: header
+weight: -15
+provider: null
+plugin: 'menu_item_fields:dm12325470-meta'
+settings:
+  id: 'menu_item_fields:dm12325470-meta'
+  label: 'Domain menu for laeringsportalenskive.dk (meta)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_laeringsportalenskive_dk: api_laeringsportalenskive_dk

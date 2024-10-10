@@ -1,0 +1,30 @@
+uuid: 1630f25d-6adb-4999-8682-b0ade92a2c2e
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm3718682-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforude.numain
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm3718682-main'
+settings:
+  id: 'custom_menu_block:dm3718682-main'
+  label: 'Domain menu for ude.nu (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_ude_nu: api_ude_nu
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

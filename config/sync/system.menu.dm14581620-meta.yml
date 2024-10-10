@@ -1,0 +1,15 @@
+uuid: d5986dfa-c649-4067-b7d5-2b62edac0d79
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_rum_thisted_dk: api_rum_thisted_dk
+    auto-created: 1
+id: dm14581620-meta
+label: 'Domain menu for rum.thisted.dk (meta)'
+description: null
+locked: false
