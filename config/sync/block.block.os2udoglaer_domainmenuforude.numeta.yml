@@ -1,0 +1,35 @@
+uuid: 39602484-d6cd-46bc-b169-49e1deb247ba
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm3718682-meta
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuforude.numeta
+theme: os2udoglaer
+region: header
+weight: -9
+provider: null
+plugin: 'menu_item_fields:dm3718682-meta'
+settings:
+  id: 'menu_item_fields:dm3718682-meta'
+  label: 'Domain menu for ude.nu (meta)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_ude_nu: api_ude_nu

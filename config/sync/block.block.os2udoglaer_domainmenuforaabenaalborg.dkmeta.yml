@@ -1,0 +1,35 @@
+uuid: 4f34913c-b0b8-484d-b3dc-fdcdb5008bff
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm14072618-meta
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuforaabenaalborg.dkmeta
+theme: os2udoglaer
+region: header
+weight: -21
+provider: null
+plugin: 'menu_item_fields:dm14072618-meta'
+settings:
+  id: 'menu_item_fields:dm14072618-meta'
+  label: 'Domain menu for aabenaalborg.dk (meta)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_aabenaalborg_dk: api_aabenaalborg_dk

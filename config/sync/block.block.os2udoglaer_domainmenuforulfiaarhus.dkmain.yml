@@ -1,0 +1,35 @@
+uuid: 6161da5a-4d6b-4b48-a6c1-163c691452a7
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm11588557-main
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuforulfiaarhus.dkmain
+theme: os2udoglaer
+region: header
+weight: -18
+provider: null
+plugin: 'menu_item_fields:dm11588557-main'
+settings:
+  id: 'menu_item_fields:dm11588557-main'
+  label: 'Domain menu for ulfiaarhus.dk (main)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_ulfiaarhus_dk: api_ulfiaarhus_dk
