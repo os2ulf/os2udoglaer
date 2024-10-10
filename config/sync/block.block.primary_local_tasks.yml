@@ -11,7 +11,7 @@ _core:
 id: primary_local_tasks
 theme: os2udoglaer
 region: header
-weight: 0
+weight: 1
 provider: null
 plugin: local_tasks_block
 settings:

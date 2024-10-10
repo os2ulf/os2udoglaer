@@ -1,0 +1,35 @@
+uuid: 151f8981-a13d-4873-9314-5d808e4bd753
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm14581620-main
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuforrum.thisted.dkmain
+theme: os2udoglaer
+region: header
+weight: -10
+provider: null
+plugin: 'menu_item_fields:dm14581620-main'
+settings:
+  id: 'menu_item_fields:dm14581620-main'
+  label: 'Domain menu for rum.thisted.dk (main)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_rum_thisted_dk: api_rum_thisted_dk

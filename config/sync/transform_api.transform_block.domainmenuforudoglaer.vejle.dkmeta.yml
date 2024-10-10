@@ -1,0 +1,30 @@
+uuid: e25e2be9-37fa-4d86-96c9-7353e3a5212f
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm5562611-meta
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforudoglaer.vejle.dkmeta
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm5562611-meta'
+settings:
+  id: 'custom_menu_block:dm5562611-meta'
+  label: 'Domain menu for udoglaer.vejle.dk (meta)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_udoglaer_vejle_dk: api_udoglaer_vejle_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

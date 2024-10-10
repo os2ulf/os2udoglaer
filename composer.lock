@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2c2729dfa7f0389c419efbfb0e090f1",
+    "content-hash": "68d3eed7883043acf57246d19a2b5bf2",
     "packages": [
         {
             "name": "algolia/places",
@@ -3274,6 +3274,54 @@
             "homepage": "https://www.drupal.org/project/domain_entity",
             "support": {
                 "source": "https://git.drupalcode.org/project/domain_entity"
+            }
+        },
+        {
+            "name": "drupal/domain_menus",
+            "version": "3.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain_menus.git",
+                "reference": "3.6.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain_menus-3.6.1.zip",
+                "reference": "3.6.1",
+                "shasum": "32a3749712efec61656e34b55fec26277149be9e"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/domain": "*"
+            },
+            "require-dev": {
+                "drupal/superfish": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.6.1",
+                    "datestamp": "1710562734",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "drpldrp",
+                    "homepage": "https://www.drupal.org/user/3630968"
+                }
+            ],
+            "description": "Creates menus with domain access integration.",
+            "homepage": "https://www.drupal.org/project/domain_menus",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain_menus"
             }
         },
         {

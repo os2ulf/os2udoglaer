@@ -52,6 +52,7 @@
         "drupal/domain": "^2.0@beta",
         "drupal/domain_access_search_api": "^1.0",
         "drupal/domain_entity": "^1.0@RC",
+        "drupal/domain_menus": "^3.6",
         "drupal/domain_simple_sitemap": "^3.0@beta",
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_clone": "^2.0@beta",

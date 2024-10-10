@@ -1,0 +1,15 @@
+uuid: ab5d8236-5f80-4353-afc9-a8cb3e36e5cb
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_ulfiaarhus_dk: api_ulfiaarhus_dk
+    auto-created: 1
+id: dm11588557-meta
+label: 'Domain menu for ulfiaarhus.dk (meta)'
+description: null
+locked: false

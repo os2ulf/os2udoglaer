@@ -1,0 +1,15 @@
+uuid: e6c34fe4-a8cf-4b84-aefd-3ae98847964f
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_udoglaer_randers_dk: api_udoglaer_randers_dk
+    auto-created: 1
+id: dm6220034-main
+label: 'Domain menu for udoglaer.randers.dk (main)'
+description: null
+locked: false

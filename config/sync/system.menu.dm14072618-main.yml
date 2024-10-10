@@ -1,0 +1,15 @@
+uuid: af70bd0f-9584-4a9e-89f1-61fb027e6e46
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_aabenaalborg_dk: api_aabenaalborg_dk
+    auto-created: 1
+id: dm14072618-main
+label: 'Domain menu for aabenaalborg.dk (main)'
+description: null
+locked: false

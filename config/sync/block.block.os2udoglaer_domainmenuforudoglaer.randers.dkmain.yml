@@ -1,0 +1,35 @@
+uuid: 425c386c-25e3-494a-8b6d-958aa645ccea
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm6220034-main
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuforudoglaer.randers.dkmain
+theme: os2udoglaer
+region: header
+weight: -6
+provider: null
+plugin: 'menu_item_fields:dm6220034-main'
+settings:
+  id: 'menu_item_fields:dm6220034-main'
+  label: 'Domain menu for udoglaer.randers.dk (main)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_udoglaer_randers_dk: api_udoglaer_randers_dk

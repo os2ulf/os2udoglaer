@@ -1,0 +1,15 @@
+uuid: a387e34c-bbd3-4e97-8f29-ecf2c6106f05
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_ude_nu: api_ude_nu
+    auto-created: 1
+id: dm3718682-main
+label: 'Domain menu for ude.nu (main)'
+description: null
+locked: false

@@ -23,3 +23,50 @@ h3 {
 h4 {
   font-size: 20px !important;
 }
+
+/* Menu styling */
+.block-menu-item-fields ul {
+  margin: 0;
+  list-style-type: none;
+}
+
+.block-menu-item-fields ul li {
+  display: inline-block;
+}
+
+.block-menu-item-fields ul li .field--name-title {
+  display: none;
+}
+
+.block-menu-item-fields:first-child {
+  padding: 5px 10px;
+  text-align: right;
+  background: lightgrey;
+}
+
+.block-menu-item-fields:first-child ul {
+  text-align: right;
+}
+
+.block-menu-item-fields:first-child ul li {
+  padding: 0 8px;
+}
+
+.block-menu-item-fields:first-child ul li:last-child {
+  padding-right: 0;
+}
+
+.block-menu-item-fields:nth-child(2) {
+  margin-bottom: 20px;
+  padding: 20px 0;
+  font-size: 32px;
+}
+
+.block-menu-item-fields:nth-child(2) ul li {
+  padding: 0 16px;
+}
+
+.block-menu-item-fields:nth-child(2) ul li:first-child {
+  padding-left: 0;
+}
+
