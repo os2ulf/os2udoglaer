@@ -1,0 +1,30 @@
+uuid: 77506aae-1a19-48d3-bf62-f5bd20de64ea
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm14072618-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforaabenaalborg.dkmain
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm14072618-main'
+settings:
+  id: 'custom_menu_block:dm14072618-main'
+  label: 'Domain menu for aabenaalborg.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_aabenaalborg_dk: api_aabenaalborg_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

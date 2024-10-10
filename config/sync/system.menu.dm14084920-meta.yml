@@ -1,0 +1,15 @@
+uuid: 1c0a1864-e73d-4d29-8d62-4c81e7c702d6
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_udsynmodarbejdsliv_dk: api_udsynmodarbejdsliv_dk
+    auto-created: 1
+id: dm14084920-meta
+label: 'Domain menu for udsynmodarbejdsliv.dk (meta)'
+description: null
+locked: false

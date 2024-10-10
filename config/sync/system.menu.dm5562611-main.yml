@@ -1,0 +1,15 @@
+uuid: 6a3a1fc3-023c-4758-a57b-62482b357d86
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_udoglaer_vejle_dk: api_udoglaer_vejle_dk
+    auto-created: 1
+id: dm5562611-main
+label: 'Domain menu for udoglaer.vejle.dk (main)'
+description: null
+locked: false

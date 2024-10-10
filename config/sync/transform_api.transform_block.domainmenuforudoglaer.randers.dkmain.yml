@@ -1,0 +1,30 @@
+uuid: f793bc64-b616-4fdc-9d00-ff85afe6bde7
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm6220034-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforudoglaer.randers.dkmain
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm6220034-main'
+settings:
+  id: 'custom_menu_block:dm6220034-main'
+  label: 'Domain menu for udoglaer.randers.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_udoglaer_randers_dk: api_udoglaer_randers_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

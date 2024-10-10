@@ -1,0 +1,15 @@
+uuid: 9396799b-a013-4715-b15a-d7519b14e08d
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_mitvadehav_dk: api_mitvadehav_dk
+    auto-created: 1
+id: dm4951852-main
+label: 'Domain menu for mitvadehav.dk (main)'
+description: null
+locked: false

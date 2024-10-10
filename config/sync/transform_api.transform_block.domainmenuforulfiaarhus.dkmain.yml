@@ -1,0 +1,30 @@
+uuid: 65be6dad-20dc-4cea-baa5-5e5a3d80a094
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm11588557-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforulfiaarhus.dkmain
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm11588557-main'
+settings:
+  id: 'custom_menu_block:dm11588557-main'
+  label: 'Domain menu for ulfiaarhus.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_ulfiaarhus_dk: api_ulfiaarhus_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

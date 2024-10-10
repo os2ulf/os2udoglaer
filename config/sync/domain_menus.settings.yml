@@ -1,0 +1,18 @@
+_core:
+  default_config_hash: RvMjt6bnYGglazM3-HtXNKpDvfEoYyie9MtEHC4OAQs
+langcode: da
+domain_menus_menu_names: "main\r\nmeta"
+domain_menus_filter_node_autocomplete: 1
+domain_menus_hide_from_menu_list: 0
+domain_menus_hide_admin_toolbar_links: 0
+domain_menus_content_types_available_menus:
+  theater_refund: '0'
+  free_course_request: '0'
+  internship: '0'
+  page: '0'
+  course_educators: '0'
+  news: '0'
+  exercise: '0'
+  transport_pool_form: '0'
+  course: '0'
+domain_menus_default_parent_menu_name: ''

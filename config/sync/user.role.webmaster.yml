@@ -66,6 +66,7 @@ dependencies:
     - domain
     - domain_access
     - domain_config_ui
+    - domain_menus
     - entity_clone
     - file
     - filter
@@ -342,6 +343,7 @@ permissions:
   - 'edit any video block content'
   - 'edit any webform'
   - 'edit any webform submission'
+  - 'edit assigned domain menus'
   - 'edit atom'
   - 'edit domain content'
   - 'edit own course content'

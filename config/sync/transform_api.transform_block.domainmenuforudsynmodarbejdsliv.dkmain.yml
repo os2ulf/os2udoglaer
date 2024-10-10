@@ -1,0 +1,30 @@
+uuid: c2d9b5b3-6382-4dd9-98d2-d20e0a178abf
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm14084920-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforudsynmodarbejdsliv.dkmain
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm14084920-main'
+settings:
+  id: 'custom_menu_block:dm14084920-main'
+  label: 'Domain menu for udsynmodarbejdsliv.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_udsynmodarbejdsliv_dk: api_udsynmodarbejdsliv_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
