@@ -10,7 +10,7 @@ abstract class AbstractHelper {
   /**
    * The pretix client.
    *
-   * @var \Drupal\ulf_pretix\Pretix\Client
+   * @var \Drupal\os2uol_pretix\Client
    */
   protected $client;
 
@@ -24,10 +24,10 @@ abstract class AbstractHelper {
   /**
    * Set pretix client.
    *
-   * @param \Drupal\ulf_pretix\Pretix\Client $client
+   * @param \Drupal\os2uol_pretix\Client $client
    *   The client.
    *
-   * @return \Drupal\ulf_pretix\Pretix\AbstractHelper
+   * @return \Drupal\os2uol_pretix\AbstractHelper
    *   The helper.
    */
   public function setClient(Client $client) {
@@ -42,7 +42,7 @@ abstract class AbstractHelper {
    * @param object $node
    *   The node.
    *
-   * @return \Drupal\ulf_pretix\Pretix\Client|null
+   * @return \Drupal\os2uol_pretix\Client|null
    *   The client if any.
    */
   public function getPretixClient($node) {
@@ -69,7 +69,7 @@ abstract class AbstractHelper {
    * @param object $node
    *   The node.
    *
-   * @return \Drupal\ulf_pretix\Pretix\AbstractHelper
+   * @return \Drupal\os2uol_pretix\AbstractHelper
    *   The helper.
    */
   public function setPretixClient($node) {

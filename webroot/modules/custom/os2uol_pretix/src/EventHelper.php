@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\ulf_pretix\Pretix;
+namespace Drupal\os2uol_pretix;
 
 use EntityMetadataWrapper;
 
@@ -506,7 +506,7 @@ class EventHelper extends AbstractHelper {
    *   The event.
    * @param object $node
    *   The node.
-   * @param \Drupal\ulf_pretix\Pretix\Client $client
+   * @param \Drupal\os2uol_pretix\Client $client
    *   The client.
    *
    * @return array
@@ -647,7 +647,7 @@ class EventHelper extends AbstractHelper {
    *   The event.
    * @param object $node
    *   The node.
-   * @param \Drupal\ulf_pretix\Pretix\Client $client
+   * @param \Drupal\os2uol_pretix\Client $client
    *   The client.
    *
    * @return array
