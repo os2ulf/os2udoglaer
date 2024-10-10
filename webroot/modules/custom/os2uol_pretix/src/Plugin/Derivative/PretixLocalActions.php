@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Drupal\os2uol_pretix\Plugin\Derivative;
 
 use Drupal\Component\Plugin\Derivative\DeriverBase;
@@ -9,9 +7,8 @@ use Drupal\Component\Serialization\Json;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\Discovery\ContainerDeriverInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\os2uol_pretix\Plugin\Menu\LocalAction\PretixLocalAction;
-use Drupal\os2uol_pretix\Routing\PretixRouteProvider;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Session\AccountInterface;
 
 /**
  * Pretix actions for entities.
@@ -22,18 +19,22 @@ class PretixLocalActions extends DeriverBase implements ContainerDeriverInterfac
 
   protected string $basePluginId;
   protected EntityTypeManagerInterface $entityTypeManager;
+  protected AccountInterface $currentUser;
 
   /**
-   * Creates a new ScheduledTransitionsLocalActions.
+   * Constructs a new PretixLocalActions object.
    *
    * @param string $base_plugin_id
    *   The base plugin ID.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   Entity type manager.
+   * @param \Drupal\Core\Session\AccountInterface $current_user
+   *   The current user.
    */
-  public function __construct(string $base_plugin_id, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(string $base_plugin_id, EntityTypeManagerInterface $entity_type_manager, AccountInterface $current_user) {
     $this->basePluginId = $base_plugin_id;
     $this->entityTypeManager = $entity_type_manager;
+    $this->currentUser = $current_user;
   }
 
   /**
@@ -43,6 +44,7 @@ class PretixLocalActions extends DeriverBase implements ContainerDeriverInterfac
     return new static(
       $base_plugin_id,
       $container->get('entity_type.manager'),
+      $container->get('current_user')
     );
   }
 
@@ -53,44 +55,46 @@ class PretixLocalActions extends DeriverBase implements ContainerDeriverInterfac
     $this->derivatives = [];
 
     foreach ($this->entityTypeManager->getDefinitions() as $entityType) {
-      if ($entityType->hasLinkTemplate(PretixRouteProvider::LINK_TEMPLATE)) {
+      if ($entityType->hasLinkTemplate('edit-form')) {
         $entityTypeId = $entityType->id();
 
-        // Add the "Add date" action
-        $this->derivatives["$entityTypeId.add_pretix"] = [
-          'route_name' => PretixRouteProvider::getPretixAddRouteName($entityType),
-          'appears_on' => [PretixRouteProvider::getPretixRouteName($entityType)],
-          'base_route' => "entity.$entityTypeId.canonical",
-          'class' => PretixLocalAction::class,
-          'title' => $this->t('Add date'),
-          'options' => [
-            'attributes' => [
-              'class' => ['use-ajax'],
-              'data-dialog-type' => 'modal',
-              'data-dialog-options' => Json::encode([
-                'width' => '80%',
-              ]),
+        // Add the "Add date" action only if the user has the required permission.
+        if ($this->currentUser->hasPermission('add own pretix events') || $this->currentUser->hasPermission('add all pretix events')) {
+          $this->derivatives["$entityTypeId.add_pretix"] = [
+            'route_name' => 'os2uol_pretix.add_date',
+            'appears_on' => ['entity.' . $entityTypeId . '.pretix'],
+            'base_route' => "entity.$entityTypeId.pretix",
+            'title' => $this->t('Add date'),
+            'options' => [
+              'attributes' => [
+                'class' => ['use-ajax'],
+                'data-dialog-type' => 'modal',
+                'data-dialog-options' => Json::encode([
+                  'width' => '80%',
+                ]),
+              ],
             ],
-          ],
-        ] + $base_plugin_definition;
+          ] + $base_plugin_definition;
+        }
 
-        // Add the "Remove event connection" action
-        $this->derivatives["$entityTypeId.remove_pretix"] = [
-          'route_name' => 'os2uol_pretix.remove_event_connection',
-          'appears_on' => [PretixRouteProvider::getPretixRouteName($entityType)],
-          'base_route' => "entity.$entityTypeId.canonical",
-          'class' => PretixLocalAction::class,
-          'title' => $this->t('Remove event connection'),
-          'options' => [
-            'attributes' => [
-              'class' => ['use-ajax'],
-              'data-dialog-type' => 'modal',
-              'data-dialog-options' => Json::encode([
-                'width' => '50%',
-              ]),
+        // Add the "Remove event connection" action only if the user has the required permission.
+        if ($this->currentUser->hasPermission('remove pretix event connection')) {
+          $this->derivatives["$entityTypeId.remove_pretix"] = [
+            'route_name' => 'os2uol_pretix.remove_event_connection',
+            'appears_on' => ['entity.' . $entityTypeId . '.pretix'],
+            'base_route' => "entity.$entityTypeId.pretix",
+            'title' => $this->t('Remove event connection'),
+            'options' => [
+              'attributes' => [
+                'class' => ['use-ajax'],
+                'data-dialog-type' => 'modal',
+                'data-dialog-options' => Json::encode([
+                  'width' => '50%',
+                ]),
+              ],
             ],
-          ],
-        ] + $base_plugin_definition;
+          ] + $base_plugin_definition;
+        }
       }
     }
 

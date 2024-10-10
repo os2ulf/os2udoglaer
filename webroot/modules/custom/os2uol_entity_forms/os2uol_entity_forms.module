@@ -230,7 +230,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_bypass_workflow',
       'field_institution_type',
       'field_private_municipal',
-      'field_disctrict',
+      'field_district',
     ];
 
     // Hide fields for user role editor.
@@ -253,7 +253,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         $form['field_postnummer']['#access'] = FALSE;
         $form['field_institution_type']['#access'] = FALSE;
         $form['field_private_municipal']['#access'] = FALSE;
-        $form['field_disctrict']['#access'] = FALSE;
+        $form['field_district']['#access'] = FALSE;
       } elseif ($edit_user && $edit_user->hasRole('corporation')) {
         $form['field_allocated_budget']['#access'] = FALSE;
       } elseif ($edit_user && $edit_user->hasRole('school')) {
@@ -268,8 +268,8 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         $form['field_location_city']['#access'] = TRUE;
         $form['field_private_municipal']['#access'] = TRUE;
         $form['field_private_municipal']['widget']['#required'] = TRUE;
-        $form['field_disctrict']['#access'] = TRUE;
-        $form['field_disctrict']['widget']['#required'] = TRUE;
+        $form['field_district']['#access'] = TRUE;
+        $form['field_district']['widget']['#required'] = TRUE;
       } elseif ($edit_user && $edit_user->hasRole('institution')) {
         foreach ($editor_hidden_fields as $field) {
           if (isset($form[$field])) {
@@ -284,8 +284,8 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         $form['field_institution_type']['widget']['#required'] = TRUE;
         $form['field_private_municipal']['#access'] = TRUE;
         $form['field_private_municipal']['widget']['#required'] = TRUE;
-        $form['field_disctrict']['#access'] = TRUE;
-        $form['field_disctrict']['widget']['#required'] = TRUE;
+        $form['field_district']['#access'] = TRUE;
+        $form['field_district']['widget']['#required'] = TRUE;
       } elseif ($edit_user && $edit_user->hasRole('theater_contact')) {
         $form['field_allocated_budget']['#access'] = TRUE;
         $form['field_editor_field']['#access'] = TRUE;
@@ -309,7 +309,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_bypass_workflow',
       'field_institution_type',
       'field_private_municipal',
-      'field_disctrict',
+      'field_district',
     ];
 
     // Hide fields for user role course_provider.
@@ -337,7 +337,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_bypass_workflow',
       'field_institution_type',
       'field_private_municipal',
-      'field_disctrict',
+      'field_district',
     ];
 
     // Hide fields for user role place_of_visit.
@@ -364,7 +364,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_bypass_workflow',
       'field_institution_type',
       'field_private_municipal',
-      'field_disctrict',
+      'field_district',
     ];
 
     // Hide fields for user role corporation.
@@ -408,7 +408,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_bypass_workflow',
       'field_institution_type',
       'field_private_municipal',
-      'field_disctrict',
+      'field_district',
     ];
 
     // Hide fields for user role school.
@@ -452,7 +452,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_bypass_workflow',
       'field_institution_type',
       'field_private_municipal',
-      'field_disctrict',
+      'field_district',
     ];
 
     // Hide fields for user role institution.
@@ -500,7 +500,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_bypass_workflow',
       'field_institution_type',
       'field_private_municipal',
-      'field_disctrict',
+      'field_district',
     ];
 
     // Hide fields for user role theater_contact.

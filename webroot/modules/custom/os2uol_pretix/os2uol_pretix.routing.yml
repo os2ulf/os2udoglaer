@@ -23,11 +23,19 @@ os2uol_pretix.webhooks.order:
     _access: 'TRUE'
   methods: [POST]
 
-os2uol_pretix.remove_event_connection:
-  path: '/admin/pretix/remove/{node}'
+os2uol_pretix.add_date:
+  path: '/node/{node}/pretix/add'
   defaults:
-    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::unlinkEvent'
-    _title: 'Remove Pretix Event Connection'
+    _title: 'Add Date'
   requirements:
-    _permission: 'administer nodes'
-    node: \d+
+    _permission: 'add own pretix events'
+    node: '\d+'
+
+os2uol_pretix.remove_event_connection:
+  path: '/node/{node}/pretix/remove'
+  defaults:
+    _controller: '\Drupal\os2uol_pretix\Controller\PretixController::removeEventConnection'
+    _title: 'Remove Event Connection'
+  requirements:
+    _permission: 'remove pretix event connection'
+    node: '\d+'
