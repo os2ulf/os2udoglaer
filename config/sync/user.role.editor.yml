@@ -270,6 +270,7 @@ permissions:
   - 'edit webform assets'
   - 'publish to any assigned domain'
   - 'publish to any domain'
+  - 'remove pretix event connection'
   - 'revert all revisions'
   - 'revert course revisions'
   - 'revert course_educators revisions'
