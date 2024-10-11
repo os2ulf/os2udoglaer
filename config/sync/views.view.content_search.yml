@@ -27,7 +27,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: Førlob
+      title: Forløb
       fields:
         title:
           id: title
@@ -481,7 +481,7 @@ display:
     display_plugin: block
     position: 1
     display_options:
-      title: Erhvervspraktiker
+      title: Erhvervspraktikker
       defaults:
         title: false
       display_description: ''
