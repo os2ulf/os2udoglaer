@@ -8,8 +8,8 @@ dependencies:
   module:
     - search_api
 id: course_target_group_primary_school
-name: 'Målgruppe - Grundskole'
-weight: 0
+name: Målgruppe
+weight: -2
 min_count: 0
 missing: false
 missing_label: others

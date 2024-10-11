@@ -8,8 +8,8 @@ dependencies:
   module:
     - search_api
 id: excercise_course_target_group_youth_education
-name: 'Målgruppe - Ungdomsuddannelse'
-weight: 2
+name: Målgruppe
+weight: -3
 min_count: 0
 missing: false
 missing_label: others

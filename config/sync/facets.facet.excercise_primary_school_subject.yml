@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: excercise_primary_school_subject
 name: Fag
-weight: -1
+weight: 0
 min_count: 0
 missing: false
 missing_label: others

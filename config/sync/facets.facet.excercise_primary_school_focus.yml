@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: excercise_primary_school_focus
 name: Fokus
-weight: -2
+weight: -1
 min_count: 0
 missing: false
 missing_label: others

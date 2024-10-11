@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: course_educators_is_free
 name: Gratis
-weight: 0
+weight: -3
 min_count: 0
 missing: false
 missing_label: others
