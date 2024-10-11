@@ -55,9 +55,9 @@ processor_configs:
       pre_query: 70
       build: 35
     settings:
-      on_value: 'Gratis førlob'
+      on_value: 'Gratis forløb'
       off_value: ''
-      all_value: 'Alle førlob'
+      all_value: 'Alle forløb'
   count_widget_order:
     processor_id: count_widget_order
     weights:
