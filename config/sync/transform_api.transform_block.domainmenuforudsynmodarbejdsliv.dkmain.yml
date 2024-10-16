@@ -9,7 +9,7 @@ dependencies:
     - os2uol_menus
 id: domainmenuforudsynmodarbejdsliv.dkmain
 region: header
-weight: '0'
+weight: 0
 provider: null
 plugin: 'custom_menu_block:dm14084920-main'
 settings:
@@ -18,7 +18,7 @@ settings:
   provider: os2uol_menus
   level: '1'
   depth: '0'
-  expand_all_items: 0
+  expand_all_items: 1
   label_display: null
 visibility:
   domain:
