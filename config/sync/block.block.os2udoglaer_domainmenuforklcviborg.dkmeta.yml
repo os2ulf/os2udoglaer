@@ -1,0 +1,35 @@
+uuid: f3a6e16d-6d5d-4698-8b9a-3b0fdf556c64
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm3519517-meta
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuforklcviborg.dkmeta
+theme: os2udoglaer
+region: header
+weight: -17
+provider: null
+plugin: 'menu_item_fields:dm3519517-meta'
+settings:
+  id: 'menu_item_fields:dm3519517-meta'
+  label: 'Domain menu for klcviborg.dk (meta)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_klcviborg_dk: api_klcviborg_dk

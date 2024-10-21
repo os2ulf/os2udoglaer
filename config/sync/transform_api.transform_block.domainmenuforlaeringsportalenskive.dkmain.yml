@@ -1,0 +1,30 @@
+uuid: f9b6c066-f176-495d-8089-65e215dd9a81
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm12325470-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforlaeringsportalenskive.dkmain
+region: header
+weight: 0
+provider: null
+plugin: 'custom_menu_block:dm12325470-main'
+settings:
+  id: 'custom_menu_block:dm12325470-main'
+  label: 'Domain menu for laeringsportalenskive.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 1
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_laeringsportalenskive_dk: api_laeringsportalenskive_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

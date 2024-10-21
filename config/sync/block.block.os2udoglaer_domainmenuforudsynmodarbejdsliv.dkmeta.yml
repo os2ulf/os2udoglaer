@@ -1,0 +1,35 @@
+uuid: ea0404c1-ee7c-404a-9f3c-97722622bc76
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm14084920-meta
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuforudsynmodarbejdsliv.dkmeta
+theme: os2udoglaer
+region: header
+weight: -3
+provider: null
+plugin: 'menu_item_fields:dm14084920-meta'
+settings:
+  id: 'menu_item_fields:dm14084920-meta'
+  label: 'Domain menu for udsynmodarbejdsliv.dk (meta)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_udsynmodarbejdsliv_dk: api_udsynmodarbejdsliv_dk

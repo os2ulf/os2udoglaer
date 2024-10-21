@@ -1,0 +1,30 @@
+uuid: 6fdd1721-4ac6-4191-9eab-c5996375e630
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm13940715-meta
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforungegarantien.dkmeta
+region: header
+weight: 0
+provider: null
+plugin: 'custom_menu_block:dm13940715-meta'
+settings:
+  id: 'custom_menu_block:dm13940715-meta'
+  label: 'Domain menu for ungegarantien.dk (meta)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 1
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_ungegarantien_dk: api_ungegarantien_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

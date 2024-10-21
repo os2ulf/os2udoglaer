@@ -1,0 +1,30 @@
+uuid: 83bb394e-9dd8-4792-8351-922200bb3191
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm12325470-meta
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforlaeringsportalenskive.dkmeta
+region: header
+weight: 0
+provider: null
+plugin: 'custom_menu_block:dm12325470-meta'
+settings:
+  id: 'custom_menu_block:dm12325470-meta'
+  label: 'Domain menu for laeringsportalenskive.dk (meta)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 1
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_laeringsportalenskive_dk: api_laeringsportalenskive_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

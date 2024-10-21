@@ -1,0 +1,30 @@
+uuid: 9621755d-8cd5-49e6-892f-681006999a5a
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm4951852-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuformitvadehav.dkmain
+region: header
+weight: 0
+provider: null
+plugin: 'custom_menu_block:dm4951852-main'
+settings:
+  id: 'custom_menu_block:dm4951852-main'
+  label: 'Domain menu for mitvadehav.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 1
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_mitvadehav_dk: api_mitvadehav_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

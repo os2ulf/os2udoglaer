@@ -1,0 +1,30 @@
+uuid: fc99a423-dfc8-4ca5-bc34-f2039dfa53f3
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm3718682-meta
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforude.numeta
+region: header
+weight: 0
+provider: null
+plugin: 'custom_menu_block:dm3718682-meta'
+settings:
+  id: 'custom_menu_block:dm3718682-meta'
+  label: 'Domain menu for ude.nu (meta)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 1
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_ude_nu: api_ude_nu
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

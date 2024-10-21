@@ -1,0 +1,35 @@
+uuid: 7edc8c26-b98a-463b-8ea0-ab482e295018
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm4951852-main
+  module:
+    - domain
+    - menu_item_fields
+  theme:
+    - os2udoglaer
+id: os2udoglaer_domainmenuformitvadehav.dkmain
+theme: os2udoglaer
+region: header
+weight: -12
+provider: null
+plugin: 'menu_item_fields:dm4951852-main'
+settings:
+  id: 'menu_item_fields:dm4951852-main'
+  label: 'Domain menu for mitvadehav.dk (main)'
+  label_display: '0'
+  provider: menu_item_fields
+  view_mode: default
+  level: '1'
+  depth: '0'
+  expand_all_items: 0
+  view_mode_override_field: _none
+visibility:
+  domain:
+    id: domain
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
+    domains:
+      api_mitvadehav_dk: api_mitvadehav_dk

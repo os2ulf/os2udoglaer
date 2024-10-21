@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2c2729dfa7f0389c419efbfb0e090f1",
+    "content-hash": "68d3eed7883043acf57246d19a2b5bf2",
     "packages": [
         {
             "name": "algolia/places",
@@ -3274,6 +3274,54 @@
             "homepage": "https://www.drupal.org/project/domain_entity",
             "support": {
                 "source": "https://git.drupalcode.org/project/domain_entity"
+            }
+        },
+        {
+            "name": "drupal/domain_menus",
+            "version": "3.6.1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/domain_menus.git",
+                "reference": "3.6.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/domain_menus-3.6.1.zip",
+                "reference": "3.6.1",
+                "shasum": "32a3749712efec61656e34b55fec26277149be9e"
+            },
+            "require": {
+                "drupal/core": "^8.8 || ^9 || ^10",
+                "drupal/domain": "*"
+            },
+            "require-dev": {
+                "drupal/superfish": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.6.1",
+                    "datestamp": "1710562734",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "drpldrp",
+                    "homepage": "https://www.drupal.org/user/3630968"
+                }
+            ],
+            "description": "Creates menus with domain access integration.",
+            "homepage": "https://www.drupal.org/project/domain_menus",
+            "support": {
+                "source": "https://git.drupalcode.org/project/domain_menus"
             }
         },
         {
@@ -6719,17 +6767,17 @@
         },
         {
             "name": "drupal/transform_api_facets",
-            "version": "1.0.0-alpha8",
+            "version": "1.0.0-alpha9",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api_facets.git",
-                "reference": "1.0.0-alpha8"
+                "reference": "1.0.0-alpha9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-1.0.0-alpha8.zip",
-                "reference": "1.0.0-alpha8",
-                "shasum": "b7e189e35823172bdb74b3844deb695a1d496cfa"
+                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-1.0.0-alpha9.zip",
+                "reference": "1.0.0-alpha9",
+                "shasum": "d73cdd4730d778dbe159a9f277ab847187e0a616"
             },
             "require": {
                 "drupal/core": "^10 || ^11",
@@ -6739,8 +6787,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-alpha8",
-                    "datestamp": "1725441034",
+                    "version": "1.0.0-alpha9",
+                    "datestamp": "1728647241",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"

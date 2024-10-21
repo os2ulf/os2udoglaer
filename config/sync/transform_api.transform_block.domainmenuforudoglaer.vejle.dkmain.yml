@@ -1,0 +1,30 @@
+uuid: 78721ca0-5a3e-4d8c-a567-25d6950d6803
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm5562611-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforudoglaer.vejle.dkmain
+region: header
+weight: 0
+provider: null
+plugin: 'custom_menu_block:dm5562611-main'
+settings:
+  id: 'custom_menu_block:dm5562611-main'
+  label: 'Domain menu for udoglaer.vejle.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 1
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_udoglaer_vejle_dk: api_udoglaer_vejle_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'

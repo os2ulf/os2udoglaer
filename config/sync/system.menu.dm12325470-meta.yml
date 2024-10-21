@@ -1,0 +1,15 @@
+uuid: e70d136c-a2d0-4864-81da-20227eac2bfe
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_laeringsportalenskive_dk: api_laeringsportalenskive_dk
+    auto-created: 1
+id: dm12325470-meta
+label: 'Domain menu for laeringsportalenskive.dk (meta)'
+description: null
+locked: false
