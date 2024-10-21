@@ -9,6 +9,7 @@ function os2uol_settings_get_available_fonts(): array {
   return [
     'Arial' => 'Arial',
     'Montserrat' => 'Montserrat',
+    'Muli' => 'Muli',
     'Open Sans' => 'Open Sans',
     'Roboto' => 'Roboto',
   ];
