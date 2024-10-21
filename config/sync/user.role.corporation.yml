@@ -88,6 +88,7 @@ permissions:
   - 'view exercise revisions'
   - 'view free_course_request revisions'
   - 'view internship revisions'
+  - 'view latest version'
   - 'view news revisions'
   - 'view own pretix events'
   - 'view own unpublished content'
