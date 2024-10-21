@@ -117,6 +117,7 @@ type_settings:
       from:
         - draft
         - published
+        - unpublished
       to: review
       weight: -2
     unpublish:
