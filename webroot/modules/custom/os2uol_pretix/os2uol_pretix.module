@@ -4,7 +4,6 @@ use Drupal\Core\Access\AccessResultInterface;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Session\AccountInterface;
-use Drupal\Core\Url;
 use Drupal\os2uol_pretix\PretixEntityHooks;
 use Drupal\os2uol_pretix\Routing\PretixRouteProvider;
 
@@ -15,14 +14,11 @@ function os2uol_pretix_locale_translation_projects_alter(&$projects) {
   /** @var \Drupal\Core\Extension\ModuleHandlerInterface $module_handler */
   $module_handler = \Drupal::service('module_handler');
   $path = $module_handler->getModule('os2uol_pretix')->getPath();
-  $projects['os2uol_pretix']['info']['interface translation server pattern']
-    = $path . '/translations/%language.po';
+  $projects['os2uol_pretix']['info']['interface translation server pattern'] = $path . '/translations/%language.po';
 }
 
 /**
  * Implements hook_entity_access().
- *
- * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityAccess
  */
 function os2uol_pretix_entity_access(EntityInterface $entity, $operation, AccountInterface $account): AccessResultInterface {
   return \Drupal::classResolver(PretixEntityHooks::class)
@@ -31,8 +27,6 @@ function os2uol_pretix_entity_access(EntityInterface $entity, $operation, Accoun
 
 /**
  * Implements hook_entity_delete().
- *
- * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityAccess
  */
 function os2uol_pretix_entity_delete(EntityInterface $entity): void {
   \Drupal::classResolver(PretixEntityHooks::class)
@@ -41,8 +35,6 @@ function os2uol_pretix_entity_delete(EntityInterface $entity): void {
 
 /**
  * Implements hook_entity_insert().
- *
- * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityAccess
  */
 function os2uol_pretix_entity_insert(EntityInterface $entity): void {
   \Drupal::classResolver(PretixEntityHooks::class)
@@ -51,8 +43,6 @@ function os2uol_pretix_entity_insert(EntityInterface $entity): void {
 
 /**
  * Implements hook_entity_update().
- *
- * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityAccess
  */
 function os2uol_pretix_entity_update(EntityInterface $entity): void {
   \Drupal::classResolver(PretixEntityHooks::class)
@@ -61,8 +51,6 @@ function os2uol_pretix_entity_update(EntityInterface $entity): void {
 
 /**
  * Implements hook_entity_type_build().
- *
- * @see \Drupal\os2uol_pretix\PretixEntityHooks::entityTypeBuild
  */
 function os2uol_pretix_entity_type_build(array &$entity_types): void {
   \Drupal::classResolver(PretixEntityHooks::class)
@@ -117,7 +105,15 @@ function os2uol_pretix_process_element($element) {
  * Implements hook_form_alter().
  */
 function os2uol_pretix_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if ($form_id === 'node_course_pretix_add_form_form') {
+  // Add the form IDs for course, course_educators, internship, and subevent edit.
+  $applicable_form_ids = [
+    'node_course_pretix_add_form_form',
+    'node_course_educators_pretix_add_form_form',
+    'node_internship_pretix_add_form_form',
+    'os2uol_pretix.subevent.edit',
+  ];
+
+  if (in_array($form_id, $applicable_form_ids)) {
     // Add the 'hide seconds' functionality to date fields.
     foreach (['date_from', 'date_to', 'presale_start', 'presale_end'] as $field) {
       if (isset($form[$field])) {
@@ -126,6 +122,7 @@ function os2uol_pretix_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $
     }
   }
 }
+
 
 /**
  * Implements hook_field_widget_form_alter().
@@ -136,6 +133,112 @@ function os2uol_pretix_field_widget_single_element_form_alter(&$element, FormSta
     $element['value']['#datetimehideseconds']['hide'] = TRUE;
     if (isset($element['end_value'])) {
       $element['end_value']['#datetimehideseconds']['hide'] = TRUE;
+    }
+  }
+}
+
+/**
+ * Implements hook_field_widget_form_alter().
+ */
+function os2uol_pretix_field_widget_form_alter(&$element, FormStateInterface $form_state, $context) {
+  // Ensure the datetimehideseconds functionality is applied for hiding seconds.
+  if (isset($element['#field_name']) && in_array($element['#field_name'], ['date_from', 'date_to', 'presale_start', 'presale_end'])) {
+    $element['value']['#datetimehideseconds']['hide'] = TRUE;
+
+    // Ensure step attribute is set to avoid seconds.
+    $element['value']['#attributes']['step'] = 60;
+
+    if (isset($element['end_value'])) {
+      $element['end_value']['#datetimehideseconds']['hide'] = TRUE;
+      $element['end_value']['#attributes']['step'] = 60;
+    }
+  }
+}
+
+/**
+ * Implements hook_search_node_filtered_item_alter().
+ */
+function os2uol_pretix_search_node_filtered_item_alter(&$filteredItem) {
+  if (isset($filteredItem['nid'])) {
+    $node = \Drupal::entityTypeManager()->getStorage('node')->load($filteredItem['nid']);
+    if ($node && isset($node->pretix['data']['available']) && FALSE === $node->pretix['data']['available']) {
+      $filteredItem['ribbon_message'] = t('Sold out');
+      $filteredItem['ribbon_class_names'] = ['warning'];
+    }
+  }
+}
+
+/**
+ * Implements hook_clone_node_alter().
+ * Turn off Pretix on cloned nodes.
+ */
+function os2uol_pretix_clone_node_alter(&$data, $context) {
+  if (in_array($context['original_node']->bundle(), ['course', 'course_educators', 'internship'])) {
+    $data->field_pretix_enable['und']['0']['value'] = FALSE;
+    $data->field_pretix_show_widget_from = [];
+    $data->field_pretix_synchronize['und']['0']['value'] = TRUE;
+    $data->field_pretix_date = [];
+    $data->field_pretix_email_recipient = [];
+  }
+}
+
+/**
+ * Implements hook_node_insert(), hook_node_update(), and hook_node_delete().
+ * Synchronize Pretix events with nodes.
+ */
+function os2uol_pretix_node_insert($node) {
+  _os2uol_pretix_synchronize_pretix_event($node);
+}
+
+function os2uol_pretix_node_update($node) {
+  _os2uol_pretix_synchronize_pretix_event($node);
+}
+
+function os2uol_pretix_node_delete($node) {
+  $helper = \Drupal::service('os2uol_pretix.event_helper');
+  if ($helper->isPretixEventNode($node)) {
+    $result = $helper->deletePretixEvent($node);
+    if (isset($result['error'])) {
+      \Drupal::messenger()->addError(t('The event could not be deleted in Pretix (%message).', ['%message' => $result['error']]));
+    } else {
+      \Drupal::messenger()->addStatus(t('The event was successfully deleted from Pretix.'));
+    }
+  }
+}
+
+/**
+ * Synchronize Pretix event with node.
+ *
+ * @param object $node
+ *   The node.
+ */
+function _os2uol_pretix_synchronize_pretix_event($node) {
+  if (!$node->hasField('field_pretix_enable') || $node->get('field_pretix_enable')->value !== TRUE) {
+    return;
+  }
+  $helper = \Drupal::service('os2uol_pretix.event_helper');
+  if ($helper->isPretixEventNode($node)) {
+    $result = $helper->synchronizePretixEvent($node);
+    if ($helper->isError($result)) {
+      \Drupal::messenger()->addError(t('There was a problem updating the event in Pretix. Please verify in Pretix that all settings for the event are correct.'));
+    } else {
+      $pretix_event_url = $helper->getPretixEventUrl($node);
+      \Drupal::messenger()->addStatus(t('Successfully updated <a href="@pretix_event_url">the event in Pretix</a>.', ['@pretix_event_url' => $pretix_event_url]));
+      $live = $node->status;
+      $result = $helper->setEventLive($node, $live);
+      if ($helper->isError($result)) {
+        $data = $helper->getErrorData($result);
+        $errors = isset($data->live) ? implode('; ', $data->live) : NULL;
+        $message = $live
+          ? t('Error setting <a href="@pretix_event_url">the Pretix event</a> live: @errors', ['@pretix_event_url' => $pretix_event_url, '@errors' => $errors])
+          : t('Error setting <a href="@pretix_event_url">the Pretix event</a> not live: @errors', ['@pretix_event_url' => $pretix_event_url, '@errors' => $errors]);
+        \Drupal::messenger()->addError($message);
+      } else {
+        $message = $live
+          ? t('Successfully set <a href="@pretix_event_url">the Pretix event</a> live.', ['@pretix_event_url' => $pretix_event_url])
+          : t('Successfully set <a href="@pretix_event_url">the Pretix event</a> not live.', ['@pretix_event_url' => $pretix_event_url]);
+        \Drupal::messenger()->addStatus($message);
+      }
     }
   }
 }
