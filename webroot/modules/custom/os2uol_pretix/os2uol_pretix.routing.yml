@@ -35,7 +35,8 @@ os2uol_pretix.remove_event_connection:
   path: '/node/{node}/pretix/remove'
   defaults:
     _controller: '\Drupal\os2uol_pretix\Controller\PretixController::removeEventConnection'
-    _title: 'Remove Event Connection'
+    _title: 'Remove Pretix Event Connection'
   requirements:
     _permission: 'remove pretix event connection'
     node: '\d+'
+
