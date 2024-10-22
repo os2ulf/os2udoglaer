@@ -2,3 +2,7 @@ services:
   os2uol_domain.default_domain:
     class: 'Drupal\os2uol_domain\Os2uolDomain'
     arguments: ['@entity_type.manager']
+
+  os2uol_domain.config_helper:
+    class: 'Drupal\os2uol_domain\DomainConfigHelper'
+    arguments: ['@config.factory']
