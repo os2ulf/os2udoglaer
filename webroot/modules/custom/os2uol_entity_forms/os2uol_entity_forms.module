@@ -1,6 +1,6 @@
 <?php
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\user\Entity\User;
+use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\user\UserInterface;
 
@@ -91,8 +91,8 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       // Handle domain access restrictions for non-admin users.
       $domain_array = $form['field_domain_access']['widget']['#default_value'];
 
-      // Remove 'api_os2udoglaer_dk' from domain_array.
-      if (($key = array_search('api_os2udoglaer_dk', $domain_array)) !== false) {
+      // Remove default domain from domain_array.
+      if (($key = array_search(Os2uolDomain::DEFAULT_DOMAIN_ID, $domain_array)) !== false) {
         unset($domain_array[$key]);
       }
 
@@ -105,8 +105,8 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         return;
       }
 
-      // Set the default domain ID to 'api_os2udoglaer_dk'.
-      $default_domain_id = 'api_os2udoglaer_dk';
+      // Set the default domain ID.
+      $default_domain_id = Os2uolDomain::DEFAULT_DOMAIN_ID;
 
       // Modify the filtering logic to exclude only the default domain.
       $filtered_domains = array_filter($domain_array, function($domain) use ($default_domain_id) {
@@ -548,9 +548,9 @@ function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
       // Add the current domain ID.
       $domain_ids[] = $current_domain->id();
 
-      // Add the default "Databrønden" domain ID.
-      $databroenden_domain_id = 'api_os2udoglaer_dk';
-      $domain_ids[] = $databroenden_domain_id;
+      // Add the default domain ID.
+      $default_domain_id = Os2uolDomain::DEFAULT_DOMAIN_ID;
+      $domain_ids[] = $default_domain_id;
 
       // Retrieve the selected domains from the edit form.
       $selected_domains = $entity->get('field_domain_access')->getValue();

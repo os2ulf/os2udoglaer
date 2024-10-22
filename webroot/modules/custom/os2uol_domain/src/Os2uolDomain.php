@@ -10,6 +10,8 @@ use Drupal\Core\Entity\EntityInterface;
  */
 class Os2uolDomain {
 
+  public const DEFAULT_DOMAIN_ID = 'api_os2udoglaer_dk';
+
   /**
    * The entity type manager.
    *
@@ -41,8 +43,8 @@ class Os2uolDomain {
         // Get the current domain values.
         $current_domains = $entity->get('field_domain_access')->getValue();
 
-        // Add the new domain. Replace 'api_os2udoglaer_dk' with your actual domain ID.
-        $current_domains[] = ['target_id' => 'api_os2udoglaer_dk'];
+        // Add the new domain. Replace default domain ID with your actual domain ID.
+        $current_domains[] = ['target_id' => self::DEFAULT_DOMAIN_ID];
 
         // Set the domain field with the updated array.
         $entity->set('field_domain_access', $current_domains);
