@@ -226,7 +226,7 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
   /** @var \Drupal\os2uol_domain\DomainConfigHelper $config_helper */
   $config_helper = \Drupal::service('os2uol_domain.config_helper');
 
-  $config = $config_helper->getDomainConfig('os2uol_application_forms.gdpr_settings', $domain);
+  $config = $config_helper->getDomainConfig('os2uol_application_forms.gdpr_settings', $domain, Drupal::languageManager()->getDefaultLanguage());
 
   $anonymization_days = $config->get('anonymization_days');
 
