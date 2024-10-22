@@ -19,7 +19,7 @@ settings:
   handler: views
   handler_settings:
     view:
-      view_name: content_reference
+      view_name: content_entity_reference
       display_name: entity_reference_1
       arguments:
         - internship+course_educators+news+exercise+course
