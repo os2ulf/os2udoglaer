@@ -98,6 +98,7 @@
         "drupal/simple_access_log": "^2.0",
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",
+        "drupal/symfony_mailer_lite": "^2.0",
         "drupal/transform_api": "1.1.0-beta3",
         "drupal/transform_api_facets": "^1.0@alpha",
         "drupal/ultimate_cron": "^2.0@alpha",

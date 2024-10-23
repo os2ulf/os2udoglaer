@@ -67,3 +67,6 @@ cloneable_entities:
   - solr_request_dispatcher
   - rest_resource_config
   - content_moderation_notification
+  - mailer_policy
+  - mailer_transport
+  - symfony_mailer_lite_transport
