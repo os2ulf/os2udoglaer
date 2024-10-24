@@ -115,12 +115,8 @@ abstract class PretixAbstractManager {
    *
    * @return bool
    */
-  protected function isApiError(array $result) {
-    if (isset($result['error'])) {
-      return TRUE;
-    } else {
-      return FALSE;
-    }
+  protected function isApiError($result) {
+    return isset($result['error']) || empty($result);
   }
 
   protected function apiError(array $result, string $message, $addToMessenger = TRUE) {
