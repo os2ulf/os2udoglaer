@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: course_educators_target_group
 name: Målgruppe
-weight: -2
+weight: -5
 min_count: 0
 missing: false
 missing_label: others

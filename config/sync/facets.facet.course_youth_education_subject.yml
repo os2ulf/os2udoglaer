@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: course_youth_education_subject
 name: Fag
-weight: -1
+weight: -3
 min_count: 0
 missing: false
 missing_label: others
