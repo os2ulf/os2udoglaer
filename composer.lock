@@ -6815,17 +6815,17 @@
         },
         {
             "name": "drupal/transform_api_facets",
-            "version": "1.0.0-alpha9",
+            "version": "1.0.0-alpha10",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api_facets.git",
-                "reference": "1.0.0-alpha9"
+                "reference": "1.0.0-alpha10"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-1.0.0-alpha9.zip",
-                "reference": "1.0.0-alpha9",
-                "shasum": "d73cdd4730d778dbe159a9f277ab847187e0a616"
+                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-1.0.0-alpha10.zip",
+                "reference": "1.0.0-alpha10",
+                "shasum": "4f7e58945a766223de9fcc9d28d7565fcb2c948c"
             },
             "require": {
                 "drupal/core": "^10 || ^11",
@@ -6835,8 +6835,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-alpha9",
-                    "datestamp": "1728647241",
+                    "version": "1.0.0-alpha10",
+                    "datestamp": "1729765843",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -15080,7 +15080,7 @@
         "ext-json": "*",
         "ext-pdo": "*"
     },
-    "platform-dev": [],
+    "platform-dev": {},
     "platform-overrides": {
         "php": "8.1"
     },
