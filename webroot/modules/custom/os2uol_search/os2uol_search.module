@@ -86,3 +86,22 @@ function os2uol_search_view_transform_alter(&$transformation) {
   $transformation['result_string'] = $result_string;
 }
 
+/**
+ * Implements hook_facet_transform_alter().
+ */
+function os2uol_search_facet_transform_alter(array &$transformation) {
+  /** @var \Drupal\facets\Entity\Facet $facet */
+  $facet = $transformation['#facet'];
+
+  $processors = $facet->getProcessors(TRUE);
+
+  $transformation['hidden'] = FALSE;
+
+  foreach ($processors as $processor) {
+    if ($processor->getPluginId() === 'hidden_attribute_processor') {
+      $transformation['hidden'] = TRUE;
+      return;
+    }
+  }
+}
+
