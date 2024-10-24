@@ -1,4 +1,4 @@
-uuid: 025c1e03-a318-46ce-816a-4dacb7e4de47
+uuid: 39ce7532-5ac7-4af0-b63c-3130630b77f2
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.content_search
   module:
     - search_api
-id: course_curriculum_themes_primary_school
-name: Læreplanstemaer
-weight: -1
-min_count: 0
+id: course_subject
+name: Emneområde
+weight: 1
+min_count: 1
 missing: false
 missing_label: others
-url_alias: cctps2
-facet_source_id: 'search_api:views_block__content_search__block_6'
-field_identifier: field_curriculum_themes
+url_alias: cs
+facet_source_id: 'search_api:views_block__content_search__block_4'
+field_identifier: field_subject
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -61,6 +61,10 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hidden_attribute_processor:
+    processor_id: hidden_attribute_processor
+    weights: {  }
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
@@ -74,6 +78,6 @@ processor_configs:
   url_processor_handler:
     processor_id: url_processor_handler
     weights:
-      pre_query: 50
+      pre_query: -9
       build: 15
     settings: {  }

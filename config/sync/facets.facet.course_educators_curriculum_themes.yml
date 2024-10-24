@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: course_educators_curriculum_themes
 name: 'Kurset er relevant for pædagoger, der arbejder med læreplanstemaerne'
-weight: -1
+weight: -3
 min_count: 0
 missing: false
 missing_label: others

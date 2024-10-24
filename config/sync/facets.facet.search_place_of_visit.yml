@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: search_place_of_visit
 name: Besøgssted
-weight: -1
+weight: 0
 min_count: 0
 missing: false
 missing_label: others
