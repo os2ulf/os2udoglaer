@@ -13,3 +13,4 @@ ignored_config_entities:
   - sendgrid_integration.settings
   - system.site
   - 'transform_api.transform_block.*footer*'
+  - 'domain.config.*.os2uol_application_forms.gdpr_settings'
