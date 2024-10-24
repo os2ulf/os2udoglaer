@@ -414,7 +414,7 @@ abstract class AbstractHelper {
    *   True iff the result is an error.
    */
   public function isApiError($result) {
-    return isset($result->error);
+    return isset($result['error']) || empty($result);
   }
 
   /**

@@ -27,14 +27,16 @@ class PretixEventManager extends PretixAbstractManager {
     $client = $this->getClient($entity);
 
     $templateSubEvent = $this->getEventSubEventTemplate($entity);
-    if ($this->isApiError($templateSubEvent)) {
+    $this->logger->info('Debug: Template Sub-Event: @data', ['@data' => print_r($templateSubEvent, TRUE)]);
+    if ($templateSubEvent !== null && $this->isApiError($templateSubEvent)) {
       $this->apiError($templateSubEvent, 'Cannot get template event sub-event');
       return NULL;
     }
 
     $product = $this->getEventProduct($entity);
-    if ($this->isApiError($product)) {
-      $this->apiError($product, 'Cannot get template event items');
+    $this->logger->info('Debug: Product: @data', ['@data' => print_r($product, TRUE)]);
+    if ($templateSubEvent !== null && $this->isApiError($templateSubEvent)) {
+      $this->apiError($templateSubEvent, 'Cannot get template event sub-event');
       return NULL;
     }
 
