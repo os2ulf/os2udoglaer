@@ -90,10 +90,14 @@ function os2uol_search_view_transform_alter(&$transformation) {
  * Implements hook_facet_transform_alter().
  */
 function os2uol_search_facet_transform_alter(array &$transformation) {
-  /** @var \Drupal\facets\Entity\Facet $facet */
-  $facet = $transformation['#facet'];
+  /** @var \Drupal\facets\Entity\Facet|null $facet */
+  $facet = $transformation['#facet'] ?? NULL;
 
-  $processors = $facet->getProcessors(TRUE);
+  if ($facet == NULL) {
+    return;
+  }
+
+  $processors = $facet->getProcessors(TRUE) ?? [];
 
   $transformation['hidden'] = FALSE;
 
