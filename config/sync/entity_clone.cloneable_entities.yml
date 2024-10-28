@@ -70,3 +70,5 @@ cloneable_entities:
   - mailer_policy
   - mailer_transport
   - symfony_mailer_lite_transport
+  - rules_reaction_rule
+  - rules_component

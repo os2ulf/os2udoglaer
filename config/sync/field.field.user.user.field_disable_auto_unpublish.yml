@@ -1,0 +1,22 @@
+uuid: 4a269de6-069b-4697-be5f-e64e47348704
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_disable_auto_unpublish
+  module:
+    - user
+id: user.user.field_disable_auto_unpublish
+field_name: field_disable_auto_unpublish
+entity_type: user
+bundle: user
+label: 'Autotamatisk afpublicering'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
