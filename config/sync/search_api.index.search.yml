@@ -33,13 +33,13 @@ dependencies:
     - field.storage.node.field_target_group
     - field.storage.node.field_period
     - field.storage.node.field_period_select
+    - field.storage.user.field_guarantee_partner
     - field.storage.node.field_how_to
     - field.storage.node.field_theme
     - field.storage.node.field_duration_select
     - field.storage.node.field_sustainability_goals
     - field.storage.node.field_exclude_from_search
     - field.storage.user.field_brancher
-    - field.storage.user.field_guarantee_partner
     - field.storage.user.field_posibilities
     - field.storage.user.field_postnummer
     - field.storage.user.field_presentation
@@ -695,6 +695,17 @@ field_settings:
     dependencies:
       module:
         - node
+  uid_field_guarantee_partner:
+    label: 'Udbyder » Bruger » Garantipartner'
+    datasource_id: 'entity:node'
+    property_path: 'uid:entity:field_guarantee_partner'
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.user.field_guarantee_partner
+      module:
+        - node
+        - user
   uid_name:
     label: 'Udbyder » Bruger » Navn'
     datasource_id: 'entity:node'

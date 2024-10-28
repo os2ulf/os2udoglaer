@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: internship_post_number_and_city
 name: 'Postnummer + By'
-weight: 0
+weight: -1
 min_count: 1
 missing: false
 missing_label: others
