@@ -25,8 +25,10 @@ logger:
     timeout: -1
   database:
     method: 3
-    expire: 1209600
-    retain: 1000
+    method_expire:
+      expire: '1209600'
+    method_retain:
+      retain: '1000'
 scheduler:
   crontab:
     catch_up: 86400

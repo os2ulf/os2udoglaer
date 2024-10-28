@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_rfc_course
-    - node.type.course
     - node.type.transport_pool_form
 id: node.transport_pool_form.field_rfc_course
 field_name: field_rfc_course
@@ -17,13 +16,11 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: views
   handler_settings:
-    target_bundles:
-      course: course
-    sort:
-      field: _none
-      direction: ASC
-    auto_create: false
-    auto_create_bundle: ''
+    view:
+      view_name: content_entity_reference
+      display_name: entity_reference_1
+      arguments:
+        - course
 field_type: entity_reference

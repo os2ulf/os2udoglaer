@@ -4,6 +4,7 @@ langcode: da
 theme: current
 defaults:
   sender: SMTPMailSystem
-  formatter: SMTPMailSystem
+  formatter: symfony_mailer_lite
 modules:
   sendgrid_integration: {  }
+  symfony_mailer_lite: {  }

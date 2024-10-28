@@ -1,12 +1,10 @@
 <?php
 
+use Drupal\domain\Entity\Domain;
+use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
-use Drupal\Core\Form\ConfigFormBase;
-use Drupal\Core\Form\FormStateInterface;
-use Drupal\node\Entity\Node;
-use Drupal\Core\Datetime\DrupalDateTime;
-use Drupal\Core\Entity\RevisionableStorageInterface;
+use Psr\Log\LoggerInterface;
 
 /**
  * Implements hook_node_presave().
@@ -206,7 +204,30 @@ function os2uol_application_forms_gdpr_anonymization_cron() {
 
   $logger->info('GDPR Anonymization cron started.');
 
-  $config = \Drupal::config('os2uol_application_forms.gdpr_settings');
+  // Get domains list
+  $domains = \Drupal::entityTypeManager()->getStorage('domain')->loadMultiple();
+
+  /** @var \Drupal\domain\Entity\Domain $domain */
+  foreach ($domains as $domain) {
+    // Skip main domain, since every form is assigned to default domain.
+    if ($domain->id() == Os2uolDomain::DEFAULT_DOMAIN_ID) {
+      continue;
+    }
+
+    os2uol_application_forms_anonymize_data($logger, $domain);
+  }
+}
+
+
+/**
+ * Anonymizes personal data fields in a safe manner for a specific domain.
+ */
+function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain $domain) {
+  /** @var \Drupal\os2uol_domain\DomainConfigHelper $config_helper */
+  $config_helper = \Drupal::service('os2uol_domain.config_helper');
+
+  $config = $config_helper->getDomainConfig('os2uol_application_forms.gdpr_settings', $domain, Drupal::languageManager()->getDefaultLanguage());
+
   $anonymization_days = $config->get('anonymization_days');
 
   // Calculate the cutoff date for anonymization.
@@ -217,6 +238,7 @@ function os2uol_application_forms_gdpr_anonymization_cron() {
     ->condition('type', ['free_course_request', 'theater_refund', 'transport_pool_form'], 'IN')
     ->condition('field_rfc_date', $cutoff_date->format('Y-m-d'), '<=')
     ->condition('field_data_anonymized', '1', '!=') // Only non-anonymized data
+    ->condition('field_domain_access', $domain->id()) // Only nodes for the current domain
     ->accessCheck(FALSE); // Disable access checks for cron job
 
   $nids = $query->execute();
@@ -319,7 +341,8 @@ function cos2uol_application_forms_mail_alter(&$message) {
 /**
  * Implements hook_node_access().
  *
- * Restrict editing access to certain moderation states for "Skole" and "Institution" roles.
+ * Restrict editing access to certain moderation states for "Skole" and
+ * "Institution" roles.
  */
 function os2uol_application_forms_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
   // Check if this is an application node and the operation is 'update' (edit).

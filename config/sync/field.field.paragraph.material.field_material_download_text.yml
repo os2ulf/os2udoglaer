@@ -9,7 +9,7 @@ id: paragraph.material.field_material_download_text
 field_name: field_material_download_text
 entity_type: paragraph
 bundle: material
-label: 'Download tekst'
+label: 'Download tekst / Link tekst'
 description: ''
 required: false
 translatable: false

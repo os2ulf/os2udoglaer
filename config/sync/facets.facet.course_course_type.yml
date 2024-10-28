@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: course_course_type
 name: Forløbstype
-weight: -2
+weight: -4
 min_count: 0
 missing: false
 missing_label: others
@@ -61,6 +61,11 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hidden_attribute_processor:
+    processor_id: hidden_attribute_processor
+    weights:
+      build: 35
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
