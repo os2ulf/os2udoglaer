@@ -491,6 +491,7 @@ display:
         transform_api_facets:
           transform_facets:
             internship_areas_of_interest: internship_areas_of_interest
+            internship_company: internship_company
             internship_industry: internship_industry
             internship_post_number_and_city: internship_post_number_and_city
         transform_api_views:

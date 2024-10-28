@@ -1,0 +1,98 @@
+uuid: 6a75b3a0-eca7-4b18-900f-4ec611f1f02a
+langcode: da
+status: true
+dependencies:
+  config:
+    - search_api.index.search
+    - views.view.content_search
+  module:
+    - search_api
+id: internship_company
+name: Virksomhed
+weight: 0
+min_count: 1
+missing: false
+missing_label: others
+url_alias: ic
+facet_source_id: 'search_api:views_block__content_search__block_1'
+field_identifier: uid
+query_operator: or
+hard_limit: 0
+exclude: false
+use_hierarchy: false
+keep_hierarchy_parents_active: false
+hierarchy:
+  type: taxonomy
+  config: {  }
+expand_hierarchy: false
+enable_parent_when_child_gets_disabled: true
+widget:
+  type: checkbox
+  config:
+    show_numbers: false
+    soft_limit: 0
+    show_reset_link: false
+    reset_text: 'Vis alle'
+    hide_reset_when_no_selection: false
+    soft_limit_settings:
+      show_less_label: 'Show less'
+      show_more_label: 'Show more'
+empty_behavior:
+  behavior: none
+only_visible_when_facet_source_is_visible: false
+show_only_one_result: false
+show_title: false
+processor_configs:
+  active_widget_order:
+    processor_id: active_widget_order
+    weights:
+      sort: 20
+    settings:
+      sort: ASC
+  display_value_widget_order:
+    processor_id: display_value_widget_order
+    weights:
+      sort: 40
+    settings:
+      sort: ASC
+  hierarchy_processor:
+    processor_id: hierarchy_processor
+    weights:
+      build: 100
+    settings: {  }
+  uid_to_field_name_callback:
+    processor_id: uid_to_field_name_callback
+    weights:
+      build: 5
+    settings: {  }
+  url_processor_handler:
+    processor_id: url_processor_handler
+    weights:
+      pre_query: -9
+      build: 15
+    settings: {  }
+  user_domain_access_filter:
+    processor_id: user_domain_access_filter
+    weights:
+      build: 1
+    settings: {  }
+  user_role_filter:
+    processor_id: user_role_filter
+    weights:
+      build: 2
+    settings:
+      roles:
+        corporation: corporation
+        anonymous: 0
+        authenticated: 0
+        administrator: 0
+        webmaster: 0
+        editor: 0
+        course_provider: 0
+        institution: 0
+        school: 0
+        place_of_visit: 0
+        theater_contact: 0
+        monitor: 0
+        bypass_workflow: 0
+        rest_api: 0
