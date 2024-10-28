@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
+
 /**
  * Implements hook_views_pre_build().
  */
@@ -109,3 +112,112 @@ function os2uol_search_facet_transform_alter(array &$transformation) {
   }
 }
 
+/**
+ * Implements hook_token_info().
+ */
+function os2uol_search_token_info() {
+  $info = [];
+
+  // Define a new group of tokens.
+  $info['types']['os2uol_search'] = [
+    'name' => t('OS2UOL Search'),
+    'description' => t('Tokens for OS2UOL search.'),
+  ];
+
+  // Define tokens in the group.
+  $info['tokens']['os2uol_search']['post_number_and_address'] = [
+    'name' => t('Post number and address'),
+    'description' => t('The post number and address of the internship or company.'),
+  ];
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function os2uol_search_tokens($type, $tokens, array $data, array $options, \Drupal\Core\Render\BubbleableMetadata $bubbleable_metadata): array {
+  $replacements = [];
+
+  // If the token type is not 'os2uol_search', return the replacements as is.
+  if ($type !== 'os2uol_search') {
+    return $replacements;
+  }
+
+  foreach ($tokens as $name => $original) {
+    switch ($name) {
+      case 'post_number_and_address':
+        $replacement = os2uol_search_get_post_number_and_address($data['node'] ?? NULL);
+        $replacements[$original] = $replacement;
+        break;
+    }
+  }
+
+  return $replacements;
+}
+
+/**
+ * Get post number and address from entity.
+ *
+ * @param mixed $entity
+ *   The entity.
+ *
+ * @return string
+ *   The post number and address.
+ */
+function os2uol_search_get_post_number_and_address(mixed $entity): string {
+  // Only return post number and address for nodes.
+  if ($entity instanceof Node) {
+    return os2uol_search_get_post_number_and_address_from_node($entity);
+  }
+
+  return '';
+}
+
+/**
+ * Get post number and address from node.
+ *
+ * @param \Drupal\node\Entity\Node $node
+ *   The node entity.
+ *
+ * @return string
+ *   The post number and address.
+ */
+function os2uol_search_get_post_number_and_address_from_node(Node $node): string {
+  // Check if the node has the required fields.
+  if (!$node->hasField('field_location_zipcode') || !$node->hasField('field_location_city'))  {
+    return '';
+  }
+
+  // If the post number or address is not set on the node, try to get it from the author.
+  if ($node->get('field_location_zipcode')->isEmpty() || $node->get('field_location_city')->isEmpty()) {
+    $author = $node->getOwner();
+    return os2uol_search_get_post_number_and_address_from_user($author);
+  }
+
+  $post_number = $node->get('field_location_zipcode')->getString();
+  $address = $node->get('field_location_city')->getString();
+
+  return $post_number . ' ' . $address;
+}
+
+/**
+ * Get post number and address from user.
+ *
+ * @param \Drupal\user\Entity\User $user
+ *   The user entity.
+ *
+ * @return string
+ *   The post number and address.
+ */
+function os2uol_search_get_post_number_and_address_from_user(User $user): string {
+  // Check if the required fields are not empty.
+  if ($user->get('field_location_zipcode')->isEmpty() || $user->get('field_location_city')->isEmpty()) {
+    return '';
+  }
+
+  $post_number = $user->get('field_location_zipcode')->getString();
+  $address = $user->get('field_location_city')->getString();
+
+  return $post_number . ' ' . $address;
+}
