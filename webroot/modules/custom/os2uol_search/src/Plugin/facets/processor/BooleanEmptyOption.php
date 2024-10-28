@@ -45,7 +45,7 @@ class BooleanEmptyOption extends BooleanItemProcessor implements PreQueryProcess
 
       $result->setUrl($url);
 
-      $results = [$result] + $results;
+      $results = array_merge([$result], $results);
     }
 
     return $results;
