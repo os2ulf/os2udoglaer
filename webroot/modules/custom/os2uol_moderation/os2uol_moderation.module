@@ -1,18 +1,82 @@
 <?php
 
+use Drupal\node\Entity\Node;
+use Drupal\user\Entity\User;
+use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Core\Language\LanguageInterface;
+
 /**
- * Implements hook_help().
+ * Implements hook_cron().
+ * Checks content marked as 'Hele Året' and unpublishes after 430 days if not opted-out.
  */
-function os2uol_moderation_help($route_name, $route_match) {
-  switch ($route_name) {
-    case 'help.page.os2uol_moderation':
-      return '<p>' . t('Provides content moderation functionality.') . '</p>';
+function os2uol_moderation_cron() {
+  // Define the warning intervals and unpublish threshold in seconds.
+  $warning_intervals = [
+    'first_warning' => 430 * 24 * 60 * 60 - 14 * 24 * 60 * 60, // 14 days before 430 days.
+    'second_warning' => 430 * 24 * 60 * 60 - 7 * 24 * 60 * 60, // 7 days before 430 days.
+    'unpublish' => 430 * 24 * 60 * 60, // 430 days after last update.
+  ];
+
+  // Load all nodes with 'field_all_year' set to TRUE.
+  $query = \Drupal::entityQuery('node')
+    ->condition('field_all_year', 1)
+    ->condition('status', 1); // Only published content.
+  $nids = $query->execute();
+
+  foreach ($nids as $nid) {
+    $node = Node::load($nid);
+    $last_updated = strtotime($node->getChangedTime());
+
+    // Calculate the time difference.
+    $time_since_update = time() - $last_updated;
+
+    // Get the content owner and check if they opted out of auto-unpublish.
+    $owner = $node->getOwner();
+    if ($owner->hasField('disable_auto_unpublish') && $owner->get('disable_auto_unpublish')->value) {
+      continue; // Skip this node if the owner opted out.
+    }
+
+    // Send notifications or unpublish based on the time since the last update.
+    if ($time_since_update >= $warning_intervals['first_warning'] && $time_since_update < $warning_intervals['second_warning']) {
+      os2uol_moderation_send_email($owner, $node, 'first_warning');
+    }
+    elseif ($time_since_update >= $warning_intervals['second_warning'] && $time_since_update < $warning_intervals['unpublish']) {
+      os2uol_moderation_send_email($owner, $node, 'second_warning');
+    }
+    elseif ($time_since_update >= $warning_intervals['unpublish']) {
+      os2uol_moderation_send_email($owner, $node, 'unpublish');
+      $node->setUnpublished();
+      $node->save();
+    }
   }
 }
 
 /**
- * Implements hook_cron().
+ * Helper function to send email notifications to content owners.
  */
-function os2uol_moderation_cron() {
-  \Drupal::service('os2uol_moderation.purger')->purgeOldTrashNodes();
+function os2uol_moderation_send_email(User $user, Node $node, $type) {
+  $mail_manager = \Drupal::service('plugin.manager.mail');
+  $module = 'os2uol_moderation';
+  $key = 'all_year_' . $type;
+  $to = $user->getEmail();
+  $params['message'] = os2uol_moderation_get_message($node, $type);
+  $params['node_title'] = $node->getTitle();
+  $params['username'] = $user->getDisplayName();
+
+  $mail_manager->mail($module, $key, $to, LanguageInterface::LANGCODE_DEFAULT, $params);
+}
+
+/**
+ * Helper function to get the email message based on notification type.
+ */
+function os2uol_moderation_get_message(Node $node, $type) {
+  switch ($type) {
+    case 'first_warning':
+      return "Dear {$node->getOwner()->getDisplayName()},\\n\\nYour content titled '{$node->getTitle()}' will be unpublished in 14 days due to the 'Hele Året' marking.";
+    case 'second_warning':
+      return "Dear {$node->getOwner()->getDisplayName()},\\n\\nYour content titled '{$node->getTitle()}' will be unpublished in 7 days due to the 'Hele Året' marking.";
+    case 'unpublish':
+      return "Dear {$node->getOwner()->getDisplayName()},\\n\\nYour content titled '{$node->getTitle()}' has been unpublished because it was marked 'Hele Året' and has not been updated in 430 days.";
+  }
+  return '';
 }

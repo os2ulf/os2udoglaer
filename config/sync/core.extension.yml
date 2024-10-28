@@ -151,6 +151,7 @@ module:
   transform_api: 0
   transform_api_responsive_image: 0
   transform_api_views: 0
+  typed_data: 0
   ultimate_cron: 0
   user: 0
   view_profiles_perms: 0

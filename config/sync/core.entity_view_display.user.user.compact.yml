@@ -8,6 +8,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_disable_auto_unpublish
     - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
@@ -66,6 +67,7 @@ hidden:
   field_brancher: true
   field_contact: true
   field_cvr: true
+  field_disable_auto_unpublish: true
   field_district: true
   field_domain_access: true
   field_domain_admin: true
