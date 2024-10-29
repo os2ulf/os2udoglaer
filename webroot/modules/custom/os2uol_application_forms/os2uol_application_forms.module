@@ -252,35 +252,36 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
 
     foreach ($nids as $nid) {
       $node = $node_storage->load($nid);
+
+      // Generate a unique anonymized identifier (UUID-like).
+      $random_id = substr(hash('sha256', uniqid(rand(), TRUE)), 0, 8);
+
+      // Generate a fake email address.
+      $fake_email = 'anon_' . $random_id . '@anon.invalid';
+
+      // Anonymize personal data fields with safe values.
+      $node->set('field_rfc_mail', $fake_email);
+      $node->set('field_mailto', $fake_email);
+      $node->set('field_rfc_name', 'Anonymous User ' . $random_id); // Clearly fake and unique.
+
+      if ($node->hasField('field_rfc_phone')) {
+        $node->set('field_rfc_phone', '00000000'); // Fake, non-real phone number.
+      }
+
+      // Mark as anonymized.
+      $node->set('field_data_anonymized', TRUE);
+
+      // Save the revision.
+      $node->save();
+
+      // Log the operation.
+      $logger->info('Personal data anonymized for node ID ' . $node->id());
+
       $revisions = $node_storage->revisionIds($node);
 
+      // Remove all revisions
       foreach ($revisions as $revision_id) {
-        // Use RevisionableStorageInterface::loadRevision explicitly
-        $revision = $node_storage->loadRevision($revision_id);
-
-        // Generate a unique anonymized identifier (UUID-like).
-        $random_id = substr(hash('sha256', uniqid(rand(), TRUE)), 0, 8);
-
-        // Generate a fake email address.
-        $fake_email = 'anon_' . $random_id . '@anon.invalid';
-
-        // Anonymize personal data fields with safe values.
-        $revision->set('field_rfc_mail', $fake_email);
-        $revision->set('field_mailto', $fake_email);
-        $revision->set('field_rfc_name', 'Anonymous User ' . $random_id); // Clearly fake and unique.
-
-        if ($revision->hasField('field_rfc_phone')) {
-          $revision->set('field_rfc_phone', '00000000'); // Fake, non-real phone number.
-        }
-
-        // Mark as anonymized.
-        $revision->set('field_data_anonymized', TRUE);
-
-        // Save the revision.
-        $revision->save();
-
-        // Log the operation.
-        $logger->info('Personal data anonymized for node ID ' . $revision->id() . ' revision ID ' . $revision_id);
+        $node_storage->deleteRevision($revision_id);
       }
     }
     $logger->info('Anonymization completed for ' . count($nids) . ' nodes.');
