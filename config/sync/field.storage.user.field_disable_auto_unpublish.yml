@@ -1,0 +1,18 @@
+uuid: 2121fc7f-372c-4da6-8c1f-36bbfbb78297
+langcode: da
+status: true
+dependencies:
+  module:
+    - user
+id: user.field_disable_auto_unpublish
+field_name: field_disable_auto_unpublish
+entity_type: user
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

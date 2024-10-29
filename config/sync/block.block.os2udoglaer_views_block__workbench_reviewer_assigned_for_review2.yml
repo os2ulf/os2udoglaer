@@ -1,0 +1,30 @@
+uuid: 25d4c69e-b9ee-4dc7-b45c-5f2b7b85841c
+langcode: da
+status: true
+dependencies:
+  config:
+    - views.view.workbench_reviewer_assigned_for_review
+  module:
+    - system
+    - views
+  theme:
+    - os2udoglaer
+id: os2udoglaer_views_block__workbench_reviewer_assigned_for_review2
+theme: os2udoglaer
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:workbench_reviewer_assigned_for_review-block_2'
+settings:
+  id: 'views_block:workbench_reviewer_assigned_for_review-block_2'
+  label: ''
+  label_display: visible
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /admin/workbench/my-workbench

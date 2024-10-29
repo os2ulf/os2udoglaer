@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_disable_auto_unpublish
     - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
@@ -399,6 +400,13 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields: {  }
+  field_disable_auto_unpublish:
+    type: boolean_checkbox
+    weight: 62
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_district:
     type: options_select
     weight: 16
