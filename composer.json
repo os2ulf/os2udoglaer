@@ -52,6 +52,7 @@
         "drupal/domain": "^2.0@beta",
         "drupal/domain_access_search_api": "^1.0",
         "drupal/domain_entity": "^1.0@RC",
+        "drupal/domain_login_restrict": "^1.2",
         "drupal/domain_menus": "^3.6",
         "drupal/domain_simple_sitemap": "^3.0@beta",
         "drupal/editor_advanced_link": "^2.2",
@@ -236,6 +237,9 @@
             },
             "drupal/domain_entity" : {
                 "(#3405907) Make module compatible with PHP 8.2": "https://www.drupal.org/files/issues/2023-12-04/3405907-1.patch"
+            },
+            "drupal/domain_login_restrict" : {
+                "(#3336184) The configuration is not exported": "https://www.drupal.org/files/issues/2024-02-12/domain_login_restrict-3336184-9.patch"
             },
             "drupal/paragraphs": {
                 "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch"

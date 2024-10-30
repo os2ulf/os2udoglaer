@@ -66,7 +66,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   if (in_array($form_id, $node_add_forms)) {
     // Set access to the 'field_domain_access' field based on the user role.
     $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
-    $form['field_tpf_who_get_support']['widget']['#required'] = $is_admin_or_webmaster || $is_editor;
 
     // If user is not admin or editor or webmaster, hide fields.
     if (!$is_admin_or_webmaster && !$is_editor) {
@@ -79,7 +78,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   if (in_array($form_id, $node_edit_forms)) {
     // Set access to the 'field_domain_access' field based on the user role.
     $form['field_domain_access']['#access'] = $is_admin_or_webmaster;
-    $form['field_tpf_who_get_support']['widget']['#required'] = $is_admin_or_webmaster || $is_editor;
 
     // If user is not admin or editor or webmaster, hide fields.
     if (!$is_admin_or_webmaster && !$is_editor) {
@@ -512,6 +510,21 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       }
     }
   }
+
+  // If "Søg tilskud til transport" or "Søg om refusion af forløbet" is checked, then "Hvem kan få tilskud" is required.
+  if (isset($form['field_tpf_who_get_support'])) {
+    $form['field_tpf_who_get_support']['widget']['#states'] = [
+      'required' => [
+        [
+          ':input[name="field_practical_info_buttons[show_transport_request]"]' => ['checked' => true],
+        ],
+        'or',
+        [
+          ':input[name="field_practical_info_buttons[show_free_course_request]"]' => ['checked' => true],
+        ],
+      ],
+    ];
+  }
 }
 
 function _domain_access_restrictions() {
@@ -545,12 +558,13 @@ function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
       // Initialize an array to hold the domain IDs.
       $domain_ids = [];
 
-      // Add the current domain ID.
-      $domain_ids[] = $current_domain->id();
-
       // Add the default domain ID.
       $default_domain_id = Os2uolDomain::DEFAULT_DOMAIN_ID;
-      $domain_ids[] = $default_domain_id;
+
+      // Add the current domain ID.
+      if ($default_domain_id !== $current_domain->id()) {
+        $domain_ids[] = $current_domain->id();
+      }
 
       // Retrieve the selected domains from the edit form.
       $selected_domains = $entity->get('field_domain_access')->getValue();

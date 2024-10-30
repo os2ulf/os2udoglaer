@@ -45,6 +45,7 @@ module:
   domain_config: 0
   domain_config_ui: 0
   domain_entity: 0
+  domain_login_restrict: 0
   domain_simple_sitemap: 0
   dynamic_color: 0
   dynamic_entity_reference: 0

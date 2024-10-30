@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * Add current domain to all free course request, theater refund and transport pool form nodes.
+ */
+function os2uol_application_forms_update_10002(&$sandbox) {
+  if (empty($sandbox['nodeIds'])) {
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', ['free_course_request', 'theater_refund', 'transport_pool_form'], 'IN')
+      ->accessCheck(FALSE);
+
+    $nids = $query->execute();
+
+    $sandbox['nodeIds'] = $nids;
+    $sandbox['current'] = 0;
+    $sandbox['total'] = count($nids);
+
+    Drupal::logger('os2uol_application_forms')->notice('Found @count nodes to update during hook 10002', ['@count' => $sandbox['total']]);
+  }
+
+  $limit = 10;
+
+  $nids = array_slice($sandbox['nodeIds'], $sandbox['current'], $limit);
+
+  $nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+  $default_domain = \Drupal\os2uol_domain\Os2uolDomain::DEFAULT_DOMAIN_ID;
+
+  foreach ($nodes as $node) {
+    $current_domains = $node->get('field_domain_access')->getValue();
+
+    $domain_ids = array_column($current_domains, 'target_id');
+
+    if (!in_array($default_domain, $domain_ids)) {
+      $domain_ids[] = $default_domain;
+
+      $node->set('field_domain_access', $domain_ids);
+      $node->save();
+
+      Drupal::logger('os2uol_application_forms')->notice('Default domain added to node @nid', ['@nid' => $node->id()]);
+    }
+
+    $sandbox['current']++;
+  }
+
+  $sandbox['#finished'] = $sandbox['current'] / $sandbox['total'];
+}
+
+/**
+ * Remove all revisions for already anonymized nodes.
+ */
+function os2uol_application_forms_update_10003(&$sandbox) {
+  if (empty($sandbox['nodeIds'])) {
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', ['free_course_request', 'theater_refund', 'transport_pool_form'], 'IN')
+      ->condition('field_data_anonymized', '1')
+      ->accessCheck(FALSE);
+
+    $nids = $query->execute();
+
+    $sandbox['nodeIds'] = $nids;
+    $sandbox['current'] = 0;
+    $sandbox['total'] = count($nids);
+
+    Drupal::logger('os2uol_application_forms')->notice('Found @count nodes to update during hook 10003', ['@count' => $sandbox['total']]);
+  }
+
+  $limit = 10;
+
+  $nids = array_slice($sandbox['nodeIds'], $sandbox['current'], $limit);
+
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+
+  $nodes = $node_storage->loadMultiple($nids);
+
+  foreach ($nodes as $node) {
+    $default_revision = $node->getRevisionId();
+    $revisions = $node_storage->revisionIds($node);
+
+    // Remove all revisions
+    foreach ($revisions as $revision_id) {
+      // Skip default revision
+      if ($revision_id == $default_revision) {
+        continue;
+      }
+
+      $node_storage->deleteRevision($revision_id);
+    }
+
+    Drupal::logger('os2uol_application_forms')->notice('Revisions removed for node @nid', ['@nid' => $node->id()]);
+
+    $sandbox['current']++;
+  }
+
+  $sandbox['#finished'] = $sandbox['current'] / $sandbox['total'];
+}
