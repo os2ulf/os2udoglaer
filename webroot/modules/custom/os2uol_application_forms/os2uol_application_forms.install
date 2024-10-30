@@ -19,7 +19,7 @@ function os2uol_application_forms_update_10002(&$sandbox) {
       $sandbox['#finished'] = 1;
       return;
     }
-
+    
     Drupal::logger('os2uol_application_forms')->notice('Found @count nodes to update during hook 10002', ['@count' => $sandbox['total']]);
   }
 
