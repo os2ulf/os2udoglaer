@@ -15,6 +15,11 @@ function os2uol_application_forms_update_10002(&$sandbox) {
     $sandbox['current'] = 0;
     $sandbox['total'] = count($nids);
 
+    if (empty($sandbox['total'])) {
+      $sandbox['#finished'] = 1;
+      return;
+    }
+
     Drupal::logger('os2uol_application_forms')->notice('Found @count nodes to update during hook 10002', ['@count' => $sandbox['total']]);
   }
 
@@ -60,6 +65,11 @@ function os2uol_application_forms_update_10003(&$sandbox) {
     $sandbox['nodeIds'] = $nids;
     $sandbox['current'] = 0;
     $sandbox['total'] = count($nids);
+
+    if (empty($sandbox['total'])) {
+      $sandbox['#finished'] = 1;
+      return;
+    }
 
     Drupal::logger('os2uol_application_forms')->notice('Found @count nodes to update during hook 10003', ['@count' => $sandbox['total']]);
   }
