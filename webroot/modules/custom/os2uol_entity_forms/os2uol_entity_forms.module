@@ -558,12 +558,13 @@ function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
       // Initialize an array to hold the domain IDs.
       $domain_ids = [];
 
-      // Add the current domain ID.
-      $domain_ids[] = $current_domain->id();
-
       // Add the default domain ID.
       $default_domain_id = Os2uolDomain::DEFAULT_DOMAIN_ID;
-      $domain_ids[] = $default_domain_id;
+
+      // Add the current domain ID.
+      if ($default_domain_id !== $current_domain->id()) {
+        $domain_ids[] = $current_domain->id();
+      }
 
       // Retrieve the selected domains from the edit form.
       $selected_domains = $entity->get('field_domain_access')->getValue();
