@@ -238,6 +238,9 @@
             "drupal/domain_entity" : {
                 "(#3405907) Make module compatible with PHP 8.2": "https://www.drupal.org/files/issues/2023-12-04/3405907-1.patch"
             },
+            "drupal/domain_login_restrict" : {
+                "(#3336184) The configuration is not exported": "https://www.drupal.org/files/issues/2024-02-12/domain_login_restrict-3336184-9.patch"
+            },
             "drupal/paragraphs": {
                 "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch"
             },
