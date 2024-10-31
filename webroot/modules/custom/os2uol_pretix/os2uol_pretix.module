@@ -206,6 +206,24 @@ function os2uol_pretix_node_delete($node) {
   }
 }
 
+function os2uol_node_transform_alter(&$transformation) {
+  if (empty($transformation)) {
+    return;
+  }
+  if ($transformation['transform_mode'] != 'full') {
+    return;
+  }
+
+  /** @var \Drupal\os2uol_pretix\PretixEventManager $pretix_event_manager */
+  $pretix_event_manager = \Drupal::service('os2uol_pretix.event_manager');
+  /** @var \Drupal\node\Entity\Node $entity */
+  $entity = $transformation['#entity'];
+
+  if ($pretix_event_manager->isPretixEventEntity($entity)) {
+    $transformation['event_shop_url'] = $pretix_event_manager->getEventShopUrl($entity);
+  }
+}
+
 /**
  * Synchronize Pretix event with node.
  *

@@ -17,6 +17,9 @@ settings:
     -
       value: calendar
       label: Kalendervisning
+    -
+      value: week
+      label: Ugevisning
   allowed_values_function: ''
 module: options
 locked: false
