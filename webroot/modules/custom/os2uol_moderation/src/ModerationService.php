@@ -44,16 +44,20 @@ class ModerationService {
 
     foreach ($nids as $nid) {
       $node = Node::load($nid);
+      $owner = $node->getOwner();
+
+      // Check if the owner has opted out of auto-unpublishing.
+      if ($owner->hasField('field_disable_auto_unpublish') && $owner->get('field_disable_auto_unpublish')->value) {
+        // Skip this node if the user has disabled auto-unpublishing.
+        continue;
+      }
 
       // Check if there is a field_period with an end date for automatic unpublishing.
       if ($node->hasField('field_period') && !$node->get('field_period')->isEmpty()) {
         $period_end = strtotime($node->get('field_period')->end_value);
-        \Drupal::logger('os2uol_moderation')->notice('Node @nid end date: @date', ['@nid' => $node->id(), '@date' => $period_end]);
-
         if ($period_end && time() > $period_end) {
-            $this->unpublishNode($node);
-            \Drupal::logger('os2uol_moderation')->notice('Node @nid unpublished due to end date', ['@nid' => $node->id()]);
-            continue;
+          $this->unpublishNode($node);
+          continue;
         }
       }
 
@@ -62,12 +66,21 @@ class ModerationService {
         $lastUpdated = $node->getChangedTime();
         $timeSinceUpdate = time() - $lastUpdated;
 
-        if ($timeSinceUpdate >= $firstWarning && $timeSinceUpdate < $secondWarning) {
-          $this->emailService->sendNotification($node->getOwner(), $node, 'first_warning');
-        } elseif ($timeSinceUpdate >= $secondWarning && $timeSinceUpdate < $unpublishInterval) {
-          $this->emailService->sendNotification($node->getOwner(), $node, 'second_warning');
-        } elseif ($timeSinceUpdate >= $unpublishInterval) {
+        // Unpublish directly if 430 days have passed.
+        if ($timeSinceUpdate >= $unpublishInterval) {
           $this->unpublishNode($node);
+          continue;
+        }
+
+        // Send warning emails only if unpublishing conditions are not yet met.
+        try {
+          if ($timeSinceUpdate >= $firstWarning && $timeSinceUpdate < $secondWarning) {
+            $this->emailService->sendNotification($owner, $node, 'first_warning');
+          } elseif ($timeSinceUpdate >= $secondWarning && $timeSinceUpdate < $unpublishInterval) {
+            $this->emailService->sendNotification($owner, $node, 'second_warning');
+          }
+        } catch (\Exception $e) {
+          // Handle email failure silently to avoid impacting the unpublishing logic.
         }
       }
     }
