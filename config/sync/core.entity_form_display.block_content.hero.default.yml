@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.hero.field_hero_subtitle
     - field.field.block_content.hero.field_hero_title
     - field.field.block_content.hero.field_image_media
+    - field.field.block_content.hero.field_image_overlay
     - image.style.medium
   module:
     - focal_point
@@ -21,7 +22,7 @@ mode: default
 content:
   field_hero_link:
     type: link_default
-    weight: 26
+    weight: 4
     region: content
     settings:
       placeholder_url: ''
@@ -52,6 +53,13 @@ content:
       preview_image_style: medium
       preview_link: true
       offsets: '50,50'
+    third_party_settings: {  }
+  field_image_overlay:
+    type: boolean_checkbox
+    weight: 3
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
 hidden:
   info: true

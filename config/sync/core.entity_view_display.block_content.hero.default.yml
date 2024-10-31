@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.hero.field_hero_subtitle
     - field.field.block_content.hero.field_hero_title
     - field.field.block_content.hero.field_image_media
+    - field.field.block_content.hero.field_image_overlay
   module:
     - image
     - link
@@ -56,6 +57,16 @@ content:
         attribute: lazy
     third_party_settings: {  }
     weight: 9
+    region: content
+  field_image_overlay:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 11
     region: content
 hidden:
   langcode: true

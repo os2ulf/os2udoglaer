@@ -1,0 +1,21 @@
+uuid: ef703432-1d9e-4a1f-ae0c-b91bb9f5a7a6
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.hero
+    - field.storage.block_content.field_image_overlay
+id: block_content.hero.field_image_overlay
+field_name: field_image_overlay
+entity_type: block_content
+bundle: hero
+label: 'Billede overlay'
+description: 'Add black overlay to image to make text more readable. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
