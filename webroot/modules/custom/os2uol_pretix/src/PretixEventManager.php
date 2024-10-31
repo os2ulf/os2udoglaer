@@ -82,7 +82,7 @@ class PretixEventManager extends PretixAbstractManager {
 
   protected function updateSubEventQuota(EditorialContentEntityBase $entity, array $subEvent, $size) {
     $eventSlug = $this->getEventSlug($entity);
-    $eventTemplate = $this->getEventSlug($entity);
+    $eventTemplate = $this->getEventTemplate($entity);
     $client = $this->getClient($entity);
 
     $templateSubEvent = $this->getEventSubEventTemplate($entity);
@@ -299,7 +299,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     // Check if the event template is set
     if (!isset($templates[$key])) {
-      $event_template = $this->getEventSlug($entity);  // Use getEventSlug instead of getEventTemplate
+      $event_template = $this->getEventTemplate($entity);  // Use getEventSlug instead of getEventTemplate
 
       // If the event template is null or empty, return an error or handle the case
       if (empty($event_template)) {

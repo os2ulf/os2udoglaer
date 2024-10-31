@@ -75,6 +75,19 @@ abstract class PretixAbstractManager {
     return $slugs[$key];
   }
 
+  protected function getEventTemplate(EditorialContentEntityBase $entity) {
+    $templates = &drupal_static(__FUNCTION__);
+    $key = $this->getEntityKey($entity);
+    if (!isset($templates[$key])) {
+      if ($entity->get('field_pretix_template_event')->isEmpty()) {
+        $templates[$key] = NULL;
+      } else {
+        $templates[$key] = $entity->get('field_pretix_template_event')->first()->getString();
+      }
+    }
+    return $templates[$key];
+  }
+
   public function isPretixEventEntity(EntityInterface $entity): bool {
     if (!$entity instanceof EditorialContentEntityBase) {
       return FALSE;
