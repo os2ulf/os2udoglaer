@@ -3218,7 +3218,7 @@ display:
     display_plugin: page
     position: 2
     display_options:
-      title: 'Teaterkontaktlærens ansøgninger'
+      title: 'Ansøgninger om teaterrefusion'
       arguments:
         uid:
           id: uid

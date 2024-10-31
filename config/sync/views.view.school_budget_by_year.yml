@@ -527,7 +527,7 @@ display:
           id: field_rfc_date_value
           table: node__field_rfc_date
           field: field_rfc_date_value
-          relationship: reverse__node__field_rfc_provider
+          relationship: reverse__node__field_rfc_school
           group_type: group
           admin_label: ''
           plugin_id: datetime
@@ -606,16 +606,6 @@ display:
           admin_label: 'field_allocated_budget: Paragraph'
           plugin_id: standard
           required: true
-        reverse__node__field_rfc_provider:
-          id: reverse__node__field_rfc_provider
-          table: users_field_data
-          field: reverse__node__field_rfc_provider
-          relationship: none
-          group_type: group
-          admin_label: field_rfc_provider
-          entity_type: user
-          plugin_id: entity_reverse
-          required: false
         reverse__node__field_rfc_school:
           id: reverse__node__field_rfc_school
           table: users_field_data
