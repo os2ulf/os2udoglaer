@@ -43,11 +43,31 @@ function os2uol_search_view_content_search_transform_alter(&$transformation) {
 
     $transformation['exposed_filters'][$query_param_name] = $build;
 
-    $transformation['facets']['field_period'] = [
-      'type' => 'facet',
-      'facet_type' => 'exposed_filter',
-      'exposed_filter' => $query_param_name,
-    ];
+    $replacement_found = FALSE;
+
+    foreach ($transformation['facets'] as $facet_id => $facet_build) {
+      /** @var \Drupal\facets\Entity\Facet $facet */
+      $facet = $facet_build['#facet'];
+
+      if ($facet->getFieldIdentifier() == 'field_period') {
+        $transformation['facets'][$facet_id] = [
+          'type' => 'facet',
+          'facet_type' => 'exposed_filter',
+          'exposed_filter' => $query_param_name,
+        ];
+
+        $replacement_found = TRUE;
+        break;
+      }
+    }
+
+    if (!$replacement_found) {
+      Drupal::logger('os2uol_search')->error('Could not find facet placeholder for exposed filter: @filter in view: @view, display: @display', [
+        '@filter' => $query_param_name,
+        '@view' => $view->id(),
+        '@display' => $view->current_display,
+      ]);
+    }
   }
 }
 
@@ -220,4 +240,11 @@ function os2uol_search_get_post_number_and_address_from_user(User $user): string
   $address = $user->get('field_location_city')->getString();
 
   return $post_number . ' ' . $address;
+}
+
+/**
+ * Implements hook_facets_search_api_query_type_mapping_alter().
+ */
+function os2uol_search_facets_search_api_query_type_mapping_alter($backend_plugin_id, array &$query_types) {
+
 }

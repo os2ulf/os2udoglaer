@@ -1,4 +1,4 @@
-uuid: e2d4d4ef-c72f-4165-8d2f-4b05a5d40b14
+uuid: be9b8fea-a25f-43db-912c-fa64c5490232
 langcode: da
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - views.view.content_search
   module:
     - search_api
-id: course_author_youth_education
-name: Udbyder
-weight: 3
+id: course_period_youth_education
+name: 'Periode (placeholder for exposed filter)'
+weight: -2
 min_count: 1
 missing: false
 missing_label: others
-url_alias: caye
+url_alias: course_period_youth_education
 facet_source_id: 'search_api:views_block__content_search__block_7'
-field_identifier: uid
+field_identifier: field_period
 query_operator: or
 hard_limit: 0
 exclude: false
@@ -61,19 +61,10 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
-  hidden_attribute_processor:
-    processor_id: hidden_attribute_processor
-    weights: {  }
-    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
       build: 100
-    settings: {  }
-  uid_to_field_name_callback:
-    processor_id: uid_to_field_name_callback
-    weights:
-      build: 5
     settings: {  }
   url_processor_handler:
     processor_id: url_processor_handler
@@ -81,28 +72,3 @@ processor_configs:
       pre_query: -9
       build: 15
     settings: {  }
-  user_domain_access_filter:
-    processor_id: user_domain_access_filter
-    weights:
-      build: 1
-    settings: {  }
-  user_role_filter:
-    processor_id: user_role_filter
-    weights:
-      build: 2
-    settings:
-      roles:
-        course_provider: course_provider
-        anonymous: 0
-        authenticated: 0
-        administrator: 0
-        webmaster: 0
-        editor: 0
-        corporation: 0
-        institution: 0
-        school: 0
-        place_of_visit: 0
-        theater_contact: 0
-        monitor: 0
-        bypass_workflow: 0
-        rest_api: 0
