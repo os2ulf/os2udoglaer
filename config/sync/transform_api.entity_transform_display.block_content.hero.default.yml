@@ -8,6 +8,7 @@ dependencies:
     - field.field.block_content.hero.field_hero_subtitle
     - field.field.block_content.hero.field_hero_title
     - field.field.block_content.hero.field_image_media
+    - field.field.block_content.hero.field_image_overlay
     - responsive_image.styles.isg_hero_width_100
   module:
     - transform_api_responsive_image
@@ -20,7 +21,7 @@ mode: default
 content:
   field_hero_link:
     type: link
-    weight: '3'
+    weight: '4'
     region: content
     label: omit
     settings: {  }
@@ -49,6 +50,13 @@ content:
       image_link: ''
       image_loading:
         attribute: lazy
+    third_party_settings: {  }
+  field_image_overlay:
+    type: boolean
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true
