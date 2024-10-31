@@ -3,8 +3,8 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.paragraph.other_user_info.field_eksternal_link
     - field.field.paragraph.other_user_info.field_file
-    - field.field.paragraph.other_user_info.field_link
     - paragraphs.paragraphs_type.other_user_info
   module:
     - file
@@ -14,15 +14,7 @@ targetEntityType: paragraph
 bundle: other_user_info
 mode: default
 content:
-  field_file:
-    type: file_default
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_link:
+  field_eksternal_link:
     type: link
     label: above
     settings:
@@ -33,6 +25,14 @@ content:
       target: ''
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_file:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 1
     region: content
 hidden:
   search_api_excerpt: true

@@ -1,0 +1,25 @@
+uuid: 32e3eeff-9f97-413f-a9de-cfd511d3437a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_internal_link
+    - paragraphs.paragraphs_type.links_paragraph
+id: paragraph.links_paragraph.field_internal_link
+field_name: field_internal_link
+entity_type: paragraph
+bundle: links_paragraph
+label: 'Internt link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: content_entity_reference
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

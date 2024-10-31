@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - block_content.type.hero
-    - field.field.block_content.hero.field_hero_link
     - field.field.block_content.hero.field_hero_subtitle
     - field.field.block_content.hero.field_hero_title
     - field.field.block_content.hero.field_image_media
     - field.field.block_content.hero.field_image_overlay
+    - field.field.block_content.hero.field_paragraph_links
     - responsive_image.styles.isg_hero_width_100
   module:
     - transform_api_responsive_image
@@ -19,13 +19,6 @@ targetEntityType: block_content
 bundle: hero
 mode: default
 content:
-  field_hero_link:
-    type: link
-    weight: '4'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_hero_subtitle:
     type: value
     weight: '0'
@@ -57,6 +50,14 @@ content:
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_paragraph_links:
+    type: entity_transform
+    weight: '5'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
     third_party_settings: {  }
 hidden:
   langcode: true

@@ -4,14 +4,14 @@ status: true
 dependencies:
   config:
     - block_content.type.hero
-    - field.field.block_content.hero.field_hero_link
     - field.field.block_content.hero.field_hero_subtitle
     - field.field.block_content.hero.field_hero_title
     - field.field.block_content.hero.field_image_media
     - field.field.block_content.hero.field_image_overlay
+    - field.field.block_content.hero.field_paragraph_links
   module:
+    - entity_reference_revisions
     - image
-    - link
 _core:
   default_config_hash: 9tV1WJOQt-XOFwFpAklUbjjfp9PmCmb4PT-G4qovFjc
 id: block_content.hero.default
@@ -19,18 +19,6 @@ targetEntityType: block_content
 bundle: hero
 mode: default
 content:
-  field_hero_link:
-    type: link
-    label: hidden
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    weight: 10
-    region: content
   field_hero_subtitle:
     type: string
     label: hidden
@@ -67,6 +55,15 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 11
+    region: content
+  field_paragraph_links:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 12
     region: content
 hidden:
   langcode: true

@@ -3,27 +3,34 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.links_paragraph.field_link
-    - field.field.paragraph.links_paragraph.field_text
+    - field.field.paragraph.links_paragraph.field_eksternal_link
+    - field.field.paragraph.links_paragraph.field_internal_link
+    - field.field.paragraph.links_paragraph.field_link_text
     - paragraphs.paragraphs_type.links_paragraph
 id: paragraph.links_paragraph.default
 targetEntityType: paragraph
 bundle: links_paragraph
 mode: default
 content:
-  field_link:
+  field_eksternal_link:
     type: link
-    weight: '0'
+    weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_text:
-    type: plain_text
+  field_internal_link:
+    type: entity_reference_links
     weight: '1'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_link_text:
+    type: value
+    weight: '0'
+    region: content
+    label: omit
+    settings: {  }
     third_party_settings: {  }
 hidden: {  }

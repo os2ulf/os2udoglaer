@@ -1,17 +1,17 @@
-uuid: 4699c1c7-8049-4325-a233-7377fb2e6b8a
+uuid: 918114d2-c912-47f0-8031-2833e6f1fd1c
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_link
+    - field.storage.paragraph.field_eksternal_link
     - paragraphs.paragraphs_type.cards
   module:
     - link
-id: paragraph.cards.field_link
-field_name: field_link
+id: paragraph.cards.field_eksternal_link
+field_name: field_eksternal_link
 entity_type: paragraph
 bundle: cards
-label: Link
+label: 'Eksternt link'
 description: ''
 required: false
 translatable: false
@@ -19,5 +19,5 @@ default_value: {  }
 default_value_callback: ''
 settings:
   title: 0
-  link_type: 17
+  link_type: 16
 field_type: link
