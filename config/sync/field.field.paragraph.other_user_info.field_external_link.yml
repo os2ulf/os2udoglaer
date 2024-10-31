@@ -1,23 +1,23 @@
-uuid: e3eaced2-9df0-4f18-975e-9844119304d7
+uuid: aa3a1e59-bf42-41af-adf0-7b69407ac50c
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_link
+    - field.storage.paragraph.field_external_link
     - paragraphs.paragraphs_type.other_user_info
   module:
     - link
-id: paragraph.other_user_info.field_link
-field_name: field_link
+id: paragraph.other_user_info.field_external_link
+field_name: field_external_link
 entity_type: paragraph
 bundle: other_user_info
-label: Link
+label: 'Eksternt link'
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  title: 2
-  link_type: 17
+  title: 0
+  link_type: 16
 field_type: link

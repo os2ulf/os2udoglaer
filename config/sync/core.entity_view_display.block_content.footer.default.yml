@@ -11,7 +11,7 @@ dependencies:
     - field.field.block_content.footer.field_instagram_url
     - field.field.block_content.footer.field_linkedin_url
     - field.field.block_content.footer.field_logos_and_links
-    - field.field.block_content.footer.field_privacy_terms
+    - field.field.block_content.footer.field_paragraph_links
     - field.field.block_content.footer.field_shortcuts
     - field.field.block_content.footer.field_theme
   module:
@@ -99,17 +99,14 @@ content:
     third_party_settings: {  }
     weight: 7
     region: content
-  field_privacy_terms:
-    type: link
+  field_paragraph_links:
+    type: entity_reference_revisions_entity_view
     label: above
     settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
+      view_mode: default
+      link: ''
     third_party_settings: {  }
-    weight: 10
+    weight: 12
     region: content
   field_shortcuts:
     type: entity_reference_label

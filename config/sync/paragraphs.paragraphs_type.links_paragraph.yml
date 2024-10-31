@@ -3,7 +3,7 @@ langcode: da
 status: true
 dependencies: {  }
 id: links_paragraph
-label: Links
+label: Link
 icon_uuid: null
 icon_default: null
 description: ''

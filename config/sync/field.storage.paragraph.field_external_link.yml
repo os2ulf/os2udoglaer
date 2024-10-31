@@ -1,14 +1,12 @@
-uuid: 69128054-b561-4c1c-99c0-bc515c301c00
+uuid: 50718054-7107-43ec-997b-b6fee135790a
 langcode: da
 status: true
 dependencies:
   module:
     - link
     - paragraphs
-_core:
-  default_config_hash: shpX7SN4SMQrtD1yinDZI59p7VHAGCVOs0P3E73LNyQ
-id: paragraph.field_link
-field_name: field_link
+id: paragraph.field_external_link
+field_name: field_external_link
 entity_type: paragraph
 type: link
 settings: {  }

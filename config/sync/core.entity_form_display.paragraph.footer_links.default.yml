@@ -3,8 +3,9 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.paragraph.footer_links.field_external_link
     - field.field.paragraph.footer_links.field_image
-    - field.field.paragraph.footer_links.field_link
+    - field.field.paragraph.footer_links.field_internal_link
     - image.style.medium
     - paragraphs.paragraphs_type.footer_links
   module:
@@ -15,9 +16,17 @@ targetEntityType: paragraph
 bundle: footer_links
 mode: default
 content:
+  field_external_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_image:
     type: image_focal_point
-    weight: 1
+    weight: 0
     region: content
     settings:
       progress_indicator: throbber
@@ -25,13 +34,15 @@ content:
       preview_link: true
       offsets: '50,50'
     third_party_settings: {  }
-  field_link:
-    type: link_default
-    weight: 0
+  field_internal_link:
+    type: entity_reference_autocomplete
+    weight: 1
     region: content
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true
