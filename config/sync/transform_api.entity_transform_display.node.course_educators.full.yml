@@ -237,6 +237,13 @@ content:
       format_type: os2date
       separator: '-'
     third_party_settings: {  }
+  field_pretix_widget_type:
+    type: value
+    weight: '44'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_price:
     type: entity_transform
     weight: '11'
@@ -399,5 +406,4 @@ hidden:
   field_pretix_event_short_form: true
   field_pretix_shop_url: true
   field_pretix_template_event: true
-  field_pretix_widget_type: true
   langcode: true

@@ -31,9 +31,7 @@ class PretixSettingsForm extends ContentEntityForm {
    * @inheritDoc
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    $form = parent::buildForm($form, $form_state);
-    //dpm($form);
-    return $form;
+    return parent::buildForm($form, $form_state);
   }
 
   /**
