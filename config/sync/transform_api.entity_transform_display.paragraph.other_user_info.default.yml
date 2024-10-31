@@ -3,7 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.other_user_info.field_eksternal_link
+    - field.field.paragraph.other_user_info.field_external_link
     - field.field.paragraph.other_user_info.field_file
     - paragraphs.paragraphs_type.other_user_info
   module:
@@ -13,9 +13,9 @@ targetEntityType: paragraph
 bundle: other_user_info
 mode: default
 content:
-  field_eksternal_link:
+  field_external_link:
     type: link
-    weight: '1'
+    weight: '2'
     region: content
     label: omit
     settings: {  }

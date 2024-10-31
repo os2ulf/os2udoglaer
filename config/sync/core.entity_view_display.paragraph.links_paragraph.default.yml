@@ -3,7 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.links_paragraph.field_eksternal_link
+    - field.field.paragraph.links_paragraph.field_external_link
     - field.field.paragraph.links_paragraph.field_internal_link
     - field.field.paragraph.links_paragraph.field_link_text
     - paragraphs.paragraphs_type.links_paragraph
@@ -14,7 +14,7 @@ targetEntityType: paragraph
 bundle: links_paragraph
 mode: default
 content:
-  field_eksternal_link:
+  field_external_link:
     type: link
     label: above
     settings:
@@ -24,7 +24,7 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 2
+    weight: 3
     region: content
   field_internal_link:
     type: entity_reference_label

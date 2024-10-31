@@ -3,7 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.field.paragraph.footer_links.field_eksternal_link
+    - field.field.paragraph.footer_links.field_external_link
     - field.field.paragraph.footer_links.field_image
     - field.field.paragraph.footer_links.field_internal_link
     - paragraphs.paragraphs_type.footer_links
@@ -12,9 +12,9 @@ targetEntityType: paragraph
 bundle: footer_links
 mode: default
 content:
-  field_eksternal_link:
+  field_external_link:
     type: link
-    weight: '2'
+    weight: '3'
     region: content
     label: omit
     settings: {  }

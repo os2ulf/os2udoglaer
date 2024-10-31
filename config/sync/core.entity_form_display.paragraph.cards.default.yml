@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.cards.field_description
-    - field.field.paragraph.cards.field_eksternal_link
+    - field.field.paragraph.cards.field_external_link
     - field.field.paragraph.cards.field_internal_link
     - field.field.paragraph.cards.field_title
     - paragraphs.paragraphs_type.cards
@@ -23,7 +23,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_eksternal_link:
+  field_external_link:
     type: link_default
     weight: 3
     region: content

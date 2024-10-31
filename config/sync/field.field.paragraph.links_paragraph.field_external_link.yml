@@ -1,16 +1,16 @@
-uuid: 53a85eb1-009c-427c-99a1-604ee835d3d5
+uuid: dfa74598-8f7e-4de0-99df-4a2079fa3a0e
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_eksternal_link
-    - paragraphs.paragraphs_type.footer_links
+    - field.storage.paragraph.field_external_link
+    - paragraphs.paragraphs_type.links_paragraph
   module:
     - link
-id: paragraph.footer_links.field_eksternal_link
-field_name: field_eksternal_link
+id: paragraph.links_paragraph.field_external_link
+field_name: field_external_link
 entity_type: paragraph
-bundle: footer_links
+bundle: links_paragraph
 label: 'Eksternt link'
 description: ''
 required: false

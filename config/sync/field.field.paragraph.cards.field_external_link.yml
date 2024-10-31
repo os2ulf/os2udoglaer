@@ -1,14 +1,14 @@
-uuid: 918114d2-c912-47f0-8031-2833e6f1fd1c
+uuid: 5cc3bf44-f5d6-4bcb-ad71-72f8a3c712c5
 langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_eksternal_link
+    - field.storage.paragraph.field_external_link
     - paragraphs.paragraphs_type.cards
   module:
     - link
-id: paragraph.cards.field_eksternal_link
-field_name: field_eksternal_link
+id: paragraph.cards.field_external_link
+field_name: field_external_link
 entity_type: paragraph
 bundle: cards
 label: 'Eksternt link'
