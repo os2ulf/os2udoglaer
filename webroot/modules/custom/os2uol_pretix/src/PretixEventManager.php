@@ -165,7 +165,6 @@ class PretixEventManager extends PretixAbstractManager {
   protected function updateSubEventData(EditorialContentEntityBase $entity, $subevent, &$data) {
     // Ensure that the date is formatted in UTC before sending it to Pretix
     $date_from = new \DateTime($subevent['date_from'], new \DateTimeZone(date_default_timezone_get()));
-    $date_from->setTimezone(new \DateTimeZone('UTC'));  // Convert to UTC
 
     $data['name'] = $this->formatEventName($entity);
     $data['date_from'] = $date_from->format(DateTimeInterface::ATOM);  // Send the UTC-formatted date
