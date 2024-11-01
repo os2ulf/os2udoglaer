@@ -95,7 +95,7 @@ type_settings:
       to: published
       weight: 5
     save_draft_leave_current_published:
-      label: 'Opret kladde (behold udgivet version)'
+      label: Gem
       from:
         - published
       to: draft
