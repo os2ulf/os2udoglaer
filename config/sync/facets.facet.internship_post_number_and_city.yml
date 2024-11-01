@@ -8,7 +8,7 @@ dependencies:
   module:
     - search_api
 id: internship_post_number_and_city
-name: 'Postnummer + By'
+name: 'Postnummer og by'
 weight: -1
 min_count: 1
 missing: false
