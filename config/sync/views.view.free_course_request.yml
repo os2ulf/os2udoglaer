@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.storage.node.field_old_id
     - field.storage.node.field_rfc_attachment
     - field.storage.node.field_rfc_course
     - field.storage.node.field_rfc_date
@@ -61,7 +62,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Ansøgninger: udgiftsdækning'
+      title: 'Ansøgninger - Udgiftsdækning'
       fields:
         node_bulk_form:
           id: node_bulk_form
@@ -2013,13 +2014,16 @@ display:
           columns:
             node_bulk_form: node_bulk_form
             nid: nid
+            field_old_id: field_old_id
+            field_name: field_name
+            field_name_1: field_name_1
             field_rfc_school: field_rfc_school
             field_rfc_grade: field_rfc_grade
             field_rfc_name: field_rfc_name
             field_rfc_provider: field_rfc_provider
             field_rfc_new_course_name: field_rfc_new_course_name
             field_rfc_course: field_rfc_course
-            field_subject: field_subject
+            field_rfc_subject: field_rfc_subject
             field_rfc_requested_amount: field_rfc_requested_amount
             field_rfc_date: field_rfc_date
             moderation_state: moderation_state
@@ -2039,8 +2043,29 @@ display:
               empty_column: false
               responsive: ''
             nid:
+              sortable: false
+              default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_old_id:
               sortable: true
               default_sort_order: desc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_name_1:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -2087,7 +2112,9 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_subject:
+            field_rfc_subject:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -2345,7 +2372,7 @@ display:
           entity_field: nid
           plugin_id: field
           label: ID
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -2390,6 +2417,69 @@ display:
           settings:
             thousand_separator: ''
             prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_old_id:
+          id: field_old_id
+          table: node__field_old_id
+          field: field_old_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ID
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '{{ nid }}'
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: false
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -3561,9 +3651,63 @@ display:
               category: ''
               manager: ''
               company: ''
+      row:
+        type: data_field
+        options:
+          field_options:
+            field_old_id:
+              alias: nid
+              raw_output: false
+            field_rfc_school:
+              alias: ''
+              raw_output: false
+            field_rfc_grade:
+              alias: ''
+              raw_output: false
+            field_rfc_name:
+              alias: ''
+              raw_output: false
+            field_rfc_provider:
+              alias: ''
+              raw_output: false
+            field_rfc_course:
+              alias: ''
+              raw_output: false
+            field_rfc_subject:
+              alias: ''
+              raw_output: false
+            field_rfc_requested_amount:
+              alias: ''
+              raw_output: false
+            field_rfc_date:
+              alias: ''
+              raw_output: false
+            moderation_state:
+              alias: ''
+              raw_output: false
+            field_rfc_granted_amount:
+              alias: ''
+              raw_output: false
+            field_rfc_spent_amount:
+              alias: ''
+              raw_output: false
+            field_rfc_attachment:
+              alias: ''
+              raw_output: false
+            field_rfc_payment_date:
+              alias: ''
+              raw_output: false
+            field_rfc_remarks:
+              alias: ''
+              raw_output: false
+            field_rfc_latest_editor:
+              alias: ''
+              raw_output: false
       defaults:
         fields: false
       display_extenders:
+        os2uol_search:
+          os2uol_search_result_string: ''
         transform_api_facets:
           transform_facets: {  }
         transform_api_views:
@@ -3593,6 +3737,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_old_id'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
@@ -3609,6 +3754,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_subject'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_old_id'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
@@ -3625,6 +3771,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_subject'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
+        - 'config:field.storage.node.field_old_id'
         - 'config:field.storage.node.field_rfc_attachment'
         - 'config:field.storage.node.field_rfc_course'
         - 'config:field.storage.node.field_rfc_date'
@@ -3722,7 +3869,7 @@ display:
           entity_field: nid
           plugin_id: field
           label: ID
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -3767,6 +3914,69 @@ display:
           settings:
             thousand_separator: ''
             prefix_suffix: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_old_id:
+          id: field_old_id
+          table: node__field_old_id
+          field: field_old_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ID
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '{{ nid }}'
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: false
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -5577,6 +5787,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_old_id'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
@@ -5595,6 +5806,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_name'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_old_id'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
@@ -5613,6 +5825,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.paragraph.field_name'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
+        - 'config:field.storage.node.field_old_id'
         - 'config:field.storage.node.field_rfc_attachment'
         - 'config:field.storage.node.field_rfc_course'
         - 'config:field.storage.node.field_rfc_date'
