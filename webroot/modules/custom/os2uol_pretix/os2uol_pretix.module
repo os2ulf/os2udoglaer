@@ -206,7 +206,7 @@ function os2uol_pretix_node_delete($node) {
   }
 }
 
-function os2uol_node_transform_alter(&$transformation) {
+function os2uol_pretix_node_transform_alter(&$transformation) {
   if (empty($transformation)) {
     return;
   }
