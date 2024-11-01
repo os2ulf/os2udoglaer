@@ -33,9 +33,9 @@ dependencies:
     - field.storage.node.field_target_group
     - field.storage.node.field_period
     - field.storage.node.field_period_select
-    - field.storage.user.field_guarantee_partner
     - field.storage.node.field_how_to
     - field.storage.node.field_theme
+    - field.storage.user.field_guarantee_partner
     - field.storage.node.field_duration_select
     - field.storage.node.field_sustainability_goals
     - field.storage.node.field_exclude_from_search
@@ -51,6 +51,7 @@ dependencies:
     - node
     - search_api
     - layoutbuilder_search_api
+    - os2uol_search
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -639,11 +640,9 @@ field_settings:
       module:
         - taxonomy
   post_number_city:
-    label: 'Postnummer + By'
-    property_path: custom_value
+    label: 'Postnummer og by'
+    property_path: post_number_city
     type: string
-    configuration:
-      value: '[os2uol_search:post_number_and_address]'
   roles:
     label: Roller
     datasource_id: 'entity:user'
@@ -761,6 +760,7 @@ processor_settings:
       slideshow: 0
       spacer: 0
       video: 0
+  post_number_city: {  }
   rendered_item: {  }
   solr_date_range:
     weights:
