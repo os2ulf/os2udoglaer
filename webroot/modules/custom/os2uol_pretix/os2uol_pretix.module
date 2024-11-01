@@ -195,9 +195,10 @@ function os2uol_pretix_node_update($node) {
 }
 
 function os2uol_pretix_node_delete($node) {
-  $helper = \Drupal::service('os2uol_pretix.event_helper');
-  if ($helper->isPretixEventNode($node)) {
-    $result = $helper->deletePretixEvent($node);
+  /** @var \Drupal\os2uol_pretix\PretixEventManager $eventManager */
+  $eventManager = \Drupal::service('os2uol_pretix.event_manager');
+  if ($eventManager->isPretixEventEntity($node)) {
+    $result = $eventManager->deleteEvent($node);
     if (isset($result['error'])) {
       \Drupal::messenger()->addError(t('The event could not be deleted in Pretix (%message).', ['%message' => $result['error']]));
     } else {

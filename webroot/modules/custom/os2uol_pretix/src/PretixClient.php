@@ -93,6 +93,21 @@ class PretixClient {
     }
   }
 
+  public function deleteEvent(string $eventSlug) {
+    $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/';
+    $options = $this->getOptions();
+    try {
+      return $this->client->request('DELETE', $url, $options)->getStatusCode();
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+  }
+
   public function deleteSubEvent(string $eventSlug, string $subevent_id) {
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/subevents/' . $subevent_id . '/';
     $options = $this->getOptions();

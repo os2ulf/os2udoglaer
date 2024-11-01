@@ -74,6 +74,12 @@ class PretixEventManager extends PretixAbstractManager {
     return $subEvent;
   }
 
+  public function deleteEvent(EditorialContentEntityBase $entity) {
+    $eventSlug = $this->getEventSlug($entity);
+    $client = $this->getClient($entity);
+    return $client->deleteEvent($eventSlug);
+  }
+
   public function deleteSubEvent(EditorialContentEntityBase $entity, $subevent_id) {
     $eventSlug = $this->getEventSlug($entity);
     $client = $this->getClient($entity);
