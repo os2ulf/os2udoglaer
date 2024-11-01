@@ -11,7 +11,7 @@ dependencies:
     - field.field.block_content.footer.field_instagram_url
     - field.field.block_content.footer.field_linkedin_url
     - field.field.block_content.footer.field_logos_and_links
-    - field.field.block_content.footer.field_privacy_terms
+    - field.field.block_content.footer.field_paragraph_links
     - field.field.block_content.footer.field_shortcuts
     - field.field.block_content.footer.field_theme
   module:
@@ -23,7 +23,7 @@ mode: default
 content:
   field_background_image:
     type: image_style
-    weight: '7'
+    weight: '6'
     region: content
     label: omit
     settings:
@@ -39,7 +39,7 @@ content:
     third_party_settings: {  }
   field_contact_page_url:
     type: link
-    weight: '8'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
@@ -67,18 +67,19 @@ content:
     third_party_settings: {  }
   field_logos_and_links:
     type: entity_transform
-    weight: '6'
+    weight: '5'
     region: content
     label: omit
     settings:
       transform_mode: default
     third_party_settings: {  }
-  field_privacy_terms:
-    type: link
-    weight: '9'
+  field_paragraph_links:
+    type: entity_transform
+    weight: '8'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      transform_mode: default
     third_party_settings: {  }
   field_shortcuts:
     type: entity_reference_links
@@ -89,7 +90,7 @@ content:
     third_party_settings: {  }
   field_theme:
     type: styles
-    weight: '10'
+    weight: '9'
     region: content
     label: omit
     settings: {  }

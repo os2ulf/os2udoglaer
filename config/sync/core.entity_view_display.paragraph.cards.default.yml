@@ -4,7 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.cards.field_description
-    - field.field.paragraph.cards.field_link
+    - field.field.paragraph.cards.field_external_link
+    - field.field.paragraph.cards.field_internal_link
     - field.field.paragraph.cards.field_title
     - paragraphs.paragraphs_type.cards
   module:
@@ -21,7 +22,7 @@ content:
     third_party_settings: {  }
     weight: 3
     region: content
-  field_link:
+  field_external_link:
     type: link
     label: above
     settings:
@@ -31,7 +32,15 @@ content:
       rel: ''
       target: ''
     third_party_settings: {  }
-    weight: 4
+    weight: 3
+    region: content
+  field_internal_link:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
     region: content
   field_title:
     type: string

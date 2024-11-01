@@ -1,0 +1,25 @@
+uuid: cb423d4e-9f38-47eb-847e-0f7f4a518520
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_internal_link
+    - paragraphs.paragraphs_type.cards
+id: paragraph.cards.field_internal_link
+field_name: field_internal_link
+entity_type: paragraph
+bundle: cards
+label: 'Internt link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: content_entity_reference
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: 1a3a391f-abda-4afe-b53f-6a9ed84dd19d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_link_text
+    - paragraphs.paragraphs_type.links_paragraph
+id: paragraph.links_paragraph.field_link_text
+field_name: field_link_text
+entity_type: paragraph
+bundle: links_paragraph
+label: 'Link tekst'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -31,11 +31,13 @@ dependencies:
     - node.type.page
     - node.type.theater_refund
     - node.type.transport_pool_form
+    - workflows.workflow.application
     - workflows.workflow.editorial
   module:
     - atoms
     - block_content
     - content_moderation
+    - content_moderation_bypass
     - content_translation
     - contextual
     - domain
@@ -95,6 +97,7 @@ permissions:
   - 'assign place_of_visit role'
   - 'assign school role'
   - 'assign theater_contact role'
+  - 'bypass application transition restrictions'
   - 'bypass node access'
   - 'clone action entity'
   - 'clone base_field_override entity'
@@ -286,6 +289,14 @@ permissions:
   - 'translate atom'
   - 'translate editable entities'
   - 'translate menu_link_content'
+  - 'use application transition accept'
+  - 'use application transition afventer'
+  - 'use application transition await_payment'
+  - 'use application transition cancel'
+  - 'use application transition complete_payment'
+  - 'use application transition luk'
+  - 'use application transition ready_for_payment'
+  - 'use application transition reject'
   - 'use domain nav block'
   - 'use editorial transition accept'
   - 'use editorial transition create_new_draft'

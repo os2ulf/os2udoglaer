@@ -10,11 +10,13 @@ id: user.user.field_disable_auto_unpublish
 field_name: field_disable_auto_unpublish
 entity_type: user
 bundle: user
-label: 'Autotamatisk afpublicering'
+label: 'Automatisk afpublicering'
 description: ''
 required: false
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 1
 default_value_callback: ''
 settings:
   on_label: Tilsluttet
