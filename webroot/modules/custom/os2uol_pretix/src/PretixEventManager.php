@@ -155,7 +155,6 @@ class PretixEventManager extends PretixAbstractManager {
    */
   protected function convertToUTC($date_string) {
     $date = new \DateTime($date_string, new \DateTimeZone(date_default_timezone_get()));
-    $date->setTimezone(new \DateTimeZone('UTC'));
     return $date->format(DateTimeInterface::ATOM);
   }
 
