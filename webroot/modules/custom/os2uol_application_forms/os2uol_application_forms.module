@@ -142,18 +142,49 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
  * Implements hook_views_pre_render().
  */
 function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
-  if ($view->id() == 'free_course_request' || $view->id() == 'theater_refund') { // Replace with your View ID
+  if ($view->id() == 'school_budget_overview') {
+    // Custom summary for the 'school_budget_overview' view.
+    $allocated_budget = 0;
+    $spent_budget = 0;
+
+    // Loop through each row in the view result to accumulate budget values.
+    foreach ($view->result as $row) {
+      $allocated_budget += $row->_entity->get('field_rfc_granted_amount')->value;
+      $spent_budget += $row->_entity->get('field_rfc_spent_amount')->value;
+    }
+
+    // Calculate Restbudget: Tildelt budget - Forbrugt budget, with a minimum of 0.
+    $rest_budget = max($allocated_budget - $spent_budget, 0);
+
+    // Construct the formatted summary text.
+    $summary_markup = Markup::create(
+      '<div class="applications-summary">' .
+      '<strong>Tildelt budget: </strong>' . number_format($allocated_budget, 2, ',', '.') . ' kr. - ' .
+      '<strong>Forbrugt budget: </strong>' . number_format($spent_budget, 2, ',', '.') . ' kr. - ' .
+      '<strong>Restbudget: </strong>' . number_format($rest_budget, 2, ',', '.') . ' kr.' .
+      '</div>'
+    );
+
+    // Add the summary markup as a header for the view.
+    $view->attachment_before['summary_markup'] = [
+      '#markup' => $summary_markup,
+      '#weight' => -10,  // Ensure it appears before other view content.
+    ];
+  }
+  elseif ($view->id() == 'free_course_request' || $view->id() == 'theater_refund') {
+    // Custom summary for the 'free_course_request' and 'theater_refund' views.
     $requested_amount = 0;
     $granted_amount = 0;
     $spent_amount = 0;
 
+    // Loop through each row in the view result to accumulate amounts.
     foreach ($view->result as $row) {
       $requested_amount += $row->_entity->get('field_rfc_requested_amount')->value;
       $granted_amount += $row->_entity->get('field_rfc_granted_amount')->value;
       $spent_amount += $row->_entity->get('field_rfc_spent_amount')->value;
     }
 
-    // Construct the sum markup
+    // Construct the table markup for this summary.
     $sum_markup = Markup::create(
       '<table class="applications-summary">' .
       '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
@@ -161,10 +192,11 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
       '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
       '</table>'
     );
-    // Add the sum markup as the first item in the header
+
+    // Add the sum markup as a header for the view.
     $view->attachment_before['sum_markup'] = [
       '#markup' => $sum_markup,
-      '#weight' => -10,  // Ensures it appears before other elements
+      '#weight' => -10,  // Ensures it appears before other elements.
     ];
   }
 }
