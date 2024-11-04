@@ -5,7 +5,7 @@ db:
   # when choosing a version. If you specify a version number which is not available,
   # the CLI will return an error.
   type: "mariadb:11.2"
-  disk: 4096
+  disk: 8192
   configuration:
     properties:
       default_charset: utf8mb4
