@@ -79,7 +79,6 @@ permissions:
   - 'use editorial transition restore_draft'
   - 'use editorial transition save_draft_leave_current_published'
   - 'use editorial transition save_review'
-  - 'use editorial transition save_unpublished'
   - 'use editorial transition submit_for_review'
   - 'use editorial transition unpublish'
   - 'use text format basic_html'
