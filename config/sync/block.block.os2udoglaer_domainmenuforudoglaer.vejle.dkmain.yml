@@ -7,6 +7,7 @@ dependencies:
   module:
     - domain
     - menu_item_fields
+    - system
   theme:
     - os2udoglaer
 id: os2udoglaer_domainmenuforudoglaer.vejle.dkmain
@@ -33,3 +34,7 @@ visibility:
       domain: '@domain.current_domain_context:domain'
     domains:
       api_udoglaer_vejle_dk: api_udoglaer_vejle_dk
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/admin/*'
