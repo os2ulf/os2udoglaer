@@ -269,9 +269,16 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
   $query = \Drupal::entityQuery('node')
     ->condition('type', ['free_course_request', 'theater_refund', 'transport_pool_form'], 'IN')
     ->condition('field_rfc_date', $cutoff_date->format('Y-m-d'), '<=')
-    ->condition('field_data_anonymized', '1', '!=') // Only non-anonymized data
     ->condition('field_domain_access', $domain->id()) // Only nodes for the current domain
     ->accessCheck(FALSE); // Disable access checks for cron job
+
+  // Only non-anonymized data, add check for NULL values as well.
+  // This is needed due to field not being populated when node is created via REST API.
+  $anonymized_check = $query->orConditionGroup()
+    ->condition('field_data_anonymized', '1', '!=')
+    ->condition('field_data_anonymized', NULL, 'IS NULL');
+
+  $query->condition($anonymized_check);
 
   $nids = $query->execute();
 
@@ -301,7 +308,7 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
       }
 
       // Mark as anonymized.
-      $node->set('field_data_anonymized', TRUE);
+      $node->set('field_data_anonymized', '1');
 
       // Save the revision.
       $node->save();
@@ -310,9 +317,15 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
       $logger->info('Personal data anonymized for node ID ' . $node->id());
 
       $revisions = $node_storage->revisionIds($node);
+      $default_revision = $node->getRevisionId();
 
       // Remove all revisions
       foreach ($revisions as $revision_id) {
+        // Skip default revision
+        if ($revision_id == $default_revision) {
+          continue;
+        }
+
         $node_storage->deleteRevision($revision_id);
       }
     }
