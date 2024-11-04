@@ -48,7 +48,7 @@ processor_configs:
     weights:
       sort: 20
     settings:
-      sort: DESC
+      sort: ASC
   boolean_empty_option:
     processor_id: boolean_empty_option
     weights:
@@ -58,12 +58,6 @@ processor_configs:
       on_value: 'Gratis forløb'
       off_value: ''
       all_value: 'Alle forløb'
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: 30
-    settings:
-      sort: DESC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:

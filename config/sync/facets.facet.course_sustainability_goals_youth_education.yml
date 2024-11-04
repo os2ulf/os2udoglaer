@@ -10,7 +10,7 @@ dependencies:
 id: course_sustainability_goals_youth_education
 name: Verdensmål
 weight: 2
-min_count: 1
+min_count: 0
 missing: false
 missing_label: others
 url_alias: csgye
@@ -46,19 +46,13 @@ processor_configs:
   active_widget_order:
     processor_id: active_widget_order
     weights:
-      sort: 20
+      sort: -10
     settings:
-      sort: DESC
-  count_widget_order:
-    processor_id: count_widget_order
-    weights:
-      sort: 30
-    settings:
-      sort: DESC
+      sort: ASC
   display_value_widget_order:
     processor_id: display_value_widget_order
     weights:
-      sort: 40
+      sort: -7
     settings:
       sort: ASC
   hidden_attribute_processor:
@@ -70,6 +64,12 @@ processor_configs:
     weights:
       build: 100
     settings: {  }
+  term_weight_widget_order:
+    processor_id: term_weight_widget_order
+    weights:
+      sort: -8
+    settings:
+      sort: ASC
   translate_entity:
     processor_id: translate_entity
     weights:
