@@ -61,6 +61,10 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hidden_attribute_processor:
+    processor_id: hidden_attribute_processor
+    weights: {  }
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:

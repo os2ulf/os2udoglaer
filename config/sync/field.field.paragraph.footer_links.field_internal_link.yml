@@ -1,0 +1,25 @@
+uuid: 7f689cdb-cb1b-45d5-91cd-29b0dcbed4db
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_internal_link
+    - paragraphs.paragraphs_type.footer_links
+id: paragraph.footer_links.field_internal_link
+field_name: field_internal_link
+entity_type: paragraph
+bundle: footer_links
+label: 'Internt link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: content_entity_reference
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

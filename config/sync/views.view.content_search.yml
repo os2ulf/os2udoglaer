@@ -877,6 +877,7 @@ display:
             course_educators_author: course_educators_author
             course_educators_curriculum_themes: course_educators_curriculum_themes
             course_educators_is_free: course_educators_is_free
+            course_educators_period: course_educators_period
             course_educators_primary_school_subject: course_educators_primary_school_subject
             course_educators_subject: course_educators_subject
             course_educators_sustainability_goals: course_educators_sustainability_goals
@@ -1594,6 +1595,7 @@ display:
             course_course_type: course_course_type
             course_curriculum_themes: course_curriculum_themes
             course_is_free: course_is_free
+            course_period: course_period
             course_subject: course_subject
             course_sustainability_goals: course_sustainability_goals
             course_target_group_daycare: course_target_group_daycare
@@ -2361,6 +2363,7 @@ display:
             course_author_primary_school: course_author_primary_school
             course_course_type_primary_school: course_course_type_primary_school
             course_is_free_primary_school: course_is_free_primary_school
+            course_period_primary_school: course_period_primary_school
             course_primary_school_subject: course_primary_school_subject
             course_subject_primary_school: course_subject_primary_school
             course_sustainability_goals_primary_school: course_sustainability_goals_primary_school
@@ -2792,6 +2795,7 @@ display:
             course_author_youth_education: course_author_youth_education
             course_course_type_youth_education: course_course_type_youth_education
             course_is_free_youth_education: course_is_free_youth_education
+            course_period_youth_education: course_period_youth_education
             course_subject_youth_education: course_subject_youth_education
             course_sustainability_goals_youth_education: course_sustainability_goals_youth_education
             course_target_group_youth_education: course_target_group_youth_education

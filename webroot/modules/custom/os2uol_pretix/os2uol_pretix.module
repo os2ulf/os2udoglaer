@@ -195,14 +195,33 @@ function os2uol_pretix_node_update($node) {
 }
 
 function os2uol_pretix_node_delete($node) {
-  $helper = \Drupal::service('os2uol_pretix.event_helper');
-  if ($helper->isPretixEventNode($node)) {
-    $result = $helper->deletePretixEvent($node);
+  /** @var \Drupal\os2uol_pretix\PretixEventManager $eventManager */
+  $eventManager = \Drupal::service('os2uol_pretix.event_manager');
+  if ($eventManager->isPretixEventEntity($node)) {
+    $result = $eventManager->deleteEvent($node);
     if (isset($result['error'])) {
       \Drupal::messenger()->addError(t('The event could not be deleted in Pretix (%message).', ['%message' => $result['error']]));
     } else {
       \Drupal::messenger()->addStatus(t('The event was successfully deleted from Pretix.'));
     }
+  }
+}
+
+function os2uol_pretix_node_transform_alter(&$transformation) {
+  if (empty($transformation)) {
+    return;
+  }
+  if ($transformation['transform_mode'] != 'full') {
+    return;
+  }
+
+  /** @var \Drupal\os2uol_pretix\PretixEventManager $pretix_event_manager */
+  $pretix_event_manager = \Drupal::service('os2uol_pretix.event_manager');
+  /** @var \Drupal\node\Entity\Node $entity */
+  $entity = $transformation['#entity'];
+
+  if ($pretix_event_manager->isPretixEventEntity($entity)) {
+    $transformation['event_shop_url'] = $pretix_event_manager->getEventShopUrl($entity);
   }
 }
 

@@ -74,6 +74,12 @@ class PretixEventManager extends PretixAbstractManager {
     return $subEvent;
   }
 
+  public function deleteEvent(EditorialContentEntityBase $entity) {
+    $eventSlug = $this->getEventSlug($entity);
+    $client = $this->getClient($entity);
+    return $client->deleteEvent($eventSlug);
+  }
+
   public function deleteSubEvent(EditorialContentEntityBase $entity, $subevent_id) {
     $eventSlug = $this->getEventSlug($entity);
     $client = $this->getClient($entity);
@@ -82,7 +88,7 @@ class PretixEventManager extends PretixAbstractManager {
 
   protected function updateSubEventQuota(EditorialContentEntityBase $entity, array $subEvent, $size) {
     $eventSlug = $this->getEventSlug($entity);
-    $eventTemplate = $this->getEventSlug($entity);
+    $eventTemplate = $this->getEventTemplate($entity);
     $client = $this->getClient($entity);
 
     $templateSubEvent = $this->getEventSubEventTemplate($entity);
@@ -155,7 +161,6 @@ class PretixEventManager extends PretixAbstractManager {
    */
   protected function convertToUTC($date_string) {
     $date = new \DateTime($date_string, new \DateTimeZone(date_default_timezone_get()));
-    $date->setTimezone(new \DateTimeZone('UTC'));
     return $date->format(DateTimeInterface::ATOM);
   }
 
@@ -165,7 +170,6 @@ class PretixEventManager extends PretixAbstractManager {
   protected function updateSubEventData(EditorialContentEntityBase $entity, $subevent, &$data) {
     // Ensure that the date is formatted in UTC before sending it to Pretix
     $date_from = new \DateTime($subevent['date_from'], new \DateTimeZone(date_default_timezone_get()));
-    $date_from->setTimezone(new \DateTimeZone('UTC'));  // Convert to UTC
 
     $data['name'] = $this->formatEventName($entity);
     $data['date_from'] = $date_from->format(DateTimeInterface::ATOM);  // Send the UTC-formatted date
@@ -299,7 +303,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     // Check if the event template is set
     if (!isset($templates[$key])) {
-      $event_template = $this->getEventSlug($entity);  // Use getEventSlug instead of getEventTemplate
+      $event_template = $this->getEventTemplate($entity);  // Use getEventSlug instead of getEventTemplate
 
       // If the event template is null or empty, return an error or handle the case
       if (empty($event_template)) {

@@ -1,0 +1,11 @@
+uuid: a76bbade-95ff-48d4-896d-e196b8640259
+langcode: da
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.budget
+label: Budget
+description: ''
+targetEntityType: paragraph
+cache: true

@@ -9,7 +9,7 @@ dependencies:
     - search_api
 id: course_educators_author
 name: Udbyder
-weight: 3
+weight: 4
 min_count: 1
 missing: false
 missing_label: others
@@ -61,6 +61,10 @@ processor_configs:
       sort: 40
     settings:
       sort: ASC
+  hidden_attribute_processor:
+    processor_id: hidden_attribute_processor
+    weights: {  }
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:

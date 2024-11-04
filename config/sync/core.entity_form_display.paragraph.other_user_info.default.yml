@@ -3,8 +3,8 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.paragraph.other_user_info.field_external_link
     - field.field.paragraph.other_user_info.field_file
-    - field.field.paragraph.other_user_info.field_link
     - paragraphs.paragraphs_type.other_user_info
   module:
     - file
@@ -14,20 +14,20 @@ targetEntityType: paragraph
 bundle: other_user_info
 mode: default
 content:
+  field_external_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
   field_file:
     type: file_generic
     weight: 1
     region: content
     settings:
       progress_indicator: throbber
-    third_party_settings: {  }
-  field_link:
-    type: link_default
-    weight: 2
-    region: content
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
     third_party_settings: {  }
 hidden:
   created: true

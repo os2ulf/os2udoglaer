@@ -66,6 +66,10 @@ processor_configs:
     weights:
       build: 50
     settings: {  }
+  hidden_attribute_processor:
+    processor_id: hidden_attribute_processor
+    weights: {  }
+    settings: {  }
   hierarchy_processor:
     processor_id: hierarchy_processor
     weights:
