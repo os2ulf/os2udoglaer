@@ -53,6 +53,7 @@ type_settings:
       label: Gem
       from:
         - draft
+        - unpublished
       to: draft
       weight: -7
     delete:
@@ -68,6 +69,7 @@ type_settings:
       label: Udgiv
       from:
         - draft
+        - published
       to: published
       weight: -1
     publish_unpublished:
@@ -118,15 +120,8 @@ type_settings:
       label: Afpublicér
       from:
         - published
-        - unpublished
       to: unpublished
       weight: 3
-    update:
-      label: Gem
-      from:
-        - published
-      to: published
-      weight: -4
   entity_types:
     node:
       - course
