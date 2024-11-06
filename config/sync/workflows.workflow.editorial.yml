@@ -53,6 +53,7 @@ type_settings:
       label: Gem
       from:
         - draft
+        - unpublished
       to: draft
       weight: -7
     delete:
@@ -68,6 +69,7 @@ type_settings:
       label: Udgiv
       from:
         - draft
+        - published
       to: published
       weight: -1
     publish_unpublished:
@@ -106,17 +108,12 @@ type_settings:
         - review
       to: review
       weight: -5
-    save_unpublished:
-      label: Gem
-      from:
-        - unpublished
-      to: unpublished
-      weight: -6
     submit_for_review:
       label: 'Send til redaktion'
       from:
         - draft
         - published
+        - unpublished
       to: review
       weight: -2
     unpublish:
@@ -125,12 +122,6 @@ type_settings:
         - published
       to: unpublished
       weight: 3
-    update:
-      label: Gem
-      from:
-        - published
-      to: published
-      weight: -4
   entity_types:
     node:
       - course
