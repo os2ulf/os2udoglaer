@@ -73,7 +73,7 @@ display:
             value: 'Displays content that is assigned to you through the <em>Reviewer</em> field provided by <em>Workbench Reviewer</em>.'
       empty:
         area_text_custom:
-          content: 'Intet indhold er blevet tildelt dig til gennemgang.'
+          content: 'No content has been assigned to you for review.'
   page_assigned_to_me:
     display_title: Page
     display_options:

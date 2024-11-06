@@ -157,6 +157,7 @@ module:
   view_profiles_perms: 0
   view_unpublished: 0
   views_bulk_operations: 0
+  views_contextual_filters_or: 0
   views_data_export: 0
   views_simple_math_field: 0
   views_ui: 0
