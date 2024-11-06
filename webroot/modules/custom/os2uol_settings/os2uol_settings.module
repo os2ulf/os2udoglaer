@@ -154,13 +154,28 @@ function os2uol_settings_tokens($type, $tokens, array $data, array $options, Bub
           $email_signature_service = \Drupal::service('os2uol_settings.email_signature_token_service');
           $email_signature = $email_signature_service->getEmailSignature();
 
-          // Convert newlines to <br> tags for HTML output.
-          if (!empty($email_signature)) {
-            $email_signature = nl2br($email_signature);
+          // Debug log to understand the type of $email_signature.
+          \Drupal::logger('os2uol_settings')->debug('Retrieved email signature: @signature', [
+            '@signature' => print_r($email_signature, TRUE),
+          ]);
+
+          // Check if the email signature is an array.
+          if (is_array($email_signature)) {
+            // Convert array to string, joining with newlines.
+            $email_signature = implode("\n", $email_signature);
+            \Drupal::logger('os2uol_settings')->warning('Email signature was an array; converted to string.');
           }
+
+          // Convert newlines to <br> tags for HTML output.
+          $email_signature = nl2br($email_signature);
 
           // Markup the email signature to be treated as safe HTML.
           $replacements[$original] = Markup::create($email_signature);
+
+          // Log final replacement value.
+          \Drupal::logger('os2uol_settings')->debug('Final replacement value for email_signature token: @value', [
+            '@value' => $replacements[$original],
+          ]);
           break;
       }
     }
