@@ -12,7 +12,7 @@ dependencies:
 id: os2udoglaer_views_block__workbench_reviewer_assigned_for_review2
 theme: os2udoglaer
 region: content
-weight: 0
+weight: -18
 provider: null
 plugin: 'views_block:workbench_reviewer_assigned_for_review-block_2'
 settings:

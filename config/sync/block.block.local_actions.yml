@@ -9,7 +9,7 @@ _core:
 id: local_actions
 theme: os2udoglaer
 region: content
-weight: -5
+weight: -22
 provider: null
 plugin: local_actions_block
 settings:
