@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Render\BubbleableMetadata;
+use Psr\Log\LoggerInterface;
 
 /**
  * Define available fonts for the OS2UOL settings.
@@ -151,7 +152,22 @@ function os2uol_settings_tokens($type, $tokens, array $data, array $options, Bub
       switch ($name) {
         case 'email_signature':
           $email_signature_service = \Drupal::service('os2uol_settings.email_signature_token_service');
-          $replacements[$original] = $email_signature_service->getEmailSignature();
+          $email_signature = $email_signature_service->getEmailSignature();
+
+          // Log the raw output from the email signature service.
+          \Drupal::logger('os2uol_settings')->debug('Raw email signature from service: @signature', ['@signature' => print_r($email_signature, TRUE)]);
+
+          // If the email signature is an array, convert it to a string for debugging purposes.
+          if (is_array($email_signature)) {
+            \Drupal::logger('os2uol_settings')->warning('Email signature is an array. Converting to string.');
+            $email_signature = implode("\n", $email_signature);
+          }
+
+          // Assign the processed email signature to the replacements array.
+          $replacements[$original] = $email_signature;
+
+          // Log the final replacement value.
+          \Drupal::logger('os2uol_settings')->debug('Final replacement value for email_signature token: @value', ['@value' => $replacements[$original]]);
           break;
       }
     }
