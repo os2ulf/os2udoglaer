@@ -13,5 +13,6 @@ class EmailSignatureTokenService {
   public function getEmailSignature() {
     $config = $this->configFactory->get('os2uol_settings.settings');
     return $config->get('email_signature');
+    \Drupal::logger('os2uol_settings')->debug('Retrieved Email Signature: @signature', ['@signature' => $config->get('email_signature')]);
   }
 }
