@@ -6,6 +6,7 @@ dependencies:
     - views.view.workbench_edits_by_user
   module:
     - system
+    - user
     - views
   theme:
     - os2udoglaer
