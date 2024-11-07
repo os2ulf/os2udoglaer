@@ -227,6 +227,7 @@ function os2uol_pretix_node_transform_alter(&$transformation) {
   } elseif ($pretix_event_manager->isPretixEventEntity($entity)) {
     // If not set, but the entity is a Pretix event, fetch URL from Pretix
     $transformation['event_shop_url'] = $pretix_event_manager->getEventShopUrl($entity);
+  } else {
   }
 }
 
