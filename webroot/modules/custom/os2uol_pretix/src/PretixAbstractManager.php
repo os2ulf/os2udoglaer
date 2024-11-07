@@ -43,7 +43,7 @@ abstract class PretixAbstractManager {
   }
 
   protected function getClient(EditorialContentEntityBase $entity): PretixClient {
-    $clients = &drupal_static(__FUNCTION__);
+    static $clients = [];
     $key = $this->getEntityKey($entity);
     if (!isset($clients[$key])) {
       /** @var EntityOwnerTrait $entity_owner */
@@ -63,7 +63,7 @@ abstract class PretixAbstractManager {
   }
 
   protected function getEventSlug(EditorialContentEntityBase $entity) {
-    $slugs = &drupal_static(__FUNCTION__);
+    static $slugs = [];
     $key = $this->getEntityKey($entity);
     if (!isset($slugs[$key])) {
       if ($entity->get('field_pretix_event_short_form')->isEmpty()) {
@@ -76,7 +76,7 @@ abstract class PretixAbstractManager {
   }
 
   protected function getEventTemplate(EditorialContentEntityBase $entity) {
-    $templates = &drupal_static(__FUNCTION__);
+    static $templates = [];
     $key = $this->getEntityKey($entity);
     if (!isset($templates[$key])) {
       if ($entity->get('field_pretix_template_event')->isEmpty()) {

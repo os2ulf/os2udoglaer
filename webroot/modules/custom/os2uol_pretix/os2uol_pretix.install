@@ -1,0 +1,42 @@
+<?php
+
+use Drupal\Core\Entity\EntityTypeInterface;
+
+/**
+ * Implements hook_schema().
+ */
+function os2uol_pretix_schema() {
+  $schema['pretix_queue'] = [
+    'description' => 'Pretix banner queue.',
+    'fields' => [
+      'entity_type_id' => [
+        'type' => 'varchar_ascii',
+        'length' => EntityTypeInterface::ID_MAX_LENGTH,
+        'not null' => TRUE,
+      ],
+      'entity_id' => [
+        'type' => 'varchar_ascii',
+        'length' => EntityTypeInterface::ID_MAX_LENGTH,
+        'not null' => TRUE,
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['entity_type_id', 'entity_id'],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Create Pretix queue table.
+ */
+function os2uol_pretix_update_10001(&$sandbox) {
+  $schema = \Drupal::database()->schema();
+  $schema->dropTable('pretix_queue');
+  $table_schema = os2uol_pretix_schema();
+  $schema->createTable('pretix_queue', $table_schema['pretix_queue']);
+
+}

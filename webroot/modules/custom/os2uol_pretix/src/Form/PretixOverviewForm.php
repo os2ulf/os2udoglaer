@@ -7,6 +7,7 @@ use Drupal\Component\Serialization\Json;
 use Drupal\Core\Ajax\AjaxResponse;
 use Drupal\Core\Ajax\ReplaceCommand;
 use Drupal\Core\Datetime\DateFormatter;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Entity\EditorialContentEntityBase;
 use Drupal\Core\Entity\EntityRepositoryInterface;
@@ -219,10 +220,11 @@ class PretixOverviewForm extends ContentEntityForm {
       return $form;
     }
     foreach ($subevents['results'] as $key => $subevent) {
+      $date_from = new DrupalDateTime($subevent['date_from']);
       $form['dates'][$key] = [
         'date_from' => [
           '#type' => 'markup',
-          '#markup' => $this->getDateFormatter()->format(strtotime($subevent['date_from']), 'short')
+          '#markup' => $date_from->format('d/m/Y - H:i'),
         ],
         'date_to' => [],
         'presale_start' => [],
@@ -232,23 +234,26 @@ class PretixOverviewForm extends ContentEntityForm {
       ];
 
       if (!is_null($subevent['date_to'])) {
+        $date_to = new DrupalDateTime($subevent['date_to']);
         $form['dates'][$key]['date_to'] = [
           '#type' => 'markup',
-          '#markup' => $this->getDateFormatter()->format(strtotime($subevent['date_to']), 'short')
+          '#markup' => $date_to->format('d/m/Y - H:i'),
         ];
       }
 
       if (!is_null($subevent['presale_start'])) {
+        $presale_start = new DrupalDateTime($subevent['presale_start']);
         $form['dates'][$key]['presale_start'] = [
           '#type' => 'markup',
-          '#markup' => $this->getDateFormatter()->format(strtotime($subevent['presale_start']), 'short')
+          '#markup' => $presale_start->format('d/m/Y - H:i'),
         ];
       }
 
       if (!is_null($subevent['presale_end'])) {
+        $presale_end = new DrupalDateTime($subevent['presale_end']);
         $form['dates'][$key]['presale_end'] = [
           '#type' => 'markup',
-          '#markup' => $this->getDateFormatter()->format(strtotime($subevent['presale_end']), 'short')
+          '#markup' => $presale_end->format('d/m/Y - H:i'),
         ];
       }
 

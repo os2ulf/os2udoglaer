@@ -226,6 +226,15 @@ function os2uol_pretix_node_transform_alter(&$transformation) {
 }
 
 /**
+ * Implements hook_cron().
+ */
+function os2uol_pretix_cron() {
+  /** @var \Drupal\os2uol_pretix\PretixBannerManager $bannerManager */
+  $bannerManager = \Drupal::service('os2uol_pretix.banner_manager');
+  $bannerManager->processQueue();
+}
+
+/**
  * Synchronize Pretix event with node.
  *
  * @param object $node
