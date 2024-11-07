@@ -303,7 +303,7 @@ class PretixEventManager extends PretixAbstractManager {
   }
 
   protected function getEventSubEventTemplate(EditorialContentEntityBase $entity) {
-    $templates = &drupal_static(__FUNCTION__);
+    static $templates = [];
     $key = $this->getEntityKey($entity);
 
     // Check if the event template is set
@@ -331,7 +331,7 @@ class PretixEventManager extends PretixAbstractManager {
   }
 
   protected function getEventProduct(EditorialContentEntityBase $entity) {
-    $products = &drupal_static(__FUNCTION__);
+    static $products = [];
     $key = $this->getEntityKey($entity);
     if (!isset($products[$key])) {
       $client = $this->getClient($entity);
