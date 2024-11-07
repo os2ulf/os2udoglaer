@@ -217,6 +217,11 @@ class PretixEventManager extends PretixAbstractManager {
     return $client->getQuotas($this->getEventSlug($entity), $subevent);
   }
 
+  public function getQuotasAndAvailability(EditorialContentEntityBase $entity) {
+    $client = $this->getClient($entity);
+    return $client->getQuotasAndAvailability($this->getEventSlug($entity));
+  }
+
   public function getSubEvent(EditorialContentEntityBase $entity, $subevent_id) {
     if (is_null($this->getEventSlug($entity))) {
       return NULL;

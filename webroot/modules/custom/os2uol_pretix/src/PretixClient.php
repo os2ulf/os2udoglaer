@@ -313,6 +313,33 @@ class PretixClient {
   }
 
   /**
+   * Get quotas and availability.
+   *
+   * @param string $eventSlug
+   *   The event slug.
+   *
+   * @return array
+   *   The result.
+   */
+  public function getQuotasAndAvailability(string $eventSlug): array {
+    $options = $this->getOptions();
+    $options['query'] = ['with_availability' => 'true'];
+    $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/quotas/';
+    try {
+      return json_decode($this->client->request('GET', $url, $options)
+        ->getBody()
+        ->getContents(), TRUE);
+    }
+    catch (ClientException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+  }
+
+  /**
    * Get quota availability.
    *
    * @param string $eventSlug
