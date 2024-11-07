@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Render\Markup;
 
 /**
  * Define available fonts for the OS2UOL settings.
@@ -151,7 +152,19 @@ function os2uol_settings_tokens($type, $tokens, array $data, array $options, Bub
       switch ($name) {
         case 'email_signature':
           $email_signature_service = \Drupal::service('os2uol_settings.email_signature_token_service');
-          $replacements[$original] = $email_signature_service->getEmailSignature();
+          $email_signature = $email_signature_service->getEmailSignature();
+
+          // Only use the 'value' key if the email signature is an array.
+          if (is_array($email_signature) && isset($email_signature['value'])) {
+            $email_signature = $email_signature['value'];
+          }
+
+          // Convert newlines to <br> tags to preserve formatting in HTML.
+          $email_signature = nl2br($email_signature, false);
+
+          // Markup the email signature to be treated as safe HTML.
+          $replacements[$original] = Markup::create($email_signature);
+
           break;
       }
     }

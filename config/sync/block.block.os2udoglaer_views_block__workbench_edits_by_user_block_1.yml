@@ -1,22 +1,23 @@
-uuid: 8268a6a4-2532-4bcb-b468-afde1b61c28f
+uuid: e21111ad-3e3c-41b1-bd14-179a07792c25
 langcode: da
 status: true
 dependencies:
   config:
-    - views.view.workbench_reviewer_assigned_for_review
+    - views.view.workbench_edits_by_user
   module:
     - system
+    - user
     - views
   theme:
     - os2udoglaer
-id: os2udoglaer_views_block__workbench_reviewer_assigned_for_review
+id: os2udoglaer_views_block__workbench_edits_by_user_block_1
 theme: os2udoglaer
 region: content
-weight: -18
+weight: -20
 provider: null
-plugin: 'views_block:workbench_reviewer_assigned_for_review-block_1'
+plugin: 'views_block:workbench_edits_by_user-block_1'
 settings:
-  id: 'views_block:workbench_reviewer_assigned_for_review-block_1'
+  id: 'views_block:workbench_edits_by_user-block_1'
   label: ''
   label_display: visible
   provider: views

@@ -1,0 +1,4 @@
+days: '30'
+first_warning: '14'
+second_warning: '7'
+unpublish_interval: '430'
