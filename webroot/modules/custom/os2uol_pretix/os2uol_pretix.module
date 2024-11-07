@@ -220,10 +220,13 @@ function os2uol_pretix_node_transform_alter(&$transformation) {
   /** @var \Drupal\node\Entity\Node $entity */
   $entity = $transformation['#entity'];
 
-  // Check if field_pretix_shop_url is populated to confirm it's a Pretix event
+  // Check if field_pretix_shop_url is populated or if the entity is a Pretix event
   if ($entity->hasField('field_pretix_shop_url') && !$entity->get('field_pretix_shop_url')->isEmpty()) {
+    // Use the field_pretix_shop_url if it's set
+    $transformation['event_shop_url'] = $entity->get('field_pretix_shop_url')->first()->getString();
+  } elseif ($pretix_event_manager->isPretixEventEntity($entity)) {
+    // If not set, but the entity is a Pretix event, fetch URL from Pretix
     $transformation['event_shop_url'] = $pretix_event_manager->getEventShopUrl($entity);
-  } else {
   }
 }
 
