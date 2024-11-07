@@ -321,7 +321,7 @@ class PretixEventManager extends PretixAbstractManager {
       $result = $client->getSubEvents($event_template);
 
       if (isset($result['error']) || 0 === $result['count']) {
-        $templates[$key] = NULL;
+        $templates[$key] = $result;
       } else {
         $templates[$key] = $result['results'][0];
       }
