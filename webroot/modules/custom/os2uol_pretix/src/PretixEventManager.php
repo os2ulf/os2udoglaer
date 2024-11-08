@@ -223,6 +223,11 @@ class PretixEventManager extends PretixAbstractManager {
     return $client->getQuotas($this->getEventSlug($entity), $subevent);
   }
 
+  public function getQuotasAndAvailability(EditorialContentEntityBase $entity) {
+    $client = $this->getClient($entity);
+    return $client->getQuotasAndAvailability($this->getEventSlug($entity));
+  }
+
   public function getSubEvent(EditorialContentEntityBase $entity, $subevent_id) {
     if (is_null($this->getEventSlug($entity))) {
       return NULL;
@@ -298,7 +303,7 @@ class PretixEventManager extends PretixAbstractManager {
   }
 
   protected function getEventSubEventTemplate(EditorialContentEntityBase $entity) {
-    $templates = &drupal_static(__FUNCTION__);
+    static $templates = [];
     $key = $this->getEntityKey($entity);
 
     // Check if the event template is set
@@ -316,7 +321,7 @@ class PretixEventManager extends PretixAbstractManager {
       $result = $client->getSubEvents($event_template);
 
       if (isset($result['error']) || 0 === $result['count']) {
-        $templates[$key] = NULL;
+        $templates[$key] = $result;
       } else {
         $templates[$key] = $result['results'][0];
       }
@@ -326,7 +331,7 @@ class PretixEventManager extends PretixAbstractManager {
   }
 
   protected function getEventProduct(EditorialContentEntityBase $entity) {
-    $products = &drupal_static(__FUNCTION__);
+    static $products = [];
     $key = $this->getEntityKey($entity);
     if (!isset($products[$key])) {
       $client = $this->getClient($entity);

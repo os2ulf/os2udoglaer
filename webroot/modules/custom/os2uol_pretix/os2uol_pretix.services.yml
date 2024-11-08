@@ -20,6 +20,10 @@ services:
       - '@date.formatter'
       - '@plugin.manager.mail'
 
-  os2uol_pretix.pretix_event_manager:
-    class: 'Drupal\os2uol_pretix\PretixEventManager'
-    arguments: ['@os2uol_pretix.pretix_connector', '@logger.factory', '@messenger']
+  os2uol_pretix.banner_manager:
+    class: 'Drupal\os2uol_pretix\PretixBannerManager'
+    arguments:
+     - '@os2uol_pretix.event_manager'
+     - '@cache.data'
+     - '@database'
+     - '@entity_type.manager'

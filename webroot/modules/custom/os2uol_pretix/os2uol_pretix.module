@@ -220,9 +220,19 @@ function os2uol_pretix_node_transform_alter(&$transformation) {
   /** @var \Drupal\node\Entity\Node $entity */
   $entity = $transformation['#entity'];
 
-  if ($pretix_event_manager->isPretixEventEntity($entity)) {
+  // Check if field_pretix_shop_url is populated or if the entity is a Pretix event
+  if ($pretix_event_manager->hasPretixShopURL($entity)) {
     $transformation['event_shop_url'] = $pretix_event_manager->getEventShopUrl($entity);
   }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function os2uol_pretix_cron() {
+  /** @var \Drupal\os2uol_pretix\PretixBannerManager $bannerManager */
+  $bannerManager = \Drupal::service('os2uol_pretix.banner_manager');
+  $bannerManager->processQueue();
 }
 
 /**
