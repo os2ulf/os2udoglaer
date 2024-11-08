@@ -221,13 +221,8 @@ function os2uol_pretix_node_transform_alter(&$transformation) {
   $entity = $transformation['#entity'];
 
   // Check if field_pretix_shop_url is populated or if the entity is a Pretix event
-  if ($entity->hasField('field_pretix_shop_url') && !$entity->get('field_pretix_shop_url')->isEmpty()) {
-    // Use the field_pretix_shop_url if it's set
-    $transformation['event_shop_url'] = $entity->get('field_pretix_shop_url')->first()->getString();
-  } elseif ($pretix_event_manager->isPretixEventEntity($entity)) {
-    // If not set, but the entity is a Pretix event, fetch URL from Pretix
+  if ($pretix_event_manager->hasPretixShopURL($entity)) {
     $transformation['event_shop_url'] = $pretix_event_manager->getEventShopUrl($entity);
-  } else {
   }
 }
 
