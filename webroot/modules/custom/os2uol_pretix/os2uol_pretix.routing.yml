@@ -12,7 +12,7 @@ os2uol_pretix.delete_subevent:
     _form: '\Drupal\os2uol_pretix\Form\PretixSubEventDeleteForm'
     _title: 'Delete Pretix date'
   requirements:
-    _permission: 'delete all pretix events'
+    _permission: 'delete pretix dates'
 
 os2uol_pretix.webhooks.order:
   path: '/pretix/webhooks/order/{organizer}'

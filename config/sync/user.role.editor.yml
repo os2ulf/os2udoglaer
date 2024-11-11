@@ -230,6 +230,7 @@ permissions:
   - 'delete own webform'
   - 'delete own webform submission'
   - 'delete page revisions'
+  - 'delete pretix dates'
   - 'edit all pretix events'
   - 'edit any accordion block content'
   - 'edit any appetizer block content'
