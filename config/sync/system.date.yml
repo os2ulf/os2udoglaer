@@ -3,10 +3,10 @@ _core:
 langcode: da
 first_day: 0
 country:
-  default: ''
+  default: DK
 timezone:
-  default: ''
+  default: Europe/Copenhagen
   user:
-    configurable: true
+    configurable: false
     default: 0
     warn: false
