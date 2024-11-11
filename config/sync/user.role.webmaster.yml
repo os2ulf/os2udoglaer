@@ -295,6 +295,7 @@ permissions:
   - 'delete own webform'
   - 'delete own webform submission'
   - 'delete page revisions'
+  - 'delete pretix dates'
   - 'delete terms in areas_of_interest'
   - 'delete terms in banner'
   - 'delete terms in course_type'

@@ -30,3 +30,7 @@ remove pretix event connection:
   title: 'Remove Pretix event connection'
   description: 'Allows users to remove the connection between a Pretix event and a Drupal node.'
   restrict access: TRUE
+
+delete pretix dates:
+  title: 'Delete Pretix dates'
+  description: 'Allows users to delete dates from Pretix.'

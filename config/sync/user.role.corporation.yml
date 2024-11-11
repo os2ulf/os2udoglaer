@@ -50,6 +50,7 @@ permissions:
   - 'delete own internship content'
   - 'delete own news content'
   - 'delete own transport_pool_form content'
+  - 'delete pretix dates'
   - 'edit all pretix events'
   - 'edit own course content'
   - 'edit own course_educators content'

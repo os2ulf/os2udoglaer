@@ -134,7 +134,9 @@ class PretixEntityHooks implements ContainerInjectionInterface {
       if ($eventManager->isPretixEventEntity($entity)) {
         /** @var \Drupal\Core\Entity\EditorialContentEntityBase $editorialEntity */
         $editorialEntity = $entity;
-        $result = $eventManager->setEventLive($editorialEntity);
+        if ($editorialEntity->isLatestRevision()) {
+          $result = $eventManager->setEventLive($editorialEntity);
+        }
       }
     }
   }
