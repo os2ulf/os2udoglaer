@@ -387,7 +387,7 @@ class PretixOverviewForm extends ContentEntityForm {
         'slug' => $entity->id(),
         'currency' => 'DKK',
         'is_public' => $entity->isPublished(),
-        'date_from' => $eventManager->formatDateFormValue($form_state->getValue('date_from'))
+        'date_from' => $eventManager->formatDateFormValue(new DrupalDateTime())
       ];
       $result = $eventManager->createEvent($entity, $form_state->getValue('template'), $event);
       if (!empty($result)) {
