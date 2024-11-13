@@ -1,0 +1,17 @@
+uuid: 7ed5f483-18b7-4de5-ad69-120db375ba9a
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_pretix
+title: 'Default cron handler'
+id: os2uol_pretix_cron
+weight: 0
+module: os2uol_pretix
+callback: os2uol_pretix_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database
