@@ -460,7 +460,6 @@ class PretixOverviewForm extends ContentEntityForm {
     $this->entity->save();
   }
 
-
   /**
    * {@inheritdoc}
    *
