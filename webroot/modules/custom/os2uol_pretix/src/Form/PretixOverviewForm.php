@@ -12,6 +12,7 @@ use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Entity\EditorialContentEntityBase;
 use Drupal\Core\Entity\EntityRepositoryInterface;
 use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
+use Drupal\Core\Entity\RevisionLogInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
@@ -70,8 +71,42 @@ class PretixOverviewForm extends ContentEntityForm {
     return NULL;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function buildEntity(array $form, FormStateInterface $form_state) {
+    $entity = clone $this->entity;
+
+    // Invoke all specified builders for copying form values to entity
+    // properties.
+    if (isset($form['#entity_builders'])) {
+      foreach ($form['#entity_builders'] as $function) {
+        call_user_func_array($form_state->prepareCallback($function), [$entity->getEntityTypeId(), $entity, &$form, &$form_state]);
+      }
+    }
+
+    // Mark the entity as requiring validation.
+    $entity->setValidationRequired(FALSE);
+
+    // Save as a new revision if requested to do so.
+    if ($this->showRevisionUi()) {
+      $entity->setNewRevision();
+      if ($entity instanceof RevisionLogInterface) {
+        // If a new revision is created, save the current user as
+        // revision author.
+        $entity->setRevisionUserId($this->currentUser()->id());
+        $entity->setRevisionCreationTime($this->time->getRequestTime());
+      }
+    }
+
+    return $entity;
+  }
+
   public function form(array $form, FormStateInterface $form_state) {
     $form = [];
+    // Add #process callbacks.
+    $form['#process'][] = '::processForm';
+
     /** @var \Drupal\Core\Entity\EditorialContentEntityBase $entity */
     $entity = $this->getEntity();
     /** @var EntityOwnerTrait $entityOwner */
@@ -339,13 +374,6 @@ class PretixOverviewForm extends ContentEntityForm {
   /**
    * {@inheritdoc}
    */
-  public function save(array $form, FormStateInterface $form_state): void {
-    // Not saving.
-  }
-
-  /**
-   * {@inheritdoc}
-   */
   protected function actions(array $form, FormStateInterface $form_state): array {
     /** @var \Drupal\Core\Entity\EditorialContentEntityBase $entity */
     $entity = $this->getEntity();
@@ -375,56 +403,76 @@ class PretixOverviewForm extends ContentEntityForm {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function save(array $form, FormStateInterface $form_state) {
+    // Do nothing
+  }
+
   public function submitForm(array &$form, FormStateInterface $form_state) {
     /** @var \Drupal\Core\Entity\EditorialContentEntityBase $entity */
-    $entity = $this->getEntity();
+    $this->entity = $this->buildEntity($form, $form_state);
 
     if ($form_state->getValue('action') == 'create') {
       /** @var \Drupal\os2uol_pretix\PretixEventManager $eventManager */
       $eventManager = \Drupal::service('os2uol_pretix.event_manager');
 
       $event = [
-        'slug' => $entity->id(),
+        'slug' => $this->entity->id(),
         'currency' => 'DKK',
-        'is_public' => $entity->isPublished(),
+        'is_public' => $this->entity->isPublished(),
         'date_from' => $eventManager->formatDateFormValue(new DrupalDateTime())
       ];
-      $result = $eventManager->createEvent($entity, $form_state->getValue('template'), $event);
+      $result = $eventManager->createEvent($this->entity, $form_state->getValue('template'), $event);
       if (!empty($result)) {
-        $entity->set('field_pretix_template_event', [0 => ['value' => $form_state->getValue('template')]]);
-        $entity->set('field_pretix_event_short_form', [0 => ['value' => $result['slug']]]);
+        $this->entity->set('field_pretix_template_event', [0 => ['value' => $form_state->getValue('template')]]);
+        $this->entity->set('field_pretix_event_short_form', [0 => ['value' => $result['slug']]]);
         if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
-          $entity->set('moderation_state', 'draft');
+          $this->entity->set('moderation_state', 'draft');
         }
-        $entity->save();
       }
     } elseif ($form_state->getValue('action') == 'choose') {
-      $entity->set('field_pretix_template_event', [0 => ['value' => $form_state->getValue('template')]]);
-      $entity->set('field_pretix_event_short_form', [0 => ['value' => $form_state->getValue('event')]]);
+      $this->entity->set('field_pretix_template_event', [0 => ['value' => $form_state->getValue('template')]]);
+      $this->entity->set('field_pretix_event_short_form', [0 => ['value' => $form_state->getValue('event')]]);
       if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
-        $entity->set('moderation_state', 'draft');
+        $this->entity->set('moderation_state', 'draft');
       }
-      $entity->save();
     } elseif ($form_state->getValue('action') == 'url') {
-      $entity->set('field_pretix_shop_url', [0 => ['uri' => $form_state->getValue('shop_url')]]);
+      $this->entity->set('field_pretix_shop_url', [0 => ['uri' => $form_state->getValue('shop_url')]]);
       if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
-        $entity->set('moderation_state', 'draft');
+        $this->entity->set('moderation_state', 'draft');
       }
-      $entity->save();
     }
+    $this->entity->save();
   }
 
   public function resetForm(array &$form, FormStateInterface $form_state) {
     /** @var \Drupal\Core\Entity\EditorialContentEntityBase $entity */
-    $entity = $this->getEntity();
+    $this->entity = $this->buildEntity($form, $form_state);
 
-    $entity->set('field_pretix_template_event', []);
-    $entity->set('field_pretix_event_short_form', []);
-    $entity->set('field_pretix_shop_url', []);
+    $this->entity->set('field_pretix_template_event', []);
+    $this->entity->set('field_pretix_event_short_form', []);
+    $this->entity->set('field_pretix_shop_url', []);
     if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
-      $entity->set('moderation_state', 'draft');
+      $this->entity->set('moderation_state', 'draft');
     }
-    $entity->save();
+    $this->entity->save();
+  }
+
+  /**
+   * {@inheritdoc}
+   *
+   * Button-level validation handlers are highly discouraged for entity forms,
+   * as they will prevent entity validation from running. If the entity is going
+   * to be saved during the form submission, this method should be manually
+   * invoked from the button-level validation handler, otherwise an exception
+   * will be thrown.
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
+    $entity = $this->buildEntity($form, $form_state);
+    return $entity;
   }
 
 }

@@ -113,7 +113,7 @@ class PretixSubEventDeleteForm extends ConfirmFormBase {
 
     if (!is_null($this->eventManager->deleteSubEvent($entity, $subevent_id))) {
       $this->messenger()
-        ->addStatus($this->t('Successfully deleted date'));
+        ->addStatus($this->t('Successfully deleted date.'));
       $form_state->setRedirectUrl($this->getCancelUrl());
     }
   }
