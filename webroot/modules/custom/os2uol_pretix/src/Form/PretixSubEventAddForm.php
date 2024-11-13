@@ -163,7 +163,7 @@ class PretixSubEventAddForm extends ContentEntityForm {
     }
 
     if (!is_null($eventManager->addSubEvent($entity, $subevent))) {
-      $this->messenger()->addStatus($this->t('Successfully created new event'));
+      $this->messenger()->addStatus($this->t('Successfully added new date.'));
 
       // Redirect to the Pretix page after form submission.
       $form_state->setRedirect('entity.node.pretix', ['node' => $entity->id()]);

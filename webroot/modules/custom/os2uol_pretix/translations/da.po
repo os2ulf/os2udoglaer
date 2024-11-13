@@ -77,6 +77,12 @@ msgstr "Successfuldt sat <a href=\"@pretix_event_url\">Pretix begivenheden</a> l
 msgid "Successfully set <a href=\"@pretix_event_url\">the pretix event</a> not live."
 msgstr "Successfuldt sat <a href=\"@pretix_event_url\">Pretix begivenheden</a> ikke live."
 
+msgid "Successfully added new date."
+msgstr "Dato er successfuldt tilføjet."
+
+msgid "Successfully deleted date."
+msgstr "Dato er blevet successfuldt slettet."
+
 msgid "User don't support Pretix"
 msgstr "Brugeren understøtter ikke Pretix"
 
@@ -106,3 +112,6 @@ msgstr "Begivenheden mangler meta data feltet DrupalURL."
 
 msgid "Shop is not live until dates are added."
 msgstr "Butikken er ikke live før det tilføjes datoer."
+
+msgid "Are you sure you want to delete this date?"
+msgstr "Er du sikker på at du vil slette denne dato?"
