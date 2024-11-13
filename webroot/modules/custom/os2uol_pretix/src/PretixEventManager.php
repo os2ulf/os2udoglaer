@@ -405,6 +405,9 @@ class PretixEventManager extends PretixAbstractManager {
     if ($node_entity && $node_entity->hasField('field_pretix_event_id')) {
       // Clear the Pretix event ID field to drop the connection.
       $node_entity->set('field_pretix_event_id', NULL);
+      if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
+        $node_entity->set('moderation_state', 'draft');
+      }
       $node_entity->save();
 
       return new JsonResponse(['status' => 'Pretix event connection removed']);

@@ -34,7 +34,7 @@ class WebhooksController extends ControllerBase {
   public static function create(ContainerInterface $container) {
     return new static(
       $container->get('os2uol_pretix.order_manager'),
-      $container->get('os2uol_pretix.pretix_event_manager')
+      $container->get('os2uol_pretix.event_manager')
     );
   }
 

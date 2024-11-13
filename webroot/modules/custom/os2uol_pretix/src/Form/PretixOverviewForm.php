@@ -150,12 +150,6 @@ class PretixOverviewForm extends ContentEntityForm {
       $form['values']['template'] = $this->templateFormElement($user);
     } elseif ($form_state->getValue('action') == 'create') {
       $form['values']['template'] = $this->templateFormElement($user);
-
-      $form['values']['date_from'] = [
-        '#type' => 'datetime',
-        '#title' => $this->t('Event start time'),
-        '#required' => TRUE
-      ];
     } elseif ($form_state->getValue('action') == 'url') {
       $form['values']['shop_url'] = [
         '#type' => 'url',
@@ -393,20 +387,29 @@ class PretixOverviewForm extends ContentEntityForm {
         'slug' => $entity->id(),
         'currency' => 'DKK',
         'is_public' => $entity->isPublished(),
-        'date_from' => $eventManager->formatDateFormValue($form_state->getValue('date_from'))
+        'date_from' => $eventManager->formatDateFormValue(new DrupalDateTime())
       ];
       $result = $eventManager->createEvent($entity, $form_state->getValue('template'), $event);
       if (!empty($result)) {
         $entity->set('field_pretix_template_event', [0 => ['value' => $form_state->getValue('template')]]);
         $entity->set('field_pretix_event_short_form', [0 => ['value' => $result['slug']]]);
+        if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
+          $entity->set('moderation_state', 'draft');
+        }
         $entity->save();
       }
     } elseif ($form_state->getValue('action') == 'choose') {
       $entity->set('field_pretix_template_event', [0 => ['value' => $form_state->getValue('template')]]);
       $entity->set('field_pretix_event_short_form', [0 => ['value' => $form_state->getValue('event')]]);
+      if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
+        $entity->set('moderation_state', 'draft');
+      }
       $entity->save();
     } elseif ($form_state->getValue('action') == 'url') {
       $entity->set('field_pretix_shop_url', [0 => ['uri' => $form_state->getValue('shop_url')]]);
+      if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
+        $entity->set('moderation_state', 'draft');
+      }
       $entity->save();
     }
   }
@@ -418,6 +421,9 @@ class PretixOverviewForm extends ContentEntityForm {
     $entity->set('field_pretix_template_event', []);
     $entity->set('field_pretix_event_short_form', []);
     $entity->set('field_pretix_shop_url', []);
+    if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
+      $entity->set('moderation_state', 'draft');
+    }
     $entity->save();
   }
 
