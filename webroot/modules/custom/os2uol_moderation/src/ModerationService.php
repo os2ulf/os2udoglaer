@@ -38,51 +38,61 @@ class ModerationService {
 
     // Query nodes that are published and marked as "Hele Året".
     $query = $this->entityTypeManager->getStorage('node')->getQuery()
-      ->condition('status', 1)
-      ->accessCheck(FALSE);
+        ->condition('status', 1)
+        ->accessCheck(FALSE);
     $nids = $query->execute();
 
     foreach ($nids as $nid) {
-      $node = Node::load($nid);
-      $owner = $node->getOwner();
+        $node = Node::load($nid);
+        $owner = $node->getOwner();
 
-      // Check if the owner has opted out of auto-unpublishing.
-      if ($owner->hasField('field_disable_auto_unpublish') && $owner->get('field_disable_auto_unpublish')->value) {
-        // Skip this node if the user has disabled auto-unpublishing.
-        continue;
-      }
-
-      // Check if there is a field_period with an end date for automatic unpublishing.
-      if ($node->hasField('field_period') && !$node->get('field_period')->isEmpty()) {
-        $period_end = strtotime($node->get('field_period')->end_value);
-        if ($period_end && time() > $period_end) {
-          $this->unpublishNode($node);
-          continue;
-        }
-      }
-
-      // "Hele Året" logic: Unpublish 430 days after the last update, if marked as such.
-      if ($node->hasField('field_all_year') && $node->get('field_all_year')->value == 1) {
-        $lastUpdated = $node->getChangedTime();
-        $timeSinceUpdate = time() - $lastUpdated;
-
-        // Unpublish directly if 430 days have passed.
-        if ($timeSinceUpdate >= $unpublishInterval) {
-          $this->unpublishNode($node);
-          continue;
+        // Check if the owner has opted out of auto-unpublishing.
+        if ($owner->hasField('field_disable_auto_unpublish') && $owner->get('field_disable_auto_unpublish')->value) {
+            // Skip this node if the user has disabled auto-unpublishing.
+            continue;
         }
 
-        // Send warning emails only if unpublishing conditions are not yet met.
-        try {
-          if ($timeSinceUpdate >= $firstWarning && $timeSinceUpdate < $secondWarning) {
-            $this->emailService->sendNotification($owner, $node, 'first_warning');
-          } elseif ($timeSinceUpdate >= $secondWarning && $timeSinceUpdate < $unpublishInterval) {
-            $this->emailService->sendNotification($owner, $node, 'second_warning');
-          }
-        } catch (\Exception $e) {
-          // Handle email failure silently to avoid impacting the unpublishing logic.
+        // Check if there is a field_period with an end date for automatic unpublishing.
+        if ($node->hasField('field_period') && !$node->get('field_period')->isEmpty()) {
+            $period_end = strtotime($node->get('field_period')->end_value);
+            if ($period_end && time() > $period_end) {
+                $this->unpublishNode($node);
+                continue;
+            }
         }
-      }
+
+        // "Hele Året" logic: Unpublish 430 days after the last update, if marked as such.
+        if ($node->hasField('field_all_year') && $node->get('field_all_year')->value == 1) {
+            $lastUpdated = $node->getChangedTime();
+            $timeSinceUpdate = time() - $lastUpdated;
+
+            // Unpublish directly if 430 days have passed.
+            if ($timeSinceUpdate >= $unpublishInterval) {
+                $this->unpublishNode($node);
+                continue;
+            }
+
+            // Send warning emails only if unpublishing conditions are not yet met.
+            try {
+                $email = $owner->getEmail();
+                if (!$email) {
+                    $this->logger->error('No email address for user @uid. Cannot send notification.', ['@uid' => $owner->id()]);
+                    continue;
+                }
+
+                if ($timeSinceUpdate >= $firstWarning && $timeSinceUpdate < $secondWarning) {
+                    $this->emailService->sendNotification($owner, $node, 'first_warning');
+                } elseif ($timeSinceUpdate >= $secondWarning && $timeSinceUpdate < $unpublishInterval) {
+                    $this->emailService->sendNotification($owner, $node, 'second_warning');
+                }
+            } catch (\Exception $e) {
+                // Handle email failure silently to avoid impacting the unpublishing logic.
+                $this->logger->error('Failed to send notification for node @nid: @message', [
+                    '@nid' => $node->id(),
+                    '@message' => $e->getMessage(),
+                ]);
+            }
+        }
     }
   }
 
