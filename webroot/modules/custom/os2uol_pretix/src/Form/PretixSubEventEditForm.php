@@ -228,4 +228,18 @@ class PretixSubEventEditForm extends FormBase {
     }
   }
 
+  /**
+   * {@inheritdoc}
+   *
+   * Button-level validation handlers are highly discouraged for entity forms,
+   * as they will prevent entity validation from running. If the entity is going
+   * to be saved during the form submission, this method should be manually
+   * invoked from the button-level validation handler, otherwise an exception
+   * will be thrown.
+   */
+  public function validateForm(array &$form, FormStateInterface $form_state) {
+    /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
+    $entity = $this->buildEntity($form, $form_state);
+    return $entity;
+  }
 }
