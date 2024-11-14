@@ -22,5 +22,5 @@ settings:
       view_name: content_entity_reference
       display_name: entity_reference_1
       arguments:
-        - internship+course_educators+news+exercise+course
+        - all
 field_type: entity_reference
