@@ -2,10 +2,9 @@ uuid: ae999841-182c-457a-b8be-63e86c48dcd9
 langcode: da
 status: true
 dependencies:
-  config:
-    - node.type.internship
   module:
     - domain_access
+    - entity_reference_revisions
     - node
     - user
 id: content_entity_reference
@@ -37,18 +36,36 @@ display:
           exclude: false
           alter:
             alter_text: false
+            text: ''
             make_link: false
+            path: ''
             absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
             word_boundary: false
             ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
             strip_tags: false
             trim: false
+            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -59,7 +76,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -81,7 +98,7 @@ display:
           reset_button: false
           reset_button_label: Gendan
           exposed_sorts_label: 'Sortér efter'
-          expose_sort_order: true
+          expose_sort_order: false
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
@@ -260,7 +277,7 @@ display:
           search_fields:
             title: title
       row:
-        type: entity_reference
+        type: entity_reference_revisions
         options:
           default_field_elements: false
           inline: {  }
