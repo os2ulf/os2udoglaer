@@ -5,10 +5,14 @@ dependencies:
   config:
     - field.field.paragraph.other_user_info.field_external_link
     - field.field.paragraph.other_user_info.field_file
+    - field.field.paragraph.other_user_info.field_material_description
+    - field.field.paragraph.other_user_info.field_material_download_text
+    - field.field.paragraph.other_user_info.field_material_title
     - paragraphs.paragraphs_type.other_user_info
   module:
     - file
     - link
+    - text
 id: paragraph.other_user_info.default
 targetEntityType: paragraph
 bundle: other_user_info
@@ -24,10 +28,34 @@ content:
     third_party_settings: {  }
   field_file:
     type: file_generic
-    weight: 1
+    weight: 2
     region: content
     settings:
       progress_indicator: throbber
+    third_party_settings: {  }
+  field_material_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_material_download_text:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_material_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
 hidden:
   created: true

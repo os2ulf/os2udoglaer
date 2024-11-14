@@ -21,5 +21,6 @@ settings:
     view:
       view_name: content_entity_reference
       display_name: entity_reference_1
-      arguments: {  }
+      arguments:
+        - all
 field_type: entity_reference
