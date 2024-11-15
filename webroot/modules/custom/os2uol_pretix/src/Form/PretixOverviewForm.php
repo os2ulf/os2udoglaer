@@ -395,7 +395,7 @@ class PretixOverviewForm extends ContentEntityForm {
     } else {
       $actions['reset'] = [
         '#type' => 'submit',
-        '#value' => $this->t('Reset'),
+        '#value' => $this->t('Remove Pretix connection'),
         '#submit' => ['::resetForm'],
         '#button_type' => 'danger',
       ];
@@ -451,9 +451,9 @@ class PretixOverviewForm extends ContentEntityForm {
     /** @var \Drupal\Core\Entity\EditorialContentEntityBase $entity */
     $this->entity = $this->buildEntity($form, $form_state);
 
-    $this->entity->set('field_pretix_template_event', []);
-    $this->entity->set('field_pretix_event_short_form', []);
-    $this->entity->set('field_pretix_shop_url', []);
+    $this->entity->set('field_pretix_template_event', NULL);
+    $this->entity->set('field_pretix_event_short_form', NULL);
+    $this->entity->set('field_pretix_shop_url', NULL);
     if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
       $this->entity->set('moderation_state', 'draft');
     }

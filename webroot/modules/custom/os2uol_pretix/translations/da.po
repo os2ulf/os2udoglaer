@@ -41,6 +41,15 @@ msgstr "Slut af forsalg"
 msgid "Add new date"
 msgstr "Tilføj ny dato"
 
+msgid "Add date"
+msgstr "Tilføj dato"
+
+msgid "Remove Pretix connection"
+msgstr "Fjern Pretix forbindelse"
+
+msgid "No dates available."
+msgstr "Ingen datoer er tilgængelige."
+
 msgid "Edit date"
 msgstr "Redigér dato"
 
