@@ -7,6 +7,9 @@ dependencies:
     - field.storage.paragraph.field_allocated_budget_year
     - node.type.theater_refund
     - system.menu.workbench
+    - user.role.administrator
+    - user.role.editor
+    - user.role.webmaster
   module:
     - datetime
     - node
@@ -590,9 +593,12 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
       cache:
         type: tag
         options: {  }
@@ -764,7 +770,7 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget_year'
@@ -793,6 +799,7 @@ display:
       menu:
         type: normal
         title: 'Skoleoversigt pr. år'
+        weight: -39
         menu_name: workbench
         parent: ''
     cache_metadata:
@@ -802,7 +809,7 @@ display:
         - 'languages:language_interface'
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget_year'
@@ -873,7 +880,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget_year'
