@@ -450,10 +450,10 @@ class PretixOverviewForm extends ContentEntityForm {
   public function resetForm(array &$form, FormStateInterface $form_state) {
     /** @var \Drupal\Core\Entity\EditorialContentEntityBase $entity */
     $this->entity = $this->buildEntity($form, $form_state);
-
     $this->entity->set('field_pretix_template_event', NULL);
     $this->entity->set('field_pretix_event_short_form', NULL);
     $this->entity->set('field_pretix_shop_url', NULL);
+    
     if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
       $this->entity->set('moderation_state', 'draft');
     }
