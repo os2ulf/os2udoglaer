@@ -71,7 +71,7 @@ class PretixLocalAction extends LocalActionDefault implements ContainerFactoryPl
 
   protected function supportsPretix() {
     if (empty($this->pluginDefinition['base_route'])) {
-      return TRUE;
+      return FALSE;
     } elseif ($entity = $this->getEntityFromRouteMatch()) {
       if ($entity->hasField('field_pretix_template_event') && $entity->hasField('field_pretix_event_short_form')) {
         return !$entity->get('field_pretix_event_short_form')->isEmpty();

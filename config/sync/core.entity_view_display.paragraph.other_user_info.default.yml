@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.other_user_info.field_external_link
     - field.field.paragraph.other_user_info.field_file
+    - field.field.paragraph.other_user_info.field_material_download_text
     - paragraphs.paragraphs_type.other_user_info
   module:
     - file
@@ -33,6 +34,14 @@ content:
       use_description_as_link_text: true
     third_party_settings: {  }
     weight: 1
+    region: content
+  field_material_download_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
     region: content
 hidden:
   search_api_excerpt: true
