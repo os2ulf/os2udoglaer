@@ -40,12 +40,8 @@ class PretixSubEventEditForm extends FormBase {
   /**
    * Constructs a ContentEntityForm object.
    *
-   * @param \Drupal\Core\Entity\EntityRepositoryInterface $entity_repository
-   *   The entity repository service.
-   * @param \Drupal\Core\Entity\EntityTypeBundleInfoInterface $entity_type_bundle_info
-   *   The entity type bundle service.
-   * @param \Drupal\Component\Datetime\TimeInterface $time
-   *   The time service.
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+   * @param \Drupal\os2uol_pretix\PretixEventManager $pretix_event_manager
    */
   public function __construct(EntityTypeManagerInterface $entity_type_manager, PretixEventManager $pretix_event_manager) {
     $this->entityTypeManager = $entity_type_manager;
@@ -226,20 +222,5 @@ class PretixSubEventEditForm extends FormBase {
       $routeName = PretixRouteProvider::getPretixRouteName($entity->getEntityType());
       $form_state->setRedirect($routeName, [$entity->getEntityTypeId() => $entity->id()]);
     }
-  }
-
-  /**
-   * {@inheritdoc}
-   *
-   * Button-level validation handlers are highly discouraged for entity forms,
-   * as they will prevent entity validation from running. If the entity is going
-   * to be saved during the form submission, this method should be manually
-   * invoked from the button-level validation handler, otherwise an exception
-   * will be thrown.
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
-    $entity = $this->buildEntity($form, $form_state);
-    return $entity;
   }
 }

@@ -215,7 +215,11 @@ class PretixOverviewForm extends ContentEntityForm {
     $form['slug'] = [
       '#type' => 'item',
       '#title' => $this->t('URL'),
-      '#description' => $this->eventManager->getEventUrl($entity)
+    ];
+    $form['slug'][] = [
+      '#type' => 'link',
+      '#title' => $this->eventManager->getEventUrl($entity),
+      '#url' => Url::fromUri($this->eventManager->getEventUrl($entity))->setOption('target', '_blank')
     ];
 
     $form['dates'] = [
