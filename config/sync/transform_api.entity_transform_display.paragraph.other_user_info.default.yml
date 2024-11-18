@@ -5,9 +5,7 @@ dependencies:
   config:
     - field.field.paragraph.other_user_info.field_external_link
     - field.field.paragraph.other_user_info.field_file
-    - field.field.paragraph.other_user_info.field_material_description
     - field.field.paragraph.other_user_info.field_material_download_text
-    - field.field.paragraph.other_user_info.field_material_title
     - paragraphs.paragraphs_type.other_user_info
   module:
     - os2uol_transform_plugins
@@ -30,24 +28,9 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_material_description:
-    type: text_summary_or_trimmed
-    weight: '1'
-    region: content
-    label: omit
-    settings:
-      trim_length: '600'
-    third_party_settings: {  }
   field_material_download_text:
     type: value
     weight: '4'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_material_title:
-    type: value
-    weight: '0'
     region: content
     label: omit
     settings: {  }
