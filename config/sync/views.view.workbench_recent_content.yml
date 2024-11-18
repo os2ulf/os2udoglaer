@@ -4,6 +4,15 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_target_group
+    - node.type.course
+    - node.type.course_educators
+    - node.type.exercise
+    - node.type.free_course_request
+    - node.type.internship
+    - node.type.news
+    - node.type.page
+    - node.type.theater_refund
+    - node.type.transport_pool_form
     - workflows.workflow.editorial
   module:
     - content_moderation
@@ -2677,7 +2686,13 @@ display:
           entity_field: type
           plugin_id: bundle
           operator: in
-          value: {  }
+          value:
+            internship: internship
+            page: page
+            course_educators: course_educators
+            news: news
+            exercise: exercise
+            course: course
           group: 1
           exposed: true
           expose:
@@ -2686,6 +2701,8 @@ display:
             description: ''
             use_operator: false
             operator: type_op
+            operator_limit_selection: false
+            operator_list: {  }
             identifier: type
             required: false
             remember: true
@@ -2694,7 +2711,17 @@ display:
               authenticated: authenticated
               anonymous: '0'
               administrator: '0'
+              webmaster: '0'
               editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2730,7 +2757,7 @@ display:
             operator: status_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: published
+            identifier: status
             required: false
             remember: false
             multiple: false
@@ -2799,18 +2826,21 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        moderation_state:
-          id: moderation_state
+        type_2:
+          id: type_2
           table: node_field_data
-          field: moderation_state
+          field: type
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          plugin_id: moderation_state_filter
+          entity_field: type
+          plugin_id: bundle
           operator: 'not in'
           value:
-            editorial-trash: editorial-trash
+            theater_refund: theater_refund
+            free_course_request: free_course_request
+            transport_pool_form: transport_pool_form
           group: 1
           exposed: false
           expose:
@@ -2841,7 +2871,7 @@ display:
             default_group_multiple: {  }
             group_items: {  }
       filter_groups:
-        operator: AND
+        operator: OR
         groups:
           1: AND
       defaults:
@@ -2872,4 +2902,3 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
         - 'config:field.storage.node.field_target_group'
-        - 'config:workflow_list'
