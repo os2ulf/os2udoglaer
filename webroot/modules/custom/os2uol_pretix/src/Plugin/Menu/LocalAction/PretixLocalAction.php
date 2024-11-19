@@ -64,7 +64,7 @@ class PretixLocalAction extends LocalActionDefault implements ContainerFactoryPl
     // Hide action if content doesn't support Pretix
     if (!$this->supportsPretix()) {
       // Only way I could find to hide a link. May only work on the Gin theme
-      $options['attributes']['class'][] = 'js-hide';
+      //$options['attributes']['class'][] = 'js-hide';
     }
     return $options;
   }
