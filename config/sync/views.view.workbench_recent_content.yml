@@ -2705,7 +2705,7 @@ display:
             operator_list: {  }
             identifier: type
             required: false
-            remember: true
+            remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
@@ -2722,7 +2722,7 @@ display:
               monitor: '0'
               bypass_workflow: '0'
               rest_api: '0'
-            reduce: false
+            reduce: true
           is_grouped: false
           group_info:
             label: ''
