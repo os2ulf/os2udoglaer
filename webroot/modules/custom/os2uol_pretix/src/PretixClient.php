@@ -311,6 +311,8 @@ class PretixClient {
     $options = $this->getOptions();
     if (isset($subevent['id'])) {
       $options['query'] = ['subevent' => $subevent['id']];
+    } elseif (is_array($subevent) && count($subevent) > 1) {
+      $options['query'] = ['subevent__in ' => implode(',', $subevent)];
     }
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/quotas/';
     try {

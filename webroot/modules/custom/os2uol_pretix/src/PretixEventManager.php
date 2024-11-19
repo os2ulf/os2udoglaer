@@ -223,6 +223,23 @@ class PretixEventManager extends PretixAbstractManager {
     return $client->getQuotas($this->getEventSlug($entity), $subevent);
   }
 
+  public function populateSubeventsWithQuotas(EditorialContentEntityBase $entity, array $subevents) {
+    $subevent_ids = [];
+    foreach ($subevents as $key => $subevent) {
+      $subevent_ids[] = $subevent['id'];
+    }
+    $client = $this->getClient($entity);
+    $quota_result = $client->getQuotas($this->getEventSlug($entity), $subevent_ids);
+    $quotas = [];
+    foreach ($quota_result['results'] as $key => $quota) {
+      $quotas[$quota['subevent']] = $quota;
+    }
+    foreach ($subevents as $key => $subevent) {
+      $subevents[$key]['quota'] = $quotas[$subevent['id']];
+    }
+    return $subevents;
+  }
+
   public function getQuotasAndAvailability(EditorialContentEntityBase $entity) {
     $client = $this->getClient($entity);
     return $client->getQuotasAndAvailability($this->getEventSlug($entity));
