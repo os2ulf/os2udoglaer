@@ -241,6 +241,10 @@ class PretixOverviewForm extends ContentEntityForm {
           'class' => [RESPONSIVE_PRIORITY_LOW],
         ],
         [
+          'data' => $this->t('Quota'),
+          'class' => [RESPONSIVE_PRIORITY_MEDIUM],
+        ],
+        [
           'data' => $this->t('Price'),
           'class' => [RESPONSIVE_PRIORITY_MEDIUM],
         ],
@@ -252,7 +256,8 @@ class PretixOverviewForm extends ContentEntityForm {
     if (!isset($subevents['results'])) {
       return $form;
     }
-    foreach ($subevents['results'] as $key => $subevent) {
+    $subevents = $this->eventManager->populateSubeventsWithQuotas($entity, $subevents['results']);
+    foreach ($subevents as $key => $subevent) {
       $date_from = new DrupalDateTime($subevent['date_from']);
       $form['dates'][$key] = [
         'date_from' => [
@@ -262,6 +267,7 @@ class PretixOverviewForm extends ContentEntityForm {
         'date_to' => [],
         'presale_start' => [],
         'presale_end' => [],
+        'quota' => [],
         'price' => [],
         'operations' => []
       ];
@@ -287,6 +293,13 @@ class PretixOverviewForm extends ContentEntityForm {
         $form['dates'][$key]['presale_end'] = [
           '#type' => 'markup',
           '#markup' => $presale_end->format('d/m/Y - H:i'),
+        ];
+      }
+
+      if (isset($subevent['quota']['size'])) {
+        $form['dates'][$key]['quota'] = [
+          '#type' => 'markup',
+          '#markup' => $subevent['quota']['size'],
         ];
       }
 
@@ -457,7 +470,7 @@ class PretixOverviewForm extends ContentEntityForm {
     $this->entity->set('field_pretix_template_event', NULL);
     $this->entity->set('field_pretix_event_short_form', NULL);
     $this->entity->set('field_pretix_shop_url', NULL);
-    
+
     if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
       $this->entity->set('moderation_state', 'draft');
     }
