@@ -201,8 +201,9 @@ class PretixClient {
    * @return array
    *   The result.
    */
-  public function getEvents(): array {
+  public function getEvents($page = 1): array {
     $options = $this->getOptions();
+    $options['query'] = ['has_subevents' => 'true', 'page' => $page];
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/';
     try {
       return json_decode($this->client->request('GET', $url, $options)
