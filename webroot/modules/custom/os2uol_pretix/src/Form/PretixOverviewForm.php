@@ -165,7 +165,7 @@ class PretixOverviewForm extends ContentEntityForm {
 
     if ($form_state->getValue('action') == 'choose') {
       $events = [];
-      $result = $this->eventManager->getEvents($entity);
+      $result = $this->eventManager->getEvents($entity, TRUE);
       if ($result['count'] > 0) {
         foreach ($result['results'] as $event) {
           $name = 'N/A';
