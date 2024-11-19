@@ -227,7 +227,8 @@
                 "(#2988937) An invalid form control with name='body[0][value]' is not focusable. with ckeditor enabled": "https://www.drupal.org/files/issues/2023-04-25/dependency-using-body-as-target-2988937-12.patch"
             },
             "drupal/content_moderation_notifications": {
-                "(#3319124) Enable token support for ad-hoc email addresses": "https://www.drupal.org/files/issues/2024-02-15/content_moderation_notifications-support_tokens_in_adhoc_emails-3319124-8.patch"
+                "(#3319124) Enable token support for ad-hoc email addresses": "https://www.drupal.org/files/issues/2024-02-15/content_moderation_notifications-support_tokens_in_adhoc_emails-3319124-8.patch",
+                "(#3010067) Option to put email addresses in To: instead of in Bcc:": "https://www.drupal.org/files/issues/2023-11-29/3010067-option-to-put-addresses-in-to-instead-of-bcc-33.patch"
             },
             "drupal/diff": {
                 "(#3165141) Set the default filter to 'Strip Tags'": "https://www.drupal.org/files/issues/2024-09-16/3165141-21.patch"
