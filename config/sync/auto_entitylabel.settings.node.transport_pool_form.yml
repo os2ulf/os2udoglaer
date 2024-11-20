@@ -1,5 +1,5 @@
 status: 1
-pattern: '[node:nid]'
+pattern: '[current-date:raw]'
 escape: false
 preserve_titles: false
 save: false
@@ -7,4 +7,4 @@ chunk: 50
 dependencies:
   config:
     - node.type.transport_pool_form
-new_content_behavior: 1
+new_content_behavior: 0
