@@ -373,7 +373,7 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
 /**
  * Implements hook_mail_alter().
  */
-function cos2uol_application_forms_mail_alter(&$message) {
+function os2uol_application_forms_mail_alter(&$message) {
   // Drupal hardcodes all mail header as 'text/plain' so we need to set the
   // header's 'Content-type' to HTML if the EmailWebformHandler's
   // 'html' flag has been set.
