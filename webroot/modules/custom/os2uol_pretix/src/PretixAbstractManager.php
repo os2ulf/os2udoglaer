@@ -140,4 +140,15 @@ abstract class PretixAbstractManager {
     return NULL;
   }
 
+  /**
+   * Notify modules that the Pretix event has changed.
+   *
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   *
+   * @return void
+   */
+  protected function notifyEventChanged(EntityInterface $entity): void {
+    \Drupal::moduleHandler()->invokeAll('pretix_event_changed', [$entity]);
+  }
+
 }

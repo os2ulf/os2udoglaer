@@ -51,7 +51,6 @@ dependencies:
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
     - field.field.node.course.field_related_courses
-    - field.field.node.course.field_sold_out
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
@@ -367,13 +366,6 @@ content:
     label: omit
     settings:
       transform_mode: related_courses
-    third_party_settings: {  }
-  field_sold_out:
-    type: boolean
-    weight: '3'
-    region: content
-    label: omit
-    settings: {  }
     third_party_settings: {  }
   field_subject:
     type: entity_reference_labels

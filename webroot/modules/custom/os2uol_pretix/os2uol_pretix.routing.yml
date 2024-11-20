@@ -14,6 +14,14 @@ os2uol_pretix.delete_subevent:
   requirements:
     _permission: 'delete pretix dates'
 
+os2uol_pretix.add_date:
+  path: '/node/{node}/pretix/add'
+  defaults:
+    _title: 'Add Date'
+  requirements:
+    _permission: 'add own pretix events'
+    node: '\d+'
+
 os2uol_pretix.webhooks.order:
   path: '/pretix/webhooks/order/{organizer}'
   defaults:
@@ -23,10 +31,10 @@ os2uol_pretix.webhooks.order:
     _access: 'TRUE'
   methods: [POST]
 
-os2uol_pretix.add_date:
-  path: '/node/{node}/pretix/add'
+os2uol_pretix.banner.process:
+  path: '/pretix/process'
   defaults:
-    _title: 'Add Date'
+    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::process'
+    _title: 'Pretix banner process'
   requirements:
-    _permission: 'add own pretix events'
-    node: '\d+'
+    _access: 'TRUE'

@@ -20,6 +20,9 @@ msgstr "Begivenhed"
 msgid "Free"
 msgstr "Gratis"
 
+msgid "Sold out"
+msgstr "Udsolgt"
+
 msgid "Price"
 msgstr "Pris"
 

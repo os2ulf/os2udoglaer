@@ -148,6 +148,7 @@ class PretixOrderManager extends PretixAbstractManager {
     $entity = $this->getEntity($organizerSlug, $eventSlug);
 
     if (NULL !== $entity) {
+      $this->notifyEventChanged($entity);
       switch ($action) {
         case OrderHelper::PRETIX_EVENT_ORDER_PLACED:
           $subject = t('New pretix order: @event_name',
@@ -442,45 +443,6 @@ class PretixOrderManager extends PretixAbstractManager {
     }
 
     return $entity;
-  }
-
-  public function handleSoldOutEvent(array $payload) {
-    $eventId = $payload['event']['id'];
-    $nodeId = $this->getNodeIdFromPretixEventId($eventId);
-    $node = \Drupal::entityTypeManager()->getStorage('node')->load($nodeId);
-
-    if ($node) {
-        // Set the Boolean field for "Sold Out" to TRUE.
-        $node->set('field_sold_out', TRUE);
-        $node->save();
-    }
-
-    return new JsonResponse(['status' => 'event marked as sold out']);
-  }
-
-  public function handleAvailableEvent(array $payload) {
-      $eventId = $payload['event']['id'];
-      $nodeId = $this->getNodeIdFromPretixEventId($eventId);
-      $node = \Drupal::entityTypeManager()->getStorage('node')->load($nodeId);
-
-      if ($node) {
-          // Set the Boolean field for "Sold Out" to FALSE.
-          $node->set('field_sold_out', FALSE);
-          $node->save();
-      }
-
-      return new JsonResponse(['status' => 'event marked as available']);
-  }
-
-  private function getNodeIdFromPretixEventId($eventId) {
-      // Your entityQuery to map eventId to Drupal node.
-      $query = \Drupal::entityQuery('node')
-      ->condition('type', ['internship', 'course_educators', 'course'], 'IN')
-      ->condition('field_pretix_event_id', $eventId)
-      ->accessCheck(TRUE)
-      ->range(0, 1);
-
-    $nids = $query->execute();
   }
 
 }

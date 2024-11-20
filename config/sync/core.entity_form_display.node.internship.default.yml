@@ -40,7 +40,6 @@ dependencies:
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
-    - field.field.node.internship.field_sold_out
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -731,5 +730,4 @@ hidden:
   field_pretix_shop_url: true
   field_pretix_template_event: true
   field_pretix_widget_type: true
-  field_sold_out: true
   workbench_reviewer: true
