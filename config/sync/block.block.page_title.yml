@@ -2,6 +2,8 @@ uuid: a53d52b6-2d93-4f89-afb3-1b6ede4742e5
 langcode: da
 status: true
 dependencies:
+  module:
+    - node
   theme:
     - os2udoglaer
 _core:
@@ -17,4 +19,16 @@ settings:
   label: Sidetitel
   label_display: '0'
   provider: core
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      exercise: exercise
+      internship: internship
+      news: news
+      page: page
+      course: course
+      course_educators: course_educators
