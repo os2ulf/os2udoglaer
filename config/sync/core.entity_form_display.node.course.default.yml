@@ -51,7 +51,6 @@ dependencies:
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
     - field.field.node.course.field_related_courses
-    - field.field.node.course.field_sold_out
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
@@ -1216,6 +1215,5 @@ hidden:
   field_pretix_shop_url: true
   field_pretix_template_event: true
   field_pretix_widget_type: true
-  field_sold_out: true
   langcode: true
   workbench_reviewer: true

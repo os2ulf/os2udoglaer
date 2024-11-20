@@ -101,6 +101,11 @@ class PretixEntityHooks implements ContainerInjectionInterface {
    * @see \os2uol_pretix_entity_delete()
    */
   public function entityDelete(EntityInterface $entity): void {
+    /** @var \Drupal\os2uol_pretix\PretixBannerManager $bannerManager */
+    $bannerManager = \Drupal::service('os2uol_pretix.banner_manager');
+    $bannerManager->deleteEntityFromQueue($entity);
+    $bannerManager->deleteBanner($entity);
+
     // TODO: Nice to have feature to delete events in Pretix as well
     /*$transitionStorage = $this->entityTypeManager->getStorage('scheduled_transition');
     $transitionsForEntity = $this->loadByHostEntity($entity);
@@ -136,6 +141,9 @@ class PretixEntityHooks implements ContainerInjectionInterface {
         $editorialEntity = $entity;
         if ($editorialEntity->isDefaultRevision()) {
           $result = $eventManager->setEventLive($editorialEntity);
+          /** @var \Drupal\os2uol_pretix\PretixBannerManager $bannerManager */
+          $bannerManager = \Drupal::service('os2uol_pretix.banner_manager');
+          $bannerManager->addEntityToQueue($entity);
         }
       }
     }

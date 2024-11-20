@@ -55,6 +55,8 @@ class PretixEventManager extends PretixAbstractManager {
     $subEvent = $client->createSubEvent($eventSlug, $data);
     $this->updateSubEventQuota($entity, $subEvent, $subevent['quota']);
 
+    $this->notifyEventChanged($entity);
+
     return $subEvent;
   }
 
@@ -69,7 +71,9 @@ class PretixEventManager extends PretixAbstractManager {
     $data = $this->getSubEvent($entity, $subevent['id']);
     $this->updateSubEventData($entity, $subevent, $data);
     $subEvent = $client->updateSubEvent($eventSlug, $data);
-    $this->updateSubEventQuota($entity, $subEvent, $subevent['quota']);
+    $this->updateSubEventQuota($entity, $subEvent, $subevent['quota'] ?? 0);
+
+    $this->notifyEventChanged($entity);
 
     return $subEvent;
   }
@@ -83,6 +87,7 @@ class PretixEventManager extends PretixAbstractManager {
   public function deleteSubEvent(EditorialContentEntityBase $entity, $subevent_id) {
     $eventSlug = $this->getEventSlug($entity);
     $client = $this->getClient($entity);
+    $this->notifyEventChanged($entity);
     return $client->deleteSubEvent($eventSlug, $subevent_id);
   }
 
@@ -417,32 +422,6 @@ class PretixEventManager extends PretixAbstractManager {
 
   protected function formatEventName($entity): array {
     return ['da' => $entity->label()];
-  }
-
-  /**
-   * Unlinks the Pretix event from a Drupal node.
-   *
-   * @param int $node
-   *   The ID of the node representing the Drupal event.
-   *
-   * @return \Symfony\Component\HttpFoundation\JsonResponse
-   *   JSON response indicating the result.
-   */
-  public function unlinkEvent($node) {
-    $node_entity = \Drupal::entityTypeManager()->getStorage('node')->load($node);
-
-    if ($node_entity && $node_entity->hasField('field_pretix_event_id')) {
-      // Clear the Pretix event ID field to drop the connection.
-      $node_entity->set('field_pretix_event_id', NULL);
-      if (!\Drupal::currentUser()->hasPermission('use editorial transition publish')) {
-        $node_entity->set('moderation_state', 'draft');
-      }
-      $node_entity->save();
-
-      return new JsonResponse(['status' => 'Pretix event connection removed']);
-    }
-
-    return new JsonResponse(['status' => 'Node not found or no Pretix connection'], 404);
   }
 
 }

@@ -52,7 +52,6 @@ dependencies:
     - field.field.node.course.field_registration_title
     - field.field.node.course.field_registration_url
     - field.field.node.course.field_related_courses
-    - field.field.node.course.field_sold_out
     - field.field.node.course.field_subject
     - field.field.node.course.field_sustainability_goals
     - field.field.node.course.field_sustainability_goals_desc
@@ -555,7 +554,6 @@ hidden:
   field_registration_title: true
   field_registration_url: true
   field_related_courses: true
-  field_sold_out: true
   field_subject: true
   field_sustainability_goals: true
   field_sustainability_goals_desc: true

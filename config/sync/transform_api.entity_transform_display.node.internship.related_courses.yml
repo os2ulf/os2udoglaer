@@ -40,7 +40,6 @@ dependencies:
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
-    - field.field.node.internship.field_sold_out
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -113,13 +112,6 @@ content:
   field_location_zipcode:
     type: value
     weight: '8'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_sold_out:
-    type: boolean
-    weight: '2'
     region: content
     label: omit
     settings: {  }

@@ -4,12 +4,15 @@ namespace Drupal\os2uol_pretix;
 
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Database\Connection;
+use Drupal\Core\Entity\EditorialContentEntityBase;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Drupal\Core\Queue\QueueFactoryInterface;
-use Drupal\Core\Queue\QueueInterface;
+use Drupal\Core\Security\TrustedCallbackInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
-class PretixBannerManager {
+class PretixBannerManager implements TrustedCallbackInterface {
+
+  use StringTranslationTrait;
 
   /**
    * Cache backend service.
@@ -51,23 +54,56 @@ class PretixBannerManager {
   }
 
   /**
+   * @param string $entity_type_id
+   * @param string $entity_id
+   *
+   * @return array
+   */
+  public function transformBanner(string $entity_type_id, string $entity_id): array {
+    $entity = $this->entityTypeManager->getStorage($entity_type_id)->load($entity_id);
+    return [
+      '#collapse' => TRUE,
+      'value' => $this->getBanner($entity)
+    ];
+  }
+
+  public function getBanner(EntityInterface $entity): string {
+    $banner = '';
+    $cached = $this->cache->get($this->getCacheKey($entity), TRUE);
+    if ($cached !== FALSE) {
+      $banner = $cached->data;
+    }
+    if ($cached === FALSE || !$cached->valid) {
+      $this->addEntityToQueue($entity);
+    }
+    return $banner;
+  }
+
+  /**
    * @param EntityInterface $entity
    *
    * @return void
    */
-  public function updateBanner(EntityInterface $entity) {
+  public function updateBanner(EntityInterface $entity): void {
     $banner = '';
-    $availability = $this->eventManager->getQuotasAndAvailability($entity);
     $available = TRUE;
-    foreach ($availability['results'] as $quota) {
-      $available = $available & $quota['available'];
+    if ($entity instanceof EditorialContentEntityBase) {
+      $available = FALSE;
+      $availability = $this->eventManager->getQuotasAndAvailability($entity);
+      foreach ($availability['results'] as $quota) {
+        $available = $available | $quota['available'];
+      }
     }
     if (!$available) {
-      $banner = 'sold out';
+      $banner = $this->t('Sold out');
     } else {
-      // TODO
-      $banner = 'free';
+      if ($entity instanceof EditorialContentEntityBase) {
+        if ($entity->hasField('field_is_free') && $entity->get('field_is_free')->first()->getString()) {
+          $banner = $this->t('Free');
+        }
+      }
     }
+    $this->saveBanner($entity, $banner);
   }
 
   /**
@@ -151,19 +187,36 @@ class PretixBannerManager {
   }
 
   /**
-   * @param array $banners
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   * @param string $banner
    *
    * @return void
    */
-  protected function writeCache(array $banners) {
-    foreach ($banners as $nid => $banner) {
-      $cacheKey = 'pretix:banner:' . $nid;
-      $this->cache->set($cacheKey, $banner, $this->getRequestTime() + $this->getMaxAge());
-    }
+  public function saveBanner(EntityInterface $entity, string $banner): void {
+    $this->cache->set($this->getCacheKey($entity), $banner, $this->getMaxAge());
+  }
+
+  /**
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   *
+   * @return void
+   */
+  public function deleteBanner(EntityInterface $entity): void {
+    $this->cache->delete($this->getCacheKey($entity));
+  }
+
+  /**
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   *
+   * @return string
+   */
+  protected function getCacheKey(EntityInterface $entity): string {
+    return 'pretix:banner:' . $entity->getEntityTypeId() . ':' . $entity->id();
   }
 
   protected function getMaxAge(): int {
-    return 60*60*24;
+    return CacheBackendInterface::CACHE_PERMANENT;
+    //return $this->getRequestTime() + 60*60*24;
   }
 
   /**
@@ -175,4 +228,9 @@ class PretixBannerManager {
     return defined('REQUEST_TIME') ? REQUEST_TIME : (int) $_SERVER['REQUEST_TIME'];
   }
 
+  public static function trustedCallbacks() {
+    return [
+      'transformBanner'
+    ];
+  }
 }

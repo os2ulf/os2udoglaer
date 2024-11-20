@@ -223,6 +223,18 @@ function os2uol_pretix_node_transform_alter(&$transformation) {
   // Check if field_pretix_shop_url is populated or if the entity is a Pretix event
   if ($pretix_event_manager->hasPretixShopURL($entity)) {
     $transformation['event_shop_url'] = $pretix_event_manager->getEventShopUrl($entity);
+    if ($pretix_event_manager->isPretixEventEntity($entity)) {
+      /** @var \Drupal\os2uol_pretix\PretixBannerManager $pretix_banner_manager */
+      $pretix_banner_manager = \Drupal::service('os2uol_pretix.banner_manager');
+      $transformation['pretix_banner'] = [
+        '#lazy_transformer' => [
+          'os2uol_pretix.banner_manager:transformBanner', [
+            $entity->getEntityTypeId(),
+            $entity->id()
+          ]
+        ]
+      ];
+    }
   }
 }
 
@@ -233,6 +245,15 @@ function os2uol_pretix_cron() {
   /** @var \Drupal\os2uol_pretix\PretixBannerManager $bannerManager */
   $bannerManager = \Drupal::service('os2uol_pretix.banner_manager');
   $bannerManager->processQueue();
+}
+
+/**
+ * Implements hook_pretix_event_changed().
+ */
+function os2uol_pretix_pretix_event_changed(EntityInterface $entity) {
+  /** @var \Drupal\os2uol_pretix\PretixBannerManager $bannerManager */
+  $bannerManager = \Drupal::service('os2uol_pretix.banner_manager');
+  $bannerManager->addEntityToQueue($entity);
 }
 
 /**
