@@ -174,6 +174,7 @@ class PretixOverviewForm extends ContentEntityForm {
           }
           $events[$event['slug']] = $name;
         }
+        asort($events);
       }
 
       $form['values']['event'] = [
