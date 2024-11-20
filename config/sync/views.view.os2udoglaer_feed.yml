@@ -12,7 +12,6 @@ dependencies:
     - field.storage.node.field_trgt_grp_primary_school
     - field.storage.node.field_trgt_grp_youth_education
     - node.type.course
-    - node.type.internship
     - node.type.news
   module:
     - image
@@ -23,9 +22,9 @@ dependencies:
     - user
     - views_base_url
 id: os2udoglaer_feed
-label: OS2udoglaer_feed
+label: 'OS2udoglaer Heyloyalty ulfiaarhus feed'
 module: views
-description: ''
+description: 'Ulfiaarhus feed as source for content in Heyloyalty newsletters.'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -762,7 +761,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: none
         options: {  }
       empty: {  }
       sorts:
@@ -869,18 +868,18 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_image'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_subject'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.body'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_image'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_subject'
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_subject'
   rest_export_1:
     id: rest_export_1
-    display_title: 'REST export'
+    display_title: 'Nyheder (news)'
     display_plugin: rest_export
     position: 1
     display_options:
@@ -895,7 +894,7 @@ display:
           admin_label: ''
           plugin_id: base_url
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -1204,7 +1203,7 @@ display:
           field_api_classes: false
         view_node:
           id: view_node
-          table: node_field_revision
+          table: node
           field: view_node
           relationship: none
           group_type: group
@@ -1214,8 +1213,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: 'https://www.ulfiaarhus.dk{{ view_node }}'
             make_link: false
             path: ''
             absolute: false
@@ -1254,7 +1253,7 @@ display:
           hide_alter_empty: true
           text: vis
           output_url_as_text: true
-          absolute: true
+          absolute: false
         uid:
           id: uid
           table: node_field_data
@@ -1572,6 +1571,55 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: 'https://www.ulfiaarhus.dk'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
       pager:
         type: none
         options:
@@ -1586,9 +1634,6 @@ display:
         type: data_field
         options:
           field_options:
-            base_url:
-              alias: BaseUrl
-              raw_output: false
             nid:
               alias: Produktid
               raw_output: false
@@ -1619,9 +1664,13 @@ display:
             body_2:
               alias: Manchet
               raw_output: false
+            nothing:
+              alias: BaseUrl
+              raw_output: false
       defaults:
         title: false
         fields: false
+      display_description: ''
       display_extenders:
         os2uol_search:
           os2uol_search_result_string: ''
@@ -1643,15 +1692,15 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_image'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_image'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.body'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_image'
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_image'
   rest_export_2:
     id: rest_export_2
-    display_title: 'REST export'
+    display_title: 'Undervisnings- og læringsforløb (course)'
     display_plugin: rest_export
     position: 1
     display_options:
@@ -1666,7 +1715,7 @@ display:
           admin_label: ''
           plugin_id: base_url
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -1975,7 +2024,7 @@ display:
           field_api_classes: false
         view_node:
           id: view_node
-          table: node_field_revision
+          table: node
           field: view_node
           relationship: none
           group_type: group
@@ -1985,8 +2034,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: 'https://www.ulfiaarhus.dk{{ view_node }}'
             make_link: false
             path: ''
             absolute: false
@@ -2025,7 +2074,7 @@ display:
           hide_alter_empty: true
           text: vis
           output_url_as_text: true
-          absolute: true
+          absolute: false
         uid:
           id: uid
           table: node_field_data
@@ -2709,6 +2758,55 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: false
+        nothing_1:
+          id: nothing_1
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: custom
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: 'https://www.ulfiaarhus.dk'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
       pager:
         type: none
         options:
@@ -2781,9 +2879,6 @@ display:
         type: data_field
         options:
           field_options:
-            base_url:
-              alias: BaseUrl
-              raw_output: false
             nid:
               alias: Produktid
               raw_output: false
@@ -2817,20 +2912,21 @@ display:
             field_is_free:
               alias: Gratis
               raw_output: false
-            field_trgt_grp_youth_education:
-              alias: ''
-              raw_output: false
             field_target_group:
               alias: targetGroup
               raw_output: false
             nothing:
               alias: targetGroupSub
               raw_output: false
+            nothing_1:
+              alias: BaseUrl
+              raw_output: false
       defaults:
         title: false
         fields: false
         filters: false
         filter_groups: false
+      display_description: ''
       display_extenders:
         os2uol_search:
           os2uol_search_result_string: ''
@@ -2852,22 +2948,22 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_is_free'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_trgt_grp_daycare'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_trgt_grp_primary_school'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_trgt_grp_youth_education'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_is_free'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_trgt_grp_daycare'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_trgt_grp_primary_school'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_trgt_grp_youth_education'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_image'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_is_free'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_subject'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_target_group'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_trgt_grp_daycare'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_trgt_grp_primary_school'
+        - 'config:domain.config.api_ulfiaarhus_dk.da.field.storage.node.field_trgt_grp_youth_education'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.body'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_image'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_is_free'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_subject'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_target_group'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_trgt_grp_daycare'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_trgt_grp_primary_school'
+        - 'config:domain.config.api_ulfiaarhus_dk.field.storage.node.field_trgt_grp_youth_education'
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_is_free'
