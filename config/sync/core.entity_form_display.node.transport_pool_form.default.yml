@@ -13,8 +13,11 @@ dependencies:
     - field.field.node.transport_pool_form.field_old_id
     - field.field.node.transport_pool_form.field_rfc_course
     - field.field.node.transport_pool_form.field_rfc_date
+    - field.field.node.transport_pool_form.field_rfc_departure_time
     - field.field.node.transport_pool_form.field_rfc_mail
     - field.field.node.transport_pool_form.field_rfc_name
+    - field.field.node.transport_pool_form.field_rfc_phone
+    - field.field.node.transport_pool_form.field_rfc_return_time
     - field.field.node.transport_pool_form.field_tpf_address_variation
     - field.field.node.transport_pool_form.field_tpf_backend_submission
     - field.field.node.transport_pool_form.field_tpf_course_not_found
@@ -85,6 +88,8 @@ third_party_settings:
         - field_tpf_expense
         - field_tpf_participants
         - field_rfc_date
+        - field_rfc_departure_time
+        - field_rfc_return_time
       label: Transportudgifter
       region: content
       parent_name: ''
@@ -106,6 +111,7 @@ third_party_settings:
       children:
         - field_rfc_name
         - field_rfc_mail
+        - field_rfc_phone
         - field_tpf_message
       label: Kontaktinformation
       region: content
@@ -207,9 +213,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_rfc_departure_time:
+    type: string_textfield
+    weight: 32
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_rfc_mail:
     type: email_default
-    weight: 22
+    weight: 21
     region: content
     settings:
       placeholder: ''
@@ -218,6 +232,22 @@ content:
   field_rfc_name:
     type: string_textfield
     weight: 20
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_phone:
+    type: string_textfield
+    weight: 22
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rfc_return_time:
+    type: string_textfield
+    weight: 33
     region: content
     settings:
       size: 60
@@ -275,7 +305,7 @@ content:
     third_party_settings: {  }
   field_tpf_message:
     type: string_textarea
-    weight: 24
+    weight: 23
     region: content
     settings:
       rows: 5

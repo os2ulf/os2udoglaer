@@ -14,8 +14,11 @@ dependencies:
     - field.field.node.transport_pool_form.field_old_id
     - field.field.node.transport_pool_form.field_rfc_course
     - field.field.node.transport_pool_form.field_rfc_date
+    - field.field.node.transport_pool_form.field_rfc_departure_time
     - field.field.node.transport_pool_form.field_rfc_mail
     - field.field.node.transport_pool_form.field_rfc_name
+    - field.field.node.transport_pool_form.field_rfc_phone
+    - field.field.node.transport_pool_form.field_rfc_return_time
     - field.field.node.transport_pool_form.field_tpf_address_variation
     - field.field.node.transport_pool_form.field_tpf_backend_submission
     - field.field.node.transport_pool_form.field_tpf_course_not_found
@@ -56,8 +59,11 @@ hidden:
   field_old_id: true
   field_rfc_course: true
   field_rfc_date: true
+  field_rfc_departure_time: true
   field_rfc_mail: true
   field_rfc_name: true
+  field_rfc_phone: true
+  field_rfc_return_time: true
   field_tpf_address_variation: true
   field_tpf_backend_submission: true
   field_tpf_course_not_found: true

@@ -1,0 +1,19 @@
+uuid: 2b61601d-6d8c-4f86-8389-9abc85dd92ea
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_phone
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_rfc_phone
+field_name: field_rfc_phone
+entity_type: node
+bundle: transport_pool_form
+label: Telefonnr
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

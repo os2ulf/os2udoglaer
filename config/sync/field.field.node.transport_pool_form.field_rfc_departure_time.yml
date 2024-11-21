@@ -1,0 +1,19 @@
+uuid: 83432a27-d22b-489e-9484-eb16713c54aa
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_departure_time
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_rfc_departure_time
+field_name: field_rfc_departure_time
+entity_type: node
+bundle: transport_pool_form
+label: 'Afhentningstidspunkt for udrejse'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
