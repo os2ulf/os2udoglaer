@@ -226,7 +226,7 @@ function os2uol_pretix_node_transform_alter(&$transformation) {
     if ($pretix_event_manager->isPretixEventEntity($entity)) {
       /** @var \Drupal\os2uol_pretix\PretixBannerManager $pretix_banner_manager */
       $pretix_banner_manager = \Drupal::service('os2uol_pretix.banner_manager');
-      $transformation['pretix_banner'] = [
+      $transformation['sales_banner'] = [
         '#lazy_transformer' => [
           'os2uol_pretix.banner_manager:transformBanner', [
             $entity->getEntityTypeId(),
