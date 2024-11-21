@@ -240,7 +240,7 @@ class PretixEventManager extends PretixAbstractManager {
     return $client->getQuotas($this->getEventSlug($entity), $subevent);
   }
 
-  public function populateSubeventsWithQuotas(EditorialContentEntityBase $entity, array $subevents) {
+  public function populateSubeventsWithQuotas(EditorialContentEntityBase $entity, array $subevents): array {
     $subevent_ids = [];
     foreach ($subevents as $key => $subevent) {
       $subevent_ids[] = $subevent['id'];
@@ -252,7 +252,9 @@ class PretixEventManager extends PretixAbstractManager {
       $quotas[$quota['subevent']] = $quota;
     }
     foreach ($subevents as $key => $subevent) {
-      $subevents[$key]['quota'] = $quotas[$subevent['id']];
+      if (isset($quotas[$subevent['id']])) {
+        $subevents[$key]['quota'] = $quotas[$subevent['id']];
+      }
     }
     return $subevents;
   }
@@ -272,14 +274,14 @@ class PretixEventManager extends PretixAbstractManager {
     return $client->getSubEvent($eventSlug, $subevent_id);
   }
 
-  public function getSubEvents(EditorialContentEntityBase $entity) {
+  public function getSubEvents(EditorialContentEntityBase $entity, $page = 1) {
     if (is_null($this->getEventSlug($entity))) {
       return NULL;
     }
 
     $eventSlug = $this->getEventSlug($entity);
     $client = $this->getClient($entity);
-    return $client->getSubEvents($eventSlug);
+    return $client->getSubEvents($eventSlug, $page);
   }
 
   public function setEventLive(EditorialContentEntityBase $entity) {
@@ -395,7 +397,8 @@ class PretixEventManager extends PretixAbstractManager {
       'name' => $this->formatEventName($entity),
       'slug' => $entity->id(),
       'is_public' => $entity->isPublished(),
-      'date_from' => $event['date_from']
+      'date_from' => $event['date_from'],
+      "currency" => "DKK"
     ];
     $data['has_subevents'] = TRUE;
     $data['item_meta_properties'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
