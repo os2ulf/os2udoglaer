@@ -74,14 +74,15 @@ class PretixSubEventAddForm extends ContentEntityForm {
 
     /** @var \Drupal\Core\Entity\EditorialContentEntityBase $entity */
     $entity = $this->getEntity();
-    /** @var EntityOwnerTrait $entityOwner */
-    $entityOwner = $this->getEntity();
-    /** @var \Drupal\user\UserInterface $user */
-    $user = $entityOwner->getOwner();
 
-    $subevents = $this->eventManager->getSubEvents($entity);
+    $page = 1;
+    $subevents = $this->eventManager->getSubEvents($entity, $page);
     if (!isset($subevents['results'])) {
       return $form;
+    }
+    while (isset($subevents['next'])) {
+      $page++;
+      $subevents = $this->eventManager->getSubEvents($entity, $page);
     }
     $subevent = [];
     $price = 0;
