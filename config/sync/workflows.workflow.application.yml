@@ -57,7 +57,9 @@ type_settings:
     accept:
       label: Godkendt
       from:
+        - accepted
         - draft
+        - refused
       to: accepted
       weight: 0
     afventer:
@@ -99,7 +101,9 @@ type_settings:
     reject:
       label: Afvist
       from:
+        - accepted
         - draft
+        - refused
       to: refused
       weight: 4
   entity_types:

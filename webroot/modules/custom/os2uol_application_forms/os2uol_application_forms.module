@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\domain\Entity\Domain;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\views\ViewExecutable;
@@ -350,21 +351,24 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
       $entity->set('field_rfc_payment_date', $current_timestamp);
     }
   }
+}
 
-  // Prevent email notification when "Send mail ved gem" (field_rfc_send_mail) is false.
-  if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_send_mail')) {
-    // Check if the field_rfc_send_mail is false.
+/**
+ * Implements hook_content_moderation_notification_mail_data_alter().
+ */
+function os2uol_application_forms_content_moderation_notification_mail_data_alter(EntityInterface $entity, array &$data) {
+  // Check if the entity has the field_rfc_send_mail field.
+  if ($entity->hasField('field_rfc_send_mail')) {
     $send_mail = $entity->get('field_rfc_send_mail')->getString();
+    $status = $entity->get('moderation_state')->getString();
 
-    // Only proceed with notifications if send_mail is true.
+    // Block email if send_mail is false.
     if (!$send_mail) {
-      // Retrieve the moderation state.
-      $status = $entity->get('moderation_state')->getString();
-
-      // Only allow notification for "approved" or "rejected".
-      if (in_array($status, ['approved', 'rejected'])) {
-        // Prevent email notification from being sent.
-        \Drupal::service('content_moderation_notifications.manager')->stopNotification($entity);
+      $data['to'] = [];
+    } else {
+      // Ensure notifications are sent for configured states.
+      if (!in_array($status, ['accepted', 'refused'])) {
+        $data['to'] = [];
       }
     }
   }
