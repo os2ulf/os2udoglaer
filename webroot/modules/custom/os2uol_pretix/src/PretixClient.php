@@ -256,8 +256,11 @@ class PretixClient {
    * @return array
    *   The result.
    */
-  public function getSubEvents(string $eventSlug): array {
+  public function getSubEvents(string $eventSlug, $page = 1): array {
     $options = $this->getOptions();
+    if ($page != 1) {
+      $options['query'] = ['page' => $page];
+    }
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/subevents/';
     try {
       return json_decode($this->client->request('GET', $url, $options)->getBody()->getContents(), TRUE);
@@ -313,7 +316,7 @@ class PretixClient {
     if (isset($subevent['id'])) {
       $options['query'] = ['subevent' => $subevent['id']];
     } elseif (is_array($subevent) && count($subevent) > 1) {
-      $options['query'] = ['subevent__in ' => implode(',', $subevent)];
+      $options['query'] = ['subevent__in' => implode(',', $subevent)];
     }
     $url = $this->pretix_url . 'api/v1/organizers/' . $this->organizer . '/events/' . $eventSlug . '/quotas/';
     try {

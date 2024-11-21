@@ -1,0 +1,19 @@
+uuid: 95ef8baa-0bd5-43bf-966a-e7b1617eb9a3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_rfc_return_time
+    - node.type.transport_pool_form
+id: node.transport_pool_form.field_rfc_return_time
+field_name: field_rfc_return_time
+entity_type: node
+bundle: transport_pool_form
+label: 'Afhentningstidspunkt for hjemrejse'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -15,6 +15,7 @@ use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
 use Drupal\Core\Entity\RevisionLogInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Pager\PagerManagerInterface;
 use Drupal\Core\Url;
 use Drupal\os2uol_pretix\PretixEventManager;
 use Drupal\user\EntityOwnerTrait;
@@ -38,6 +39,11 @@ class PretixOverviewForm extends ContentEntityForm {
   protected $dateFormatter;
 
   /**
+   * @var \Drupal\Core\Pager\PagerManagerInterface
+   */
+  private PagerManagerInterface $pagerManager;
+
+  /**
    * Constructs a ContentEntityForm object.
    *
    * @param \Drupal\Core\Entity\EntityRepositoryInterface $entity_repository
@@ -47,9 +53,10 @@ class PretixOverviewForm extends ContentEntityForm {
    * @param \Drupal\Component\Datetime\TimeInterface $time
    *   The time service.
    */
-  public function __construct(EntityRepositoryInterface $entity_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info, TimeInterface $time, PretixEventManager $pretix_event_manager) {
+  public function __construct(EntityRepositoryInterface $entity_repository, EntityTypeBundleInfoInterface $entity_type_bundle_info, TimeInterface $time, PretixEventManager $pretix_event_manager, PagerManagerInterface $pagerManager) {
     parent::__construct($entity_repository, $entity_type_bundle_info, $time);
     $this->eventManager = $pretix_event_manager;
+    $this->pagerManager = $pagerManager;
   }
 
   /**
@@ -60,7 +67,8 @@ class PretixOverviewForm extends ContentEntityForm {
       $container->get('entity.repository'),
       $container->get('entity_type.bundle.info'),
       $container->get('datetime.time'),
-      $container->get('os2uol_pretix.event_manager')
+      $container->get('os2uol_pretix.event_manager'),
+      $container->get('pager.manager')
     );
   }
 
@@ -253,10 +261,12 @@ class PretixOverviewForm extends ContentEntityForm {
       ],
     ];
 
-    $subevents = $this->eventManager->getSubEvents($entity);
+    $subevents = $this->eventManager->getSubEvents($entity, \Drupal::request()->query->get('page')+1);
     if (!isset($subevents['results'])) {
       return $form;
     }
+    $count = $subevents['count'];
+    $pager = $this->pagerManager->createPager($count, 50);
     $subevents = $this->eventManager->populateSubeventsWithQuotas($entity, $subevents['results']);
     foreach ($subevents as $key => $subevent) {
       $date_from = new DrupalDateTime($subevent['date_from']);
@@ -346,6 +356,9 @@ class PretixOverviewForm extends ContentEntityForm {
         ],
       ];
     }
+    $form['pager'] = [
+      '#type' => 'pager'
+    ];
 
     $form['#cache']['max-age'] = 0;
     return $form;
