@@ -1,4 +1,3 @@
-# Schema for the configuration files of the OS2UOL Settings module.
 os2uol_settings.settings:
   type: config_object
   label: 'OS2UOL Settings settings'
@@ -43,3 +42,36 @@ os2uol_settings.settings:
         format:
           type: string
           label: 'Email signature format'
+    from_reply_to_email:
+      type: string
+      label: 'From and Reply-To Email'
+    free_course_email_signature:
+      type: map
+      label: 'Free course email signature'
+      mapping:
+        value:
+          type: string
+          label: 'Free course email signature value'
+        format:
+          type: string
+          label: 'Free course email signature format'
+    transport_pool_email_signature:
+      type: map
+      label: 'Transport pool email signature'
+      mapping:
+        value:
+          type: string
+          label: 'Transport pool email signature value'
+        format:
+          type: string
+          label: 'Transport pool email signature format'
+    theater_refund_email_signature:
+      type: map
+      label: 'Theater refund email signature'
+      mapping:
+        value:
+          type: string
+          label: 'Theater refund email signature value'
+        format:
+          type: string
+          label: 'Theater refund email signature format'

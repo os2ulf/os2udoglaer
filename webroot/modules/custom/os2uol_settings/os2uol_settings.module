@@ -122,21 +122,33 @@ function os2uol_settings_preprocess_html(array &$variables) {
  * Implements hook_token_info().
  */
 function os2uol_settings_token_info() {
-  $info = array();
+  $info = [];
 
-  // Define a new group of tokens.
-  $info['types']['os2uol_settings'] = array(
+  // Define a new group of tokens for OS2UOL settings.
+  $info['types']['os2uol_settings'] = [
     'name' => t('OS2UOL Settings'),
-    'description' => t('Tokens for OS2UOL settings.'),
-  );
+    'description' => t('Tokens for OS2UOL settings, including email signatures.'),
+  ];
 
-  // Define tokens in the group.
-  $info['tokens']['os2uol_settings'] = array(
-    'email_signature' => array(
-      'name' => t('Email Signature'),
-      'description' => t('The HTML email signature from the configuration.'),
-    ),
-  );
+  // Define tokens for email signatures.
+  $info['tokens']['os2uol_settings'] = [
+    'email_signature' => [
+      'name' => t('General Email Signature'),
+      'description' => t('The default email signature from the configuration.'),
+    ],
+    'free_course_email_signature' => [
+      'name' => t('Free Course Email Signature'),
+      'description' => t('The email signature for Free Course Request emails.'),
+    ],
+    'transport_pool_email_signature' => [
+      'name' => t('Transport Pool Email Signature'),
+      'description' => t('The email signature for Transport Pool emails.'),
+    ],
+    'theater_refund_email_signature' => [
+      'name' => t('Theater Refund Email Signature'),
+      'description' => t('The email signature for Theater Refund emails.'),
+    ],
+  ];
 
   return $info;
 }
@@ -145,28 +157,39 @@ function os2uol_settings_token_info() {
  * Implements hook_tokens().
  */
 function os2uol_settings_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
-  $replacements = array();
+  $replacements = [];
 
   if ($type == 'os2uol_settings') {
+    $config = \Drupal::config('os2uol_settings.settings');
+
+    // Fetch each signature and process it.
     foreach ($tokens as $name => $original) {
       switch ($name) {
         case 'email_signature':
-          $email_signature_service = \Drupal::service('os2uol_settings.email_signature_token_service');
-          $email_signature = $email_signature_service->getEmailSignature();
-
-          // Only use the 'value' key if the email signature is an array.
-          if (is_array($email_signature) && isset($email_signature['value'])) {
-            $email_signature = $email_signature['value'];
-          }
-
-          // Convert newlines to <br> tags to preserve formatting in HTML.
-          $email_signature = nl2br($email_signature, false);
-
-          // Markup the email signature to be treated as safe HTML.
-          $replacements[$original] = Markup::create($email_signature);
-
+          $signature = $config->get('email_signature')['value'] ?? '';
           break;
+
+        case 'free_course_email_signature':
+          $signature = $config->get('free_course_email_signature')['value'] ?? '';
+          break;
+
+        case 'transport_pool_email_signature':
+          $signature = $config->get('transport_pool_email_signature')['value'] ?? '';
+          break;
+
+        case 'theater_refund_email_signature':
+          $signature = $config->get('theater_refund_email_signature')['value'] ?? '';
+          break;
+
+        default:
+          $signature = '';
       }
+
+      // Convert newlines to <br> tags to preserve formatting in HTML.
+      $signature = nl2br($signature, FALSE);
+
+      // Markup the email signature to be treated as safe HTML.
+      $replacements[$original] = Markup::create($signature);
     }
   }
 
