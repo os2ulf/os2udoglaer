@@ -1,9 +1,39 @@
 <?php
 
+use Drupal\Core\Entity\EntityInterface;
+
 /**
  * Implements hook_cron().
  * Runs the moderation process.
  */
 function os2uol_moderation_cron() {
   \Drupal::service('os2uol_moderation.moderation_service')->processModeration();
+}
+
+/**
+ * Implements hook_content_moderation_notification_mail_data_alter().
+ */
+function os2uol_moderation_content_moderation_notification_mail_data_alter(EntityInterface $entity, array &$data) {
+  // Get the active domain ID.
+  $domain_id = \Drupal::service('domain.negotiator')->getActiveId();
+  $config = \Drupal::config('os2uol_settings.settings');
+
+  // Default fallback email address.
+  $fallback_email = 'info@os2udoglaer.dk';
+
+  // Retrieve the configured "From" and "Reply-To" email for the active domain.
+  $from_email = $config->get('from_reply_to_email') ?: $fallback_email;
+  $reply_to_email = $config->get('from_reply_to_email') ?: $fallback_email;
+
+  // Set the "From", "Reply-To", and "Return-Path" headers.
+  $data['headers']['From'] = $from_email;
+  $data['headers']['Reply-To'] = $reply_to_email;
+  $data['headers']['Return-Path'] = $reply_to_email;
+
+  // Log the selected emails for debugging purposes.
+  \Drupal::logger('os2uol_moderation')->info('Using From and Reply-To addresses: @from, @reply_to for domain: @domain_id', [
+    '@from' => $from_email,
+    '@reply_to' => $reply_to_email,
+    '@domain_id' => $domain_id,
+  ]);
 }
