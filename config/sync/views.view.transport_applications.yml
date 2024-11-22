@@ -46,7 +46,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Transportpulje ansøgninger'
+      title: 'Ansøgninger - Transportpulje'
       fields:
         node_bulk_form:
           id: node_bulk_form
