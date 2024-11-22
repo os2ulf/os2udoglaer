@@ -127,10 +127,10 @@ function os2uol_settings_token_info() {
   // Define a new group of tokens for OS2UOL settings.
   $info['types']['os2uol_settings'] = [
     'name' => t('OS2UOL Settings'),
-    'description' => t('Tokens for OS2UOL settings, including email signatures.'),
+    'description' => t('Tokens for OS2UOL settings, including email signatures and domain-specific configurations.'),
   ];
 
-  // Define tokens for email signatures.
+  // Define tokens for email signatures and domain-configured email.
   $info['tokens']['os2uol_settings'] = [
     'email_signature' => [
       'name' => t('General Email Signature'),
@@ -148,6 +148,10 @@ function os2uol_settings_token_info() {
       'name' => t('Theater Refund Email Signature'),
       'description' => t('The email signature for Theater Refund emails.'),
     ],
+    'domain_email' => [
+      'name' => t('Domain Configured Email'),
+      'description' => t('The From and Reply-To email address configured for the domain.'),
+    ],
   ];
 
   return $info;
@@ -161,8 +165,9 @@ function os2uol_settings_tokens($type, $tokens, array $data, array $options, Bub
 
   if ($type == 'os2uol_settings') {
     $config = \Drupal::config('os2uol_settings.settings');
+    $domain_id = \Drupal::service('domain.negotiator')->getActiveId();
 
-    // Fetch each signature and process it.
+    // Fetch each token and process it.
     foreach ($tokens as $name => $original) {
       switch ($name) {
         case 'email_signature':
@@ -180,6 +185,11 @@ function os2uol_settings_tokens($type, $tokens, array $data, array $options, Bub
         case 'theater_refund_email_signature':
           $signature = $config->get('theater_refund_email_signature')['value'] ?? '';
           break;
+
+        case 'domain_email':
+          $domain_email = $config->get('from_reply_to_email') ?: 'info@os2udoglaer.dk';
+          $replacements[$original] = $domain_email;
+          continue 2; // Skip the signature processing below.
 
         default:
           $signature = '';
