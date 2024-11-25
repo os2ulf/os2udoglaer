@@ -1,0 +1,23 @@
+uuid: cb5acfb6-457c-4130-9ab3-ca106e8bbc67
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image_with_link
+    - field.storage.block_content.field_theme
+  module:
+    - styles
+id: block_content.image_with_link.field_theme
+field_name: field_theme
+entity_type: block_content
+bundle: image_with_link
+label: 'Tekst baggrundsfarve'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: theme-primary
+default_value_callback: ''
+settings: {  }
+field_type: styles

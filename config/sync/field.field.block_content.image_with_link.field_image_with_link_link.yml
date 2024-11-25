@@ -1,0 +1,76 @@
+uuid: 1c1dbc6c-25de-464d-a259-7f60467ad973
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image_with_link
+    - field.storage.block_content.field_image_with_link_link
+    - paragraphs.paragraphs_type.links_paragraph
+  module:
+    - entity_reference_revisions
+id: block_content.image_with_link.field_image_with_link_link
+field_name: field_image_with_link_link
+entity_type: block_content
+bundle: image_with_link
+label: Link
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      links_paragraph: links_paragraph
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 17
+        enabled: false
+      allocated_budget:
+        weight: 18
+        enabled: false
+      basic_hero:
+        weight: 19
+        enabled: false
+      cards:
+        weight: 20
+        enabled: false
+      contact_paragraph:
+        weight: 21
+        enabled: false
+      duration_paragraph:
+        weight: 22
+        enabled: false
+      duration_price:
+        weight: 23
+        enabled: false
+      footer_links:
+        weight: 24
+        enabled: false
+      inline_navigation:
+        weight: 25
+        enabled: false
+      links_paragraph:
+        weight: 26
+        enabled: true
+      material:
+        weight: 27
+        enabled: false
+      other_info:
+        weight: 28
+        enabled: false
+      other_user_info:
+        weight: 29
+        enabled: false
+      pretix_template:
+        weight: 30
+        enabled: false
+      video:
+        weight: 31
+        enabled: false
+      work_documents:
+        weight: 32
+        enabled: false
+field_type: entity_reference_revisions
