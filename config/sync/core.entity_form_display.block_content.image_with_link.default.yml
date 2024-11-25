@@ -1,0 +1,68 @@
+uuid: 94c40ee4-6e41-4753-aeda-ed24e7c3cb82
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image_with_link
+    - field.field.block_content.image_with_link.body
+    - field.field.block_content.image_with_link.field_image_media
+    - field.field.block_content.image_with_link.field_image_with_link_link
+    - field.field.block_content.image_with_link.field_theme
+    - image.style.medium
+  module:
+    - focal_point
+    - paragraphs
+    - styles
+    - text
+id: block_content.image_with_link.default
+targetEntityType: block_content
+bundle: image_with_link
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  field_image_media:
+    type: image_focal_point
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: medium
+      preview_link: true
+      offsets: '50,50'
+    third_party_settings: {  }
+  field_image_with_link_link:
+    type: paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+      features:
+        collapse_edit_all: collapse_edit_all
+        duplicate: duplicate
+    third_party_settings: {  }
+  field_theme:
+    type: styles
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  info: true
+  langcode: true
