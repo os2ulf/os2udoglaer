@@ -8,6 +8,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Plugin\Discovery\ContainerDeriverInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\os2uol_pretix\Plugin\Menu\LocalAction\PretixLocalAction;
+use Drupal\os2uol_pretix\Routing\PretixRouteProvider;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\Core\Session\AccountInterface;
 
@@ -56,28 +57,26 @@ class PretixLocalActions extends DeriverBase implements ContainerDeriverInterfac
     $this->derivatives = [];
 
     foreach ($this->entityTypeManager->getDefinitions() as $entityType) {
-      if ($entityType->hasLinkTemplate('edit-form')) {
+      if ($entityType->hasLinkTemplate(PretixRouteProvider::LINK_TEMPLATE)) {
         $entityTypeId = $entityType->id();
 
         // Add the "Add date" action only if the user has the required permission.
-        if ($this->currentUser->hasPermission('add own pretix events') || $this->currentUser->hasPermission('add all pretix events')) {
-          $this->derivatives["$entityTypeId.add_pretix"] = [
-            'class' => PretixLocalAction::class,
-            'route_name' => 'os2uol_pretix.add_date',
-            'appears_on' => ['entity.' . $entityTypeId . '.pretix'],
-            'base_route' => "entity.$entityTypeId.pretix",
-            'title' => $this->t('Add date'),
-            'options' => [
-              'attributes' => [
-                'class' => ['use-ajax'],
-                'data-dialog-type' => 'modal',
-                'data-dialog-options' => Json::encode([
-                  'width' => '80%',
-                ]),
-              ],
+        $this->derivatives["$entityTypeId.add_pretix"] = [
+          'class' => PretixLocalAction::class,
+          'route_name' => 'os2uol_pretix.add_date',
+          'appears_on' => ['entity.' . $entityTypeId . '.pretix'],
+          'base_route' => "entity.$entityTypeId.pretix",
+          'title' => $this->t('Add date'),
+          'options' => [
+            'attributes' => [
+              'class' => ['use-ajax'],
+              'data-dialog-type' => 'modal',
+              'data-dialog-options' => Json::encode([
+                'width' => '80%',
+              ]),
             ],
-          ] + $base_plugin_definition;
-        }
+          ],
+        ] + $base_plugin_definition;
       }
     }
 
