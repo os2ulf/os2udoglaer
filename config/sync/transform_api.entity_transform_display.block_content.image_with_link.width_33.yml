@@ -1,0 +1,55 @@
+uuid: d4a9f3cb-e779-49dc-a361-78f03bfbd9df
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image_with_link
+    - field.field.block_content.image_with_link.body
+    - field.field.block_content.image_with_link.field_image_media
+    - field.field.block_content.image_with_link.field_image_with_link_link
+    - field.field.block_content.image_with_link.field_theme
+    - responsive_image.styles.isg_image_dynamic_width_33
+    - transform_api.entity_transform_mode.block_content.width_33
+  module:
+    - styles
+    - transform_api_responsive_image
+id: block_content.image_with_link.width_33
+targetEntityType: block_content
+bundle: image_with_link
+mode: width_33
+content:
+  body:
+    type: text_format
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_image_media:
+    type: responsive_image
+    weight: '0'
+    region: content
+    label: omit
+    settings:
+      responsive_image_style: isg_image_dynamic_width_33
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+  field_image_with_link_link:
+    type: entity_transform
+    weight: '1'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_theme:
+    type: styles
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
