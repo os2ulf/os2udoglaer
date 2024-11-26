@@ -127,3 +127,9 @@ msgstr "Butikken er ikke live før det tilføjes datoer."
 
 msgid "Are you sure you want to delete this date?"
 msgstr "Er du sikker på at du vil slette denne dato?"
+
+msgid "An error occurred trying to delete date."
+msgstr "En fejl opstod i forsøget på at slette dato."
+
+msgid "The sub-event can not be deleted as it has already been used in orders. Please set 'active' to false instead to hide it from users."
+msgstr "Denne dato kan ikke blive slettet da den allerede er blevet brugt i ordrer."
