@@ -133,3 +133,9 @@ msgstr "En fejl opstod i forsøget på at slette dato."
 
 msgid "The sub-event can not be deleted as it has already been used in orders. Please set 'active' to false instead to hide it from users."
 msgstr "Denne dato kan ikke blive slettet da den allerede er blevet brugt i ordrer."
+
+msgid "New order / @event_name"
+msgstr "Bestilling / @event_name"
+
+msgid "Order canceled / @event_name"
+msgstr "Afbestilling / @event_name"
