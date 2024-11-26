@@ -39,6 +39,7 @@ third_party_settings:
       - 'Custom blocks'
       - Devel
       - Domain
+      - 'Domain Login Restrict'
       - Facets
       - Forms
       - Help
@@ -61,12 +62,10 @@ third_party_settings:
           - accordion
           - basic
           - footer
-          - image_with_link
           - quote
           - slideshow
         'Inline blocks':
           - 'inline_block:accordion'
-          - 'inline_block:image_with_link'
           - 'inline_block:quote'
           - 'inline_block:footer'
           - 'inline_block:basic'
@@ -93,6 +92,7 @@ third_party_settings:
         - 'Custom blocks'
         - Devel
         - Domain
+        - 'Domain Login Restrict'
         - Facets
         - Forms
         - Help
