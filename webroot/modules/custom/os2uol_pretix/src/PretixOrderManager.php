@@ -151,13 +151,13 @@ class PretixOrderManager extends PretixAbstractManager {
       $this->notifyEventChanged($entity);
       switch ($action) {
         case OrderHelper::PRETIX_EVENT_ORDER_PLACED:
-          $subject = t('New pretix order: @event_name',
+          $subject = t('New order / @event_name',
             ['@event_name' => $entity->label()]);
           $mailKey = self::PRETIX_EVENT_ORDER_PAID_TEMPLATE;
           break;
 
         case OrderHelper::PRETIX_EVENT_ORDER_CANCELED:
-          $subject = t('Pretix order canceled: @event_name',
+          $subject = t('Order canceled / @event_name',
             ['@event_name' => $entity->label()]);
           $mailKey = self::PRETIX_EVENT_ORDER_CANCELED_TEMPLATE;
           break;
