@@ -3,6 +3,6 @@ langcode: da
 status: true
 dependencies: {  }
 id: image_with_link
-label: 'Billedeblok med link'
+label: 'Billedeblok med link (1/2/3)'
 revision: 0
 description: ''
