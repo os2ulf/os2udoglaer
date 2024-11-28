@@ -362,11 +362,16 @@ function os2uol_application_forms_content_moderation_notification_mail_data_alte
     $send_mail = $entity->get('field_rfc_send_mail')->getString();
     $status = $entity->get('moderation_state')->getString();
 
+    // Always allow emails for the "draft" state.
+    if ($status === 'draft') {
+      return; // Do not modify $data for draft notifications.
+    }
+
     // Block email if send_mail is false.
     if (!$send_mail) {
       $data['to'] = [];
     } else {
-      // Ensure notifications are sent for configured states.
+      // Ensure notifications are sent only for configured states.
       if (!in_array($status, ['accepted', 'refused'])) {
         $data['to'] = [];
       }
