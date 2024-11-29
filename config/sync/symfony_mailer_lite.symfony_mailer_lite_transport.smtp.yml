@@ -1,0 +1,18 @@
+uuid: e526c975-1f38-4758-bee2-bd9351d57938
+langcode: da
+status: true
+dependencies: {  }
+id: smtp
+label: SMTP
+plugin: smtp
+configuration:
+  user: ''
+  pass: ''
+  host: localhost
+  port: 1025
+  query:
+    verify_peer: true
+    local_domain: ''
+    restart_threshold: null
+    restart_threshold_sleep: null
+    ping_threshold: null
