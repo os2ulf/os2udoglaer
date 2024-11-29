@@ -137,6 +137,13 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Enter the HTML for the email signature. This will be used as a token in email sendouts.'),
     ];
 
+    $form['tab_emails']['from_reply_to_email'] = [
+      '#type' => 'email',
+      '#title' => $this->t('From and Reply-To Email'),
+      '#default_value' => $config->get('from_reply_to_email') ?? '',
+      '#description' => $this->t('This email address will be used as the From and Reply-To address for this domain.'),
+    ];
+
     $form['tab_free_course_request'] = [
       '#type' => 'details',
       '#title' => $this->t('Free course request'),
@@ -161,6 +168,14 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('ufcr_receipt')['value'] ?? '',
       '#format' => $config->get('ufcr_receipt')['format'] ?? 'basic_html',
       '#description' => $this->t('Write a "Receipt" message.'),
+    ];
+
+    $form['tab_free_course_request']['free_course_email_signature'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Free Course Email Signature'),
+      '#default_value' => $config->get('free_course_email_signature')['value'] ?? '',
+      '#format' => $config->get('free_course_email_signature')['format'] ?? 'basic_html',
+      '#description' => $this->t('Enter the HTML for the free course email signature. This will be used in email sendouts related to free courses.'),
     ];
 
     $form['tab_transport_pool'] = [
@@ -269,6 +284,14 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Write a "Request confirmed" message.'),
     ];
 
+    $form['tab_transport_pool']['transport_pool_email_signature'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Transport Pool Email Signature'),
+      '#default_value' => $config->get('transport_pool_email_signature')['value'] ?? '',
+      '#format' => $config->get('transport_pool_email_signature')['format'] ?? 'basic_html',
+      '#description' => $this->t('Enter the HTML for the transport pool email signature. This will be used in email sendouts related to transport pools.'),
+    ];
+
     $form['tab_theater_refund'] = [
       '#type' => 'details',
       '#title' => $this->t('Theater refund request'),
@@ -281,6 +304,14 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('tr_receipt')['value'] ?? '',
       '#format' => $config->get('tr_receipt')['format'] ?? 'basic_html',
       '#description' => $this->t('Write a "Receipt text" message.'),
+    ];
+
+    $form['tab_theater_refund']['theater_refund_email_signature'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Theater Refund Email Signature'),
+      '#default_value' => $config->get('theater_refund_email_signature')['value'] ?? '',
+      '#format' => $config->get('theater_refund_email_signature')['format'] ?? 'basic_html',
+      '#description' => $this->t('Enter the HTML for the theater refund email signature. This will be used in email sendouts related to theater refunds.'),
     ];
 
     return parent::buildForm($form, $form_state);
@@ -326,6 +357,10 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('denied_private', $form_state->getValue('denied_private'))
       ->set('confirmation', $form_state->getValue('confirmation'))
       ->set('tr_receipt', $form_state->getValue('tr_receipt'))
+      ->set('from_reply_to_email', $form_state->getValue('from_reply_to_email'))
+      ->set('free_course_email_signature', $form_state->getValue('free_course_email_signature'))
+      ->set('transport_pool_email_signature', $form_state->getValue('transport_pool_email_signature'))
+      ->set('theater_refund_email_signature', $form_state->getValue('theater_refund_email_signature'))
       ->save();
 
     parent::submitForm($form, $form_state);

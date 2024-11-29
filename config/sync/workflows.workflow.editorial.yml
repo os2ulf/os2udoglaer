@@ -120,7 +120,6 @@ type_settings:
       label: Afpublicér
       from:
         - published
-        - review
       to: unpublished
       weight: 3
   entity_types:

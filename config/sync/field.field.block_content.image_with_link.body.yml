@@ -1,0 +1,32 @@
+uuid: b098c5f6-1402-4ce7-a9f5-9b7981ac0483
+langcode: da
+status: true
+dependencies:
+  config:
+    - block_content.type.image_with_link
+    - field.storage.block_content.body
+    - filter.format.basic_html
+    - filter.format.full_html
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: block_content.image_with_link.body
+field_name: body
+entity_type: block_content
+bundle: image_with_link
+label: Tekst
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+  allowed_formats:
+    - basic_html
+    - full_html
+field_type: text_with_summary

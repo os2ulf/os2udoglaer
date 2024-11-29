@@ -39,6 +39,7 @@ third_party_settings:
       - 'Custom blocks'
       - Devel
       - Domain
+      - 'Domain Login Restrict'
       - Facets
       - Forms
       - Help
@@ -91,6 +92,7 @@ third_party_settings:
         - 'Custom blocks'
         - Devel
         - Domain
+        - 'Domain Login Restrict'
         - Facets
         - Forms
         - Help

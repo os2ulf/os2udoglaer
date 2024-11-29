@@ -1,0 +1,8 @@
+uuid: 308d18b3-ceb4-43c1-ba1f-5a16ac6f0f95
+langcode: da
+status: true
+dependencies: {  }
+id: image_with_link
+label: 'Billedeblok med link (1/2/3)'
+revision: 0
+description: ''

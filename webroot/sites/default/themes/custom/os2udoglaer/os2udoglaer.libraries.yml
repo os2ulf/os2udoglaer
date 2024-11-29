@@ -45,6 +45,14 @@ theme-grey:
   dependencies:
     - os2udoglaer/theme
 
+theme-black:
+  version: VERSION
+  css:
+    theme:
+      css/theme/theme-black.css: {}
+  dependencies:
+    - os2udoglaer/theme
+
 # Previews.
 theme-preview:
   version: VERSION
@@ -56,6 +64,7 @@ theme-preview:
     - os2udoglaer/theme-secondary
     - os2udoglaer/theme-brown
     - os2udoglaer/theme-grey
+    - os2udoglaer/theme-black
 
 button-preview:
   version: VERSION
