@@ -12,6 +12,7 @@ dependencies:
     - field.storage.node.field_trgt_grp_primary_school
     - field.storage.node.field_trgt_grp_youth_education
     - node.type.course
+    - node.type.course_educators
     - node.type.news
   module:
     - image
@@ -1700,11 +1701,11 @@ display:
         - 'config:field.storage.node.field_image'
   rest_export_2:
     id: rest_export_2
-    display_title: 'Undervisnings- og læringsforløb (course)'
+    display_title: 'Kursus (course + course_educators)'
     display_plugin: rest_export
     position: 1
     display_options:
-      title: 'Undervisnings- og læringsforløb (course)'
+      title: 'Kursus (course + course_educators)'
       fields:
         base_url:
           id: base_url
@@ -2835,6 +2836,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
+            course_educators: course_educators
             course: course
           group: 1
           exposed: false
