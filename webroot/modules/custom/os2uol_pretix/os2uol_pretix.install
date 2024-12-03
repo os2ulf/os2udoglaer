@@ -40,3 +40,70 @@ function os2uol_pretix_update_10001(&$sandbox) {
   $schema->createTable('pretix_queue', $table_schema['pretix_queue']);
 
 }
+
+/**
+ * Add defaults to domain config
+ */
+function os2uol_pretix_update_10002(&$sandbox) {
+  $config = \Drupal::configFactory()->getEditable('os2uol_settings.settings');
+  $config
+    ->set('pretix_order_placed_subject', 'Bestilling / [node:title]')
+    ->set('pretix_order_placed_message', ['format' => 'basic_html', 'value' => '<p>
+    Kære [user:field_name]<br>
+    Der er kommet en ny bestilling på <a href="[node:url]">[node:title]</a>.
+</p>
+<p>
+    [pretix_order:lines]
+</p>
+<p>
+    ----
+</p>
+<p>
+    Denne mail er sendt automatisk fra [site:name].
+</p>'])
+    ->set('pretix_order_canceled_subject', 'Afbestilling / [node:title]')
+    ->set('pretix_order_canceled_message', ['format' => 'basic_html', 'value' => '<p>
+    Kære [user:field_name]<br>
+    Der er desværre kommet en afbestilling på <a href="url]">[node:title]</a>.
+</p>
+<p>
+    [pretix_order:lines]
+</p>
+<p>
+    ----
+</p>
+<p>
+    Denne mail er sendt automatisk fra [site:name].
+</p>'])
+    ->set('pretix_order_line', ['format' => 'basic_html', 'value' => '<p>
+    <strong>[pretix_order_line:line_number]# [pretix_order_line:name] [pretix_order_line:date_from]</strong>
+</p>
+<p>
+    <strong>BESTILLINGSDATA</strong>
+</p>
+<p>
+    [pretix_order_line:questions]
+</p>
+<p>
+    <strong>ANTAL</strong>
+</p>
+<p>
+    Antal billetter: [pretix_order_line:quantity]
+</p>
+<p>
+    Ledige billetter: [pretix_order_line:availability]
+</p>
+<p>
+    <strong>PRIS</strong>
+</p>
+<p>
+    Enhedspris: [pretix_order_line:item_price] kr.
+</p>
+<p>
+    Pris i alt: [pretix_order_line:total_price] kr.
+</p>'])
+    ->set('pretix_question', ['format' => 'basic_html', 'value' => '<p>
+    [pretix_question:question]: [pretix_question:answer]
+</p>'])
+    ->save();
+}

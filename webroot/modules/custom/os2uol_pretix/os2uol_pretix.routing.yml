@@ -31,6 +31,14 @@ os2uol_pretix.webhooks.order:
     _access: 'TRUE'
   methods: [POST]
 
+os2uol_pretix.preview.order:
+  path: '/pretix/preview/order/{organizerSlug}/{eventSlug}/{orderCode}'
+  defaults:
+    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::viewOrder'
+    _title: 'Pretix preview order'
+  requirements:
+    _access: 'TRUE'
+
 os2uol_pretix.banner.process:
   path: '/pretix/process'
   defaults:
