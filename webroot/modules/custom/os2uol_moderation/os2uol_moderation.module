@@ -22,8 +22,8 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
   $fallback_email = 'info@os2udoglaer.dk';
 
   // Retrieve the configured "From" and "Reply-To" email for the active domain.
-  $from_email = $config->get('from_reply_to_email') ?: $fallback_email;
-  $reply_to_email = $config->get('from_reply_to_email') ?: $fallback_email;
+  $from_email = $config->get('from_reply_to_email') ?: 'aog0@novicell.dk';
+  $reply_to_email = $config->get('from_reply_to_email') ?: 'aog1@novicell.dk';
 
   // Set the "From", "Reply-To", and "Return-Path" headers.
   $data['headers']['From'] = $from_email;
