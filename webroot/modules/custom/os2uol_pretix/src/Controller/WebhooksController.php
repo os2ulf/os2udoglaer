@@ -63,4 +63,18 @@ class WebhooksController extends ControllerBase {
     $this->bannerManager->processQueue();
     return new JsonResponse(['status' => 'processed queue']);
   }
+
+  public function viewOrder($organizerSlug, $eventSlug, $orderCode, Request $request) {
+    $mail = $this->orderManager->renderMailByIds($organizerSlug, $eventSlug, $orderCode, PretixOrderManager::PRETIX_EVENT_ORDER_PLACED);
+
+    return [
+      [
+        '#type' => 'item',
+        '#title' => $mail['subject'],
+      ],
+      [
+        '#markup' => $mail['body']
+      ]
+    ];
+  }
 }
