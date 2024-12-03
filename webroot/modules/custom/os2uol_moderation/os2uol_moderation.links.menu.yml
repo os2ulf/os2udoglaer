@@ -1,0 +1,6 @@
+os2uol_moderation.settings:
+  title: 'OS2UOL Moderation'
+  description: 'Configure OS2UOL Moderation settings.'
+  parent: system.admin_config
+  route_name: os2uol_moderation.settings_form
+  weight: 100

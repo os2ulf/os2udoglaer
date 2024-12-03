@@ -357,20 +357,83 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
  * Implements hook_content_moderation_notification_mail_data_alter().
  */
 function os2uol_application_forms_content_moderation_notification_mail_data_alter(EntityInterface $entity, array &$data) {
-  // Check if the entity has the field_rfc_send_mail field.
+  // Dynamically set the Reply-To header based on workflow type.
+  os2uol_application_forms_set_reply_to($entity, $data);
+    // Check if the entity has the field_rfc_send_mail field.
   if ($entity->hasField('field_rfc_send_mail')) {
     $send_mail = $entity->get('field_rfc_send_mail')->getString();
     $status = $entity->get('moderation_state')->getString();
+
+    // Always allow emails for the "draft" state.
+    if ($status === 'draft') {
+      return; // Do not modify $data for draft notifications.
+    }
 
     // Block email if send_mail is false.
     if (!$send_mail) {
       $data['to'] = [];
     } else {
-      // Ensure notifications are sent for configured states.
+      // Ensure notifications are sent only for configured states.
       if (!in_array($status, ['accepted', 'refused'])) {
         $data['to'] = [];
       }
     }
+  }
+
+  // Add guest user's email from field_rfc_mail.
+  if ($entity->hasField('field_rfc_mail')) {
+    $guest_email = $entity->get('field_rfc_mail')->getString();
+    if (!empty($guest_email)) {
+      $data['to'][] = $guest_email;
+      \Drupal::logger('os2uol_application_forms')->info('Notification email added for guest user: @guest_email.', [
+        '@guest_email' => $guest_email,
+      ]);
+    } else {
+      \Drupal::logger('os2uol_application_forms')->warning('Guest email field_rfc_mail is empty, notification not sent.');
+    }
+  }
+}
+
+/**
+ * Sets the Reply-To header dynamically based on workflow type.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $entity
+ *   The entity for which the email is being processed.
+ * @param array &$data
+ *   The email data array to be modified.
+ */
+function os2uol_application_forms_set_reply_to(EntityInterface $entity, array &$data) {
+  // Fetch the workflow type associated with the entity.
+  $workflow_type = $entity->get('moderation_state')->getFieldDefinition()->getSetting('workflow');
+
+  // Check if the entity has the required fields for the application workflow.
+  if ($workflow_type === 'application' && $entity->hasField('field_mailto')) {
+    // Use the value of the field_mailto field as the Reply-To address.
+    $mailto = $entity->get('field_mailto')->getString();
+    if (!empty($mailto)) {
+      $data['headers']['Reply-To'] = $mailto;
+      \Drupal::logger('os2uol_application_forms')->info('Reply-To set to @mailto for application workflow.', [
+        '@mailto' => $mailto,
+      ]);
+    } else {
+      \Drupal::logger('os2uol_application_forms')->warning('Reply-To not set for application workflow because field_mailto is empty.');
+    }
+  }
+  // For editorial workflow, use the site email.
+  elseif ($workflow_type === 'editorial') {
+    $site_mail = \Drupal::config('system.site')->get('mail');
+    if (!empty($site_mail)) {
+      $data['headers']['Reply-To'] = $site_mail;
+      \Drupal::logger('os2uol_application_forms')->info('Reply-To set to @site_mail for editorial workflow.', [
+        '@site_mail' => $site_mail,
+      ]);
+    } else {
+      \Drupal::logger('os2uol_application_forms')->warning('Reply-To not set for editorial workflow because site mail is empty.');
+    }
+  } else {
+    \Drupal::logger('os2uol_application_forms')->error('Workflow type @workflow_type is not handled.', [
+      '@workflow_type' => $workflow_type,
+    ]);
   }
 }
 
