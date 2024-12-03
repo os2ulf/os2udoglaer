@@ -379,6 +379,19 @@ function os2uol_application_forms_content_moderation_notification_mail_data_alte
       }
     }
   }
+
+  // Add guest user's email from field_rfc_mail.
+  if ($entity->hasField('field_rfc_mail')) {
+    $guest_email = $entity->get('field_rfc_mail')->getString();
+    if (!empty($guest_email)) {
+      $data['to'][] = $guest_email;
+      \Drupal::logger('os2uol_application_forms')->info('Notification email added for guest user: @guest_email.', [
+        '@guest_email' => $guest_email,
+      ]);
+    } else {
+      \Drupal::logger('os2uol_application_forms')->warning('Guest email field_rfc_mail is empty, notification not sent.');
+    }
+  }
 }
 
 /**

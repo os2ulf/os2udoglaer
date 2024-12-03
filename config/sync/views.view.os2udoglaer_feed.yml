@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.body
+    - field.storage.node.field_educators_target_group
     - field.storage.node.field_image
     - field.storage.node.field_is_free
     - field.storage.node.field_subject
@@ -12,6 +13,7 @@ dependencies:
     - field.storage.node.field_trgt_grp_primary_school
     - field.storage.node.field_trgt_grp_youth_education
     - node.type.course
+    - node.type.course_educators
     - node.type.news
   module:
     - image
@@ -1700,11 +1702,11 @@ display:
         - 'config:field.storage.node.field_image'
   rest_export_2:
     id: rest_export_2
-    display_title: 'Undervisnings- og læringsforløb (course)'
+    display_title: 'Kursus (course + course_educators)'
     display_plugin: rest_export
     position: 1
     display_options:
-      title: 'Undervisnings- og læringsforløb (course)'
+      title: 'Kursus (course + course_educators)'
       fields:
         base_url:
           id: base_url
@@ -2709,6 +2711,69 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_educators_target_group:
+          id: field_educators_target_group
+          table: node__field_educators_target_group
+          field: field_educators_target_group
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         nothing:
           id: nothing
           table: views
@@ -2721,7 +2786,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '{{ field_trgt_grp_youth_education }}{{ field_trgt_grp_primary_school }}{{ field_trgt_grp_daycare }}'
+            text: '{{ field_trgt_grp_youth_education }}{{ field_trgt_grp_primary_school }}{{ field_trgt_grp_daycare }}{{ field_educators_target_group }}'
             make_link: false
             path: ''
             absolute: false
@@ -2835,6 +2900,7 @@ display:
           plugin_id: bundle
           operator: in
           value:
+            course_educators: course_educators
             course: course
           group: 1
           exposed: false
@@ -2949,6 +3015,7 @@ display:
         - user.permissions
       tags:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
+        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_educators_target_group'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_image'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_is_free'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
@@ -2957,6 +3024,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_trgt_grp_primary_school'
         - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_trgt_grp_youth_education'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
+        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_educators_target_group'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_image'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_is_free'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
@@ -2965,6 +3033,7 @@ display:
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_trgt_grp_primary_school'
         - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_trgt_grp_youth_education'
         - 'config:field.storage.node.body'
+        - 'config:field.storage.node.field_educators_target_group'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_is_free'
         - 'config:field.storage.node.field_subject'
