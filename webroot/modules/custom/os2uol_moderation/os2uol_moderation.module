@@ -22,8 +22,8 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
   $fallback_email = 'info@os2udoglaer.dk';
 
   // Retrieve the configured "From" and "Reply-To" email for the active domain.
-  $from_email = $config->get('from_reply_to_email') ?: $fallback_email;
-  $reply_to_email = $config->get('from_reply_to_email') ?: $fallback_email;
+  $from_email = $config->get('from_reply_to_email') ?: 'aog0@novicell.dk';
+  $reply_to_email = $config->get('from_reply_to_email') ?: 'aog1@novicell.dk';
 
   // Set the "From", "Reply-To", and "Return-Path" headers.
   $data['headers']['From'] = $from_email;
@@ -36,4 +36,35 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
     '@reply_to' => $reply_to_email,
     '@domain_id' => $domain_id,
   ]);
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function os2uol_moderation_mail_alter(array &$message) {
+  // Ensure this only applies to Content Moderation Notifications.
+  if (isset($message['id']) && strpos($message['id'], 'content_moderation_notifications') !== FALSE) {
+    // Get the active domain ID.
+    $domain_id = \Drupal::service('domain.negotiator')->getActiveId();
+    $config = \Drupal::config('os2uol_settings.settings');
+
+    // Default fallback email address.
+    $fallback_email = 'info@os2udoglaer.dk';
+
+    // Retrieve the configured "From" and "Reply-To" email for the active domain.
+    $from_email = $config->get('from_reply_to_email') ?: 'aog2@novicell.dk';
+    $reply_to_email = $config->get('from_reply_to_email') ?: 'aog3@novicell.dk';
+
+    // Set the "From" and "Reply-To" headers.
+    $message['headers']['From'] = $from_email;
+    $message['headers']['Reply-To'] = $reply_to_email;
+    $message['headers']['Return-Path'] = $reply_to_email;
+
+    // Log the final headers.
+    \Drupal::logger('os2uol_moderation')->info('Enforced From and Reply-To headers: From: @from, Reply-To: @reply_to for domain: @domain_id', [
+      '@from' => $from_email,
+      '@reply_to' => $reply_to_email,
+      '@domain_id' => $domain_id,
+    ]);
+  }
 }
