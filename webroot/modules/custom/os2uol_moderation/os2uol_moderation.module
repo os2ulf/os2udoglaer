@@ -15,40 +15,29 @@ function os2uol_moderation_cron() {
  * Implements hook_content_moderation_notification_mail_data_alter().
  */
 function os2uol_moderation_content_moderation_notification_mail_data_alter(EntityInterface $entity, array &$data) {
-  // Get the active domain ID and domain entity.
-  $domain_id = \Drupal::service('domain.negotiator')->getActiveId();
-  $domain_storage = \Drupal::entityTypeManager()->getStorage('domain');
-  $domain = $domain_storage->load($domain_id);
-
-  // Validate that a valid domain was retrieved.
-  if (!$domain) {
-    \Drupal::logger('os2uol_moderation')->error('Unable to load the domain with ID: @domain_id', [
-      '@domain_id' => $domain_id,
-    ]);
-    return;
-  }
-
   // Get the workflow associated with the entity.
   $workflow = \Drupal::service('content_moderation.moderation_information')->getWorkflowForEntity($entity);
   if ($workflow->id() !== 'application') {
     return;
   }
 
-  // Log this event for debugging purposes.
-  \Drupal::logger('os2uol_moderation')->info('Sending email notification for entity: @entity_id with workflow: @workflow_id for domain: @domain_id', [
-    '@entity_id' => $entity->id(),
-    '@workflow_id' => $workflow->id(),
-    '@domain_id' => $domain_id,
-  ]);
-
   // Use the DomainConfigHelper to fetch domain-specific configuration.
-  $config_helper = \Drupal::service('os2uol_domain.config_helper'); // Ensure the service is registered.
+  $config_helper = \Drupal::service('os2uol_domain.config_helper');
+  $domain = \Drupal::service('domain.negotiator')->getActiveDomain();
+
+  // Validate that a valid domain was retrieved.
+  if (!$domain) {
+    \Drupal::logger('os2uol_moderation')->error('Unable to load the active domain.');
+    return;
+  }
+
+  // Fetch the domain-specific configuration.
   $domain_config = $config_helper->getDomainConfig('os2uol_settings.settings', $domain);
 
   // Log the domain config for debugging purposes.
   \Drupal::logger('os2uol_moderation')->info('Using domain config: @config for domain: @domain_id', [
     '@config' => print_r($domain_config->getRawData(), TRUE),
-    '@domain_id' => $domain_id,
+    '@domain_id' => $domain->id(),
   ]);
 
   // Default fallback email address.
@@ -57,6 +46,13 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
   // Retrieve the configured "From" and "Reply-To" email for the active domain.
   $from_email = $domain_config->get('from_reply_to_email') ?: $fallback_email;
   $reply_to_email = $domain_config->get('from_reply_to_email') ?: $fallback_email;
+
+  // Log the resolved emails for debugging purposes.
+  \Drupal::logger('os2uol_moderation')->info('Resolved From and Reply-To emails: From: @from, Reply-To: @reply_to for domain: @domain_id', [
+    '@from' => $from_email,
+    '@reply_to' => $reply_to_email,
+    '@domain_id' => $domain->id(),
+  ]);
 
   // Set the "From", "Reply-To", and "Return-Path" headers.
   $data['headers']['From'] = $from_email;
@@ -67,6 +63,6 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
   \Drupal::logger('os2uol_moderation')->info('Using From and Reply-To addresses: @from, @reply_to for domain: @domain_id', [
     '@from' => $from_email,
     '@reply_to' => $reply_to_email,
-    '@domain_id' => $domain_id,
+    '@domain_id' => $domain->id(),
   ]);
 }
