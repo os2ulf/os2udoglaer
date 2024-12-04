@@ -46,3 +46,11 @@ os2uol_pretix.banner.process:
     _title: 'Pretix banner process'
   requirements:
     _access: 'TRUE'
+
+os2uol_pretix.banner.view:
+  path: '/pretix/banner/{node}'
+  defaults:
+    _controller: '\Drupal\os2uol_pretix\Controller\WebhooksController::viewBanner'
+    _title: 'Pretix banner view'
+  requirements:
+    _access: 'TRUE'

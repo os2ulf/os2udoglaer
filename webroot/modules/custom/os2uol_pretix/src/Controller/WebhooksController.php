@@ -71,4 +71,15 @@ class WebhooksController extends ControllerBase {
       ]
     ];
   }
+
+  public function viewBanner(NodeInterface $node) {
+    $banner = $this->bannerManager->getBanner($node);
+    return [
+      '#type' => 'item',
+      '#title' => 'Banner',
+      '#description' => $banner,
+      '#description_display' => 'after',
+      '#cache' => ['max-age' => 0],
+    ];
+  }
 }
