@@ -460,6 +460,9 @@ class PretixOrderManager extends PretixAbstractManager {
       ->accessCheck(TRUE)
       ->execute();
 
+    if (count($ids) > 1) {
+      $this->logger->warning('Pretix event @event is attached to multiple content', ['@event' => $eventSlug]);
+    }
     if (!empty($ids)) {
       /** @var EditorialContentEntityBase $entity */
       $entity = $nodeStorage->load($ids[array_key_first($ids)]);
