@@ -149,22 +149,15 @@ class PretixOrderManager extends PretixAbstractManager {
     $entity = $this->getEntity($organizerSlug, $eventSlug);
 
     if (NULL !== $entity && $entity instanceof Node) {
+      $this->logger->info('Pretix webhook handled of type ' . $action, $payload);
       $this->notifyEventChanged($entity);
-      switch ($action) {
-        case PretixOrderManager::PRETIX_EVENT_ORDER_PLACED:
-          $subject = t('New pretix order: @event_name',
-            ['@event_name' => $entity->label()]);
-          $mailKey = self::PRETIX_EVENT_ORDER_PAID_TEMPLATE;
-          break;
-
-        case PretixOrderManager::PRETIX_EVENT_ORDER_CANCELED:
-          $subject = t('Pretix order canceled: @event_name',
-            ['@event_name' => $entity->label()]);
-          $mailKey = self::PRETIX_EVENT_ORDER_CANCELED_TEMPLATE;
-          break;
-
-        default:
-          return $payload;
+      $mailKey = match ($action) {
+        PretixOrderManager::PRETIX_EVENT_ORDER_PLACED => self::PRETIX_EVENT_ORDER_PAID_TEMPLATE,
+        PretixOrderManager::PRETIX_EVENT_ORDER_CANCELED => self::PRETIX_EVENT_ORDER_CANCELED_TEMPLATE,
+        default => '',
+      };
+      if (empty($mailKey)) {
+        return $payload;
       }
 
       $texts = $this->renderMail($entity, $orderCode, $action);
