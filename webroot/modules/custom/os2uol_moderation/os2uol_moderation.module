@@ -45,6 +45,12 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
   $config_helper = \Drupal::service('os2uol_domain.config_helper'); // Ensure the service is registered.
   $domain_config = $config_helper->getDomainConfig('os2uol_settings.settings', $domain);
 
+  // Log the domain config for debugging purposes.
+  \Drupal::logger('os2uol_moderation')->info('Using domain config: @config for domain: @domain_id', [
+    '@config' => print_r($domain_config->getRawData(), TRUE),
+    '@domain_id' => $domain_id,
+  ]);
+
   // Default fallback email address.
   $fallback_email = 'fallback@os2udoglaer.dk';
 
