@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\os2uol_domain\DomainConfigHelper;
 
 /**
  * Implements hook_cron().
@@ -14,12 +15,20 @@ function os2uol_moderation_cron() {
  * Implements hook_content_moderation_notification_mail_data_alter().
  */
 function os2uol_moderation_content_moderation_notification_mail_data_alter(EntityInterface $entity, array &$data) {
-  // Get the active domain ID.
+  // Get the active domain ID and domain entity.
   $domain_id = \Drupal::service('domain.negotiator')->getActiveId();
-  $config = \Drupal::config('os2uol_settings.settings');
+  $domain_storage = \Drupal::entityTypeManager()->getStorage('domain');
+  $domain = $domain_storage->load($domain_id);
 
-  // Get the type of workflow from Content Moderation module.
-  // We only continue if workflow is machine  name application.
+  // Validate that a valid domain was retrieved.
+  if (!$domain) {
+    \Drupal::logger('os2uol_moderation')->error('Unable to load the domain with ID: @domain_id', [
+      '@domain_id' => $domain_id,
+    ]);
+    return;
+  }
+
+  // Get the workflow associated with the entity.
   $workflow = \Drupal::service('content_moderation.moderation_information')->getWorkflowForEntity($entity);
   if ($workflow->id() !== 'application') {
     return;
@@ -32,12 +41,16 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
     '@domain_id' => $domain_id,
   ]);
 
+  // Use the DomainConfigHelper to fetch domain-specific configuration.
+  $config_helper = \Drupal::service('os2uol_domain.config_helper'); // Ensure the service is registered.
+  $domain_config = $config_helper->getDomainConfig('os2uol_settings.settings', $domain);
+
   // Default fallback email address.
   $fallback_email = 'fallback@os2udoglaer.dk';
 
   // Retrieve the configured "From" and "Reply-To" email for the active domain.
-  $from_email = $config->get('from_reply_to_email') ?: $fallback_email;
-  $reply_to_email = $config->get('from_reply_to_email') ?: $fallback_email;
+  $from_email = $domain_config->get('from_reply_to_email') ?: $fallback_email;
+  $reply_to_email = $domain_config->get('from_reply_to_email') ?: $fallback_email;
 
   // Set the "From", "Reply-To", and "Return-Path" headers.
   $data['headers']['From'] = $from_email;
