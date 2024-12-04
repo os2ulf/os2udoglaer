@@ -149,7 +149,7 @@ class PretixOrderManager extends PretixAbstractManager {
     $entity = $this->getEntity($organizerSlug, $eventSlug);
 
     if (NULL !== $entity && $entity instanceof Node) {
-      $this->logger->info('Pretix webhook handled of type ' . $action, $payload);
+      $this->logger->info('Pretix webhook handled of type @action', ['@action' => $action]);
       $this->notifyEventChanged($entity);
       $mailKey = match ($action) {
         PretixOrderManager::PRETIX_EVENT_ORDER_PLACED => self::PRETIX_EVENT_ORDER_PAID_TEMPLATE,
@@ -171,7 +171,7 @@ class PretixOrderManager extends PretixAbstractManager {
         'entity' => $entity,
         'user' => $entity_owner->getOwner(),
         'subject' => $texts['subject'],
-        'content' => $texts['message']
+        'content' => $texts['body']
       ];
 
       $result = $this->mailManager->mail('os2uol_pretix', $mailKey, $to, $langcode, $params);
