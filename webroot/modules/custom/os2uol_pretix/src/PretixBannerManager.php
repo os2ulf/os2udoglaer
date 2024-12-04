@@ -193,7 +193,7 @@ class PretixBannerManager implements TrustedCallbackInterface {
    * @return void
    */
   public function saveBanner(EntityInterface $entity, string $banner): void {
-    \Drupal::logger('pretix')->debug('Saving banner @banner for @title', ['@banner' => $banner, '@title' => $entity->getTitle()]);
+    \Drupal::logger('pretix')->debug('Saving banner "@banner" for @title', ['@banner' => $banner, '@title' => $entity->getTitle()]);
     $this->cache->set($this->getCacheKey($entity), $banner, $this->getMaxAge());
   }
 
