@@ -166,6 +166,7 @@ class PretixBannerManager implements TrustedCallbackInterface {
    */
   public function addEntityToQueue(EntityInterface $entity): void {
     if (!$this->isEntityInQueue($entity)) {
+      $this->cache->invalidate($this->getCacheKey($entity));
       try {
         $this->connection->insert('pretix_queue')
           ->fields([
