@@ -166,6 +166,7 @@ function os2uol_settings_tokens($type, $tokens, array $data, array $options, Bub
   if ($type == 'os2uol_settings') {
     $config = \Drupal::config('os2uol_settings.settings');
     $domain_id = \Drupal::service('domain.negotiator')->getActiveId();
+    $bubbleable_metadata->addCacheableDependency($config);
 
     // Fetch each token and process it.
     foreach ($tokens as $name => $original) {

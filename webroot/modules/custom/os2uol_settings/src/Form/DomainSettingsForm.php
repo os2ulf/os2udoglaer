@@ -144,6 +144,76 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('This email address will be used as the From and Reply-To address for this domain.'),
     ];
 
+    $form['tab_pretix'] = [
+      '#type' => 'details',
+      '#title' => $this->t('Pretix'),
+      '#group' => 'tabs',
+    ];
+
+    $form['tab_pretix']['pretix_order_placed_subject'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Order placed subject'),
+      '#default_value' => $config->get('pretix_order_placed_subject') ?? '',
+      '#description' => $this->t('Enter the subject for order placed e-mails.'),
+    ];
+
+    $form['tab_pretix']['pretix_order_placed_message'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Order placed message'),
+      '#default_value' => $config->get('pretix_order_placed_message')['value'] ?? '',
+      '#format' => $config->get('pretix_order_placed_message')['format'] ?? 'basic_html',
+      '#description' => $this->t('Enter the HTML for order placed e-mails.'),
+    ];
+
+    $form['tab_pretix']['pretix_order_canceled_subject'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Order canceled subject'),
+      '#default_value' => $config->get('pretix_order_canceled_subject') ?? '',
+      '#description' => $this->t('Enter the subject for order canceled e-mails.'),
+    ];
+
+    $form['tab_pretix']['pretix_order_canceled_message'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Order canceled message'),
+      '#default_value' => $config->get('pretix_order_canceled_message')['value'] ?? '',
+      '#format' => $config->get('pretix_order_canceled_message')['format'] ?? 'basic_html',
+      '#description' => $this->t('Enter the HTML for order canceled e-mails.'),
+    ];
+
+    $form['tab_pretix']['pretix_token_help_mails'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['node', 'user', 'pretix_order'],
+      '#global_types' => FALSE,
+    ];
+
+    $form['tab_pretix']['pretix_order_line'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Order lines template'),
+      '#default_value' => $config->get('pretix_order_line')['value'] ?? '',
+      '#format' => $config->get('pretix_order_line')['format'] ?? 'basic_html',
+      '#description' => $this->t('Enter the HTML for order lines in e-mails.'),
+    ];
+
+    $form['tab_pretix']['pretix_token_help_lines'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['node', 'user', 'pretix_order_line'],
+      '#global_types' => FALSE,
+    ];
+
+    $form['tab_pretix']['pretix_question'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Question template'),
+      '#default_value' => $config->get('pretix_question')['value'] ?? '',
+      '#format' => $config->get('pretix_order_lines')['format'] ?? 'basic_html',
+      '#description' => $this->t('Enter the HTML for questions in e-mails.'),
+    ];
+
+    $form['tab_pretix']['pretix_token_help_question'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['node', 'user', 'pretix_question'],
+      '#global_types' => FALSE,
+    ];
+
     $form['tab_free_course_request'] = [
       '#type' => 'details',
       '#title' => $this->t('Free course request'),
@@ -361,6 +431,12 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('free_course_email_signature', $form_state->getValue('free_course_email_signature'))
       ->set('transport_pool_email_signature', $form_state->getValue('transport_pool_email_signature'))
       ->set('theater_refund_email_signature', $form_state->getValue('theater_refund_email_signature'))
+      ->set('pretix_order_placed_subject', $form_state->getValue('pretix_order_placed_subject'))
+      ->set('pretix_order_placed_message', $form_state->getValue('pretix_order_placed_message'))
+      ->set('pretix_order_canceled_subject', $form_state->getValue('pretix_order_canceled_subject'))
+      ->set('pretix_order_canceled_message', $form_state->getValue('pretix_order_canceled_message'))
+      ->set('pretix_order_line', $form_state->getValue('pretix_order_line'))
+      ->set('pretix_question', $form_state->getValue('pretix_question'))
       ->save();
 
     parent::submitForm($form, $form_state);

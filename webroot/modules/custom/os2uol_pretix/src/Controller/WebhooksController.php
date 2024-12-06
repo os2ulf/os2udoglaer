@@ -50,17 +50,36 @@ class WebhooksController extends ControllerBase {
     }
 
     $action = $payload['action'] ?? NULL;
-    switch ($action) {
-        case PretixOrderManager::PRETIX_EVENT_ORDER_PLACED:
-        case PretixOrderManager::PRETIX_EVENT_ORDER_CANCELED:
-            return new JsonResponse($this->orderManager->handleOrderUpdated($payload, $action));
-    }
-
-    return new JsonResponse(['status' => 'unhandled action']);
+    return new JsonResponse($this->orderManager->handleOrderUpdated($payload, $action));
   }
 
   public function process() {
     $this->bannerManager->processQueue();
     return new JsonResponse(['status' => 'processed queue']);
+  }
+
+  public function viewOrder($organizerSlug, $eventSlug, $orderCode, Request $request) {
+    $mail = $this->orderManager->renderMailByIds($organizerSlug, $eventSlug, $orderCode, PretixOrderManager::PRETIX_EVENT_ORDER_PLACED);
+
+    return [
+      [
+        '#type' => 'item',
+        '#title' => $mail['subject'],
+      ],
+      [
+        '#markup' => $mail['body']
+      ]
+    ];
+  }
+
+  public function viewBanner(NodeInterface $node) {
+    $banner = $this->bannerManager->getBanner($node);
+    return [
+      '#type' => 'item',
+      '#title' => 'Banner',
+      '#description' => $banner,
+      '#description_display' => 'after',
+      '#cache' => ['max-age' => 0],
+    ];
   }
 }

@@ -1,11 +1,13 @@
 <?php
 
 use Drupal\Core\Access\AccessResultInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\BubbleableMetadata;
+use Drupal\Core\Render\Markup;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\os2uol_pretix\PretixEntityHooks;
-use Drupal\os2uol_pretix\Routing\PretixRouteProvider;
 
 /**
  * Implements hook_locale_translation_projects_alter().
@@ -61,8 +63,9 @@ function os2uol_pretix_entity_type_build(array &$entity_types): void {
  * Implements hook_mail().
  */
 function os2uol_pretix_mail($key, &$message, $params) {
-  $message['body'] = $params['content'];
-  $message['subject'] = $params['subject'];
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+  $message['body'][] = Markup::create($params['content']);
+  $message['subject'] = str_replace(["\r", "\n"], '', $params['subject']);
 }
 
 /**
@@ -251,6 +254,274 @@ function os2uol_pretix_pretix_event_changed(EntityInterface $entity) {
   /** @var \Drupal\os2uol_pretix\PretixBannerManager $bannerManager */
   $bannerManager = \Drupal::service('os2uol_pretix.banner_manager');
   $bannerManager->addEntityToQueue($entity);
+}
+
+/**
+ * Implements hook_token_info().
+ */
+function os2uol_pretix_token_info() {
+  $info = array();
+
+  $info['types'] = array(
+    'pretix_order' => array(
+      'name' => t('Pretix order'),
+      'description' => t('Pretix order tokens.'),
+      'needs-data' => 'pretix_order',
+    ),
+    'pretix_order_line' => array(
+      'name' => t('Pretix order line'),
+      'description' => t('Pretix order line tokens.'),
+      'needs-data' => 'pretix_order_line',
+    ),
+    'pretix_question' => array(
+      'name' => t('Pretix question'),
+      'description' => t('Pretix question tokens.'),
+      'needs-data' => 'pretix_question',
+    ),
+  );
+
+  $info['tokens'] = array(
+    'pretix_order' => [
+      'code' => [
+        'name' => t('Code'),
+        'description' => t('Code for the Pretix order.'),
+      ],
+      'email' => [
+        'name' => t('Email'),
+        'description' => t('The customer email address.'),
+      ],
+      'phone' => [
+        'name' => t('Phone'),
+        'description' => t('The customer phone number.'),
+      ],
+      'datetime' => [
+        'name' => t('Order creation date'),
+        'description' => t('Time of order creation.'),
+      ],
+      'lines' => [
+        'name' => t('Pretix order lines'),
+        'description' => t('Order lines for the Pretix order.'),
+      ],
+    ],
+    'pretix_order_line' => [
+      'line_number' => [
+        'name' => t('Line number'),
+        'description' => t('The line number in the order.'),
+      ],
+      'name' => [
+        'name' => t('Name'),
+        'description' => t('The sub-event’s start name.'),
+      ],
+      'date_from' => [
+        'name' => t('Date from'),
+        'description' => t('The sub-event’s start date.'),
+      ],
+      'date_to' => [
+        'name' => t('Date to'),
+        'description' => t('The sub-event’s end date.'),
+      ],
+      'presale_start' => [
+        'name' => t('Presale start'),
+        'description' => t('The sub-date at which the ticket shop opens.'),
+      ],
+      'presale_end' => [
+        'name' => t('Presale end'),
+        'description' => t('The sub-date at which the ticket shop closes.'),
+      ],
+      'quantity' => [
+        'name' => t('Quantity'),
+        'description' => t('The number of items in the order line.'),
+      ],
+      'availability' => [
+        'name' => t('Availability'),
+        'description' => t('The availability of the sub-event.'),
+      ],
+      'item_price' => [
+        'name' => t('Item price'),
+        'description' => t('Price of this order line.'),
+      ],
+      'total_price' => [
+        'name' => t('Total price'),
+        'description' => t('Total price of this order line.'),
+      ],
+      'questions' => [
+        'name' => t('Questions'),
+        'description' => t('Answers to user-defined questions.'),
+      ],
+    ],
+    'pretix_question' => [
+      'id' => [
+        'name' => t('ID'),
+        'description' => t('Internal ID of the question.'),
+      ],
+      'question_identifier' => [
+        'name' => t('Identifier'),
+        'description' => t('An arbitrary string that can be used for matching with other sources.'),
+      ],
+      'question' => [
+        'name' => t('Question'),
+        'description' => t('The field label shown to the customer.'),
+      ],
+      'answer' => [
+        'name' => t('Answer'),
+        'description' => t('Text representation of the answer.'),
+      ],
+    ],
+  );
+
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function os2uol_pretix_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
+  $replacements = [];
+
+  switch ($type) {
+    case 'pretix_order':
+      $order = $data['pretix_order'];
+
+      // Fetch each token and process it.
+      foreach ($tokens as $name => $original) {
+        switch ($name) {
+          case 'lines':
+            $config = \Drupal::config('os2uol_settings.settings');
+            $bubbleable_metadata->addCacheableDependency($config);
+            $template = $config->get('pretix_order_line')['value'] ?? '';
+            $token = \Drupal::token();
+            /** @var \Drupal\os2uol_pretix\PretixOrderManager $orderManager */
+            $orderManager = \Drupal::service('os2uol_pretix.order_manager');
+
+            $orderLines = $orderManager->getOrderLines($order);
+            $markups = [];
+            foreach ($orderLines as $orderLine) {
+              $markups[] = $token->replace($template, [
+                'node' => $data['node'],
+                'user' => $data['user'],
+                'pretix_order_line' => $orderLine
+              ]);
+            }
+            $markup = implode("\n", $markups);
+
+            // Convert newlines to <br> tags to preserve formatting in HTML.
+            $markup = nl2br($markup, FALSE);
+
+            // Markup the order lines to be treated as safe HTML.
+            $replacements[$original] = Markup::create($markup);
+            break;
+
+          case 'datetime':
+            /** @var \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter */
+            $dateFormatter = \Drupal::service('date.formatter');
+
+            if (!empty($order[$name])) {
+              $datetime = new DrupalDateTime($order[$name]);
+              $replacements[$original] = $dateFormatter->format($datetime->getTimestamp(), 'short');
+            } else {
+              $replacements[$original] = '';
+            }
+            break;
+
+          default:
+            $replacements[$original] = $order[$name];
+            break;
+        }
+      }
+      break;
+
+    case 'pretix_order_line':
+      $order_line = $data['pretix_order_line'];
+
+      // Fetch each token and process it.
+      foreach ($tokens as $name => $original) {
+        switch ($name) {
+          case 'name':
+            $replacements[$original] = $order_line[$name]['da'] ?? $order_line[$name][array_key_first($order_line[$name])] ?? '';
+            break;
+
+          case 'date_from':
+          case 'date_to':
+          case 'presale_start':
+          case 'presale_end':
+            /** @var \Drupal\Core\Datetime\DateFormatterInterface $dateFormatter */
+            $dateFormatter = \Drupal::service('date.formatter');
+
+            if ($order_line[$name] instanceof DrupalDateTime) {
+              $replacements[$original] = $dateFormatter->format($order_line[$name]->getTimestamp(), 'short');
+            } else {
+              $replacements[$original] = '';
+            }
+            break;
+
+          case 'item_price':
+          case 'total_price':
+            $replacements[$original] = number_format($order_line[$name], 2);
+            break;
+
+          case 'availability':
+            $markups = [];
+            foreach ($order_line['quotas'] as $quota) {
+              $markups[] = t('@count of @total', ['@name' => $quota['name'], '@count' => $quota['availability']['available_number'], '@total' => $quota['availability']['total_size']])->__toString();
+            }
+            $markup = implode("\n", $markups);
+
+            // Convert newlines to <br> tags to preserve formatting in HTML.
+            $markup = nl2br($markup, FALSE);
+
+            // Markup the order lines to be treated as safe HTML.
+            $replacements[$original] = Markup::create($markup);
+            break;
+
+          case 'questions':
+            $config = \Drupal::config('os2uol_settings.settings');
+            $bubbleable_metadata->addCacheableDependency($config);
+            $template = $config->get('pretix_question')['value'] ?? '';
+            $token = \Drupal::token();
+            /** @var \Drupal\os2uol_pretix\PretixOrderManager $orderManager */
+            $orderManager = \Drupal::service('os2uol_pretix.order_manager');
+
+            $questions = $orderManager->getQuestions($data['node']);
+            $markups = [];
+            foreach ($order_line['answers'] as $question) {
+              $pretix_question = $question;
+              $pretix_question['question'] = $questions[$question['question']];
+              $markups[] = $token->replace($template, [
+                'node' => $data['node'],
+                'user' => $data['user'],
+                'pretix_question' => $pretix_question
+              ]);
+            }
+            $markup = implode("\n", $markups);
+
+            // Convert newlines to <br> tags to preserve formatting in HTML.
+            $markup = nl2br($markup, FALSE);
+
+            // Markup the order lines to be treated as safe HTML.
+            $replacements[$original] = Markup::create($markup);
+            break;
+
+          default:
+            $replacements[$original] = $order_line[$name];
+            break;
+        }
+      }
+      break;
+
+    case 'pretix_question':
+      $order = $data['pretix_question'];
+
+      // Fetch each token and process it.
+      foreach ($tokens as $name => $original) {
+        switch ($name) {
+          default:
+            $replacements[$original] = $order[$name];
+            break;
+        }
+      }
+      break;
+  }
+  return $replacements;
 }
 
 /**

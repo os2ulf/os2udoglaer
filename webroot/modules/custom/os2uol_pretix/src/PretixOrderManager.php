@@ -4,17 +4,18 @@ namespace Drupal\os2uol_pretix;
 
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
-use Drupal\Core\Datetime\DateFormatInterface;
 use Drupal\Core\Datetime\DateFormatterInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EditorialContentEntityBase;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Messenger\MessengerInterface;
 use Drupal\Core\Url;
+use Drupal\node\Entity\Node;
+use Drupal\user\EntityOwnerInterface;
 use Drupal\user\EntityOwnerTrait;
 use Drupal\user\UserInterface;
-use Drupal\os2uol_pretix\OrderHelper;
 
 class PretixOrderManager extends PretixAbstractManager {
 
@@ -147,35 +148,19 @@ class PretixOrderManager extends PretixAbstractManager {
     /** @var EditorialContentEntityBase $entity */
     $entity = $this->getEntity($organizerSlug, $eventSlug);
 
-    if (NULL !== $entity) {
+    if (NULL !== $entity && $entity instanceof Node) {
+      $this->logger->info('Pretix webhook handled of type @action', ['@action' => $action]);
       $this->notifyEventChanged($entity);
-      switch ($action) {
-        case OrderHelper::PRETIX_EVENT_ORDER_PLACED:
-          $subject = t('New order / @event_name',
-            ['@event_name' => $entity->label()]);
-          $mailKey = self::PRETIX_EVENT_ORDER_PAID_TEMPLATE;
-          break;
-
-        case OrderHelper::PRETIX_EVENT_ORDER_CANCELED:
-          $subject = t('Order canceled / @event_name',
-            ['@event_name' => $entity->label()]);
-          $mailKey = self::PRETIX_EVENT_ORDER_CANCELED_TEMPLATE;
-          break;
-
-        default:
-          return $payload;
+      $mailKey = match ($action) {
+        PretixOrderManager::PRETIX_EVENT_ORDER_PLACED => self::PRETIX_EVENT_ORDER_PAID_TEMPLATE,
+        PretixOrderManager::PRETIX_EVENT_ORDER_CANCELED => self::PRETIX_EVENT_ORDER_CANCELED_TEMPLATE,
+        default => '',
+      };
+      if (empty($mailKey)) {
+        return $payload;
       }
 
-      $result = $this->getOrder($entity, $orderCode);
-      if ($this->isApiError($result)) {
-        $this->apiError($result, 'Cannot get order');
-      }
-      $order = $result;
-      $questions = $this->getQuestions($entity);
-      $order['questions'] = $questions;
-      $orderLines = $this->getOrderLines($order);
-
-      $content = $this->renderOrder($order, $orderLines);
+      $texts = $this->renderMail($entity, $orderCode, $action);
 
       $to = implode(',', $this->getMailRecipients($entity));
       $langcode = $entity->language()->getId();
@@ -185,17 +170,19 @@ class PretixOrderManager extends PretixAbstractManager {
       $params = [
         'entity' => $entity,
         'user' => $entity_owner->getOwner(),
-        'pretix_order' => $order,
-        'pretix_order_lines' => $orderLines,
-        'pretix_questions' => $questions,
-        'subject' => $subject,
-        'content' => $content
+        'subject' => $texts['subject'],
+        'content' => $texts['body']
       ];
 
       $result = $this->mailManager->mail('os2uol_pretix', $mailKey, $to, $langcode, $params);
     }
 
     return $payload;
+  }
+
+  public function getOrderByIds($organizerSlug, $eventSlug, $orderCode) {
+    $entity = $this->getEntity($organizerSlug, $eventSlug);
+    return $this->getOrder($entity, $orderCode);
   }
 
   public function getOrder(EditorialContentEntityBase $entity, $orderCode): array {
@@ -281,18 +268,6 @@ class PretixOrderManager extends PretixAbstractManager {
     return $questions;
   }
 
-  public function viewOrder(EditorialContentEntityBase $entity, $orderCode): array {
-    $order = $this->getOrder($entity, $orderCode);
-    if ($this->isApiError($order)) {
-      $this->apiError($order, 'Cannot get order');
-    }
-    $questions = $this->getQuestions($entity);
-    $order['questions'] = $questions;
-    $orderLines = $this->getOrderLines($order);
-
-    return $this->renderOrder($order, $orderLines);
-  }
-
   /**
    * @param \Drupal\Core\Entity\EditorialContentEntityBase $entity
    *
@@ -316,6 +291,7 @@ class PretixOrderManager extends PretixAbstractManager {
    *   The order lines.
    */
   public function getOrderLines(array $order): array {
+    $lineNumber = 1;
     $orderLines = [];
 
     foreach ($order['positions'] as $position) {
@@ -327,9 +303,13 @@ class PretixOrderManager extends PretixAbstractManager {
         $subEvent = $position['subevent'];
         $name = $subEvent['name'];
         $orderLines[$subEvent['id']] = [
+          'line_number' => $lineNumber,
           'quantity' => 1,
           'name' => $name,
           'date_from' => new DrupalDateTime($subEvent['date_from']),
+          'date_to' => empty($subEvent['date_to']) ? NULL : new DrupalDateTime($subEvent['date_to']),
+          'presale_start' => empty($subEvent['presale_start']) ? NULL : new DrupalDateTime($subEvent['presale_start']),
+          'presale_end' => empty($subEvent['presale_end']) ? NULL : new DrupalDateTime($subEvent['presale_end']),
           'item_price' => $position['price'],
           'total_price' => $position['price'],
           'quotas' => $position['quotas'],
@@ -352,7 +332,12 @@ class PretixOrderManager extends PretixAbstractManager {
    * @return array|string[]
    *   The textual representation of the order.
    */
-  private function renderOrder(array $order, array $orderLines): array {
+  private function renderOrder(EntityInterface $entity, array $order, array $orderLines): array {
+    if ($entity instanceof EntityOwnerInterface) {
+      $owner = $entity->getOwner();
+      $name = $owner->getDisplayName();
+    }
+
     $blocks = [];
 
     foreach ($orderLines as $line) {
@@ -417,6 +402,44 @@ class PretixOrderManager extends PretixAbstractManager {
     }, array_merge(...$blocks));
   }
 
+  public function renderMailByIds(string $organizerSlug, string $eventSlug, string $orderCode, string $action): ?array {
+    $entity = $this->getEntity($organizerSlug, $eventSlug);
+    if ($entity instanceof Node) {
+      return $this->renderMail($entity, $orderCode, $action);
+    } else {
+      return NULL;
+    }
+  }
+
+  public function renderMail(Node $node, string $orderCode, string $action): array {
+    $config = \Drupal::config('os2uol_settings.settings');
+    $order = $this->getOrder($node, $orderCode);
+
+    switch ($action) {
+      case PretixOrderManager::PRETIX_EVENT_ORDER_PLACED:
+        $subject_template = $config->get('pretix_order_placed_subject') ?? '';
+        $body_template = $config->get('pretix_order_placed_message')['value'] ?? '';
+        break;
+
+      case PretixOrderManager::PRETIX_EVENT_ORDER_CANCELED:
+        $subject_template = $config->get('pretix_order_canceled_subject') ?? '';
+        $body_template = $config->get('pretix_order_canceled_message')['value'] ?? '';
+        break;
+
+      default:
+        return [];
+    }
+
+    $token = \Drupal::token();
+    $subject = $token->replace($subject_template, ['node' => $node, 'user' => $node->getOwner(), 'pretix_order' => $order]);
+    $markup = $token->replace($body_template, ['node' => $node, 'user' => $node->getOwner(), 'pretix_order' => $order]);
+
+    return [
+      'subject' => $subject,
+      'body' => $markup
+    ];
+  }
+
   /**
    * @param $organizerSlug
    * @param $eventSlug
@@ -437,6 +460,9 @@ class PretixOrderManager extends PretixAbstractManager {
       ->accessCheck(TRUE)
       ->execute();
 
+    if (count($ids) > 1) {
+      $this->logger->warning('Pretix event @event is attached to multiple content', ['@event' => $eventSlug]);
+    }
     if (!empty($ids)) {
       /** @var EditorialContentEntityBase $entity */
       $entity = $nodeStorage->load($ids[array_key_first($ids)]);

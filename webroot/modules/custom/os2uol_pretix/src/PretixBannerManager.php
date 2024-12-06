@@ -166,6 +166,7 @@ class PretixBannerManager implements TrustedCallbackInterface {
    */
   public function addEntityToQueue(EntityInterface $entity): void {
     if (!$this->isEntityInQueue($entity)) {
+      $this->cache->invalidate($this->getCacheKey($entity));
       try {
         $this->connection->insert('pretix_queue')
           ->fields([
@@ -193,6 +194,8 @@ class PretixBannerManager implements TrustedCallbackInterface {
    * @return void
    */
   public function saveBanner(EntityInterface $entity, string $banner): void {
+    \Drupal::logger('pretix')->debug('Saving banner "@banner" for @title', ['@banner' => $banner, '@title' => $entity->getTitle()]);
+    $this->cache->delete($this->getCacheKey($entity));
     $this->cache->set($this->getCacheKey($entity), $banner, $this->getMaxAge());
   }
 

@@ -104,8 +104,8 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: ''
-          exclude: true
+          label: Navn
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -861,8 +861,8 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: ''
-          exclude: true
+          label: Navn
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -898,7 +898,7 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: ''
+          empty: '{{ name }}'
           hide_empty: false
           empty_zero: true
           hide_alter_empty: true
