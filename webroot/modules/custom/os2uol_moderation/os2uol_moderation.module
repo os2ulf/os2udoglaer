@@ -66,3 +66,24 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
     '@domain_id' => $domain->id(),
   ]);
 }
+
+/**
+ * Implements hook_views_query_alter().
+ */
+function os2uol_moderation_views_query_alter($view, \Drupal\views\Plugin\views\query\QueryPluginBase $query) {
+  // Target the specific view and display.
+  if ($view->id() === 'workbench_recent_content' && $view->current_display === 'embed_1') {
+    // Ensure the query is SQL-based.
+    if ($query instanceof \Drupal\views\Plugin\views\query\Sql) {
+      // Add an explicit WHERE clause to exclude "trash" moderation state.
+      $query->addWhereExpression(0, "
+        NOT EXISTS (
+          SELECT 1
+          FROM {content_moderation_state_field_data} cms
+          WHERE cms.content_entity_id = node_field_data.nid
+            AND cms.moderation_state = 'trash'
+        )
+      ");
+    }
+  }
+}
