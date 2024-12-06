@@ -63,6 +63,7 @@ function os2uol_pretix_entity_type_build(array &$entity_types): void {
  * Implements hook_mail().
  */
 function os2uol_pretix_mail($key, &$message, $params) {
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
   $message['body'][] = Markup::create($params['content']);
   $message['subject'] = str_replace(["\r", "\n"], '', $params['subject']);
 }
