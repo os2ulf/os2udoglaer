@@ -467,7 +467,7 @@ function os2uol_pretix_tokens($type, $tokens, array $data, array $options, Bubbl
             $markup = implode("\n", $markups);
 
             // Convert newlines to <br> tags to preserve formatting in HTML.
-            $markup = nl2br($markup, FALSE);
+            //$markup = nl2br($markup, FALSE);
 
             // Markup the order lines to be treated as safe HTML.
             $replacements[$original] = Markup::create($markup);
@@ -495,7 +495,7 @@ function os2uol_pretix_tokens($type, $tokens, array $data, array $options, Bubbl
             $markup = implode("\n", $markups);
 
             // Convert newlines to <br> tags to preserve formatting in HTML.
-            $markup = nl2br($markup, FALSE);
+            //$markup = nl2br($markup, FALSE);
 
             // Markup the order lines to be treated as safe HTML.
             $replacements[$original] = Markup::create($markup);
