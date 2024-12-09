@@ -43,10 +43,10 @@
         "drupal/config_split": "^1.7.0",
         "drupal/content_moderation_bypass": "^1.0@alpha",
         "drupal/content_moderation_notifications": "^3.6",
-        "drupal/core-composer-scaffold": "^10",
-        "drupal/core-project-message": "^10",
-        "drupal/core-recommended": "^10",
-        "drupal/core-vendor-hardening": "^9.0",
+        "drupal/core-composer-scaffold": "^10.3",
+        "drupal/core-project-message": "^10.3",
+        "drupal/core-recommended": "^10.3",
+        "drupal/core-vendor-hardening": "^10.3",
         "drupal/date_popup": "^2.0",
         "drupal/diff": "^1.7",
         "drupal/domain": "^2.0@beta",
@@ -106,7 +106,7 @@
         "drupal/view_profiles_perms": "^2.1",
         "drupal/view_unpublished": "^1.0",
         "drupal/views_base_url": "^2.1@beta",
-        "drupal/views_bulk_operations": "^4.2",
+        "drupal/views_bulk_operations": "^4.3",
         "drupal/views_contextual_filters_or": "^1.4",
         "drupal/views_data_export": "^1.4",
         "drupal/views_simple_math_field": "^3.0",
@@ -218,7 +218,7 @@
         },
         "patches": {
             "drupal/core": {
-                "(#2999491) Allow creation of reuseable inline blocks": "https://www.drupal.org/files/issues/2020-05-21/2999491--reusable-title-display--49.patch",
+                "(#2999491) Allow creation of reuseable inline blocks": "https://www.drupal.org/files/issues/2024-07-17/drupal-2999491-162.patch",
                 "Configure limit method on titles and link fields": "patches/configure_limit_method_on_titles_and_link_fields.patch"
             },
             "drupal/autosave_form": {
@@ -227,17 +227,8 @@
             "drupal/conditional_fields": {
                 "(#2988937) An invalid form control with name='body[0][value]' is not focusable. with ckeditor enabled": "https://www.drupal.org/files/issues/2023-04-25/dependency-using-body-as-target-2988937-12.patch"
             },
-            "drupal/content_moderation_notifications": {
-                "(#3319124) Enable token support for ad-hoc email addresses": "https://www.drupal.org/files/issues/2024-02-15/content_moderation_notifications-support_tokens_in_adhoc_emails-3319124-8.patch",
-                "(#3010067) Option to put email addresses in To: instead of in Bcc:": "https://www.drupal.org/files/issues/2023-11-29/3010067-option-to-put-addresses-in-to-instead-of-bcc-33.patch"
-            },
             "drupal/diff": {
                 "(#3165141) Set the default filter to 'Strip Tags'": "https://www.drupal.org/files/issues/2024-09-16/3165141-21.patch"
-            },
-            "drupal/domain": {
-                "(#3367785) Available on Current Domain doesn't instantiate": "https://www.drupal.org/files/issues/2023-11-10/3367785-domain-php8-boolean-14.patch",
-                "(#3359253) Use core route provider with addExtraCacheKeyPart for route caching?": "https://www.drupal.org/files/issues/2023-05-09/domain-route-provider-addextracachekeypart-3359253-02.patch",
-                "(#3397693) Add domain-specific cache tags to config overrides": "https://git.drupalcode.org/project/domain/-/merge_requests/54.diff"
             },
             "drupal/domain_entity" : {
                 "(#3405907) Make module compatible with PHP 8.2": "https://www.drupal.org/files/issues/2023-12-04/3405907-1.patch"
@@ -246,16 +237,13 @@
                 "(#3336184) The configuration is not exported": "https://www.drupal.org/files/issues/2024-02-12/domain_login_restrict-3336184-9.patch"
             },
             "drupal/paragraphs": {
-                "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2020-06-25/paragraphs-2901390-51.patch"
+                "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2023-07-20/2901390-9-109.patch"
             },
             "drupal/redis": {
-                "(#3337750) DivisionByZeroError - Problem to access Status Page on PHP 8.1.14": "https://www.drupal.org/files/issues/2023-02-24/redis_status_page_divizion_by_zero_error_php8_1_14_3337750-11.patch"
+                "(#3337750) DivisionByZeroError - Problem to access Status Page on PHP 8.1.14": "https://www.drupal.org/files/issues/2024-09-05/redis_status_page_divizion_by_zero_error_php8_1_14_3337750-13.patch"
             },
             "drupal/scheduled_transitions": {
                 "(#3264674) Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
-            },
-            "drupal/sharedemail": {
-                "(#3420685) Error when creating a new user.": "https://www.drupal.org/files/issues/2024-06-06/3420685-user-create-error-6.patch"
             },
             "drupal/transform_api": {
                 "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch",
