@@ -2,6 +2,10 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\os2uol_domain\DomainConfigHelper;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\content_moderation_notifications\Entity\ContentModerationNotification;
+use Drupal\domain\Entity\Domain;
 
 /**
  * Implements hook_cron().
@@ -85,5 +89,62 @@ function os2uol_moderation_views_query_alter($view, \Drupal\views\Plugin\views\q
         )
       ");
     }
+  }
+}
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function os2uol_moderation_entity_type_alter(array &$entity_types) {
+  if (isset($entity_types['content_moderation_notification'])) {
+    $entity_types['content_moderation_notification']->setClass(
+      'Drupal\os2uol_moderation\Entity\ContentModerationNotification'
+    );
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'content_moderation_notification_edit_form') {
+    \Drupal::logger('os2uol_moderation')->info('Processing form alter for @form_id.', ['@form_id' => $form_id]);
+
+    // Attempt to load domains.
+    $domains = \Drupal::entityTypeManager()->getStorage('domain')->loadMultiple();
+
+    // Log the domains.
+    \Drupal::logger('os2uol_moderation')->info('Loaded domains: <pre>@domains</pre>', ['@domains' => print_r($domains, TRUE)]);
+
+    // If no domains are found, log a warning and add a fallback dropdown.
+    if (empty($domains)) {
+      \Drupal::logger('os2uol_moderation')->warning('No domains found.');
+    }
+
+    // Build the options array from domains.
+    $domain_options = [];
+    foreach ($domains as $domain) {
+      $domain_options[$domain->id()] = $domain->label();
+    }
+
+    // Add the domain dropdown to the form.
+    $form['domain'] = [
+      '#type' => 'select',
+      '#title' => t('Domain'),
+      '#options' => $domain_options,
+      '#default_value' => '',
+      '#description' => t('Select a domain for this notification. Leave empty for global notification.'),
+      '#required' => FALSE,
+      '#weight' => -1,
+    ];
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function os2uol_moderation_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
+    \Drupal::logger('os2uol_moderation')->info('Saving domain: @domain', ['@domain' => $entity->getDomain()]);
   }
 }
