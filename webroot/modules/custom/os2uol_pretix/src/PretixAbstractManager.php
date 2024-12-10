@@ -2,11 +2,14 @@
 
 namespace Drupal\os2uol_pretix;
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Entity\EditorialContentEntityBase;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
 use Drupal\Core\Messenger\MessengerInterface;
+use Drupal\node\NodeInterface;
 use Drupal\user\EntityOwnerTrait;
 use Drupal\user\UserInterface;
 
@@ -60,6 +63,36 @@ abstract class PretixAbstractManager {
     $api_token = $user->get('field_pretix_api_token')->first()->getString();
     $organizer_short_form = $user->get('field_pretix_organizer_form')->first()->getString();
     return $this->connector->getClient($pretix_url, $api_token, $organizer_short_form);
+  }
+
+  /**
+   * @param string $eventSlug
+   *
+   * @return \Drupal\node\NodeInterface|null
+   */
+  public function getEntityByEventSlug(string $eventSlug): ?NodeInterface {
+    $entity = NULL;
+    try {
+      $nodeStorage = \Drupal::entityTypeManager()->getStorage('node');
+    }
+    catch (InvalidPluginDefinitionException|PluginNotFoundException $e) {
+      return NULL;
+    }
+
+    $ids = $nodeStorage->getQuery()
+      ->condition('field_pretix_event_short_form', $eventSlug)
+      ->accessCheck(TRUE)
+      ->execute();
+
+    if (count($ids) > 1) {
+      $this->logger->warning('Pretix event @event is attached to multiple content', ['@event' => $eventSlug]);
+    }
+    if (!empty($ids)) {
+      /** @var \Drupal\node\NodeInterface $entity */
+      $entity = $nodeStorage->load($ids[array_key_first($ids)]);
+    }
+
+    return $entity;
   }
 
   protected function getEventSlug(EditorialContentEntityBase $entity) {

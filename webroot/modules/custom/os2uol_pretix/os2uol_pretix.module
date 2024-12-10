@@ -307,6 +307,14 @@ function os2uol_pretix_token_info() {
         'name' => t('Pretix order lines'),
         'description' => t('Order lines for the Pretix order.'),
       ],
+      'pretix-url' => [
+        'name' => t('Pretix URL'),
+        'description' => t('URL for the event in Pretix.'),
+      ],
+      'frontend-url' => [
+        'name' => t('Frontend URL'),
+        'description' => t('URL for the event in the frontend.'),
+      ],
     ],
     'pretix_order_line' => [
       'line_number' => [
@@ -426,6 +434,30 @@ function os2uol_pretix_tokens($type, $tokens, array $data, array $options, Bubbl
             } else {
               $replacements[$original] = '';
             }
+            break;
+
+          case 'pretix-url':
+            /** @var \Drupal\os2uol_pretix\PretixEventManager $eventManager */
+            $eventManager = \Drupal::service('os2uol_pretix.event_manager');
+            $entity = $eventManager->getEntityByEventSlug($order['event']);
+            $replacements[$original] = $eventManager->getEventShopUrl($entity);
+            break;
+
+          case 'frontend-url':
+            /** @var \Drupal\os2uol_pretix\PretixEventManager $eventManager */
+            $eventManager = \Drupal::service('os2uol_pretix.event_manager');
+            $entity = $eventManager->getEntityByEventSlug($order['event']);
+            $domain = '';
+            if (!is_null($entity)) {
+              $event = $eventManager->getEvent($entity);
+              if (!$eventManager->isApiError($event)) {
+                $domain = $event['meta_data']['Domain'] ?? '';
+              }
+            }
+            if (substr($domain, -1) == '/') {
+              $domain = substr($domain, 0, -1);
+            }
+            $replacements[$original] = $domain . $eventManager->getDrupalUrl($entity);
             break;
 
           default:

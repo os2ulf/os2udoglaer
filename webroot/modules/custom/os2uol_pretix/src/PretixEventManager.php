@@ -202,6 +202,16 @@ class PretixEventManager extends PretixAbstractManager {
     $data['item_meta_properties'] = ['DrupalURL' => $this->getDrupalUrl($entity)];
   }
 
+  public function getEvent(EditorialContentEntityBase $entity) {
+    if (is_null($this->getEventSlug($entity))) {
+      return NULL;
+    }
+
+    $eventSlug = $this->getEventSlug($entity);
+    $client = $this->getClient($entity);
+    return $client->getEvent($eventSlug);
+  }
+
   public function getEvents(EditorialContentEntityBase $entity, $all = FALSE) {
     $client = $this->getClient($entity);
     $page = 1;
