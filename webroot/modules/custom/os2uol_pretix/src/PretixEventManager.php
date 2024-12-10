@@ -297,7 +297,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     $result = $client->updateEvent($this->getEventSlug($entity), [
       'live' => $live,
-      'item_meta_properties' => ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()]
+      'meta_data' => ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()]
     ]);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -305,6 +305,15 @@ class PretixEventManager extends PretixAbstractManager {
           foreach ($errors as $error) {
             if ($error == 'You need to configure at least one quota to sell anything.') {
               $this->messenger->addWarning(t('Shop is not live until dates are added.'));
+            }
+            else {
+              $this->apiError($result, $live ? 'Cannot set pretix event live' : 'Cannot set pretix event not live');
+            }
+          }
+        } elseif ($type == 'meta_data') {
+          foreach ($errors as $error) {
+            if ($error == "Meta data property 'DrupalURL' does not exist.") {
+              $this->messenger->addError(t("Meta data property 'DrupalURL' does not exist."));
             }
             else {
               $this->apiError($result, $live ? 'Cannot set pretix event live' : 'Cannot set pretix event not live');
@@ -404,7 +413,7 @@ class PretixEventManager extends PretixAbstractManager {
       "currency" => "DKK"
     ];
     $data['has_subevents'] = TRUE;
-    $data['item_meta_properties'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
+    $data['metadata'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
     $result = $client->createEvent($template, $data);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -412,6 +421,15 @@ class PretixEventManager extends PretixAbstractManager {
           foreach ($errors as $error) {
             if ($error == 'This slug has already been used for a different event.') {
               $this->apiError($result, 'The event already exists.');
+            }
+            else {
+              $this->apiError($result, 'Could not create event');
+            }
+          }
+        } elseif ($type == 'meta_data') {
+          foreach ($errors as $error) {
+            if ($error == "Meta data property 'DrupalURL' does not exist.") {
+              $this->messenger->addError(t("Meta data property 'DrupalURL' does not exist."));
             }
             else {
               $this->apiError($result, 'Could not create event');
