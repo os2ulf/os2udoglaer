@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: Læreplanstemaer
 vid: curriculum_themes
-description: ''
+description: null
 weight: 0
+new_revision: false

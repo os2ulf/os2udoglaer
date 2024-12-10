@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: inspiration
 label: 'Inspiration (1)'
-revision: 0
+revision: false
 description: ''

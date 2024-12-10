@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Målgruppe - Dagtilbud'
 vid: target_group_daycare
-description: ''
+description: null
 weight: 0
+new_revision: false

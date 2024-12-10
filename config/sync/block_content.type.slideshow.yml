@@ -6,5 +6,5 @@ _core:
   default_config_hash: dJexiueaYnP07e0jkuVOiDkfGncI7-4swUkdPLRPxxg
 id: slideshow
 label: 'Slideshow (1)'
-revision: 0
+revision: false
 description: 'En blok der indeholder et slideshow af billeder.'

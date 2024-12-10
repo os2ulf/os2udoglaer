@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Fag - Grundskole'
 vid: primary_school_subject
-description: ''
+description: null
 weight: 0
+new_revision: false
