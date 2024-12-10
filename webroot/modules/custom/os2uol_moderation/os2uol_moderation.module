@@ -107,7 +107,7 @@ function os2uol_moderation_entity_type_alter(array &$entity_types) {
  * Implements hook_form_alter().
  */
 function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
-  if ($form_id === 'content_moderation_notification_edit_form') {
+  if ($form_id === 'content_moderation_notification_edit_form' || $form_id === 'content_moderation_notification_add_form') {
     \Drupal::logger('os2uol_moderation')->info('Processing form alter for @form_id.', ['@form_id' => $form_id]);
 
     // Attempt to load domains.
