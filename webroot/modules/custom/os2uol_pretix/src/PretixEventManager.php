@@ -5,6 +5,8 @@ namespace Drupal\os2uol_pretix;
 use DateTimeInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EditorialContentEntityBase;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityMalformedException;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
@@ -197,7 +199,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     // Important: meta_data value must be an object!
     $data['meta_data'] = (object) [];
-    $data['item_meta_properties'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
+    $data['item_meta_properties'] = ['DrupalURL' => $this->getDrupalUrl($entity)];
   }
 
   public function getEvents(EditorialContentEntityBase $entity, $all = FALSE) {
@@ -220,6 +222,20 @@ class PretixEventManager extends PretixAbstractManager {
   public function getEventUrl(EditorialContentEntityBase $entity): string {
     $client = $this->getClient($entity);
     return $client->getPretixUrl() . 'control/event/' . $client->getOrganizer() . '/' . $this->getEventSlug($entity) . '/';
+  }
+
+  /**
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   *
+   * @return string
+   */
+  public function getDrupalUrl(EntityInterface $entity): string {
+    try {
+      return $entity->toUrl()->toString();
+    }
+    catch (EntityMalformedException $e) {
+      return 'Malformed';
+    }
   }
 
   public function getEventShopUrl(EditorialContentEntityBase $entity): string {
@@ -297,7 +313,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     $result = $client->updateEvent($this->getEventSlug($entity), [
       'live' => $live,
-      'meta_data' => ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()]
+      'meta_data' => ['DrupalURL' => $this->getDrupalUrl($entity)]
     ]);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -342,7 +358,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     // Check if the field_pretix_template_event is populated
     if ($entity->get('field_pretix_template_event')->isEmpty()) {
-      $this->messenger()->addError($this->t('The event template is missing. Please ensure the event template field is filled.'));
+      $this->messenger->addError($this->t('The event template is missing. Please ensure the event template field is filled.'));
       return;
     }
 
