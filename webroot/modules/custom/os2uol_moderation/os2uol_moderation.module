@@ -110,20 +110,28 @@ function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id === 'content_moderation_notification_edit_form' || $form_id === 'content_moderation_notification_add_form') {
     \Drupal::logger('os2uol_moderation')->info('Processing form alter for @form_id.', ['@form_id' => $form_id]);
 
+    $entity = NULL;
+
     // Check if the form has an entity.
-    if (!isset($form['#entity'])) {
+    if (isset($form['#entity']) && $form['#entity'] instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
+      $entity = $form['#entity'];
+    }
+    else {
       $route_match = \Drupal::routeMatch();
       $entity = $route_match->getParameter('content_moderation_notification');
-      if ($entity && $entity instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
-        $form['#entity'] = $entity;
-      } else {
-        \Drupal::logger('os2uol_moderation')->error('No valid entity found for the form.');
-        return;
+
+      // Handle entity for add form where the entity is not yet created.
+      if ($form_id === 'content_moderation_notification_add_form' && !$entity) {
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('content_moderation_notification')
+          ->create([]);
       }
     }
 
-    /** @var \Drupal\os2uol_moderation\Entity\ContentModerationNotification $entity */
-    $entity = $form['#entity'];
+    if (!$entity instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
+      \Drupal::logger('os2uol_moderation')->error('No valid entity found for the form.');
+      return;
+    }
 
     // Load domains.
     $domains = \Drupal::entityTypeManager()->getStorage('domain')->loadMultiple();
@@ -137,11 +145,14 @@ function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
       '#type' => 'select',
       '#title' => t('Domain'),
       '#options' => $domain_options,
-      '#default_value' => $entity->getDomain(),
+      '#default_value' => $entity->getDomain() ?? '',
       '#description' => t('Select a domain for this notification.'),
       '#required' => FALSE,
       '#weight' => -10,
     ];
+
+    // Ensure the entity is set back on the form for saving.
+    $form['#entity'] = $entity;
   }
 }
 
