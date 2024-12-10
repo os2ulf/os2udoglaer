@@ -10,13 +10,6 @@ use Drupal\content_moderation_notifications\Entity\ContentModerationNotification
 class ContentModerationNotification extends BaseEntity {
 
   /**
-   * The domain associated with this notification.
-   *
-   * @var string|null
-   */
-  protected $domain;
-
-  /**
    * Gets the domain.
    *
    * @return string|null

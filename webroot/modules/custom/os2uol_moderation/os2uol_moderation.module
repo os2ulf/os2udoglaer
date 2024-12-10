@@ -110,18 +110,23 @@ function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
   if ($form_id === 'content_moderation_notification_edit_form' || $form_id === 'content_moderation_notification_add_form') {
     \Drupal::logger('os2uol_moderation')->info('Processing form alter for @form_id.', ['@form_id' => $form_id]);
 
-    // Attempt to load domains.
-    $domains = \Drupal::entityTypeManager()->getStorage('domain')->loadMultiple();
-
-    // Log the domains.
-    \Drupal::logger('os2uol_moderation')->info('Loaded domains: <pre>@domains</pre>', ['@domains' => print_r($domains, TRUE)]);
-
-    // If no domains are found, log a warning and add a fallback dropdown.
-    if (empty($domains)) {
-      \Drupal::logger('os2uol_moderation')->warning('No domains found.');
+    // Check if the form has an entity.
+    if (!isset($form['#entity'])) {
+      $route_match = \Drupal::routeMatch();
+      $entity = $route_match->getParameter('content_moderation_notification');
+      if ($entity && $entity instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
+        $form['#entity'] = $entity;
+      } else {
+        \Drupal::logger('os2uol_moderation')->error('No valid entity found for the form.');
+        return;
+      }
     }
 
-    // Build the options array from domains.
+    /** @var \Drupal\os2uol_moderation\Entity\ContentModerationNotification $entity */
+    $entity = $form['#entity'];
+
+    // Load domains.
+    $domains = \Drupal::entityTypeManager()->getStorage('domain')->loadMultiple();
     $domain_options = [];
     foreach ($domains as $domain) {
       $domain_options[$domain->id()] = $domain->label();
@@ -132,10 +137,10 @@ function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
       '#type' => 'select',
       '#title' => t('Domain'),
       '#options' => $domain_options,
-      '#default_value' => '',
-      '#description' => t('Select a domain for this notification. Leave empty for global notification.'),
+      '#default_value' => $entity->getDomain(),
+      '#description' => t('Select a domain for this notification.'),
       '#required' => FALSE,
-      '#weight' => -1,
+      '#weight' => -10,
     ];
   }
 }
@@ -143,7 +148,7 @@ function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
 /**
  * Implements hook_entity_presave().
  */
-function os2uol_moderation_entity_presave(\Drupal\Core\Entity\EntityInterface $entity) {
+function os2uol_moderation_entity_presave(EntityInterface $entity) {
   if ($entity instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
     \Drupal::logger('os2uol_moderation')->info('Saving domain: @domain', ['@domain' => $entity->getDomain()]);
   }

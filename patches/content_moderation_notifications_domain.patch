@@ -1,0 +1,39 @@
+diff --color -ruN content_moderation_notifications/config/schema/content_moderation_notifications.schema.yml content_moderation_notifications_patch/config/schema/content_moderation_notifications.schema.yml
+--- content_moderation_notifications/config/schema/content_moderation_notifications.schema.yml	2024-12-05 23:40:08.000000000 +0100
++++ content_moderation_notifications_patch/config/schema/content_moderation_notifications.schema.yml	2024-12-10 17:10:56.651342465 +0100
+@@ -46,3 +46,6 @@
+     status:
+       type: boolean
+       label: 'Notification status'
++    domain:
++      type: string
++      label: 'Domain'
+diff --color -ruN content_moderation_notifications/src/Entity/ContentModerationNotification.php content_moderation_notifications_patch/src/Entity/ContentModerationNotification.php
+--- content_moderation_notifications/src/Entity/ContentModerationNotification.php	2024-12-10 17:11:51.040249737 +0100
++++ content_moderation_notifications_patch/src/Entity/ContentModerationNotification.php	2024-12-10 17:10:56.655342532 +0100
+@@ -122,6 +122,13 @@
+   public $workflow;
+ 
+   /**
++   * The domain associated with this notification.
++   *
++   * @var string|null
++   */
++  public $domain;
++
++  /**
+    * {@inheritdoc}
+    */
+   public function getWorkflowId() {
+@@ -193,4 +200,11 @@
+     return (bool) $this->get('site_mail');
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  public function getDomain() {
++    return $this->get('domain');
++  }
++
+ }
