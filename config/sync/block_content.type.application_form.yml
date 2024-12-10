@@ -4,5 +4,5 @@ status: true
 dependencies: {  }
 id: application_form
 label: Ansøgningsformular
-revision: 0
+revision: false
 description: ''

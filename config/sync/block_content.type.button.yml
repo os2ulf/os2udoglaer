@@ -6,5 +6,5 @@ _core:
   default_config_hash: c9s5-SMg_Iinl-mFselCq-ounnim-OataRS2Xsmqyvg
 id: button
 label: 'Knap (1/2/3)'
-revision: 0
+revision: false
 description: "A block that contains a button.\t"

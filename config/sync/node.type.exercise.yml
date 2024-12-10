@@ -11,7 +11,7 @@ third_party_settings:
 name: Opgave
 type: exercise
 description: 'Opgave til tilknyttet en eller flere brugere'
-help: ''
+help: null
 new_revision: true
 preview_mode: 0
 display_submitted: true

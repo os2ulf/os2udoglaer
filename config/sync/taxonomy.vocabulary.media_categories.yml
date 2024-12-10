@@ -8,3 +8,4 @@ name: 'Media kategorier'
 vid: media_categories
 description: 'Bruges til at organisere media.'
 weight: 0
+new_revision: false
