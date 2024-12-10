@@ -235,6 +235,10 @@ function os2uol_pretix_node_transform_alter(&$transformation) {
         ]
       ];
     }
+  } elseif ($pretix_event_manager->isEntityWithBanner($entity)) {
+    /** @var \Drupal\os2uol_pretix\PretixBannerManager $pretix_banner_manager */
+    $pretix_banner_manager = \Drupal::service('os2uol_pretix.banner_manager');
+    $transformation['sales_banner'] = $pretix_banner_manager->getBannerQuick($entity);
   }
 }
 
