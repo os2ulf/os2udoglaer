@@ -2,6 +2,8 @@
 
 namespace Drupal\os2uol_pretix;
 
+use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
+use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Cache\CacheBackendInterface;
 use Drupal\Core\Database\Connection;
 use Drupal\Core\Entity\EditorialContentEntityBase;
@@ -9,6 +11,8 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Security\TrustedCallbackInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
+use Drupal\Core\TypedData\Exception\MissingDataException;
+use Exception;
 
 class PretixBannerManager implements TrustedCallbackInterface {
 
@@ -60,7 +64,16 @@ class PretixBannerManager implements TrustedCallbackInterface {
    * @return array
    */
   public function transformBanner(string $entity_type_id, string $entity_id): array {
-    $entity = $this->entityTypeManager->getStorage($entity_type_id)->load($entity_id);
+    try {
+      $entity = $this->entityTypeManager->getStorage($entity_type_id)
+        ->load($entity_id);
+    }
+    catch (Exception $e) {
+      return [
+        '#collapse' => TRUE,
+        'value' => ''
+      ];
+    }
     return [
       '#collapse' => TRUE,
       'value' => $this->getBanner($entity)
@@ -75,6 +88,30 @@ class PretixBannerManager implements TrustedCallbackInterface {
     }
     if ($cached === FALSE || !$cached->valid) {
       $this->addEntityToQueue($entity);
+      $banner = $this->getBannerQuick($entity);
+    }
+    return $banner;
+  }
+
+  /**
+   * Returns a banner without checking slow sources like Pretix.
+   *
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   *
+   * @return string
+   */
+  public function getBannerQuick(EntityInterface $entity): string {
+    $banner = '';
+    if ($entity instanceof EditorialContentEntityBase) {
+      try {
+        if ($entity->hasField('field_is_free') && $entity->get('field_is_free')
+            ->first()
+            ->getString()) {
+          $banner = $this->t('Free');
+        }
+      }
+      catch (MissingDataException $e) {
+      }
     }
     return $banner;
   }
@@ -98,8 +135,15 @@ class PretixBannerManager implements TrustedCallbackInterface {
       $banner = $this->t('Sold out');
     } else {
       if ($entity instanceof EditorialContentEntityBase) {
-        if ($entity->hasField('field_is_free') && $entity->get('field_is_free')->first()->getString()) {
-          $banner = $this->t('Free');
+        try {
+          if ($entity->hasField('field_is_free') && $entity->get('field_is_free')
+              ->first()
+              ->getString()) {
+            $banner = $this->t('Free');
+          }
+        }
+        catch (MissingDataException $e) {
+
         }
       }
     }
@@ -111,14 +155,13 @@ class PretixBannerManager implements TrustedCallbackInterface {
    *
    * @return void
    */
-  public function updateBannerMultiple(array $entities) {
-    /** @var EntityInterface $entity */
+  public function updateBannerMultiple(array $entities): void {
     foreach ($entities as $entity) {
       $this->updateBanner($entity);
     }
   }
 
-  public function processQueue() {
+  public function processQueue(): void {
     $result = $this->connection->select('pretix_queue', 'rq')
       ->fields('rq', ['entity_type_id', 'entity_id'])
       ->orderBy('timestamp')
@@ -195,7 +238,6 @@ class PretixBannerManager implements TrustedCallbackInterface {
    */
   public function saveBanner(EntityInterface $entity, string $banner): void {
     \Drupal::logger('pretix')->debug('Saving banner "@banner" for @title', ['@banner' => $banner, '@title' => $entity->getTitle()]);
-    $this->cache->delete($this->getCacheKey($entity));
     $this->cache->set($this->getCacheKey($entity), $banner, $this->getMaxAge());
   }
 

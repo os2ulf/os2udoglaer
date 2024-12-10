@@ -88,6 +88,15 @@ abstract class PretixAbstractManager {
     return $templates[$key];
   }
 
+  public function isEntityWithBanner(EntityInterface $entity): bool {
+    if ($entity instanceof EditorialContentEntityBase) {
+      if ($entity->hasField('field_is_free')) {
+        return TRUE;
+      }
+    }
+    return FALSE;
+  }
+
   public function isPretixEventEntity(EntityInterface $entity): bool {
     if (!$entity instanceof EditorialContentEntityBase) {
       return FALSE;
