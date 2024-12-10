@@ -44,6 +44,18 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
     '@domain_id' => $domain->id(),
   ]);
 
+  // Fetch the domain set in the notification.
+  $notification_domain = $entity->getDomain();
+
+  // If the domain in the notification does not match the active domain, skip sending the notification.
+  if ($notification_domain && $notification_domain !== $domain->id()) {
+    \Drupal::logger('os2uol_moderation')->info('Skipping notification for domain: @notification_domain as it does not match the active domain: @active_domain', [
+      '@notification_domain' => $notification_domain,
+      '@active_domain' => $domain->id(),
+    ]);
+    return;
+  }
+
   // Default fallback email address.
   $fallback_email = 'fallback@os2udoglaer.dk';
 
@@ -62,13 +74,6 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
   $data['headers']['From'] = $from_email;
   $data['headers']['Reply-To'] = $reply_to_email;
   $data['headers']['Return-Path'] = $reply_to_email;
-
-  // Log the selected emails for debugging purposes.
-  \Drupal::logger('os2uol_moderation')->info('Using From and Reply-To addresses: @from, @reply_to for domain: @domain_id', [
-    '@from' => $from_email,
-    '@reply_to' => $reply_to_email,
-    '@domain_id' => $domain->id(),
-  ]);
 }
 
 /**
