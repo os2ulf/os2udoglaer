@@ -145,3 +145,6 @@ msgstr "Bestilling / @event_name"
 
 msgid "Order canceled / @event_name"
 msgstr "Afbestilling / @event_name"
+
+msgid "Meta data property 'DrupalURL' does not exist."
+msgstr "Meta data feltet 'DrupalURL' eksisterer ikke på begivenheden."
