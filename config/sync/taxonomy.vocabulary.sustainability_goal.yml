@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: Verdensmål
 vid: sustainability_goal
-description: ''
+description: null
 weight: 0
+new_revision: false

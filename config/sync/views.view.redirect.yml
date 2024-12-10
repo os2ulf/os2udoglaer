@@ -74,7 +74,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: 'With selection'
+          action_title: Handling
           include_exclude: exclude
           selected_actions: {  }
         redirect_source__path:
@@ -226,6 +226,7 @@ display:
         type: full
         options:
           offset: 0
+          pagination_heading_level: h4
           items_per_page: 50
           total_pages: null
           id: 0
@@ -405,7 +406,7 @@ display:
             default_group_multiple: {  }
             group_items:
               1:
-                title: '300 Multiple Choices'
+                title: '300 Flere valg'
                 operator: '='
                 value:
                   min: ''
@@ -426,21 +427,21 @@ display:
                   max: ''
                   value: '302'
               4:
-                title: '303 See Other'
+                title: '303 Se anden placering'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '303'
               5:
-                title: '304 Not Modified'
+                title: '304 Ikke ændret'
                 operator: '='
                 value:
                   min: ''
                   max: ''
                   value: '304'
               6:
-                title: '305 Use Proxy'
+                title: '305 Brug proxy'
                 operator: '='
                 value:
                   min: ''

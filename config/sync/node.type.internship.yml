@@ -12,7 +12,7 @@ third_party_settings:
 name: Erhvervspraktik
 type: internship
 description: "Erhvervspraktik, eks. ’Transport og støtteerhverv’ eller ’Uddannelse og undervisning’\r\n\r\n"
-help: ''
+help: null
 new_revision: true
 preview_mode: 0
 display_submitted: true

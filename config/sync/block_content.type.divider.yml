@@ -6,5 +6,5 @@ _core:
   default_config_hash: rHj0msK71uw3IYZP3RjHcfUi6SxNzHyYZ3givdkhsn8
 id: divider
 label: 'Divider (1/2/3)'
-revision: 0
+revision: false
 description: 'En blok der indeholder en delelinje.'

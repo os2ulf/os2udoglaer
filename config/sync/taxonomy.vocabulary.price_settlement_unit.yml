@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: Afregningsenhed
 vid: price_settlement_unit
-description: ''
+description: null
 weight: 0
+new_revision: false

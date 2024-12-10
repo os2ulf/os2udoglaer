@@ -10,8 +10,8 @@ third_party_settings:
     parent: ''
 name: 'Ansøg om udgiftsdækning'
 type: free_course_request
-description: ''
-help: ''
+description: null
+help: null
 new_revision: true
 preview_mode: 0
 display_submitted: false

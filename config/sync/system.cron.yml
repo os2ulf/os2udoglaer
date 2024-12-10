@@ -4,4 +4,4 @@ langcode: da
 threshold:
   requirements_warning: 172800
   requirements_error: 1209600
-logging: 0
+logging: false
