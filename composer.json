@@ -267,6 +267,9 @@
             },
             "drupal/workbench": {
                 "Apply patch from branch 3484630-mismatched-views-area": "https://git.drupalcode.org/issue/workbench-3484630/-/commit/41ff2be540e760aec54e06cd35c5e5a75e21f502.diff"
+            },
+            "drupal/workflow_buttons": {
+                "(#3451409) Automated Drupal 11 compatibility fixes for workflow_buttons": "https://www.drupal.org/files/issues/2024-11-25/workflow_buttons_3451409_git_theme.patch"
             }
         }
     }
