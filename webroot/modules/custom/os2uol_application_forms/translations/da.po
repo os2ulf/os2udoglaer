@@ -44,3 +44,9 @@ msgstr "1 element valgt"
 
 msgid "@count items selected"
 msgstr "@count elementer er valgt"
+
+msgid "Select / deselect all results (all pages, @count total)"
+msgstr "Vælg/fravælg alle resultater (alle sider, @count total)"
+
+msgid "-- Select action --"
+msgstr "-- Vælg handling --"

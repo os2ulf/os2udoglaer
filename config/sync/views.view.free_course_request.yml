@@ -47,6 +47,7 @@ dependencies:
     - taxonomy
     - text
     - user
+    - views_bulk_operations
     - views_data_export
     - xls_serialization
 id: free_course_request
@@ -2239,40 +2240,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
         - 'config:field.storage.node.field_rfc_attachment'
         - 'config:field.storage.node.field_rfc_course'
         - 'config:field.storage.node.field_rfc_date'
@@ -3735,40 +3702,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_old_id'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_old_id'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
         - 'config:field.storage.node.field_old_id'
         - 'config:field.storage.node.field_rfc_attachment'
         - 'config:field.storage.node.field_rfc_course'
@@ -3794,15 +3727,14 @@ display:
     position: 1
     display_options:
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
+        views_bulk_operations_bulk_form_1:
+          id: views_bulk_operations_bulk_form_1
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
+          plugin_id: views_bulk_operations_bulk_form
           label: ''
           exclude: false
           alter:
@@ -3844,18 +3776,65 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Handlinger
-          include_exclude: include
+          batch: true
+          batch_size: 10
+          form_step: true
+          ajax_loader: false
+          buttons: false
+          action_title: Handling
+          clear_on_exposed: true
+          force_selection_info: true
           selected_actions:
-            - node_delete_action
-            - set_accepted_status
-            - set_awaiting_payment_status
-            - set_awaiting_status
-            - set_cancelled_status
-            - set_closed_status
-            - set_payment_completed_status
-            - set_ready_for_payment_status
-            - set_refused_status
+            -
+              action_id: set_awaiting_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_awaiting_payment_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_cancelled_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_ready_for_payment_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_closed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_payment_completed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
         nid:
           id: nid
           table: node_field_data
@@ -5785,44 +5764,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_old_id'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_old_id'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.paragraph.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
         - 'config:field.storage.node.field_old_id'
         - 'config:field.storage.node.field_rfc_attachment'
         - 'config:field.storage.node.field_rfc_course'
@@ -5865,7 +5806,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: numeric
+          plugin_id: entity_target_id
           default_action: default
           exception:
             value: all
@@ -5891,6 +5832,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          target_entity_type_id: user
         uid:
           id: uid
           table: node_field_data
@@ -5900,7 +5842,7 @@ display:
           admin_label: ''
           entity_type: node
           entity_field: uid
-          plugin_id: numeric
+          plugin_id: entity_target_id
           default_action: default
           exception:
             value: all
@@ -5926,6 +5868,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          target_entity_type_id: user
         revision_uid:
           id: revision_uid
           table: node_revision
@@ -5935,7 +5878,7 @@ display:
           admin_label: ''
           entity_type: node
           entity_field: revision_uid
-          plugin_id: numeric
+          plugin_id: entity_target_id
           default_action: default
           exception:
             value: all
@@ -5961,6 +5904,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          target_entity_type_id: user
       query:
         type: views_query
         options:
@@ -6037,40 +5981,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_course'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_grade'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_granted_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_latest_editor'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_new_course_name'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_provider'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_remarks'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_requested_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_school'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_rfc_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_attachment'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_course'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_grade'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_granted_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_latest_editor'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_new_course_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_payment_date'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_provider'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_remarks'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_requested_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_school'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_spent_amount'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_rfc_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_semester'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
         - 'config:field.storage.node.field_rfc_attachment'
         - 'config:field.storage.node.field_rfc_course'
         - 'config:field.storage.node.field_rfc_date'
