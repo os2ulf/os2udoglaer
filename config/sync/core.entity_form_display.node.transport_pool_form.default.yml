@@ -134,7 +134,6 @@ third_party_settings:
       children:
         - field_tpf_backend_submission
         - field_tpf_course_not_found
-        - field_tpf_address_variation
         - url_redirects
       label: 'Admin felter'
       region: content
@@ -253,13 +252,6 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_tpf_address_variation:
-    type: boolean_checkbox
-    weight: 34
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_tpf_backend_submission:
     type: boolean_checkbox
     weight: 32
@@ -352,6 +344,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_mailto: true
+  field_tpf_address_variation: true
   langcode: true
   path: true
   promote: true
