@@ -50,7 +50,7 @@ function os2uol_pretix_update_10003(&$sandbox) {
     ->set('pretix_order_placed_subject', 'Bestilling / [node:title]')
     ->set('pretix_order_placed_message', ['format' => 'basic_html', 'value' => '<p>
     Kære [user:field_name]<br>
-    Der er kommet en ny bestilling på <a href="[node:url]">[node:title]</a>.
+    Der er kommet en ny bestilling på <a href="[pretix_order:frontend-url]">[node:title]</a>.
 </p>
 <p>
     [pretix_order:lines]
@@ -64,7 +64,7 @@ function os2uol_pretix_update_10003(&$sandbox) {
     ->set('pretix_order_canceled_subject', 'Afbestilling / [node:title]')
     ->set('pretix_order_canceled_message', ['format' => 'basic_html', 'value' => '<p>
     Kære [user:field_name]<br>
-    Der er desværre kommet en afbestilling på <a href="[node:url]">[node:title]</a>.
+    Der er desværre kommet en afbestilling på <a href="[pretix_order:frontend-url]">[node:title]</a>.
 </p>
 <p>
     [pretix_order:lines]

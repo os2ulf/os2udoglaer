@@ -6,3 +6,4 @@ name: 'Kursus relevans (undervisere)'
 vid: kursus_relevans_undervisere
 description: 'Relevante målgrupper for kursus for undervisere'
 weight: 0
+new_revision: false

@@ -186,7 +186,7 @@ class PretixOrderManager extends PretixAbstractManager {
   }
 
   public function getOrder(EditorialContentEntityBase $entity, $orderCode): array {
-    $event = $this->getEventSlug($entity);
+    $eventSlug = $this->getEventSlug($entity);
     $client = $this->getClient($entity);
     $order = $client->getOrder($this->getEventSlug($entity), $orderCode);
     if ($this->isApiError($order)) {
@@ -194,7 +194,7 @@ class PretixOrderManager extends PretixAbstractManager {
     }
 
     // Get all items.
-    $result = $client->getProducts($event);
+    $result = $client->getProducts($eventSlug);
     if ($this->isApiError($result)) {
       return $this->apiError($result, 'Cannot get event items');
     }
@@ -202,7 +202,7 @@ class PretixOrderManager extends PretixAbstractManager {
     $items = array_column($result['results'], NULL, 'id');
 
     // Get all quotas.
-    $result = $client->getQuotas($event);
+    $result = $client->getQuotas($eventSlug);
     if ($this->isApiError($result)) {
       return $this->apiError($result, 'Cannot get event quotas');
     }
@@ -211,7 +211,7 @@ class PretixOrderManager extends PretixAbstractManager {
     $quotas = [];
     foreach ($allQuotas as $quota) {
       foreach ($quota['items'] as $itemId) {
-        $result = $client->getQuotaAvailability($event, $quota['id']);
+        $result = $client->getQuotaAvailability($eventSlug, $quota['id']);
         if ($this->isApiError($result)) {
           return $this->apiError($result, 'Cannot get quota availability');
         }
@@ -221,7 +221,7 @@ class PretixOrderManager extends PretixAbstractManager {
     }
 
     // Get sub-events.
-    $result = $client->getSubEvents($event);
+    $result = $client->getSubEvents($eventSlug);
     if ($this->isApiError($result)) {
       return $this->apiError($result, 'Cannot get sub-events');
     }

@@ -11,7 +11,7 @@ third_party_settings:
 name: 'Ansøg om teaterrefusion'
 type: theater_refund
 description: 'Ansøg om teaterrefusion'
-help: ''
+help: null
 new_revision: true
 preview_mode: 0
 display_submitted: false

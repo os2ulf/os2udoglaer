@@ -6,5 +6,5 @@ _core:
   default_config_hash: XLY7YgXrDz5j2MakF3eGWSRbnnb2Dazi7PXYHjiw3Q4
 id: accordion
 label: 'Accordion (1/2/3)'
-revision: 0
+revision: false
 description: 'En blok der indeholder en accordion.'

@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Målgruppe - Ungdomsuddannelse'
 vid: target_group_youth_education
-description: ''
+description: null
 weight: 0
+new_revision: false

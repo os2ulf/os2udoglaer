@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: 'Målgruppe - Grundskole'
 vid: target_group_primary_school
-description: ''
+description: null
 weight: 0
+new_revision: false

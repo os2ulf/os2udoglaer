@@ -4,5 +4,6 @@ status: true
 dependencies: {  }
 name: Aktivitet
 vid: activity
-description: ''
+description: null
 weight: 0
+new_revision: false

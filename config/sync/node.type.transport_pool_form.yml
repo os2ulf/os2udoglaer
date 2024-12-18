@@ -12,7 +12,7 @@ third_party_settings:
 name: Transportordning
 type: transport_pool_form
 description: 'Transportpulje formular'
-help: ''
+help: null
 new_revision: true
 preview_mode: 0
 display_submitted: true

@@ -5,6 +5,8 @@ namespace Drupal\os2uol_pretix;
 use DateTimeInterface;
 use Drupal\Core\Datetime\DrupalDateTime;
 use Drupal\Core\Entity\EditorialContentEntityBase;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityMalformedException;
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Logger\LoggerChannelFactoryInterface;
 use Drupal\Core\Logger\LoggerChannelInterface;
@@ -197,7 +199,17 @@ class PretixEventManager extends PretixAbstractManager {
 
     // Important: meta_data value must be an object!
     $data['meta_data'] = (object) [];
-    $data['item_meta_properties'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
+    $data['item_meta_properties'] = ['DrupalURL' => $this->getDrupalUrl($entity)];
+  }
+
+  public function getEvent(EditorialContentEntityBase $entity) {
+    if (is_null($this->getEventSlug($entity))) {
+      return NULL;
+    }
+
+    $eventSlug = $this->getEventSlug($entity);
+    $client = $this->getClient($entity);
+    return $client->getEvent($eventSlug);
   }
 
   public function getEvents(EditorialContentEntityBase $entity, $all = FALSE) {
@@ -220,6 +232,20 @@ class PretixEventManager extends PretixAbstractManager {
   public function getEventUrl(EditorialContentEntityBase $entity): string {
     $client = $this->getClient($entity);
     return $client->getPretixUrl() . 'control/event/' . $client->getOrganizer() . '/' . $this->getEventSlug($entity) . '/';
+  }
+
+  /**
+   * @param \Drupal\Core\Entity\EntityInterface $entity
+   *
+   * @return string
+   */
+  public function getDrupalUrl(EntityInterface $entity): string {
+    try {
+      return $entity->toUrl()->toString();
+    }
+    catch (EntityMalformedException $e) {
+      return 'Malformed';
+    }
   }
 
   public function getEventShopUrl(EditorialContentEntityBase $entity): string {
@@ -297,7 +323,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     $result = $client->updateEvent($this->getEventSlug($entity), [
       'live' => $live,
-      'item_meta_properties' => ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()]
+      'meta_data' => ['DrupalURL' => $this->getDrupalUrl($entity)]
     ]);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -305,6 +331,15 @@ class PretixEventManager extends PretixAbstractManager {
           foreach ($errors as $error) {
             if ($error == 'You need to configure at least one quota to sell anything.') {
               $this->messenger->addWarning(t('Shop is not live until dates are added.'));
+            }
+            else {
+              $this->apiError($result, $live ? 'Cannot set pretix event live' : 'Cannot set pretix event not live');
+            }
+          }
+        } elseif ($type == 'meta_data') {
+          foreach ($errors as $error) {
+            if ($error == "Meta data property 'DrupalURL' does not exist.") {
+              $this->messenger->addError(t("Meta data property 'DrupalURL' does not exist."));
             }
             else {
               $this->apiError($result, $live ? 'Cannot set pretix event live' : 'Cannot set pretix event not live');
@@ -333,7 +368,7 @@ class PretixEventManager extends PretixAbstractManager {
 
     // Check if the field_pretix_template_event is populated
     if ($entity->get('field_pretix_template_event')->isEmpty()) {
-      $this->messenger()->addError($this->t('The event template is missing. Please ensure the event template field is filled.'));
+      $this->messenger->addError($this->t('The event template is missing. Please ensure the event template field is filled.'));
       return;
     }
 
@@ -404,7 +439,7 @@ class PretixEventManager extends PretixAbstractManager {
       "currency" => "DKK"
     ];
     $data['has_subevents'] = TRUE;
-    $data['item_meta_properties'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
+    $data['metadata'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
     $result = $client->createEvent($template, $data);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -412,6 +447,15 @@ class PretixEventManager extends PretixAbstractManager {
           foreach ($errors as $error) {
             if ($error == 'This slug has already been used for a different event.') {
               $this->apiError($result, 'The event already exists.');
+            }
+            else {
+              $this->apiError($result, 'Could not create event');
+            }
+          }
+        } elseif ($type == 'meta_data') {
+          foreach ($errors as $error) {
+            if ($error == "Meta data property 'DrupalURL' does not exist.") {
+              $this->messenger->addError(t("Meta data property 'DrupalURL' does not exist."));
             }
             else {
               $this->apiError($result, 'Could not create event');
