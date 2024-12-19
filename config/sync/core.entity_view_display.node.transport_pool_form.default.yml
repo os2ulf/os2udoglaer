@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.transport_pool_form.field_rfc_name
     - field.field.node.transport_pool_form.field_rfc_phone
     - field.field.node.transport_pool_form.field_rfc_return_time
+    - field.field.node.transport_pool_form.field_rfc_send_mail
     - field.field.node.transport_pool_form.field_tpf_address_variation
     - field.field.node.transport_pool_form.field_tpf_backend_submission
     - field.field.node.transport_pool_form.field_tpf_course_not_found
@@ -125,6 +126,16 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 18
+    region: content
+  field_rfc_send_mail:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 19
     region: content
   field_tpf_expense:
     type: number_decimal
