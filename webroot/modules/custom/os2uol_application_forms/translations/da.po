@@ -50,3 +50,12 @@ msgstr "Vælg/fravælg alle resultater (alle sider, @count total)"
 
 msgid "-- Select action --"
 msgstr "-- Vælg handling --"
+
+msgid "Action will be executed on all items in the view."
+msgstr "Handlingen vil blive udført på alle elementer i visningen."
+
+msgid "Clear selection"
+msgstr "Ryd markering"
+
+msgid "Items selected: "
+msgstr "Valgte elementer: "
