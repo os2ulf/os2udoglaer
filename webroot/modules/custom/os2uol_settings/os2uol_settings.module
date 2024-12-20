@@ -48,6 +48,8 @@ function os2uol_settings_preprocess_styles_preview(&$variables) {
     $primary_bg_txt_color = $config->get('primary_background_text_color');
     $secondary_bg_color = $config->get('secondary_background_color');
     $secondary_bg_txt_color = $config->get('secondary_background_text_color');
+    $tertiary_bg_color = $config->get('tertiary_background_color');
+    $tertiary_bg_txt_color = $config->get('tertiary_background_text_color');
 
     if ($variables['style'] === 'theme-primary' && !empty($primary_bg_color) && !empty($primary_bg_txt_color)) {
       $variables['primary_bg_color'] = $primary_bg_color;
@@ -57,6 +59,11 @@ function os2uol_settings_preprocess_styles_preview(&$variables) {
     if ($variables['style'] === 'theme-secondary' && !empty($secondary_bg_color) && !empty($secondary_bg_txt_color)) {
       $variables['secondary_bg_color'] = $secondary_bg_color;
       $variables['secondary_bg_txt_color'] = $secondary_bg_txt_color;
+    }
+
+    if ($variables['style'] === 'theme-tertiary' && !empty($tertiary_bg_color) && !empty($tertiary_bg_txt_color)) {
+      $variables['tertiary_bg_color'] = $tertiary_bg_color;
+      $variables['tertiary_bg_txt_color'] = $tertiary_bg_txt_color;
     }
   }
 }
@@ -74,6 +81,8 @@ function os2uol_settings_preprocess_html(array &$variables) {
   $primary_bg_txt_color = $config->get('primary_background_text_color');
   $secondary_bg_color = $config->get('secondary_background_color');
   $secondary_bg_txt_color = $config->get('secondary_background_text_color');
+  $tertiary_bg_color = $config->get('tertiary_background_color');
+  $tertiary_bg_txt_color = $config->get('tertiary_background_text_color');
 
   // Create an array of CSS variable declarations.
   if ($primary_bg_color && $primary_bg_txt_color) {
@@ -102,6 +111,20 @@ function os2uol_settings_preprocess_html(array &$variables) {
     --theme-accordion-text-color: {$secondary_bg_txt_color};
     --theme-input-border: {$secondary_bg_txt_color};
     --theme-input-color-marked: {$secondary_bg_txt_color};
+    }";
+  }
+  if ($tertiary_bg_color && $tertiary_bg_txt_color) {
+    $css_variables[] = ".theme-tertiary {
+    --theme-background-color: {$tertiary_bg_color};
+    --theme-color: {$tertiary_bg_txt_color};
+    --theme-button-color: {$tertiary_bg_color};
+    --theme-link-color: {$tertiary_bg_txt_color};
+    --theme-divider-background-color: {$tertiary_bg_txt_color};
+    --theme-accordion-border-color: {$tertiary_bg_color};
+    --theme-accordion-background-color: {$tertiary_bg_color};
+    --theme-accordion-text-color: {$tertiary_bg_txt_color};
+    --theme-input-border: {$tertiary_bg_txt_color};
+    --theme-input-color-marked: {$tertiary_bg_txt_color};
     }";
   }
 

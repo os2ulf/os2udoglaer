@@ -29,11 +29,11 @@ theme-secondary:
   dependencies:
     - os2udoglaer/theme
 
-theme-brown:
+theme-tertiary:
   version: VERSION
   css:
     theme:
-      css/theme/theme-brown.css: {}
+      css/theme/theme-tertiary.css: {}
   dependencies:
     - os2udoglaer/theme
 
@@ -62,7 +62,7 @@ theme-preview:
   dependencies:
     - os2udoglaer/theme-primary
     - os2udoglaer/theme-secondary
-    - os2udoglaer/theme-brown
+    - os2udoglaer/theme-tertiary
     - os2udoglaer/theme-grey
     - os2udoglaer/theme-black
 
