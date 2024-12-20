@@ -54,6 +54,8 @@ class DomainSettingsBlock extends TransformBlockBase {
       'primary_background_text_color' => $config->get('primary_background_text_color'),
       'secondary_background_color' => $config->get('secondary_background_color'),
       'secondary_background_text_color' => $config->get('secondary_background_text_color'),
+      'tertiary_background_color' => $config->get('tertiary_background_color'),
+      'tertiary_background_text_color' => $config->get('tertiary_background_text_color'),
       'text_positive_color' => $config->get('text_positive_color'),
       'text_negative_color' => $config->get('text_negative_color'),
       'site_tracking_script' => $config->get('site_tracking_script'),
