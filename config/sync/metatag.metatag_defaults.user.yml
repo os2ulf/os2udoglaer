@@ -9,9 +9,9 @@ label: Bruger
 tags:
   canonical_url: '[user:url:path]'
   description: '[user:field_other_info_description:value]'
-  image_src: '[user:field_image:entity:url]'
+  image_src: '[user:field_image:1_column_lg_flex_height:url]'
   og_description: '[user:field_presentation:value]'
-  og_image: '[user:field_image:entity:url]'
+  og_image: '[user:field_image:1_column_lg_flex_height:url]'
   og_site_name: '[site:name]'
   og_title: '[user:field_name:value] | [site:name]'
   og_url: '[user:url:path]'

@@ -8,9 +8,9 @@ id: front
 label: Forside
 tags:
   description: '[node:field_description:value]'
-  image_src: '[node:field_list_media:entity:url]'
+  image_src: '[node:field_list_media:1_column_lg_flex_height:url]'
   og_description: '[node:field_description:value]'
-  og_image: '[node:field_list_media:entity:url]'
+  og_image: '[node:field_list_media:1_column_lg_flex_height:url]'
   og_site_name: '[site:name]'
   og_title: '[node:title] | [site:name]'
   title: '[node:title] | [site:name]'
