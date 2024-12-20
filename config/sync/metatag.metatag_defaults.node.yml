@@ -9,9 +9,9 @@ label: Indhold
 tags:
   canonical_url: '[node:url:path]'
   description: '[node:field_description:value]'
-  image_src: '[node:field_image:entity:url]'
+  image_src: '[node:field_image:1_column_lg_flex_height:url]'
   og_description: '[node:field_description:value]'
-  og_image: '[node:field_image:entity:url]'
+  og_image: '[node:field_image:1_column_lg_flex_height:url]'
   og_site_name: '[site:name]'
   og_title: '[node:title] | [site:name]'
   og_url: '[node:url:path]'
