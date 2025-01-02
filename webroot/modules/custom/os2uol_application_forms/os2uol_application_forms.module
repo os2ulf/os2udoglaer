@@ -143,62 +143,72 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
  * Implements hook_views_pre_render().
  */
 function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
-  if ($view->id() == 'school_budget_overview') {
-    // Custom summary for the 'school_budget_overview' view.
-    $allocated_budget = 0;
-    $spent_budget = 0;
-
-    // Loop through each row in the view result to accumulate budget values.
-    foreach ($view->result as $row) {
-      $allocated_budget += $row->_entity->get('field_rfc_granted_amount')->value;
-      $spent_budget += $row->_entity->get('field_rfc_spent_amount')->value;
-    }
-
-    // Calculate Restbudget: Tildelt budget - Forbrugt budget, with a minimum of 0.
-    $rest_budget = max($allocated_budget - $spent_budget, 0);
-
-    // Construct the formatted summary text.
-    $summary_markup = Markup::create(
-      '<div class="applications-summary">' .
-      '<strong>Tildelt budget: </strong>' . number_format($allocated_budget, 2, ',', '.') . ' kr. - ' .
-      '<strong>Forbrugt budget: </strong>' . number_format($spent_budget, 2, ',', '.') . ' kr. - ' .
-      '<strong>Restbudget: </strong>' . number_format($rest_budget, 2, ',', '.') . ' kr.' .
-      '</div>'
-    );
-
-    // Add the summary markup as a header for the view.
-    $view->attachment_before['summary_markup'] = [
-      '#markup' => $summary_markup,
-      '#weight' => -10,  // Ensure it appears before other view content.
-    ];
-  }
-  elseif ($view->id() == 'free_course_request' || $view->id() == 'theater_refund') {
-    // Custom summary for the 'free_course_request' and 'theater_refund' views.
+  // Check if the view matches the required IDs.
+  if (in_array($view->id(), ['free_course_request', 'theater_refund', 'transport_applications'])) {
+    // Initialize sums for non-transport forms.
     $requested_amount = 0;
     $granted_amount = 0;
     $spent_amount = 0;
 
-    // Loop through each row in the view result to accumulate amounts.
-    foreach ($view->result as $row) {
-      $requested_amount += $row->_entity->get('field_rfc_requested_amount')->value;
-      $granted_amount += $row->_entity->get('field_rfc_granted_amount')->value;
-      $spent_amount += $row->_entity->get('field_rfc_spent_amount')->value;
+    // Initialize sums for transport_pool_form.
+    $transport_spent = 0;
+
+    // Use the current view configuration.
+    $temp_view = \Drupal\views\Views::getView($view->id());
+    $temp_view->setDisplay($view->current_display); // Match the current display.
+    $temp_view->setItemsPerPage(0); // Disable pagination.
+    $temp_view->execute(); // Execute and fetch all results.
+
+    // Process results.
+    foreach ($temp_view->result as $row) {
+      $entity = $row->_entity; // Access the entity directly.
+
+      // Detect the content type.
+      $type = $entity->bundle();
+
+      if ($type === 'transport_pool_form') {
+        // Sum up field_tpf_expense for transport forms.
+        $transport_spent += $entity->get('field_tpf_expense')->value ?? 0;
+      }
+      else {
+        // Default case for other types.
+        $requested_amount += $entity->get('field_rfc_requested_amount')->value ?? 0;
+        $granted_amount += $entity->get('field_rfc_granted_amount')->value ?? 0;
+        $spent_amount += $entity->get('field_rfc_spent_amount')->value ?? 0;
+      }
     }
 
-    // Construct the table markup for this summary.
-    $sum_markup = Markup::create(
-      '<table class="applications-summary">' .
-      '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
-      '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
-      '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
-      '</table>'
-    );
+    // Create summary markup for non-transport forms.
+    if ($view->id() !== 'transport_applications') {
+      $sum_markup_general = Markup::create(
+        '<table class="applications-summary">' .
+        '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
+        '</table>'
+      );
 
-    // Add the sum markup as a header for the view.
-    $view->attachment_before['sum_markup'] = [
-      '#markup' => $sum_markup,
-      '#weight' => -10,  // Ensures it appears before other elements.
-    ];
+      // Attach the general summary only for non-transport views.
+      $view->attachment_before['sum_markup_general'] = [
+        '#markup' => $sum_markup_general,
+        '#weight' => -10, // Ensure it appears before other elements.
+      ];
+    }
+
+    // Create summary markup for transport forms only on transport_applications view.
+    if ($view->id() === 'transport_applications') {
+      $sum_markup_transport = Markup::create(
+        '<table class="applications-summary-transport">' .
+        '<tr><td class="applications-summary__label">Transport sum: </td><td class="applications-summary__value">' . number_format($transport_spent, 2, ',', '.') . ' kr.</td></tr>' .
+        '</table>'
+      );
+
+      // Attach the transport summary only for the transport_applications view.
+      $view->attachment_before['sum_markup_transport'] = [
+        '#markup' => $sum_markup_transport,
+        '#weight' => -10, // Appears before other elements.
+      ];
+    }
   }
 }
 
@@ -206,7 +216,7 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
  * Implements hook_preprocess_views_view().
  */
 function os2uol_application_forms_preprocess_views_view(&$variables) {
-  if ($variables['view']->id() == 'free_course_request' || $variables['view']->id() == 'theater_refund') {
+  if ($variables['view']->id() == 'free_course_request' || $variables['view']->id() == 'theater_refund' || $variables['view']->id() == 'transport_applications') {
     $variables['#attached']['library'][] = 'os2uol_application_forms/views';
   }
 }
