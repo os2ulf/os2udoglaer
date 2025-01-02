@@ -1,9 +1,10 @@
-label: 'Workbench: Recent content'
-description: 'Content overview page for Workbench.'
 display:
   default:
-    display_title: Master
     display_options:
+      empty:
+        area:
+          content:
+            value: 'There is no content available for you to edit.'
       exposed_form:
         options:
           submit_button: Apply
@@ -52,15 +53,15 @@ display:
           expose:
             label: Published
       title: 'Workbench: Recent content'
-      empty:
-        area:
-          content:
-            value: 'There is no content available for you to edit.'
       link_url: /admin/workbench/content/all
       use_more_text: 'view all'
+    display_title: Master
   block_1:
-    display_title: 'Overview block'
     display_options:
+      header:
+        area:
+          content:
+            value: '<h3>Recent content</h3>'
       pager:
         options:
           tags:
@@ -77,11 +78,10 @@ display:
         status:
           expose:
             label: Published
-      header:
-        area:
-          content:
-            value: '<h3>Recent content</h3>'
+    display_title: 'Overview block'
   embed_1:
     display_title: 'Page Embed'
     display_options:
       display_description: 'The embedded view for use on a landing page'
+label: 'Workbench: Recent content'
+description: 'Content overview page for Workbench.'

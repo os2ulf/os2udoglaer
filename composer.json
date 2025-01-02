@@ -107,6 +107,7 @@
         "drupal/view_unpublished": "^1.0",
         "drupal/views_base_url": "^2.1@beta",
         "drupal/views_bulk_operations": "^4.3",
+        "drupal/views_cm_current_state": "^2.1",
         "drupal/views_contextual_filters_or": "^1.4",
         "drupal/views_data_export": "^1.4",
         "drupal/views_simple_math_field": "^3.0",
