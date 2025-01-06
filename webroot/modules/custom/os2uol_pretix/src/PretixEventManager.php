@@ -439,7 +439,6 @@ class PretixEventManager extends PretixAbstractManager {
       "currency" => "DKK"
     ];
     $data['has_subevents'] = TRUE;
-    $data['metadata'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
     $result = $client->createEvent($template, $data);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -452,7 +451,18 @@ class PretixEventManager extends PretixAbstractManager {
               $this->apiError($result, 'Could not create event');
             }
           }
-        } elseif ($type == 'meta_data') {
+        } else {
+          $this->apiError($result, 'Could not create event');
+        }
+      }
+      return [];
+    }
+    $result = $client->updateEvent($this->getEventSlug($entity), [
+      'meta_data' => ['DrupalURL' => $this->getDrupalUrl($entity)]
+    ]);
+    if ($this->isApiError($result)) {
+      foreach ($result['json'] as $type => $errors) {
+        if ($type == 'meta_data') {
           foreach ($errors as $error) {
             if ($error == "Meta data property 'DrupalURL' does not exist.") {
               $this->messenger->addError(t("Meta data property 'DrupalURL' does not exist."));
