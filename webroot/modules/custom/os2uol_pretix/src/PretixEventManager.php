@@ -321,9 +321,11 @@ class PretixEventManager extends PretixAbstractManager {
       return $this->apiError($result, 'Cannot get event');
     }
 
+    $meta_data = $result['meta_data'];
+    $meta_data['DrupalURL'] = $this->getDrupalUrl($entity);
     $result = $client->updateEvent($this->getEventSlug($entity), [
       'live' => $live,
-      'meta_data' => ['DrupalURL' => $this->getDrupalUrl($entity)]
+      'meta_data' => $meta_data
     ]);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -457,8 +459,15 @@ class PretixEventManager extends PretixAbstractManager {
       }
       return [];
     }
-    $result = $client->updateEvent($this->getEventSlug($entity), [
-      'meta_data' => ['DrupalURL' => $this->getDrupalUrl($entity)]
+
+    /*$result = $client->getEvent($entity->id());
+    if ($this->isApiError($result)) {
+      return $this->apiError($result, 'Cannot get event');
+    }
+    $meta_data = $result['meta_data'];
+    $meta_data['DrupalURL'] = $this->getDrupalUrl($entity);
+    $result = $client->updateEvent($entity->id(), [
+      'meta_data' => $meta_data
     ]);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -476,7 +485,7 @@ class PretixEventManager extends PretixAbstractManager {
         }
       }
       return [];
-    }
+    }*/
     return $result;
   }
 
