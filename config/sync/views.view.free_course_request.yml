@@ -47,6 +47,7 @@ dependencies:
     - taxonomy
     - text
     - user
+    - views_bulk_operations
     - views_cm_current_state
     - views_data_export
     - xls_serialization
@@ -3699,15 +3700,14 @@ display:
     position: 1
     display_options:
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
+        views_bulk_operations_bulk_form_1:
+          id: views_bulk_operations_bulk_form_1
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
+          plugin_id: views_bulk_operations_bulk_form
           label: ''
           exclude: false
           alter:
@@ -3749,18 +3749,65 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Handlinger
-          include_exclude: include
+          batch: true
+          batch_size: 10
+          form_step: true
+          ajax_loader: false
+          buttons: false
+          action_title: Handling
+          clear_on_exposed: true
+          force_selection_info: true
           selected_actions:
-            - node_delete_action
-            - set_accepted_status
-            - set_awaiting_payment_status
-            - set_awaiting_status
-            - set_cancelled_status
-            - set_closed_status
-            - set_payment_completed_status
-            - set_ready_for_payment_status
-            - set_refused_status
+            -
+              action_id: set_awaiting_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_awaiting_payment_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_cancelled_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_ready_for_payment_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_closed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_payment_completed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
         nid:
           id: nid
           table: node_field_data
@@ -4204,11 +4251,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_provider:
-          id: field_rfc_provider
-          table: node__field_rfc_provider
-          field: field_rfc_provider
-          relationship: none
+        field_name_2:
+          id: field_name_2
+          table: user__field_name
+          field: field_name
+          relationship: field_rfc_provider
           group_type: group
           admin_label: ''
           plugin_id: field
@@ -4245,7 +4292,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -4253,11 +4300,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_view
+          click_sort_column: value
+          type: string
           settings:
-            view_mode: name
-          group_column: target_id
+            link_to_entity: true
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -4576,6 +4623,68 @@ display:
           settings:
             timezone_override: ''
             date_format: d/m/Y
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_semester:
+          id: field_semester
+          table: node__field_semester
+          field: field_semester
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Skoleår
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: list_default
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -5077,74 +5186,12 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
-          hide_empty: false
+          hide_empty: true
           empty_zero: false
           hide_alter_empty: true
           text: redigér
           output_url_as_text: false
           absolute: false
-        field_semester:
-          id: field_semester
-          table: node__field_semester
-          field: field_semester
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: field
-          label: Semester
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: list_default
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
       filters:
         type:
           id: type
@@ -5213,11 +5260,11 @@ display:
               3: {  }
           fields:
             nid: nid
-            field_name: field_name
+            field_old_id: field_old_id
             field_name_1: field_name_1
             field_rfc_school: field_rfc_school
             field_rfc_name: field_rfc_name
-            field_rfc_provider: field_rfc_provider
+            field_name_2: field_name_2
             field_rfc_new_course_name: field_rfc_new_course_name
             field_rfc_course: field_rfc_course
             field_rfc_subject: field_rfc_subject
@@ -5653,6 +5700,15 @@ display:
           admin_label: 'field_contact: Paragraph'
           plugin_id: standard
           required: false
+        field_rfc_provider:
+          id: field_rfc_provider
+          table: node__field_rfc_provider
+          field: field_rfc_provider
+          relationship: none
+          group_type: group
+          admin_label: 'field_rfc_provider: Bruger'
+          plugin_id: standard
+          required: false
       display_extenders:
         os2uol_search:
           os2uol_search_result_string: ''
@@ -5686,7 +5742,6 @@ display:
         - 'config:field.storage.node.field_rfc_name'
         - 'config:field.storage.node.field_rfc_new_course_name'
         - 'config:field.storage.node.field_rfc_payment_date'
-        - 'config:field.storage.node.field_rfc_provider'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
         - 'config:field.storage.node.field_rfc_school'
