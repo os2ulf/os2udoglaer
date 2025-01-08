@@ -33,7 +33,6 @@ permissions:
   - 'access workbench'
   - 'add all pretix events'
   - 'add own pretix events'
-  - 'bypass node access'
   - 'change own username'
   - 'clone node entity'
   - 'create course content'
