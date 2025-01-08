@@ -41,6 +41,7 @@ third_party_settings:
       children:
         - moderation_state
         - field_rfc_course
+        - field_tpf_course_not_found
         - field_tpf_what_course
         - field_tpf_purpose_course
         - field_location_street
@@ -135,7 +136,6 @@ third_party_settings:
     group_tpf_admin:
       children:
         - field_tpf_backend_submission
-        - field_tpf_course_not_found
         - url_redirects
       label: 'Admin felter'
       region: content
@@ -270,7 +270,7 @@ content:
     third_party_settings: {  }
   field_tpf_course_not_found:
     type: boolean_checkbox
-    weight: 35
+    weight: 2
     region: content
     settings:
       display_label: true
@@ -329,7 +329,7 @@ content:
     third_party_settings: {  }
   field_tpf_what_course:
     type: string_textarea
-    weight: 2
+    weight: 3
     region: content
     settings:
       rows: 5
