@@ -479,8 +479,6 @@ function os2uol_application_forms_node_access(\Drupal\node\NodeInterface $node, 
         'ready_for_payment',
         'published',
         'refused',
-        'cancelled',
-        'closed',
       ];
 
       // Check if the current user has the 'Skole' or 'Institution' role.

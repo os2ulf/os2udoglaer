@@ -17,10 +17,10 @@ os2uol_pretix.delete_subevent:
 os2uol_pretix.add_date:
   path: '/node/{node}/pretix/add'
   defaults:
+    _form: '\Drupal\os2uol_pretix\Form\PretixSubEventAddForm'
     _title: 'Add Date'
   requirements:
     _permission: 'add own pretix events'
-    node: '\d+'
 
 os2uol_pretix.webhooks.order:
   path: '/pretix/webhooks/order/{organizer}'
