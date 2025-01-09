@@ -3454,7 +3454,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: Semester
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
