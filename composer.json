@@ -269,6 +269,9 @@
             "drupal/webform": {
                 "(#3435903) Fix incompatibility with devel ^5.2": "https://www.drupal.org/files/issues/2024-08-01/fix_incompatibility_with_devel_5.2.patch"
             },
+            "drupal/views_bulk_operations": {
+                "(#3422715) Missing checkboxes in 4.2.6 when using Views Data Export": "https://git.drupalcode.org/project/views_bulk_operations/-/merge_requests/79.diff"
+            },
             "drupal/workbench": {
                 "Apply patch from branch 3484630-mismatched-views-area": "https://git.drupalcode.org/issue/workbench-3484630/-/commit/41ff2be540e760aec54e06cd35c5e5a75e21f502.diff"
             },
