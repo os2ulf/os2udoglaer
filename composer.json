@@ -62,7 +62,7 @@
         "drupal/facets": "^2.0",
         "drupal/field_group": "^3.0",
         "drupal/focal_point": "^2.0",
-        "drupal/gin": "^3.0@RC",
+        "drupal/gin": "^3.0",
         "drupal/gin_toolbar": "^1.0@RC",
         "drupal/health_check": "^3.0",
         "drupal/hreflang": "^1.0",

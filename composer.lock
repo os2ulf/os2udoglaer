@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "64d5bf70ab2cac0f85dd2306520fb3cb",
+    "content-hash": "8b1b798958d1cd21634db72b3bdad25e",
     "packages": [
         {
             "name": "algolia/places",
@@ -4084,17 +4084,17 @@
         },
         {
             "name": "drupal/gin",
-            "version": "3.0.0-rc15",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/gin.git",
-                "reference": "8.x-3.0-rc15"
+                "reference": "8.x-3.0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0-rc15.zip",
-                "reference": "8.x-3.0-rc15",
-                "shasum": "245f8444a8534cff04eac57c0b07e4f44481cabc"
+                "url": "https://ftp.drupal.org/files/projects/gin-8.x-3.0.zip",
+                "reference": "8.x-3.0",
+                "shasum": "bb1c660e85577d49db1deedfefe1ed3a91370aeb"
             },
             "require": {
                 "drupal/core": "^9 || ^10 || ^11",
@@ -4103,11 +4103,11 @@
             "type": "drupal-theme",
             "extra": {
                 "drupal": {
-                    "version": "8.x-3.0-rc15",
-                    "datestamp": "1733734246",
+                    "version": "8.x-3.0",
+                    "datestamp": "1734771812",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -15405,7 +15405,6 @@
         "drupal/domain_simple_sitemap": 10,
         "drupal/entity_clone": 10,
         "drupal/entity_diff_ui": 15,
-        "drupal/gin": 5,
         "drupal/gin_toolbar": 5,
         "drupal/maxlength": 10,
         "drupal/pathologic": 15,
