@@ -21,10 +21,13 @@ dependencies:
     - node.type.free_course_request
     - system.menu.workbench
     - taxonomy.vocabulary.subject
+    - user.role.administrator
     - user.role.corporation
     - user.role.course_provider
+    - user.role.editor
     - user.role.institution
     - user.role.school
+    - user.role.webmaster
     - workflows.workflow.application
   module:
     - better_exposed_filters
@@ -1542,10 +1545,9 @@ display:
         type: role
         options:
           role:
-            course_provider: course_provider
-            corporation: corporation
-            institution: institution
-            school: school
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
       cache:
         type: tag
         options: {  }
@@ -3593,11 +3595,8 @@ display:
         type: data_field
         options:
           field_options:
-            node_bulk_form:
-              alias: ''
-              raw_output: false
             field_old_id:
-              alias: nid
+              alias: id
               raw_output: false
             field_name_1:
               alias: ''
@@ -3612,6 +3611,9 @@ display:
               alias: ''
               raw_output: false
             title:
+              alias: ''
+              raw_output: false
+            name:
               alias: ''
               raw_output: false
             field_rfc_requested_amount:
@@ -3639,9 +3641,6 @@ display:
               alias: ''
               raw_output: false
             field_rfc_latest_editor:
-              alias: ''
-              raw_output: false
-            edit_node:
               alias: ''
               raw_output: false
       defaults:
@@ -3744,6 +3743,14 @@ display:
     display_plugin: page
     position: 3
     display_options:
+      access:
+        type: role
+        options:
+          role:
+            course_provider: course_provider
+            corporation: corporation
+            institution: institution
+            school: school
       arguments:
         field_rfc_provider_target_id:
           id: field_rfc_provider_target_id
@@ -3849,6 +3856,7 @@ display:
           break_phrase: false
           not: false
       defaults:
+        access: false
         arguments: false
       display_description: ''
       display_extenders:
