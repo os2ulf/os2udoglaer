@@ -13,13 +13,11 @@ dependencies:
     - field.storage.node.field_rfc_payment_date
     - field.storage.node.field_rfc_remarks
     - field.storage.node.field_rfc_requested_amount
-    - field.storage.node.field_rfc_school
     - field.storage.node.field_rfc_spent_amount
     - field.storage.node.field_tr_quantity
-    - field.storage.node.field_tr_theater
     - field.storage.taxonomy_term.field_government_subsidy
+    - field.storage.user.field_name
     - node.type.theater_refund
-    - system.menu.workbench
     - user.role.administrator
     - user.role.editor
     - user.role.theater_contact
@@ -36,8 +34,8 @@ dependencies:
     - taxonomy
     - text
     - user
-    - views_cm_current_state
     - views_bulk_operations
+    - views_cm_current_state
     - views_data_export
     - xls_serialization
 id: theater_refund
@@ -112,15 +110,10 @@ display:
           buttons: false
           action_title: Handling
           clear_on_exposed: true
-          force_selection_info: true
+          force_selection_info: false
           selected_actions:
             -
-              action_id: set_awaiting_status
-              preconfiguration:
-                add_confirmation: false
-                message_override: ''
-            -
-              action_id: set_awaiting_payment_status
+              action_id: set_ready_for_payment_status
               preconfiguration:
                 add_confirmation: false
                 message_override: ''
@@ -130,7 +123,12 @@ display:
                 add_confirmation: false
                 message_override: ''
             -
-              action_id: set_refused_status_no_email
+              action_id: set_accepted_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_awaiting_status
               preconfiguration:
                 add_confirmation: false
                 message_override: ''
@@ -140,17 +138,7 @@ display:
                 add_confirmation: false
                 message_override: ''
             -
-              action_id: set_accepted_status
-              preconfiguration:
-                add_confirmation: false
-                message_override: ''
-            -
-              action_id: set_accepted_status_no_email
-              preconfiguration:
-                add_confirmation: false
-                message_override: ''
-            -
-              action_id: set_ready_for_payment_status
+              action_id: set_awaiting_payment_status
               preconfiguration:
                 add_confirmation: false
                 message_override: ''
@@ -161,6 +149,16 @@ display:
                 message_override: ''
             -
               action_id: set_payment_completed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status_no_email
               preconfiguration:
                 add_confirmation: false
                 message_override: ''
@@ -293,11 +291,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_school:
-          id: field_rfc_school
-          table: node__field_rfc_school
-          field: field_rfc_school
-          relationship: none
+        field_name:
+          id: field_name
+          table: user__field_name
+          field: field_name
+          relationship: field_rfc_school
           group_type: group
           admin_label: ''
           plugin_id: field
@@ -342,11 +340,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_view
+          click_sort_column: value
+          type: string
           settings:
-            view_mode: name
-          group_column: target_id
+            link_to_entity: true
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -482,14 +480,16 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_tr_theater:
-          id: field_tr_theater
-          table: node__field_tr_theater
-          field: field_tr_theater
-          relationship: none
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_tr_theater
           group_type: group
           admin_label: ''
-          plugin_id: field
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: term_name
           label: Teater
           exclude: false
           alter:
@@ -531,11 +531,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
+          click_sort_column: value
+          type: string
           settings:
-            link: false
-          group_column: target_id
+            link_to_entity: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -545,6 +545,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          convert_spaces: false
         field_rfc_new_course_name:
           id: field_rfc_new_course_name
           table: node__field_rfc_new_course_name
@@ -1519,8 +1520,12 @@ display:
             group_items: {  }
           fields:
             nid: nid
-            field_rfc_school: field_rfc_school
+            field_old_id: field_old_id
+            field_name: field_name
+            field_rfc_grade: field_rfc_grade
             field_rfc_name: field_rfc_name
+            name: name
+            field_rfc_new_course_name: field_rfc_new_course_name
         moderation_state:
           id: moderation_state
           table: node_field_data
@@ -1916,17 +1921,6 @@ display:
           replica: false
           query_tags: {  }
       relationships:
-        uid:
-          id: uid
-          table: node_field_data
-          field: uid
-          relationship: none
-          group_type: group
-          admin_label: Bruger
-          entity_type: node
-          entity_field: uid
-          plugin_id: standard
-          required: false
         field_tr_theater:
           id: field_tr_theater
           table: node__field_tr_theater
@@ -1934,6 +1928,15 @@ display:
           relationship: none
           group_type: group
           admin_label: 'field_tr_theater: Ord i ordforråd'
+          plugin_id: standard
+          required: false
+        field_rfc_school:
+          id: field_rfc_school
+          table: node__field_rfc_school
+          field: field_rfc_school
+          relationship: none
+          group_type: group
+          admin_label: 'field_rfc_school: Bruger'
           plugin_id: standard
           required: false
       header: {  }
@@ -1960,11 +1963,10 @@ display:
         - 'config:field.storage.node.field_rfc_payment_date'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
-        - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
         - 'config:field.storage.node.field_tr_quantity'
-        - 'config:field.storage.node.field_tr_theater'
         - 'config:field.storage.taxonomy_term.field_government_subsidy'
+        - 'config:field.storage.user.field_name'
         - 'config:workflow_list'
   data_export_1:
     id: data_export_1
@@ -1973,67 +1975,6 @@ display:
     position: 4
     display_options:
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          action_title: Handlinger
-          include_exclude: include
-          selected_actions:
-            - set_accepted_status
-            - set_awaiting_payment_status
-            - set_awaiting_status
-            - set_cancelled_status
-            - set_closed_status
-            - set_payment_completed_status
-            - set_ready_for_payment_status
-            - set_refused_status
         nid:
           id: nid
           table: node_field_data
@@ -2163,11 +2104,11 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_school:
-          id: field_rfc_school
-          table: node__field_rfc_school
-          field: field_rfc_school
-          relationship: none
+        field_name:
+          id: field_name
+          table: user__field_name
+          field: field_name
+          relationship: field_rfc_school
           group_type: group
           admin_label: ''
           plugin_id: field
@@ -2212,11 +2153,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_entity_view
+          click_sort_column: value
+          type: string
           settings:
-            view_mode: name
-          group_column: target_id
+            link_to_entity: true
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2352,14 +2293,16 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_tr_theater:
-          id: field_tr_theater
-          table: node__field_tr_theater
-          field: field_tr_theater
-          relationship: none
+        name:
+          id: name
+          table: taxonomy_term_field_data
+          field: name
+          relationship: field_tr_theater
           group_type: group
           admin_label: ''
-          plugin_id: field
+          entity_type: taxonomy_term
+          entity_field: name
+          plugin_id: term_name
           label: Teater
           exclude: false
           alter:
@@ -2401,11 +2344,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
+          click_sort_column: value
+          type: string
           settings:
-            link: false
-          group_column: target_id
+            link_to_entity: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2415,6 +2358,7 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          convert_spaces: false
         field_rfc_new_course_name:
           id: field_rfc_new_course_name
           table: node__field_rfc_new_course_name
@@ -2486,7 +2430,7 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: ''
+          label: Statstilskud
           exclude: false
           alter:
             alter_text: false
@@ -2519,7 +2463,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: false
+          element_label_colon: true
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2607,6 +2551,70 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+        field_rfc_date:
+          id: field_rfc_date
+          table: node__field_rfc_date
+          field: field_rfc_date
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: Afviklingsdato
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_custom
+          settings:
+            timezone_override: ''
+            date_format: d/m/Y
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         field_rfc_requested_amount:
           id: field_rfc_requested_amount
           table: node__field_rfc_requested_amount
@@ -2673,15 +2681,15 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        field_rfc_date:
-          id: field_rfc_date
-          table: node__field_rfc_date
-          field: field_rfc_date
+        current_state_views_field:
+          id: current_state_views_field
+          table: views
+          field: current_state_views_field
           relationship: none
           group_type: group
           admin_label: ''
-          plugin_id: field
-          label: Afviklingsdato
+          plugin_id: current_state_views_field
+          label: Status
           exclude: false
           alter:
             alter_text: false
@@ -2714,29 +2722,14 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
           hide_empty: false
           empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: datetime_custom
-          settings:
-            timezone_override: ''
-            date_format: d/m/Y
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+          hide_alter_empty: false
         field_rfc_granted_amount:
           id: field_rfc_granted_amount
           table: node__field_rfc_granted_amount
@@ -3069,55 +3062,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        current_state_views_field:
-          id: current_state_views_field
-          table: views
-          field: current_state_views_field
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: current_state_views_field
-          label: Status
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
       style:
         type: excel_export
         options:
@@ -3125,6 +3069,8 @@ display:
             xlsx: xlsx
           xls_settings:
             xls_format: Excel2007
+            strip_tags: true
+            trim: true
             metadata:
               creator: ''
               last_modified_by: ''
@@ -3139,10 +3085,13 @@ display:
         type: data_field
         options:
           field_options:
+            node_bulk_form:
+              alias: ''
+              raw_output: false
             field_old_id:
               alias: id
               raw_output: false
-            field_rfc_school:
+            field_name:
               alias: ''
               raw_output: false
             field_rfc_grade:
@@ -3151,7 +3100,7 @@ display:
             field_rfc_name:
               alias: ''
               raw_output: false
-            field_tr_theater:
+            name:
               alias: ''
               raw_output: false
             field_rfc_new_course_name:
@@ -3163,13 +3112,13 @@ display:
             field_tr_quantity:
               alias: ''
               raw_output: false
-            field_rfc_requested_amount:
-              alias: ''
-              raw_output: false
             field_rfc_date:
               alias: ''
               raw_output: false
-            moderation_state:
+            field_rfc_requested_amount:
+              alias: ''
+              raw_output: false
+            current_state_views_field:
               alias: ''
               raw_output: false
             field_rfc_granted_amount:
@@ -3185,6 +3134,9 @@ display:
               alias: ''
               raw_output: false
             field_rfc_latest_editor:
+              alias: ''
+              raw_output: false
+            edit_node:
               alias: ''
               raw_output: false
       defaults:
@@ -3204,6 +3156,8 @@ display:
       displays:
         page_1: page_1
         default: '0'
+        page_2: '0'
+        page_3: '0'
       filename: 'os2uol-theater-refund-export-[date:html_date].xlsx'
       automatic_download: true
       store_in_public_file_directory: false
@@ -3211,7 +3165,7 @@ display:
       redirect_to_display: none
       include_query_params: false
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -3231,11 +3185,10 @@ display:
         - 'config:field.storage.node.field_rfc_payment_date'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
-        - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
         - 'config:field.storage.node.field_tr_quantity'
-        - 'config:field.storage.node.field_tr_theater'
         - 'config:field.storage.taxonomy_term.field_government_subsidy'
+        - 'config:field.storage.user.field_name'
         - 'config:workflow_list'
   page_1:
     id: page_1
@@ -3277,11 +3230,10 @@ display:
         - 'config:field.storage.node.field_rfc_payment_date'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
-        - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
         - 'config:field.storage.node.field_tr_quantity'
-        - 'config:field.storage.node.field_tr_theater'
         - 'config:field.storage.taxonomy_term.field_government_subsidy'
+        - 'config:field.storage.user.field_name'
         - 'config:workflow_list'
   page_2:
     id: page_2
@@ -3289,7 +3241,6 @@ display:
     display_plugin: page
     position: 2
     display_options:
-      title: 'Ansøgninger om teaterrefusion'
       arguments:
         uid:
           id: uid
@@ -3329,28 +3280,7 @@ display:
           break_phrase: false
           not: false
       defaults:
-        title: false
-        relationships: false
         arguments: false
-      relationships:
-        field_rfc_school:
-          id: field_rfc_school
-          table: node__field_rfc_school
-          field: field_rfc_school
-          relationship: none
-          group_type: group
-          admin_label: 'field_rfc_school: Bruger'
-          plugin_id: standard
-          required: false
-        field_tr_theater:
-          id: field_tr_theater
-          table: node__field_tr_theater
-          field: field_tr_theater
-          relationship: none
-          group_type: group
-          admin_label: 'field_tr_theater: Ord i ordforråd'
-          plugin_id: standard
-          required: false
       display_description: ''
       display_extenders:
         os2uol_search:
@@ -3385,11 +3315,10 @@ display:
         - 'config:field.storage.node.field_rfc_payment_date'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
-        - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
         - 'config:field.storage.node.field_tr_quantity'
-        - 'config:field.storage.node.field_tr_theater'
         - 'config:field.storage.taxonomy_term.field_government_subsidy'
+        - 'config:field.storage.user.field_name'
         - 'config:workflow_list'
   page_3:
     id: page_3
@@ -3397,7 +3326,6 @@ display:
     display_plugin: page
     position: 2
     display_options:
-      title: 'Ansøgninger om teaterrefusion'
       access:
         type: role
         options:
@@ -3441,28 +3369,7 @@ display:
           not: false
       defaults:
         access: false
-        title: false
-        relationships: false
         arguments: false
-      relationships:
-        field_rfc_school:
-          id: field_rfc_school
-          table: node__field_rfc_school
-          field: field_rfc_school
-          relationship: none
-          group_type: group
-          admin_label: 'field_rfc_school: Bruger'
-          plugin_id: standard
-          required: false
-        field_tr_theater:
-          id: field_tr_theater
-          table: node__field_tr_theater
-          field: field_tr_theater
-          relationship: none
-          group_type: group
-          admin_label: 'field_tr_theater: Ord i ordforråd'
-          plugin_id: standard
-          required: false
       display_description: ''
       display_extenders:
         os2uol_search:
@@ -3476,15 +3383,6 @@ display:
           pager_transform_links: relative
           pager_transform_links_destination: current
       path: admin/applications/theater_refund/current
-      menu:
-        type: normal
-        title: 'Ansøgninger: teaterrefusion'
-        description: ''
-        weight: 110
-        expanded: false
-        menu_name: workbench
-        parent: ''
-        context: '0'
     cache_metadata:
       max-age: 0
       contexts:
@@ -3507,9 +3405,8 @@ display:
         - 'config:field.storage.node.field_rfc_payment_date'
         - 'config:field.storage.node.field_rfc_remarks'
         - 'config:field.storage.node.field_rfc_requested_amount'
-        - 'config:field.storage.node.field_rfc_school'
         - 'config:field.storage.node.field_rfc_spent_amount'
         - 'config:field.storage.node.field_tr_quantity'
-        - 'config:field.storage.node.field_tr_theater'
         - 'config:field.storage.taxonomy_term.field_government_subsidy'
+        - 'config:field.storage.user.field_name'
         - 'config:workflow_list'
