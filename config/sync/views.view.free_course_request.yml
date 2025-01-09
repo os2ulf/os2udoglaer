@@ -42,6 +42,7 @@ dependencies:
     - taxonomy
     - text
     - user
+    - views_bulk_operations
     - views_cm_current_state
     - views_data_export
     - xls_serialization
@@ -61,15 +62,14 @@ display:
     display_options:
       title: 'Ansøgninger - Udgiftsdækning'
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
+          plugin_id: views_bulk_operations_bulk_form
           label: ''
           exclude: false
           alter:
@@ -111,17 +111,65 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Handlinger
-          include_exclude: include
+          batch: true
+          batch_size: 10
+          form_step: true
+          ajax_loader: false
+          buttons: false
+          action_title: Handling
+          clear_on_exposed: true
+          force_selection_info: false
           selected_actions:
-            - set_accepted_status
-            - set_awaiting_payment_status
-            - set_awaiting_status
-            - set_cancelled_status
-            - set_closed_status
-            - set_payment_completed_status
-            - set_ready_for_payment_status
-            - set_refused_status
+            -
+              action_id: set_ready_for_payment_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_awaiting_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_cancelled_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_awaiting_payment_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_closed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_payment_completed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
         nid:
           id: nid
           table: node_field_data
@@ -1979,21 +2027,20 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            node_bulk_form: node_bulk_form
+            views_bulk_operations_bulk_form: views_bulk_operations_bulk_form
             nid: nid
             field_old_id: field_old_id
-            field_name: field_name
             field_name_1: field_name_1
-            field_rfc_school: field_rfc_school
             field_rfc_grade: field_rfc_grade
             field_rfc_name: field_rfc_name
-            field_rfc_provider: field_rfc_provider
+            field_name_2: field_name_2
             field_rfc_new_course_name: field_rfc_new_course_name
-            field_rfc_course: field_rfc_course
-            field_rfc_subject: field_rfc_subject
+            title: title
+            name: name
+            field_subject: field_subject
             field_rfc_requested_amount: field_rfc_requested_amount
             field_rfc_date: field_rfc_date
-            moderation_state: moderation_state
+            current_state_views_field: current_state_views_field
             field_rfc_granted_amount: field_rfc_granted_amount
             field_rfc_spent_amount: field_rfc_spent_amount
             field_rfc_attachment: field_rfc_attachment
@@ -2004,7 +2051,7 @@ display:
             field_semester: field_semester
           default: nid
           info:
-            node_bulk_form:
+            views_bulk_operations_bulk_form:
               align: ''
               separator: ''
               empty_column: false
@@ -2023,21 +2070,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_name:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_name_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_rfc_school:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2058,8 +2091,8 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_rfc_provider:
-              sortable: true
+            field_name_2:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2072,16 +2105,21 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_rfc_course:
+            title:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_rfc_subject:
+            name:
               sortable: false
               default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_subject:
               align: ''
               separator: ''
               empty_column: false
@@ -2100,8 +2138,8 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            moderation_state:
-              sortable: true
+            current_state_views_field:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2210,6 +2248,17 @@ display:
           admin_label: 'field_rfc_subject: Ord i ordforråd'
           plugin_id: standard
           required: false
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: Bruger
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
+          required: false
       header: {  }
       footer: {  }
       display_extenders: {  }
@@ -2247,15 +2296,14 @@ display:
     position: 2
     display_options:
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
+        views_bulk_operations_bulk_form:
+          id: views_bulk_operations_bulk_form
+          table: views
+          field: views_bulk_operations_bulk_form
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
+          plugin_id: views_bulk_operations_bulk_form
           label: ''
           exclude: true
           alter:
@@ -2297,17 +2345,60 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          action_title: Handlinger
-          include_exclude: include
+          batch: true
+          batch_size: 10
+          form_step: true
+          ajax_loader: false
+          buttons: false
+          action_title: Handling
+          clear_on_exposed: true
+          force_selection_info: false
           selected_actions:
-            - set_accepted_status
-            - set_awaiting_payment_status
-            - set_awaiting_status
-            - set_cancelled_status
-            - set_closed_status
-            - set_payment_completed_status
-            - set_ready_for_payment_status
-            - set_refused_status
+            -
+              action_id: set_refused_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_awaiting_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_cancelled_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_awaiting_payment_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_closed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_payment_completed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
         nid:
           id: nid
           table: node_field_data
@@ -3785,15 +3876,13 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
-        uid:
-          id: uid
-          table: node_field_data
-          field: uid
+        field_rfc_school_target_id:
+          id: field_rfc_school_target_id
+          table: node__field_rfc_school
+          field: field_rfc_school_target_id
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: uid
           plugin_id: entity_target_id
           default_action: default
           exception:
@@ -3857,6 +3946,7 @@ display:
           not: false
       defaults:
         access: false
+        fields: true
         arguments: false
       display_description: ''
       display_extenders:
