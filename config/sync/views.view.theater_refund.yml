@@ -34,8 +34,8 @@ dependencies:
     - taxonomy
     - text
     - user
-    - views_cm_current_state
     - views_bulk_operations
+    - views_cm_current_state
     - views_data_export
     - xls_serialization
 id: theater_refund
@@ -110,15 +110,10 @@ display:
           buttons: false
           action_title: Handling
           clear_on_exposed: true
-          force_selection_info: true
+          force_selection_info: false
           selected_actions:
             -
-              action_id: set_awaiting_status
-              preconfiguration:
-                add_confirmation: false
-                message_override: ''
-            -
-              action_id: set_awaiting_payment_status
+              action_id: set_ready_for_payment_status
               preconfiguration:
                 add_confirmation: false
                 message_override: ''
@@ -128,7 +123,12 @@ display:
                 add_confirmation: false
                 message_override: ''
             -
-              action_id: set_refused_status_no_email
+              action_id: set_accepted_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_awaiting_status
               preconfiguration:
                 add_confirmation: false
                 message_override: ''
@@ -138,17 +138,7 @@ display:
                 add_confirmation: false
                 message_override: ''
             -
-              action_id: set_accepted_status
-              preconfiguration:
-                add_confirmation: false
-                message_override: ''
-            -
-              action_id: set_accepted_status_no_email
-              preconfiguration:
-                add_confirmation: false
-                message_override: ''
-            -
-              action_id: set_ready_for_payment_status
+              action_id: set_awaiting_payment_status
               preconfiguration:
                 add_confirmation: false
                 message_override: ''
@@ -159,6 +149,16 @@ display:
                 message_override: ''
             -
               action_id: set_payment_completed_status
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_accepted_status_no_email
+              preconfiguration:
+                add_confirmation: false
+                message_override: ''
+            -
+              action_id: set_refused_status_no_email
               preconfiguration:
                 add_confirmation: false
                 message_override: ''
@@ -1975,67 +1975,6 @@ display:
     position: 4
     display_options:
       fields:
-        node_bulk_form:
-          id: node_bulk_form
-          table: node
-          field: node_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: node_bulk_form
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          action_title: Handlinger
-          include_exclude: include
-          selected_actions:
-            - set_accepted_status
-            - set_awaiting_payment_status
-            - set_awaiting_status
-            - set_cancelled_status
-            - set_closed_status
-            - set_payment_completed_status
-            - set_ready_for_payment_status
-            - set_refused_status
         nid:
           id: nid
           table: node_field_data
@@ -3123,59 +3062,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-        edit_node:
-          id: edit_node
-          table: node
-          field: edit_node
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: node
-          plugin_id: entity_link_edit
-          label: Redigeringslinks
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          text: redigér
-          output_url_as_text: false
-          absolute: false
       style:
         type: excel_export
         options:
@@ -3279,7 +3165,7 @@ display:
       redirect_to_display: none
       include_query_params: false
     cache_metadata:
-      max-age: 0
+      max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
