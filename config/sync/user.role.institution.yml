@@ -28,7 +28,6 @@ permissions:
   - 'edit any transport_pool_form content'
   - 'edit own free_course_request content'
   - 'edit own theater_refund content'
-  - 'use application transition accept'
   - 'use application transition afventer'
   - 'use text format basic_html'
   - 'view own unpublished content'

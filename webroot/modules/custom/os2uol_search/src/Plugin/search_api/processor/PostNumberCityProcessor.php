@@ -110,8 +110,8 @@ class PostNumberCityProcessor extends ProcessorPluginBase {
       return '';
     }
 
-    $post_number = $node->get('field_location_zipcode')->getString();
-    $address = $node->get('field_location_city')->getString();
+    $post_number = trim($node->get('field_location_zipcode')->getString());
+    $address = trim($node->get('field_location_city')->getString());
 
     return $post_number . ' ' . $address;
   }
@@ -133,8 +133,8 @@ class PostNumberCityProcessor extends ProcessorPluginBase {
       return '';
     }
 
-    $post_number = $user->get('field_location_zipcode')->getString();
-    $address = $user->get('field_location_city')->getString();
+    $post_number = trim($user->get('field_location_zipcode')->getString());
+    $address = trim($user->get('field_location_city')->getString());
 
     return $post_number . ' ' . $address;
   }

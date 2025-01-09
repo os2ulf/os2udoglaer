@@ -511,6 +511,44 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     }
   }
 
+  $node_edit_application_forms = [
+    'node_free_course_request_edit_form',
+    'node_theater_refund_edit_form',
+    'node_transport_pool_form_edit_form'
+  ];
+
+  $node_edit_application_hidden_fields = [
+    'field_tpf_address_variation',
+    'field_data_anonymized',
+    'field_rfc_remarks',
+    'field_rfc_granted_amount',
+    'field_rfc_attachment',
+    'field_rfc_spent_amount',
+    'field_old_id',
+    'field_rfc_follow_up_mail_sent',
+    'field_semester',
+    'field_mailto',
+    'field_rfc_send_mail',
+    'field_tpf_backend_submission',
+    'field_tr_mails_sent',
+    'field_rfc_latest_editor',
+    'field_rfc_payment_date',
+  ];
+
+  if (in_array($form_id, $node_edit_application_forms)) {
+    $current_user = \Drupal::currentUser();
+
+    // Check if the user has the editor role.
+    if ($current_user->hasRole('school') || $current_user->hasRole('institution')) {
+      foreach ($node_edit_application_hidden_fields as $field) {
+        if (isset($form[$field])) {
+          $form[$field]['#access'] = FALSE;
+        }
+      }
+    }
+  }
+
+
   // If "Søg tilskud til transport" or "Søg om refusion af forløbet" is checked, then "Hvem kan få tilskud" is required.
   if (isset($form['field_tpf_who_get_support'])) {
     $form['field_tpf_who_get_support']['widget']['#states'] = [

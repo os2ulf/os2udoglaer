@@ -104,8 +104,8 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Navn
-          exclude: false
+          label: ''
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -776,10 +776,6 @@ display:
         - url.query_args
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_domain_access'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_mail'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_domain_access'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_mail'
         - 'config:field.storage.user.field_domain_access'
         - 'config:field.storage.user.field_mail'
   data_export_1:
@@ -862,8 +858,8 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Navn
-          exclude: false
+          label: ''
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -1210,10 +1206,6 @@ display:
         - url
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_domain_access'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_mail'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_domain_access'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_mail'
         - 'config:field.storage.user.field_domain_access'
         - 'config:field.storage.user.field_mail'
   page_1:
@@ -1252,9 +1244,5 @@ display:
         - url.query_args
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_domain_access'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_mail'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_domain_access'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_mail'
         - 'config:field.storage.user.field_domain_access'
         - 'config:field.storage.user.field_mail'

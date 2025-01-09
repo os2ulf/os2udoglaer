@@ -97,6 +97,18 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('secondary_background_text_color'),
     ];
 
+    $form['tab_theme']['tertiary_background_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Tertiary background color'),
+      '#default_value' => $config->get('tertiary_background_color'),
+    ];
+
+    $form['tab_theme']['tertiary_background_text_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Tertiary background text color'),
+      '#default_value' => $config->get('tertiary_background_text_color'),
+    ];
+
     $form['tab_theme']['text_positive_color'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Text color'),
@@ -407,6 +419,8 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('primary_background_text_color', $form_state->getValue('primary_background_text_color'))
       ->set('secondary_background_color', $form_state->getValue('secondary_background_color'))
       ->set('secondary_background_text_color', $form_state->getValue('secondary_background_text_color'))
+      ->set('tertiary_background_color', $form_state->getValue('tertiary_background_color'))
+      ->set('tertiary_background_text_color', $form_state->getValue('tertiary_background_text_color'))
       ->set('text_positive_color', $form_state->getValue('text_positive_color'))
       ->set('text_negative_color', $form_state->getValue('text_negative_color'))
       ->set('site_tracking_script', $form_state->getValue('site_tracking_script'))

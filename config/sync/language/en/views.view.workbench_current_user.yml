@@ -1,17 +1,10 @@
-label: 'Workbench: Current user'
-description: 'Information about the current user.'
 display:
   default:
-    display_title: Master
     display_options:
-      exposed_form:
-        options:
-          submit_button: Apply
-          reset_button_label: Reset
-          exposed_sorts_label: 'Sort by'
-          sort_asc_label: Asc
-          sort_desc_label: Desc
       fields:
+        roles:
+          label: 'Assigned roles'
+          separator: ', '
         uid:
           separator: ', '
         name:
@@ -21,14 +14,21 @@ display:
         access:
           label: 'Last visit'
           separator: ', '
-        roles:
-          label: 'Assigned roles'
-          separator: ', '
       header:
         area:
           content:
             value: "<h3>{{ name }}'s profile</h3>"
+      exposed_form:
+        options:
+          submit_button: Apply
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+    display_title: Master
   block_1:
     display_title: 'Overview block'
     display_options:
       display_description: 'Displays information about the current user.'
+label: 'Workbench: Current user'
+description: 'Information about the current user.'

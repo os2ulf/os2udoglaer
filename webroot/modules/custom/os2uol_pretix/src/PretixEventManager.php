@@ -321,9 +321,11 @@ class PretixEventManager extends PretixAbstractManager {
       return $this->apiError($result, 'Cannot get event');
     }
 
+    $meta_data = $result['meta_data'];
+    $meta_data['DrupalURL'] = $this->getDrupalUrl($entity);
     $result = $client->updateEvent($this->getEventSlug($entity), [
       'live' => $live,
-      'meta_data' => ['DrupalURL' => $this->getDrupalUrl($entity)]
+      'meta_data' => $meta_data
     ]);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -439,7 +441,6 @@ class PretixEventManager extends PretixAbstractManager {
       "currency" => "DKK"
     ];
     $data['has_subevents'] = TRUE;
-    $data['metadata'] = ['DrupalURL' => $entity->toUrl()->setAbsolute()->toString()];
     $result = $client->createEvent($template, $data);
     if ($this->isApiError($result)) {
       foreach ($result['json'] as $type => $errors) {
@@ -452,7 +453,25 @@ class PretixEventManager extends PretixAbstractManager {
               $this->apiError($result, 'Could not create event');
             }
           }
-        } elseif ($type == 'meta_data') {
+        } else {
+          $this->apiError($result, 'Could not create event');
+        }
+      }
+      return [];
+    }
+
+    /*$result = $client->getEvent($entity->id());
+    if ($this->isApiError($result)) {
+      return $this->apiError($result, 'Cannot get event');
+    }
+    $meta_data = $result['meta_data'];
+    $meta_data['DrupalURL'] = $this->getDrupalUrl($entity);
+    $result = $client->updateEvent($entity->id(), [
+      'meta_data' => $meta_data
+    ]);
+    if ($this->isApiError($result)) {
+      foreach ($result['json'] as $type => $errors) {
+        if ($type == 'meta_data') {
           foreach ($errors as $error) {
             if ($error == "Meta data property 'DrupalURL' does not exist.") {
               $this->messenger->addError(t("Meta data property 'DrupalURL' does not exist."));
@@ -466,7 +485,7 @@ class PretixEventManager extends PretixAbstractManager {
         }
       }
       return [];
-    }
+    }*/
     return $result;
   }
 
