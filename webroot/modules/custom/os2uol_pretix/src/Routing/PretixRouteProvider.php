@@ -48,7 +48,7 @@ class PretixRouteProvider implements EntityRouteProviderInterface {
 
   public const ENTITY_OPERATION_EDIT = 'edit pretix events';
 
-  public const ENTITY_OPERATION_ADD = 'add pretix events';
+  public const ENTITY_OPERATION_ADD = 'add own pretix events';
 
   /**
    * {@inheritdoc}

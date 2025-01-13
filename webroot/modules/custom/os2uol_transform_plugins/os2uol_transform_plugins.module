@@ -44,11 +44,13 @@ function os2uol_transform_plugins_block_content_transform_alter(&$transformation
 
   if ($transformation['bundle'] == 'application_form') {
     $node = \Drupal::routeMatch()->getParameter('node');
-    // Get the field_domain_access values.
-    $domain_access_array = $node->get('field_domain_access');
     $domain_array = [];
-    foreach ($domain_access_array as $domain_access) {
-      $domain_array[] = $domain_access->getString();
+    if (!empty($node)) {
+      // Get the field_domain_access values.
+      $domain_access_array = $node->get('field_domain_access');
+      foreach ($domain_access_array as $domain_access) {
+        $domain_array[] = $domain_access->getString();
+      }
     }
     $transformation['field_domain_access'] = $domain_array;
   }
