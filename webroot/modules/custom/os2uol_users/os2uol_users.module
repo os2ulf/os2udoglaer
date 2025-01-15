@@ -14,13 +14,12 @@ use Drupal\views\Views;
  * Implements hook_ENTITY_TYPE_access().
  */
 function os2uol_users_user_access(\Drupal\user\UserInterface $user, $operation, \Drupal\Core\Session\AccountInterface $current_user) {
-  $allowed_roles = os2uol_get_public_user_roles();
+  $has_allowed_role = os2uol_user_has_allowed_role($user);
+  $is_on_current_domain = os2uol_user_is_on_current_domain($user);
 
-  // If user has any of the allowed roles, return neutral.
-  foreach ($user->getRoles(TRUE) as $role) {
-    if (in_array($role, $allowed_roles)) {
-      return AccessResult::neutral();
-    }
+  // If the user has any of the allowed roles and is on the current domain, return neutral.
+  if ($has_allowed_role && $is_on_current_domain) {
+    return AccessResult::neutral();
   }
 
   // If current user does not have permission to view private user information, return forbidden.
@@ -29,6 +28,36 @@ function os2uol_users_user_access(\Drupal\user\UserInterface $user, $operation, 
   }
 
   return AccessResult::neutral();
+}
+
+/**
+ * Checks whether the user is on the current domain.
+ *
+ * @param $user
+ *
+ * @return bool
+ */
+function os2uol_user_is_on_current_domain($user): bool {
+  /** @var \Drupal\domain\DomainNegotiatorInterface $domain_negotiator */
+  $domain_negotiator = \Drupal::service('domain.negotiator');
+  $current_domain_id = $domain_negotiator->getActiveId();
+
+  $user_domains = array_column($user->get('field_domain_access')->getValue(), 'target_id');
+  return in_array($current_domain_id, $user_domains);
+}
+
+/**
+ * Checks whether the user has any of the allowed roles.
+ *
+ * @param $user
+ *
+ * @return bool
+ */
+function os2uol_user_has_allowed_role($user): bool {
+  $allowed_roles = os2uol_get_public_user_roles();
+  $user_roles = $user->getRoles(TRUE);
+
+  return !empty(array_intersect($user_roles, $allowed_roles));
 }
 
 function os2uol_get_public_user_roles(): array {
