@@ -133,13 +133,11 @@ module:
   search_api_exclude_entity: 0
   search_api_page: 0
   search_api_solr: 0
-  sendgrid_integration: 0
   serialization: 0
   sharedemail: 0
   shortcut: 0
   simple_access_log: 0
   simple_sitemap: 0
-  smtp: 0
   status_feed: 0
   styles: 0
   symfony_mailer_lite: 0
