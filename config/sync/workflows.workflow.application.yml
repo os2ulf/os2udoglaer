@@ -77,6 +77,7 @@ type_settings:
     cancel:
       label: Annulleret
       from:
+        - cancelled
         - draft
       to: cancelled
       weight: 5
@@ -89,6 +90,7 @@ type_settings:
     luk:
       label: Lukket
       from:
+        - closed
         - draft
       to: closed
       weight: 6
