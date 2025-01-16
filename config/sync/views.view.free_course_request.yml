@@ -1502,7 +1502,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 50
+          items_per_page: 200
           total_pages: null
           id: 0
           tags:
@@ -2259,6 +2259,7 @@ display:
           entity_field: uid
           plugin_id: standard
           required: false
+      use_ajax: true
       header: {  }
       footer: {  }
       display_extenders: {  }
