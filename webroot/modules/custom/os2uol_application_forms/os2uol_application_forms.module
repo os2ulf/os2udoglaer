@@ -477,6 +477,7 @@ function os2uol_application_forms_node_access(\Drupal\node\NodeInterface $node, 
       // Define the states that should restrict editing.
       $restricted_states = [
         'ready_for_payment',
+        'awaiting_payment',
         'published',
         'refused',
       ];
