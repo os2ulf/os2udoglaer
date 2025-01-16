@@ -71,28 +71,28 @@ function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterfa
  *   The date of the event (Afviklingsdato) in timestamp format.
  *
  * @return string
- *   Returns the machine-readable value for the semester, e.g., "1_halvar_2025_2026" or "2_halvar_2025_2026".
+ *   Returns the machine-readable value for the semester, e.g., "1_halvar_2024_2025" or "2_halvar_2024_2025".
  */
 function calculateSemesterMachineName($afviklingsdato) {
   // Get the timestamp of the given date (Afviklingsdato).
   $event_date = new \DateTime();
   $event_date->setTimestamp($afviklingsdato);
 
-  // Get the year and month of the event.
+  // Get the year, month and day of the event.
   $year = $event_date->format('Y');
   $month = $event_date->format('m');
+  $day = $event_date->format('d');
 
-  // Calculate the school year.
-  if ($month >= 1 && $month <= 6) {
-    // First half of the year (1. halvår)
-    $school_year_start = $year - 1; // Previous year.
-    $school_year_end = $year; // Current year.
+  if ($month >= 7 && $day >= 15 || $month > 7) {
+    // From 15/07 to 31/12 -> 1. halvår of the current school year.
+    $school_year_start = $year;
+    $school_year_end = $year + 1;
     return '1_halvar_' . $school_year_start . '_' . $school_year_end;
   }
-  else {
-    // Second half of the year (2. halvår)
-    $school_year_start = $year; // Current year.
-    $school_year_end = $year + 1; // Next year.
+  elseif ($month <= 7 && $day <= 14 || $month < 7) {
+    // From 01/01 to 14/07 -> 2. halvår of the previous school year.
+    $school_year_start = $year - 1;
+    $school_year_end = $year;
     return '2_halvar_' . $school_year_start . '_' . $school_year_end;
   }
 }
