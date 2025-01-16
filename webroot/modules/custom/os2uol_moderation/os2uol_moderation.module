@@ -2,6 +2,10 @@
 
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\os2uol_domain\DomainConfigHelper;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\content_moderation_notifications\Entity\ContentModerationNotification;
+use Drupal\domain\Entity\Domain;
 
 /**
  * Implements hook_cron().
@@ -39,6 +43,18 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
     '@config' => print_r($domain_config->getRawData(), TRUE),
     '@domain_id' => $domain->id(),
   ]);
+
+  // Fetch the domain set in the notification.
+  $notification_domain = $entity->getDomain();
+
+  // If the domain in the notification does not match the active domain, skip sending the notification.
+  if ($notification_domain && $notification_domain !== $domain->id()) {
+    \Drupal::logger('os2uol_moderation')->info('Skipping notification for domain: @notification_domain as it does not match the active domain: @active_domain', [
+      '@notification_domain' => $notification_domain,
+      '@active_domain' => $domain->id(),
+    ]);
+    return;
+  }
 
   // Default fallback email address.
   $fallback_email = 'fallback@os2udoglaer.dk';
@@ -85,5 +101,79 @@ function os2uol_moderation_views_query_alter($view, \Drupal\views\Plugin\views\q
         )
       ");
     }
+  }
+}
+
+
+/**
+ * Implements hook_entity_type_alter().
+ */
+function os2uol_moderation_entity_type_alter(array &$entity_types) {
+  if (isset($entity_types['content_moderation_notification'])) {
+    $entity_types['content_moderation_notification']->setClass(
+      'Drupal\os2uol_moderation\Entity\ContentModerationNotification'
+    );
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  if ($form_id === 'content_moderation_notification_edit_form' || $form_id === 'content_moderation_notification_add_form') {
+    \Drupal::logger('os2uol_moderation')->info('Processing form alter for @form_id.', ['@form_id' => $form_id]);
+
+    $entity = NULL;
+
+    // Check if the form has an entity.
+    if (isset($form['#entity']) && $form['#entity'] instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
+      $entity = $form['#entity'];
+    }
+    else {
+      $route_match = \Drupal::routeMatch();
+      $entity = $route_match->getParameter('content_moderation_notification');
+
+      // Handle entity for add form where the entity is not yet created.
+      if ($form_id === 'content_moderation_notification_add_form' && !$entity) {
+        $entity = \Drupal::entityTypeManager()
+          ->getStorage('content_moderation_notification')
+          ->create([]);
+      }
+    }
+
+    if (!$entity instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
+      \Drupal::logger('os2uol_moderation')->error('No valid entity found for the form.');
+      return;
+    }
+
+    // Load domains.
+    $domains = \Drupal::entityTypeManager()->getStorage('domain')->loadMultiple();
+    $domain_options = [];
+    foreach ($domains as $domain) {
+      $domain_options[$domain->id()] = $domain->label();
+    }
+
+    // Add the domain dropdown to the form.
+    $form['domain'] = [
+      '#type' => 'select',
+      '#title' => t('Domain'),
+      '#options' => $domain_options,
+      '#default_value' => $entity->getDomain() ?? '',
+      '#description' => t('Select a domain for this notification.'),
+      '#required' => FALSE,
+      '#weight' => -10,
+    ];
+
+    // Ensure the entity is set back on the form for saving.
+    $form['#entity'] = $entity;
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function os2uol_moderation_entity_presave(EntityInterface $entity) {
+  if ($entity instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
+    \Drupal::logger('os2uol_moderation')->info('Saving domain: @domain', ['@domain' => $entity->getDomain()]);
   }
 }
