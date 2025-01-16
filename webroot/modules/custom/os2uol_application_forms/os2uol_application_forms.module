@@ -465,7 +465,8 @@ function os2uol_application_forms_mail_alter(&$message) {
  * Implements hook_node_access().
  *
  * Restrict editing access to certain moderation states for "Skole" and
- * "Institution" roles.
+ * "Institution" roles, but allow editing in the "accepted", "draft",
+ * "cancelled", and "closed" states.
  */
 function os2uol_application_forms_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
   // Check if this is an application node and the operation is 'update' (edit).
@@ -474,7 +475,15 @@ function os2uol_application_forms_node_access(\Drupal\node\NodeInterface $node, 
     if ($node->hasField('moderation_state')) {
       $moderation_state = $node->get('moderation_state')->value;
 
-      // Define the states that should restrict editing.
+      // Define the states that allow editing for these roles.
+      $allowed_states = [
+        'accepted',
+        'draft',
+        'cancelled',
+        'closed',
+      ];
+
+      // Define the states that restrict editing for these roles.
       $restricted_states = [
         'ready_for_payment',
         'awaiting_payment',
@@ -484,7 +493,12 @@ function os2uol_application_forms_node_access(\Drupal\node\NodeInterface $node, 
 
       // Check if the current user has the 'Skole' or 'Institution' role.
       if ($account->hasRole('school') || $account->hasRole('institution')) {
-        // If the application is in a restricted state, deny edit access.
+        // Allow editing if the state is in the allowed list.
+        if (in_array($moderation_state, $allowed_states)) {
+          return \Drupal\Core\Access\AccessResult::allowed();
+        }
+
+        // Restrict editing if the state is in the restricted list.
         if (in_array($moderation_state, $restricted_states)) {
           return \Drupal\Core\Access\AccessResult::forbidden();
         }
