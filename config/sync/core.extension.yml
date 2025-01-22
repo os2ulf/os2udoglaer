@@ -138,6 +138,7 @@ module:
   shortcut: 0
   simple_access_log: 0
   simple_sitemap: 0
+  smtp: 0
   status_feed: 0
   styles: 0
   symfony_mailer_lite: 0
