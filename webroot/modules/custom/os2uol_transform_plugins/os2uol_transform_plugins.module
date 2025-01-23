@@ -1,5 +1,6 @@
 <?php
 
+use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\transform_api\Transform\EntityTransform;
 use Drupal\transform_api_responsive_image\Plugin\Transform\Field\ResponsiveImageTransform;
 use Drupal\transform_api_views\Transform\ViewTransform;
@@ -43,15 +44,18 @@ function os2uol_transform_plugins_block_content_transform_alter(&$transformation
   }
 
   if ($transformation['bundle'] == 'application_form') {
-    $node = \Drupal::routeMatch()->getParameter('node');
     $domain_array = [];
-    if (!empty($node)) {
-      // Get the field_domain_access values.
-      $domain_access_array = $node->get('field_domain_access');
-      foreach ($domain_access_array as $domain_access) {
-        $domain_array[] = $domain_access->getString();
-      }
+
+    /** @var \Drupal\domain\DomainNegotiator $domain_negotiator */
+    $domain_negotiator = \Drupal::service('domain.negotiator');
+
+    // Add current and default domain to transformation.
+    $domain_array[] = $domain_negotiator->getActiveId();
+
+    if ($domain_negotiator->getActiveId() !== Os2uolDomain::DEFAULT_DOMAIN_ID) {
+      $domain_array[] = Os2uolDomain::DEFAULT_DOMAIN_ID;
     }
+
     $transformation['field_domain_access'] = $domain_array;
   }
 }
