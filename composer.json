@@ -229,6 +229,8 @@
                 "(#2988937) An invalid form control with name='body[0][value]' is not focusable. with ckeditor enabled": "https://www.drupal.org/files/issues/2023-04-25/dependency-using-body-as-target-2988937-12.patch"
             },
             "drupal/content_moderation_notifications": {
+                "Add domain support to Content Moderation Notifications": "patches/content_moderation_notifications_domain.patch",
+                "Enable token support for ad-hoc email addresses": "patches/content_moderation_notifications_support_adhoc_token.patch",
                 "(#3419565) Allow a notification to bypass the content access check": "https://www.drupal.org/files/issues/2024-02-06/content_moderation_notifications-bypass_access_check-3419565-2.patch"
             },
             "drupal/diff": {
@@ -270,7 +272,8 @@
                 "(#3435903) Fix incompatibility with devel ^5.2": "https://www.drupal.org/files/issues/2024-08-01/fix_incompatibility_with_devel_5.2.patch"
             },
             "drupal/views_bulk_operations": {
-                "(#3422715) Missing checkboxes in 4.2.6 when using Views Data Export": "https://git.drupalcode.org/project/views_bulk_operations/-/merge_requests/79.diff"
+                "(#3422715) Missing checkboxes in 4.2.6 when using Views Data Export": "https://git.drupalcode.org/project/views_bulk_operations/-/merge_requests/79.diff",
+                "(#3210957) VBO is skipping translated entities during batch process": "https://git.drupalcode.org/project/views_bulk_operations/-/merge_requests/66.diff"
             },
             "drupal/workbench": {
                 "Apply patch from branch 3484630-mismatched-views-area": "https://git.drupalcode.org/issue/workbench-3484630/-/commit/41ff2be540e760aec54e06cd35c5e5a75e21f502.diff"

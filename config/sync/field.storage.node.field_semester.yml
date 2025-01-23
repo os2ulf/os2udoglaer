@@ -23,6 +23,12 @@ settings:
     -
       value: 2_halvar_2025_2026
       label: '2. halvår 2025/2026'
+    -
+      value: 1_halvar_2026_2027
+      label: '1. halvår 2026/2027'
+    -
+      value: 2_halvar_2026_2027
+      label: '2. halvår 2025/2026'
   allowed_values_function: ''
 module: options
 locked: false

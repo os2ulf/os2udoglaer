@@ -1,0 +1,10 @@
+uuid: d603c1c0-f925-4e02-a643-9421cb787784
+langcode: da
+status: true
+dependencies: {  }
+id: sendmail
+label: Sendmail
+plugin: sendmail
+configuration:
+  query:
+    command: '/usr/sbin/sendmail -t'

@@ -159,7 +159,7 @@ class PretixEntityHooks implements ContainerInjectionInterface {
     $access = AccessResult::neutral();
 
     // Check if the operation is for viewing or editing Pretix events
-    if ($operation === PretixRouteProvider::ENTITY_OPERATION_VIEW || $operation === PretixRouteProvider::ENTITY_OPERATION_EDIT) {
+    if ($operation === PretixRouteProvider::ENTITY_OPERATION_VIEW || $operation === PretixRouteProvider::ENTITY_OPERATION_EDIT || $operation === PretixRouteProvider::ENTITY_OPERATION_ADD) {
 
       // Cache permissions to avoid rechecking
       $access->cachePerPermissions();

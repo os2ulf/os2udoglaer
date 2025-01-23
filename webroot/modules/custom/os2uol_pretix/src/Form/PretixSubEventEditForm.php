@@ -24,7 +24,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 class PretixSubEventEditForm extends FormBase {
 
   /**
-   * The Pretix event manager.
+   * The Entity type manager.
    *
    * @var EntityTypeManagerInterface
    */
