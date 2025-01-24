@@ -9,6 +9,8 @@ use Drupal\content_moderation_notifications\Entity\ContentModerationNotification
  */
 class ContentModerationNotification extends BaseEntity {
 
+  public $domain;
+
   /**
    * Gets the domain.
    *
