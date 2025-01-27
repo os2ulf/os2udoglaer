@@ -1,78 +1,62 @@
-diff --color -ruN webroot/modules/contrib/content_moderation_notifications/content_moderation_notifications.services.yml webroot/modules/custom/content_moderation_notifications_patched/content_moderation_notifications.services.yml
---- webroot/modules/contrib/content_moderation_notifications/content_moderation_notifications.services.yml	2024-12-05 23:40:08.000000000 +0100
-+++ webroot/modules/custom/content_moderation_notifications_patched/content_moderation_notifications.services.yml	2025-01-16 19:34:39.213506958 +0100
-@@ -4,4 +4,4 @@
+diff --git a/content_moderation_notifications.services.yml b/content_moderation_notifications.services.yml
+index fb4bb66..a795daa 100644
+--- a/content_moderation_notifications.services.yml
++++ b/content_moderation_notifications.services.yml
+@@ -4,4 +4,4 @@ services:
      arguments: ['@entity_type.manager', '@content_moderation.moderation_information']
    content_moderation_notifications.notification:
      class: Drupal\content_moderation_notifications\Notification
 -    arguments: ['@current_user', '@entity_type.manager', '@plugin.manager.mail', '@module_handler', '@content_moderation_notifications.notification_information', '@?token.entity_mapper']
 +    arguments: ['@current_user', '@entity_type.manager', '@plugin.manager.mail', '@module_handler', '@content_moderation_notifications.notification_information', '@token', '@?token.entity_mapper']
-diff --color -ruN webroot/modules/contrib/content_moderation_notifications/src/Notification.php webroot/modules/custom/content_moderation_notifications_patched/src/Notification.php
---- webroot/modules/contrib/content_moderation_notifications/src/Notification.php	2024-12-05 23:40:08.000000000 +0100
-+++ webroot/modules/custom/content_moderation_notifications_patched/src/Notification.php	2025-01-16 19:34:39.213506958 +0100
-@@ -13,7 +13,7 @@
+diff --git a/src/Notification.php b/src/Notification.php
+index 8a73db1..e44c109 100644
+--- a/src/Notification.php
++++ b/src/Notification.php
+@@ -9,6 +9,7 @@ use Drupal\Core\Entity\SynchronizableInterface;
+ use Drupal\Core\Extension\ModuleHandlerInterface;
+ use Drupal\Core\Mail\MailManagerInterface;
+ use Drupal\Core\Session\AccountInterface;
++use Drupal\Core\Utility\Token;
+ use Drupal\token\TokenEntityMapperInterface;
  use Drupal\user\Entity\User;
  use Drupal\user\EntityOwnerInterface;
- use Drupal\user\RoleInterface;
--
-+use Drupal\Core\Utility\Token;
+@@ -62,6 +63,13 @@ class Notification implements NotificationInterface {
+    */
+   protected $tokenEntityMapper;
  
- /**
-  * General service for moderation-related questions about Entity API.
-@@ -56,6 +56,13 @@
-   protected $notificationInformation;
- 
-   /**
++  /**
 +   * The token service.
 +   *
 +   * @var \Drupal\Core\Utility\Token
 +   */
-+  protected $tokenService;
++  protected $token;
 +
-+  /**
-    * The token entity mapper, if available.
+   /**
+    * Creates a new ModerationInformation instance.
     *
-    * @var \Drupal\token\TokenEntityMapperInterface
-@@ -75,15 +82,17 @@
-    *   The module handler service.
-    * @param \Drupal\content_moderation_notifications\NotificationInformationInterface $notification_information
-    *   The notification information service.
-+   * @param \Drupal\Core\Utility\Token $token_service
-+   *   The token service.
+@@ -78,13 +86,14 @@ class Notification implements NotificationInterface {
     * @param \Drupal\token\TokenEntityMapperInterface $token_entity_mappper
     *   The token entity mapper service.
     */
 -  public function __construct(AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager, MailManagerInterface $mail_manager, ModuleHandlerInterface $module_handler, NotificationInformationInterface $notification_information, TokenEntityMapperInterface $token_entity_mappper = NULL) {
--    $this->currentUser = $current_user;
-+  public function __construct(AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager, MailManagerInterface $mail_manager, ModuleHandlerInterface $module_handler, NotificationInformationInterface $notification_information, Token $token_service, TokenEntityMapperInterface $token_entity_mappper = NULL) {    $this->currentUser = $current_user;
++  public function __construct(AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager, MailManagerInterface $mail_manager, ModuleHandlerInterface $module_handler, NotificationInformationInterface $notification_information, Token $token, TokenEntityMapperInterface $token_entity_mappper = NULL) {
+     $this->currentUser = $current_user;
      $this->entityTypeManager = $entity_type_manager;
      $this->mailManager = $mail_manager;
      $this->moduleHandler = $module_handler;
      $this->notificationInformation = $notification_information;
-+    $this->tokenService = $token_service;
      $this->tokenEntityMapper = $token_entity_mappper;
++    $this->token = $token;
    }
  
-@@ -210,15 +219,18 @@
-         currentCallable: fn() => $renderer->renderInIsolation($template),
+   /**
+@@ -211,6 +220,9 @@ class Notification implements NotificationInterface {
          deprecatedCallable: fn() => $renderer->renderPlain($template),
        );
--
+ 
 +      // Replace any tokens.
-+      $adhoc_emails = $this->tokenService->replace($adhoc_emails, $data['params']['context']);
++      $adhoc_emails = $this->token->replace($adhoc_emails, $data['params']['context']);
++
        // Split Adhoc emails on commas and newlines.
        $adhoc_emails = array_map('trim', explode(',', preg_replace("/((\r?\n)|(\r\n?))/", ',', $adhoc_emails)));
-       $anonymous_access = $entity->access('view', User::getAnonymousUser());
-       foreach ($adhoc_emails as $email) {
-         // Attempt to find a user matching this email.
--        $email_accounts = $this->entityTypeManager->getStorage('user')->loadByProperties(
--          ['status' => 1, 'mail' => $email]
--        );
-+        /** @var \Drupal\Core\Session\AccountInterface[] $email_accounts */
-+        $email_accounts = $this->entityTypeManager->getStorage('user')->loadByProperties([
-+          'status' => 1,
-+          'mail' => $email,
-+        ]);
-         $email_account = reset($email_accounts);
-         if ($email_account && $entity->access('view', $email_account)) {
-           $data['to'][] = $email;
+       $anonymous_access = $notification->bypassAnonymousAccess() || $entity->access('view', User::getAnonymousUser());
