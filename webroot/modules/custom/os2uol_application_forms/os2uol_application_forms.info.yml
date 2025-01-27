@@ -10,3 +10,5 @@ dependencies:
   - drupal:views_bulk_operations
   - drupal:content_moderation
   - os2uol_domain:os2uol_domain
+  - os2uol_moderation:os2uol_moderation
+  - content_moderation_notifications:content_moderation_notifications

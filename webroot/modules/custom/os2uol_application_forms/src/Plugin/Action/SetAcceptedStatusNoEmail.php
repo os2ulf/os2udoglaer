@@ -5,6 +5,7 @@ namespace Drupal\os2uol_application_forms\Plugin\Action;
 use Drupal\Core\Action\ActionBase;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\node\NodeInterface;
+use Drupal\os2uol_application_forms\Os2Notification;
 
 /**
  * Provides a 'Set status to Accepted (No Email)' action.
@@ -22,24 +23,24 @@ class SetAcceptedStatusNoEmail extends ActionBase {
    */
   public function execute($entity = NULL) {
     if ($entity instanceof NodeInterface) {
+      // Set status to accepted.
+      $entity->set('moderation_state', 'accepted');
 
-      // Check if the entity has the 'field_rfc_send_mail' field.
-      if ($entity->hasField('field_rfc_send_mail')) {
-        // Check if email sending is disabled.
-        $send_mail = $entity->get('field_rfc_send_mail')->value;
+      /** @var \Symfony\Component\HttpFoundation\Session\Session $session */
+      $session = \Drupal::service('session');
 
-        // Set status to accepted without triggering email if send_mail is false.
-        if (!$send_mail) {
-          // Set status to accepted.
-          $entity->set('moderation_state', 'accepted');
+      $session->set(Os2Notification::NO_EMAIL_SESSION_VARIABLE, TRUE);
+      $session->save();
 
-          // Prevent email notification from being sent.
-          \Drupal::service('content_moderation_notifications.manager')->stopNotification($entity);
-        }
+      try {
+        // Save the entity.
+        $entity->save();
+      } catch (\Throwable $e) {
+        watchdog_exception('os2uol_application_forms', $e);
+      } finally {
+        $session->remove(Os2Notification::NO_EMAIL_SESSION_VARIABLE);
+        $session->save();
       }
-
-      // Save the entity.
-      $entity->save();
     }
   }
 
