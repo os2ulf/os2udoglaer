@@ -199,6 +199,32 @@ function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
       '#weight' => -10,
     ];
 
+    $workflow_id = $form['workflow']['#default_value'];
+
+    if (!empty($workflow_id)) {
+      // Load the workflow.
+      $workflow = \Drupal::entityTypeManager()->getStorage('workflow')->load($workflow_id);
+
+      /** @var \Drupal\workflows\Transition[] $transitions */
+      $transitions = $workflow->getTypePlugin()->getTransitions();
+      $transition_options = $form['transitions_wrapper']['transitions']['#options'];
+
+      foreach ($transitions as $transition) {
+        $from =  $transition->from();
+        $to = $transition->to();
+
+        $form_array = array_map(function ($item) {
+          return $item->label();
+        }, $from);
+
+        $from = implode(', ', $form_array);
+
+        $transition_options[$transition->id()] = "<b>{$transition->label()}</b>" . " ({$from} -> {$to->label()})";
+      }
+
+      $form['transitions_wrapper']['transitions']['#options'] = $transition_options;
+    }
+
     // Ensure the entity is set back on the form for saving.
     $form['#entity'] = $entity;
     $form['actions']['submit']['#submit'][] = 'os2uol_moderation_content_moderation_notification_form_submit';
