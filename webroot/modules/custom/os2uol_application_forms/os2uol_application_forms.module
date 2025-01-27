@@ -1,11 +1,14 @@
 <?php
 
+use Drupal\content_moderation\Entity\ContentModerationState;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\domain\Entity\Domain;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Mime\Address;
+use Symfony\Component\Mime\Header\MailboxHeader;
 
 /**
  * Implements hook_node_presave().
@@ -367,8 +370,6 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
  * Implements hook_content_moderation_notification_mail_data_alter().
  */
 function os2uol_application_forms_content_moderation_notification_mail_data_alter(EntityInterface $entity, array &$data) {
-  // Dynamically set the Reply-To header based on workflow type.
-  os2uol_application_forms_set_reply_to($entity, $data);
     // Check if the entity has the field_rfc_send_mail field.
   if ($entity->hasField('field_rfc_send_mail')) {
     $send_mail = $entity->get('field_rfc_send_mail')->getString();
@@ -414,16 +415,40 @@ function os2uol_application_forms_content_moderation_notification_mail_data_alte
  */
 function os2uol_application_forms_set_reply_to(EntityInterface $entity, array &$data) {
   // Fetch the workflow type associated with the entity.
-  $workflow_type = $entity->get('moderation_state')->getFieldDefinition()->getSetting('workflow');
+  $moderation_entity = ContentModerationState::loadFromModeratedEntity($entity);
+  $workflow_type = $moderation_entity->get('workflow')->getString();
 
   // Check if the entity has the required fields for the application workflow.
-  if ($workflow_type === 'application' && $entity->hasField('field_mailto')) {
+  if ($workflow_type === 'application') {
+    /** @var \Drupal\os2uol_domain\DomainConfigHelper $domain_helper */
+    $domain_helper = \Drupal::service('os2uol_domain.config_helper');
+
+    $domain = os2uol_application_forms_get_domain_from_application($entity);
+
+    $config = $domain_helper->getDomainConfig('os2uol_settings.settings', $domain);
+    $site_config = $domain_helper->getDomainConfig('system.site', $domain);
+
+    $from_email = $config->get('from_reply_to_email');
+
     // Use the value of the field_mailto field as the Reply-To address.
-    $mailto = $entity->get('field_mailto')->getString();
-    if (!empty($mailto)) {
-      $data['headers']['Reply-To'] = $mailto;
+    if ($entity->hasField('field_mailto')) {
+      $reply_to = $entity->get('field_mailto')->getString();
+    }
+
+    // Get email from domain settings if field_mailto is empty.
+    if (empty($reply_to) && $from_email) {
+      $reply_to = $from_email;
+    }
+
+    if ($from_email) {
+      $mailbox = new MailboxHeader('From', new Address($from_email, $site_config->get('name') ?: ''));
+      $data['headers']['From'] = $mailbox->getBodyAsString();
+    }
+
+    if (!empty($reply_to)) {
+      $data['headers']['Reply-To'] = $reply_to;
       \Drupal::logger('os2uol_application_forms')->info('Reply-To set to @mailto for application workflow.', [
-        '@mailto' => $mailto,
+        '@mailto' => $reply_to,
       ]);
     } else {
       \Drupal::logger('os2uol_application_forms')->warning('Reply-To not set for application workflow because field_mailto is empty.');
@@ -458,5 +483,33 @@ function os2uol_application_forms_mail_alter(&$message) {
   // @see \Drupal\webform\Plugin\WebformHandler\EmailWebformHandler::getMessage().
   if (str_starts_with($message['id'], 'content_moderation_notifications')) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+
+    $entity = $message['params']['context']['entity'];
+
+    // Dynamically set the Reply-To header based on workflow type.
+    os2uol_application_forms_set_reply_to($entity, $message);
   }
+}
+
+/**
+ * @param \Drupal\Core\Entity\EntityInterface $application
+ *
+ * @return \Drupal\domain\Entity\Domain|null
+ */
+function os2uol_application_forms_get_domain_from_application(EntityInterface $application): Domain|null {
+  $entity_domains = array_column($application->get('field_domain_access')->getValue(), 'target_id');
+
+  // Remove default domain from the list.
+  $default_domain = Os2uolDomain::DEFAULT_DOMAIN_ID;
+  $entity_domains = array_diff($entity_domains, [$default_domain]);
+
+  if (empty($entity_domains)) {
+    return null;
+  }
+
+  // Get the first domain from the list.
+  $domain_id = reset($entity_domains);
+  $domain = Domain::load($domain_id);
+
+  return $domain;
 }
