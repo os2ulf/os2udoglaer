@@ -447,6 +447,8 @@ function os2uol_application_forms_set_reply_to(EntityInterface $entity, array &$
 
     if (!empty($reply_to)) {
       $data['headers']['Reply-To'] = $reply_to;
+      $data['headers']['Return-Path'] = $reply_to;
+      $data['headers']['Sender'] = $reply_to;
       \Drupal::logger('os2uol_application_forms')->info('Reply-To set to @mailto for application workflow.', [
         '@mailto' => $reply_to,
       ]);
