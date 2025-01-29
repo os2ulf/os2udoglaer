@@ -129,10 +129,26 @@ function os2uol_moderation_views_query_alter($view, \Drupal\views\Plugin\views\q
  */
 function os2uol_moderation_entity_type_alter(array &$entity_types) {
   if (isset($entity_types['content_moderation_notification'])) {
-    $entity_types['content_moderation_notification']->setClass(
-      'Drupal\os2uol_moderation\Entity\ContentModerationNotification'
-    );
+    /** @var \Drupal\Core\Config\Entity\ConfigEntityType $type */
+    $type = $entity_types['content_moderation_notification'];
+
+    $type->setClass('Drupal\os2uol_moderation\Entity\ContentModerationNotification');
+
+    // Add the domain field to the config export.
+    $config_export = $type->get('config_export');
+    $config_export[] = 'domain';
+    $type->set('config_export', $config_export);
   }
+}
+
+/**
+ * Implements hook_config_schema_info_alter().
+ */
+function os2uol_moderation_config_schema_info_alter(&$definitions) {
+  $definitions['content_moderation_notifications.content_moderation_notification.*']['mapping']['domain'] = [
+    'type' => 'string',
+    'label' => 'Domain',
+  ];
 }
 
 /**
@@ -183,9 +199,42 @@ function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterfa
       '#weight' => -10,
     ];
 
+    $workflow_id = $form['workflow']['#default_value'];
+
+    if (!empty($workflow_id)) {
+      // Load the workflow.
+      $workflow = \Drupal::entityTypeManager()->getStorage('workflow')->load($workflow_id);
+
+      /** @var \Drupal\workflows\Transition[] $transitions */
+      $transitions = $workflow->getTypePlugin()->getTransitions();
+      $transition_options = $form['transitions_wrapper']['transitions']['#options'];
+
+      foreach ($transitions as $transition) {
+        $from =  $transition->from();
+        $to = $transition->to();
+
+        $form_array = array_map(function ($item) {
+          return $item->label();
+        }, $from);
+
+        $from = implode(', ', $form_array);
+
+        $transition_options[$transition->id()] = "<b>{$transition->label()}</b>" . " ({$from} -> {$to->label()})";
+      }
+
+      $form['transitions_wrapper']['transitions']['#options'] = $transition_options;
+    }
+
     // Ensure the entity is set back on the form for saving.
     $form['#entity'] = $entity;
+    $form['actions']['submit']['#submit'][] = 'os2uol_moderation_content_moderation_notification_form_submit';
   }
+}
+
+function os2uol_moderation_content_moderation_notification_form_submit($form, FormStateInterface $form_state) {
+  $entity = $form_state->getFormObject()->getEntity();
+  $entity->setDomain($form_state->getValue('domain'));
+  $entity->save();
 }
 
 /**

@@ -9,7 +9,7 @@ id: block_content.application_form.field_mail_to
 field_name: field_mail_to
 entity_type: block_content
 bundle: application_form
-label: 'Modtager mail'
+label: 'Reply-To mail'
 description: ''
 required: true
 translatable: false
