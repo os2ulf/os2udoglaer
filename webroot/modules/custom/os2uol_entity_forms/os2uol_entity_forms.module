@@ -522,8 +522,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     'field_data_anonymized',
     'field_rfc_remarks',
     'field_rfc_granted_amount',
-    'field_rfc_attachment',
-    'field_rfc_spent_amount',
     'field_old_id',
     'field_rfc_follow_up_mail_sent',
     'field_semester',
@@ -562,6 +560,55 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         ],
       ],
     ];
+  }
+
+  // Attach necessary libraries.
+  $form['#attached']['library'][] = 'os2uol_entity_forms/field-group-form-alter';
+  $form['#attached']['library'][] = 'os2uol_entity_forms/custom-form-alter';
+
+  // Check if the form is the "gratis forløb" node edit form.
+  if ($form_id === 'node_free_course_request_edit_form') {
+    $node = $form_state->getFormObject()->getEntity();
+    $current_user = \Drupal::currentUser();
+    $user_roles = $current_user->getRoles();
+    $allowed_roles = ['school', 'institution']; // Roles with limited access
+    $is_limited_role = !empty(array_intersect($allowed_roles, $user_roles)); // Check if user has a limited role
+
+    // Get the current moderation state.
+    $current_state = $node->get('moderation_state')->getString();
+    $state_accepted = 'accepted'; // "Godkendt"
+    $state_awaiting_payment = 'awaiting_payment'; // "Afventer udbetaling"
+
+    // Fields to be editable in "Accepted" state for limited roles.
+    $editable_fields = ['field_rfc_attachment', 'field_rfc_spent_amount'];
+
+    // If user has limited role and state is "Accepted".
+    if ($is_limited_role && $current_state === $state_accepted) {
+      foreach ($form as $key => &$element) {
+        if (is_array($element) && isset($element['#type'])) {
+          // Disable all fields by default except moderation actions.
+          if ($key !== 'actions' && strpos($key, 'moderation_state') === false) {
+            $element['#disabled'] = TRUE;
+          }
+        }
+      }
+
+      // Explicitly make the editable fields enabled.
+      foreach ($editable_fields as $editable_field) {
+        if (isset($form[$editable_field])) {
+          $form[$editable_field]['#disabled'] = FALSE;
+        }
+      }
+    }
+
+    // If the state is "Awaiting Payment", lock all fields.
+    if ($current_state === $state_awaiting_payment) {
+      foreach ($form as &$element) {
+        if (is_array($element) && isset($element['#type'])) {
+          $element['#disabled'] = TRUE;
+        }
+      }
+    }
   }
 }
 
