@@ -30,6 +30,7 @@ permissions:
   - 'edit own theater_refund content'
   - 'use application transition accept'
   - 'use application transition afventer'
+  - 'use application transition await_payment'
   - 'use application transition cancel'
   - 'use application transition luk'
   - 'use text format basic_html'
