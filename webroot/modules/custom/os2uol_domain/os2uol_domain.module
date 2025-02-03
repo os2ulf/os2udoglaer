@@ -69,3 +69,22 @@ function os2uol_domain_options_list_alter(array &$options, array $context) {
     }
   }
 }
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function os2uol_domain_views_data_alter(array &$data) {
+  $data['user__field_domain_access']['current_all'] = [
+    'title' => t('Current domain (user)'),
+    'group' => t('Domain'),
+    'filter' => [
+      'id' => 'domain_access_user_current_filter',
+      'field' => 'field_domain_access_target_id',
+      'table' => 'user__field_domain_access',
+      'field_name' => 'field_domain_access',
+      'title' => t('Has access to current domain'),
+      'help' => t('Filters out users having access to current domain.'),
+      'type' => 'yes-no',
+    ],
+  ];
+}
