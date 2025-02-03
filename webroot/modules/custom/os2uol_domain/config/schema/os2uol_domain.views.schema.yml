@@ -1,0 +1,3 @@
+views.filter.domain_access_user_current_filter:
+  type: views_filter
+  label: 'Current Domain (user)'
