@@ -6,10 +6,8 @@ use Drupal\Core\Config\Config;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Language\LanguageInterface;
 use Drupal\Core\Utility\Token;
-use Drupal\domain\Entity\Domain;
 use Drupal\node\Entity\Node;
 use Drupal\os2uol_domain\DomainConfigHelper;
-use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\user\Entity\User;
 
 /**
@@ -38,7 +36,7 @@ class EmailService {
    * @throws \Exception
    */
   public function sendNotification(User $user, Node $node, string $type) {
-    $domain = $this->getDomainFromNode($node);
+    $domain = os2uol_domain_get_domain_from_node($node);
 
     if (empty($domain)) {
       throw new \Exception("Node {$node->id()} does not have a proper domain assigned to it.");
@@ -98,35 +96,5 @@ class EmailService {
     ]);
 
     return $message;
-  }
-
-  /**
-   * Get domain from node. Excludes default domain.
-   *
-   * @param \Drupal\node\Entity\Node $node
-   *
-   * @return \Drupal\domain\Entity\Domain|null
-   */
-  protected function getDomainFromNode(Node $node): ?Domain {
-    $domains = array_column($node->get('field_domain_access')->getValue(), 'target_id');
-
-    if (empty($domains)) {
-      return NULL;
-    }
-
-    // Unset default domain
-    foreach ($domains as $key => $domain) {
-      if ($domain == Os2uolDomain::DEFAULT_DOMAIN_ID) {
-        unset($domains[$key]);
-      }
-    }
-
-    if (empty($domains)) {
-      return NULL;
-    }
-
-    $domain_id = reset($domains);
-
-    return Domain::load($domain_id);
   }
 }
