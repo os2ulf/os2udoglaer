@@ -14,7 +14,6 @@ class ModerationService {
   protected $entityTypeManager;
   protected $configFactory;
   protected $emailService;
-
   protected $results;
 
   /**
@@ -34,7 +33,7 @@ class ModerationService {
     $this->results = [
       'skipped' => [],
       'unpublished' => [],
-      'no_action' => [],
+      'warnings' => [],
       'errors' => [],
     ];
   }
@@ -73,36 +72,38 @@ class ModerationService {
    */
   protected function processNode(Node $node, int $unpublishInterval) {
     $owner = $node->getOwner();
+    $nid = $node->id();
 
     // Skip nodes if "Automatisk afpublicering" is disabled.
     if ($owner->hasField('field_disable_auto_unpublish') && !$owner->get('field_disable_auto_unpublish')->value) {
       $this->results['skipped'][] = [
-        'nid' => $node->id(),
+        'nid' => $nid,
         'uid' => $owner->id(),
       ];
       return;
     }
 
-    // Check for field_period logic.
-    if ($this->checkFieldPeriod($node)) {
-      return;
+    // Prioritize "Hele Året" logic first.
+    if ($node->hasField('field_all_year') && $node->get('field_all_year')->value == 1) {
+      // Ignore `field_period`, only apply time-based unpublishing.
+      if ($this->checkAllYear($node, $unpublishInterval)) {
+        return;
+      }
+    } else {
+      // If "Hele Året" is not enabled, check `field_period`.
+      if ($this->checkFieldPeriod($node)) {
+        return;
+      }
     }
-
-    // Check for "Hele Året" logic.
-    if ($this->checkAllYear($node, $unpublishInterval)) {
-      return;
-    }
-
-    // If no actions were needed, add to "no action" list.
-    $this->results['no_action'][] = $node->id();
   }
 
   /**
-   * Handles the field_period logic.
+   * Handles the field_period logic (only used if "Hele Året" is disabled).
    */
   protected function checkFieldPeriod(Node $node): bool {
     if ($node->hasField('field_period') && !$node->get('field_period')->isEmpty()) {
       $periodEnd = strtotime($node->get('field_period')->end_value);
+      $nid = $node->id();
 
       if ($periodEnd && time() > $periodEnd) {
         $this->unpublishNode($node, 'field_period');
@@ -113,26 +114,23 @@ class ModerationService {
   }
 
   /**
-   * Handles the "Hele Året" logic.
+   * Handles "Hele Året" unpublishing logic.
    */
   protected function checkAllYear(Node $node, int $unpublishInterval): bool {
     $config = $this->configFactory->get('os2uol_moderation.settings');
     $firstWarning = $config->get('first_warning') * 24 * 60 * 60;
     $secondWarning = $config->get('second_warning') * 24 * 60 * 60;
 
-    if ($node->hasField('field_all_year') && $node->get('field_all_year')->value == 1) {
-        $lastUpdated = $node->getChangedTime();
-        $timeSinceUpdate = time() - $lastUpdated;
+    $lastUpdated = $node->getChangedTime();
+    $timeSinceUpdate = time() - $lastUpdated;
+    $nid = $node->id();
 
-        // If the unpublish interval is exceeded, unpublish the node.
-        if ($timeSinceUpdate >= $unpublishInterval) {
-            $this->unpublishNode($node, 'time_since_update');
-            return TRUE;
-        }
-
-        // Handle warning emails.
-        $this->sendWarningEmail($node, $timeSinceUpdate, $firstWarning, $secondWarning, $unpublishInterval);
+    if ($timeSinceUpdate >= $unpublishInterval) {
+      $this->unpublishNode($node, 'time_since_update');
+      return TRUE;
     }
+
+    $this->sendWarningEmail($node, $timeSinceUpdate, $firstWarning, $secondWarning, $unpublishInterval);
     return FALSE;
   }
 
@@ -140,31 +138,29 @@ class ModerationService {
    * Sends warning emails based on time since last update.
    */
   protected function sendWarningEmail(Node $node, int $timeSinceUpdate, int $firstWarning, int $secondWarning, int $unpublishInterval): void {
-      try {
-          $owner = $node->getOwner();
-          $email = $owner->getEmail();
-          if (!$email) {
-              $this->results['errors'][] = "Node {$node->id()} skipped: No email for user {$owner->id()}.";
-              return;
-          }
-
-          // Determine which warning to send.
-          if ($timeSinceUpdate >= $firstWarning && $timeSinceUpdate < $secondWarning) {
-              $this->emailService->sendNotification($owner, $node, 'first_warning');
-              $this->results['warnings'][] = [
-                  'nid' => $node->id(),
-                  'type' => 'first_warning',
-              ];
-          } elseif ($timeSinceUpdate >= $secondWarning && $timeSinceUpdate < $unpublishInterval) {
-              $this->emailService->sendNotification($owner, $node, 'second_warning');
-              $this->results['warnings'][] = [
-                  'nid' => $node->id(),
-                  'type' => 'second_warning',
-              ];
-          }
-      } catch (\Exception $e) {
-          $this->results['errors'][] = "Failed to send email for node {$node->id()}: {$e->getMessage()}";
+    try {
+      $owner = $node->getOwner();
+      $email = $owner->getEmail();
+      if (!$email) {
+        return;
       }
+
+      if ($timeSinceUpdate >= $firstWarning && $timeSinceUpdate < $secondWarning) {
+        $this->emailService->sendNotification($owner, $node, 'first_warning');
+        $this->results['warnings'][] = [
+          'nid' => $node->id(),
+          'type' => 'first_warning',
+        ];
+      } elseif ($timeSinceUpdate >= $secondWarning && $timeSinceUpdate < $unpublishInterval) {
+        $this->emailService->sendNotification($owner, $node, 'second_warning');
+        $this->results['warnings'][] = [
+          'nid' => $node->id(),
+          'type' => 'second_warning',
+        ];
+      }
+    } catch (\Exception $e) {
+      $this->results['errors'][] = "Failed to send email for node {$node->id()}: {$e->getMessage()}";
+    }
   }
 
   /**
@@ -180,7 +176,6 @@ class ModerationService {
       $node->isDefaultRevision(TRUE);
       $node->save();
 
-      // Record the unpublished node.
       $this->results['unpublished'][] = [
         'nid' => $node->id(),
         'reason' => $reason,
@@ -194,33 +189,21 @@ class ModerationService {
    * Logs a summary of the moderation process.
    */
   protected function logSummary() {
-    // Log skipped nodes.
+    if (!empty($this->results['unpublished'])) {
+      \Drupal::logger('os2uol_moderation')->notice('Unpublished @count nodes.', [
+        '@count' => count($this->results['unpublished']),
+      ]);
+    }
+
     if (!empty($this->results['skipped'])) {
       \Drupal::logger('os2uol_moderation')->notice('Skipped @count nodes due to "Automatisk afpublicering" being disabled.', [
         '@count' => count($this->results['skipped']),
       ]);
     }
 
-    // Log unpublished nodes.
-    if (!empty($this->results['unpublished'])) {
-      \Drupal::logger('os2uol_moderation')->notice('Unpublished @count nodes. Details: @details', [
-        '@count' => count($this->results['unpublished']),
-        '@details' => json_encode($this->results['unpublished']),
-      ]);
-    }
-
-    // Log nodes requiring no action.
-    if (!empty($this->results['no_action'])) {
-      \Drupal::logger('os2uol_moderation')->notice('No actions needed for @count nodes.', [
-        '@count' => count($this->results['no_action']),
-      ]);
-    }
-
-    // Log errors if any occurred.
     if (!empty($this->results['errors'])) {
-      \Drupal::logger('os2uol_moderation')->error('Encountered errors with @count nodes. Details: @details', [
+      \Drupal::logger('os2uol_moderation')->error('Encountered errors with @count nodes.', [
         '@count' => count($this->results['errors']),
-        '@details' => json_encode($this->results['errors']),
       ]);
     }
   }

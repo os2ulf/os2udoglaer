@@ -3,15 +3,15 @@ langcode: da
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.full
     - field.storage.node.field_description
     - search_api.server.solr
-    - core.entity_view_mode.node.full
   module:
-    - search_api_solr
-    - node
-    - user
-    - search_api
     - layoutbuilder_search_api
+    - node
+    - os2uol_search
+    - search_api_solr
+    - user
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -160,6 +160,12 @@ field_settings:
         - anonymous
       view_mode:
         'entity:node':
+          ':default': ''
+          course: ':default'
+          course_educators: ':default'
+          exercise: ':default'
+          internship: ':default'
+          news: ':default'
           page: full
   status:
     label: Published
@@ -263,6 +269,7 @@ processor_settings:
       slideshow: 0
       spacer: 0
       video: 0
+  post_number_city: {  }
   rendered_item: {  }
   solr_date_range:
     weights:
@@ -324,6 +331,7 @@ tracker_settings:
     indexing_order: fifo
 options:
   cron_limit: 50
+  delete_on_fail: true
   index_directly: true
   track_changes_in_references: true
 server: solr

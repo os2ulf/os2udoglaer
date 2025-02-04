@@ -1,6 +1,6 @@
 uuid: 194eff5b-c73d-41a8-be2b-85544dd14451
 langcode: da
-status: true
+status: false
 dependencies:
   module:
     - os2uol_moderation

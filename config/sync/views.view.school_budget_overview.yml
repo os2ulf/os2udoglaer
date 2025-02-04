@@ -13,6 +13,7 @@ dependencies:
   module:
     - datetime
     - node
+    - os2uol_domain
     - paragraphs
     - user
     - views_simple_math_field
@@ -629,6 +630,44 @@ display:
           plugin_id: bundle
           value:
             theater_refund: theater_refund
+        current_all:
+          id: current_all
+          table: user__field_domain_access
+          field: current_all
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_access_user_current_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       style:
         type: table
         options:
@@ -770,13 +809,10 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget_year'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.paragraph.field_allocated_budget'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.paragraph.field_allocated_budget_year'
         - 'config:field.storage.paragraph.field_allocated_budget'
         - 'config:field.storage.paragraph.field_allocated_budget_year'
   page_1:
@@ -785,6 +821,9 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      defaults:
+        filters: true
+        filter_groups: true
       display_extenders:
         os2uol_search:
           os2uol_search_result_string: ''
@@ -809,13 +848,10 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget_year'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.paragraph.field_allocated_budget'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.paragraph.field_allocated_budget_year'
         - 'config:field.storage.paragraph.field_allocated_budget'
         - 'config:field.storage.paragraph.field_allocated_budget_year'
   page_2:
@@ -880,12 +916,9 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
+        - url.site
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.paragraph.field_allocated_budget_year'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.paragraph.field_allocated_budget'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.paragraph.field_allocated_budget_year'
         - 'config:field.storage.paragraph.field_allocated_budget'
         - 'config:field.storage.paragraph.field_allocated_budget_year'

@@ -3,3 +3,7 @@ type: module
 description: 'This module alters the entity forms.'
 core_version_requirement: ^10 || ^11
 package: 'OS2udoglær'
+dependencies:
+  - os2uol_moderation:os2uol_moderation
+  - os2uol_application_forms:os2uol_application_forms
+
