@@ -5,3 +5,11 @@ os2uol_moderation.settings_form:
     _title: 'OS2UOL Moderation Settings'
   requirements:
     _permission: 'administer site configuration'
+
+os2uol_moderation.email_settings_form:
+  path: '/admin/config/os2uol_moderation/emails'
+  defaults:
+    _form: '\Drupal\os2uol_moderation\Form\PurgeEmailSettingsForm'
+    _title: 'OS2UOL Moderation Email Settings'
+  requirements:
+    _permission: 'administer site configuration'
