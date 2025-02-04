@@ -223,7 +223,8 @@
                 "Configure limit method on titles and link fields": "patches/configure_limit_method_on_titles_and_link_fields.patch"
             },
             "drupal/autosave_form": {
-                "(#3355495) PHP 8.2 deprecation issue with AutosaveFormBuilder": "https://www.drupal.org/files/issues/2023-04-20/autosave_form-dynamic-property-deprecation.patch"
+                "(#3355495) PHP 8.2 deprecation issue with AutosaveFormBuilder": "https://www.drupal.org/files/issues/2023-04-20/autosave_form-dynamic-property-deprecation.patch",
+                "(#3487459) Deprecation error on user edit form": "https://www.drupal.org/files/issues/2024-11-18/3487459-4.patch"
             },
             "drupal/conditional_fields": {
                 "(#2988937) An invalid form control with name='body[0][value]' is not focusable. with ckeditor enabled": "https://www.drupal.org/files/issues/2023-04-25/dependency-using-body-as-target-2988937-12.patch"
