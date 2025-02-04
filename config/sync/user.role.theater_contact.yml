@@ -4,15 +4,21 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - node.type.transport_pool_form
   module:
     - filter
+    - node
     - system
     - toolbar
+    - workbench
 id: theater_contact
 label: Teaterkontakt
 weight: 0
 is_admin: null
 permissions:
   - 'access toolbar'
+  - 'access workbench'
+  - 'edit own transport_pool_form content'
   - 'use text format basic_html'
+  - 'view own unpublished content'
   - 'view the administration theme'
