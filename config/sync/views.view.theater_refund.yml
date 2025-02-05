@@ -19,7 +19,10 @@ dependencies:
     - field.storage.user.field_name
     - node.type.theater_refund
     - system.menu.workbench
+    - user.role.administrator
+    - user.role.editor
     - user.role.theater_contact
+    - user.role.webmaster
     - workflows.workflow.application
   module:
     - better_exposed_filters
@@ -1396,7 +1399,9 @@ display:
         type: role
         options:
           role:
-            theater_contact: theater_contact
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
       cache:
         type: tag
         options: {  }
@@ -5433,6 +5438,45 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        uid_current:
+          id: uid_current
+          table: users
+          field: uid_current
+          relationship: field_rfc_school
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          plugin_id: user_current
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -5500,6 +5544,7 @@ display:
         - url
         - url.query_args
         - url.site
+        - user
         - 'user.node_grants:view'
         - user.roles
       tags:
