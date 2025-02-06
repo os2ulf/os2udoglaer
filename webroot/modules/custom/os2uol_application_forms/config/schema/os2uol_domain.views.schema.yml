@@ -1,0 +1,3 @@
+views.filter.os2uol_application_forms_year_filter:
+  type: views_filter
+  label: 'Year filter'

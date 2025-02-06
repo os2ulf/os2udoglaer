@@ -515,3 +515,21 @@ function os2uol_application_forms_get_domain_from_application(EntityInterface $a
 
   return $domain;
 }
+
+/**
+ * Implements hook_views_data_alter().
+ */
+function os2uol_application_forms_views_data_alter(array &$data) {
+  $data['paragraph__field_allocated_budget_year']['budget_year'] = [
+    'title' => t('Budget for year'),
+    'group' => t('Paragraph'),
+    'filter' => [
+      'id' => 'os2uol_application_forms_year_filter',
+      'field' => 'field_allocated_budget_year_value',
+      'table' => 'paragraph__field_allocated_budget_year',
+      'field_name' => 'field_allocated_budget_year',
+      'title' => t('Budget for year'),
+      'help' => t('Budget for year filter.'),
+    ],
+  ];
+}
