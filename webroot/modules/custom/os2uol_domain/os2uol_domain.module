@@ -1,6 +1,7 @@
 <?php
 
-use Drupal\node\Entity\Node;
+use Drupal\domain\Entity\Domain;
+use Drupal\os2uol_domain\Os2uolDomain;
 
 /**
  * Implements hook_entity_create().
@@ -87,4 +88,31 @@ function os2uol_domain_views_data_alter(array &$data) {
       'type' => 'yes-no',
     ],
   ];
+}
+
+/**
+ * @param \Drupal\node\NodeInterface $node
+ *
+ * @return \Drupal\domain\Entity\Domain|null
+ */
+function os2uol_domain_get_domain_from_node(\Drupal\node\NodeInterface $node): Domain|null {
+  if (!$node->hasField('field_domain_access')) {
+    return NULL;
+  }
+
+  $entity_domains = array_column($node->get('field_domain_access')->getValue(), 'target_id');
+
+  // Remove default domain from the list.
+  $default_domain = Os2uolDomain::DEFAULT_DOMAIN_ID;
+  $entity_domains = array_diff($entity_domains, [$default_domain]);
+
+  if (empty($entity_domains)) {
+    return NULL;
+  }
+
+  // Get the first domain from the list.
+  $domain_id = reset($entity_domains);
+  $domain = Domain::load($domain_id);
+
+  return $domain;
 }

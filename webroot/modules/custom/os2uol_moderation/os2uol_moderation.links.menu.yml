@@ -4,3 +4,10 @@ os2uol_moderation.settings:
   parent: system.admin_config
   route_name: os2uol_moderation.settings_form
   weight: 100
+
+os2uol_moderation.email_settings:
+  title: 'Email Settings'
+  description: 'Configure OS2UOL Moderation email settings.'
+  parent: os2uol_moderation.settings
+  route_name: os2uol_moderation.email_settings_form
+  weight: 101
