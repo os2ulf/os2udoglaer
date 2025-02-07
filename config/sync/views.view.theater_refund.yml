@@ -3197,6 +3197,13 @@ display:
     display_plugin: page
     position: 1
     display_options:
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            webmaster: webmaster
+            editor: editor
       filters:
         type:
           id: type
@@ -3624,6 +3631,7 @@ display:
         groups:
           1: AND
       defaults:
+        access: false
         relationships: false
         filters: false
         filter_groups: false
@@ -5016,6 +5024,12 @@ display:
           text: redigér
           output_url_as_text: false
           absolute: false
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+            theater_contact: theater_contact
       filters:
         type:
           id: type
@@ -5482,6 +5496,7 @@ display:
         groups:
           1: AND
       defaults:
+        access: false
         relationships: false
         fields: false
         filters: false
