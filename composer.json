@@ -243,9 +243,6 @@
             "drupal/domain_login_restrict" : {
                 "(#3336184) The configuration is not exported": "https://www.drupal.org/files/issues/2024-02-12/domain_login_restrict-3336184-9.patch"
             },
-            "drupal/entity_clone": {
-                "(#3050027) Inline Blocks on Layout Builder Fail to Clone Correctly": "https://www.drupal.org/files/issues/2024-12-03/3050027--inline-blocks-on-layout-builder-fail-to-clone-correctly.patch"
-            },
             "drupal/paragraphs": {
                 "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2023-07-20/2901390-9-109.patch"
             },
