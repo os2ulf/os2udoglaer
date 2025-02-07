@@ -41,16 +41,19 @@ class PurgeSettingsForm extends ConfigFormBase {
       '#type' => 'number',
       '#title' => $this->t('First Warning Interval (days)'),
       '#default_value' => $config->get('first_warning'),
+      '#description' => $this->t('Days before purging when the first warning should be sent.'),
     ];
     $form['second_warning'] = [
       '#type' => 'number',
       '#title' => $this->t('Second Warning Interval (days)'),
       '#default_value' => $config->get('second_warning'),
+      '#description' => $this->t('Days before purging when the second warning should be sent.'),
     ];
     $form['unpublish_interval'] = [
       '#type' => 'number',
       '#title' => $this->t('Unpublish Interval (days)'),
       '#default_value' => $config->get('unpublish_interval'),
+      '#description' => $this->t('Days after a node is automatically unpublished.'),
     ];
 
     return parent::buildForm($form, $form_state) + $form;

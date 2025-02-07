@@ -423,7 +423,7 @@ function os2uol_application_forms_set_reply_to(EntityInterface $entity, array &$
     /** @var \Drupal\os2uol_domain\DomainConfigHelper $domain_helper */
     $domain_helper = \Drupal::service('os2uol_domain.config_helper');
 
-    $domain = os2uol_application_forms_get_domain_from_application($entity);
+    $domain = os2uol_domain_get_domain_from_node($entity);
 
     $config = $domain_helper->getDomainConfig('os2uol_settings.settings', $domain);
     $site_config = $domain_helper->getDomainConfig('system.site', $domain);
@@ -491,29 +491,6 @@ function os2uol_application_forms_mail_alter(&$message) {
     // Dynamically set the Reply-To header based on workflow type.
     os2uol_application_forms_set_reply_to($entity, $message);
   }
-}
-
-/**
- * @param \Drupal\Core\Entity\EntityInterface $application
- *
- * @return \Drupal\domain\Entity\Domain|null
- */
-function os2uol_application_forms_get_domain_from_application(EntityInterface $application): Domain|null {
-  $entity_domains = array_column($application->get('field_domain_access')->getValue(), 'target_id');
-
-  // Remove default domain from the list.
-  $default_domain = Os2uolDomain::DEFAULT_DOMAIN_ID;
-  $entity_domains = array_diff($entity_domains, [$default_domain]);
-
-  if (empty($entity_domains)) {
-    return null;
-  }
-
-  // Get the first domain from the list.
-  $domain_id = reset($entity_domains);
-  $domain = Domain::load($domain_id);
-
-  return $domain;
 }
 
 /**

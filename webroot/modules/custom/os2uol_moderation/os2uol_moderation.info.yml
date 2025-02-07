@@ -6,3 +6,4 @@ package: OS2udoglær
 dependencies:
   - drupal:node
   - drupal:content_moderation
+  - os2uol_domain:os2uol_domain

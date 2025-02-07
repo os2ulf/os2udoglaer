@@ -1,0 +1,27 @@
+os2uol_moderation.settings:
+  type: config_object
+  label: 'OS2UOL Moderation settings'
+  mapping:
+    days:
+      type: integer
+      label: 'Days'
+    first_warning:
+      type: integer
+      label: 'First warning'
+    second_warning:
+      type: integer
+      label: 'Second warning'
+    unpublish_interval:
+      type: integer
+      label: 'Unpublish interval'
+
+os2uol_moderation.email_settings:
+  type: config_object
+  label: 'OS2UOL Moderation email settings'
+  mapping:
+    first_warning_email:
+      type: text
+      label: 'First warning email'
+    second_warning_email:
+      type: text
+      label: 'Second warning email'

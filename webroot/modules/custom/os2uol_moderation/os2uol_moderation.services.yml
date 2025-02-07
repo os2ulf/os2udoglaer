@@ -8,7 +8,7 @@ services:
 
   os2uol_moderation.email_service:
     class: Drupal\os2uol_moderation\EmailService
-    arguments: ['@plugin.manager.mail']
+    arguments: ['@plugin.manager.mail', '@os2uol_domain.config_helper', '@token']
 
   logger.channel.os2uol_moderation:
     class: Drupal\Core\Logger\LoggerChannel

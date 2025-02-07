@@ -1,11 +1,7 @@
 <?php
 
 use Drupal\Core\Entity\EntityInterface;
-use Drupal\os2uol_domain\DomainConfigHelper;
-use Drupal\Core\Field\BaseFieldDefinition;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\content_moderation_notifications\Entity\ContentModerationNotification;
-use Drupal\domain\Entity\Domain;
 
 /**
  * Implements hook_cron().
@@ -13,6 +9,15 @@ use Drupal\domain\Entity\Domain;
  */
 function os2uol_moderation_cron() {
   \Drupal::service('os2uol_moderation.moderation_service')->processModeration();
+}
+
+/**
+ * Implements hook_mail().
+ */
+function os2uol_moderation_mail($key, &$message, $params) {
+  $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+  $message['body'][] = \Drupal\Core\Render\Markup::create($params['content']);
+  $message['subject'] = str_replace(["\r", "\n"], '', $params['subject']);
 }
 
 /**
