@@ -3,6 +3,7 @@
 use Drupal\content_moderation\Entity\ContentModerationState;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\domain\Entity\Domain;
+use Drupal\os2uol_application_forms\Os2Notification;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
@@ -364,33 +365,46 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
       $entity->set('field_rfc_payment_date', $current_timestamp);
     }
   }
+
+  // Prevent content_moderation_notifications from sending emails if field_rfc_send_mail is set to 0.
+  if ($entity->hasField('field_rfc_send_mail')) {
+    $send_mail = $entity->get('field_rfc_send_mail')->getString() === '1';
+
+    if (!$send_mail) {
+      /** @var \Symfony\Component\HttpFoundation\Session\Session $session */
+      $session = \Drupal::service('session');
+
+      $session->set(Os2Notification::NO_EMAIL_SESSION_VARIABLE, TRUE);
+      $session->save();
+
+      // Set the field value so it's always enabled.
+      $entity->set('field_rfc_send_mail', '1');
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function os2uol_application_forms_entity_update(\Drupal\Core\Entity\EntityInterface $entity) {
+  // Make sure session is cleared after the entity is saved.
+  // This runs after content_moderation_notifications_entity_update, since both modules weights are 0.
+  // Alphabetical order is used to determine the order of execution.
+  if ($entity->hasField('field_rfc_send_mail')) {
+    /** @var \Symfony\Component\HttpFoundation\Session\Session $session */
+    $session = \Drupal::service('session');
+
+    if ($session->get(Os2Notification::NO_EMAIL_SESSION_VARIABLE)) {
+      $session->remove(Os2Notification::NO_EMAIL_SESSION_VARIABLE);
+      $session->save();
+    }
+  }
 }
 
 /**
  * Implements hook_content_moderation_notification_mail_data_alter().
  */
 function os2uol_application_forms_content_moderation_notification_mail_data_alter(EntityInterface $entity, array &$data) {
-    // Check if the entity has the field_rfc_send_mail field.
-  if ($entity->hasField('field_rfc_send_mail')) {
-    $send_mail = $entity->get('field_rfc_send_mail')->getString();
-    $status = $entity->get('moderation_state')->getString();
-
-    // Always allow emails for the "draft" state.
-    if ($status === 'draft') {
-      return; // Do not modify $data for draft notifications.
-    }
-
-    // Block email if send_mail is false.
-    if (!$send_mail) {
-      $data['to'] = [];
-    } else {
-      // Ensure notifications are sent only for configured states.
-      if (!in_array($status, ['accepted', 'refused'])) {
-        $data['to'] = [];
-      }
-    }
-  }
-
   // Add guest user's email from field_rfc_mail.
   if ($entity->hasField('field_rfc_mail')) {
     $guest_email = $entity->get('field_rfc_mail')->getString();
