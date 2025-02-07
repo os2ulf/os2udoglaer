@@ -186,11 +186,9 @@ function os2uol_settings_token_info() {
  */
 function os2uol_settings_tokens($type, $tokens, array $data, array $options, BubbleableMetadata $bubbleable_metadata) {
   $replacements = [];
-
   if ($type == 'os2uol_settings') {
     $config = \Drupal::config('os2uol_settings.settings');
     $domain_id = \Drupal::service('domain.negotiator')->getActiveId();
-    $bubbleable_metadata->addCacheableDependency($config);
 
     // Fetch each token and process it.
     foreach ($tokens as $name => $original) {
@@ -214,8 +212,7 @@ function os2uol_settings_tokens($type, $tokens, array $data, array $options, Bub
         case 'domain_email':
           $domain_email = $config->get('from_reply_to_email') ?: 'info@os2udoglaer.dk';
           $replacements[$original] = $domain_email;
-          continue 2; // Skip the signature processing below.
-
+          continue 2;
         default:
           $signature = '';
       }
@@ -229,4 +226,30 @@ function os2uol_settings_tokens($type, $tokens, array $data, array $options, Bub
   }
 
   return $replacements;
+}
+
+/**
+ * Implements hook_mail_alter() to customize Webform emails based on domain settings.
+ */
+function os2uol_settings_mail_alter(&$message) {
+  // Ensure this is a Webform email.
+  if (isset($message['id']) && strpos($message['id'], 'webform_submission') !== FALSE) {
+    $domain_id = \Drupal::service('domain.negotiator')->getActiveId();
+    $config = \Drupal::config('os2uol_settings.settings');
+
+    // Get domain-specific email settings.
+    $domain_email = $config->get('from_reply_to_email');
+    $email_signature = $config->get('email_signature')['value'];
+
+    // Override "From" and "Reply-To" addresses.
+    if (!empty($domain_email)) {
+      $message['headers']['From'] = $domain_email;
+      $message['headers']['Reply-To'] = $domain_email;
+    }
+
+    // Append domain-specific email signature to the email body.
+    if (!empty($email_signature)) {
+      $message['body'][] = "\n\n" . Markup::create(nl2br($email_signature));
+    }
+  }
 }
