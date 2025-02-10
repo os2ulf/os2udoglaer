@@ -170,15 +170,22 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
       // Detect the content type.
       $type = $entity->bundle();
 
-      if ($type === 'transport_pool_form') {
-        // Sum up field_tpf_expense for transport forms.
-        $transport_spent += $entity->get('field_tpf_expense')->value ?? 0;
-      }
-      else {
-        // Default case for other types.
-        $requested_amount += $entity->get('field_rfc_requested_amount')->value ?? 0;
-        $granted_amount += $entity->get('field_rfc_granted_amount')->value ?? 0;
-        $spent_amount += $entity->get('field_rfc_spent_amount')->value ?? 0;
+      switch ($type) {
+        case 'transport_pool_form':
+          $latest_revision = os2uol_application_forms_get_latest_revision($entity);
+          // Sum up field_tpf_expense for transport forms that are accepted.
+          if ($latest_revision->get('moderation_state')->getString() === 'accepted') {
+            $transport_spent += $latest_revision->get('field_tpf_expense')->value ?? 0;
+          }
+          break;
+        case 'free_course_request':
+        case 'theater_refund':
+        case 'school_budget_overview':
+          // Sum up field_rfc_requested_amount, field_rfc_granted_amount, and field_rfc_spent_amount for other types.
+          $requested_amount += $entity->get('field_rfc_requested_amount')->value ?? 0;
+          $granted_amount += $entity->get('field_rfc_granted_amount')->value ?? 0;
+          $spent_amount += $entity->get('field_rfc_spent_amount')->value ?? 0;
+          break;
       }
     }
 
@@ -214,6 +221,12 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
       ];
     }
   }
+}
+
+function os2uol_application_forms_get_latest_revision($entity) {
+  $storage = \Drupal::entityTypeManager()->getStorage($entity->getEntityTypeId());
+  $latest_revision_id = $storage->getLatestRevisionId($entity->id());
+  return $storage->loadRevision($latest_revision_id);
 }
 
 /**
