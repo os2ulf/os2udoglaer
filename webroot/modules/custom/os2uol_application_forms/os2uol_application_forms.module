@@ -148,7 +148,7 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
  */
 function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
   // Check if the view matches the required IDs.
-  if (in_array($view->id(), ['free_course_request', 'theater_refund', 'transport_applications'])) {
+  if (in_array($view->id(), ['free_course_request', 'theater_refund', 'transport_applications', 'school_budget_overview'])) {
     // Initialize sums for non-transport forms.
     $requested_amount = 0;
     $granted_amount = 0;
@@ -220,7 +220,9 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
  * Implements hook_preprocess_views_view().
  */
 function os2uol_application_forms_preprocess_views_view(&$variables) {
-  if ($variables['view']->id() == 'free_course_request' || $variables['view']->id() == 'theater_refund' || $variables['view']->id() == 'transport_applications') {
+  $view_id = $variables['view']->id();
+
+  if (in_array($view_id, ['free_course_request', 'theater_refund', 'transport_applications', 'school_budget_overview'])) {
     $variables['#attached']['library'][] = 'os2uol_application_forms/views';
   }
 }
@@ -519,6 +521,18 @@ function os2uol_application_forms_views_data_alter(array &$data) {
       'field' => 'field_allocated_budget_year_value',
       'table' => 'paragraph__field_allocated_budget_year',
       'field_name' => 'field_allocated_budget_year',
+      'title' => t('Budget for year'),
+      'help' => t('Budget for year filter.'),
+    ],
+  ];
+  $data['node__field_rfc_date']['budget_year'] = [
+    'title' => t('Budget for year'),
+    'group' => t('Content'),
+    'filter' => [
+      'id' => 'os2uol_application_forms_year_filter',
+      'field' => 'field_rfc_date_value',
+      'table' => 'node__field_rfc_date',
+      'field_name' => 'field_rfc_date',
       'title' => t('Budget for year'),
       'help' => t('Budget for year filter.'),
     ],
