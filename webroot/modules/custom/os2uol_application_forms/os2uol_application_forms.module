@@ -367,7 +367,7 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
   }
 
   // Prevent content_moderation_notifications from sending emails if field_rfc_send_mail is set to 0.
-  if ($entity->hasField('field_rfc_send_mail')) {
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_send_mail')) {
     $send_mail = $entity->get('field_rfc_send_mail')->getString() === '1';
 
     if (!$send_mail) {
@@ -390,7 +390,7 @@ function os2uol_application_forms_entity_update(\Drupal\Core\Entity\EntityInterf
   // Make sure session is cleared after the entity is saved.
   // This runs after content_moderation_notifications_entity_update, since both modules weights are 0.
   // Alphabetical order is used to determine the order of execution.
-  if ($entity->hasField('field_rfc_send_mail')) {
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_send_mail')) {
     /** @var \Symfony\Component\HttpFoundation\Session\Session $session */
     $session = \Drupal::service('session');
 
