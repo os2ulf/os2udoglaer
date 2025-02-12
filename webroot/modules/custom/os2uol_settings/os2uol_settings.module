@@ -14,6 +14,7 @@ function os2uol_settings_get_available_fonts(): array {
     'Muli' => 'Muli',
     'Open Sans' => 'Open Sans',
     'Roboto' => 'Roboto',
+    'Texta' => 'Texta',
   ];
 }
 
