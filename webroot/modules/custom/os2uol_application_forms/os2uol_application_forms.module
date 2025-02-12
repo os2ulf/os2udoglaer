@@ -157,6 +157,11 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
     // Initialize sums for transport_pool_form.
     $transport_spent = 0;
 
+    // Initialize sums for school_budget_overview.
+    $allocated_budget = 0;
+    $spent_budget = 0;
+    $remaining_budget = 0;
+
     // Use the current view configuration.
     $temp_view = \Drupal\views\Views::getView($view->id());
     $temp_view->setDisplay($view->current_display); // Match the current display.
@@ -180,17 +185,20 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
           break;
         case 'free_course_request':
         case 'theater_refund':
-        case 'school_budget_overview':
           // Sum up field_rfc_requested_amount, field_rfc_granted_amount, and field_rfc_spent_amount for other types.
           $requested_amount += $entity->get('field_rfc_requested_amount')->value ?? 0;
           $granted_amount += $entity->get('field_rfc_granted_amount')->value ?? 0;
           $spent_amount += $entity->get('field_rfc_spent_amount')->value ?? 0;
           break;
       }
+
+      if ($view->id() === 'school_budget_overview') {
+        // TODO: Calculate the allocated, spent, and remaining budget.
+      }
     }
 
     // Create summary markup for non-transport forms.
-    if ($view->id() !== 'transport_applications') {
+    if (in_array($view->id(), ['free_course_request', 'theater_refund'])) {
       $sum_markup_general = Markup::create(
         '<table class="applications-summary">' .
         '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
@@ -217,6 +225,23 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
       // Attach the transport summary only for the transport_applications view.
       $view->attachment_before['sum_markup_transport'] = [
         '#markup' => $sum_markup_transport,
+        '#weight' => -10, // Appears before other elements.
+      ];
+    }
+
+    // Create summary markup for school_budget_overview view.
+    if ($view->id() === 'school_budget_overview') {
+      $sum_markup_school_budget = Markup::create(
+        '<table class="applications-summary-school-budget">' .
+        '<tr><td class="applications-summary__label">Tildelt budget: </td><td class="applications-summary__value">' . number_format($allocated_budget, 2, ',', '.') . ' kr.</td></tr>' .
+        '<tr><td class="applications-summary__label">Forbrugt budget: </td><td class="applications-summary__value">' . number_format($spent_budget, 2, ',', '.') . ' kr.</td></tr>' .
+        '<tr><td class="applications-summary__label">Resterende budget: </td><td class="applications-summary__value">' . number_format($remaining_budget, 2, ',', '.') . ' kr.</td></tr>' .
+        '</table>'
+      );
+
+      // Attach the school budget summary only for the school_budget_overview view.
+      $view->attachment_before['sum_markup_school_budget'] = [
+        '#markup' => $sum_markup_school_budget,
         '#weight' => -10, // Appears before other elements.
       ];
     }
