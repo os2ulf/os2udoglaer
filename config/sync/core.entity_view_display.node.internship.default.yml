@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
+    - field.field.node.internship.field_p_number
     - field.field.node.internship.field_pretix_email_notifiers
     - field.field.node.internship.field_pretix_event_short_form
     - field.field.node.internship.field_pretix_shop_url
@@ -268,6 +269,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 2
+    region: content
+  field_p_number:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 55
     region: content
   field_purpose_internship:
     type: text_default
