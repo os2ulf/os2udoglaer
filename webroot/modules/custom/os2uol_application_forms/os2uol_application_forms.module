@@ -148,7 +148,7 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
  */
 function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
   // Check if the view matches the required IDs.
-  if (in_array($view->id(), ['free_course_request', 'theater_refund', 'transport_applications', 'school_budget_overview'])) {
+  if (in_array($view->id(), ['free_course_request', 'theater_refund', 'transport_applications'])) {
     // Initialize sums for non-transport forms.
     $requested_amount = 0;
     $granted_amount = 0;
@@ -180,7 +180,6 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
           break;
         case 'free_course_request':
         case 'theater_refund':
-        case 'school_budget_overview':
           // Sum up field_rfc_requested_amount, field_rfc_granted_amount, and field_rfc_spent_amount for other types.
           $requested_amount += $entity->get('field_rfc_requested_amount')->value ?? 0;
           $granted_amount += $entity->get('field_rfc_granted_amount')->value ?? 0;
@@ -190,7 +189,7 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
     }
 
     // Create summary markup for non-transport forms.
-    if ($view->id() !== 'transport_applications') {
+    if (in_array($view->id(), ['free_course_request', 'theater_refund'])) {
       $sum_markup_general = Markup::create(
         '<table class="applications-summary">' .
         '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
@@ -221,6 +220,22 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
       ];
     }
   }
+
+  if ($view->id() == 'school_budget_overview') {
+    $sum_markup_school_budget = Markup::create(
+      '<table class="applications-summary">' .
+      '<tr><td class="applications-summary__label">Tildelt budget: </td><td id="applications-summary__value--allocated" class="applications-summary__value">0 kr.</td></tr>' .
+      '<tr><td class="applications-summary__label">Forbrugt budget: </td><td id="applications-summary__value--spent" class="applications-summary__value">0 kr.</td></tr>' .
+      '<tr><td class="applications-summary__label">Resterende budget: </td><td id="applications-summary__value--remaining" class="applications-summary__value">0 kr.</td></tr>' .
+      '</table>'
+    );
+
+    // Attach the school budget summary only for the school_budget_overview view.
+    $view->attachment_before['sum_markup_school_budget'] = [
+      '#markup' => $sum_markup_school_budget,
+      '#weight' => -10, // Appears before other elements.
+    ];
+  }
 }
 
 function os2uol_application_forms_get_latest_revision($entity) {
@@ -237,6 +252,42 @@ function os2uol_application_forms_preprocess_views_view(&$variables) {
 
   if (in_array($view_id, ['free_course_request', 'theater_refund', 'transport_applications', 'school_budget_overview'])) {
     $variables['#attached']['library'][] = 'os2uol_application_forms/views';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function os2uol_application_forms_preprocess_views_view_table(&$variables) {
+  $view_id = $variables['view']->id();
+
+  if ($view_id === 'school_budget_overview') {
+    $allocated_budget_field = 'field_allocated_budget';
+    $spent_budget_field = 'field_views_simple_math_field_1';
+    $remaining_budget_field = 'field_views_simple_math_field';
+
+    $allocated_budget = 0;
+    $spent_budget = 0;
+    $remaining_budget = 0;
+
+    foreach ($variables['rows'] as $row) {
+      $columns = $row['columns'];
+
+      $amount = $columns[$allocated_budget_field]['content'][0]['field_output']['#markup'];
+      $allocated_budget += (float) strip_tags($amount);
+
+      $amount = $columns[$spent_budget_field]['content'][0]['field_output']['#markup'];
+      $spent_budget += (float) strip_tags($amount);
+
+      $amount = $columns[$remaining_budget_field]['content'][0]['field_output']['#markup'];
+      $remaining_budget += (float) strip_tags($amount);
+    }
+
+    $variables['#attached']['drupalSettings']['os2uol_application_forms']['school_budget_overview'] = [
+      'allocated_budget' => $allocated_budget,
+      'spent_budget' => $spent_budget,
+      'remaining_budget' => $remaining_budget,
+    ];
   }
 }
 

@@ -20,8 +20,12 @@ dependencies:
     - os2uol_application_forms
     - os2uol_domain
     - paragraphs
+    - rest
+    - serialization
     - user
+    - views_data_export
     - views_simple_math_field
+    - xls_serialization
 id: school_budget_overview
 label: 'Skoleoversigt pr. år'
 module: views
@@ -571,24 +575,9 @@ display:
           prefix: ''
           suffix: ''
       pager:
-        type: mini
+        type: none
         options:
           offset: 0
-          pagination_heading_level: h4
-          items_per_page: 100
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Antal elementer'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- Alle -'
-            offset: false
-            offset_label: Forskydning
       exposed_form:
         type: bef
         options:
@@ -1013,7 +1002,60 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
+        - url.site
+        - 'user.node_grants:view'
+        - user.roles
+      tags:
+        - 'config:field.storage.paragraph.field_allocated_budget'
+        - 'config:field.storage.paragraph.field_allocated_budget_year'
+  data_export_1:
+    id: data_export_1
+    display_title: 'Data export'
+    display_plugin: data_export
+    position: 2
+    display_options:
+      style:
+        type: data_export
+        options:
+          formats:
+            xlsx: xlsx
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+            use_serializer_encode_only: false
+      display_extenders:
+        os2uol_search:
+          os2uol_search_result_string: ''
+        transform_api_facets:
+          transform_facets: {  }
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: default
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      path: admin/school-budget-export/xlsx
+      displays:
+        page_1: page_1
+        default: '0'
+      filename: 'os2uol-school-budget-export-[date:html_date].xlsx'
+      automatic_download: true
+      store_in_public_file_directory: false
+      custom_redirect_path: false
+      redirect_to_display: none
+      include_query_params: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
         - url.site
         - 'user.node_grants:view'
         - user.roles
@@ -1053,7 +1095,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - url.site
         - 'user.node_grants:view'
         - user.roles
