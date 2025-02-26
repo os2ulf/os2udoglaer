@@ -2,9 +2,12 @@
 
 namespace Drupal\os2uol_moderation;
 
+use Drupal\Core\Config\Config;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Language\LanguageInterface;
+use Drupal\Core\Utility\Token;
 use Drupal\node\Entity\Node;
+use Drupal\os2uol_domain\DomainConfigHelper;
 use Drupal\user\Entity\User;
 
 /**
@@ -12,41 +15,86 @@ use Drupal\user\Entity\User;
  */
 class EmailService {
 
-  protected $mailManager;
-
-  const FIRST_WARNING_TEMPLATE = 'os2uol_moderation_first_warning';
-  const SECOND_WARNING_TEMPLATE = 'os2uol_moderation_second_warning';
-  const UNPUBLISH_TEMPLATE = 'os2uol_moderation_unpublish';
+  protected ?Config $config = NULL;
 
   /**
    * Constructs a new EmailService.
    */
-  public function __construct(MailManagerInterface $mailManager) {
-    $this->mailManager = $mailManager;
-  }
+  public function __construct(
+    protected MailManagerInterface $mailManager,
+    protected DomainConfigHelper $domainConfigHelper,
+    protected Token $token,
+  ) {}
 
   /**
    * Sends an email notification.
+   *
+   * @param \Drupal\user\Entity\User $user
+   * @param \Drupal\node\Entity\Node $node
+   * @param string $type
+   *
+   * @throws \Exception
    */
   public function sendNotification(User $user, Node $node, string $type) {
-    $params = [
-      'username' => $user->getDisplayName(),
-      'node_title' => $node->getTitle(),
-      'message' => $this->getMessage($node, $type),
-    ];
-    $template_key = match ($type) {
-      'first_warning' => self::FIRST_WARNING_TEMPLATE,
-      'second_warning' => self::SECOND_WARNING_TEMPLATE,
-      'unpublish' => self::UNPUBLISH_TEMPLATE,
-    };
+    $domain = os2uol_domain_get_domain_from_node($node);
 
-    $this->mailManager->mail('os2uol_moderation', $template_key, $user->getEmail(), LanguageInterface::LANGCODE_DEFAULT, $params);
+    if (empty($domain)) {
+      throw new \Exception("Node {$node->id()} does not have a proper domain assigned to it.");
+    }
+
+    $this->config = $this->domainConfigHelper->getDomainConfig('os2uol_moderation.email_settings', $domain);
+
+    $params = [
+      'user' => $user,
+      'node' => $node,
+      'subject' => $this->getEmailSubject($node, $type),
+      'content' => $this->getEmailContent($node, $type),
+    ];
+
+    $this->mailManager->mail('os2uol_moderation', $type, $user->getEmail(), LanguageInterface::LANGCODE_DEFAULT, $params);
   }
 
   /**
-   * Returns the message based on notification type.
+   * Get email subject.
+   *
+   * @param \Drupal\node\Entity\Node $node
+   * @param string $type
+   *
+   * @return string
    */
-  protected function getMessage(Node $node, string $type): string {
-    return "This is a test message for type: $type.";
+  protected function getEmailSubject(Node $node, string $type): string {
+    $subject = $this->config->get($type . '_subject');
+
+    if (empty($subject)) {
+      throw new \Exception("Subject for $type email is empty.");
+    }
+
+    $subject = $this->token->replace($subject, [
+      'node' => $node,
+    ]);
+
+    return $subject;
+  }
+
+  /**
+   * Get email content.
+   *
+   * @param \Drupal\node\Entity\Node $node
+   * @param string $type
+   *
+   * @return string
+   */
+  protected function getEmailContent(Node $node, string $type): string {
+    $message = $this->config->get($type . '_email');
+
+    if (empty($message)) {
+      throw new \Exception("Email template for $type is empty.");
+    }
+
+    $message = $this->token->replace($message, [
+      'node' => $node,
+    ]);
+
+    return $message;
   }
 }

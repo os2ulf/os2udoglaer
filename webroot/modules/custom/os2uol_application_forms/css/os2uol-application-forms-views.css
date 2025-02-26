@@ -1,49 +1,57 @@
 .view-free-course-request,
 .view-theater-refund,
-.view-transport-applications {
+.view-transport-applications,
+.view-school-budget-overview {
   display: flex;
   flex-flow: column;
 }
 
 .view-free-course-request .vbo-view-form > .js-form-type-checkbox,
 .view-theater-refund .vbo-view-form > .js-form-type-checkbox,
-.view-transport-applications .vbo-view-form > .js-form-type-checkbox {
+.view-transport-applications .vbo-view-form > .js-form-type-checkbox,
+.view-school-budget-overview .vbo-view-form > .js-form-type-checkbox {
   display: none;
 }
 
 .view-free-course-request .contextual,
 .view-theater-refund .contextual,
-.view-transport-applications .contextual {
+.view-transport-applications .contextual,
+.view-school-budget-overview .contextual {
   order: 1;
 }
 
 .view-free-course-request .view-filters,
 .view-theater-refund .view-filters,
-.view-transport-applications .view-filters {
+.view-transport-applications .view-filters,
+.view-school-budget-overview .view-filters {
   order: 3;
 }
 
 .view-free-course-request .attachment-before,
 .view-theater-refund .attachment-before,
-.view-transport-applications .attachment-before {
+.view-transport-applications .attachment-before,
+.view-school-budget-overview .attachment-before {
   order: 2;
 }
 
 .view-free-course-request .view-content,
 .view-theater-refund .view-content,
-.view-transport-applications .view-content {
+.view-transport-applications .view-content,
+.view-school-budget-overview .view-content {
   order: 4;
 }
 
 .view-free-course-request .pager,
 .view-theater-refund .pager,
-.view-transport-applications .pager {
+.view-transport-applications .pager,
+.view-school-budget-overview .pager {
   order: 5;
 }
 
 .view-free-course-request .feed-icons,
 .view-theater-refund .feed-icons,
-.view-transport-applications .feed-icons {
+.view-transport-applications .feed-icons,
+.view-school-budget-overview .feed-icons {
   order: 6;
   padding-top: 20px;
 }

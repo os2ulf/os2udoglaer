@@ -22,8 +22,10 @@ dependencies:
     - user.role.administrator
     - user.role.editor
     - user.role.webmaster
+    - workflows.workflow.application
   module:
     - better_exposed_filters
+    - content_moderation
     - datetime
     - domain_access
     - node
@@ -1782,6 +1784,67 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        moderation_state:
+          id: moderation_state
+          table: node_field_data
+          field: moderation_state
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: moderation_state_filter
+          operator: in
+          value:
+            application-draft: application-draft
+            application-accepted: application-accepted
+            application-awaiting_payment: application-awaiting_payment
+            application-ready_for_payment: application-ready_for_payment
+            application-published: application-published
+            application-refused: application-refused
+            application-cancelled: application-cancelled
+            application-closed: application-closed
+          group: 1
+          exposed: true
+          expose:
+            operator_id: moderation_state_op
+            label: Status
+            description: ''
+            use_operator: false
+            operator: moderation_state_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: moderation_state
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -2023,6 +2086,7 @@ display:
         - 'config:field.storage.node.field_tpf_message'
         - 'config:field.storage.node.field_tpf_purpose_course'
         - 'config:field.storage.node.field_tpf_what_course'
+        - 'config:workflow_list'
   data_export_1:
     id: data_export_1
     display_title: 'Data export'
@@ -3285,6 +3349,7 @@ display:
         - 'config:field.storage.node.field_tpf_message'
         - 'config:field.storage.node.field_tpf_purpose_course'
         - 'config:field.storage.node.field_tpf_what_course'
+        - 'config:workflow_list'
   page_1:
     id: page_1
     display_title: Side
@@ -3329,3 +3394,4 @@ display:
         - 'config:field.storage.node.field_tpf_message'
         - 'config:field.storage.node.field_tpf_purpose_course'
         - 'config:field.storage.node.field_tpf_what_course'
+        - 'config:workflow_list'

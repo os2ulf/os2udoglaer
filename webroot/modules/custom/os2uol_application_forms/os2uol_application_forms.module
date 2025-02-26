@@ -3,6 +3,7 @@
 use Drupal\content_moderation\Entity\ContentModerationState;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\domain\Entity\Domain;
+use Drupal\os2uol_application_forms\Os2Notification;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\views\ViewExecutable;
 use Drupal\Core\Render\Markup;
@@ -169,20 +170,26 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
       // Detect the content type.
       $type = $entity->bundle();
 
-      if ($type === 'transport_pool_form') {
-        // Sum up field_tpf_expense for transport forms.
-        $transport_spent += $entity->get('field_tpf_expense')->value ?? 0;
-      }
-      else {
-        // Default case for other types.
-        $requested_amount += $entity->get('field_rfc_requested_amount')->value ?? 0;
-        $granted_amount += $entity->get('field_rfc_granted_amount')->value ?? 0;
-        $spent_amount += $entity->get('field_rfc_spent_amount')->value ?? 0;
+      switch ($type) {
+        case 'transport_pool_form':
+          $latest_revision = os2uol_application_forms_get_latest_revision($entity);
+          // Sum up field_tpf_expense for transport forms that are accepted.
+          if ($latest_revision->get('moderation_state')->getString() === 'accepted') {
+            $transport_spent += $latest_revision->get('field_tpf_expense')->value ?? 0;
+          }
+          break;
+        case 'free_course_request':
+        case 'theater_refund':
+          // Sum up field_rfc_requested_amount, field_rfc_granted_amount, and field_rfc_spent_amount for other types.
+          $requested_amount += $entity->get('field_rfc_requested_amount')->value ?? 0;
+          $granted_amount += $entity->get('field_rfc_granted_amount')->value ?? 0;
+          $spent_amount += $entity->get('field_rfc_spent_amount')->value ?? 0;
+          break;
       }
     }
 
     // Create summary markup for non-transport forms.
-    if ($view->id() !== 'transport_applications') {
+    if (in_array($view->id(), ['free_course_request', 'theater_refund'])) {
       $sum_markup_general = Markup::create(
         '<table class="applications-summary">' .
         '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
@@ -213,14 +220,74 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
       ];
     }
   }
+
+  if ($view->id() == 'school_budget_overview') {
+    $sum_markup_school_budget = Markup::create(
+      '<table class="applications-summary">' .
+      '<tr><td class="applications-summary__label">Tildelt budget: </td><td id="applications-summary__value--allocated" class="applications-summary__value">0 kr.</td></tr>' .
+      '<tr><td class="applications-summary__label">Forbrugt budget: </td><td id="applications-summary__value--spent" class="applications-summary__value">0 kr.</td></tr>' .
+      '<tr><td class="applications-summary__label">Resterende budget: </td><td id="applications-summary__value--remaining" class="applications-summary__value">0 kr.</td></tr>' .
+      '</table>'
+    );
+
+    // Attach the school budget summary only for the school_budget_overview view.
+    $view->attachment_before['sum_markup_school_budget'] = [
+      '#markup' => $sum_markup_school_budget,
+      '#weight' => -10, // Appears before other elements.
+    ];
+  }
+}
+
+function os2uol_application_forms_get_latest_revision($entity) {
+  $storage = \Drupal::entityTypeManager()->getStorage($entity->getEntityTypeId());
+  $latest_revision_id = $storage->getLatestRevisionId($entity->id());
+  return $storage->loadRevision($latest_revision_id);
 }
 
 /**
  * Implements hook_preprocess_views_view().
  */
 function os2uol_application_forms_preprocess_views_view(&$variables) {
-  if ($variables['view']->id() == 'free_course_request' || $variables['view']->id() == 'theater_refund' || $variables['view']->id() == 'transport_applications') {
+  $view_id = $variables['view']->id();
+
+  if (in_array($view_id, ['free_course_request', 'theater_refund', 'transport_applications', 'school_budget_overview'])) {
     $variables['#attached']['library'][] = 'os2uol_application_forms/views';
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function os2uol_application_forms_preprocess_views_view_table(&$variables) {
+  $view_id = $variables['view']->id();
+
+  if ($view_id === 'school_budget_overview') {
+    $allocated_budget_field = 'field_allocated_budget';
+    $spent_budget_field = 'field_views_simple_math_field_1';
+    $remaining_budget_field = 'field_views_simple_math_field';
+
+    $allocated_budget = 0;
+    $spent_budget = 0;
+    $remaining_budget = 0;
+
+    foreach ($variables['rows'] as $row) {
+      $columns = $row['columns'];
+
+      $amount = $columns[$allocated_budget_field]['content'][0]['field_output']['#markup'];
+      $allocated_budget += (float) strip_tags($amount);
+
+      $amount = $columns[$spent_budget_field]['content'][0]['field_output']['#markup'];
+      $spent_budget += (float) strip_tags($amount);
+
+      $amount = $columns[$remaining_budget_field]['content'][0]['field_output']['#markup'];
+      $remaining_budget += (float) strip_tags($amount);
+    }
+
+    $variables['#attached']['drupalSettings']['os2uol_application_forms']['school_budget_overview'] = [
+      'allocated_budget' => $allocated_budget,
+      'spent_budget' => $spent_budget,
+      'remaining_budget' => $remaining_budget,
+    ];
   }
 }
 
@@ -364,33 +431,46 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
       $entity->set('field_rfc_payment_date', $current_timestamp);
     }
   }
+
+  // Prevent content_moderation_notifications from sending emails if field_rfc_send_mail is set to 0.
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_send_mail')) {
+    $send_mail = $entity->get('field_rfc_send_mail')->getString() === '1';
+
+    if (!$send_mail) {
+      /** @var \Symfony\Component\HttpFoundation\Session\Session $session */
+      $session = \Drupal::service('session');
+
+      $session->set(Os2Notification::NO_EMAIL_SESSION_VARIABLE, TRUE);
+      $session->save();
+
+      // Set the field value so it's always enabled.
+      $entity->set('field_rfc_send_mail', '1');
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function os2uol_application_forms_entity_update(\Drupal\Core\Entity\EntityInterface $entity) {
+  // Make sure session is cleared after the entity is saved.
+  // This runs after content_moderation_notifications_entity_update, since both modules weights are 0.
+  // Alphabetical order is used to determine the order of execution.
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_send_mail')) {
+    /** @var \Symfony\Component\HttpFoundation\Session\Session $session */
+    $session = \Drupal::service('session');
+
+    if ($session->get(Os2Notification::NO_EMAIL_SESSION_VARIABLE)) {
+      $session->remove(Os2Notification::NO_EMAIL_SESSION_VARIABLE);
+      $session->save();
+    }
+  }
 }
 
 /**
  * Implements hook_content_moderation_notification_mail_data_alter().
  */
 function os2uol_application_forms_content_moderation_notification_mail_data_alter(EntityInterface $entity, array &$data) {
-    // Check if the entity has the field_rfc_send_mail field.
-  if ($entity->hasField('field_rfc_send_mail')) {
-    $send_mail = $entity->get('field_rfc_send_mail')->getString();
-    $status = $entity->get('moderation_state')->getString();
-
-    // Always allow emails for the "draft" state.
-    if ($status === 'draft') {
-      return; // Do not modify $data for draft notifications.
-    }
-
-    // Block email if send_mail is false.
-    if (!$send_mail) {
-      $data['to'] = [];
-    } else {
-      // Ensure notifications are sent only for configured states.
-      if (!in_array($status, ['accepted', 'refused'])) {
-        $data['to'] = [];
-      }
-    }
-  }
-
   // Add guest user's email from field_rfc_mail.
   if ($entity->hasField('field_rfc_mail')) {
     $guest_email = $entity->get('field_rfc_mail')->getString();
@@ -423,7 +503,7 @@ function os2uol_application_forms_set_reply_to(EntityInterface $entity, array &$
     /** @var \Drupal\os2uol_domain\DomainConfigHelper $domain_helper */
     $domain_helper = \Drupal::service('os2uol_domain.config_helper');
 
-    $domain = os2uol_application_forms_get_domain_from_application($entity);
+    $domain = os2uol_domain_get_domain_from_node($entity);
 
     $config = $domain_helper->getDomainConfig('os2uol_settings.settings', $domain);
     $site_config = $domain_helper->getDomainConfig('system.site', $domain);
@@ -494,29 +574,6 @@ function os2uol_application_forms_mail_alter(&$message) {
 }
 
 /**
- * @param \Drupal\Core\Entity\EntityInterface $application
- *
- * @return \Drupal\domain\Entity\Domain|null
- */
-function os2uol_application_forms_get_domain_from_application(EntityInterface $application): Domain|null {
-  $entity_domains = array_column($application->get('field_domain_access')->getValue(), 'target_id');
-
-  // Remove default domain from the list.
-  $default_domain = Os2uolDomain::DEFAULT_DOMAIN_ID;
-  $entity_domains = array_diff($entity_domains, [$default_domain]);
-
-  if (empty($entity_domains)) {
-    return null;
-  }
-
-  // Get the first domain from the list.
-  $domain_id = reset($entity_domains);
-  $domain = Domain::load($domain_id);
-
-  return $domain;
-}
-
-/**
  * Implements hook_views_data_alter().
  */
 function os2uol_application_forms_views_data_alter(array &$data) {
@@ -528,6 +585,18 @@ function os2uol_application_forms_views_data_alter(array &$data) {
       'field' => 'field_allocated_budget_year_value',
       'table' => 'paragraph__field_allocated_budget_year',
       'field_name' => 'field_allocated_budget_year',
+      'title' => t('Budget for year'),
+      'help' => t('Budget for year filter.'),
+    ],
+  ];
+  $data['node__field_rfc_date']['budget_year'] = [
+    'title' => t('Budget for year'),
+    'group' => t('Content'),
+    'filter' => [
+      'id' => 'os2uol_application_forms_year_filter',
+      'field' => 'field_rfc_date_value',
+      'table' => 'node__field_rfc_date',
+      'field_name' => 'field_rfc_date',
       'title' => t('Budget for year'),
       'help' => t('Budget for year filter.'),
     ],

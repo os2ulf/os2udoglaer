@@ -9,15 +9,23 @@ dependencies:
     - system.menu.workbench
     - user.role.administrator
     - user.role.editor
+    - user.role.institution
+    - user.role.school
+    - user.role.theater_contact
     - user.role.webmaster
   module:
+    - better_exposed_filters
     - datetime
     - node
     - os2uol_application_forms
     - os2uol_domain
     - paragraphs
+    - rest
+    - serialization
     - user
+    - views_data_export
     - views_simple_math_field
+    - xls_serialization
 id: school_budget_overview
 label: 'Skoleoversigt pr. år'
 module: views
@@ -567,34 +575,59 @@ display:
           prefix: ''
           suffix: ''
       pager:
-        type: mini
+        type: none
         options:
           offset: 0
-          pagination_heading_level: h4
-          items_per_page: 100
-          total_pages: null
-          id: 0
-          tags:
-            next: ››
-            previous: ‹‹
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Antal elementer'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- Alle -'
-            offset: false
-            offset_label: Forskydning
       exposed_form:
-        type: basic
+        type: bef
         options:
           submit_button: Udfør
-          reset_button: false
-          reset_button_label: Gendan
+          reset_button: true
+          reset_button_label: Nulstil
           exposed_sorts_label: 'Sortér efter'
           expose_sort_order: true
           sort_asc_label: Stigende
           sort_desc_label: Faldende
+          text_input_required: 'Vælg et filter og klik på Anvend for at se resultater'
+          text_input_required_format: basic_html
+          bef:
+            general:
+              autosubmit: false
+              autosubmit_exclude_textfield: false
+              autosubmit_textfield_delay: 500
+              autosubmit_hide: false
+              input_required: false
+              allow_secondary: false
+              secondary_label: 'Avancerede indstillinger'
+              secondary_open: false
+              reset_button_always_show: false
+            filter:
+              roles_target_id:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+              field_rfc_date_value:
+                plugin_id: default
+                advanced:
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
+              budget_year:
+                plugin_id: default
+                advanced:
+                  sort_options: false
+                  rewrite:
+                    filter_rewrite_values: ''
+                    filter_rewrite_values_key: false
+                  collapsible: false
+                  collapsible_disable_automatic_open: false
+                  is_secondary: false
       access:
         type: role
         options:
@@ -631,6 +664,7 @@ display:
           plugin_id: bundle
           value:
             theater_refund: theater_refund
+          group: 1
         current_all:
           id: current_all
           table: user__field_domain_access
@@ -669,11 +703,69 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        field_allocated_budget_year_value:
-          id: field_allocated_budget_year_value
-          table: paragraph__field_allocated_budget_year
-          field: field_allocated_budget_year_value
-          relationship: field_allocated_budget
+        roles_target_id:
+          id: roles_target_id
+          table: user__roles
+          field: roles_target_id
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: roles
+          plugin_id: user_roles
+          operator: or
+          value:
+            institution: institution
+            school: school
+            theater_contact: theater_contact
+          group: 1
+          exposed: true
+          expose:
+            operator_id: roles_target_id_op
+            label: Roller
+            description: ''
+            use_operator: false
+            operator: roles_target_id_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: roles
+            required: false
+            remember: false
+            multiple: true
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            reduce: true
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+        field_rfc_date_value:
+          id: field_rfc_date_value
+          table: node__field_rfc_date
+          field: field_rfc_date_value
+          relationship: none
           group_type: group
           admin_label: ''
           plugin_id: datetime
@@ -686,14 +778,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_allocated_budget_year_value_op
-            label: 'År (field_allocated_budget_year)'
+            operator_id: field_rfc_date_value_op
+            label: Afviklingsdato
             description: ''
             use_operator: false
-            operator: field_allocated_budget_year_value_op
+            operator: field_rfc_date_value_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: field_allocated_budget_year_value
+            identifier: field_rfc_date_value
             required: false
             remember: false
             multiple: false
@@ -729,30 +821,43 @@ display:
             group_items: {  }
         budget_year:
           id: budget_year
-          table: paragraph__field_allocated_budget_year
+          table: node__field_rfc_date
           field: budget_year
-          relationship: field_allocated_budget
+          relationship: none
           group_type: group
           admin_label: ''
           plugin_id: os2uol_application_forms_year_filter
           operator: '='
           value: ''
           group: 1
-          exposed: false
+          exposed: true
           expose:
             operator_id: ''
-            label: ''
+            label: 'Afviklingsdato (år)'
             description: ''
             use_operator: false
-            operator: ''
+            operator: budget_year_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: ''
+            identifier: budget_year
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -765,6 +870,10 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       style:
         type: table
         options:
@@ -884,20 +993,7 @@ display:
           entity_field: id
           plugin_id: standard
       group_by: true
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: false
-          content:
-            value: 'Skoleår: {{ raw_arguments.field_allocated_budget_year_value_year }}'
-            format: basic_html
-          tokenize: true
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -906,7 +1002,60 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
+        - url.site
+        - 'user.node_grants:view'
+        - user.roles
+      tags:
+        - 'config:field.storage.paragraph.field_allocated_budget'
+        - 'config:field.storage.paragraph.field_allocated_budget_year'
+  data_export_1:
+    id: data_export_1
+    display_title: 'Data export'
+    display_plugin: data_export
+    position: 2
+    display_options:
+      style:
+        type: data_export
+        options:
+          formats:
+            xlsx: xlsx
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+            utf8_bom: '0'
+            use_serializer_encode_only: false
+      display_extenders:
+        os2uol_search:
+          os2uol_search_result_string: ''
+        transform_api_facets:
+          transform_facets: {  }
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: default
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      path: admin/school-budget-export/xlsx
+      displays:
+        page_1: page_1
+        default: '0'
+      filename: 'os2uol-school-budget-export-[date:html_date].xlsx'
+      automatic_download: true
+      store_in_public_file_directory: false
+      custom_redirect_path: false
+      redirect_to_display: none
+      include_query_params: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - url
         - url.site
         - 'user.node_grants:view'
         - user.roles
@@ -919,170 +1068,9 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      filters:
-        type:
-          id: type
-          table: node_field_data
-          field: type
-          entity_type: node
-          entity_field: type
-          plugin_id: bundle
-          value:
-            theater_refund: theater_refund
-        current_all:
-          id: current_all
-          table: user__field_domain_access
-          field: current_all
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          plugin_id: domain_access_user_current_filter
-          operator: '='
-          value: ''
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        field_allocated_budget_year_value:
-          id: field_allocated_budget_year_value
-          table: paragraph__field_allocated_budget_year
-          field: field_allocated_budget_year_value
-          relationship: field_allocated_budget
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime
-          operator: between
-          value:
-            min: ''
-            max: ''
-            value: ''
-            type: date
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_allocated_budget_year_value_op
-            label: 'År (field_allocated_budget_year)'
-            description: ''
-            use_operator: false
-            operator: field_allocated_budget_year_value_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: field_allocated_budget_year_value
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
-            min_placeholder: ''
-            max_placeholder: ''
-            placeholder: ''
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        budget_year:
-          id: budget_year
-          table: paragraph__field_allocated_budget_year
-          field: budget_year
-          relationship: field_allocated_budget
-          group_type: group
-          admin_label: ''
-          plugin_id: os2uol_application_forms_year_filter
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: ''
-            label: 'Budget for year'
-            description: ''
-            use_operator: false
-            operator: budget_year_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: budget_year
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
       defaults:
-        filters: false
-        filter_groups: false
+        filters: true
+        filter_groups: true
       display_extenders:
         os2uol_search:
           os2uol_search_result_string: ''
@@ -1107,75 +1095,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
-        - url.site
-        - 'user.node_grants:view'
-        - user.roles
-      tags:
-        - 'config:field.storage.paragraph.field_allocated_budget'
-        - 'config:field.storage.paragraph.field_allocated_budget_year'
-  page_2:
-    id: page_2
-    display_title: 'Per year dashboard'
-    display_plugin: page
-    position: 2
-    display_options:
-      arguments:
-        field_allocated_budget_year_value_year:
-          id: field_allocated_budget_year_value_year
-          table: paragraph__field_allocated_budget_year
-          field: field_allocated_budget_year_value_year
-          relationship: field_allocated_budget
-          group_type: group
-          admin_label: ''
-          plugin_id: datetime_year
-          default_action: default
-          exception:
-            value: all
-            title_enable: false
-            title: All
-          title_enable: false
-          title: ''
-          default_argument_type: raw
-          default_argument_options:
-            index: 0
-            use_alias: false
-          summary_options:
-            base_path: ''
-            count: true
-            override: false
-            items_per_page: 25
-          summary:
-            sort_order: asc
-            number_of_records: 0
-            format: default_summary
-          specify_validation: false
-          validate:
-            type: none
-            fail: 'not found'
-          validate_options: {  }
-      defaults:
-        arguments: false
-      display_description: ''
-      display_extenders:
-        os2uol_search:
-          os2uol_search_result_string: ''
-        transform_api_facets:
-          transform_facets: {  }
-        transform_api_views:
-          row_transform: entity
-          row_transform_mode: default
-          pager_transform: basic
-          pager_transform_links: relative
-          pager_transform_links_destination: current
-      path: admin/applications/theater_refund/schools/%
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
         - url.site
         - 'user.node_grants:view'
         - user.roles

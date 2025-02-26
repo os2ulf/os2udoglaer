@@ -8,10 +8,12 @@ ignored_config_entities:
   - 'domain.config.*.*.system.mail'
   - 'domain.config.*.*.system.site'
   - 'domain.config.*.os2uol_application_forms.gdpr_settings'
+  - 'domain.config.*.os2uol_moderation.email_settings'
   - 'domain.config.*.os2uol_settings.settings'
   - 'domain.config.*.system.mail'
   - 'domain.config.*.system.site'
   - headless_domain_simple_sitemap.settings
+  - os2uol_moderation.email_settings
   - os2uol_moderation.settings
   - os2uol_settings.settings
   - sendgrid_integration.settings

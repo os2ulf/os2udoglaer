@@ -3,3 +3,5 @@ views:
   css:
     theme:
       css/os2uol-application-forms-views.css: {}
+  js:
+    js/os2uol-application-forms-views.js: {}

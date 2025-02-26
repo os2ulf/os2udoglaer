@@ -31,6 +31,7 @@ dependencies:
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
+    - field.field.node.internship.field_p_number
     - field.field.node.internship.field_pretix_email_notifiers
     - field.field.node.internship.field_pretix_event_short_form
     - field.field.node.internship.field_pretix_shop_url
@@ -116,6 +117,7 @@ third_party_settings:
         - field_view_on_map
         - group_alternative_address
         - field_location_description
+        - field_p_number
       label: Lokation
       region: content
       parent_name: ''
@@ -322,7 +324,7 @@ content:
         maxlength_js_enforce: false
   created:
     type: datetime_timestamp
-    weight: 11
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -533,11 +535,19 @@ content:
     third_party_settings: {  }
   field_meta_tags:
     type: metatag_firehose
-    weight: 19
+    weight: 20
     region: content
     settings:
       sidebar: true
       use_details: true
+    third_party_settings: {  }
+  field_p_number:
+    type: string_textfield
+    weight: 19
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_purpose_internship:
     type: text_textarea
@@ -652,46 +662,46 @@ content:
               recurse: '0'
   langcode:
     type: language_select
-    weight: 9
+    weight: 10
     region: content
     settings:
       include_locked: true
     third_party_settings: {  }
   moderation_state:
     type: workflow_buttons
-    weight: 17
+    weight: 18
     region: content
     settings:
       show_current_state: false
     third_party_settings: {  }
   path:
     type: path
-    weight: 15
+    weight: 16
     region: content
     settings: {  }
     third_party_settings: {  }
   promote:
     type: boolean_checkbox
-    weight: 13
+    weight: 14
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   simple_sitemap:
-    weight: 12
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
-    weight: 18
+    weight: 19
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
-    weight: 14
+    weight: 15
     region: content
     settings:
       display_label: true
@@ -710,7 +720,7 @@ content:
         maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
-    weight: 10
+    weight: 11
     region: content
     settings:
       match_operator: CONTAINS
@@ -719,7 +729,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   url_redirects:
-    weight: 16
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
