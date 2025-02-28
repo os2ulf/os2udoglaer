@@ -66,6 +66,18 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => 'Upload a logo in PNG or SVG format.',
     ];
 
+    $form['tab_theme']['favicon'] = [
+      '#type' => 'managed_file',
+      '#title' => $this->t('Favicon'),
+      // Default value must be an array of file IDs.
+      '#default_value' => [$config->get('favicon') ?? 0],
+      '#upload_location' => 'public://favicons/',
+      '#upload_validators' => [
+        'file_validate_extensions' => ['ico'],
+      ],
+      '#description' => $this->t('Upload a favicon (ICO). This will be used as the site icon in browsers.'),
+    ];
+
     $form['tab_theme']['font'] = [
       '#type' => 'select',
       '#title' => $this->t('Font'),
@@ -412,8 +424,16 @@ final class DomainSettingsForm extends ConfigFormBase {
       $file->save();
     }
 
+    $favicon = $form_state->getValue('favicon');
+    if (!empty($favicon)) {
+      $file = \Drupal\file\Entity\File::load(reset($favicon));
+      $file->setPermanent();
+      $file->save();
+    }
+
     $config
       ->set('logo', reset($logo))
+      ->set('favicon', reset($favicon))
       ->set('font', $form_state->getValue('font'))
       ->set('primary_background_color', $form_state->getValue('primary_background_color'))
       ->set('primary_background_text_color', $form_state->getValue('primary_background_text_color'))
