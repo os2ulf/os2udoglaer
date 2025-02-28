@@ -37,18 +37,27 @@ class DomainSettingsBlock extends TransformBlockBase {
   public function transform() {
     $config = $this->configFactory->get('os2uol_settings.settings');
 
-    $logo = $config->get('logo');
-
     // Get logo URL.
     $logo_url = '';
+    if ($logo_fid = $config->get('logo')) {
+      $file = File::load($logo_fid);
+      if ($file) {
+        $logo_url = $file->createFileUrl(FALSE);
+      }
+    }
 
-    if ($logo) {
-      $file = File::load($logo);
-      $logo_url = $file->createFileUrl(FALSE);
+    // Get favicon URL.
+    $favicon_url = '';
+    if ($favicon_fid = $config->get('favicon')) {
+      $file = File::load($favicon_fid);
+      if ($file) {
+        $favicon_url = $file->createFileUrl(FALSE);
+      }
     }
 
     return [
       'logo' => $logo_url,
+      'favicon' => $favicon_url,
       'font' => $config->get('font'),
       'primary_background_color' => $config->get('primary_background_color'),
       'primary_background_text_color' => $config->get('primary_background_text_color'),
