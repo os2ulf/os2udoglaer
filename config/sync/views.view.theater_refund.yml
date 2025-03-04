@@ -3302,6 +3302,7 @@ display:
           fields:
             nid: nid
             field_old_id: field_old_id
+            field_name: field_name
             field_rfc_grade: field_rfc_grade
             field_rfc_name: field_rfc_name
             name: name
