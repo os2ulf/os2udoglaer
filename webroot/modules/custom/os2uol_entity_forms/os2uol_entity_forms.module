@@ -582,12 +582,15 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     // Fields to be editable in "Accepted" state for limited roles.
     $editable_fields = ['field_rfc_attachment', 'field_rfc_spent_amount'];
 
+    // Form important fields
+    $form_fields = ['actions', 'form_token', 'form_id'];
+
     // If user has limited role and state is "Accepted".
     if ($is_limited_role && $current_state === $state_accepted) {
       foreach ($form as $key => &$element) {
         if (is_array($element) && isset($element['#type'])) {
           // Disable all fields by default except moderation actions.
-          if ($key !== 'actions' && strpos($key, 'moderation_state') === false) {
+          if (!in_array($key, $form_fields) && strpos($key, 'moderation_state') === false) {
             $element['#disabled'] = TRUE;
           }
         }
