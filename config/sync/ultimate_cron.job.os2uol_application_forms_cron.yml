@@ -1,6 +1,6 @@
 uuid: 3770f33f-b1d6-412c-b909-9127d9b261d7
 langcode: da
-status: false
+status: true
 dependencies:
   module:
     - os2uol_application_forms
