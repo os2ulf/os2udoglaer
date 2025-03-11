@@ -4,4 +4,5 @@ description: 'Sets the default domain for all nodes and content.'
 core_version_requirement: ^10
 package: 'OS2udoglær'
 dependencies:
-  - domain
+  - domain:domain
+  - headless_domain_simple_sitemap:headless_domain_simple_sitemap
