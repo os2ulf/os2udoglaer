@@ -871,12 +871,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_image'
         - 'config:field.storage.node.field_subject'
@@ -1216,8 +1210,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: 'https://www.ulfiaarhus.dk{{ view_node }}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -1256,7 +1250,7 @@ display:
           hide_alter_empty: true
           text: vis
           output_url_as_text: true
-          absolute: false
+          absolute: true
         uid:
           id: uid
           table: node_field_data
@@ -1586,7 +1580,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'https://www.ulfiaarhus.dk'
+            text: "{{ url('<front>') }}"
             make_link: false
             path: ''
             absolute: false
@@ -1695,10 +1689,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_image'
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_image'
   rest_export_2:
@@ -2037,8 +2027,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: true
-            text: 'https://www.ulfiaarhus.dk{{ view_node }}'
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -2077,7 +2067,7 @@ display:
           hide_alter_empty: true
           text: vis
           output_url_as_text: true
-          absolute: false
+          absolute: true
         uid:
           id: uid
           table: node_field_data
@@ -2836,7 +2826,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: 'https://www.ulfiaarhus.dk'
+            text: "{{ url('<front>') }}"
             make_link: false
             path: ''
             absolute: false
@@ -3015,24 +3005,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_educators_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_is_free'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_trgt_grp_daycare'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_trgt_grp_primary_school'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_trgt_grp_youth_education'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.body'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_educators_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_image'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_is_free'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_subject'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_trgt_grp_daycare'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_trgt_grp_primary_school'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_trgt_grp_youth_education'
         - 'config:field.storage.node.body'
         - 'config:field.storage.node.field_educators_target_group'
         - 'config:field.storage.node.field_image'
