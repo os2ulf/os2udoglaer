@@ -88,6 +88,14 @@ function os2uol_domain_views_data_alter(array &$data) {
       'type' => 'yes-no',
     ],
   ];
+
+  $data['views']['headless_base_url'] = [
+    'title' => t('Headless Base url'),
+    'help' => t("Site's base url based on headless domain simple sitemap settings."),
+    'field' => [
+      'id' => 'headless_base_url',
+    ],
+  ];
 }
 
 /**
