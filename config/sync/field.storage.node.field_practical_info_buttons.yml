@@ -13,7 +13,7 @@ settings:
   allowed_values:
     -
       value: show_transport_request
-      label: 'Søg tilskud til transport'
+      label: 'Søg om refusion af transport'
     -
       value: show_free_course_request
       label: 'Søg om refusion af forløbet'
