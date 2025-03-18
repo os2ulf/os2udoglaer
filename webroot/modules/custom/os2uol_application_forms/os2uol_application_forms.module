@@ -263,8 +263,8 @@ function os2uol_application_forms_preprocess_views_view_table(&$variables) {
 
   if ($view_id === 'school_budget_overview') {
     $allocated_budget_field = 'field_allocated_budget';
-    $spent_budget_field = 'field_views_simple_math_field_1';
-    $remaining_budget_field = 'field_views_simple_math_field';
+    $spent_budget_field = 'field_views_simple_math_field';
+    $remaining_budget_field = 'field_views_simple_math_field_1';
 
     $allocated_budget = 0;
     $spent_budget = 0;
