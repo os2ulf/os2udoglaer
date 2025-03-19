@@ -577,7 +577,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     // Get the current moderation state.
     $current_state = $node->get('moderation_state')->getString();
     $state_accepted = 'accepted'; // "Godkendt"
-    $state_awaiting_payment = 'awaiting_payment'; // "Afventer udbetaling"
 
     // Fields to be editable in "Accepted" state for limited roles.
     $editable_fields = ['field_rfc_attachment', 'field_rfc_spent_amount'];
@@ -600,15 +599,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       foreach ($editable_fields as $editable_field) {
         if (isset($form[$editable_field])) {
           $form[$editable_field]['#disabled'] = FALSE;
-        }
-      }
-    }
-
-    // If the state is "Awaiting Payment", lock all fields.
-    if ($current_state === $state_awaiting_payment) {
-      foreach ($form as &$element) {
-        if (is_array($element) && isset($element['#type'])) {
-          $element['#disabled'] = TRUE;
         }
       }
     }
