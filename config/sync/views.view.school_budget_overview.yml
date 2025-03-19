@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.storage.node.field_rfc_date
     - field.storage.paragraph.field_allocated_budget
     - field.storage.paragraph.field_allocated_budget_year
     - node.type.theater_refund
@@ -14,7 +15,6 @@ dependencies:
     - user.role.theater_contact
     - user.role.webmaster
   module:
-    - better_exposed_filters
     - datetime
     - node
     - os2uol_application_forms
@@ -42,6 +42,72 @@ display:
     display_options:
       title: 'Skoleoversigt pr. år'
       fields:
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: uid
+          plugin_id: field
+          label: 'Bruger ID'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
         name:
           id: name
           table: users_field_data
@@ -56,12 +122,30 @@ display:
           exclude: false
           alter:
             alter_text: false
-            make_link: false
+            text: ''
+            make_link: true
+            path: '/admin/applications/theater_refund/user/{{ uid }}'
             absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
             word_boundary: false
             ellipsis: false
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
             strip_tags: false
             trim: false
+            preserve_tags: ''
             html: false
           element_type: ''
           element_class: ''
@@ -77,7 +161,8 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: user_name
-          settings: {  }
+          settings:
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -205,6 +290,70 @@ display:
             timezone_override: ''
             format_type: html_year
           group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_rfc_date:
+          id: field_rfc_date
+          table: node__field_rfc_date
+          field: field_rfc_date
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Afviklingsdato Ar'
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: datetime_default
+          settings:
+            timezone_override: ''
+            format_type: html_year
+          group_column: entity_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -483,7 +632,7 @@ display:
         options:
           offset: 0
       exposed_form:
-        type: bef
+        type: basic
         options:
           submit_button: Udfør
           reset_button: true
@@ -492,46 +641,6 @@ display:
           expose_sort_order: true
           sort_asc_label: Stigende
           sort_desc_label: Faldende
-          text_input_required: 'Vælg et filter og klik på Anvend for at se resultater'
-          text_input_required_format: basic_html
-          bef:
-            general:
-              autosubmit: false
-              autosubmit_exclude_textfield: false
-              autosubmit_textfield_delay: 500
-              autosubmit_hide: false
-              input_required: false
-              allow_secondary: false
-              secondary_label: 'Avancerede indstillinger'
-              secondary_open: false
-              reset_button_always_show: false
-            filter:
-              roles_target_id:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                    filter_rewrite_values_key: false
-                  collapsible: false
-                  collapsible_disable_automatic_open: false
-                  is_secondary: false
-              field_rfc_date_value:
-                plugin_id: default
-                advanced:
-                  collapsible: false
-                  collapsible_disable_automatic_open: false
-                  is_secondary: false
-              budget_year:
-                plugin_id: default
-                advanced:
-                  sort_options: false
-                  rewrite:
-                    filter_rewrite_values: ''
-                    filter_rewrite_values_key: false
-                  collapsible: false
-                  collapsible_disable_automatic_open: false
-                  is_secondary: false
       access:
         type: role
         options:
@@ -543,7 +652,22 @@ display:
         type: tag
         options: {  }
       empty: {  }
-      sorts: {  }
+      sorts:
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: name
+          plugin_id: standard
+          order: ASC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
       arguments: {  }
       filters:
         status:
@@ -611,62 +735,17 @@ display:
             school: school
             theater_contact: theater_contact
           group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-        roles_target_id:
-          id: roles_target_id
-          table: user__roles
-          field: roles_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          entity_type: user
-          entity_field: roles
-          plugin_id: user_roles
-          operator: or
-          value:
-            institution: institution
-            school: school
-            theater_contact: theater_contact
-          group: 1
           exposed: true
           expose:
-            operator_id: roles_target_id_op
+            operator_id: roles_target_id_1_op
             label: Roller
             description: ''
             use_operator: false
-            operator: roles_target_id_op
+            operator: roles_target_id_1_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: roles
-            required: false
+            identifier: roles_target_id_1
+            required: true
             remember: false
             multiple: true
             remember_roles:
@@ -890,6 +969,57 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        budget_year_1:
+          id: budget_year_1
+          table: paragraph__field_allocated_budget_year
+          field: budget_year
+          relationship: field_allocated_budget
+          group_type: group
+          admin_label: ''
+          plugin_id: os2uol_application_forms_year_filter
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: ''
+            label: 'Budget for year'
+            description: ''
+            use_operator: false
+            operator: budget_year_1_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: budget_year_1
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -897,6 +1027,83 @@ display:
           2: OR
       style:
         type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          columns:
+            name: name
+            field_allocated_budget: field_allocated_budget
+            field_allocated_budget_year: field_allocated_budget_year
+            field_rfc_date: field_rfc_date
+            field_rfc_granted_amount: field_rfc_granted_amount
+            field_views_simple_math_field: field_views_simple_math_field
+            field_views_simple_math_field_1: field_views_simple_math_field_1
+            field_views_simple_math_field_2: field_views_simple_math_field_2
+          default: '-1'
+          info:
+            name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_allocated_budget:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_allocated_budget_year:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_rfc_date:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_rfc_granted_amount:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_views_simple_math_field:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_views_simple_math_field_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_views_simple_math_field_2:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          override: true
+          sticky: true
+          summary: ''
+          empty_table: false
+          caption: ''
+          description: ''
       row:
         type: fields
       query:
@@ -942,6 +1149,7 @@ display:
         - url.site
         - user.roles
       tags:
+        - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.paragraph.field_allocated_budget'
         - 'config:field.storage.paragraph.field_allocated_budget_year'
   data_export_1:
@@ -995,6 +1203,7 @@ display:
         - url.site
         - user.roles
       tags:
+        - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.paragraph.field_allocated_budget'
         - 'config:field.storage.paragraph.field_allocated_budget_year'
   page_1:
@@ -1033,5 +1242,6 @@ display:
         - url.site
         - user.roles
       tags:
+        - 'config:field.storage.node.field_rfc_date'
         - 'config:field.storage.paragraph.field_allocated_budget'
         - 'config:field.storage.paragraph.field_allocated_budget_year'

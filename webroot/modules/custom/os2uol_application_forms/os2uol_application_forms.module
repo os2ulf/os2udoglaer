@@ -602,3 +602,16 @@ function os2uol_application_forms_views_data_alter(array &$data) {
     ],
   ];
 }
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function os2uol_application_forms_views_pre_build(ViewExecutable $view) {
+  if ($view->id() === 'school_budget_overview') {
+    $exposed_input = $view->getExposedInput();
+
+    $exposed_input['budget_year_1'] = $exposed_input['budget_year'] ?? '';
+
+    $view->setExposedInput($exposed_input);
+  }
+}
