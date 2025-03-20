@@ -235,9 +235,12 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     if ($current_user->hasRole('editor')) {
       if ($edit_user && $current_user->id() == $edit_user->id()) {
         $form['account']['status']['#access'] = FALSE;
-        foreach ($editor_hidden_fields as $field) {
-          if (isset($form[$field])) {
-            $form[$field]['#access'] = FALSE;
+        // Only hide $editor_hidden_fields if editor also have course_provider or corporation role.
+        if (!$edit_user->hasRole('course_provider') && !$edit_user->hasRole('corporation')) {
+          foreach ($editor_hidden_fields as $field) {
+            if (isset($form[$field])) {
+              $form[$field]['#access'] = FALSE;
+            }
           }
         }
       } elseif ($edit_user && ($edit_user->hasRole('webmaster') || $edit_user->hasRole('editor') || $edit_user->hasRole('administrator') || $edit_user->hasRole('rest_api'))) {
@@ -536,7 +539,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   if (in_array($form_id, $node_edit_application_forms)) {
     $current_user = \Drupal::currentUser();
 
-    // Check if the user has the editor role.
+    // Check if the user has the school or institution role.
     if ($current_user->hasRole('school') || $current_user->hasRole('institution')) {
       foreach ($node_edit_application_hidden_fields as $field) {
         if (isset($form[$field])) {
