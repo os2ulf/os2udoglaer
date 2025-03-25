@@ -19,6 +19,10 @@ class YearFilter extends FilterPluginBase {
    * {@inheritdoc}
    */
   public function buildExposedForm(&$form, FormStateInterface $form_state) {
+    if (empty($this->options['exposed'])) {
+      return;
+    }
+
     parent::buildExposedForm($form, $form_state);
 
     $current_year = (int) date('Y');
@@ -30,7 +34,7 @@ class YearFilter extends FilterPluginBase {
 
     $values = ['' => $this->t('- Any -')] + $year_options;
 
-    $form['budget_year'] = [
+    $form[$this->options['expose']['identifier']] = [
       '#type' => 'select',
       '#title' => $this->t('Budget Year'),
       '#options' => $values,

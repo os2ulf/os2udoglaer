@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fb24fb9676621fea59667ce54531505b",
+    "content-hash": "56909683846ff7260b43606594b768be",
     "packages": [
         {
             "name": "algolia/places",
@@ -10024,13 +10024,10 @@
         },
         {
             "name": "novicell/status_feed",
-            "version": "1.0.5",
+            "version": "1.3.1",
             "dist": {
                 "type": "zip",
-                "url": "https://packages.drupal.dk/php/~/up/ver_2jryIW/novicellstatus_feed-1-0-5.zip"
-            },
-            "require": {
-                "drupal/core": "^9.1 || ^10"
+                "url": "https://packages.drupal.dk/php/~/up/ver_11olhf/novicellstatus_feed-1-3-1.zip"
             },
             "type": "drupal-module",
             "license": [

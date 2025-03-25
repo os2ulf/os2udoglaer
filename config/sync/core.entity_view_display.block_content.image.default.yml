@@ -5,7 +5,6 @@ dependencies:
   config:
     - block_content.type.image
     - field.field.block_content.image.field_dynamic_height
-    - field.field.block_content.image.field_image_caption
     - field.field.block_content.image.field_image_link
     - field.field.block_content.image.field_image_media
   module:
@@ -27,14 +26,6 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 8
-    region: content
-  field_image_caption:
-    type: string
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
     region: content
   field_image_link:
     type: link_with_target

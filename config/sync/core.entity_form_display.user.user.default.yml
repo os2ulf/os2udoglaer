@@ -480,7 +480,7 @@ content:
       offsets: '50,50'
     third_party_settings: {  }
   field_institution_type:
-    type: options_select
+    type: options_buttons
     weight: 15
     region: content
     settings: {  }
