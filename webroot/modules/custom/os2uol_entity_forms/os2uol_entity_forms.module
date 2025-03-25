@@ -610,15 +610,13 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   if ($form_id === 'node_free_course_request_edit_form') {
     $form['#validate'][] = 'os2uol_entity_forms_validate_overspend_soft_block';
 
-    // If overspending happened, apply Gin-compatible styling
     if ($form_state->get('overspend_triggered')) {
-      if (isset($form['field_rfc_spent_amount']['widget'][0]['value'])) {
-        $form['field_rfc_spent_amount']['widget'][0]['value']['#attributes']['style'] = '
-          border: 2px solid var(--colorGinDanger);
-          background-color: rgba(227, 52, 47, 0.05);
-        ';
 
-        $form['field_rfc_spent_amount']['widget'][0]['value']['#suffix'] = '<div style="color: var(--colorGinDanger); margin-top: 4px;">⚠ Det forbrugte beløb overstiger det bevilgede beløb.</div>';
+      // Add class to highlight field
+      if (isset($form['field_rfc_spent_amount']['widget'][0]['value'])) {
+        $form['field_rfc_spent_amount']['widget'][0]['value']['#attributes']['class'][] = 'overspend-highlight-input';
+        // Add inline message
+        $form['field_rfc_spent_amount']['widget'][0]['value']['#suffix'] = '<div class="overspend-message">⚠ Det forbrugte beløb overstiger det bevilgede beløb.</div>';
       }
     }
   }
