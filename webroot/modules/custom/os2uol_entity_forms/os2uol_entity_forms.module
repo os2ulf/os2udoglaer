@@ -606,6 +606,36 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       }
     }
   }
+
+  if ($form_id === 'node_free_course_request_edit_form') {
+    $form['#validate'][] = 'os2uol_entity_forms_validate_overspend_soft_block';
+
+    if ($form_state->get('overspend_triggered')) {
+
+      // Add class to highlight field
+      if (isset($form['field_rfc_spent_amount']['widget'][0]['value'])) {
+        $form['field_rfc_spent_amount']['widget'][0]['value']['#attributes']['class'][] = 'overspend-highlight-input';
+        // Add inline message
+        $form['field_rfc_spent_amount']['widget'][0]['value']['#suffix'] = '<div class="overspend-message">⚠ Det forbrugte beløb overstiger det bevilgede beløb.</div>';
+      }
+    }
+  }
+}
+
+function os2uol_entity_forms_validate_overspend_soft_block(array &$form, FormStateInterface $form_state) {
+  $spent = $form_state->getValue(['field_rfc_spent_amount', 0, 'value']);
+  $granted = $form_state->getValue(['field_rfc_granted_amount', 0, 'value']);
+
+  if (is_numeric($spent) && is_numeric($granted) && $spent > $granted) {
+    $form_state->setRebuild(TRUE);
+    $form_state->setRedirect('<current>');
+
+    // Messenger error
+    \Drupal::messenger()->addError(t('Det forbrugte beløb må ikke overstige det bevilgede beløb. Ændringer blev ikke gemt.'));
+
+    // Set flag for styling
+    $form_state->set('overspend_triggered', TRUE);
+  }
 }
 
 function _domain_access_restrictions() {
