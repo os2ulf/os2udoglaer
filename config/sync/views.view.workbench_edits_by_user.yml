@@ -7,6 +7,7 @@ dependencies:
     - field.storage.user.field_name
     - user.role.administrator
     - user.role.bypass_workflow
+    - user.role.corporation
     - user.role.course_provider
     - user.role.editor
     - user.role.webmaster
@@ -1068,10 +1069,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
         - 'config:field.storage.node.field_target_group'
         - 'config:field.storage.user.field_name'
         - 'config:workflow_list'
@@ -1114,10 +1111,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
         - 'config:field.storage.node.field_target_group'
         - 'config:field.storage.user.field_name'
         - 'config:workflow_list'
@@ -1132,6 +1125,7 @@ display:
         options:
           role:
             course_provider: course_provider
+            corporation: corporation
       arguments:
         uid:
           id: uid
@@ -1203,6 +1197,375 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+      filters:
+        moderation_state:
+          id: moderation_state
+          table: node_field_revision
+          field: moderation_state
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: moderation_state_filter
+          operator: in
+          value:
+            editorial-review: editorial-review
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        latest_revision:
+          id: latest_revision
+          table: node_revision
+          field: latest_revision
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: latest_revision
+          operator: '='
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        status:
+          id: status
+          table: node_field_data
+          field: status
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: status
+          plugin_id: boolean
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        current_all:
+          id: current_all
+          table: node__field_domain_access
+          field: current_all
+          relationship: nid
+          group_type: group
+          admin_label: ''
+          plugin_id: domain_access_current_all_filter
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        title:
+          id: title
+          table: node_field_revision
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+          operator: allwords
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: Titel
+            description: ''
+            use_operator: false
+            operator: title_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          entity_field: uid
+          plugin_id: user_name
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: uid_op
+            label: 'Forfatter (autocomplete)'
+            description: ''
+            use_operator: false
+            operator: uid_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: uid
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        nid:
+          id: nid
+          table: node_field_revision
+          field: nid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          entity_field: nid
+          plugin_id: numeric
+          operator: '='
+          value:
+            min: ''
+            max: ''
+            value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: nid_op
+            label: ID
+            description: ''
+            use_operator: false
+            operator: nid_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: nid
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              administrator: '0'
+              webmaster: '0'
+              editor: '0'
+              course_provider: '0'
+              corporation: '0'
+              institution: '0'
+              school: '0'
+              place_of_visit: '0'
+              theater_contact: '0'
+              monitor: '0'
+              bypass_workflow: '0'
+              rest_api: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        uid_current:
+          id: uid_current
+          table: users
+          field: uid_current
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          entity_type: user
+          plugin_id: user_current
+          operator: '='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
       query:
         type: views_query
         options:
@@ -1216,6 +1579,8 @@ display:
         access: false
         query: false
         arguments: false
+        filters: false
+        filter_groups: false
       display_extenders:
         os2uol_search:
           os2uol_search_result_string: ''
@@ -1240,10 +1605,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
         - 'config:field.storage.node.field_target_group'
         - 'config:field.storage.user.field_name'
         - 'config:workflow_list'
