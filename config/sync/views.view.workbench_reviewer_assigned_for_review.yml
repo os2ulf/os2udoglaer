@@ -7,6 +7,7 @@ dependencies:
     - system.menu.workbench
     - user.role.administrator
     - user.role.bypass_workflow
+    - user.role.corporation
     - user.role.course_provider
     - user.role.editor
     - user.role.webmaster
@@ -1860,6 +1861,8 @@ display:
         options:
           role:
             course_provider: course_provider
+            corporation: corporation
+            bypass_workflow: bypass_workflow
       arguments:
         uid:
           id: uid
@@ -1870,7 +1873,7 @@ display:
           admin_label: ''
           entity_type: node
           entity_field: uid
-          plugin_id: numeric
+          plugin_id: entity_target_id
           default_action: default
           exception:
             value: all
@@ -1896,6 +1899,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          target_entity_type_id: user
       filters:
         title:
           id: title
@@ -2296,8 +2300,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
         - 'config:field.storage.node.field_target_group'
         - 'config:workflow_list'
   block_2:
@@ -2950,7 +2952,6 @@ display:
             administrator: administrator
             webmaster: webmaster
             editor: editor
-            bypass_workflow: bypass_workflow
       arguments:
         uid:
           id: uid
@@ -2961,7 +2962,7 @@ display:
           admin_label: ''
           entity_type: node
           entity_field: uid
-          plugin_id: numeric
+          plugin_id: entity_target_id
           default_action: ignore
           exception:
             value: all
@@ -2987,6 +2988,7 @@ display:
           validate_options: {  }
           break_phrase: false
           not: false
+          target_entity_type_id: user
       filters:
         title:
           id: title
@@ -3376,8 +3378,6 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
         - 'config:field.storage.node.field_target_group'
         - 'config:workflow_list'
   page_1:
