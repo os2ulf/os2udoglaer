@@ -1085,7 +1085,6 @@ display:
             administrator: administrator
             webmaster: webmaster
             editor: editor
-            bypass_workflow: bypass_workflow
       defaults:
         access: false
       display_extenders:
@@ -1126,6 +1125,7 @@ display:
           role:
             course_provider: course_provider
             corporation: corporation
+            bypass_workflow: bypass_workflow
       arguments:
         uid:
           id: uid
