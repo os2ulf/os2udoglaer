@@ -620,6 +620,32 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       }
     }
   }
+
+  if ($form_id === 'node_free_course_request_edit_form') {
+    $current_user = \Drupal::currentUser();
+
+    // Delay injection until after field groups are rendered
+    $form['#after_build'][] = 'os2uol_entity_forms_add_granted_display';
+  }
+}
+
+function os2uol_entity_forms_add_granted_display(array $form, FormStateInterface $form_state) {
+  $node = $form_state->getFormObject()->getEntity();
+  $granted_amount = $node->get('field_rfc_granted_amount')->value;
+
+  if (isset($form['group_rfc_payment'])) {
+    $form['group_rfc_payment']['field_rfc_granted_display'] = [
+      '#type' => 'item',
+      '#title' => t('Bevilget beløb'),
+      '#markup' => (is_numeric($granted_amount) && $granted_amount > 0)
+        ? number_format((float) $granted_amount, 2, ',', '.') . ' kr.'
+        : t('Ikke angivet'),
+      '#attributes' => ['class' => ['bevilget-display']],
+      '#weight' => isset($form['group_rfc_payment']['field_rfc_spent_amount']['#weight']) ? $form['group_rfc_payment']['field_rfc_spent_amount']['#weight'] - 1 : -10,
+    ];
+  }
+
+  return $form;
 }
 
 function os2uol_entity_forms_validate_overspend_soft_block(array &$form, FormStateInterface $form_state) {
