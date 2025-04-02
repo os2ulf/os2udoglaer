@@ -863,19 +863,6 @@ if (file_exists($app_root . '/' . $site_path . '/settings.devspace.php')) {
 // Set translation directory path - webroot/sites/default/files/translations.
 $settings['locale']['path'] = 'sites/default/files/translations';
 
-# SMTP configuration
-$config['smtp.settings'] = [
-  'smtp_host' => getenv('SMTP_HOST'),
-  'smtp_port' => getenv('SMTP_PORT') ?: 587,
-  'smtp_username' => getenv('SMTP_USER'),
-  'smtp_password' => getenv('SMTP_PASS'),
-  'smtp_protocol' => getenv('SMTP_PROTOCOL') ?: 'tls',
-  'smtp_autotls' => getenv('SMTP_AUTOTLS') ?: 'true',
-  'smtp_from' => getenv('SMTP_FROM') ?: 'info@os2udoglaer.dk',
-  'smtp_fromname' => getenv('SMTP_FROMNAME') ?: 'OS2udoglær',
-  'smtp_allowhtml' => getenv('SMTP_ALLOWHTML') ?: 1,
-];
-
 $settings['locale_translate_directory'] = 'translations://';
 
 // Private files path depending on environment - if ddev or platform.sh.
