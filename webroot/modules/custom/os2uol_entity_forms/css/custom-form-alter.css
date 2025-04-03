@@ -14,3 +14,15 @@ input.submit-trash {
 .node-form .field--name-field-practical-info-buttons {
   display: block !important;
 }
+
+/* Highlight input field with Gin danger color */
+input.overspend-highlight-input {
+  border: 2px solid var(--colorGinDanger) !important;
+  background-color: rgba(227, 52, 47, 0.05) !important;
+}
+
+/* Styling for inline message */
+.overspend-message {
+  color: var(--colorGinDanger);
+  margin-top: 4px;
+}
