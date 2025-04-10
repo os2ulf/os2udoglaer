@@ -24,4 +24,3 @@ ignored_config_entities:
   - system.site
   - 'transform_api.transform_block.*footer*'
   - webform.webform.contact_provider
-  - smtp.settings
