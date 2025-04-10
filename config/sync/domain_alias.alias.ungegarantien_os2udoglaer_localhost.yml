@@ -1,9 +1,0 @@
-uuid: fbcd6806-82a4-4701-afe3-f4b67a6e9bf3
-langcode: da
-status: true
-dependencies: {  }
-id: ungegarantien_os2udoglaer_localhost
-domain_id: api_ungegarantien_dk
-pattern: ungegarantien.os2udoglaer.localhost
-redirect: 0
-environment: local
