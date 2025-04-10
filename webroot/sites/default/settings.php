@@ -751,9 +751,6 @@ $manually_added_hosts = [
   'api.ude.nu',
   'api-staging.ude.nu',
 
-  'api.ungegarantien.dk',
-  'api-staging.ungegarantien.dk',
-
   'api.udsynmodarbejdsliv.dk',
   'api-staging.udsynmodarbejdsliv.dk',
 ];
