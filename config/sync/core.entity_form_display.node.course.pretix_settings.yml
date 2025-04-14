@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.course.field_banner
     - field.field.node.course.field_course_type
     - field.field.node.course.field_curriculum_themes
+    - field.field.node.course.field_dawa_address
     - field.field.node.course.field_description_of_duration
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
@@ -515,6 +516,7 @@ hidden:
   field_banner: true
   field_course_type: true
   field_curriculum_themes: true
+  field_dawa_address: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true

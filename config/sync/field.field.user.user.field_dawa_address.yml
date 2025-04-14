@@ -1,0 +1,21 @@
+uuid: 93850dab-4186-454d-9029-d4295684ddc7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_dawa_address
+  module:
+    - dawa
+    - user
+id: user.user.field_dawa_address
+field_name: field_dawa_address
+entity_type: user
+bundle: user
+label: Adresse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: dawa_address_autocomplete

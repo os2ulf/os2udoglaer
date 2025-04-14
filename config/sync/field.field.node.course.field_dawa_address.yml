@@ -1,0 +1,21 @@
+uuid: ee74a7f4-05c1-487d-a9c4-a458853d7c87
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dawa_address
+    - node.type.course
+  module:
+    - dawa
+id: node.course.field_dawa_address
+field_name: field_dawa_address
+entity_type: node
+bundle: course
+label: Adresse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: dawa_address_autocomplete

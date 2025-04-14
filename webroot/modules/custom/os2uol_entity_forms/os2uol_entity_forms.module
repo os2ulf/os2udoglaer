@@ -169,6 +169,11 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     $registration_deadline_field = &$form['field_registration_deadline']['widget'][0]['value'];
     $registration_deadline_field['#date_time_element'] = 'none';
     $registration_deadline_field['#date_time_format'] = '';
+
+    // Disable editing of location fields.
+    $form['field_location_street']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
+    $form['field_location_zipcode']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
+    $form['field_location_city']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
   }
 
   // Define form IDs for internship forms.
@@ -182,6 +187,11 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     $application_deadline_field = &$form['field_application_deadline']['widget'][0]['value'];
     $application_deadline_field['#date_time_element'] = 'none';
     $application_deadline_field['#date_time_format'] = '';
+
+    // Disable editing of location fields.
+    $form['field_location_street']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
+    $form['field_location_zipcode']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
+    $form['field_location_city']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
   }
 
   // If user_register_form or user_form.
@@ -210,6 +220,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_video_title',
       'field_video_description',
       'field_view_on_map',
+      'field_dawa_address',
       'field_location_street',
       'field_location_name',
       'field_location_zipcode',
@@ -263,7 +274,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
             $form[$field]['#access'] = FALSE;
           }
         }
-        $form['field_location_street']['#access'] = TRUE;
+        $form['field_dawa_address']['#access'] = TRUE;
         $form['field_location_name']['#access'] = TRUE;
         $form['field_location_zipcode']['#access'] = TRUE;
         $form['field_location_city']['#access'] = TRUE;
@@ -277,7 +288,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
             $form[$field]['#access'] = FALSE;
           }
         }
-        $form['field_location_street']['#access'] = TRUE;
+        $form['field_dawa_address']['#access'] = TRUE;
         $form['field_location_name']['#access'] = TRUE;
         $form['field_location_zipcode']['#access'] = TRUE;
         $form['field_location_city']['#access'] = TRUE;
@@ -483,6 +494,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       'field_video_title',
       'field_video_description',
       'field_view_on_map',
+      'field_dawa_address',
       'field_location_street',
       'field_location_name',
       'field_location_zipcode',
@@ -512,6 +524,11 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
         }
       }
     }
+
+    // Disable editing of location fields.
+    $form['field_location_street']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
+    $form['field_location_zipcode']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
+    $form['field_location_city']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
   }
 
   $node_edit_application_forms = [
