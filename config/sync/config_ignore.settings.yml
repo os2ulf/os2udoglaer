@@ -5,6 +5,7 @@ mode: simple
 ignored_config_entities:
   - 'block.block.*footer*'
   - 'content_moderation_notifications.content_moderation_notification.*'
+  - 'domain.config.*.*.smtp.settings'
   - 'domain.config.*.*.system.mail'
   - 'domain.config.*.*.system.site'
   - 'domain.config.*.os2uol_application_forms.gdpr_settings'
