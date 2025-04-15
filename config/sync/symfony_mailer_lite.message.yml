@@ -2,7 +2,7 @@ _core:
   default_config_hash: pxXXt2Y_C4hI99GWfwgveH4pNT6ev8mQMkJEkVOashQ
 langcode: da
 content_type: text/html
-override: false
+override: true
 text_format: plain_text
 generate_plain: false
 character_set: UTF-8

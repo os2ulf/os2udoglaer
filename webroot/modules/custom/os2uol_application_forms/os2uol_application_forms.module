@@ -555,6 +555,24 @@ function os2uol_application_forms_set_reply_to(EntityInterface $entity, array &$
 }
 
 /**
+ * Implements hook_mail_alter().
+ */
+function os2uol_application_forms_mail_alter(&$message) {
+  // Drupal hardcodes all mail header as 'text/plain' so we need to set the
+  // header's 'Content-type' to HTML if the EmailWebformHandler's
+  // 'html' flag has been set.
+  // @see \Drupal\Core\Mail\MailManager::mail()
+  // @see \Drupal\webform\Plugin\WebformHandler\EmailWebformHandler::getMessage().
+  if (str_starts_with($message['id'], 'content_moderation_notifications')) {
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+    $entity = $message['params']['context']['entity'];
+
+    // Dynamically set the Reply-To header based on workflow type.
+    os2uol_application_forms_set_reply_to($entity, $message);
+  }
+}
+
+/**
  * Implements hook_views_data_alter().
  */
 function os2uol_application_forms_views_data_alter(array &$data) {
