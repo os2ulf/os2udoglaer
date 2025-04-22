@@ -565,7 +565,6 @@ function os2uol_application_forms_mail_alter(&$message) {
   // @see \Drupal\webform\Plugin\WebformHandler\EmailWebformHandler::getMessage().
   if (str_starts_with($message['id'], 'content_moderation_notifications')) {
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
-
     $entity = $message['params']['context']['entity'];
 
     // Dynamically set the Reply-To header based on workflow type.

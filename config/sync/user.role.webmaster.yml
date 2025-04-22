@@ -79,6 +79,7 @@ dependencies:
     - path
     - redirect
     - role_delegation
+    - smtp
     - system
     - taxonomy
     - toolbar
@@ -119,6 +120,7 @@ permissions:
   - 'administer redirect settings'
   - 'administer redirects'
   - 'administer site configuration'
+  - 'administer smtp module'
   - 'administer taxonomy'
   - 'administer url aliases'
   - 'administer users'

@@ -1,9 +1,9 @@
 _core:
   default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 langcode: da
-theme: current
+theme: default
 defaults:
-  sender: symfony_mailer_lite
+  sender: SMTPMailSystem
   formatter: symfony_mailer_lite
 modules:
   sendgrid_integration: {  }
