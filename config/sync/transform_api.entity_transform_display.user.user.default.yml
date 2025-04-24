@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_dawa_address
     - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
@@ -45,6 +46,7 @@ dependencies:
     - field.field.user.user.field_view_on_map
     - responsive_image.styles.isg_course_header
   module:
+    - transform_api_dawa
     - transform_api_responsive_image
     - user
 id: user.user.default
@@ -81,6 +83,14 @@ content:
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_dawa_address:
+    type: dawa_address_transform
+    weight: '32'
+    region: content
+    label: omit
+    settings:
+      transform_mode: all
     third_party_settings: {  }
   field_district:
     type: value

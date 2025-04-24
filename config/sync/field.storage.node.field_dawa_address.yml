@@ -1,0 +1,19 @@
+uuid: cb801825-48be-4b9e-b3a8-24e05b329e89
+langcode: da
+status: true
+dependencies:
+  module:
+    - dawa
+    - node
+id: node.field_dawa_address
+field_name: field_dawa_address
+entity_type: node
+type: dawa_address_autocomplete
+settings: {  }
+module: dawa
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
     - field.field.node.internship.field_banner
+    - field.field.node.internship.field_dawa_address
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_description_of_period
     - field.field.node.internship.field_domain_access
@@ -50,6 +51,7 @@ dependencies:
     - responsive_image.styles.isg_course_header
     - transform_api.entity_transform_mode.node.full
   module:
+    - transform_api_dawa
     - transform_api_responsive_image
 id: node.internship.full
 targetEntityType: node
@@ -113,6 +115,14 @@ content:
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_dawa_address:
+    type: dawa_address_transform
+    weight: '35'
+    region: content
+    label: omit
+    settings:
+      transform_mode: all
     third_party_settings: {  }
   field_desc_application_procedure:
     type: text_format

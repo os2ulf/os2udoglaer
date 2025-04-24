@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
     - field.field.node.internship.field_banner
+    - field.field.node.internship.field_dawa_address
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_description_of_period
     - field.field.node.internship.field_domain_access
@@ -51,6 +52,7 @@ dependencies:
   module:
     - allowed_formats
     - datetime
+    - dawa
     - field_group
     - focal_point
     - maxlength
@@ -138,6 +140,7 @@ third_party_settings:
     group_alternative_address:
       children:
         - field_location_name
+        - field_dawa_address
         - field_location_street
         - field_location_zipcode
         - field_location_city
@@ -195,7 +198,6 @@ third_party_settings:
       children:
         - field_industry
         - field_areas_of_interest
-        - field_theme
         - field_education_path
       label: 'Branche og interesseområde'
       region: content
@@ -382,6 +384,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_dawa_address:
+    type: dawa_address_autocomplete_widget
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_desc_application_procedure:
     type: text_textarea
     weight: 29
@@ -467,7 +475,7 @@ content:
     third_party_settings: {  }
   field_location_city:
     type: string_textfield
-    weight: 6
+    weight: 7
     region: content
     settings:
       size: 60
@@ -491,7 +499,7 @@ content:
     third_party_settings: {  }
   field_location_street:
     type: string_textfield
-    weight: 4
+    weight: 5
     region: content
     settings:
       size: 60
@@ -499,7 +507,7 @@ content:
     third_party_settings: {  }
   field_location_zipcode:
     type: string_textfield
-    weight: 5
+    weight: 6
     region: content
     settings:
       size: 60

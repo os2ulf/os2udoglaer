@@ -1,0 +1,21 @@
+uuid: 7b247440-4f82-4c84-9614-a47ad6317f05
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dawa_address
+    - node.type.internship
+  module:
+    - dawa
+id: node.internship.field_dawa_address
+field_name: field_dawa_address
+entity_type: node
+bundle: internship
+label: Adresse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: dawa_address_autocomplete

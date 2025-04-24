@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "56909683846ff7260b43606594b768be",
+    "content-hash": "ae89a30b9af23092a0fe6cf416d6eb64",
     "packages": [
         {
             "name": "algolia/places",
@@ -4426,6 +4426,50 @@
             "homepage": "https://www.drupal.org/project/inline_block_title_automatic",
             "support": {
                 "source": "https://git.drupalcode.org/project/inline_block_title_automatic"
+            }
+        },
+        {
+            "name": "drupal/jquery_once",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/jquery_once.git",
+                "reference": "1.1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/jquery_once-1.1.0.zip",
+                "reference": "1.1.0",
+                "shasum": "246a585a72663c0ab661bb4cffdc93d61565ec6a"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10 || ^11"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "1.1.0",
+                    "datestamp": "1736117167",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "florianmuellerch",
+                    "homepage": "https://www.drupal.org/user/3524567"
+                }
+            ],
+            "description": "Include dependency to jQuery and the former jQuery.once() library.",
+            "homepage": "https://www.drupal.org/project/jquery_once",
+            "support": {
+                "source": "https://git.drupalcode.org/project/jquery_once"
             }
         },
         {
@@ -9865,6 +9909,27 @@
                 "source": "https://github.com/nikic/PHP-Parser/tree/v5.3.1"
             },
             "time": "2024-10-08T18:51:32+00:00"
+        },
+        {
+            "name": "novicell/dawa",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://packages.drupal.dk/php/~/up/ver_otnZ/novicelldawa-1-0-1.zip"
+            },
+            "require": {
+                "drupal/core": "^10",
+                "drupal/jquery_once": "^1.0"
+            },
+            "type": "drupal-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "Novicell DAWA module",
+            "homepage": "https://www.novicell.dk",
+            "keywords": [
+                "Novicell"
+            ]
         },
         {
             "name": "novicell/dynamic_key_value",

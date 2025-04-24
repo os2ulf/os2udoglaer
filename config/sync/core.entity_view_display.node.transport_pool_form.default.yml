@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.transport_pool_form.field_data_anonymized
+    - field.field.node.transport_pool_form.field_dawa_address
     - field.field.node.transport_pool_form.field_domain_access
     - field.field.node.transport_pool_form.field_domain_all_affiliates
     - field.field.node.transport_pool_form.field_location_city
@@ -33,6 +34,7 @@ dependencies:
     - node.type.transport_pool_form
   module:
     - datetime
+    - dawa
     - options
     - user
 id: node.transport_pool_form.default
@@ -40,6 +42,15 @@ targetEntityType: node
 bundle: transport_pool_form
 mode: default
 content:
+  field_dawa_address:
+    type: dawa_address_autocomplete_formatter
+    label: above
+    settings:
+      display_as: full
+      include_country: true
+    third_party_settings: {  }
+    weight: 56
+    region: content
   field_location_city:
     type: string
     label: above
