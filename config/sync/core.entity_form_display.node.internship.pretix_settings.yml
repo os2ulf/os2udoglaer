@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
     - field.field.node.internship.field_banner
+    - field.field.node.internship.field_dawa_address
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_description_of_period
     - field.field.node.internship.field_domain_access
@@ -353,6 +354,7 @@ hidden:
   field_application_url: true
   field_areas_of_interest: true
   field_banner: true
+  field_dawa_address: true
   field_desc_application_procedure: true
   field_description_of_period: true
   field_domain_access: true

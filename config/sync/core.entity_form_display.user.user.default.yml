@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_dawa_address
     - field.field.user.user.field_disable_auto_unpublish
     - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
@@ -47,6 +48,7 @@ dependencies:
     - image.style.medium
   module:
     - conditional_fields
+    - dawa
     - field_group
     - focal_point
     - link
@@ -140,8 +142,9 @@ third_party_settings:
         required_fields: true
     group_alternative_address:
       children:
-        - field_location_street
         - field_location_name
+        - field_dawa_address
+        - field_location_street
         - field_location_zipcode
         - field_location_city
       label: Adresse
@@ -400,6 +403,12 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields: {  }
+  field_dawa_address:
+    type: dawa_address_autocomplete_widget
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_disable_auto_unpublish:
     type: boolean_checkbox
     weight: 62
@@ -496,7 +505,7 @@ content:
       conditional_fields: {  }
   field_location_city:
     type: string_textfield
-    weight: 32
+    weight: 34
     region: content
     settings:
       size: 60
@@ -512,7 +521,7 @@ content:
     third_party_settings: {  }
   field_location_street:
     type: string_textfield
-    weight: 29
+    weight: 32
     region: content
     settings:
       size: 60
@@ -520,7 +529,7 @@ content:
     third_party_settings: {  }
   field_location_zipcode:
     type: string_textfield
-    weight: 31
+    weight: 33
     region: content
     settings:
       size: 60

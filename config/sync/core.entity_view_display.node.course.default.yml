@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.course.field_banner
     - field.field.node.course.field_course_type
     - field.field.node.course.field_curriculum_themes
+    - field.field.node.course.field_dawa_address
     - field.field.node.course.field_description_of_duration
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
@@ -70,6 +71,7 @@ dependencies:
   module:
     - datetime
     - datetime_range
+    - dawa
     - entity_reference_revisions
     - image
     - metatag
@@ -128,6 +130,15 @@ content:
       link: true
     third_party_settings: {  }
     weight: 18
+    region: content
+  field_dawa_address:
+    type: dawa_address_autocomplete_formatter
+    label: above
+    settings:
+      display_as: full
+      include_country: true
+    third_party_settings: {  }
+    weight: 56
     region: content
   field_description_of_duration:
     type: text_default
