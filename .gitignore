@@ -75,6 +75,9 @@ webroot/themes/README.txt
 webroot/sites/default/default.services.yml
 webroot/sites/default/default.settings.php
 
+# Ignore the smtp settings files
+config/sync/*.smtp.settings.yml
+
 .env
 devspace.env
 */node_modules
