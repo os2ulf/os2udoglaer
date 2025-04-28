@@ -1,8 +1,8 @@
-uuid: a90cf76e-bab8-494d-beb6-f560c3b7b258
+uuid: bda9e0ff-7964-41e5-abe5-cbb1176dee27
 langcode: da
 status: true
 dependencies: {  }
-id: api_staging_rum_thisted_dk
+id: api_staging_rumthisted_dk
 domain_id: api_rum_thisted_dk
 pattern: api-staging.rumthisted.dk
 redirect: 0

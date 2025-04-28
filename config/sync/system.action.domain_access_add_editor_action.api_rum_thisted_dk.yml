@@ -7,7 +7,7 @@ dependencies:
   module:
     - domain_access
 id: domain_access_add_editor_action.api_rum_thisted_dk
-label: 'Add editors to the rum.thisted.dk domain'
+label: 'Add editors to the rumthisted.dk domain'
 type: user
 plugin: domain_access_add_editor_action
 configuration:
