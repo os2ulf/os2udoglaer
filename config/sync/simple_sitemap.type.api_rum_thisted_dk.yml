@@ -8,8 +8,8 @@ third_party_settings:
   domain_simple_sitemap:
     sitemap_domain: api_rum_thisted_dk
 id: api_rum_thisted_dk
-label: 'rum.thisted.dk sitemap'
-description: 'Sitemap type for domain: rum.thisted.dk'
+label: 'rumthisted.dk sitemap'
+description: 'Sitemap type for domain: rumthisted.dk'
 sitemap_generator: default
 url_generators:
   headless_custom: headless_custom

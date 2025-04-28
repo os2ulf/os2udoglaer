@@ -7,7 +7,7 @@ dependencies:
   module:
     - domain_access
 id: domain_access_remove_action.api_rum_thisted_dk
-label: 'Remove selected content from the rum.thisted.dk domain'
+label: 'Remove selected content from the rumthisted.dk domain'
 type: node
 plugin: domain_access_remove_action
 configuration:

@@ -5,7 +5,7 @@ dependencies:
   config:
     - simple_sitemap.type.api_rum_thisted_dk
 id: rum-thisted-dk
-label: rum.thisted.dk
+label: rumthisted.dk
 description: ''
 type: api_rum_thisted_dk
 weight: 0
