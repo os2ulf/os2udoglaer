@@ -13,7 +13,7 @@ entity_type: node
 bundle: transport_pool_form
 label: Adresse
 description: ''
-required: false
+required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
