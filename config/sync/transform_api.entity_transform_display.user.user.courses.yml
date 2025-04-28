@@ -150,7 +150,6 @@ hidden:
   field_allocated_budget: true
   field_brancher: true
   field_contact: true
-  field_disable_auto_unpublish: true
   field_disctrict: true
   field_district: true
   field_domain_access: true

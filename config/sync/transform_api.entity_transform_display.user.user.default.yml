@@ -297,7 +297,6 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
-  field_disable_auto_unpublish: true
   field_disctrict: true
   field_domain_access: true
   field_domain_admin: true
