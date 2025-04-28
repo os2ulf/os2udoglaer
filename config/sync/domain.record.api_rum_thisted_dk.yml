@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 id: api_rum_thisted_dk
 domain_id: 14581620
-hostname: api.rum.thisted.dk
-name: rum.thisted.dk
+hostname: api.rumthisted.dk
+name: rumthisted.dk
 scheme: variable
 weight: 7
 is_default: false

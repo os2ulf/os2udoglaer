@@ -14,7 +14,7 @@ provider: null
 plugin: 'custom_menu_block:dm14581620-main'
 settings:
   id: 'custom_menu_block:dm14581620-main'
-  label: 'Domain menu for rum.thisted.dk (main)'
+  label: 'Domain menu for rumthisted.dk (main)'
   provider: os2uol_menus
   level: '1'
   depth: '0'

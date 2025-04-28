@@ -18,7 +18,7 @@ provider: null
 plugin: 'menu_item_fields:dm14581620-main'
 settings:
   id: 'menu_item_fields:dm14581620-main'
-  label: 'Domain menu for rum.thisted.dk (main)'
+  label: 'Domain menu for rumthisted.dk (main)'
   label_display: '0'
   provider: menu_item_fields
   view_mode: default
