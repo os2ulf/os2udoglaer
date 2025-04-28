@@ -736,8 +736,8 @@ $manually_added_hosts = [
   'api.laeringsportalenskive.dk',
   'api-staging.laeringsportalenskive.dk',
 
-  'api.rum.thisted.dk',
-  'api-staging.rum.thisted.dk',
+  'api.rumthisted.dk',
+  'api-staging.rumthisted.dk',
 
   'api.udoglaer.dk',
   'api-staging.udoglaer.dk',
