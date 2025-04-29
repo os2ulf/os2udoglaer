@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.storage.node.field_dawa_address
     - field.storage.node.field_location_city
     - field.storage.node.field_location_street
     - field.storage.node.field_location_zipcode
@@ -27,6 +28,7 @@ dependencies:
     - better_exposed_filters
     - content_moderation
     - datetime
+    - dawa
     - domain_access
     - node
     - options
@@ -440,8 +442,8 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: Forløb
-          exclude: true
+          label: 'Forløb / adresse'
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -473,7 +475,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -630,10 +632,10 @@ display:
           admin_label: ''
           plugin_id: field
           label: 'Forløb / adresse'
-          exclude: false
+          exclude: true
           alter:
-            alter_text: true
-            text: "{{ field_rfc_course }}\r\n{{ field_location_street }}, {{ field_location_zipcode }} {{ field_location_city }}"
+            alter_text: false
+            text: ''
             make_link: false
             path: ''
             absolute: false
@@ -674,6 +676,70 @@ display:
           type: string
           settings:
             link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_dawa_address:
+          id: field_dawa_address
+          table: node__field_dawa_address
+          field: field_dawa_address
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: "{{ field_rfc_course }}\r\n{{ field_dawa_address }}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: '<div>{{ field_location_street }}, {{ field_location_zipcode }} {{ field_location_city }}</div>'
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: true
+          click_sort_column: value
+          type: dawa_address_autocomplete_formatter
+          settings:
+            display_as: full
+            include_country: 0
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1856,7 +1922,7 @@ display:
           row_class: ''
           default_row_class: true
           columns:
-            node_bulk_form: node_bulk_form
+            views_bulk_operations_bulk_form: views_bulk_operations_bulk_form
             nid: nid
             field_old_id: field_old_id
             created: created
@@ -1864,7 +1930,8 @@ display:
             field_rfc_course: field_rfc_course
             field_location_zipcode: field_location_zipcode
             field_location_city: field_location_city
-            field_location_street: field_location_street
+            field_location_street: field_rfc_course
+            field_dawa_address: field_rfc_course
             field_tpf_institution: field_tpf_institution
             field_tpf_grade: field_tpf_institution
             field_tpf_expense: field_tpf_expense
@@ -1874,11 +1941,11 @@ display:
             field_tpf_what_course: field_tpf_what_course
             field_tpf_purpose_course: field_tpf_what_course
             field_tpf_message: field_tpf_what_course
-            moderation_state: moderation_state
+            current_state_views_field: current_state_views_field
             edit_node: edit_node
           default: '-1'
           info:
-            node_bulk_form:
+            views_bulk_operations_bulk_form:
               align: ''
               separator: ''
               empty_column: false
@@ -1935,6 +2002,11 @@ display:
             field_location_street:
               sortable: true
               default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_dawa_address:
               align: ''
               separator: ''
               empty_column: false
@@ -2002,8 +2074,8 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            moderation_state:
-              sortable: true
+            current_state_views_field:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2071,6 +2143,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_dawa_address'
         - 'config:field.storage.node.field_location_city'
         - 'config:field.storage.node.field_location_street'
         - 'config:field.storage.node.field_location_zipcode'
@@ -2562,11 +2635,11 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Forløb / adresse'
-          exclude: false
+          label: ''
+          exclude: true
           alter:
             alter_text: true
-            text: "{{ field_rfc_course }}\r\n{{ field_location_street }}, {{ field_location_zipcode }} {{ field_location_city }}"
+            text: '{{ field_location_street }}, {{ field_location_zipcode }} {{ field_location_city }}'
             make_link: false
             path: ''
             absolute: false
@@ -2595,7 +2668,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2607,6 +2680,70 @@ display:
           type: string
           settings:
             link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+        field_dawa_address:
+          id: field_dawa_address
+          table: node__field_dawa_address
+          field: field_dawa_address
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: field
+          label: 'Forløb / adresse'
+          exclude: false
+          alter:
+            alter_text: true
+            text: "{{ field_rfc_course }}\r\n{{ field_dawa_address__value }}"
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: "{{ field_rfc_course }}\r\n{{ field_location_street }}, {{ field_location_zipcode }} {{ field_location_city }}"
+          hide_empty: false
+          empty_zero: true
+          hide_alter_empty: true
+          click_sort_column: value
+          type: dawa_address_autocomplete_formatter
+          settings:
+            display_as: single-line
+            include_country: 0
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -3334,6 +3471,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_dawa_address'
         - 'config:field.storage.node.field_location_city'
         - 'config:field.storage.node.field_location_street'
         - 'config:field.storage.node.field_location_zipcode'
@@ -3379,6 +3517,7 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_dawa_address'
         - 'config:field.storage.node.field_location_city'
         - 'config:field.storage.node.field_location_street'
         - 'config:field.storage.node.field_location_zipcode'
