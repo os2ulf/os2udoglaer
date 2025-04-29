@@ -148,6 +148,17 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
     $form['field_location_zipcode']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
     $form['field_location_city']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
   }
+
+  if (in_array($form_id, ['node_theater_refund_edit_form', 'node_free_course_request_edit_form'])) {
+    /** @var \Drupal\node\NodeInterface $node */
+    $node = $form_state->getFormObject()->getEntity();
+
+    $state = $node->get('moderation_state')->getString();
+
+    if ($state != 'published') {
+      $form['field_rfc_payment_date']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
+    }
+  }
 }
 
 /**
