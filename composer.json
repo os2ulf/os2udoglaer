@@ -283,6 +283,9 @@
             },
             "drupal/workflow_buttons": {
                 "(#3451409) Automated Drupal 11 compatibility fixes for workflow_buttons": "https://www.drupal.org/files/issues/2024-11-25/workflow_buttons_3451409_git_theme.patch"
+            },
+            "novicell/dawa": {
+                "Require full address, or none": "patches/dawa_require_full_address_or_none.patch"
             }
         }
     }

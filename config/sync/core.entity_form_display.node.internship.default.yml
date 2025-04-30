@@ -51,6 +51,7 @@ dependencies:
     - node.type.internship
   module:
     - allowed_formats
+    - conditional_fields
     - datetime
     - dawa
     - field_group
@@ -389,7 +390,26 @@ content:
     weight: 4
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        a04a554d-dbfd-4aab-a25a-473f5134e58a:
+          entity_type: node
+          bundle: internship
+          dependee: field_view_on_map
+          settings:
+            state: required
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: show_alternative_address
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_desc_application_procedure:
     type: text_textarea
     weight: 29

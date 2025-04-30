@@ -1,0 +1,16 @@
+diff --git a/src/Element/AutocompleteAddressField.php b/src/Element/AutocompleteAddressField.php
+index cfc137a..09e9b03 100644
+--- a/src/Element/AutocompleteAddressField.php
++++ b/src/Element/AutocompleteAddressField.php
+@@ -165,6 +165,11 @@ class AutocompleteAddressField extends FormElement {
+       $form_state->setError($element, t('Invalid address, please select one from the suggestions.'));
+     }
+ 
++    // If the user entered an address, we need to check if the address is valid.
++    if (!empty($entered_address) && empty($id)) {
++      $form_state->setError($element, t('Invalid address, please select one from the suggestions.'));
++    }
++
+     if (!empty($id)) {
+ 
+       $values['id'] = $id;
