@@ -573,7 +573,26 @@ content:
     weight: 63
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        9aea2c6c-37d9-476b-b7cd-47cca0e3a617:
+          entity_type: node
+          bundle: course
+          dependee: field_view_on_map
+          settings:
+            state: required
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: show_alternative_address
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_description_of_duration:
     type: text_textarea
     weight: 19
