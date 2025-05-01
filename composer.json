@@ -234,7 +234,8 @@
             "drupal/content_moderation_notifications": {
                 "(#3419565) Allow a notification to bypass the content access check": "https://www.drupal.org/files/issues/2024-02-06/content_moderation_notifications-bypass_access_check-3419565-2.patch",
                 "(#2965600) Add content type option": "https://www.drupal.org/files/issues/2025-01-24/2965600-content-type_20.patch",
-                "Enable token support for ad-hoc email addresses": "patches/content_moderation_notifications_support_adhoc_token.patch"
+                "Enable token support for ad-hoc email addresses": "patches/content_moderation_notifications_support_adhoc_token.patch",
+                "Turn BCC into To": "patches/content_moderation_notifications_bcc_into_to.patch"
             },
             "drupal/diff": {
                 "(#3165141) Set the default filter to 'Strip Tags'": "https://www.drupal.org/files/issues/2024-09-16/3165141-21.patch"
