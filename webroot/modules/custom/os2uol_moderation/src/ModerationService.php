@@ -79,9 +79,10 @@ class ModerationService {
 
           $this->processNode($node, $unpublishInterval);
         }
-      } catch (\Throwable) {
+      } catch (\Throwable $throwable) {
         // TODO: Log the error.
         $this->results['errors'][] = "Error processing domain {$domain->id()}";
+        watchdog_exception('os2uol_moderation', $throwable);
       } finally {
         // Reset active domain
         $domain_negotiator->getActiveDomain(TRUE);
