@@ -408,7 +408,44 @@ content:
     weight: 31
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        0c8d6532-38d2-4f4c-8059-ef8f40322079:
+          entity_type: user
+          bundle: user
+          dependee: field_view_on_map
+          settings:
+            state: required
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: show_on_map
+            effect: show
+            effect_options: {  }
+            selector: ''
+        5f5279c8-b5cd-4241-8baf-5d34e6c2dacd:
+          entity_type: user
+          bundle: user
+          dependee: field_view_on_map
+          settings:
+            state: '!required'
+            reset: false
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: hidden_on_map
+            effect: show
+            effect_options: {  }
+            selector: ''
   field_disable_auto_unpublish:
     type: boolean_checkbox
     weight: 62
