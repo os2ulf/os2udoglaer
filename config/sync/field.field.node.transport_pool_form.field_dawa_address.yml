@@ -1,0 +1,21 @@
+uuid: 711a355b-3b9e-4386-9703-a2d890f1e210
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dawa_address
+    - node.type.transport_pool_form
+  module:
+    - dawa
+id: node.transport_pool_form.field_dawa_address
+field_name: field_dawa_address
+entity_type: node
+bundle: transport_pool_form
+label: Adresse
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: dawa_address_autocomplete

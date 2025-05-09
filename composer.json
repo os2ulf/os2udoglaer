@@ -68,6 +68,7 @@
         "drupal/hreflang": "^1.0",
         "drupal/imageapi_optimize": "^4.0",
         "drupal/inline_block_title_automatic": "^1.0",
+        "drupal/jquery_once": "^1.1",
         "drupal/layout_builder_at": "^2.0",
         "drupal/layout_builder_modal": "^1.0",
         "drupal/layout_builder_restrictions": "^2.0",
@@ -119,6 +120,7 @@
         "drupal/workflow_buttons": "^1.0@beta",
         "drupal/xls_serialization": "^1.3",
         "drush/drush": "^12",
+        "novicell/dawa": "^1.0",
         "novicell/dynamic_key_value": "^1.0",
         "novicell/image_style_generator": "^1.0",
         "novicell/media_icons": "^1.0",
@@ -232,7 +234,8 @@
             "drupal/content_moderation_notifications": {
                 "(#3419565) Allow a notification to bypass the content access check": "https://www.drupal.org/files/issues/2024-02-06/content_moderation_notifications-bypass_access_check-3419565-2.patch",
                 "(#2965600) Add content type option": "https://www.drupal.org/files/issues/2025-01-24/2965600-content-type_20.patch",
-                "Enable token support for ad-hoc email addresses": "patches/content_moderation_notifications_support_adhoc_token.patch"
+                "Enable token support for ad-hoc email addresses": "patches/content_moderation_notifications_support_adhoc_token.patch",
+                "Turn BCC into To": "patches/content_moderation_notifications_bcc_into_to.patch"
             },
             "drupal/diff": {
                 "(#3165141) Set the default filter to 'Strip Tags'": "https://www.drupal.org/files/issues/2024-09-16/3165141-21.patch"
@@ -281,6 +284,9 @@
             },
             "drupal/workflow_buttons": {
                 "(#3451409) Automated Drupal 11 compatibility fixes for workflow_buttons": "https://www.drupal.org/files/issues/2024-11-25/workflow_buttons_3451409_git_theme.patch"
+            },
+            "novicell/dawa": {
+                "Require full address, or none": "patches/dawa_require_full_address_or_none.patch"
             }
         }
     }

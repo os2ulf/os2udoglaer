@@ -8,6 +8,7 @@ dependencies:
     - field.field.node.course_educators.field_all_year
     - field.field.node.course_educators.field_banner
     - field.field.node.course_educators.field_curriculum_themes
+    - field.field.node.course_educators.field_dawa_address
     - field.field.node.course_educators.field_description_of_duration
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
@@ -87,6 +88,7 @@ hidden:
   field_all_year: true
   field_banner: true
   field_curriculum_themes: true
+  field_dawa_address: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true

@@ -1,0 +1,22 @@
+diff --git a/src/Notification.php b/src/Notification.php
+index e44c109..92073c0 100644
+--- a/src/Notification.php
++++ b/src/Notification.php
+@@ -250,14 +250,12 @@ class Notification implements NotificationInterface {
+       // Remove any duplicates.
+       $data['to'] = array_unique($data['to']);
+ 
+-      // Force to BCC.
+-      $data['params']['headers']['Bcc'] = implode(',', $data['to']);
++      $recipient = implode(',', $data['to']);
+ 
+-      $recipient = '';
+       if (!$notification->disableSiteMail()) {
+-        $recipient = \Drupal::config('system.site')->get('mail');
++        $recipient .= ',' . \Drupal::config('system.site')->get('mail');
+       }
+-      if (!empty($data['params']['headers']['Bcc'])) {
++      if (!empty($recipient)) {
+         $this->mailManager->mail('content_moderation_notifications', 'content_moderation_notification', $recipient, $data['langcode'], $data['params'], NULL, TRUE);
+       }
+     }

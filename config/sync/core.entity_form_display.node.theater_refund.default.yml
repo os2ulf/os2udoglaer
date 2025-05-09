@@ -30,6 +30,7 @@ dependencies:
   module:
     - datetime
     - field_group
+    - os2uol_application_forms
     - text
     - workflow_buttons
 third_party_settings:
@@ -209,7 +210,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_rfc_payment_date:
-    type: datetime_timestamp
+    type: nullable_datetime_timestamp
     weight: 16
     region: content
     settings: {  }

@@ -7,6 +7,7 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_dawa_address
     - field.field.user.user.field_disable_auto_unpublish
     - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
@@ -45,6 +46,7 @@ dependencies:
     - field.field.user.user.field_video_title
     - field.field.user.user.field_view_on_map
   module:
+    - dawa
     - entity_reference_revisions
     - image
     - link
@@ -92,6 +94,15 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 16
+    region: content
+  field_dawa_address:
+    type: dawa_address_autocomplete_formatter
+    label: above
+    settings:
+      display_as: full
+      include_country: true
+    third_party_settings: {  }
+    weight: 43
     region: content
   field_disable_auto_unpublish:
     type: boolean

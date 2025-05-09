@@ -5,6 +5,7 @@ namespace Drupal\os2uol_moderation;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\node\Entity\Node;
+use Drupal\os2uol_domain\Os2uolDomain;
 
 /**
  * Service for handling moderation logic.
@@ -48,20 +49,43 @@ class ModerationService {
     // Start moderation process.
     \Drupal::logger('os2uol_moderation')->notice('Moderation process started.');
 
-    // Query published nodes.
-    $nids = $this->entityTypeManager->getStorage('node')->getQuery()
-      ->condition('status', 1)
-      ->accessCheck(FALSE)
-      ->execute();
+    /** @var \Drupal\domain\DomainNegotiator $domain_negotiator */
+    $domain_negotiator = \Drupal::service('domain.negotiator');
 
-    foreach ($nids as $nid) {
-      $node = Node::load($nid);
-      if (!$node) {
-        $this->results['errors'][] = "Node $nid could not be loaded.";
+    $domains = \Drupal::entityTypeManager()->getStorage('domain')->loadMultiple();
+
+    foreach ($domains as $domain) {
+      // Skip default domain
+      if ($domain->id() === Os2uolDomain::DEFAULT_DOMAIN_ID) {
         continue;
       }
 
-      $this->processNode($node, $unpublishInterval);
+      try {
+        $domain_negotiator->setActiveDomain($domain);
+
+        // Query published nodes.
+        $nids = $this->entityTypeManager->getStorage('node')->getQuery()
+          ->condition('status', 1)
+          ->condition('field_domain_access', $domain->id())
+          ->accessCheck(FALSE)
+          ->execute();
+
+        foreach ($nids as $nid) {
+          $node = Node::load($nid);
+          if (!$node) {
+            $this->results['errors'][] = "Node $nid could not be loaded.";
+            continue;
+          }
+
+          $this->processNode($node, $unpublishInterval);
+        }
+      } catch (\Throwable $throwable) {
+        $this->results['errors'][] = "Error processing domain {$domain->id()}";
+        watchdog_exception('os2uol_moderation', $throwable);
+      } finally {
+        // Reset active domain
+        $domain_negotiator->getActiveDomain(TRUE);
+      }
     }
 
     $this->logSummary();
