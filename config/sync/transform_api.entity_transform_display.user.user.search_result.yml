@@ -7,6 +7,9 @@ dependencies:
     - field.field.user.user.field_brancher
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
+    - field.field.user.user.field_dawa_address
+    - field.field.user.user.field_disable_auto_unpublish
+    - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
     - field.field.user.user.field_domain_all_affiliates
@@ -17,10 +20,7 @@ dependencies:
     - field.field.user.user.field_image
     - field.field.user.user.field_institution_type
     - field.field.user.user.field_intro
-    - field.field.user.user.field_location_city
     - field.field.user.user.field_location_name
-    - field.field.user.user.field_location_street
-    - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
     - field.field.user.user.field_meta_tags
@@ -122,6 +122,8 @@ hidden:
   field_brancher: true
   field_contact: true
   field_cvr: true
+  field_dawa_address: true
+  field_disable_auto_unpublish: true
   field_disctrict: true
   field_district: true
   field_domain_access: true
@@ -131,10 +133,7 @@ hidden:
   field_educational_profile: true
   field_homepage: true
   field_intro: true
-  field_location_city: true
   field_location_name: true
-  field_location_street: true
-  field_location_zipcode: true
   field_meta_tags: true
   field_other_info: true
   field_other_info_description: true

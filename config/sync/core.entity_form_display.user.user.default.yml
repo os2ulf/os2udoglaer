@@ -20,10 +20,7 @@ dependencies:
     - field.field.user.user.field_image
     - field.field.user.user.field_institution_type
     - field.field.user.user.field_intro
-    - field.field.user.user.field_location_city
     - field.field.user.user.field_location_name
-    - field.field.user.user.field_location_street
-    - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
     - field.field.user.user.field_meta_tags
@@ -540,33 +537,9 @@ content:
       placeholder: ''
     third_party_settings:
       conditional_fields: {  }
-  field_location_city:
-    type: string_textfield
-    weight: 34
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_location_name:
     type: string_textfield
     weight: 30
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_location_street:
-    type: string_textfield
-    weight: 32
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_location_zipcode:
-    type: string_textfield
-    weight: 33
     region: content
     settings:
       size: 60
