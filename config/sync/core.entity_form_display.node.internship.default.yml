@@ -24,11 +24,8 @@ dependencies:
     - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
-    - field.field.node.internship.field_location_city
     - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
-    - field.field.node.internship.field_location_street
-    - field.field.node.internship.field_location_zipcode
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
@@ -493,14 +490,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_location_city:
-    type: string_textfield
-    weight: 7
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_location_description:
     type: text_textarea
     weight: 18
@@ -512,22 +501,6 @@ content:
   field_location_name:
     type: string_textfield
     weight: 3
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_location_street:
-    type: string_textfield
-    weight: 5
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_location_zipcode:
-    type: string_textfield
-    weight: 6
     region: content
     settings:
       size: 60

@@ -25,11 +25,8 @@ dependencies:
     - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
-    - field.field.node.course.field_location_city
     - field.field.node.course.field_location_description
     - field.field.node.course.field_location_name
-    - field.field.node.course.field_location_street
-    - field.field.node.course.field_location_zipcode
     - field.field.node.course.field_materials
     - field.field.node.course.field_meta_tags
     - field.field.node.course.field_period
@@ -115,11 +112,8 @@ hidden:
   field_hide_contact_form: true
   field_image: true
   field_is_free: true
-  field_location_city: true
   field_location_description: true
   field_location_name: true
-  field_location_street: true
-  field_location_zipcode: true
   field_materials: true
   field_meta_tags: true
   field_period: true

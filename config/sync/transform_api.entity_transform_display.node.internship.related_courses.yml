@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.internship.field_application_url
     - field.field.node.internship.field_areas_of_interest
     - field.field.node.internship.field_banner
+    - field.field.node.internship.field_dawa_address
     - field.field.node.internship.field_desc_application_procedure
     - field.field.node.internship.field_description_of_period
     - field.field.node.internship.field_domain_access
@@ -23,14 +24,12 @@ dependencies:
     - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
-    - field.field.node.internship.field_location_city
     - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
-    - field.field.node.internship.field_location_street
-    - field.field.node.internship.field_location_zipcode
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
+    - field.field.node.internship.field_p_number
     - field.field.node.internship.field_pretix_email_notifiers
     - field.field.node.internship.field_pretix_event_short_form
     - field.field.node.internship.field_pretix_shop_url
@@ -95,27 +94,6 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_location_city:
-    type: value
-    weight: '9'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_street:
-    type: value
-    weight: '7'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_zipcode:
-    type: value
-    weight: '8'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_view_on_map:
     type: value
     weight: '6'
@@ -129,6 +107,7 @@ hidden:
   field_application_phone: true
   field_application_title: true
   field_application_url: true
+  field_dawa_address: true
   field_desc_application_procedure: true
   field_description_of_period: true
   field_domain_access: true
@@ -144,6 +123,7 @@ hidden:
   field_materials: true
   field_meeting_times: true
   field_meta_tags: true
+  field_p_number: true
   field_pretix_email_notifiers: true
   field_pretix_event_short_form: true
   field_pretix_shop_url: true
