@@ -26,3 +26,14 @@ function os2uol_search_uninstall($is_syncing) {
     $config->save();
   }
 }
+
+/**
+ * Reindex search index, since we changed address field to use DAWA.
+ */
+function os2uol_search_update_10000() {
+  // Force search_api to reindex search index.
+  /** @var \Drupal\search_api\Entity\Index $index */
+  $index = \Drupal::entityTypeManager()->getStorage('search_api_index')->load('search');
+
+  $index->reindex();
+}
