@@ -7,9 +7,6 @@ dependencies:
     - field.field.node.transport_pool_form.field_dawa_address
     - field.field.node.transport_pool_form.field_domain_access
     - field.field.node.transport_pool_form.field_domain_all_affiliates
-    - field.field.node.transport_pool_form.field_location_city
-    - field.field.node.transport_pool_form.field_location_street
-    - field.field.node.transport_pool_form.field_location_zipcode
     - field.field.node.transport_pool_form.field_mailto
     - field.field.node.transport_pool_form.field_old_id
     - field.field.node.transport_pool_form.field_rfc_course
@@ -50,30 +47,6 @@ content:
       include_country: true
     third_party_settings: {  }
     weight: 56
-    region: content
-  field_location_city:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_location_street:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 0
-    region: content
-  field_location_zipcode:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
     region: content
   field_mailto:
     type: basic_string

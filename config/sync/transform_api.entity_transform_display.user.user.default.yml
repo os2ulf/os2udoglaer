@@ -8,6 +8,7 @@ dependencies:
     - field.field.user.user.field_contact
     - field.field.user.user.field_cvr
     - field.field.user.user.field_dawa_address
+    - field.field.user.user.field_disable_auto_unpublish
     - field.field.user.user.field_district
     - field.field.user.user.field_domain_access
     - field.field.user.user.field_domain_admin
@@ -19,10 +20,7 @@ dependencies:
     - field.field.user.user.field_image
     - field.field.user.user.field_institution_type
     - field.field.user.user.field_intro
-    - field.field.user.user.field_location_city
     - field.field.user.user.field_location_name
-    - field.field.user.user.field_location_street
-    - field.field.user.user.field_location_zipcode
     - field.field.user.user.field_logo
     - field.field.user.user.field_mail
     - field.field.user.user.field_meta_tags
@@ -145,30 +143,9 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
-  field_location_city:
-    type: value
-    weight: '19'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
   field_location_name:
     type: value
     weight: '16'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_street:
-    type: value
-    weight: '17'
-    region: content
-    label: omit
-    settings: {  }
-    third_party_settings: {  }
-  field_location_zipcode:
-    type: value
-    weight: '18'
     region: content
     label: omit
     settings: {  }

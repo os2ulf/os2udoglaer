@@ -106,12 +106,20 @@ class PostNumberCityProcessor extends ProcessorPluginBase {
    */
   protected function getNodePostNumberCity(NodeInterface $node) {
     // Check if the node has the required fields.
-    if (!$node->hasField('field_location_zipcode') || !$node->hasField('field_location_city')) {
+    if (!$node->hasField('field_dawa_address') && !$node->get('field_dawa_address')->isEmpty()) {
       return '';
     }
 
-    $post_number = trim($node->get('field_location_zipcode')->getString());
-    $address = trim($node->get('field_location_city')->getString());
+    // Get DAWA address data.
+    $address_value = $node->get('field_dawa_address')->getValue();
+    $address_data = $address_value[0]['data'] ?? NULL;
+
+    if ($address_data === NULL) {
+      return '';
+    }
+
+    $post_number = $address_data['postnr'];
+    $address = $address_data['postnrnavn'];
 
     return $post_number . ' ' . $address;
   }
@@ -129,12 +137,20 @@ class PostNumberCityProcessor extends ProcessorPluginBase {
     $user = $node->getOwner();
 
     // Check if the required fields are not empty.
-    if ($user->get('field_location_zipcode')->isEmpty() || $user->get('field_location_city')->isEmpty()) {
+    if (!$user->hasField('field_dawa_address') || $user->get('field_dawa_address')->isEmpty()) {
       return '';
     }
 
-    $post_number = trim($user->get('field_location_zipcode')->getString());
-    $address = trim($user->get('field_location_city')->getString());
+    // Get DAWA address data.
+    $address_value = $user->get('field_dawa_address')->getValue();
+    $address_data = $address_value[0]['data'] ?? NULL;
+
+    if ($address_data === NULL) {
+      return '';
+    }
+
+    $post_number = $address_data['postnr'];
+    $address = $address_data['postnrnavn'];
 
     return $post_number . ' ' . $address;
   }

@@ -23,11 +23,8 @@ dependencies:
     - field.field.node.course_educators.field_hide_contact_form
     - field.field.node.course_educators.field_image
     - field.field.node.course_educators.field_is_free
-    - field.field.node.course_educators.field_location_city
     - field.field.node.course_educators.field_location_description
     - field.field.node.course_educators.field_location_name
-    - field.field.node.course_educators.field_location_street
-    - field.field.node.course_educators.field_location_zipcode
     - field.field.node.course_educators.field_materials
     - field.field.node.course_educators.field_meta_tags
     - field.field.node.course_educators.field_period
@@ -237,14 +234,6 @@ content:
     third_party_settings: {  }
     weight: 10
     region: content
-  field_location_city:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 28
-    region: content
   field_location_description:
     type: text_default
     label: above
@@ -259,22 +248,6 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     weight: 25
-    region: content
-  field_location_street:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 26
-    region: content
-  field_location_zipcode:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 27
     region: content
   field_materials:
     type: entity_reference_revisions_entity_view

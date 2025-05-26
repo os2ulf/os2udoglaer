@@ -142,13 +142,6 @@ function os2uol_application_forms_form_alter(&$form, \Drupal\Core\Form\FormState
     $form['field_rfc_follow_up_mail_sent']['widget'][0]['value']['#date_time_format'] = '';
   }
 
-  // Disable editing of street, postalcode and city fields.
-  if (in_array($form_id, ['node_transport_pool_form_edit_form', 'node_transport_pool_form_form'])) {
-    $form['field_location_street']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
-    $form['field_location_zipcode']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
-    $form['field_location_city']['widget'][0]['value']['#attributes']['disabled'] = 'disabled';
-  }
-
   if (in_array($form_id, ['node_theater_refund_edit_form', 'node_free_course_request_edit_form'])) {
     /** @var \Drupal\node\NodeInterface $node */
     $node = $form_state->getFormObject()->getEntity();
