@@ -22,5 +22,6 @@ blacklist:
   - system.menu.devel
 graylist:
   - symfony_mailer_lite.settings
+  - mailsystem.settings
 graylist_dependents: true
 graylist_skip_equal: true
