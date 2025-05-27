@@ -15,7 +15,7 @@ missing: false
 missing_label: others
 url_alias: tg
 facet_source_id: 'search_api:views_block__content_search__block_2'
-field_identifier: field_target_group
+field_identifier: field_educators_target_group
 query_operator: or
 hard_limit: 0
 exclude: false
