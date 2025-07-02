@@ -25,11 +25,8 @@ dependencies:
     - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
-    - field.field.node.internship.field_location_city
     - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
-    - field.field.node.internship.field_location_street
-    - field.field.node.internship.field_location_zipcode
     - field.field.node.internship.field_materials
     - field.field.node.internship.field_meeting_times
     - field.field.node.internship.field_meta_tags
@@ -96,11 +93,8 @@ hidden:
   field_hide_contact_form: true
   field_image: true
   field_industry: true
-  field_location_city: true
   field_location_description: true
   field_location_name: true
-  field_location_street: true
-  field_location_zipcode: true
   field_materials: true
   field_meeting_times: true
   field_meta_tags: true
