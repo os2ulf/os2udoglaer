@@ -7,6 +7,7 @@ dependencies:
     - node.type.course_educators
     - node.type.exercise
     - node.type.internship
+    - node.type.junior_apprenticeship
     - node.type.news
   module:
     - content_moderation_bypass
@@ -128,5 +129,6 @@ type_settings:
       - course_educators
       - exercise
       - internship
+      - junior_apprenticeship
       - news
   default_moderation_state: draft
