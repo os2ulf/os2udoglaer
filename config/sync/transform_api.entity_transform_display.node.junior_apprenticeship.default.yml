@@ -1,0 +1,275 @@
+uuid: b085bc4e-b8f5-4f3b-a645-c6be5991cd2c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.field.node.junior_apprenticeship.body
+    - field.field.node.junior_apprenticeship.field_application_deadline
+    - field.field.node.junior_apprenticeship.field_application_email
+    - field.field.node.junior_apprenticeship.field_application_phone
+    - field.field.node.junior_apprenticeship.field_application_title
+    - field.field.node.junior_apprenticeship.field_application_url
+    - field.field.node.junior_apprenticeship.field_areas_of_interest
+    - field.field.node.junior_apprenticeship.field_banner
+    - field.field.node.junior_apprenticeship.field_dawa_address
+    - field.field.node.junior_apprenticeship.field_desc_application_procedure
+    - field.field.node.junior_apprenticeship.field_description_of_period
+    - field.field.node.junior_apprenticeship.field_domain_access
+    - field.field.node.junior_apprenticeship.field_domain_all_affiliates
+    - field.field.node.junior_apprenticeship.field_duration_rte
+    - field.field.node.junior_apprenticeship.field_education_path
+    - field.field.node.junior_apprenticeship.field_exclude_from_profile
+    - field.field.node.junior_apprenticeship.field_exclude_from_search
+    - field.field.node.junior_apprenticeship.field_expectations
+    - field.field.node.junior_apprenticeship.field_hide_contact_form
+    - field.field.node.junior_apprenticeship.field_image
+    - field.field.node.junior_apprenticeship.field_industry
+    - field.field.node.junior_apprenticeship.field_location_description
+    - field.field.node.junior_apprenticeship.field_location_name
+    - field.field.node.junior_apprenticeship.field_materials
+    - field.field.node.junior_apprenticeship.field_meeting_times
+    - field.field.node.junior_apprenticeship.field_meta_tags
+    - field.field.node.junior_apprenticeship.field_p_number
+    - field.field.node.junior_apprenticeship.field_pretix_email_notifiers
+    - field.field.node.junior_apprenticeship.field_pretix_event_short_form
+    - field.field.node.junior_apprenticeship.field_pretix_shop_url
+    - field.field.node.junior_apprenticeship.field_pretix_template_event
+    - field.field.node.junior_apprenticeship.field_pretix_widget_type
+    - field.field.node.junior_apprenticeship.field_purpose_internship
+    - field.field.node.junior_apprenticeship.field_quantity
+    - field.field.node.junior_apprenticeship.field_related_courses
+    - field.field.node.junior_apprenticeship.field_show_application_link
+    - field.field.node.junior_apprenticeship.field_todo_list
+    - field.field.node.junior_apprenticeship.field_video
+    - field.field.node.junior_apprenticeship.field_video_description
+    - field.field.node.junior_apprenticeship.field_video_title
+    - field.field.node.junior_apprenticeship.field_view_on_map
+    - node.type.junior_apprenticeship
+    - responsive_image.styles.isg_course_header
+  module:
+    - transform_api_responsive_image
+id: node.junior_apprenticeship.default
+targetEntityType: node
+bundle: junior_apprenticeship
+mode: default
+content:
+  body:
+    type: text_format
+    weight: '1'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_application_deadline:
+    type: datetime_default
+    weight: '13'
+    region: content
+    label: omit
+    settings:
+      timezone_override: ''
+      format_type: os2date
+    third_party_settings: {  }
+  field_application_email:
+    type: value
+    weight: '16'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_application_phone:
+    type: value
+    weight: '17'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_application_title:
+    type: value
+    weight: '14'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_application_url:
+    type: value
+    weight: '15'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_areas_of_interest:
+    type: entity_reference_labels
+    weight: '8'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_banner:
+    type: entity_reference_labels
+    weight: '3'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_desc_application_procedure:
+    type: text_format
+    weight: '25'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_description_of_period:
+    type: text_format
+    weight: '24'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_duration_rte:
+    type: text_format
+    weight: '26'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_education_path:
+    type: text_format
+    weight: '27'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_expectations:
+    type: text_format
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_image:
+    type: responsive_image
+    weight: '0'
+    region: content
+    label: omit
+    settings:
+      responsive_image_style: isg_course_header
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+  field_industry:
+    type: entity_reference_labels
+    weight: '9'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_description:
+    type: text_format
+    weight: '28'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_name:
+    type: value
+    weight: '19'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_materials:
+    type: entity_transform
+    weight: '12'
+    region: content
+    label: omit
+    settings:
+      transform_mode: materials
+    third_party_settings: {  }
+  field_meeting_times:
+    type: text_format
+    weight: '29'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_purpose_internship:
+    type: text_format
+    weight: '23'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_quantity:
+    type: value
+    weight: '6'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_related_courses:
+    type: entity_transform
+    weight: '32'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_show_application_link:
+    type: boolean
+    weight: '18'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_todo_list:
+    type: text_format
+    weight: '30'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_video:
+    type: entity_transform
+    weight: '31'
+    region: content
+    label: omit
+    settings:
+      transform_mode: default
+    third_party_settings: {  }
+  field_video_description:
+    type: text_format
+    weight: '11'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_video_title:
+    type: value
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_view_on_map:
+    type: value
+    weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_dawa_address: true
+  field_domain_access: true
+  field_domain_all_affiliates: true
+  field_exclude_from_profile: true
+  field_exclude_from_search: true
+  field_hide_contact_form: true
+  field_meta_tags: true
+  field_p_number: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
+  langcode: true

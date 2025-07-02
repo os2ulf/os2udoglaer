@@ -1,0 +1,19 @@
+uuid: 26fa30bb-cf50-4010-8ee5-a004e2115153
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_title
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_application_title
+field_name: field_application_title
+entity_type: node
+bundle: junior_apprenticeship
+label: Linktekst
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

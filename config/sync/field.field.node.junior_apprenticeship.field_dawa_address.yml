@@ -1,0 +1,21 @@
+uuid: c2e100a6-4f15-4fab-8fdc-f390421bb76f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dawa_address
+    - node.type.junior_apprenticeship
+  module:
+    - dawa
+id: node.junior_apprenticeship.field_dawa_address
+field_name: field_dawa_address
+entity_type: node
+bundle: junior_apprenticeship
+label: Adresse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: dawa_address_autocomplete

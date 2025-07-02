@@ -1,0 +1,29 @@
+uuid: 962304b3-9069-4270-beb3-4c76de48d89d
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_industry
+    - node.type.junior_apprenticeship
+    - taxonomy.vocabulary.industries
+id: node.junior_apprenticeship.field_industry
+field_name: field_industry
+entity_type: node
+bundle: junior_apprenticeship
+label: Branche
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      industries: industries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

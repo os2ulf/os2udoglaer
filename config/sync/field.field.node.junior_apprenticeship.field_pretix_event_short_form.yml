@@ -1,0 +1,19 @@
+uuid: 96da5460-679f-4d05-8003-02f8ccbe0a5e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_event_short_form
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_pretix_event_short_form
+field_name: field_pretix_event_short_form
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Pretix event short form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

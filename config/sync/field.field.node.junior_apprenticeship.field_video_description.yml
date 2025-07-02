@@ -1,0 +1,28 @@
+uuid: 8b003e29-2d92-4d6a-9f28-09771165b054
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_video_description
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats: {  }
+id: node.junior_apprenticeship.field_video_description
+field_name: field_video_description
+entity_type: node
+bundle: junior_apprenticeship
+label: Beskrivelse
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
