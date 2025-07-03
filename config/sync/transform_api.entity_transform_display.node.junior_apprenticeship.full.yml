@@ -29,6 +29,7 @@ dependencies:
     - field.field.node.junior_apprenticeship.field_materials
     - field.field.node.junior_apprenticeship.field_meeting_times
     - field.field.node.junior_apprenticeship.field_meta_tags
+    - field.field.node.junior_apprenticeship.field_open_for_application
     - field.field.node.junior_apprenticeship.field_p_number
     - field.field.node.junior_apprenticeship.field_pretix_email_notifiers
     - field.field.node.junior_apprenticeship.field_pretix_event_short_form
@@ -115,7 +116,7 @@ content:
     third_party_settings: {  }
   field_dawa_address:
     type: dawa_address_transform
-    weight: '35'
+    weight: '32'
     region: content
     label: omit
     settings:
@@ -123,28 +124,28 @@ content:
     third_party_settings: {  }
   field_desc_application_procedure:
     type: text_format
-    weight: '23'
+    weight: '20'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_description_of_period:
     type: text_format
-    weight: '22'
+    weight: '19'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_duration_rte:
     type: text_format
-    weight: '24'
+    weight: '21'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_education_path:
     type: text_format
-    weight: '25'
+    weight: '22'
     region: content
     label: omit
     settings: {  }
@@ -158,7 +159,7 @@ content:
     third_party_settings: {  }
   field_hide_contact_form:
     type: boolean
-    weight: '31'
+    weight: '28'
     region: content
     label: omit
     settings: {  }
@@ -183,7 +184,7 @@ content:
     third_party_settings: {  }
   field_location_description:
     type: text_format
-    weight: '26'
+    weight: '23'
     region: content
     label: omit
     settings: {  }
@@ -205,13 +206,20 @@ content:
     third_party_settings: {  }
   field_meeting_times:
     type: text_format
-    weight: '27'
+    weight: '24'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_meta_tags:
     type: metatag
+    weight: '30'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_open_for_application:
+    type: boolean
     weight: '33'
     region: content
     label: omit
@@ -219,21 +227,21 @@ content:
     third_party_settings: {  }
   field_p_number:
     type: value
-    weight: '34'
+    weight: '31'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_pretix_widget_type:
     type: value
-    weight: '32'
+    weight: '29'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_purpose_internship:
     type: text_format
-    weight: '21'
+    weight: '18'
     region: content
     label: omit
     settings: {  }
@@ -247,7 +255,7 @@ content:
     third_party_settings: {  }
   field_related_courses:
     type: entity_transform
-    weight: '30'
+    weight: '27'
     region: content
     label: omit
     settings:
@@ -262,14 +270,14 @@ content:
     third_party_settings: {  }
   field_todo_list:
     type: text_format
-    weight: '28'
+    weight: '25'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video:
     type: entity_transform
-    weight: '29'
+    weight: '26'
     region: content
     label: omit
     settings:

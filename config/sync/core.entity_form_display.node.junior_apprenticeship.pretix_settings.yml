@@ -30,6 +30,7 @@ dependencies:
     - field.field.node.junior_apprenticeship.field_materials
     - field.field.node.junior_apprenticeship.field_meeting_times
     - field.field.node.junior_apprenticeship.field_meta_tags
+    - field.field.node.junior_apprenticeship.field_open_for_application
     - field.field.node.junior_apprenticeship.field_p_number
     - field.field.node.junior_apprenticeship.field_pretix_email_notifiers
     - field.field.node.junior_apprenticeship.field_pretix_event_short_form
@@ -369,6 +370,7 @@ hidden:
   field_materials: true
   field_meeting_times: true
   field_meta_tags: true
+  field_open_for_application: true
   field_p_number: true
   field_pretix_event_short_form: true
   field_pretix_template_event: true

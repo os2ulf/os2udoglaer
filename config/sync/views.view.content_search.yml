@@ -535,6 +535,59 @@ display:
     position: 1
     display_options:
       title: Juniormesterlærer
+      sorts:
+        field_open_for_application:
+          id: field_open_for_application
+          table: search_api_index_search
+          field: field_open_for_application
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        created:
+          id: created
+          table: search_api_index_search
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Nyeste
+            field_identifier: created
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_search
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: 'Mest relevante'
+            field_identifier: relevance
+          exposed: true
+        title:
+          id: title
+          table: search_api_index_search
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Alfabetisk
+            field_identifier: title
+          exposed: true
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -794,6 +847,7 @@ display:
           1: AND
       defaults:
         title: false
+        sorts: false
         filters: false
         filter_groups: false
       display_description: ''
@@ -804,9 +858,10 @@ display:
           transform_facets:
             junior_apprenticeship_areas_of_interest: junior_apprenticeship_areas_of_interest
             junior_apprenticeship_company: junior_apprenticeship_company
-            junior_apprenticeship_company_guarantee_partner: junior_apprenticeship_company_guarantee_partner
             junior_apprenticeship_industry: junior_apprenticeship_industry
+            junior_apprenticeship_open_for_application: junior_apprenticeship_open_for_application
             junior_apprenticeship_post_number_and_city: junior_apprenticeship_post_number_and_city
+            junior_apprenticeship_company_guarantee_partner: 0
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
