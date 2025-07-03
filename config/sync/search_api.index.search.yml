@@ -3,55 +3,54 @@ langcode: da
 status: true
 dependencies:
   config:
-    - field.storage.node.field_activity_select
-    - field.storage.node.field_activities
     - field.storage.node.body
-    - field.storage.node.field_description
-    - field.storage.node.field_sustainability_goals_desc
-    - field.storage.node.field_related_user
-    - field.storage.user.field_name
-    - field.storage.node.field_industry
-    - field.storage.node.field_post_processing
-    - field.storage.node.field_subject
-    - field.storage.node.field_primary_school_subject
-    - field.storage.node.field_youth_education_subject
-    - field.storage.node.field_focus
-    - field.storage.node.field_preparation
-    - field.storage.node.field_course_type
-    - field.storage.node.field_purpose
-    - field.storage.node.field_expectations
     - field.storage.node.field_ackground_knowledge
-    - field.storage.node.field_is_free
+    - field.storage.node.field_activities
+    - field.storage.node.field_activity_select
     - field.storage.node.field_all_year
     - field.storage.node.field_areas_of_interest
+    - field.storage.node.field_course_type
     - field.storage.node.field_curriculum_themes
-    - field.storage.node.field_purpose_exercise
+    - field.storage.node.field_description
+    - field.storage.node.field_duration_select
     - field.storage.node.field_educators_target_group
+    - field.storage.node.field_exclude_from_search
+    - field.storage.node.field_expectations
+    - field.storage.node.field_focus
+    - field.storage.node.field_how_to
+    - field.storage.node.field_industry
+    - field.storage.node.field_is_free
+    - field.storage.node.field_period
+    - field.storage.node.field_period_select
+    - field.storage.node.field_post_processing
+    - field.storage.node.field_preparation
+    - field.storage.node.field_primary_school_subject
+    - field.storage.node.field_purpose
+    - field.storage.node.field_purpose_exercise
+    - field.storage.node.field_related_user
+    - field.storage.node.field_subject
+    - field.storage.node.field_sustainability_goals
+    - field.storage.node.field_sustainability_goals_desc
+    - field.storage.node.field_target_group
+    - field.storage.node.field_theme
     - field.storage.node.field_trgt_grp_daycare
     - field.storage.node.field_trgt_grp_primary_school
     - field.storage.node.field_trgt_grp_youth_education
-    - field.storage.node.field_target_group
-    - field.storage.node.field_period
-    - field.storage.node.field_period_select
-    - field.storage.node.field_how_to
-    - field.storage.node.field_theme
-    - field.storage.user.field_guarantee_partner
-    - field.storage.node.field_duration_select
-    - field.storage.node.field_sustainability_goals
-    - field.storage.node.field_exclude_from_search
+    - field.storage.node.field_youth_education_subject
     - field.storage.user.field_brancher
+    - field.storage.user.field_guarantee_partner
+    - field.storage.user.field_name
     - field.storage.user.field_posibilities
     - field.storage.user.field_postnummer
     - field.storage.user.field_presentation
     - search_api.server.solr
   module:
+    - layoutbuilder_search_api
+    - node
+    - os2uol_search
     - search_api_solr
     - taxonomy
     - user
-    - node
-    - search_api
-    - layoutbuilder_search_api
-    - os2uol_search
 third_party_settings:
   search_api_solr:
     finalize: false
@@ -725,6 +724,7 @@ datasource_settings:
         - course_educators
         - exercise
         - internship
+        - junior_apprenticeship
         - news
         - page
     languages:
@@ -770,6 +770,7 @@ tracker_settings:
     indexing_order: fifo
 options:
   cron_limit: 50
+  delete_on_fail: true
   index_directly: true
   track_changes_in_references: true
 server: solr
