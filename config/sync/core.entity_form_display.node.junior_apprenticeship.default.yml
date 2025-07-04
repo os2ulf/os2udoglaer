@@ -89,6 +89,7 @@ third_party_settings:
         required_fields: true
     group_application:
       children:
+        - field_open_for_application
         - field_desc_application_procedure
         - field_application_deadline
         - field_application_title
@@ -328,13 +329,13 @@ content:
     third_party_settings: {  }
   field_application_deadline:
     type: datetime_default
-    weight: 30
+    weight: 65
     region: content
     settings: {  }
     third_party_settings: {  }
   field_application_email:
     type: email_default
-    weight: 33
+    weight: 68
     region: content
     settings:
       placeholder: ''
@@ -342,7 +343,7 @@ content:
     third_party_settings: {  }
   field_application_phone:
     type: string_textfield
-    weight: 35
+    weight: 69
     region: content
     settings:
       size: 60
@@ -350,7 +351,7 @@ content:
     third_party_settings: {  }
   field_application_title:
     type: string_textfield
-    weight: 31
+    weight: 66
     region: content
     settings:
       size: 60
@@ -358,7 +359,7 @@ content:
     third_party_settings: {  }
   field_application_url:
     type: string_textfield
-    weight: 32
+    weight: 67
     region: content
     settings:
       size: 60
@@ -376,7 +377,7 @@ content:
     third_party_settings: {  }
   field_banner:
     type: options_select
-    weight: 66
+    weight: 67
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -407,7 +408,7 @@ content:
             selector: ''
   field_desc_application_procedure:
     type: text_textarea
-    weight: 29
+    weight: 64
     region: content
     settings:
       rows: 5
@@ -429,7 +430,7 @@ content:
     third_party_settings: {  }
   field_duration_rte:
     type: text_textarea
-    weight: 63
+    weight: 64
     region: content
     settings:
       rows: 5
@@ -526,7 +527,7 @@ content:
     third_party_settings: {  }
   field_meeting_times:
     type: text_textarea
-    weight: 64
+    weight: 65
     region: content
     settings:
       rows: 5
@@ -542,7 +543,7 @@ content:
     third_party_settings: {  }
   field_open_for_application:
     type: boolean_checkbox
-    weight: 1
+    weight: 63
     region: content
     settings:
       display_label: true
@@ -583,14 +584,14 @@ content:
     third_party_settings: {  }
   field_show_application_link:
     type: boolean_checkbox
-    weight: 36
+    weight: 70
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_todo_list:
     type: text_textarea
-    weight: 65
+    weight: 66
     region: content
     settings:
       rows: 5

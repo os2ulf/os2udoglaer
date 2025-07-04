@@ -11,9 +11,11 @@ entity_type: node
 bundle: junior_apprenticeship
 label: 'Åben for ansøgning'
 description: ''
-required: false
+required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    value: 1
 default_value_callback: ''
 settings:
   on_label: 'Vi har åben for ansøgning'
