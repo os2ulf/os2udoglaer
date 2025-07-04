@@ -1,0 +1,23 @@
+uuid: 3e387a18-ad12-4251-92d0-55276baac463
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_widget_type
+    - node.type.junior_apprenticeship
+  module:
+    - options
+id: node.junior_apprenticeship.field_pretix_widget_type
+field_name: field_pretix_widget_type
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Pretix widget type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: list
+default_value_callback: ''
+settings: {  }
+field_type: list_string

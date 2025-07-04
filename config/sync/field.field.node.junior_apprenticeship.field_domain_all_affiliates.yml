@@ -1,0 +1,21 @@
+uuid: 730f7617-8e64-4fe6-8044-9018341e9502
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_domain_all_affiliates
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_domain_all_affiliates
+field_name: field_domain_all_affiliates
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Send to all affiliates'
+description: 'Make this content available on all domains.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

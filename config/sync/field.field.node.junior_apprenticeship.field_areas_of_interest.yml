@@ -1,0 +1,29 @@
+uuid: 2fda5e04-abbd-4133-9e6a-926cf288b342
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_areas_of_interest
+    - node.type.junior_apprenticeship
+    - taxonomy.vocabulary.areas_of_interest
+id: node.junior_apprenticeship.field_areas_of_interest
+field_name: field_areas_of_interest
+entity_type: node
+bundle: junior_apprenticeship
+label: Interesseområde
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      areas_of_interest: areas_of_interest
+    sort:
+      field: name
+      direction: asc
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

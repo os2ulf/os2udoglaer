@@ -1,0 +1,61 @@
+uuid: db7be257-f7a4-42d7-a303-7ef79dcf7ca3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_materials
+    - node.type.junior_apprenticeship
+    - paragraphs.paragraphs_type.material
+  module:
+    - entity_reference_revisions
+id: node.junior_apprenticeship.field_materials
+field_name: field_materials
+entity_type: node
+bundle: junior_apprenticeship
+label: Materialer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      material: material
+    negate: 0
+    target_bundles_drag_drop:
+      accordion_item:
+        weight: 5
+        enabled: false
+      allocated_budget:
+        weight: 13
+        enabled: false
+      basic_hero:
+        weight: 6
+        enabled: false
+      cards:
+        weight: 15
+        enabled: false
+      contact_paragraph:
+        weight: 16
+        enabled: false
+      duration_paragraph:
+        weight: 17
+        enabled: false
+      duration_price:
+        weight: 18
+        enabled: false
+      inline_hero:
+        weight: 7
+        enabled: false
+      material:
+        weight: 8
+        enabled: true
+      other_user_info:
+        weight: 21
+        enabled: false
+      video:
+        weight: 22
+        enabled: false
+field_type: entity_reference_revisions

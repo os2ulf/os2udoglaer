@@ -1,0 +1,29 @@
+uuid: 470895da-c257-4843-a0f3-2706b954d4b3
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_desc_application_procedure
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.field_desc_application_procedure
+field_name: field_desc_application_procedure
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Beskrivelse af ansøgningsprocedure'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

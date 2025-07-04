@@ -1,0 +1,23 @@
+uuid: 9b0d0ed4-d099-495c-b194-8487ca4e74a7
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_shop_url
+    - node.type.junior_apprenticeship
+  module:
+    - link
+id: node.junior_apprenticeship.field_pretix_shop_url
+field_name: field_pretix_shop_url
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Pretix shop URL'
+description: 'Efterlad tom for a bruge Pretix integrationen istedet.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

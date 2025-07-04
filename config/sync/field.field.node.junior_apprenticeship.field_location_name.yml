@@ -1,0 +1,19 @@
+uuid: c177cf8d-939e-432f-b920-0823ae3179ff
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_name
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_location_name
+field_name: field_location_name
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Navn på lokalitet'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

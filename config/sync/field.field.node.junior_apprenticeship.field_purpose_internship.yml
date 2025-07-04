@@ -1,0 +1,29 @@
+uuid: 4afeb765-a025-49c9-87e0-b70f517bd937
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_purpose_internship
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.field_purpose_internship
+field_name: field_purpose_internship
+entity_type: node
+bundle: junior_apprenticeship
+label: Formål
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

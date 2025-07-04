@@ -1,0 +1,29 @@
+uuid: 49104a13-f354-431b-8f7a-edb32e12f4c9
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_expectations
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.field_expectations
+field_name: field_expectations
+entity_type: node
+bundle: junior_apprenticeship
+label: Forventninger
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long
