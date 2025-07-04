@@ -75,6 +75,7 @@ third_party_settings:
           - 'views_block:latest_news-block_1'
           - 'views_block:content_search-block_1'
           - 'views_block:course_providers-block_2'
+          - 'views_block:content_search-block_10'
           - 'views_block:content_search-block_2'
           - 'views_block:content_search-block_3'
           - 'views_block:content_search-block_5'

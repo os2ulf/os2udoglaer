@@ -1,0 +1,31 @@
+uuid: 611b5327-20bf-4034-a50a-5656d75ebdaa
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.body
+field_name: body
+entity_type: node
+bundle: junior_apprenticeship
+label: Beskrivelse
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+  allowed_formats:
+    - basic_html
+field_type: text_with_summary

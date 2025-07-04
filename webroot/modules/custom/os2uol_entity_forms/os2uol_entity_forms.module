@@ -23,7 +23,7 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
     $paragraph_type = $element['#paragraph_type'];
 
     // Now you can use the node type to conditionally alter the paragraph field.
-    if ($node_type == 'internship' && $paragraph_type == 'material') {
+    if (in_array($node_type, ['internship', 'junior_apprenticeship']) && $paragraph_type == 'material') {
       // Disable the field 'field_literature_suggestion'
       $element['subform']['field_literature_suggestion']['#access'] = FALSE;
     }
@@ -44,6 +44,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     'node_course_educators_form',
     'node_exercise_form',
     'node_internship_form',
+    'node_junior_apprenticeship_form',
     'node_news_form',
     'node_page_form'
   ];
@@ -53,6 +54,7 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
     'node_course_educators_edit_form',
     'node_exercise_edit_form',
     'node_internship_edit_form',
+    'node_junior_apprenticeship_edit_form',
     'node_news_edit_form',
     'node_page_edit_form'
   ];
@@ -174,7 +176,9 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   // Define form IDs for internship forms.
   $internship_form_ids = [
     'node_internship_form',
-    'node_internship_edit_form'
+    'node_junior_apprenticeship_form',
+    'node_internship_edit_form',
+    'node_junior_apprenticeship_edit_form'
   ];
 
   // Hide the time part of the application deadline date field for internship forms.

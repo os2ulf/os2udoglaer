@@ -1,0 +1,19 @@
+uuid: 6ac65d26-dff7-49a2-8913-85b967542bd4
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_p_number
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_p_number
+field_name: field_p_number
+entity_type: node
+bundle: junior_apprenticeship
+label: P-nummer
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

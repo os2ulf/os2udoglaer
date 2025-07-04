@@ -1,0 +1,23 @@
+uuid: acfccaf5-3613-4a94-b972-d6fb03eb91e1
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_for_application
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_open_for_application
+field_name: field_open_for_application
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Åben for ansøgning'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'Vi har åben for ansøgning'
+  off_label: 'Vi har desværre ikke åben for ansøgnin'
+field_type: boolean

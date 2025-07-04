@@ -1,0 +1,11 @@
+uuid: 3f52bb60-1184-42d1-85ac-c83a463b2d54
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship
+target_entity_type_id: node
+target_bundle: junior_apprenticeship
+default_langcode: site_default
+language_alterable: false

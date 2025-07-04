@@ -1,0 +1,29 @@
+uuid: 1671986f-87f8-47a5-88d0-3bfdd6ddee92
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_of_period
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.field_description_of_period
+field_name: field_description_of_period
+entity_type: node
+bundle: junior_apprenticeship
+label: Periode
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

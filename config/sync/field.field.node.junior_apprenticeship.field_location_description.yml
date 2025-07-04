@@ -1,0 +1,29 @@
+uuid: 6a7e25fa-ad0e-4fd3-b65d-a88713ea8572
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_description
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.field_location_description
+field_name: field_location_description
+entity_type: node
+bundle: junior_apprenticeship
+label: Sted
+description: "Eks. 'Store Sal', 'Brug højre indgang - ring på dørklokken' "
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

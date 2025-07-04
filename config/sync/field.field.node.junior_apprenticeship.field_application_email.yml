@@ -1,0 +1,19 @@
+uuid: 56f4af6e-e2f5-4a7b-a400-79e9da668e16
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_application_email
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_application_email
+field_name: field_application_email
+entity_type: node
+bundle: junior_apprenticeship
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,21 @@
+uuid: 04efd9f3-e1e9-4e39-b3f7-951ce3357c59
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hide_contact_form
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_hide_contact_form
+field_name: field_hide_contact_form
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Skjul kontaktformular'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

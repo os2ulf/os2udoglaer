@@ -1,0 +1,21 @@
+uuid: 4b6337d3-a7f7-444f-8cf8-78bfeba6b6cf
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_search
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_exclude_from_search
+field_name: field_exclude_from_search
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Vis ikke i intern søgning'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
