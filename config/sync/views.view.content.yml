@@ -766,10 +766,11 @@ display:
           operator: in
           value:
             internship: internship
+            page: page
+            junior_apprenticeship: junior_apprenticeship
             course_educators: course_educators
             news: news
             exercise: exercise
-            page: page
             course: course
           group: 1
           exposed: true
@@ -1447,10 +1448,11 @@ display:
           operator: in
           value:
             internship: internship
+            page: page
+            junior_apprenticeship: junior_apprenticeship
             course_educators: course_educators
             news: news
             exercise: exercise
-            page: page
             course: course
           group: 1
           exposed: true
