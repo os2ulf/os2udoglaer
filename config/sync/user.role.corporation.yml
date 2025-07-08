@@ -9,6 +9,7 @@ dependencies:
     - node.type.exercise
     - node.type.free_course_request
     - node.type.internship
+    - node.type.junior_apprenticeship
     - node.type.news
     - node.type.theater_refund
     - node.type.transport_pool_form
@@ -43,11 +44,13 @@ permissions:
   - 'create exercise content on assigned domains'
   - 'create internship content'
   - 'create internship content on assigned domains'
+  - 'create junior_apprenticeship content'
   - 'create news content'
   - 'delete own course content'
   - 'delete own course_educators content'
   - 'delete own exercise content'
   - 'delete own internship content'
+  - 'delete own junior_apprenticeship content'
   - 'delete own news content'
   - 'delete own transport_pool_form content'
   - 'delete pretix dates'
@@ -56,6 +59,7 @@ permissions:
   - 'edit own course_educators content'
   - 'edit own exercise content'
   - 'edit own internship content'
+  - 'edit own junior_apprenticeship content'
   - 'edit own news content'
   - 'edit own pretix events'
   - 'edit own transport_pool_form content'
@@ -89,6 +93,7 @@ permissions:
   - 'view exercise revisions'
   - 'view free_course_request revisions'
   - 'view internship revisions'
+  - 'view junior_apprenticeship revisions'
   - 'view latest version'
   - 'view news revisions'
   - 'view own pretix events'
