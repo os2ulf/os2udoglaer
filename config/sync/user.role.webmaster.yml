@@ -28,6 +28,7 @@ dependencies:
     - node.type.exercise
     - node.type.free_course_request
     - node.type.internship
+    - node.type.junior_apprenticeship
     - node.type.news
     - node.type.page
     - node.type.theater_refund
@@ -221,6 +222,7 @@ permissions:
   - 'create inline_navigation block content'
   - 'create inspiration block content'
   - 'create internship content'
+  - 'create junior_apprenticeship content'
   - 'create news content'
   - 'create page content'
   - 'create quote block content'
@@ -270,6 +272,7 @@ permissions:
   - 'delete any inline_navigation block content'
   - 'delete any inspiration block content'
   - 'delete any internship content'
+  - 'delete any junior_apprenticeship content'
   - 'delete any news content'
   - 'delete any page content'
   - 'delete any quote block content'
@@ -285,12 +288,14 @@ permissions:
   - 'delete domain content'
   - 'delete exercise revisions'
   - 'delete internship revisions'
+  - 'delete junior_apprenticeship revisions'
   - 'delete news revisions'
   - 'delete own course content'
   - 'delete own course_educators content'
   - 'delete own exercise content'
   - 'delete own files'
   - 'delete own internship content'
+  - 'delete own junior_apprenticeship content'
   - 'delete own news content'
   - 'delete own page content'
   - 'delete own transport_pool_form content'
@@ -336,6 +341,7 @@ permissions:
   - 'edit any inline_navigation block content'
   - 'edit any inspiration block content'
   - 'edit any internship content'
+  - 'edit any junior_apprenticeship content'
   - 'edit any news content'
   - 'edit any page content'
   - 'edit any quote block content'
@@ -354,6 +360,7 @@ permissions:
   - 'edit own course_educators content'
   - 'edit own exercise content'
   - 'edit own internship content'
+  - 'edit own junior_apprenticeship content'
   - 'edit own news content'
   - 'edit own page content'
   - 'edit own pretix events'
@@ -390,6 +397,7 @@ permissions:
   - 'revert course_educators revisions'
   - 'revert exercise revisions'
   - 'revert internship revisions'
+  - 'revert junior_apprenticeship revisions'
   - 'revert news revisions'
   - 'revert page revisions'
   - 'select account cancellation method'
@@ -442,6 +450,7 @@ permissions:
   - 'view free_course_request revisions'
   - 'view free_course_request revisions'
   - 'view internship revisions'
+  - 'view junior_apprenticeship revisions'
   - 'view latest version'
   - 'view news revisions'
   - 'view own pretix events'

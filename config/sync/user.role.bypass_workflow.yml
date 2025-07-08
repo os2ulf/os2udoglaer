@@ -8,6 +8,7 @@ dependencies:
     - node.type.course_educators
     - node.type.exercise
     - node.type.internship
+    - node.type.junior_apprenticeship
     - node.type.news
     - node.type.transport_pool_form
     - workflows.workflow.editorial
@@ -37,17 +38,20 @@ permissions:
   - 'create exercise content on assigned domains'
   - 'create internship content'
   - 'create internship content on assigned domains'
+  - 'create junior_apprenticeship content'
   - 'create news content'
   - 'create news content on assigned domains'
   - 'delete own course content'
   - 'delete own course_educators content'
   - 'delete own exercise content'
   - 'delete own internship content'
+  - 'delete own junior_apprenticeship content'
   - 'delete own news content'
   - 'edit own course content'
   - 'edit own course_educators content'
   - 'edit own exercise content'
   - 'edit own internship content'
+  - 'edit own junior_apprenticeship content'
   - 'edit own news content'
   - 'update course content on assigned domains'
   - 'update course_educators content on assigned domains'
@@ -70,6 +74,7 @@ permissions:
   - 'view course_educators revisions'
   - 'view exercise revisions'
   - 'view internship revisions'
+  - 'view junior_apprenticeship revisions'
   - 'view latest version'
   - 'view news revisions'
   - 'view own unpublished content'
