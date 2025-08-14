@@ -581,6 +581,12 @@ function os2uol_application_forms_mail_alter(&$message) {
     // Dynamically set the Reply-To header based on workflow type.
     os2uol_application_forms_set_reply_to($entity, $message);
   }
+
+  // Ensure password reset emails are explicitly set to text/plain
+  // to prevent HTML code from being displayed in the email
+  if ($message['id'] === 'user_password_reset') {
+    $message['headers']['Content-Type'] = 'text/plain; charset=UTF-8; format=flowed';
+  }
 }
 
 /**
