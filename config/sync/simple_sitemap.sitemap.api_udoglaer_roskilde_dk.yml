@@ -1,0 +1,11 @@
+uuid: ea190ace-e9bb-4b0d-8ba6-4a457e54e988
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_udoglaer_roskilde_dk
+id: api_udoglaer_roskilde_dk
+label: 'udoglaer.roskilde.dk sitemap'
+description: 'Sitemap variant for domain: udoglaer.roskilde.dk'
+type: api_udoglaer_roskilde_dk
+weight: 0

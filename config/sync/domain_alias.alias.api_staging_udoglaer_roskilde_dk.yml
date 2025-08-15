@@ -1,0 +1,9 @@
+uuid: a8c4acd8-5765-4bd3-af59-734a3dc14c85
+langcode: da
+status: true
+dependencies: {  }
+id: api_staging_udoglaer_roskilde_dk
+domain_id: api_udoglaer_roskilde_dk
+pattern: api-staging.udoglaer.roskilde.dk
+redirect: 0
+environment: staging

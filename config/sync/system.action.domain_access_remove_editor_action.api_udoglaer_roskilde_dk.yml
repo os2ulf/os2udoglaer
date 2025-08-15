@@ -1,0 +1,14 @@
+uuid: 89d088a5-21d9-4064-b967-e00ee53f9b3a
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_roskilde_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_udoglaer_roskilde_dk
+label: 'Remove editors from the udoglaer.roskilde.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_udoglaer_roskilde_dk

@@ -1,0 +1,14 @@
+uuid: ecb4da35-9b48-4f72-a131-c550c1f2de08
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_roskilde_dk
+  module:
+    - domain_access
+id: domain_access_add_editor_action.api_udoglaer_roskilde_dk
+label: 'Add editors to the udoglaer.roskilde.dk domain'
+type: user
+plugin: domain_access_add_editor_action
+configuration:
+  domain_id: api_udoglaer_roskilde_dk
