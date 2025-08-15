@@ -1,0 +1,11 @@
+uuid: 17718762-63b4-4e8f-b348-6ecf49af0e42
+langcode: da
+status: true
+dependencies: {  }
+id: api_udoglaer_roskilde_dk
+domain_id: 4157052
+hostname: api.udoglaer.roskilde.dk
+name: udoglaer.roskilde.dk
+scheme: variable
+weight: 12
+is_default: false

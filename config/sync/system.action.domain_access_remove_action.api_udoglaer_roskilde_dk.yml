@@ -1,0 +1,14 @@
+uuid: 3fe4cbf4-e56f-45e2-815b-89e418b0a3b4
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_roskilde_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.api_udoglaer_roskilde_dk
+label: 'Remove selected content from the udoglaer.roskilde.dk domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_udoglaer_roskilde_dk

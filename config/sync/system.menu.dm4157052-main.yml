@@ -1,0 +1,15 @@
+uuid: 8399bdc7-0c48-40b7-acac-b77f993eee59
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_udoglaer_roskilde_dk: api_udoglaer_roskilde_dk
+    auto-created: 1
+id: dm4157052-main
+label: 'Domain menu for udoglaer.roskilde.dk (main)'
+description: null
+locked: false
