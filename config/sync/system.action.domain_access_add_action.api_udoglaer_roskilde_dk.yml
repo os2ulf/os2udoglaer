@@ -1,0 +1,14 @@
+uuid: 61f64d57-0b56-44e5-9781-7235cb628c69
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_roskilde_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_udoglaer_roskilde_dk
+label: 'Add selected content to the udoglaer.roskilde.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_udoglaer_roskilde_dk

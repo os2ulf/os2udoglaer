@@ -1,0 +1,18 @@
+uuid: 59a3d4d4-59bc-4491-9fe5-a4b74e5d7621
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_simple_sitemap
+third_party_settings:
+  domain_simple_sitemap:
+    sitemap_domain: api_udoglaer_roskilde_dk
+id: api_udoglaer_roskilde_dk
+label: 'udoglaer.roskilde.dk sitemap'
+description: 'Sitemap type for domain: udoglaer.roskilde.dk'
+sitemap_generator: default
+url_generators:
+  - domain_entity
+  - custom
+  - entity_menu_link_content
+  - arbitrary

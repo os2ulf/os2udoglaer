@@ -1,0 +1,9 @@
+uuid: 7e59e262-b0a3-46e7-a2e6-3e00fe23a821
+langcode: da
+status: true
+dependencies: {  }
+id: udoglaer_roskilde_os2udoglaer_localhost
+domain_id: api_udoglaer_roskilde_dk
+pattern: udoglaer.roskilde.os2udoglaer.localhost
+redirect: 0
+environment: local

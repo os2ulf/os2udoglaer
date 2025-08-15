@@ -30,3 +30,33 @@ domain_login_restrict_assign_role_api_rum_thisted_dk:
   monitor: 0
   bypass_workflow: 0
   rest_api: 0
+domain_login_restrict_role_api_udoglaer_roskilde_dk:
+  anonymous: 0
+  authenticated: 0
+  administrator: 0
+  webmaster: 0
+  editor: 0
+  course_provider: 0
+  corporation: 0
+  institution: 0
+  school: 0
+  place_of_visit: 0
+  theater_contact: 0
+  monitor: 0
+  bypass_workflow: 0
+  rest_api: 0
+domain_login_restrict_assign_role_api_udoglaer_roskilde_dk:
+  anonymous: 0
+  authenticated: 0
+  administrator: 0
+  webmaster: 0
+  editor: 0
+  course_provider: 0
+  corporation: 0
+  institution: 0
+  school: 0
+  place_of_visit: 0
+  theater_contact: 0
+  monitor: 0
+  bypass_workflow: 0
+  rest_api: 0
