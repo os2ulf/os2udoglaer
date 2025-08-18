@@ -9,7 +9,7 @@ id: node.transport_pool_form.field_rfc_phone
 field_name: field_rfc_phone
 entity_type: node
 bundle: transport_pool_form
-label: Telefonnr
+label: 'Telefonnummer på medfølgende voksen'
 description: ''
 required: true
 translatable: false
