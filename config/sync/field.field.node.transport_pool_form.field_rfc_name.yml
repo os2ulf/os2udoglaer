@@ -9,7 +9,7 @@ id: node.transport_pool_form.field_rfc_name
 field_name: field_rfc_name
 entity_type: node
 bundle: transport_pool_form
-label: Navn
+label: 'Navn på medfølgende voksen'
 description: ''
 required: true
 translatable: false

@@ -112,8 +112,8 @@ third_party_settings:
         required_fields: true
     group_tpf_contact_info:
       children:
-        - field_rfc_name
         - field_rfc_mail
+        - field_rfc_name
         - field_rfc_phone
         - field_tpf_message
       label: Kontaktinformation
@@ -214,7 +214,7 @@ content:
     third_party_settings: {  }
   field_rfc_name:
     type: string_textfield
-    weight: 16
+    weight: 18
     region: content
     settings:
       size: 60
@@ -222,7 +222,7 @@ content:
     third_party_settings: {  }
   field_rfc_phone:
     type: string_textfield
-    weight: 18
+    weight: 19
     region: content
     settings:
       size: 60
@@ -288,7 +288,7 @@ content:
     third_party_settings: {  }
   field_tpf_message:
     type: string_textarea
-    weight: 19
+    weight: 20
     region: content
     settings:
       rows: 5
