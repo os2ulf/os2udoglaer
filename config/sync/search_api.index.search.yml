@@ -49,6 +49,7 @@ dependencies:
     - layoutbuilder_search_api
     - node
     - os2uol_search
+    - search_api_exclude_entity
     - search_api_solr
     - taxonomy
     - user
@@ -304,7 +305,7 @@ field_settings:
       module:
         - taxonomy
   field_exclude_from_search:
-    label: 'Vis ikke i intern søgning'
+    label: 'Vis ikke i søgning'
     datasource_id: 'entity:node'
     property_path: field_exclude_from_search
     type: boolean
@@ -757,6 +758,7 @@ processor_settings:
       basic: basic
       quote: quote
       rte: rte
+      application_form: 0
       button: 0
       code: 0
       divider: 0
@@ -764,6 +766,7 @@ processor_settings:
       footer: 0
       hero: 0
       image: 0
+      image_with_link: 0
       inline_navigation: 0
       inspiration: 0
       slideshow: 0
@@ -771,6 +774,10 @@ processor_settings:
       video: 0
   post_number_city: {  }
   rendered_item: {  }
+  search_api_exclude_entity_processor:
+    fields:
+      node: {  }
+      user: {  }
   solr_date_range:
     weights:
       preprocess_index: 0

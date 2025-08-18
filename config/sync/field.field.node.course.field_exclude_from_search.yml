@@ -9,7 +9,7 @@ id: node.course.field_exclude_from_search
 field_name: field_exclude_from_search
 entity_type: node
 bundle: course
-label: 'Vis ikke i intern søgning'
+label: 'Vis ikke i søgning'
 description: ''
 required: false
 translatable: false
