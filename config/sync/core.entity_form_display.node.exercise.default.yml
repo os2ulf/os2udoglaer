@@ -58,7 +58,6 @@ third_party_settings:
         - field_target_group
         - field_activity_select
         - body
-        - field_purpose_exercise
       label: Beskrivelse
       region: content
       parent_name: ''
@@ -83,6 +82,7 @@ third_party_settings:
         - field_ackground_knowledge
         - field_activities
         - field_post_processing
+        - field_purpose_exercise
       label: 'Før, under og efter besøget'
       region: content
       parent_name: ''
@@ -227,7 +227,6 @@ third_party_settings:
         required_fields: true
     group_theme_subject:
       children:
-        - field_theme
         - field_focus
         - field_sustainability_goals
         - field_sustainability_goals_desc
@@ -474,7 +473,7 @@ content:
     third_party_settings: {  }
   field_post_processing:
     type: text_textarea
-    weight: 12
+    weight: 11
     region: content
     settings:
       rows: 5
@@ -515,7 +514,7 @@ content:
             selector: ''
   field_purpose_exercise:
     type: text_textarea
-    weight: 5
+    weight: 12
     region: content
     settings:
       rows: 5
