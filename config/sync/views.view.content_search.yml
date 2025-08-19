@@ -456,6 +456,44 @@ display:
             - field_youth_education_subject_name
             - title
             - uid_name
+        field_exclude_from_search:
+          id: field_exclude_from_search
+          table: search_api_index_search
+          field: field_exclude_from_search
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -495,99 +533,6 @@ display:
     position: 1
     display_options:
       title: Erhvervspraktikker
-      defaults:
-        title: false
-      display_description: ''
-      display_extenders:
-        os2uol_search:
-          os2uol_search_result_string: 'Viser @count praktikker'
-        transform_api_facets:
-          transform_facets:
-            internship_areas_of_interest: internship_areas_of_interest
-            internship_company: internship_company
-            internship_industry: internship_industry
-            internship_post_number_and_city: internship_post_number_and_city
-            internship_company_guarantee_partner: 0
-        transform_api_views:
-          row_transform: entity
-          row_transform_mode: search_result
-          pager_transform: basic
-          pager_transform_links: relative
-          pager_transform_links_destination: current
-      block_description: 'Søg - Erhvervspraktik'
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
-        - 'url.query_args:sort_by'
-        - url.site
-        - 'user.node_grants:view'
-      tags:
-        - 'config:search_api.index.search'
-        - 'search_api_list:search'
-  block_10:
-    id: block_10
-    display_title: 'Blok - Juniormesterlære'
-    display_plugin: block
-    position: 1
-    display_options:
-      title: Juniormesterlærer
-      sorts:
-        field_open_for_application:
-          id: field_open_for_application
-          table: search_api_index_search
-          field: field_open_for_application
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: DESC
-          expose:
-            label: ''
-            field_identifier: ''
-          exposed: false
-        created:
-          id: created
-          table: search_api_index_search
-          field: created
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: DESC
-          expose:
-            label: Nyeste
-            field_identifier: created
-          exposed: true
-        search_api_relevance:
-          id: search_api_relevance
-          table: search_api_index_search
-          field: search_api_relevance
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: DESC
-          expose:
-            label: 'Mest relevante'
-            field_identifier: relevance
-          exposed: true
-        title:
-          id: title
-          table: search_api_index_search
-          field: title
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api
-          order: ASC
-          expose:
-            label: Alfabetisk
-            field_identifier: title
-          exposed: true
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -640,7 +585,7 @@ display:
           plugin_id: search_api_options
           operator: or
           value:
-            junior_apprenticeship: junior_apprenticeship
+            internship: internship
           group: 1
           exposed: false
           expose:
@@ -885,9 +830,104 @@ display:
           1: AND
       defaults:
         title: false
-        sorts: false
         filters: false
         filter_groups: false
+      display_description: ''
+      display_extenders:
+        os2uol_search:
+          os2uol_search_result_string: 'Viser @count praktikker'
+        transform_api_facets:
+          transform_facets:
+            internship_areas_of_interest: internship_areas_of_interest
+            internship_company: internship_company
+            internship_industry: internship_industry
+            internship_post_number_and_city: internship_post_number_and_city
+            internship_company_guarantee_partner: 0
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: search_result
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
+      block_description: 'Søg - Erhvervspraktik'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'url.query_args:sort_by'
+        - url.site
+        - 'user.node_grants:view'
+      tags:
+        - 'config:search_api.index.search'
+        - 'search_api_list:search'
+  block_10:
+    id: block_10
+    display_title: 'Blok - Juniormesterlære'
+    display_plugin: block
+    position: 1
+    display_options:
+      title: Juniormesterlærer
+      sorts:
+        field_open_for_application:
+          id: field_open_for_application
+          table: search_api_index_search
+          field: field_open_for_application
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: ''
+            field_identifier: ''
+          exposed: false
+        created:
+          id: created
+          table: search_api_index_search
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: Nyeste
+            field_identifier: created
+          exposed: true
+        search_api_relevance:
+          id: search_api_relevance
+          table: search_api_index_search
+          field: search_api_relevance
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: DESC
+          expose:
+            label: 'Mest relevante'
+            field_identifier: relevance
+          exposed: true
+        title:
+          id: title
+          table: search_api_index_search
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api
+          order: ASC
+          expose:
+            label: Alfabetisk
+            field_identifier: title
+          exposed: true
+      defaults:
+        title: false
+        sorts: false
+        filters: true
+        filter_groups: true
       display_description: ''
       display_extenders:
         os2uol_search:
@@ -1276,6 +1316,44 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_exclude_from_search:
+          id: field_exclude_from_search
+          table: search_api_index_search
+          field: field_exclude_from_search
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -1328,267 +1406,10 @@ display:
     position: 1
     display_options:
       title: Nyheder
-      filters:
-        search_api_datasource:
-          id: search_api_datasource
-          table: search_api_index_search
-          field: search_api_datasource
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_datasource
-          operator: or
-          value:
-            'entity:node': 'entity:node'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-        type:
-          id: type
-          table: search_api_index_search
-          field: type
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_options
-          operator: or
-          value:
-            news: news
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-        status:
-          id: status
-          table: search_api_index_search
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_boolean
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        current_all:
-          id: current_all
-          table: search_api_index_search
-          field: current_all
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: domain_access_search_api_current_all_filter
-          operator: '='
-          value: '1'
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-        search_api_fulltext:
-          id: search_api_fulltext
-          table: search_api_index_search
-          field: search_api_fulltext
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: search_api_fulltext
-          operator: and
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: search_api_fulltext_op
-            label: Søg
-            description: ''
-            use_operator: false
-            operator: search_api_fulltext_op
-            operator_limit_selection: false
-            operator_list: {  }
-            identifier: search_string
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
-            expose_fields: false
-            placeholder: ''
-            searched_fields_id: search_api_fulltext_searched_fields
-            value_maxlength: 128
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          parse_mode: terms
-          min_length: null
-          fields:
-            - body
-            - body_1
-            - field_accordion_headline
-            - field_accordion_items
-            - field_ackground_knowledge
-            - field_activities
-            - field_activity_select_name
-            - field_appetizer_headline
-            - field_appetizer_text
-            - field_areas_of_interest_name
-            - field_course_type_name
-            - field_curriculum_themes_name
-            - field_description
-            - field_educators_target_group_name
-            - field_expectations
-            - field_how_to
-            - field_industry_name
-            - field_name
-            - field_post_processing
-            - field_preparation
-            - field_presentation
-            - field_primary_school_subject_name
-            - field_purpose
-            - field_purpose_exercise
-            - field_quote_text
-            - field_related_user_field_name
-            - field_subject_name
-            - field_sustainability_goals_name
-            - field_text
-            - field_theme_name
-            - field_trgt_grp_daycare_name
-            - field_trgt_grp_primary_school_name
-            - field_trgt_grp_youth_education_name
-            - field_youth_education_subject_name
-            - title
-            - uid_name
-      filter_groups:
-        operator: AND
-        groups:
-          1: AND
       defaults:
         title: false
-        filters: false
-        filter_groups: false
+        filters: true
+        filter_groups: true
       display_description: ''
       display_extenders:
         os2uol_search:
@@ -2018,6 +1839,44 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_exclude_from_search:
+          id: field_exclude_from_search
+          table: search_api_index_search
+          field: field_exclude_from_search
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -2367,6 +2226,44 @@ display:
             - field_youth_education_subject_name
             - title
             - uid_name
+        field_exclude_from_search:
+          id: field_exclude_from_search
+          table: search_api_index_search
+          field: field_exclude_from_search
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -2799,6 +2696,44 @@ display:
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        field_exclude_from_search:
+          id: field_exclude_from_search
+          table: search_api_index_search
+          field: field_exclude_from_search
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
           is_grouped: false
           group_info:
             label: ''
@@ -3255,6 +3190,44 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        field_exclude_from_search:
+          id: field_exclude_from_search
+          table: search_api_index_search
+          field: field_exclude_from_search
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -3604,6 +3577,44 @@ display:
             - field_youth_education_subject_name
             - title
             - uid_name
+        field_exclude_from_search:
+          id: field_exclude_from_search
+          table: search_api_index_search
+          field: field_exclude_from_search
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
@@ -3953,6 +3964,44 @@ display:
             - field_youth_education_subject_name
             - title
             - uid_name
+        field_exclude_from_search:
+          id: field_exclude_from_search
+          table: search_api_index_search
+          field: field_exclude_from_search
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: search_api_boolean
+          operator: '!='
+          value: '1'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
       filter_groups:
         operator: AND
         groups:
