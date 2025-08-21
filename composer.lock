@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ae89a30b9af23092a0fe6cf416d6eb64",
+    "content-hash": "826b0810d70af67a61b7407a23fbb94b",
     "packages": [
         {
             "name": "algolia/places",
@@ -164,7 +164,7 @@
             "version": "1.8.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bgrins/spectrum.git",
+                "url": "https://github.com/bgrins/spectrum.git",
                 "reference": "9aa028de7e8039c41ac792485a928edb97d4ac40"
             },
             "dist": {
@@ -3233,6 +3233,14 @@
                 {
                     "name": "agentrickard",
                     "homepage": "https://www.drupal.org/user/20975"
+                },
+                {
+                    "name": "danrod",
+                    "homepage": "https://www.drupal.org/user/19150"
+                },
+                {
+                    "name": "mably",
+                    "homepage": "https://www.drupal.org/user/3375160"
                 },
                 {
                     "name": "nonsie",
