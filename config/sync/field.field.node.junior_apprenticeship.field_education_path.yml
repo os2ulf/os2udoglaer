@@ -1,0 +1,29 @@
+uuid: e9f01b27-7d93-42c0-849f-14de4a653c8a
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_education_path
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.field_education_path
+field_name: field_education_path
+entity_type: node
+bundle: junior_apprenticeship
+label: Uddannelsesvej
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

@@ -1,0 +1,19 @@
+uuid: 365c3ee4-bbc6-4cbc-a797-0dc2162acc08
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quantity
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_quantity
+field_name: field_quantity
+entity_type: node
+bundle: junior_apprenticeship
+label: Antal
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

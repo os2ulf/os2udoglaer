@@ -1,0 +1,29 @@
+uuid: 1364b80a-8e5d-4d64-a736-cb1f7f4d775e
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_todo_list
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.field_todo_list
+field_name: field_todo_list
+entity_type: node
+bundle: junior_apprenticeship
+label: Huskeliste
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

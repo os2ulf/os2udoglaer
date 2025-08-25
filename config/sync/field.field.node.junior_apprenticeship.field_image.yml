@@ -1,0 +1,38 @@
+uuid: fb282322-2132-4840-8adb-42ff5ab06205
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_image
+    - node.type.junior_apprenticeship
+  module:
+    - image
+id: node.junior_apprenticeship.field_image
+field_name: field_image
+entity_type: node
+bundle: junior_apprenticeship
+label: Billede
+description: 'OBS! Det er udbyders ansvar at sikre, at der er styr på rettigheder og tilladelser, når I uploader billeder.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg webp'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: 1584x700
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

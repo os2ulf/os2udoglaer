@@ -546,11 +546,14 @@ display:
           fieldset_one:
             data_field:
               field_allocated_budget: field_allocated_budget
-              field_rfc_granted_amount: field_rfc_granted_amount
+              field_views_simple_math_field: field_views_simple_math_field
+              uid: 0
               name: 0
               field_allocated_budget_year: 0
-              field_views_simple_math_field: 0
-            formula: '(@field_allocated_budget - @field_rfc_granted_amount + abs(@field_allocated_budget - @field_rfc_granted_amount)) / 2'
+              field_rfc_date: 0
+              field_rfc_granted_amount: 0
+              field_views_simple_math_field_2: 0
+            formula: '@field_allocated_budget - @field_views_simple_math_field'
           mute_logs: false
           set_precision: 0
           precision: '0'

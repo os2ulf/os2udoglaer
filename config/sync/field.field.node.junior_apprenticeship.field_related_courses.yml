@@ -1,0 +1,26 @@
+uuid: e1dd43a3-96cc-4206-b6f6-6961a24f268f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_related_courses
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_related_courses
+field_name: field_related_courses
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Relaterede forløb'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: content_entity_reference
+      display_name: entity_reference_1
+      arguments:
+        - internship+course_educators+course
+field_type: entity_reference

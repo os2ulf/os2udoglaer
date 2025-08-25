@@ -1,0 +1,19 @@
+uuid: a0af9239-71bd-4aa3-b23c-24decbce5e01
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pretix_email_notifiers
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_pretix_email_notifiers
+field_name: field_pretix_email_notifiers
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Pretix email notifiers'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

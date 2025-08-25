@@ -1,0 +1,21 @@
+uuid: 429f726d-6c07-46aa-84fe-574ed780cf08
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.junior_apprenticeship
+  module:
+    - metatag
+id: node.junior_apprenticeship.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: junior_apprenticeship
+label: Meta-tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

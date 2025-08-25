@@ -1,0 +1,29 @@
+uuid: 6fa50e48-261f-47c0-8bde-39b07b27a629
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duration_rte
+    - filter.format.basic_html
+    - node.type.junior_apprenticeship
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    allowed_formats:
+      - basic_html
+id: node.junior_apprenticeship.field_duration_rte
+field_name: field_duration_rte
+entity_type: node
+bundle: junior_apprenticeship
+label: Varighed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

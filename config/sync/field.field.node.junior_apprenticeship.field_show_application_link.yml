@@ -1,0 +1,21 @@
+uuid: 022b4add-7390-43a8-9e3c-8cae618b5726
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_show_application_link
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_show_application_link
+field_name: field_show_application_link
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Vis ansøgningslink'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Vis
+  off_label: 'Vis ikke'
+field_type: boolean

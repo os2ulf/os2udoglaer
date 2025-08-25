@@ -442,6 +442,33 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
       $entity->set('field_rfc_payment_date', $current_timestamp);
     }
   }
+  
+  // Fix for UOLOS2-420: Ensure field updates are saved even when moderation state doesn't change
+  // This is particularly important for the "Annulleret" (cancelled) state
+  if ($entity instanceof \Drupal\node\Entity\Node && 
+      ($entity->bundle() === 'theater_refund' || $entity->bundle() === 'free_course_request')) {
+    
+    // Check if we have an original entity (updating existing node)
+    if (isset($entity->original)) {
+      $original_state = $entity->original->get('moderation_state')->getString();
+      $new_state = $entity->get('moderation_state')->getString();
+      
+      // If the state is "cancelled" and remains "cancelled", ensure changes are properly saved
+      if ($original_state === 'cancelled' && $new_state === 'cancelled') {
+        // Force a new revision to ensure field changes are captured
+        $entity->setNewRevision(TRUE);
+        $entity->setRevisionCreationTime(time());
+        
+        // Set revision log message to track this update
+        if ($entity->hasField('revision_log')) {
+          $entity->setRevisionLogMessage('Updated fields while maintaining cancelled status');
+        }
+        
+        // Ensure the entity is marked as changed to trigger cache invalidation
+        $entity->setChangedTime(time());
+      }
+    }
+  }
 
   // Prevent content_moderation_notifications from sending emails if field_rfc_send_mail is set to 0.
   if ($entity instanceof \Drupal\node\Entity\Node && $entity->hasField('field_rfc_send_mail')) {
@@ -474,6 +501,32 @@ function os2uol_application_forms_entity_update(\Drupal\Core\Entity\EntityInterf
     if ($session->get(Os2Notification::NO_EMAIL_SESSION_VARIABLE)) {
       $session->remove(Os2Notification::NO_EMAIL_SESSION_VARIABLE);
       $session->save();
+    }
+  }
+  
+  // Fix for UOLOS2-420: Invalidate cache tags for application forms to ensure list views are updated
+  if ($entity instanceof \Drupal\node\Entity\Node && 
+      ($entity->bundle() === 'theater_refund' || $entity->bundle() === 'free_course_request')) {
+    
+    // Check if we're updating from cancelled to cancelled state
+    if (isset($entity->original)) {
+      $original_state = $entity->original->get('moderation_state')->getString();
+      $new_state = $entity->get('moderation_state')->getString();
+      
+      if ($original_state === 'cancelled' && $new_state === 'cancelled') {
+        // Invalidate specific cache tags to ensure views are refreshed
+        \Drupal\Core\Cache\Cache::invalidateTags([
+          'node:' . $entity->id(),
+          'node_list:' . $entity->bundle(),
+          'views_data:' . $entity->bundle(),
+        ]);
+        
+        // Log the cache invalidation for debugging
+        \Drupal::logger('os2uol_application_forms')->info('Cache invalidated for @type node @nid after cancelled->cancelled update', [
+          '@type' => $entity->bundle(),
+          '@nid' => $entity->id(),
+        ]);
+      }
     }
   }
 }
@@ -580,6 +633,43 @@ function os2uol_application_forms_mail_alter(&$message) {
 
     // Dynamically set the Reply-To header based on workflow type.
     os2uol_application_forms_set_reply_to($entity, $message);
+  }
+
+  // Ensure all core user emails are explicitly set to text/plain
+  // to prevent HTML code from being displayed in the email.
+  // This fixes the issue where symfony_mailer_lite forces HTML format
+  // but SMTP module with smtp_allowhtml:false shows raw HTML tags.
+  $core_user_mail_types = [
+    'user_password_reset',
+    'user_cancel_confirm',
+    'user_register_admin_created',
+    'user_register_no_approval_required',
+    'user_register_pending_approval',
+    'user_register_pending_approval_admin',
+    'user_status_activated',
+    'user_status_blocked',
+    'user_status_canceled'
+  ];
+
+  if (in_array($message['id'], $core_user_mail_types)) {
+    $message['headers']['Content-Type'] = 'text/plain; charset=UTF-8; format=flowed';
+
+    // Force plain text format to prevent symfony_mailer_lite from converting to HTML
+    $message['params']['content_type'] = 'text/plain';
+
+    // Convert any HTML that might have been added back to plain text
+    // This handles cases where the body has already been processed
+    if (is_array($message['body'])) {
+      foreach ($message['body'] as &$body_part) {
+        // Remove any HTML tags that may have been added
+        if (is_string($body_part) && strip_tags($body_part) !== $body_part) {
+          // Use Drupal's MailFormatHelper to properly convert HTML to text
+          $body_part = \Drupal\Core\Mail\MailFormatHelper::htmlToText($body_part);
+        }
+      }
+    } elseif (is_string($message['body']) && strip_tags($message['body']) !== $message['body']) {
+      $message['body'] = \Drupal\Core\Mail\MailFormatHelper::htmlToText($message['body']);
+    }
   }
 }
 

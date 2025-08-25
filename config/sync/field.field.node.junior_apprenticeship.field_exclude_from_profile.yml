@@ -1,0 +1,21 @@
+uuid: dcfc8fd4-0956-47bb-83b5-47dc2160bc58
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_exclude_from_profile
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_exclude_from_profile
+field_name: field_exclude_from_profile
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Vis ikke på profil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

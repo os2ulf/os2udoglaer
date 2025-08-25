@@ -19,7 +19,7 @@ settings:
       label: 'Vis alternativ adresse'
     -
       value: hidden_on_map
-      label: 'Vis ikke på kort'
+      label: 'Ingen adresse/Vis ikke på kort'
   allowed_values_function: ''
 module: options
 locked: false
