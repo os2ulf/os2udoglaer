@@ -753,6 +753,9 @@ $manually_added_hosts = [
 
   'api.udsynmodarbejdsliv.dk',
   'api-staging.udsynmodarbejdsliv.dk',
+
+  'api.roskilde.os2udoglaer.dk',
+  'api-staging.roskilde.os2udoglaer.dk',
 ];
 
 if ($trusted_hosts !== false) {
