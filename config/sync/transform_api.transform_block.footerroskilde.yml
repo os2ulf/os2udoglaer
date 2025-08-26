@@ -1,0 +1,29 @@
+uuid: db424a86-03ee-449b-a440-0b8d6e588150
+langcode: da
+status: true
+dependencies:
+  content:
+    - 'block_content:footer:a87cef60-9489-44d1-a442-c977341d2f5a'
+  module:
+    - domain
+id: footerroskilde
+region: footer
+weight: '0'
+provider: null
+plugin: 'block_content:a87cef60-9489-44d1-a442-c977341d2f5a'
+settings:
+  id: 'block_content:a87cef60-9489-44d1-a442-c977341d2f5a'
+  label: 'Footer Roskilde'
+  provider: transform_api
+  status: true
+  info: ''
+  transform_mode: default
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_udoglaer_roskilde_dk: api_udoglaer_roskilde_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
