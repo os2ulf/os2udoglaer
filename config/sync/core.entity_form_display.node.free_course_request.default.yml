@@ -91,10 +91,9 @@ third_party_settings:
         required_fields: true
     group_rfc_course:
       children:
-        - field_rfc_provider
-        - field_rfc_course
-        - field_rfc_course_not_found
         - field_rfc_new_course_name
+        - field_rfc_provider
+        - field_rfc_course_not_found
         - field_rfc_new_course_description
         - field_rfc_subject
         - field_rfc_requested_amount
@@ -167,31 +166,21 @@ content:
     third_party_settings: {  }
   field_rfc_attachment:
     type: file_generic
-    weight: 16
+    weight: 17
     region: content
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-  field_rfc_course:
-    type: entity_reference_autocomplete
-    weight: 17
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_rfc_course_not_found:
     type: boolean_checkbox
-    weight: 18
+    weight: 21
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_rfc_date:
     type: datetime_default
-    weight: 23
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -244,7 +233,7 @@ content:
     third_party_settings: {  }
   field_rfc_new_course_description:
     type: string_textarea
-    weight: 20
+    weight: 22
     region: content
     settings:
       rows: 5
@@ -260,7 +249,7 @@ content:
     third_party_settings: {  }
   field_rfc_payment_date:
     type: nullable_datetime_timestamp
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -274,7 +263,7 @@ content:
     third_party_settings: {  }
   field_rfc_provider:
     type: entity_reference_autocomplete
-    weight: 15
+    weight: 20
     region: content
     settings:
       match_operator: CONTAINS
@@ -292,7 +281,7 @@ content:
     third_party_settings: {  }
   field_rfc_requested_amount:
     type: number
-    weight: 22
+    weight: 24
     region: content
     settings:
       placeholder: ''
@@ -323,7 +312,7 @@ content:
     third_party_settings: {  }
   field_rfc_subject:
     type: entity_reference_autocomplete
-    weight: 21
+    weight: 23
     region: content
     settings:
       match_operator: CONTAINS
@@ -343,6 +332,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_mailto: true
+  field_rfc_course: true
   field_semester: true
   langcode: true
   path: true

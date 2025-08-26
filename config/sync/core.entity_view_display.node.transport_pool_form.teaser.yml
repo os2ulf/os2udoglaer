@@ -20,6 +20,7 @@ dependencies:
     - field.field.node.transport_pool_form.field_rfc_send_mail
     - field.field.node.transport_pool_form.field_tpf_address_variation
     - field.field.node.transport_pool_form.field_tpf_backend_submission
+    - field.field.node.transport_pool_form.field_tpf_course_name
     - field.field.node.transport_pool_form.field_tpf_course_not_found
     - field.field.node.transport_pool_form.field_tpf_expense
     - field.field.node.transport_pool_form.field_tpf_grade
@@ -64,6 +65,7 @@ hidden:
   field_rfc_send_mail: true
   field_tpf_address_variation: true
   field_tpf_backend_submission: true
+  field_tpf_course_name: true
   field_tpf_course_not_found: true
   field_tpf_expense: true
   field_tpf_grade: true
