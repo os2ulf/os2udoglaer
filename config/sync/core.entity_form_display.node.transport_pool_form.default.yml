@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.transport_pool_form.field_rfc_send_mail
     - field.field.node.transport_pool_form.field_tpf_address_variation
     - field.field.node.transport_pool_form.field_tpf_backend_submission
+    - field.field.node.transport_pool_form.field_tpf_course_name
     - field.field.node.transport_pool_form.field_tpf_course_not_found
     - field.field.node.transport_pool_form.field_tpf_expense
     - field.field.node.transport_pool_form.field_tpf_grade
@@ -39,14 +40,11 @@ third_party_settings:
     group_tpf_course:
       children:
         - moderation_state
-        - field_rfc_course
+        - field_tpf_course_name
         - field_tpf_course_not_found
         - field_tpf_what_course
         - field_tpf_purpose_course
         - field_dawa_address
-        - field_location_street
-        - field_location_zipcode
-        - field_location_city
       label: Forløb
       region: content
       parent_name: ''
@@ -168,7 +166,7 @@ content:
     third_party_settings: {  }
   field_dawa_address:
     type: dawa_address_autocomplete_widget
-    weight: 5
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -177,16 +175,6 @@ content:
     weight: 7
     region: content
     settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_rfc_course:
-    type: entity_reference_autocomplete
-    weight: 1
-    region: content
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -206,7 +194,7 @@ content:
     third_party_settings: {  }
   field_rfc_mail:
     type: email_default
-    weight: 17
+    weight: 30
     region: content
     settings:
       placeholder: ''
@@ -214,7 +202,7 @@ content:
     third_party_settings: {  }
   field_rfc_name:
     type: string_textfield
-    weight: 18
+    weight: 32
     region: content
     settings:
       size: 60
@@ -222,7 +210,7 @@ content:
     third_party_settings: {  }
   field_rfc_phone:
     type: string_textfield
-    weight: 19
+    weight: 33
     region: content
     settings:
       size: 60
@@ -250,9 +238,17 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_tpf_course_name:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_tpf_course_not_found:
     type: boolean_checkbox
-    weight: 2
+    weight: 3
     region: content
     settings:
       display_label: true
@@ -288,7 +284,7 @@ content:
     third_party_settings: {  }
   field_tpf_message:
     type: string_textarea
-    weight: 20
+    weight: 34
     region: content
     settings:
       rows: 5
@@ -303,7 +299,7 @@ content:
     third_party_settings: {  }
   field_tpf_purpose_course:
     type: string_textarea
-    weight: 4
+    weight: 5
     region: content
     settings:
       rows: 5
@@ -311,7 +307,7 @@ content:
     third_party_settings: {  }
   field_tpf_what_course:
     type: string_textarea
-    weight: 3
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -334,6 +330,7 @@ hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
   field_mailto: true
+  field_rfc_course: true
   field_tpf_address_variation: true
   langcode: true
   path: true

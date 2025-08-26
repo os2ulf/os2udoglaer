@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.transport_pool_form.field_rfc_send_mail
     - field.field.node.transport_pool_form.field_tpf_address_variation
     - field.field.node.transport_pool_form.field_tpf_backend_submission
+    - field.field.node.transport_pool_form.field_tpf_course_name
     - field.field.node.transport_pool_form.field_tpf_course_not_found
     - field.field.node.transport_pool_form.field_tpf_expense
     - field.field.node.transport_pool_form.field_tpf_grade
@@ -120,6 +121,14 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     weight: 19
+    region: content
+  field_tpf_course_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 57
     region: content
   field_tpf_expense:
     type: number_decimal
