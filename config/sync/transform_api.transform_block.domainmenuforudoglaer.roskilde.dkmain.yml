@@ -1,4 +1,4 @@
-uuid: 30d24bcf-161d-44e0-8902-c912e7b7952e
+uuid: 6bd974f2-938b-4553-abae-607f65c965c1
 langcode: da
 status: true
 dependencies:
@@ -6,15 +6,16 @@ dependencies:
     - system.menu.dm4157052-main
   module:
     - domain
+    - os2uol_menus
 id: domainmenuforudoglaer.roskilde.dkmain
 region: header
 weight: '0'
 provider: null
-plugin: 'system_menu_block:dm4157052-main'
+plugin: 'custom_menu_block:dm4157052-main'
 settings:
-  id: 'system_menu_block:dm4157052-main'
+  id: 'custom_menu_block:dm4157052-main'
   label: 'Domain menu for udoglaer.roskilde.dk (main)'
-  provider: transform_api
+  provider: os2uol_menus
   level: '1'
   depth: '0'
   expand_all_items: 1

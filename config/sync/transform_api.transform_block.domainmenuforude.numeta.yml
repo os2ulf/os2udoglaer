@@ -9,7 +9,7 @@ dependencies:
     - os2uol_menus
 id: domainmenuforude.numeta
 region: header
-weight: 0
+weight: '0'
 provider: null
 plugin: 'custom_menu_block:dm3718682-meta'
 settings:
