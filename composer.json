@@ -93,7 +93,7 @@
         "drupal/role_delegation": "^1.1",
         "drupal/scheduled_transitions": "^2.0",
         "drupal/search_api": "^1.0",
-        "drupal/search_api_exclude_entity": "^1.0",
+        "drupal/search_api_exclude_entity": "^2.0",
         "drupal/search_api_page": "^1.0@beta",
         "drupal/search_api_solr": "^4.3",
         "drupal/sendgrid_integration": "^2.2",
