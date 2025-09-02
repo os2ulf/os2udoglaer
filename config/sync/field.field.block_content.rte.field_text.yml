@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.rte
     - field.storage.block_content.field_text
+    - filter.format.basic_html
   module:
     - allowed_formats
     - text
