@@ -30,7 +30,7 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal/admin_toolbar": "^3.4",
-        "drupal/allowed_formats": "^2.0",
+        "drupal/allowed_formats": "^3.0",
         "drupal/atoms": "^1.0",
         "drupal/auto_entitylabel": "^3.3",
         "drupal/autosave_form": "^1.0",

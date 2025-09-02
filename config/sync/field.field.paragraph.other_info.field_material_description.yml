@@ -7,11 +7,7 @@ dependencies:
     - filter.format.basic_html
     - paragraphs.paragraphs_type.other_info
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
 id: paragraph.other_info.field_material_description
 field_name: field_material_description
 entity_type: paragraph

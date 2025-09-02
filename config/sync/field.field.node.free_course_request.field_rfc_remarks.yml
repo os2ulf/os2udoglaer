@@ -7,12 +7,7 @@ dependencies:
     - filter.format.basic_html
     - node.type.free_course_request
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: node.free_course_request.field_rfc_remarks
 field_name: field_rfc_remarks
 entity_type: node
