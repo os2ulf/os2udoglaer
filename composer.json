@@ -14,11 +14,12 @@
         },
         {
             "type": "composer",
-            "url": "https://packages.drupal.dk/php/"
+            "url": "https://asset-packagist.org"
         },
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://packages.drupal.dk/php/",
+            "canonical": false
         }
     ],
     "require": {
