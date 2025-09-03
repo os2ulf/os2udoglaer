@@ -67,6 +67,7 @@ dependencies:
     - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.search_result
   module:
+    - transform_api_dawa
     - transform_api_responsive_image
 id: node.course.search_result
 targetEntityType: node
@@ -89,10 +90,18 @@ content:
     third_party_settings: {  }
   field_curriculum_themes:
     type: entity_reference_labels
-    weight: '4'
+    weight: '3'
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_dawa_address:
+    type: dawa_address_transform
+    weight: '13'
+    region: content
+    label: omit
+    settings:
+      transform_mode: latlng
     third_party_settings: {  }
   field_image:
     type: responsive_image
@@ -107,56 +116,63 @@ content:
     third_party_settings: {  }
   field_is_free:
     type: boolean
-    weight: '5'
+    weight: '4'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_primary_school_subject:
     type: entity_reference_labels
-    weight: '9'
+    weight: '5'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_target_group:
     type: entity_reference_labels
-    weight: '11'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_theme:
     type: entity_reference_labels
-    weight: '15'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_daycare:
     type: entity_reference_labels
-    weight: '12'
+    weight: '8'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_primary_school:
     type: entity_reference_labels
-    weight: '13'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_youth_education:
     type: entity_reference_labels
-    weight: '14'
+    weight: '10'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_view_on_map:
+    type: value
+    weight: '12'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_youth_education_subject:
     type: entity_reference_labels
-    weight: '10'
+    weight: '6'
     region: content
     label: omit
     settings: {  }
@@ -165,7 +181,6 @@ hidden:
   field_activities: true
   field_all_year: true
   field_course_type: true
-  field_dawa_address: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true
@@ -209,5 +224,4 @@ hidden:
   field_video: true
   field_video_description: true
   field_video_title: true
-  field_view_on_map: true
   langcode: true
