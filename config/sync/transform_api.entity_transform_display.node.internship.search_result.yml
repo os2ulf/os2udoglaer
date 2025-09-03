@@ -48,6 +48,7 @@ dependencies:
     - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.search_result
   module:
+    - transform_api_dawa
     - transform_api_responsive_image
 id: node.internship.search_result
 targetEntityType: node
@@ -70,10 +71,18 @@ content:
     third_party_settings: {  }
   field_banner:
     type: entity_reference_labels
-    weight: '7'
+    weight: '4'
     region: content
     label: omit
     settings: {  }
+    third_party_settings: {  }
+  field_dawa_address:
+    type: dawa_address_transform
+    weight: '6'
+    region: content
+    label: omit
+    settings:
+      transform_mode: latlng
     third_party_settings: {  }
   field_image:
     type: responsive_image
@@ -95,7 +104,7 @@ content:
     third_party_settings: {  }
   field_view_on_map:
     type: value
-    weight: '9'
+    weight: '5'
     region: content
     label: omit
     settings: {  }
@@ -106,7 +115,6 @@ hidden:
   field_application_phone: true
   field_application_title: true
   field_application_url: true
-  field_dawa_address: true
   field_desc_application_procedure: true
   field_description_of_period: true
   field_domain_access: true
