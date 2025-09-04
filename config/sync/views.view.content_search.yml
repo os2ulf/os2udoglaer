@@ -4987,6 +4987,15 @@ display:
             course_sustainability_goals_primary_school: course_sustainability_goals_primary_school
             course_target_group_primary_school: course_target_group_primary_school
             course_theme_primary_school: course_theme_primary_school
+            course_author_primary_school_map: 0
+            course_course_type_primary_school_map: 0
+            course_is_free_primary_school_map: 0
+            course_period_primary_school_map: 0
+            course_primary_school_subject_map: 0
+            course_subject_primary_school_map: 0
+            course_sustainability_goals_primary_school_map: 0
+            course_target_group_primary_school_map: 0
+            course_theme_primary_school_map: 0
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
@@ -5465,15 +5474,15 @@ display:
           os2uol_search_result_string: 'Viser @count forløb'
         transform_api_facets:
           transform_facets:
-            course_author_primary_school: course_author_primary_school
-            course_course_type_primary_school: course_course_type_primary_school
-            course_is_free_primary_school: course_is_free_primary_school
-            course_period_primary_school: course_period_primary_school
-            course_primary_school_subject: course_primary_school_subject
-            course_subject_primary_school: course_subject_primary_school
-            course_sustainability_goals_primary_school: course_sustainability_goals_primary_school
-            course_target_group_primary_school: course_target_group_primary_school
-            course_theme_primary_school: course_theme_primary_school
+            course_author_primary_school_map: course_author_primary_school_map
+            course_course_type_primary_school_map: course_course_type_primary_school_map
+            course_is_free_primary_school_map: course_is_free_primary_school_map
+            course_period_primary_school_map: course_period_primary_school_map
+            course_primary_school_subject_map: course_primary_school_subject_map
+            course_subject_primary_school_map: course_subject_primary_school_map
+            course_sustainability_goals_primary_school_map: course_sustainability_goals_primary_school_map
+            course_target_group_primary_school_map: course_target_group_primary_school_map
+            course_theme_primary_school_map: course_theme_primary_school_map
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
