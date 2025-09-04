@@ -1,0 +1,9 @@
+uuid: 6c231123-85ae-4a40-841f-ba4054ca7beb
+langcode: da
+status: true
+dependencies: {  }
+id: search_api__views_block__content_search__block_6_map
+name: 'search_api:views_block__content_search__block_6_map'
+filter_key: null
+url_processor: query_string
+breadcrumb: {  }
