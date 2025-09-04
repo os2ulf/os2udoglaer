@@ -1225,9 +1225,10 @@ display:
     display_options:
       title: Juniormesterlærer
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 9999
       sorts:
         field_open_for_application:
           id: field_open_for_application
@@ -1588,12 +1589,12 @@ display:
           os2uol_search_result_string: 'Viser @count juniormesterlærer'
         transform_api_facets:
           transform_facets:
-            junior_apprenticeship_areas_of_interest: junior_apprenticeship_areas_of_interest
-            junior_apprenticeship_company: junior_apprenticeship_company
-            junior_apprenticeship_industry: junior_apprenticeship_industry
-            junior_apprenticeship_open_for_application: junior_apprenticeship_open_for_application
-            junior_apprenticeship_post_number_and_city: junior_apprenticeship_post_number_and_city
-            junior_apprenticeship_company_guarantee_partner: 0
+            junior_apprenticeship_areas_of_interest_map: junior_apprenticeship_areas_of_interest_map
+            junior_apprenticeship_company_map: junior_apprenticeship_company_map
+            junior_apprenticeship_industry_map: junior_apprenticeship_industry_map
+            junior_apprenticeship_open_for_application_map: junior_apprenticeship_open_for_application_map
+            junior_apprenticeship_post_number_and_city_map: junior_apprenticeship_post_number_and_city_map
+            junior_apprenticeship_company_guarantee_partner_map: 0
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
@@ -1621,9 +1622,10 @@ display:
     display_options:
       title: Kurser
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 9999
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -2027,16 +2029,16 @@ display:
           os2uol_search_result_string: 'Viser @count kurser'
         transform_api_facets:
           transform_facets:
-            course_educators_author: course_educators_author
-            course_educators_curriculum_themes: course_educators_curriculum_themes
-            course_educators_is_free: course_educators_is_free
-            course_educators_period: course_educators_period
-            course_educators_primary_school_subject: course_educators_primary_school_subject
-            course_educators_subject: course_educators_subject
-            course_educators_sustainability_goals: course_educators_sustainability_goals
-            course_educators_target_group: course_educators_target_group
-            course_educators_theme: course_educators_theme
-            course_educators_youth_education_subject: course_educators_youth_education_subject
+            course_educators_author_map: course_educators_author_map
+            course_educators_curriculum_themes_map: course_educators_curriculum_themes_map
+            course_educators_is_free_map: course_educators_is_free_map
+            course_educators_period_map: course_educators_period_map
+            course_educators_primary_school_subject_map: course_educators_primary_school_subject_map
+            course_educators_subject_map: course_educators_subject_map
+            course_educators_sustainability_goals_map: course_educators_sustainability_goals_map
+            course_educators_target_group_map: course_educators_target_group_map
+            course_educators_theme_map: course_educators_theme_map
+            course_educators_youth_education_subject_map: course_educators_youth_education_subject_map
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
@@ -2064,9 +2066,10 @@ display:
     display_options:
       title: Erhvervspraktikker
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 9999
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -2373,11 +2376,11 @@ display:
           os2uol_search_result_string: 'Viser @count praktikker'
         transform_api_facets:
           transform_facets:
-            internship_areas_of_interest: internship_areas_of_interest
-            internship_company: internship_company
-            internship_industry: internship_industry
-            internship_post_number_and_city: internship_post_number_and_city
-            internship_company_guarantee_partner: 0
+            internship_areas_of_interest_map: internship_areas_of_interest_map
+            internship_company_map: internship_company_map
+            internship_industry_map: internship_industry_map
+            internship_post_number_and_city_map: internship_post_number_and_city_map
+            internship_company_guarantee_partner_map: 0
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
@@ -3659,9 +3662,10 @@ display:
     position: 4
     display_options:
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 9999
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -4110,15 +4114,15 @@ display:
           os2uol_search_result_string: 'Viser @count forløb'
         transform_api_facets:
           transform_facets:
-            course_author: course_author
-            course_course_type: course_course_type
-            course_curriculum_themes: course_curriculum_themes
-            course_is_free: course_is_free
-            course_period: course_period
-            course_subject: course_subject
-            course_sustainability_goals: course_sustainability_goals
-            course_target_group_daycare: course_target_group_daycare
-            course_theme: course_theme
+            course_author_map: course_author_map
+            course_course_type_map: course_course_type_map
+            course_curriculum_themes_map: course_curriculum_themes_map
+            course_is_free_map: course_is_free_map
+            course_period_map: course_period_map
+            course_subject_map: course_subject_map
+            course_sustainability_goals_map: course_sustainability_goals_map
+            course_target_group_daycare_map: course_target_group_daycare_map
+            course_theme_map: course_theme_map
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
@@ -5023,9 +5027,10 @@ display:
     position: 4
     display_options:
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 9999
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -5991,9 +5996,10 @@ display:
     position: 4
     display_options:
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 9999
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -6442,15 +6448,15 @@ display:
           os2uol_search_result_string: 'Viser @count forløb'
         transform_api_facets:
           transform_facets:
-            course_author_youth_education: course_author_youth_education
-            course_course_type_youth_education: course_course_type_youth_education
-            course_is_free_youth_education: course_is_free_youth_education
-            course_period_youth_education: course_period_youth_education
-            course_subject_youth_education: course_subject_youth_education
-            course_sustainability_goals_youth_education: course_sustainability_goals_youth_education
-            course_target_group_youth_education: course_target_group_youth_education
-            course_theme_youth_education: course_theme_youth_education
-            course_youth_education_subject: course_youth_education_subject
+            course_author_youth_education_map: course_author_youth_education_map
+            course_course_type_youth_education_map: course_course_type_youth_education_map
+            course_is_free_youth_education_map: course_is_free_youth_education_map
+            course_period_youth_education_map: course_period_youth_education_map
+            course_subject_youth_education_map: course_subject_youth_education_map
+            course_sustainability_goals_youth_education_map: course_sustainability_goals_youth_education_map
+            course_target_group_youth_education_map: course_target_group_youth_education_map
+            course_theme_youth_education_map: course_theme_youth_education_map
+            course_youth_education_subject_map: course_youth_education_subject_map
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
