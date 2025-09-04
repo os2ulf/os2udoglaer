@@ -1688,9 +1688,9 @@ display:
           os2uol_search_result_string: ''
         transform_api_facets:
           transform_facets:
-            corporations_brancher: corporations_brancher
-            corporations_posibilities: corporations_posibilities
-            corporations_postnummer: corporations_postnummer
+            corporations_brancher_map: corporations_brancher_map
+            corporations_posibilities_map: corporations_posibilities_map
+            corporations_postnummer_map: corporations_postnummer_map
         transform_api_views:
           row_transform: entity
           row_transform_mode: search_result
