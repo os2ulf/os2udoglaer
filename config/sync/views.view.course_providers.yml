@@ -657,9 +657,10 @@ display:
     position: 1
     display_options:
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 9999
       filters:
         search_api_datasource:
           id: search_api_datasource
@@ -1450,9 +1451,10 @@ display:
     display_options:
       title: ' Virksomheder'
       pager:
-        type: none
+        type: some
         options:
           offset: 0
+          items_per_page: 9999
       filters:
         search_api_datasource:
           id: search_api_datasource
