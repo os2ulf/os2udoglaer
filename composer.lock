@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54fa7071990d800ad58944cc970e61a9",
+    "content-hash": "ff3e84ea5fe6b4677d0f28023b01ddba",
     "packages": [
         {
             "name": "algolia/places",
@@ -7001,20 +7001,20 @@
         },
         {
             "name": "drupal/transform_api",
-            "version": "1.1.0-beta3",
+            "version": "2.1.3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api.git",
-                "reference": "1.1.0-beta3"
+                "reference": "2.1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api-1.1.0-beta3.zip",
-                "reference": "1.1.0-beta3",
-                "shasum": "8b1217344fbb62034a91cf9051418a7a0d72b03d"
+                "url": "https://ftp.drupal.org/files/projects/transform_api-2.1.3.zip",
+                "reference": "2.1.3",
+                "shasum": "76954c5f33c1608fb7143cb4575349674ad49241"
             },
             "require": {
-                "drupal/core": "^9 || ^10",
+                "drupal/core": "^10.3 || ^11",
                 "php": ">=8.1.0"
             },
             "require-dev": {
@@ -7025,11 +7025,11 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.1.0-beta3",
-                    "datestamp": "1718697748",
+                    "version": "2.1.3",
+                    "datestamp": "1756128961",
                     "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Beta releases are not covered by Drupal security advisories."
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
                     }
                 }
             },
@@ -7055,28 +7055,29 @@
         },
         {
             "name": "drupal/transform_api_facets",
-            "version": "1.0.0-alpha10",
+            "version": "2.0.0-alpha2",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api_facets.git",
-                "reference": "1.0.0-alpha10"
+                "reference": "2.0.0-alpha2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-1.0.0-alpha10.zip",
-                "reference": "1.0.0-alpha10",
-                "shasum": "4f7e58945a766223de9fcc9d28d7565fcb2c948c"
+                "url": "https://ftp.drupal.org/files/projects/transform_api_facets-2.0.0-alpha2.zip",
+                "reference": "2.0.0-alpha2",
+                "shasum": "14201120407290bbc518f47786c791e977972c79"
             },
             "require": {
                 "drupal/core": "^10 || ^11",
-                "drupal/facets": "*",
+                "drupal/facets": "^2.0",
+                "drupal/transform_api": "^2.0",
                 "drupal/transform_api_views": "*"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.0-alpha10",
-                    "datestamp": "1729765843",
+                    "version": "2.0.0-alpha2",
+                    "datestamp": "1757323828",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -7093,8 +7094,8 @@
                     "homepage": "https://www.drupal.org/user/3622895"
                 }
             ],
-            "description": "Integrates facets into Transform API",
-            "homepage": "https://www.drupal.org/project/transform_api_facets",
+            "description": "Transform API Facets",
+            "homepage": "https://drupal.org/project/transform_api_facets",
             "support": {
                 "source": "https://git.drupalcode.org/project/transform_api_facets"
             }
@@ -10032,23 +10033,36 @@
         },
         {
             "name": "novicell/premium_headless",
-            "version": "1.1.0",
+            "version": "2.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/novicell-drupal/premium_headless.git",
+                "reference": "0ef5eee53e702a2d25674b434e97912fcb561c81"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.drupal.dk/php/~/up/ver_1jbCty/novicellpremium_headless-1-1-0.zip"
+                "url": "https://api.github.com/repos/novicell-drupal/premium_headless/zipball/0ef5eee53e702a2d25674b434e97912fcb561c81",
+                "reference": "0ef5eee53e702a2d25674b434e97912fcb561c81",
+                "shasum": ""
             },
             "require": {
-                "drupal/transform_api": "^1.0@RC"
+                "drupal/transform_api": "^2.0"
             },
             "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
-            "description": "Includes basic setup for Search API installed with the Database as backend.",
+            "description": "Includes basic setup for headless sites using Transform API.",
             "homepage": "https://www.novicell.dk",
             "keywords": [
                 "Novicell"
-            ]
+            ],
+            "support": {
+                "issues": "https://github.com/novicell-drupal/premium_headless/issues",
+                "source": "https://github.com/novicell-drupal/premium_headless/tree/2.1.1"
+            },
+            "time": "2025-08-25T12:48:29+00:00"
         },
         {
             "name": "novicell/premium_headless_theme",
