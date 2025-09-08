@@ -258,8 +258,7 @@
                 "(#3264674) Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
             },
             "drupal/transform_api": {
-                "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch",
-                "Add getter for field transform": "patches/transform_api_add_field_transform_getter.patch"
+                "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch"
             },
             "drupal/webform": {
                 "(#3435903) Fix incompatibility with devel ^5.2": "https://www.drupal.org/files/issues/2024-08-01/fix_incompatibility_with_devel_5.2.patch"
