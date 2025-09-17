@@ -11,7 +11,7 @@ function os2uol_transform_plugins_block_content_transform_alter(&$transformation
 
   if ($transformation['bundle'] == 'appetizer') {
     $transform_mode = 'small';
-    if ($transformation['field_appetizer_image']['transform_mode'] === 'width_100') {
+    if ($transformation['transform_mode'] === 'width_100') {
       $transform_mode = 'default';
     }
 
