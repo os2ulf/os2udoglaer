@@ -120,7 +120,7 @@ function os2uol_transform_plugins_user_transform_alter(&$transformation) {
     $transformation['bundle_label'] = $role->label();
   }
 
-  if ($transformation['transform_mode'] == 'default') {
+  if (in_array($transformation['transform_mode'], ['default', 'full'])) {
     // Add related content
     $transformation['related_content'] = new ViewTransform('related_content', 'block_1');
   }
