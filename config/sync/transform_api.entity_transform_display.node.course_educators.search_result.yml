@@ -130,6 +130,11 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: -100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_all_year: true
   field_dawa_address: true
@@ -173,3 +178,4 @@ hidden:
   field_view_on_map: true
   field_youth_education_subject: true
   langcode: true
+  url: true

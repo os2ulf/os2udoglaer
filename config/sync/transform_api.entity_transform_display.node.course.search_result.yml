@@ -161,6 +161,11 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: -100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_activities: true
   field_all_year: true
@@ -211,3 +216,4 @@ hidden:
   field_video_title: true
   field_view_on_map: true
   langcode: true
+  url: true

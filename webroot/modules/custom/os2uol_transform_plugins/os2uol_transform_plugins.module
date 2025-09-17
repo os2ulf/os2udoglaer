@@ -2,15 +2,12 @@
 
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\transform_api\Transform\EntityTransform;
-use Drupal\transform_api_responsive_image\Plugin\Transform\Field\ResponsiveImageTransform;
 use Drupal\transform_api_views\Transform\ViewTransform;
 
 function os2uol_transform_plugins_block_content_transform_alter(&$transformation) {
   if (empty($transformation)) {
     return;
   }
-  // Set block content entity variable.
-  $block_content = $transformation['#entity'];
 
   if ($transformation['bundle'] == 'appetizer') {
 
@@ -20,27 +17,6 @@ function os2uol_transform_plugins_block_content_transform_alter(&$transformation
     }
 
     $transformation['appetizer_size'] = $transform_mode;
-  }
-
-  if ($transformation['bundle'] == 'image') {
-    if ($block_content->get('field_dynamic_height')->value) {
-      $field_transform = $transformation['field_image_media']->getFieldTransform();
-
-      if ($field_transform instanceof ResponsiveImageTransform) {
-        $responsive_image_style = 'isg_image_dynamic_width_100';
-
-        // Check transform mode and set image style accordingly.
-        if ($transformation['field_image_media']->getValue('transform_mode') === 'width_33') {
-          $responsive_image_style = 'isg_image_dynamic_width_33';
-        } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_50') {
-          $responsive_image_style = 'isg_image_dynamic_width_50';
-        } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_66') {
-          $responsive_image_style = 'isg_image_dynamic_width_66';
-        }
-
-        $field_transform->setSetting('responsive_image_style', $responsive_image_style);
-      }
-    }
   }
 
   if ($transformation['bundle'] == 'application_form') {
@@ -67,12 +43,12 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
   // Check if user role is provider.
   if ($transformation['#entity']->get('uid')->entity->hasRole('course_provider')) {
     // Add user transform object to transformation.
-    $transformation['provider'] = EntityTransform::createFromEntity($transformation['#entity']->get('uid')->entity, 'courses');
+    $transformation['provider'] = new EntityTransform($transformation['#entity']->get('uid')->entity, 'courses');
   }
   // Check if user role is provider.
   if ($transformation['#entity']->get('uid')->entity->hasRole('corporation')) {
     // Add user transform object to transformation.
-    $transformation['corporation'] = EntityTransform::createFromEntity($transformation['#entity']->get('uid')->entity, 'courses');
+    $transformation['corporation'] = new EntityTransform($transformation['#entity']->get('uid')->entity, 'courses');
   }
   // Add entity link to transformation.
   $transformation['link'] = $transformation['#entity']->toUrl()->toString();
@@ -87,6 +63,35 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
       $transformation['is_frontpage'] = TRUE;
     } else {
       $transformation['is_frontpage'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_TRANSFORM_TYPE_transform_alter().
+ */
+function os2uol_transform_plugins_section_transform_alter(&$transformation) {
+  foreach ($transformation['regions'] as $region => $components) {
+    foreach ($components as &$component) {
+      os2uol_transform_plugins_layout_blocks_pre_transform($component);
+    }
+  }
+}
+
+function os2uol_transform_plugins_layout_blocks_pre_transform(&$block_transform): void {
+  if ($block_transform instanceof EntityTransform) {
+    $entity = $block_transform->getEntity();
+
+    // Handle dynamic image styles for image block.
+    if ($entity->getEntityTypeId() == 'block_content' && $entity->bundle() == 'image') {
+      if ($entity->get('field_dynamic_height')->value) {
+        $transform_mode = $block_transform->getValue('transform_mode');
+
+        $new_transform_mode = $transform_mode . '_dynamic';
+
+        $block_transform->setValue('transform_mode', $new_transform_mode);
+        $block_transform->setTransformMode($new_transform_mode);
+      }
     }
   }
 }
