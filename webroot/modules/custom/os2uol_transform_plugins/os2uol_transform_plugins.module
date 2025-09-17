@@ -4,15 +4,14 @@ use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\transform_api\Transform\EntityTransform;
 use Drupal\transform_api_views\Transform\ViewTransform;
 
-function os2uol_transform_plugins_block_content_transform_alter(&$transformation) {
+function os2uol_transform_plugins_block_content_transform_alter(&$transformation): void {
   if (empty($transformation)) {
     return;
   }
 
   if ($transformation['bundle'] == 'appetizer') {
-
     $transform_mode = 'small';
-    if ($transformation['field_appetizer_image']->getValue('transform_mode') === 'width_100') {
+    if ($transformation['field_appetizer_image']['transform_mode'] === 'width_100') {
       $transform_mode = 'default';
     }
 
