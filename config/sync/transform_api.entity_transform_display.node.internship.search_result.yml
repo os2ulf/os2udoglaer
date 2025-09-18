@@ -109,6 +109,11 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: -100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_application_deadline: true
   field_application_email: true
@@ -145,3 +150,4 @@ hidden:
   field_video_description: true
   field_video_title: true
   langcode: true
+  url: true

@@ -146,6 +146,11 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: -100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_all_year: true
   field_description_of_duration: true
@@ -187,3 +192,4 @@ hidden:
   field_video_title: true
   field_youth_education_subject: true
   langcode: true
+  url: true

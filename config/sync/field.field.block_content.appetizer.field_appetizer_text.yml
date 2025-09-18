@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.appetizer
     - field.storage.block_content.field_appetizer_text
+    - filter.format.basic_html
   module:
     - allowed_formats
     - text

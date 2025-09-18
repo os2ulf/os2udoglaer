@@ -6,13 +6,8 @@ dependencies:
     - field.storage.user.field_presentation
     - filter.format.basic_html
   module:
-    - allowed_formats
     - text
     - user
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: user.user.field_presentation
 field_name: field_presentation
 entity_type: user

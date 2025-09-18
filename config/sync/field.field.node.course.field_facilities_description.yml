@@ -7,12 +7,7 @@ dependencies:
     - filter.format.basic_html
     - node.type.course
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: node.course.field_facilities_description
 field_name: field_facilities_description
 entity_type: node

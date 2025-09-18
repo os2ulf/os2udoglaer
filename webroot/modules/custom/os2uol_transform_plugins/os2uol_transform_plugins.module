@@ -2,45 +2,20 @@
 
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\transform_api\Transform\EntityTransform;
-use Drupal\transform_api_responsive_image\Plugin\Transform\Field\ResponsiveImageTransform;
 use Drupal\transform_api_views\Transform\ViewTransform;
 
-function os2uol_transform_plugins_block_content_transform_alter(&$transformation) {
+function os2uol_transform_plugins_block_content_transform_alter(&$transformation): void {
   if (empty($transformation)) {
     return;
   }
-  // Set block content entity variable.
-  $block_content = $transformation['#entity'];
 
   if ($transformation['bundle'] == 'appetizer') {
-
     $transform_mode = 'small';
-    if ($transformation['field_appetizer_image']->getValue('transform_mode') === 'width_100') {
+    if ($transformation['transform_mode'] === 'width_100') {
       $transform_mode = 'default';
     }
 
     $transformation['appetizer_size'] = $transform_mode;
-  }
-
-  if ($transformation['bundle'] == 'image') {
-    if ($block_content->get('field_dynamic_height')->value) {
-      $field_transform = $transformation['field_image_media']->getFieldTransform();
-
-      if ($field_transform instanceof ResponsiveImageTransform) {
-        $responsive_image_style = 'isg_image_dynamic_width_100';
-
-        // Check transform mode and set image style accordingly.
-        if ($transformation['field_image_media']->getValue('transform_mode') === 'width_33') {
-          $responsive_image_style = 'isg_image_dynamic_width_33';
-        } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_50') {
-          $responsive_image_style = 'isg_image_dynamic_width_50';
-        } elseif ($transformation['field_image_media']->getValue('transform_mode') === 'width_66') {
-          $responsive_image_style = 'isg_image_dynamic_width_66';
-        }
-
-        $field_transform->setSetting('responsive_image_style', $responsive_image_style);
-      }
-    }
   }
 
   if ($transformation['bundle'] == 'application_form') {
@@ -64,29 +39,62 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
   if (empty($transformation)) {
     return;
   }
+
+  /** @var \Drupal\node\Entity\Node $node */
+  $node = $transformation['#entity'];
+
   // Check if user role is provider.
-  if ($transformation['#entity']->get('uid')->entity->hasRole('course_provider')) {
+  if ($node->get('uid')->entity->hasRole('course_provider')) {
     // Add user transform object to transformation.
-    $transformation['provider'] = EntityTransform::createFromEntity($transformation['#entity']->get('uid')->entity, 'courses');
+    $transformation['provider'] = new EntityTransform($node->get('uid')->entity, 'courses');
   }
   // Check if user role is provider.
-  if ($transformation['#entity']->get('uid')->entity->hasRole('corporation')) {
+  if ($node->get('uid')->entity->hasRole('corporation')) {
     // Add user transform object to transformation.
-    $transformation['corporation'] = EntityTransform::createFromEntity($transformation['#entity']->get('uid')->entity, 'courses');
+    $transformation['corporation'] = new EntityTransform($node->get('uid')->entity, 'courses');
   }
   // Add entity link to transformation.
-  $transformation['link'] = $transformation['#entity']->toUrl()->toString();
+  $transformation['link'] = $node->toUrl()->toString();
   // Add entity bundle label to transformation.
-  $transformation['bundle_label'] = $transformation['#entity']->type->entity->label();
+  $transformation['bundle_label'] = $node->type->entity->label();
   // Add created date formatted with os2date to transformation.
-  $transformation['created'] = \Drupal::service('date.formatter')->format($transformation['#entity']->get('created')->value, 'os2date');
+  $transformation['created'] = \Drupal::service('date.formatter')->format($node->get('created')->value, 'os2date');
 
   // Check if transformation is full and set is_frontpage variable if current page is set as frontpage.
   if ($transformation['transform_mode'] === 'full') {
-    if (\Drupal::config('system.site')->get('page.front') === '/node/' . $transformation['#entity']->id()) {
+    if (\Drupal::config('system.site')->get('page.front') === '/node/' . $node->id()) {
       $transformation['is_frontpage'] = TRUE;
     } else {
       $transformation['is_frontpage'] = FALSE;
+    }
+  }
+}
+
+/**
+ * Implements hook_TRANSFORM_TYPE_transform_alter().
+ */
+function os2uol_transform_plugins_section_transform_alter(&$transformation) {
+  foreach ($transformation['regions'] as $region => $components) {
+    foreach ($components as &$component) {
+      os2uol_transform_plugins_layout_blocks_pre_transform($component);
+    }
+  }
+}
+
+function os2uol_transform_plugins_layout_blocks_pre_transform(&$block_transform): void {
+  if ($block_transform instanceof EntityTransform) {
+    $entity = $block_transform->getEntity();
+
+    // Handle dynamic image styles for image block.
+    if ($entity->getEntityTypeId() == 'block_content' && $entity->bundle() == 'image') {
+      if ($entity->get('field_dynamic_height')->value) {
+        $transform_mode = $block_transform->getValue('transform_mode');
+
+        $new_transform_mode = $transform_mode . '_dynamic';
+
+        $block_transform->setValue('transform_mode', $new_transform_mode);
+        $block_transform->setTransformMode($new_transform_mode);
+      }
     }
   }
 }
@@ -112,7 +120,7 @@ function os2uol_transform_plugins_user_transform_alter(&$transformation) {
     $transformation['bundle_label'] = $role->label();
   }
 
-  if ($transformation['transform_mode'] == 'default') {
+  if (in_array($transformation['transform_mode'], ['default', 'full'])) {
     // Add related content
     $transformation['related_content'] = new ViewTransform('related_content', 'block_1');
   }
