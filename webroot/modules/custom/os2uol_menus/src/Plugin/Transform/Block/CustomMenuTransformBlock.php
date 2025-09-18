@@ -32,7 +32,7 @@ class CustomMenuTransformBlock extends SystemMenuTransformBlock {
     foreach ($items as $array) {
       $entity = $array['original_link']->getEntity();
 
-      $item = EntityTransform::createFromEntity($entity)->transform();
+      $item = (new EntityTransform($entity))->transform();
 
       $item['below'] = $this->transformMenuItems($array['below']);
 
