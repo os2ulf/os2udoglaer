@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_accordion_item_text
+    - filter.format.basic_html
     - paragraphs.paragraphs_type.accordion_item
   module:
     - allowed_formats

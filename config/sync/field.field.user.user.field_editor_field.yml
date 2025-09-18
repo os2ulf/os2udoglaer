@@ -6,13 +6,8 @@ dependencies:
     - field.storage.user.field_editor_field
     - filter.format.basic_html
   module:
-    - allowed_formats
     - text
     - user
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: user.user.field_editor_field
 field_name: field_editor_field
 entity_type: user

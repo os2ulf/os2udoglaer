@@ -8,6 +8,9 @@ id: develop
 label: Develop
 description: ''
 weight: 0
+stackable: false
+no_patching: false
+storage: folder
 folder: ../config/develop
 module:
   devel: 0
@@ -16,12 +19,10 @@ module:
   upgrade_status: 0
   webform_devel: 0
 theme: {  }
-blacklist:
+complete_list:
   - devel.settings
   - devel.toolbar.settings
   - system.menu.devel
-graylist:
+partial_list:
   - symfony_mailer_lite.settings
   - mailsystem.settings
-graylist_dependents: true
-graylist_skip_equal: true

@@ -2,6 +2,7 @@ _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
 langcode: da
 module:
+  premium_headless: -10
   auto_entitylabel: -100
   transform_api_facets: -100
   admin_toolbar: 0
@@ -22,7 +23,6 @@ module:
   components: 0
   conditional_fields: 0
   config: 0
-  config_filter: 0
   config_ignore: 0
   config_split: 0
   config_translation: 0
@@ -114,7 +114,6 @@ module:
   path: 0
   path_alias: 0
   premium_core: 0
-  premium_headless: 0
   premium_profile: 0
   premium_search: 0
   premium_theme_helper: 0

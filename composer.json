@@ -14,11 +14,12 @@
         },
         {
             "type": "composer",
-            "url": "https://packages.drupal.dk/php/"
+            "url": "https://asset-packagist.org"
         },
         {
             "type": "composer",
-            "url": "https://asset-packagist.org"
+            "url": "https://packages.drupal.dk/php/",
+            "canonical": false
         }
     ],
     "require": {
@@ -30,7 +31,7 @@
         "composer/installers": "^1.2",
         "cweagans/composer-patches": "^1.6.5",
         "drupal/admin_toolbar": "^3.4",
-        "drupal/allowed_formats": "^2.0",
+        "drupal/allowed_formats": "^3.0",
         "drupal/atoms": "^1.0",
         "drupal/auto_entitylabel": "^3.3",
         "drupal/autosave_form": "^1.0",
@@ -39,8 +40,9 @@
         "drupal/ckeditor5_paste_filter": "^1.0",
         "drupal/components": "^3.0@beta",
         "drupal/conditional_fields": "^4.0@alpha",
+        "drupal/config_filter": "^2.7",
         "drupal/config_ignore": "^3.3",
-        "drupal/config_split": "^1.7.0",
+        "drupal/config_split": "^2.0",
         "drupal/content_moderation_bypass": "^1.0@alpha",
         "drupal/content_moderation_notifications": "^3.6",
         "drupal/core-composer-scaffold": "^10.3",
@@ -77,7 +79,7 @@
         "drupal/maxlength": "^3.0@beta",
         "drupal/menu_item_fields": "^1.10",
         "drupal/menu_per_role": "^1.7",
-        "drupal/metatag": "^1.0",
+        "drupal/metatag": "^2.1",
         "drupal/noreferrer": "^1.0",
         "drupal/paragraphs": "^1.0",
         "drupal/paragraphs_asymmetric_translation_widgets": "^1.0",
@@ -92,17 +94,17 @@
         "drupal/role_delegation": "^1.1",
         "drupal/scheduled_transitions": "^2.0",
         "drupal/search_api": "^1.0",
-        "drupal/search_api_exclude_entity": "^1.0",
+        "drupal/search_api_exclude_entity": "^2.0",
         "drupal/search_api_page": "^1.0@beta",
         "drupal/search_api_solr": "^4.3",
         "drupal/sendgrid_integration": "^2.2",
-        "drupal/sharedemail": "^3.0",
+        "drupal/sharedemail": "^3.2",
         "drupal/simple_access_log": "^2.0",
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",
         "drupal/symfony_mailer_lite": "^2.0",
-        "drupal/transform_api": "1.1.0-beta3",
-        "drupal/transform_api_facets": "^1.0@alpha",
+        "drupal/transform_api": "^2.0",
+        "drupal/transform_api_facets": "^2.0@alpha",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/view_profiles_perms": "^2.1",
         "drupal/view_unpublished": "^1.0",
@@ -125,7 +127,7 @@
         "novicell/image_style_generator": "^1.0",
         "novicell/media_icons": "^1.0",
         "novicell/premium_core": "^1.0",
-        "novicell/premium_headless": "^1.0",
+        "novicell/premium_headless": "^2.1",
         "novicell/premium_headless_theme": "^1.0",
         "novicell/premium_profile": "^1.0",
         "novicell/premium_search": "^1.0",
@@ -256,21 +258,7 @@
                 "(#3264674) Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
             },
             "drupal/transform_api": {
-                "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch",
-                "Add getter for field transform": "patches/transform_api_add_field_transform_getter.patch",
-                "Fix views parameters": "https://git.drupalcode.org/project/transform_api/-/commit/190b4a236137133ecb4710a5067b8510c9cf6661.diff",
-                "Fix views caching": "https://git.drupalcode.org/project/transform_api/-/commit/83e2d5b672ade36a9814681063ef498ef9dd1e68.diff",
-                "Fix views mini pager": "https://git.drupalcode.org/project/transform_api/-/commit/85f532fcf48f0083436d0c4716b328d9c41d66ce.diff",
-                "#(3458752) Empty region transform results in error": "https://www.drupal.org/files/issues/2024-07-03/transform_api_empty_region.patch",
-                "Allow universal search api entity result transform": "https://git.drupalcode.org/project/transform_api/-/commit/802912d2974ab10f4b6fbc7c0e140333d48f0227.diff",
-                "Add #view to view transformation": "https://git.drupalcode.org/project/transform_api/-/commit/4332f4e5014b196e9a42b047ec8f0cb3bd0b5ba6.diff",
-                "Fix better_exposed_filters label": "https://git.drupalcode.org/project/transform_api/-/commit/ce1b8214ef523ca859509957e5cd7032e452df49.diff",
-                "Fixed view results route for search_api usage": "https://git.drupalcode.org/project/transform_api/-/commit/11ec5670060f96bcafb815e0ee5691480530f1e6.diff",
-                "Added label to view transform": "https://git.drupalcode.org/project/transform_api/-/commit/e4721c4d8d73749ddbbd71a71ee4959c66318106.diff",
-                "Fixed sorting of view exposed filters": "https://git.drupalcode.org/project/transform_api/-/commit/c97e8259a5eaffedb55f0628ac4f3614067484c3.diff",
-                "Fixed error of exposed filters": "https://git.drupalcode.org/project/transform_api/-/commit/c38b7060b9e1333469a877fe393303ac148eaf9f.diff",
-                "Fixed error message": "https://git.drupalcode.org/project/transform_api/-/commit/12d92a3e541c0c144b7d89aacdff879f761a6a68.diff",
-                "Fixed view results bug": "https://git.drupalcode.org/project/transform_api/-/commit/81cb0b94fdbd1c20317748d3bcce563306268b77.diff"
+                "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch"
             },
             "drupal/webform": {
                 "(#3435903) Fix incompatibility with devel ^5.2": "https://www.drupal.org/files/issues/2024-08-01/fix_incompatibility_with_devel_5.2.patch"

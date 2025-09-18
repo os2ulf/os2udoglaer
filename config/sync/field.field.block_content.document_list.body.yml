@@ -7,12 +7,7 @@ dependencies:
     - field.storage.block_content.body
     - filter.format.basic_html
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: block_content.document_list.body
 field_name: body
 entity_type: block_content

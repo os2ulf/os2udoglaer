@@ -7,12 +7,7 @@ dependencies:
     - filter.format.basic_html
     - node.type.junior_apprenticeship
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: node.junior_apprenticeship.field_duration_rte
 field_name: field_duration_rte
 entity_type: node

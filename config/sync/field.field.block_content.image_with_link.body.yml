@@ -8,11 +8,7 @@ dependencies:
     - filter.format.basic_html
     - filter.format.full_html
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats: {  }
 id: block_content.image_with_link.body
 field_name: body
 entity_type: block_content

@@ -1,0 +1,6 @@
+adding:
+  defaults:
+    sender: symfony_mailer_lite
+removing:
+  defaults:
+    sender: SMTPMailSystem
