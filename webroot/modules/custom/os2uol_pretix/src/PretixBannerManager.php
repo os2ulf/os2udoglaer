@@ -127,8 +127,10 @@ class PretixBannerManager implements TrustedCallbackInterface {
     if ($entity instanceof EditorialContentEntityBase) {
       $available = FALSE;
       $availability = $this->eventManager->getQuotasAndAvailability($entity);
-      foreach ($availability['results'] as $quota) {
-        $available = $available | $quota['available'];
+      if (isset($availability['results'])) {
+        foreach ($availability['results'] as $quota) {
+          $available = $available | $quota['available'];
+        }
       }
     }
     if (!$available) {

@@ -31,6 +31,7 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
   }
 
   // Use the DomainConfigHelper to fetch domain-specific configuration.
+  /** @var \Drupal\os2uol_domain\DomainConfigHelper $config_helper */
   $config_helper = \Drupal::service('os2uol_domain.config_helper');
   $domain = \Drupal::service('domain.negotiator')->getActiveDomain();
 
@@ -45,7 +46,8 @@ function os2uol_moderation_content_moderation_notification_mail_data_alter(Entit
 
   // Log the domain config for debugging purposes.
   \Drupal::logger('os2uol_moderation')->info('Using domain config: @config for domain: @domain_id', [
-    '@config' => print_r($domain_config->getRawData(), TRUE),
+    //'@config' => print_r($domain_config->getRawData(), TRUE),
+    '@config' => $domain_config->getName(),
     '@domain_id' => $domain->id(),
   ]);
 
