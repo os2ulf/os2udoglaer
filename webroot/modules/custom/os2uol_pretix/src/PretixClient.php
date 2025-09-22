@@ -55,6 +55,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   public function createSubEvent(string $eventSlug, array $subevent) {
@@ -71,6 +78,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -91,6 +105,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   public function deleteEvent(string $eventSlug) {
@@ -106,6 +127,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   public function deleteSubEvent(string $eventSlug, string $subevent_id) {
@@ -119,6 +147,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -137,6 +172,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -162,6 +204,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -193,6 +242,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   /**
@@ -215,6 +271,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -245,6 +308,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   /**
@@ -272,6 +342,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   /**
@@ -296,6 +373,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -331,6 +415,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   /**
@@ -356,6 +447,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -386,6 +484,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   /**
@@ -413,6 +518,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -446,6 +558,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   /**
@@ -467,6 +586,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -494,6 +620,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -525,6 +658,13 @@ class PretixClient {
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
       ];
     }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
+      ];
+    }
   }
 
   /**
@@ -551,6 +691,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
@@ -584,6 +731,13 @@ class PretixClient {
         'error' => $e->getMessage(),
         'code' => $e->getCode(),
         'json' => json_decode($e->getResponse()->getBody()->getContents(), TRUE)
+      ];
+    }
+    catch (GuzzleException $e) {
+      return [
+        'error' => $e->getMessage(),
+        'code' => $e->getCode(),
+        'json' => []
       ];
     }
   }
