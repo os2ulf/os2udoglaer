@@ -59,9 +59,9 @@ abstract class PretixAbstractManager {
   }
 
   protected function getClientByUser(UserInterface $user): PretixClient {
-    $pretix_url = $user->get('field_pretix_url')->first()->getString();
-    $api_token = $user->get('field_pretix_api_token')->first()->getString();
-    $organizer_short_form = $user->get('field_pretix_organizer_form')->first()->getString();
+    $pretix_url = $user->get('field_pretix_url')->getString();
+    $api_token = $user->get('field_pretix_api_token')->getString();
+    $organizer_short_form = $user->get('field_pretix_organizer_form')->getString();
     return $this->connector->getClient($pretix_url, $api_token, $organizer_short_form);
   }
 
