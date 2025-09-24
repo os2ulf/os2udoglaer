@@ -7,12 +7,7 @@ dependencies:
     - filter.format.basic_html
     - node.type.internship
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: node.internship.field_education_path
 field_name: field_education_path
 entity_type: node

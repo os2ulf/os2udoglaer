@@ -4,17 +4,12 @@ use Drupal\atoms\Atom;
 use Drupal\Core\Cache\Cache;
 
 /**
- * Implements hook_entity_transform_alter().
+ * Implements hook_ENTITY_TYPE_transform_alter().
  * @param array $transformation
  */
-function os2uol_video_block_entity_transform_alter(array &$transformation)
-{
+function os2uol_video_block_paragraph_transform_alter(array &$transformation): void {
   // Check if the transformation is for a video paragraph.
-  if (
-    $transformation['type'] == 'entity'
-    && $transformation['bundle'] == 'video'
-    && $transformation['entity_type'] == 'paragraph'
-  ) {
+  if ($transformation['bundle'] == 'video') {
     // Load the video_overlay_text atom.
     $atom = Atom::load('video_overlay_text');
 

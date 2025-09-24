@@ -49,6 +49,7 @@ dependencies:
     - responsive_image.styles.isg_related_courses
     - transform_api.entity_transform_mode.node.search_result
   module:
+    - transform_api_dawa
     - transform_api_responsive_image
 id: node.junior_apprenticeship.search_result
 targetEntityType: node
@@ -76,6 +77,14 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  field_dawa_address:
+    type: dawa_address_transform
+    weight: '6'
+    region: content
+    label: omit
+    settings:
+      transform_mode: latlng
+    third_party_settings: {  }
   field_image:
     type: responsive_image
     weight: '1'
@@ -96,7 +105,7 @@ content:
     third_party_settings: {  }
   field_open_for_application:
     type: boolean
-    weight: '6'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
@@ -108,13 +117,17 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: -100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_application_deadline: true
   field_application_email: true
   field_application_phone: true
   field_application_title: true
   field_application_url: true
-  field_dawa_address: true
   field_desc_application_procedure: true
   field_description_of_period: true
   field_domain_access: true
@@ -145,3 +158,4 @@ hidden:
   field_video_description: true
   field_video_title: true
   langcode: true
+  url: true

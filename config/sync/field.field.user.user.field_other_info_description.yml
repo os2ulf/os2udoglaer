@@ -6,13 +6,8 @@ dependencies:
     - field.storage.user.field_other_info_description
     - filter.format.basic_html
   module:
-    - allowed_formats
     - text
     - user
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
 id: user.user.field_other_info_description
 field_name: field_other_info_description
 entity_type: user

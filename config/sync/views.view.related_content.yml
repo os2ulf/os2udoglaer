@@ -7,6 +7,7 @@ dependencies:
     - node.type.course_educators
     - node.type.exercise
     - node.type.internship
+    - node.type.junior_apprenticeship
     - node.type.news
     - taxonomy.vocabulary.target_group
   module:
@@ -194,6 +195,7 @@ display:
           operator: in
           value:
             internship: internship
+            junior_apprenticeship: junior_apprenticeship
             course_educators: course_educators
             news: news
             exercise: exercise
@@ -316,6 +318,7 @@ display:
           operator: in
           value:
             internship: internship
+            junior_apprenticeship: junior_apprenticeship
             course_educators: course_educators
             news: news
             exercise: exercise
@@ -348,6 +351,7 @@ display:
               theater_contact: '0'
               monitor: '0'
               bypass_workflow: '0'
+              rest_api: '0'
             reduce: true
           is_grouped: false
           group_info:

@@ -8,13 +8,7 @@ dependencies:
     - filter.format.basic_html
     - filter.format.full_html
   module:
-    - allowed_formats
     - text
-third_party_settings:
-  allowed_formats:
-    allowed_formats:
-      - basic_html
-      - full_html
 id: block_content.video.field_text
 field_name: field_text
 entity_type: block_content
