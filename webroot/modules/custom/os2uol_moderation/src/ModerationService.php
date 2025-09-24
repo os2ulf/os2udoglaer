@@ -127,7 +127,10 @@ class ModerationService {
   protected function checkFieldPeriod(Node $node): bool {
     if ($node->hasField('field_period') && !$node->get('field_period')->isEmpty()) {
       $periodEnd = strtotime($node->get('field_period')->end_value);
-      $nid = $node->id();
+
+      // Add one day to ensure the content is available throughout the end date.
+      $oneDayInSeconds = 24 * 60 * 60;
+      $periodEnd += $oneDayInSeconds;
 
       if ($periodEnd && time() > $periodEnd) {
         $this->unpublishNode($node, 'field_period');
