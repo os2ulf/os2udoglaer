@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for OS2udoglær Image module.
+ */
+
+const IMAGE_STYLE_LIFETIME_DAYS = 30;
+
+/**
+ * Implements hook_cron().
+ */
+function os2uol_image_cron(): void {
+  os2uol_image_clear_old_image_styles();
+}
+
+/**
+ * Cleans up image style derivatives older than IMAGE_STYLE_LIFETIME_DAYS days.
+ */
+function os2uol_image_clear_old_image_styles(): void {
+  // Get public files path and append styles directory.
+  $public_path = \Drupal::service('file_system')->realpath('public://');
+  $styles_path = $public_path . '/styles';
+
+  // Check if directory exists.
+  if (!is_dir($styles_path)) {
+    return;
+  }
+
+  // Get current timestamp and calculate cutoff date.
+  $current_time = time();
+  $cutoff_time = $current_time - (IMAGE_STYLE_LIFETIME_DAYS * 24 * 60 * 60);
+
+  // Create RecursiveDirectoryIterator.
+  $directory = new \RecursiveDirectoryIterator($styles_path);
+  $iterator = new \RecursiveIteratorIterator($directory);
+
+  // Counter for deleted files.
+  $deleted_count = 0;
+
+  // Iterate through all files.
+  foreach ($iterator as $file) {
+    // Skip directories and non-files.
+    if (!$file->isFile()) {
+      continue;
+    }
+
+    // Get file modification time.
+    $file_time = $file->getMTime();
+
+    // Check if file is older than configured lifetime.
+    if ($file_time < $cutoff_time) {
+      // Delete the file.
+      try {
+        unlink($file->getRealPath());
+        $deleted_count++;
+      }
+      catch (\Exception $e) {
+        \Drupal::logger('os2uol_image')->error('Failed to delete old image style file: @file', [
+          '@file' => $file->getRealPath(),
+        ]);
+      }
+    }
+  }
+
+  if ($deleted_count > 0) {
+    \Drupal::logger('os2uol_image')->info('Deleted @count image style files older than @days days.', [
+      '@count' => $deleted_count,
+      '@days' => IMAGE_STYLE_LIFETIME_DAYS,
+    ]);
+  } else {
+    \Drupal::logger('os2uol_image')->info('No image style files older than @days days were found.', [
+      '@days' => IMAGE_STYLE_LIFETIME_DAYS,
+    ]);
+  }
+}
