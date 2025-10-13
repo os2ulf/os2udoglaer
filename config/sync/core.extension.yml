@@ -101,6 +101,7 @@ module:
   os2uol_application_forms: 0
   os2uol_domain: 0
   os2uol_entity_forms: 0
+  os2uol_image: 0
   os2uol_menus: 0
   os2uol_moderation: 0
   os2uol_pretix: 0
