@@ -18,7 +18,6 @@ dependencies:
   module:
     - content_moderation
     - domain_access
-    - entity_clone
     - filter
     - node
     - os2uol_pretix
@@ -35,7 +34,6 @@ permissions:
   - 'add all pretix events'
   - 'add own pretix events'
   - 'change own username'
-  - 'clone node entity'
   - 'create course content'
   - 'create course content on assigned domains'
   - 'create course_educators content'
