@@ -90,6 +90,7 @@
         "drupal/redirect": "^1.0",
         "drupal/redirect_after_login": "^3.0",
         "drupal/redis": "^1.5",
+        "drupal/replicate_ui": "^1.2",
         "drupal/restui": "^1.21",
         "drupal/role_delegation": "^1.1",
         "drupal/scheduled_transitions": "^2.0",

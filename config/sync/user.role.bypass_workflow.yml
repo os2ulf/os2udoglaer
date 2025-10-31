@@ -15,7 +15,6 @@ dependencies:
   module:
     - content_moderation
     - domain_access
-    - entity_clone
     - filter
     - node
     - system
@@ -29,7 +28,6 @@ permissions:
   - 'access toolbar'
   - 'access workbench'
   - 'change own username'
-  - 'clone node entity'
   - 'create course content'
   - 'create course content on assigned domains'
   - 'create course_educators content'
