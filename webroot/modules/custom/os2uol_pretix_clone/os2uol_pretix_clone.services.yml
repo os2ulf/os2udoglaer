@@ -1,0 +1,5 @@
+services:
+  os2uol_pretix_clone.clear_pretix_on_replicate:
+    class: Drupal\os2uol_pretix_clone\EventSubscriber\ClearPretixOnReplicateSubscriber
+    tags:
+      - { name: event_subscriber }

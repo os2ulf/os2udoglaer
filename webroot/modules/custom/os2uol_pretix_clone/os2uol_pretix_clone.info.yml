@@ -1,0 +1,8 @@
+name: 'OS2udoglær Pretix clone guard'
+type: module
+description: 'Clears Pretix fields on replicated nodes.'
+core_version_requirement: ^10
+package: 'OS2udoglær'
+dependencies:
+  - drupal:replicate
+  - drupal:replicate_ui
