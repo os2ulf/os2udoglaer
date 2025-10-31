@@ -1799,10 +1799,8 @@ display:
             field_old_id: field_old_id
             created: created
             field_tpf_backend_submission: field_tpf_backend_submission
+            field_tpf_course_name: field_tpf_course_name
             field_rfc_course: field_rfc_course
-            field_location_zipcode: field_location_zipcode
-            field_location_city: field_location_city
-            field_location_street: field_rfc_course
             field_dawa_address: field_rfc_course
             field_tpf_institution: field_tpf_institution
             field_tpf_grade: field_tpf_institution
@@ -1850,29 +1848,15 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            field_tpf_course_name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             field_rfc_course:
               sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_location_zipcode:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_location_city:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_location_street:
-              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -2380,7 +2364,7 @@ display:
           admin_label: ''
           plugin_id: field
           label: Forløb
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
@@ -2423,7 +2407,7 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -2442,12 +2426,12 @@ display:
           group_type: group
           admin_label: ''
           plugin_id: field
-          label: 'Forløb / adresse'
+          label: Adresse
           exclude: false
           alter:
             alter_text: true
-            text: "{{ field_rfc_course }}\r\n{{ field_dawa_address__value }}"
-            make_link: false
+            text: '{{ field_dawa_address__value }}'
+            make_link: true
             path: ''
             absolute: false
             external: false
@@ -2467,7 +2451,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -2479,7 +2463,7 @@ display:
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
-          empty: "{{ field_rfc_course }}\r\n{{ field_location_street }}, {{ field_location_zipcode }} {{ field_location_city }}"
+          empty: '{{ field_location_street }}, {{ field_location_zipcode }} {{ field_location_city }}'
           hide_empty: false
           empty_zero: true
           hide_alter_empty: true
