@@ -14,7 +14,7 @@ variables:
 dependencies:
   php:
     composer/composer: "^2.1"
-disk: 80000
+disk: 75000
 resources:
     base_memory: 512
     memory_ratio: 256
