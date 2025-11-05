@@ -255,6 +255,9 @@
             "drupal/redis": {
                 "(#3337750) DivisionByZeroError - Problem to access Status Page on PHP 8.1.14": "https://www.drupal.org/files/issues/2024-09-05/redis_status_page_divizion_by_zero_error_php8_1_14_3337750-13.patch"
             },
+            "drupal/replicate": {
+                "(#3392959) Replicated layout builder blocks don't always have the correct order": "https://git.drupalcode.org/project/replicate/-/merge_requests/8.diff"
+            },
             "drupal/scheduled_transitions": {
                 "(#3264674) Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
             },
