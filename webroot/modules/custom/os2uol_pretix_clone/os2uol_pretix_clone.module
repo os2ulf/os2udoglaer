@@ -1,0 +1,11 @@
+<?php
+
+/**
+ * Implements hook_locale_translation_projects_alter().
+ */
+function os2uol_pretix_clone_locale_translation_projects_alter(&$projects) {
+  /** @var \Drupal\Core\Extension\ModuleHandlerInterface $module_handler */
+  $module_handler = \Drupal::service('module_handler');
+  $path = $module_handler->getModule('os2uol_pretix_clone')->getPath();
+  $projects['os2uol_pretix_clone']['info']['interface translation server pattern'] = $path . '/translations/%language.po';
+}

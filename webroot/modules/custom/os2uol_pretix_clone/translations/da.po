@@ -1,0 +1,7 @@
+# Danish translation of OS2UOL Pretix Clone
+
+msgid ""
+msgstr ""
+
+msgid "Replicate"
+msgstr "Klon"
