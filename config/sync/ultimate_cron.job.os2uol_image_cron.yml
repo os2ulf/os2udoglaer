@@ -1,0 +1,30 @@
+uuid: f688fe35-6020-4d1c-93d4-f4d278d595b9
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_image
+title: 'Default cron handler'
+id: os2uol_image_cron
+weight: 0
+module: os2uol_image
+callback: 'os2uol_image#cron'
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '0 2 * * *'
+    catch_up: 0
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

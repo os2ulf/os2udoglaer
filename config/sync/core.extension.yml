@@ -53,7 +53,6 @@ module:
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
-  entity_clone: 0
   entity_diff_ui: 0
   entity_reference_revisions: 0
   entity_usage: 0
@@ -101,9 +100,11 @@ module:
   os2uol_application_forms: 0
   os2uol_domain: 0
   os2uol_entity_forms: 0
+  os2uol_image: 0
   os2uol_menus: 0
   os2uol_moderation: 0
   os2uol_pretix: 0
+  os2uol_pretix_clone: 0
   os2uol_search: 0
   os2uol_settings: 0
   os2uol_transform_plugins: 0
@@ -123,6 +124,8 @@ module:
   redirect: 0
   redirect_after_login: 0
   redis: 0
+  replicate: 0
+  replicate_ui: 0
   responsive_image: 0
   rest: 0
   restui: 0

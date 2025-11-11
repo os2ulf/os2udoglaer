@@ -1,0 +1,7 @@
+name: 'OS2udoglær Image'
+type: module
+description: 'Module containing custom image logic for OS2udoglær project'
+package: OS2udoglær
+core_version_requirement: ^10 || ^11
+dependencies:
+  - image:image
