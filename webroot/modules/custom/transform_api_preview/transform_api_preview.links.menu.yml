@@ -1,0 +1,6 @@
+transform_api_preview.settings:
+  title: Transform API preview
+  route_name: transform_api_preview.settings
+  parent: system.admin_config_services
+  description: 'Transform API preview settings'
+  weight: 0

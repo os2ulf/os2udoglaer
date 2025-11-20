@@ -1,0 +1,3 @@
+transform_api_preview.local_tasks:
+  deriver: 'Drupal\transform_api_preview\Plugin\Derivative\TransformPreviewLocalTasks'
+  weight: 100
