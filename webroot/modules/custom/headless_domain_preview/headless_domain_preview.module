@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * Implements hook_transform_preview_url_alter().
+ */
+function headless_domain_preview_transform_preview_url_alter(&$url, $uuid) {
+  $config = \Drupal::config('headless_domain.settings');
+
+  $current_domain = \Drupal::service('domain.negotiator')->getActiveDomain();
+
+  if ($current_domain) {
+    $domain_id = $current_domain->id();
+    $custom_base_url = $config->get($domain_id);
+
+    if ($custom_base_url) {
+      // Remove trailing slash if present.
+      $custom_base_url = rtrim($custom_base_url, '/');
+
+      $url = $custom_base_url . parse_url($url, PHP_URL_PATH);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function headless_domain_preview_entity_extra_field_info(): array {
+  // Add extra field for node displays.
+  $extra = [];
+
+  $content_types = \Drupal::entityTypeManager()->getStorage('node_type')->loadMultiple();
+
+  foreach ($content_types as $type) {
+    $extra['node'][$type->id()]['display']['headless_domain_preview'] = [
+      'label' => t('Preview Link'),
+      'description' => t('A link to preview this content on the frontend domain.'),
+      'weight' => 100,
+      'visible' => FALSE,
+    ];
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function headless_domain_preview_entity_view(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->getEntityTypeId() === 'node' && $display->getComponent('headless_domain_preview')) {
+    /** @var \Drupal\transform_api_preview\TransformPreview $service */
+    $service = \Drupal::service('transform_api_preview');
+
+    $uuid = $service->generate($entity);
+    $preview_url = $service->getUrl($uuid);
+
+    $build['headless_domain_preview'] = [
+      '#type' => 'markup',
+      '#markup' => '<a href="' . $preview_url . '" target="_blank">' . t('Preview', [], ['context' => 'headless_domain_preview']) . '</a>',
+      '#weight' => 100,
+    ];
+
+    // Set cache max age to match preview expiration and decrease by 60 seconds
+    $build['#cache']['max-age'] = \Drupal\transform_api_preview\TransformPreview::EXPIRE - 60;
+  }
+}
