@@ -1,0 +1,6 @@
+headless_domain.settings:
+  title: Headless domain settings
+  route_name: headless_domain.settings
+  description: 'Manage setting for domains.'
+  parent: domain.admin
+  weight: 16

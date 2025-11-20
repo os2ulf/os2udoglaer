@@ -1,0 +1,17 @@
+<?php
+
+function headless_domain_install(): void {
+  // Migrate existing domain URLs to the new configuration.
+  $existing_config = \Drupal::config('headless_domain_simple_sitemap.settings');
+
+  if (empty($existing_config->getRawData())) {
+    return;
+  }
+
+  $config_factory = \Drupal::configFactory();
+
+  $new_config = $config_factory->getEditable('headless_domain.settings');
+
+  $new_config->setData($existing_config->getRawData());
+  $new_config->save();
+}

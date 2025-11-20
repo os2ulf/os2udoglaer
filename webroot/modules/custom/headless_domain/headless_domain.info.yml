@@ -1,0 +1,7 @@
+name: 'Headless domain'
+type: module
+description: 'Extra logic for Domain module in headless setups.'
+package: Domain
+core_version_requirement: ^10 || ^11
+dependencies:
+  - domain:domain
