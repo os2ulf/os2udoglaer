@@ -28,7 +28,7 @@ class HeadlessCustomUrlGenerator extends CustomUrlGenerator {
   public function __construct(array $configuration, $plugin_id, $plugin_definition, Logger $logger, Settings $settings, LanguageManagerInterface $language_manager, EntityTypeManagerInterface $entity_type_manager, EntityHelper $entity_helper, CustomLinkManager $custom_links, PathValidatorInterface $path_validator) {
     parent::__construct($configuration, $plugin_id, $plugin_definition, $logger, $settings, $language_manager, $entity_type_manager, $entity_helper, $custom_links, $path_validator);
 
-    $this->config = \Drupal::config('headless_domain_simple_sitemap.settings');
+    $this->config = \Drupal::config('headless_domain.settings');
   }
 
   protected function processDataSet($data_set): array {
