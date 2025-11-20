@@ -1,0 +1,15 @@
+transform_api_preview.preview:
+  path: '/transform/preview/{uuid}/{transform_mode}'
+  defaults:
+    _title: 'Preview'
+    _controller: '\Drupal\transform_api_preview\Controller\TransformPreviewController::preview'
+  requirements:
+    _access: 'TRUE'
+
+transform_api_preview.settings:
+  path: '/admin/config/services/transform_api_preview'
+  defaults:
+    _title: 'Transform API preview'
+    _form: '\Drupal\transform_api_preview\Form\TransformPreviewSettingsForm'
+  requirements:
+    _permission: 'administer transform api preview'

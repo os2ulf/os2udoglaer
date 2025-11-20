@@ -153,6 +153,7 @@ module:
   toolbar: 0
   transform_api: 0
   transform_api_dawa: 0
+  transform_api_preview: 0
   transform_api_responsive_image: 0
   transform_api_views: 0
   ultimate_cron: 0
