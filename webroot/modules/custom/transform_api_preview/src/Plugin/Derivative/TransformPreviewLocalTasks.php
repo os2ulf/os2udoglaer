@@ -53,7 +53,7 @@ class TransformPreviewLocalTasks extends DeriverBase implements ContainerDeriver
   public function getDerivativeDefinitions($base_plugin_definition) {
     $config = $this->configFactory->get('transform_api_preview.settings');
     foreach ($this->entityTypeManager->getDefinitions() as $entity_type_id => $entity_type) {
-      if ($entity_type instanceof ContentEntityTypeInterface && in_array($entity_type_id, $config->get('entity_types')) && $entity_type->hasLinkTemplate('canonical')) {
+      if ($entity_type instanceof ContentEntityTypeInterface && in_array($entity_type_id, $config->get('entity_types') ?? []) && $entity_type->hasLinkTemplate('canonical')) {
         $preview_route_name = "entity.$entity_type_id.frontend";
 
         $base_route_name = "entity.$entity_type_id.canonical";
