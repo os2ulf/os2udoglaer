@@ -1,6 +1,0 @@
-headless_domain_simple_sitemap.settings:
-  title: Headless domain simple sitemap settings
-  route_name: headless_domain_simple_sitemap.settings
-  description: 'Manage sitemap filter setting for domains.'
-  parent: domain.admin
-  weight: 15

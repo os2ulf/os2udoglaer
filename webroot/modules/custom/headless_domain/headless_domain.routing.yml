@@ -1,0 +1,7 @@
+headless_domain.settings:
+  path: '/admin/config/domain/headless_domain/config'
+  defaults:
+    _title: 'Headless domain configuration'
+    _form: 'Drupal\headless_domain\Form\SettingsForm'
+  requirements:
+    _permission: 'administer domains'

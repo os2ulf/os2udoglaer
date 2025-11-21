@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Drupal\headless_domain_simple_sitemap\Form;
+namespace Drupal\headless_domain\Form;
 
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Form\FormStateInterface;
@@ -16,14 +16,14 @@ final class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId(): string {
-    return 'headless_domain_simple_sitemap_settings';
+    return 'headless_domain_settings';
   }
 
   /**
    * {@inheritdoc}
    */
   protected function getEditableConfigNames(): array {
-    return ['headless_domain_simple_sitemap.settings'];
+    return ['headless_domain.settings'];
   }
 
   /**
@@ -42,7 +42,7 @@ final class SettingsForm extends ConfigFormBase {
       $form['domain_urls'][$domain->id()] = [
         '#type' => 'textfield',
         '#title' => $domain->label(),
-        '#default_value' => $this->config('headless_domain_simple_sitemap.settings')->get($domain->id()),
+        '#default_value' => $this->config('headless_domain.settings')->get($domain->id()),
       ];
     }
 
@@ -53,7 +53,7 @@ final class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state): void {
-    $this->config('headless_domain_simple_sitemap.settings')
+    $this->config('headless_domain.settings')
       ->setData($form_state->getValue('domain_urls'))
       ->save();
     parent::submitForm($form, $form_state);

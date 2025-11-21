@@ -53,400 +53,73 @@ dependencies:
     - field.field.node.course_educators.field_video_title
     - field.field.node.course_educators.field_view_on_map
     - field.field.node.course_educators.field_youth_education_subject
-    - image.style.medium
     - node.type.course_educators
   module:
-    - datetime
-    - datetime_range
-    - dawa
-    - entity_reference_revisions
-    - image
-    - metatag
-    - options
-    - text
     - user
 id: node.course_educators.default
 targetEntityType: node
 bundle: course_educators
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
+  headless_domain_preview:
     settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_all_year:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 12
-    region: content
-  field_banner:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_curriculum_themes:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 6
-    region: content
-  field_dawa_address:
-    type: dawa_address_autocomplete_formatter
-    label: above
-    settings:
-      display_as: full
-      include_country: true
-    third_party_settings: {  }
-    weight: 56
-    region: content
-  field_description_of_duration:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 37
-    region: content
-  field_description_of_period:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 36
-    region: content
-  field_description_of_price:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 34
-    region: content
-  field_domain_access:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 41
-    region: content
-  field_duration:
-    type: number_decimal
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_duration_unit_taxonomy:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 32
-    region: content
-  field_educators_target_group:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
     third_party_settings: {  }
     weight: 0
     region: content
-  field_exclude_from_profile:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 43
-    region: content
-  field_exclude_from_search:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 42
-    region: content
-  field_faciliteter:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 22
-    region: content
-  field_food_service:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 23
-    region: content
-  field_hide_contact_form:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 54
-    region: content
-  field_image:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: medium
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 20
-    region: content
-  field_is_free:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  field_location_description:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 33
-    region: content
-  field_location_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 25
-    region: content
-  field_materials:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 21
-    region: content
-  field_meta_tags:
-    type: metatag_empty_formatter
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_period:
-    type: daterange_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-      from_to: both
-      separator: '-'
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  field_price:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  field_primary_school_subject:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  field_quantity:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 45
-    region: content
-  field_quantity_description:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 35
-    region: content
-  field_registration_deadline:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 15
-    region: content
-  field_registration_email:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 18
-    region: content
-  field_registration_phone:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 19
-    region: content
-  field_registration_procedure:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 44
-    region: content
-  field_registration_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 16
-    region: content
-  field_registration_url:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 17
-    region: content
-  field_related_courses:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 40
-    region: content
-  field_subject:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_sustainability_goals:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 14
-    region: content
-  field_sustainability_goals_desc:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 38
-    region: content
-  field_theme:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_video:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 39
-    region: content
-  field_video_description:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 31
-    region: content
-  field_video_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 30
-    region: content
-  field_view_on_map:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 24
-    region: content
-  field_youth_education_subject:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 9
-    region: content
-  links:
-    settings: {  }
-    third_party_settings: {  }
-    weight: 29
-    region: content
 hidden:
+  body: true
   content_moderation_control: true
+  field_all_year: true
+  field_banner: true
+  field_curriculum_themes: true
+  field_dawa_address: true
+  field_description_of_duration: true
+  field_description_of_period: true
+  field_description_of_price: true
+  field_domain_access: true
   field_domain_all_affiliates: true
+  field_duration: true
+  field_duration_unit_taxonomy: true
+  field_educators_target_group: true
+  field_exclude_from_profile: true
+  field_exclude_from_search: true
+  field_faciliteter: true
+  field_food_service: true
+  field_hide_contact_form: true
+  field_image: true
+  field_is_free: true
+  field_location_description: true
+  field_location_name: true
+  field_materials: true
+  field_meta_tags: true
+  field_period: true
   field_pretix_email_notifiers: true
   field_pretix_event_short_form: true
   field_pretix_shop_url: true
   field_pretix_template_event: true
   field_pretix_widget_type: true
+  field_price: true
+  field_primary_school_subject: true
+  field_quantity: true
+  field_quantity_description: true
+  field_registration_deadline: true
+  field_registration_email: true
+  field_registration_phone: true
+  field_registration_procedure: true
+  field_registration_title: true
+  field_registration_url: true
+  field_related_courses: true
+  field_subject: true
+  field_sustainability_goals: true
+  field_sustainability_goals_desc: true
+  field_theme: true
+  field_video: true
+  field_video_description: true
+  field_video_title: true
+  field_view_on_map: true
+  field_youth_education_subject: true
   langcode: true
+  links: true
   search_api_excerpt: true
   workbench_reviewer: true
   workflow_buttons: true

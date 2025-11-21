@@ -24,7 +24,7 @@ class TransformPreview {
   protected UuidInterface $uuid;
   protected ModuleHandlerInterface $moduleHandler;
 
-  protected const EXPIRE = 30*60;
+  public const int EXPIRE = 30 * 60;
 
   /**
    * @param KeyValueExpirableFactoryInterface $keyValueExpirableFactory

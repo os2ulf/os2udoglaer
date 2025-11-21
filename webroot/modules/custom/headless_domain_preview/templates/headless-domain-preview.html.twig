@@ -1,0 +1,14 @@
+{#
+Template: headless_domain_preview.html.twig
+Renders a "Preview" link for nodes when a `preview_url` is provided.
+
+Variables:
+- preview_url: (string|null) Absolute preview URL. If empty, nothing is printed.
+#}
+{% if preview_url %}
+  <div class="headless-domain-preview">
+    <a href="{{ preview_url }}" class="button button--secondary headless-domain-preview__link" target="_blank" rel="noopener noreferrer">
+      {{ 'Preview'|t }}
+    </a>
+  </div>
+{% endif %}

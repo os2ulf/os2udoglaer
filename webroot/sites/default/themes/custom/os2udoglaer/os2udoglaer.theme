@@ -17,3 +17,22 @@ function os2udoglaer_preprocess_page(&$variables) {
     'noindex_nofollow',
   ];
 }
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function os2udoglaer_preprocess_node__page__full(&$variables): void {
+  /** @var \Drupal\transform_api_preview\TransformPreview $service */
+  $service = \Drupal::service('transform_api_preview');
+
+  $uuid = $service->generate($variables['node']);
+  $preview_url = $service->getUrl($uuid);
+
+  $variables['headless_domain_preview'] = [
+    '#theme' => 'headless_domain_preview',
+    '#preview_url' => $preview_url,
+  ];
+
+  // Set cache max age to match preview expiration and decrease by 60 seconds
+  $variables['#cache']['max-age'] = \Drupal\transform_api_preview\TransformPreview::EXPIRE - 60;
+}
