@@ -1,0 +1,58 @@
+<?php
+
+use Drupal\Core\Entity\EntityTypeInterface;
+
+/**
+ * Change the translation of "Preview".
+ */
+function os2uol_moderation_update_10001(&$sandbox) {
+  $langcode = 'da';
+  /** @var \Drupal\locale\StringStorageInterface $localeStorage */
+  $localeStorage = \Drupal::service('locale.storage');
+
+  $existing_translation_objects = [];
+  $filter_values = [
+    "string" => "Preview",
+    "langcode" => "da",
+    "translation" => "all",
+    "customized" => "all",
+  ];
+  // Language is sanitized to be one of the possible options in
+  // translateFilterValues().
+  $conditions = ['language' => $filter_values['langcode']];
+  $options = ['pager limit' => 30, 'translated' => TRUE, 'untranslated' => TRUE];
+
+  // Add translation status conditions and options.
+  switch ($filter_values['translation']) {
+    case 'translated':
+      $conditions['translated'] = TRUE;
+      if ($filter_values['customized'] != 'all') {
+        $conditions['customized'] = $filter_values['customized'];
+      }
+      break;
+
+    case 'untranslated':
+      $conditions['translated'] = FALSE;
+      break;
+
+  }
+
+  if (!empty($filter_values['string'])) {
+    $options['filters']['source'] = $filter_values['string'];
+    if ($options['translated']) {
+      $options['filters']['translation'] = $filter_values['string'];
+    }
+  }
+
+  foreach ($localeStorage->getTranslations($conditions, $options) as $existing_translation_object) {
+    $existing_translation_objects[$existing_translation_object->lid] = $existing_translation_object;
+  }
+  foreach ($existing_translation_objects as $lid => $existing_translation_object) {
+    if ($existing_translation_object->getString() == 'Gennemse') {
+      $target = $existing_translation_object ?? $localeStorage->createTranslation(['lid' => $lid, 'language' => $langcode]);
+      $target->setPlurals(['Vis indhold'])
+        ->setCustomized()
+        ->save();
+    }
+  }
+}
