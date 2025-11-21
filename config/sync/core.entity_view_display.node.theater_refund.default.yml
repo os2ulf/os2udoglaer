@@ -28,118 +28,42 @@ dependencies:
     - field.field.node.theater_refund.field_tr_theater
     - node.type.theater_refund
   module:
-    - datetime
     - user
 id: node.theater_refund.default
 targetEntityType: node
 bundle: theater_refund
 mode: default
 content:
-  field_mailto:
-    type: basic_string
-    label: above
+  headless_domain_preview:
     settings: {  }
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  field_rfc_date:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 9
-    region: content
-  field_rfc_grade:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_rfc_mail:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_rfc_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_rfc_new_course_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 6
-    region: content
-  field_rfc_phone:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_rfc_requested_amount:
-    type: number_decimal
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  field_rfc_school:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
     third_party_settings: {  }
     weight: 0
-    region: content
-  field_tr_quantity:
-    type: number_integer
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_tr_theater:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 5
     region: content
 hidden:
   content_moderation_control: true
   field_data_anonymized: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_mailto: true
   field_old_id: true
+  field_rfc_date: true
   field_rfc_follow_up_mail_sent: true
+  field_rfc_grade: true
   field_rfc_granted_amount: true
   field_rfc_latest_editor: true
+  field_rfc_mail: true
+  field_rfc_name: true
+  field_rfc_new_course_name: true
   field_rfc_payment_date: true
+  field_rfc_phone: true
   field_rfc_remarks: true
+  field_rfc_requested_amount: true
+  field_rfc_school: true
   field_rfc_send_mail: true
   field_rfc_spent_amount: true
   field_tr_mails_sent: true
+  field_tr_quantity: true
+  field_tr_theater: true
   langcode: true
   links: true
   search_api_excerpt: true

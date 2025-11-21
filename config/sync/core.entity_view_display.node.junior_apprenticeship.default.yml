@@ -45,320 +45,65 @@ dependencies:
     - field.field.node.junior_apprenticeship.field_video_description
     - field.field.node.junior_apprenticeship.field_video_title
     - field.field.node.junior_apprenticeship.field_view_on_map
-    - image.style.medium
     - node.type.junior_apprenticeship
   module:
-    - datetime
-    - dawa
-    - entity_reference_revisions
-    - image
-    - metatag
-    - options
-    - text
     - user
 id: node.junior_apprenticeship.default
 targetEntityType: node
 bundle: junior_apprenticeship
 mode: default
 content:
-  body:
-    type: text_default
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 1
-    region: content
-  field_application_deadline:
-    type: datetime_default
-    label: above
-    settings:
-      timezone_override: ''
-      format_type: medium
-    third_party_settings: {  }
-    weight: 5
-    region: content
-  field_application_email:
-    type: basic_string
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 8
-    region: content
-  field_application_phone:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 9
-    region: content
-  field_application_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 6
-    region: content
-  field_application_url:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 7
-    region: content
-  field_areas_of_interest:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_banner:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 18
-    region: content
-  field_dawa_address:
-    type: dawa_address_autocomplete_formatter
-    label: above
-    settings:
-      display_as: full
-      include_country: true
-    third_party_settings: {  }
-    weight: 56
-    region: content
-  field_desc_application_procedure:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 28
-    region: content
-  field_description_of_period:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 24
-    region: content
-  field_duration_rte:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 29
-    region: content
-  field_education_path:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 27
-    region: content
-  field_exclude_from_profile:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 34
-    region: content
-  field_exclude_from_search:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 33
-    region: content
-  field_expectations:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 21
-    region: content
-  field_hide_contact_form:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 54
-    region: content
-  field_image:
-    type: image
-    label: above
-    settings:
-      image_link: ''
-      image_style: medium
-      image_loading:
-        attribute: lazy
-    third_party_settings: {  }
-    weight: 11
-    region: content
-  field_industry:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_location_description:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 23
-    region: content
-  field_location_name:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 14
-    region: content
-  field_materials:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 12
-    region: content
-  field_meeting_times:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 25
-    region: content
-  field_meta_tags:
-    type: metatag_empty_formatter
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_open_for_application:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 57
-    region: content
-  field_p_number:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 55
-    region: content
-  field_purpose_internship:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 30
-    region: content
-  field_quantity:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 35
-    region: content
-  field_related_courses:
-    type: entity_reference_label
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    weight: 32
-    region: content
-  field_show_application_link:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 10
-    region: content
-  field_todo_list:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 26
-    region: content
-  field_video:
-    type: entity_reference_revisions_entity_view
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    weight: 31
-    region: content
-  field_video_description:
-    type: text_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 20
-    region: content
-  field_video_title:
-    type: string
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    weight: 19
-    region: content
-  field_view_on_map:
-    type: list_default
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    weight: 13
-    region: content
-  links:
+  headless_domain_preview:
     settings: {  }
     third_party_settings: {  }
     weight: 0
     region: content
 hidden:
+  body: true
   content_moderation_control: true
+  field_application_deadline: true
+  field_application_email: true
+  field_application_phone: true
+  field_application_title: true
+  field_application_url: true
+  field_areas_of_interest: true
+  field_banner: true
+  field_dawa_address: true
+  field_desc_application_procedure: true
+  field_description_of_period: true
   field_domain_access: true
   field_domain_all_affiliates: true
+  field_duration_rte: true
+  field_education_path: true
+  field_exclude_from_profile: true
+  field_exclude_from_search: true
+  field_expectations: true
+  field_hide_contact_form: true
+  field_image: true
+  field_industry: true
+  field_location_description: true
+  field_location_name: true
+  field_materials: true
+  field_meeting_times: true
+  field_meta_tags: true
+  field_open_for_application: true
+  field_p_number: true
   field_pretix_email_notifiers: true
   field_pretix_event_short_form: true
   field_pretix_shop_url: true
   field_pretix_template_event: true
   field_pretix_widget_type: true
+  field_purpose_internship: true
+  field_quantity: true
+  field_related_courses: true
+  field_show_application_link: true
+  field_todo_list: true
+  field_video: true
+  field_video_description: true
+  field_video_title: true
+  field_view_on_map: true
   langcode: true
+  links: true
   search_api_excerpt: true
   workbench_reviewer: true
   workflow_buttons: true
