@@ -27,6 +27,13 @@ function os2udoglaer_preprocess_node__page__full(&$variables): void {
   /** @var \Drupal\domain\DomainNegotiator $domain_negotiator */
   $domain_negotiator = \Drupal::service('domain.negotiator');
 
+  if ($domain_negotiator->getActiveId() === \Drupal\os2uol_domain\Os2uolDomain::DEFAULT_DOMAIN_ID) {
+    $variables['headless_domain_preview'] = [
+      '#theme' => 'headless_domain_preview',
+      '#disabled' => TRUE,
+    ];
+  }
+
   $uuid = $service->generate($variables['node']);
   $preview_url = $service->getUrl($uuid);
 
@@ -34,10 +41,6 @@ function os2udoglaer_preprocess_node__page__full(&$variables): void {
     '#theme' => 'headless_domain_preview',
     '#preview_url' => $preview_url,
   ];
-
-  if ($domain_negotiator->getActiveId() === \Drupal\os2uol_domain\Os2uolDomain::DEFAULT_DOMAIN_ID) {
-    $variables['headless_domain_preview']['#disabled'] = TRUE;
-  }
 
   // Set cache max age to match preview expiration and decrease by 60 seconds
   $variables['#cache']['max-age'] = \Drupal\transform_api_preview\TransformPreview::EXPIRE - 60;
