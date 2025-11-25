@@ -79,6 +79,7 @@ function headless_domain_preview_entity_view(array &$build, \Drupal\Core\Entity\
         '#theme' => 'headless_domain_preview',
         '#disabled' => TRUE,
       ];
+      return;
     }
 
     $uuid = $service->generate($entity);

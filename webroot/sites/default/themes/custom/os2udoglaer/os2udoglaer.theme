@@ -32,6 +32,7 @@ function os2udoglaer_preprocess_node__page__full(&$variables): void {
       '#theme' => 'headless_domain_preview',
       '#disabled' => TRUE,
     ];
+    return;
   }
 
   $uuid = $service->generate($variables['node']);
