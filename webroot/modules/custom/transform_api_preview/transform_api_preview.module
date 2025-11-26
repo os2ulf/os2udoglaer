@@ -27,12 +27,12 @@ function transform_api_preview_entity_type_build(array &$entity_types) {
 function transform_api_preview_entity_operation(EntityInterface $entity) {
   $operations = [];
 
-  $supports_replicate = in_array(
+  $supports_preview = in_array(
     $entity->getEntityTypeId(),
     (array) \Drupal::config('transform_api_preview.settings')->get('entity_types')
   );
 
-  if ($supports_replicate && $entity->hasLinkTemplate('frontend')) {
+  if ($supports_preview && $entity->hasLinkTemplate('frontend')) {
     $url = $entity->toUrl('frontend');
 
     if ($url->access()) {
