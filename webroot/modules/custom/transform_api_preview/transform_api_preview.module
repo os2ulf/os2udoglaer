@@ -37,12 +37,15 @@ function transform_api_preview_entity_operation(EntityInterface $entity) {
 
     if ($url->access()) {
       $operations['frontend'] = [
-        'title' => t('Preview'),
+        'title' => t('Preview', [], ['context' => 'transform_api_preview']),
         'weight' => 45,
         'url' => $url,
         'query' => [
           'destination' => NULL,
         ],
+        'attributes' => [
+          'target' => '_blank',
+        ]
       ];
     }
   }
