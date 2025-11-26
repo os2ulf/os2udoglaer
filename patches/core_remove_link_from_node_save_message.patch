@@ -1,0 +1,13 @@
+diff --git a/modules/node/src/NodeForm.php b/modules/node/src/NodeForm.php
+index 31c97b3c..524872da 100644
+--- a/modules/node/src/NodeForm.php
++++ b/modules/node/src/NodeForm.php
+@@ -277,7 +277,7 @@ class NodeForm extends ContentEntityForm {
+     $node->save();
+     $node_link = $node->toLink($this->t('View'))->toString();
+     $context = ['@type' => $node->getType(), '%title' => $node->label(), 'link' => $node_link];
+-    $t_args = ['@type' => node_get_type_label($node), '%title' => $node->toLink()->toString()];
++    $t_args = ['@type' => node_get_type_label($node), '%title' => $node->label()];
+ 
+     if ($insert) {
+       $this->logger('content')->info('@type: added %title.', $context);

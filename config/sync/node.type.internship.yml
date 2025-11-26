@@ -15,4 +15,4 @@ description: "Erhvervspraktik, eks. ’Transport og støtteerhverv’ eller ’U
 help: null
 new_revision: true
 preview_mode: 0
-display_submitted: true
+display_submitted: false
