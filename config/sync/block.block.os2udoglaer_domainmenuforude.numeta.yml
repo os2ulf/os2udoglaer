@@ -1,6 +1,6 @@
 uuid: 39602484-d6cd-46bc-b169-49e1deb247ba
 langcode: da
-status: true
+status: false
 dependencies:
   config:
     - system.menu.dm3718682-meta

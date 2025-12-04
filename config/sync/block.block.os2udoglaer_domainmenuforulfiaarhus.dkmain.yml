@@ -1,6 +1,6 @@
 uuid: 6161da5a-4d6b-4b48-a6c1-163c691452a7
 langcode: da
-status: true
+status: false
 dependencies:
   config:
     - system.menu.dm11588557-main
