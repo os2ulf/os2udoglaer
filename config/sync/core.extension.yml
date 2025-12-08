@@ -64,6 +64,8 @@ module:
   filter: 0
   focal_point: 0
   gin_toolbar: 0
+  headless_domain: 0
+  headless_domain_preview: 0
   headless_domain_simple_sitemap: 0
   health_check: 0
   help: 0
@@ -153,6 +155,7 @@ module:
   toolbar: 0
   transform_api: 0
   transform_api_dawa: 0
+  transform_api_preview: 0
   transform_api_responsive_image: 0
   transform_api_views: 0
   ultimate_cron: 0

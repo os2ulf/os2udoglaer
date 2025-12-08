@@ -190,7 +190,7 @@ class ModerationService {
         ];
       }
     } catch (\Exception $e) {
-      $this->results['errors'][] = "Failed to send email for node {$node->id()}: {$e->getMessage()}";
+      $this->results['errors_warning_email'][] = "Failed to send email for node {$node->id()}: {$e->getMessage()}";
     }
   }
 
@@ -212,7 +212,7 @@ class ModerationService {
         'reason' => $reason,
       ];
     } catch (\Exception $e) {
-      $this->results['errors'][] = "Failed to unpublish node {$node->id()}: {$e->getMessage()}";
+      $this->results['errors_unpublishing'][] = "Failed to unpublish node {$node->id()}: {$e->getMessage()}";
     }
   }
 
@@ -221,21 +221,29 @@ class ModerationService {
    */
   protected function logSummary() {
     if (!empty($this->results['unpublished'])) {
-      \Drupal::logger('os2uol_moderation')->notice('Unpublished @count nodes.', [
+      \Drupal::logger('os2uol_moderation')->info('Unpublished @count nodes.', [
         '@count' => count($this->results['unpublished']),
       ]);
     }
 
     if (!empty($this->results['skipped'])) {
-      \Drupal::logger('os2uol_moderation')->notice('Skipped @count nodes due to "Automatisk afpublicering" being disabled.', [
+      \Drupal::logger('os2uol_moderation')->info('Skipped @count nodes due to "Automatisk afpublicering" being disabled.', [
         '@count' => count($this->results['skipped']),
       ]);
     }
 
-    if (!empty($this->results['errors'])) {
-      \Drupal::logger('os2uol_moderation')->error('Encountered errors with @count nodes.', [
-        '@count' => count($this->results['errors']),
+    if (!empty($this->results['errors_warning_email'])) {
+      \Drupal::logger('os2uol_moderation')->error('Encountered errors with warning email in @count nodes.', [
+        '@count' => count($this->results['errors_warning_email']),
       ]);
+      \Drupal::logger('os2uol_moderation')->error($this->results['errors_warning_email'][0]);
+    }
+
+    if (!empty($this->results['errors_unpublishing'])) {
+      \Drupal::logger('os2uol_moderation')->error('Encountered errors unpublishing @count nodes.', [
+        '@count' => count($this->results['errors_unpublishing']),
+      ]);
+      \Drupal::logger('os2uol_moderation')->error($this->results['errors_unpublishing'][0]);
     }
   }
 }

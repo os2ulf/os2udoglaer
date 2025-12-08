@@ -1,6 +1,6 @@
 uuid: 2a47c743-e1ea-44ff-ba83-99095ffb5573
 langcode: da
-status: true
+status: false
 dependencies:
   config:
     - system.menu.dm12325470-main
@@ -37,4 +37,4 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: '/admin/*'
+    pages: "/admin/*\r\n/user/*"

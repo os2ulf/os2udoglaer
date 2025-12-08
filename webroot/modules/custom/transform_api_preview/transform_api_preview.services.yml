@@ -1,0 +1,23 @@
+services:
+  transform_api_preview:
+    class: Drupal\transform_api_preview\TransformPreview
+    arguments:
+      - '@keyvalue.expirable'
+      - '@entity_type.manager'
+      - '@transform_api.transformer'
+      - '@uuid'
+      - '@module_handler'
+      - '@config.factory'
+
+  transform_api_preview.route_subscriber:
+    class: Drupal\transform_api_preview\RouteSubscriber
+    arguments: ['@entity_type.manager', '@config.factory']
+    tags:
+      - { name: event_subscriber }
+
+  transform_api_preview.main_content_subscriber:
+    class: Drupal\transform_api_preview\EventSubscriber\TransformPreviewMainContentSubscriber
+    arguments:
+      - '@transform_api_preview'
+    tags:
+      - { name: event_subscriber }

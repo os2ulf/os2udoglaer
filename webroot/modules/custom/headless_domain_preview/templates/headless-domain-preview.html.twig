@@ -1,0 +1,21 @@
+{#
+Template: headless_domain_preview.html.twig
+Renders a "Preview" link for nodes when a `preview_url` is provided.
+
+Variables:
+- preview_url: (string|null) Absolute preview URL.
+- disabled: (true|null) Shows if button should be disabled
+#}
+{% if preview_url %}
+  <div class="headless-domain-preview">
+    <a href="{{ preview_url }}" class="button button--secondary headless-domain-preview__link" target="_blank" rel="noopener noreferrer">
+      {{ 'Preview'|t([], {'context': 'transform_api_preview'}) }}
+    </a>
+  </div>
+{% elseif disabled %}
+  <div class="headless-domain-preview">
+    <button class="button button--secondary headless-domain-preview__link" disabled>
+      {{ 'Preview'|t([], {'context': 'transform_api_preview'}) }}
+    </button>
+  </div>
+{% endif %}

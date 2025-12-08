@@ -14,6 +14,7 @@ ignored_config_entities:
   - 'domain.config.*.smtp.settings'
   - 'domain.config.*.system.mail'
   - 'domain.config.*.system.site'
+  - headless_domain.settings
   - headless_domain_simple_sitemap.settings
   - os2uol_moderation.email_settings
   - os2uol_moderation.settings

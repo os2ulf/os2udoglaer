@@ -5545,7 +5545,7 @@ display:
       path: admin/applications/theater_refund_related
       menu:
         type: normal
-        title: 'Ansøgninger: transportpulje'
+        title: 'Ansøgninger: teaterrefusion'
         description: ''
         weight: 100
         expanded: false

@@ -1,6 +1,6 @@
 uuid: 4f34913c-b0b8-484d-b3dc-fdcdb5008bff
 langcode: da
-status: true
+status: false
 dependencies:
   config:
     - system.menu.dm14072618-meta
@@ -37,4 +37,4 @@ visibility:
   request_path:
     id: request_path
     negate: true
-    pages: '/admin/*'
+    pages: "/admin/*\r\n/user/*"

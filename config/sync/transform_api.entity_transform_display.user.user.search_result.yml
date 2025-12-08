@@ -133,6 +133,11 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: -100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_allocated_budget: true
   field_brancher: true
@@ -165,3 +170,4 @@ hidden:
   field_video_description: true
   field_video_title: true
   langcode: true
+  url: true

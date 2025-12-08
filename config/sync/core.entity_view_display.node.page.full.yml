@@ -146,6 +146,7 @@ hidden:
   field_pretix_shop_url: true
   field_pretix_template_event: true
   field_pretix_widget_type: true
+  headless_domain_preview: true
   langcode: true
   layout_builder__layout: true
   links: true

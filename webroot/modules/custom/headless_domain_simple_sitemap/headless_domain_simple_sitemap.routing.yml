@@ -1,7 +1,0 @@
-headless_domain_simple_sitemap.settings:
-  path: '/admin/config/domain/headless_domain_simple_sitemap/config'
-  defaults:
-    _title: 'Headless domain simple sitemap configuraion'
-    _form: 'Drupal\headless_domain_simple_sitemap\Form\SettingsForm'
-  requirements:
-    _permission: 'administer domains'

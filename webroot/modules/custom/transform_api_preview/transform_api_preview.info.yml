@@ -1,0 +1,9 @@
+name: Transform API Preview
+description: Allows editors to preview Transform API output on the frontend.
+type: module
+package: Web services
+core_version_requirement: ^10.3 || ^11
+
+dependencies:
+  - core:node
+  - transform_api:transform_api
