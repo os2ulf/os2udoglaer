@@ -97,7 +97,8 @@
   font-weight: 700;
 }
 
-#views-exposed-form-school-budget-overview-page-1 {
+#views-exposed-form-school-budget-overview-page-1,
+#views-exposed-form-theater-refund-page-1 {
   .form-item--budget-year-1 {
     display: none;
   }
