@@ -1,0 +1,9 @@
+uuid: 555f5673-0839-4fbc-84b8-6f4dca877449
+langcode: da
+status: true
+dependencies: {  }
+id: api_syddjurs_os2udoglaer_dk
+domain_id: api_udoglaer_syddjurs_dk
+pattern: api.syddjurs.os2udoglaer.dk
+redirect: 0
+environment: default

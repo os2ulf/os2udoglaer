@@ -1,4 +1,4 @@
-uuid: 59a3d4d4-59bc-4491-9fe5-a4b74e5d7621
+uuid: c464f76f-89cc-4b6d-967d-ddfb793ac5f3
 langcode: da
 status: true
 dependencies:
@@ -6,10 +6,10 @@ dependencies:
     - domain_simple_sitemap
 third_party_settings:
   domain_simple_sitemap:
-    sitemap_domain: api_udoglaer_roskilde_dk
-id: api_udoglaer_roskilde_dk
-label: 'udoglaer.roskilde.dk sitemap'
-description: 'Sitemap type for domain: udoglaer.roskilde.dk'
+    sitemap_domain: api_udoglaer_syddjurs_dk
+id: api_udoglaer_syddjurs_dk
+label: 'udoglaer.syddjurs.dk sitemap'
+description: 'Sitemap type for domain: udoglaer.syddjurs.dk'
 sitemap_generator: default
 url_generators:
   headless_custom: headless_custom
