@@ -12,7 +12,5 @@ label: 'udoglaer.syddjurs.dk sitemap'
 description: 'Sitemap type for domain: udoglaer.syddjurs.dk'
 sitemap_generator: default
 url_generators:
-  - domain_entity
-  - custom
-  - entity_menu_link_content
-  - arbitrary
+  headless_custom: headless_custom
+  headless_domain_entity: headless_domain_entity
