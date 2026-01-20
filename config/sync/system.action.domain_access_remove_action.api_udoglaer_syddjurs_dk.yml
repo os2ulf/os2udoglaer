@@ -1,0 +1,14 @@
+uuid: 1d701f6f-0e37-4b1e-8caa-6a2b1dbe4de0
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_syddjurs_dk
+  module:
+    - domain_access
+id: domain_access_remove_action.api_udoglaer_syddjurs_dk
+label: 'Remove selected content from the udoglaer.syddjurs.dk domain'
+type: node
+plugin: domain_access_remove_action
+configuration:
+  domain_id: api_udoglaer_syddjurs_dk

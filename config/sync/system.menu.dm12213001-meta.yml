@@ -1,0 +1,15 @@
+uuid: 4f2f6820-f37c-45ea-81ef-36758dd1362e
+langcode: da
+status: true
+dependencies:
+  module:
+    - domain_menus
+third_party_settings:
+  domain_menus:
+    domains:
+      api_udoglaer_syddjurs_dk: api_udoglaer_syddjurs_dk
+    auto-created: 1
+id: dm12213001-meta
+label: 'Domain menu for udoglaer.syddjurs.dk (meta)'
+description: null
+locked: false

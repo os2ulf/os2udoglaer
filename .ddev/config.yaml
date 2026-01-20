@@ -19,6 +19,7 @@ additional_hostnames:
     - ungegarantien.os2udoglaer
     - udsynmodarbejdsliv.os2udoglaer
     - udoglaer.roskilde.os2udoglaer
+    - udoglaer.syddjurs.os2udoglaer
 additional_fqdns: []
 database:
     type: mariadb
