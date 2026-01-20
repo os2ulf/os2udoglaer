@@ -756,6 +756,9 @@ $manually_added_hosts = [
 
   'api.roskilde.os2udoglaer.dk',
   'api-staging.roskilde.os2udoglaer.dk',
+
+  'api.syddjurs.os2udoglaer.dk',
+  'api-staging.syddjurs.os2udoglaer.dk',
 ];
 
 if ($trusted_hosts !== false) {

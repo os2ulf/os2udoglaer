@@ -1,0 +1,11 @@
+uuid: ccf5ccf5-dc18-46db-a472-382e6ce09cf1
+langcode: da
+status: true
+dependencies:
+  config:
+    - simple_sitemap.type.api_udoglaer_syddjurs_dk
+id: api_udoglaer_syddjurs_dk
+label: 'udoglaer.syddjurs.dk sitemap'
+description: 'Sitemap variant for domain: udoglaer.syddjurs.dk'
+type: api_udoglaer_syddjurs_dk
+weight: 0

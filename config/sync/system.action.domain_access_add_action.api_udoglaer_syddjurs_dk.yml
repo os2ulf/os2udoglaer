@@ -1,0 +1,14 @@
+uuid: d8594d7f-a3df-45de-a086-c72e25b20759
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_syddjurs_dk
+  module:
+    - domain_access
+id: domain_access_add_action.api_udoglaer_syddjurs_dk
+label: 'Add selected content to the udoglaer.syddjurs.dk domain'
+type: node
+plugin: domain_access_add_action
+configuration:
+  domain_id: api_udoglaer_syddjurs_dk

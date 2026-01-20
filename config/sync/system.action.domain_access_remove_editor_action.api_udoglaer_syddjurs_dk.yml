@@ -1,0 +1,14 @@
+uuid: 465ee37d-6402-4362-9b10-fcec4d0b06ca
+langcode: da
+status: true
+dependencies:
+  config:
+    - domain.record.api_udoglaer_syddjurs_dk
+  module:
+    - domain_access
+id: domain_access_remove_editor_action.api_udoglaer_syddjurs_dk
+label: 'Remove editors from the udoglaer.syddjurs.dk domain'
+type: user
+plugin: domain_access_remove_editor_action
+configuration:
+  domain_id: api_udoglaer_syddjurs_dk

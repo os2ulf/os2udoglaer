@@ -1,0 +1,9 @@
+uuid: 1a3f8250-ca52-4750-a1ee-54207dfcceee
+langcode: da
+status: true
+dependencies: {  }
+id: api_udoglaer_syddjurs_dk_staging_5em2ouy_4yghg26zberzk_eu_5_plat
+domain_id: api_udoglaer_syddjurs_dk
+pattern: api.udoglaer.syddjurs.dk.staging-5em2ouy-4yghg26zberzk.eu-5.platformsh.site
+redirect: 0
+environment: staging
