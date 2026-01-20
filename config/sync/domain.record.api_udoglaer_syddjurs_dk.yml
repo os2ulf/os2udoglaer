@@ -1,0 +1,11 @@
+uuid: 7ecf244f-802b-4256-ade1-debba1c9df08
+langcode: da
+status: true
+dependencies: {  }
+id: api_udoglaer_syddjurs_dk
+domain_id: 12213001
+hostname: api.udoglaer.syddjurs.dk
+name: udoglaer.syddjurs.dk
+scheme: variable
+weight: 13
+is_default: false
