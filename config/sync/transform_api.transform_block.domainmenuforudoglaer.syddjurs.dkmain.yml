@@ -1,0 +1,30 @@
+uuid: c710a79b-da14-402d-baa8-a3deb6819d04
+langcode: da
+status: true
+dependencies:
+  config:
+    - system.menu.dm12213001-main
+  module:
+    - domain
+    - os2uol_menus
+id: domainmenuforudoglaer.syddjurs.dkmain
+region: header
+weight: '0'
+provider: null
+plugin: 'custom_menu_block:dm12213001-main'
+settings:
+  id: 'custom_menu_block:dm12213001-main'
+  label: 'Domain menu for udoglaer.syddjurs.dk (main)'
+  provider: os2uol_menus
+  level: '1'
+  depth: '0'
+  expand_all_items: 1
+  label_display: null
+visibility:
+  domain:
+    id: domain
+    domains:
+      api_udoglaer_syddjurs_dk: api_udoglaer_syddjurs_dk
+    negate: false
+    context_mapping:
+      domain: '@domain.current_domain_context:domain'
