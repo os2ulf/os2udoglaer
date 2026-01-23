@@ -81,3 +81,18 @@ crons:
     spec: "*/1 * * * *"
     commands:
       start: "/app/vendor/bin/drush core-cron"
+  content_moderation:
+    spec: "*/15 * * * *"
+    commands:
+      start: |
+        /app/vendor/bin/drush --uri=api.ulfiaarhus.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.mitvadehav.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.aabenaalborg.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.klcviborg.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.laeringsportalenskive.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.udoglaer.randers.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.udoglaer.vejle.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.ude.nu os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.udoglaer.roskilde.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.udoglaer.syddjurs.dk os2uol_process_moderation
+        /app/vendor/bin/drush --uri=api.udsynmodarbejdsliv.dk os2uol_process_moderation

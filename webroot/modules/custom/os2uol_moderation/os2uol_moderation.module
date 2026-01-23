@@ -4,14 +4,6 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_cron().
- * Runs the moderation process.
- */
-function os2uol_moderation_cron() {
-  \Drupal::service('os2uol_moderation.moderation_service')->processModeration();
-}
-
-/**
  * Implements hook_mail().
  */
 function os2uol_moderation_mail($key, &$message, $params) {
