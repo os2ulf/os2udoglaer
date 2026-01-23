@@ -200,7 +200,7 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
     }
 
     // Create summary markup for non-transport forms.
-    if (in_array($view->id(), ['free_course_request', 'theater_refund'])) {
+    if ($view->id() == 'free_course_request') {
       $sum_markup_general = Markup::create(
         '<table class="applications-summary">' .
         '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
@@ -208,6 +208,36 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
         '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
         '</table>'
       );
+
+      // Attach the general summary only for non-transport views.
+      $view->attachment_before['sum_markup_general'] = [
+        '#markup' => $sum_markup_general,
+        '#weight' => -10, // Ensure it appears before other elements.
+      ];
+    }
+
+    // Create summary for theater refund
+    if ($view->id() == 'theater_refund') {
+      if ($view->current_display == 'page_4') {
+        $year = $view->getExposedInput()['budget_year'] ?? '';
+
+        $sum_markup_general = Markup::create(
+          '<table class="applications-summary">' .
+          '<tr><td class="applications-summary__label">Filter: </td><td class="applications-summary__value">' . $year . '</td></tr>' .
+          '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '</table>'
+        );
+      } else {
+        $sum_markup_general = Markup::create(
+          '<table class="applications-summary">' .
+          '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '</table>'
+        );
+      }
 
       // Attach the general summary only for non-transport views.
       $view->attachment_before['sum_markup_general'] = [
@@ -714,6 +744,10 @@ function os2uol_application_forms_views_pre_build(ViewExecutable $view) {
 
   if (in_array($view->id(), $budget_year_views)) {
     $exposed_input = $view->getExposedInput();
+
+    if ($view->id() == 'theater_refund' && $view->current_display == 'page_4' && !isset($exposed_input['budget_year'])) {
+      $exposed_input['budget_year'] = date('Y');
+    }
 
     $exposed_input['budget_year_1'] = $exposed_input['budget_year'] ?? '';
 
