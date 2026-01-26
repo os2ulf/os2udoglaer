@@ -4,14 +4,6 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
- * Implements hook_cron().
- * Runs the moderation process.
- */
-function os2uol_moderation_cron() {
-  \Drupal::service('os2uol_moderation.moderation_service')->processModeration();
-}
-
-/**
  * Implements hook_mail().
  */
 function os2uol_moderation_mail($key, &$message, $params) {
@@ -251,4 +243,17 @@ function os2uol_moderation_entity_presave(EntityInterface $entity) {
   if ($entity instanceof \Drupal\os2uol_moderation\Entity\ContentModerationNotification) {
     \Drupal::logger('os2uol_moderation')->info('Saving domain: @domain', ['@domain' => $entity->getDomain()]);
   }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update().
+ */
+function os2uol_moderation_node_update(\Drupal\node\NodeInterface $node): void {
+  // Reset key value expiry for first_warning and second_warning unpublishing mails
+  $key_value_store = Drupal::keyValueExpirable(\Drupal\os2uol_moderation\ModerationService::KEY_VALUE_STORE);
+
+  $key_value_store->deleteMultiple([
+    "first_warning:node:{$node->id()}",
+    "second_warning:node:{$node->id()}"
+  ]);
 }
