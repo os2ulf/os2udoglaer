@@ -61,8 +61,8 @@ hooks:
     mkdir -p /app/webroot/sites/default/files/translations
     chmod -R 755 /app/webroot/sites/default/files/translations
     cd /app/webroot
-    /app/vendor/bin/drush -y sset system.maintenance_mode 1 --input-format=integer
     /app/vendor/bin/drush -y cache-rebuild
+    /app/vendor/bin/drush -y sset system.maintenance_mode 1 --input-format=integer
     /app/vendor/bin/drush -y updatedb
     /app/vendor/bin/drush -y config-import
     /app/vendor/bin/drush locale-check
