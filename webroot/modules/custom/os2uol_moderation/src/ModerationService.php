@@ -4,6 +4,7 @@ namespace Drupal\os2uol_moderation;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\KeyValueStore\KeyValueExpirableFactoryInterface;
 use Drupal\node\Entity\Node;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Psr\Log\LoggerInterface;
@@ -12,6 +13,8 @@ use Psr\Log\LoggerInterface;
  * Service for handling moderation logic.
  */
 class ModerationService {
+
+  public const KEY_VALUE_STORE = 'os2uol_moderation';
 
   protected $results;
 
@@ -31,7 +34,8 @@ class ModerationService {
     protected EntityTypeManagerInterface $entityTypeManager,
     protected ConfigFactoryInterface $configFactory,
     protected EmailService $emailService,
-    protected LoggerInterface $logger
+    protected LoggerInterface $logger,
+    protected KeyValueExpirableFactoryInterface $keyValueFactory,
   ) {
     $this->results = [
       'skipped' => [],
@@ -172,18 +176,34 @@ class ModerationService {
         return;
       }
 
+      $keyValueStore = $this->keyValueFactory->get(self::KEY_VALUE_STORE);
+
       if ($timeSinceUpdate >= $firstWarning && $timeSinceUpdate < $secondWarning) {
-        $this->emailService->sendNotification($owner, $node, 'first_warning');
-        $this->results['warnings'][] = [
-          'nid' => $node->id(),
-          'type' => 'first_warning',
-        ];
+        $emailAlreadySent = $keyValueStore->get("first_warning:node:{$node->id()}", FALSE);
+
+        if (!$emailAlreadySent) {
+          $this->emailService->sendNotification($owner, $node, 'first_warning');
+          $this->results['warnings'][] = [
+            'nid' => $node->id(),
+            'type' => 'first_warning',
+          ];
+
+          // Mark node warning email as sent, with expiry of unpublished interval, as it's bigger than warning interval
+          $keyValueStore->setWithExpire("first_warning:node:{$node->id()}", TRUE, $unpublishInterval);
+        }
       } elseif ($timeSinceUpdate >= $secondWarning && $timeSinceUpdate < $unpublishInterval) {
-        $this->emailService->sendNotification($owner, $node, 'second_warning');
-        $this->results['warnings'][] = [
-          'nid' => $node->id(),
-          'type' => 'second_warning',
-        ];
+        $emailAlreadySent = $keyValueStore->get("second_warning:node:{$node->id()}", FALSE);
+
+        if (!$emailAlreadySent) {
+          $this->emailService->sendNotification($owner, $node, 'second_warning');
+          $this->results['warnings'][] = [
+            'nid' => $node->id(),
+            'type' => 'second_warning',
+          ];
+        }
+
+        // Mark node warning email as sent, with expiry of unpublished interval, as it's bigger than warning interval
+        $keyValueStore->setWithExpire("second_warning:node:{$node->id()}", TRUE, $unpublishInterval);
       }
     } catch (\Exception $e) {
       $this->results['errors_warning_email'][] = "Failed to send email for node {$node->id()}: {$e->getMessage()}";

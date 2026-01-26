@@ -6,6 +6,7 @@ services:
       - '@config.factory'
       - '@os2uol_moderation.email_service'
       - '@logger.channel.os2uol_moderation'
+      - '@keyvalue.expirable'
 
   os2uol_moderation.email_service:
     class: Drupal\os2uol_moderation\EmailService
