@@ -6,15 +6,13 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\node\Entity\Node;
 use Drupal\os2uol_domain\Os2uolDomain;
+use Psr\Log\LoggerInterface;
 
 /**
  * Service for handling moderation logic.
  */
 class ModerationService {
 
-  protected $entityTypeManager;
-  protected $configFactory;
-  protected $emailService;
   protected $results;
 
   /**
@@ -26,11 +24,15 @@ class ModerationService {
    *   The configuration factory service.
    * @param \Drupal\os2uol_moderation\EmailService $emailService
    *   The email service.
+   * @param \Psr\Log\LoggerInterface $logger
+   *   The logger
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, EmailService $emailService) {
-    $this->entityTypeManager = $entityTypeManager;
-    $this->configFactory = $configFactory;
-    $this->emailService = $emailService;
+  public function __construct(
+    protected EntityTypeManagerInterface $entityTypeManager,
+    protected ConfigFactoryInterface $configFactory,
+    protected EmailService $emailService,
+    protected LoggerInterface $logger
+  ) {
     $this->results = [
       'skipped' => [],
       'unpublished' => [],
@@ -52,12 +54,12 @@ class ModerationService {
     $domain = $domain_negotiator->getActiveDomain();
 
     if ($domain->id() == Os2uolDomain::DEFAULT_DOMAIN_ID) {
-      \Drupal::logger('os2uol_moderation')->warning('Can not run due to default domain being currently used');
+      $this->logger->warning('Can not run due to default domain being currently used');
       return;
     }
 
     // Start moderation process.
-    \Drupal::logger('os2uol_moderation')->notice('Moderation process started for domain @domain', [
+    $this->logger->notice('Moderation process started for domain @domain', [
       '@domain' => $domain->label(),
     ]);
 
@@ -215,29 +217,29 @@ class ModerationService {
    */
   protected function logSummary() {
     if (!empty($this->results['unpublished'])) {
-      \Drupal::logger('os2uol_moderation')->info('Unpublished @count nodes.', [
+      $this->logger->info('Unpublished @count nodes.', [
         '@count' => count($this->results['unpublished']),
       ]);
     }
 
     if (!empty($this->results['skipped'])) {
-      \Drupal::logger('os2uol_moderation')->info('Skipped @count nodes due to "Automatisk afpublicering" being disabled.', [
+      $this->logger->info('Skipped @count nodes due to "Automatisk afpublicering" being disabled.', [
         '@count' => count($this->results['skipped']),
       ]);
     }
 
     if (!empty($this->results['errors_warning_email'])) {
-      \Drupal::logger('os2uol_moderation')->error('Encountered errors with warning email in @count nodes.', [
+      $this->logger->error('Encountered errors with warning email in @count nodes.', [
         '@count' => count($this->results['errors_warning_email']),
       ]);
-      \Drupal::logger('os2uol_moderation')->error($this->results['errors_warning_email'][0]);
+      $this->logger->error($this->results['errors_warning_email'][0]);
     }
 
     if (!empty($this->results['errors_unpublishing'])) {
-      \Drupal::logger('os2uol_moderation')->error('Encountered errors unpublishing @count nodes.', [
+      $this->logger->error('Encountered errors unpublishing @count nodes.', [
         '@count' => count($this->results['errors_unpublishing']),
       ]);
-      \Drupal::logger('os2uol_moderation')->error($this->results['errors_unpublishing'][0]);
+      $this->logger->error($this->results['errors_unpublishing'][0]);
     }
   }
 }

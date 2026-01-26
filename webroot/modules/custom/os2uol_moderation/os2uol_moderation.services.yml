@@ -5,6 +5,7 @@ services:
       - '@entity_type.manager'
       - '@config.factory'
       - '@os2uol_moderation.email_service'
+      - '@logger.channel.os2uol_moderation'
 
   os2uol_moderation.email_service:
     class: Drupal\os2uol_moderation\EmailService
