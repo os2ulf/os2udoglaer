@@ -4,17 +4,18 @@ namespace Drupal\os2uol_moderation;
 
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\KeyValueStore\KeyValueExpirableFactoryInterface;
 use Drupal\node\Entity\Node;
 use Drupal\os2uol_domain\Os2uolDomain;
+use Psr\Log\LoggerInterface;
 
 /**
  * Service for handling moderation logic.
  */
 class ModerationService {
 
-  protected $entityTypeManager;
-  protected $configFactory;
-  protected $emailService;
+  public const KEY_VALUE_STORE = 'os2uol_moderation';
+
   protected $results;
 
   /**
@@ -26,11 +27,16 @@ class ModerationService {
    *   The configuration factory service.
    * @param \Drupal\os2uol_moderation\EmailService $emailService
    *   The email service.
+   * @param \Psr\Log\LoggerInterface $logger
+   *   The logger
    */
-  public function __construct(EntityTypeManagerInterface $entityTypeManager, ConfigFactoryInterface $configFactory, EmailService $emailService) {
-    $this->entityTypeManager = $entityTypeManager;
-    $this->configFactory = $configFactory;
-    $this->emailService = $emailService;
+  public function __construct(
+    protected EntityTypeManagerInterface $entityTypeManager,
+    protected ConfigFactoryInterface $configFactory,
+    protected EmailService $emailService,
+    protected LoggerInterface $logger,
+    protected KeyValueExpirableFactoryInterface $keyValueFactory,
+  ) {
     $this->results = [
       'skipped' => [],
       'unpublished' => [],
@@ -46,46 +52,40 @@ class ModerationService {
     $config = $this->configFactory->get('os2uol_moderation.settings');
     $unpublishInterval = $config->get('unpublish_interval') * 24 * 60 * 60;
 
-    // Start moderation process.
-    \Drupal::logger('os2uol_moderation')->notice('Moderation process started.');
-
     /** @var \Drupal\domain\DomainNegotiator $domain_negotiator */
     $domain_negotiator = \Drupal::service('domain.negotiator');
 
-    $domains = \Drupal::entityTypeManager()->getStorage('domain')->loadMultiple();
+    $domain = $domain_negotiator->getActiveDomain();
 
-    foreach ($domains as $domain) {
-      // Skip default domain
-      if ($domain->id() === Os2uolDomain::DEFAULT_DOMAIN_ID) {
-        continue;
-      }
+    if ($domain->id() == Os2uolDomain::DEFAULT_DOMAIN_ID) {
+      $this->logger->warning('Can not run due to default domain being currently used');
+      return;
+    }
 
-      try {
-        $domain_negotiator->setActiveDomain($domain);
+    // Start moderation process.
+    $this->logger->notice('Moderation process started for domain @domain', [
+      '@domain' => $domain->label(),
+    ]);
 
-        // Query published nodes.
-        $nids = $this->entityTypeManager->getStorage('node')->getQuery()
-          ->condition('status', 1)
-          ->condition('field_domain_access', $domain->id())
-          ->accessCheck(FALSE)
-          ->execute();
+    try {
+      // Query published nodes.
+      $nids = $this->entityTypeManager->getStorage('node')->getQuery()
+        ->condition('status', 1)
+        ->condition('field_domain_access', $domain->id())
+        ->accessCheck(FALSE)
+        ->execute();
 
-        foreach ($nids as $nid) {
-          $node = Node::load($nid);
-          if (!$node) {
-            $this->results['errors'][] = "Node $nid could not be loaded.";
-            continue;
-          }
-
-          $this->processNode($node, $unpublishInterval);
+      foreach ($nids as $nid) {
+        $node = Node::load($nid);
+        if (!$node) {
+          $this->results['errors'][] = "Node $nid could not be loaded.";
+          continue;
         }
-      } catch (\Throwable $throwable) {
-        $this->results['errors'][] = "Error processing domain {$domain->id()}";
-        watchdog_exception('os2uol_moderation', $throwable);
-      } finally {
-        // Reset active domain
-        $domain_negotiator->getActiveDomain(TRUE);
+
+        $this->processNode($node, $unpublishInterval);
       }
+    } catch (\Throwable $throwable) {
+      watchdog_exception('os2uol_moderation', $throwable);
     }
 
     $this->logSummary();
@@ -176,18 +176,34 @@ class ModerationService {
         return;
       }
 
+      $keyValueStore = $this->keyValueFactory->get(self::KEY_VALUE_STORE);
+
       if ($timeSinceUpdate >= $firstWarning && $timeSinceUpdate < $secondWarning) {
-        $this->emailService->sendNotification($owner, $node, 'first_warning');
-        $this->results['warnings'][] = [
-          'nid' => $node->id(),
-          'type' => 'first_warning',
-        ];
+        $emailAlreadySent = $keyValueStore->get("first_warning:node:{$node->id()}", FALSE);
+
+        if (!$emailAlreadySent) {
+          $this->emailService->sendNotification($owner, $node, 'first_warning');
+          $this->results['warnings'][] = [
+            'nid' => $node->id(),
+            'type' => 'first_warning',
+          ];
+
+          // Mark node warning email as sent, with expiry of unpublished interval, as it's bigger than warning interval
+          $keyValueStore->setWithExpire("first_warning:node:{$node->id()}", TRUE, $unpublishInterval);
+        }
       } elseif ($timeSinceUpdate >= $secondWarning && $timeSinceUpdate < $unpublishInterval) {
-        $this->emailService->sendNotification($owner, $node, 'second_warning');
-        $this->results['warnings'][] = [
-          'nid' => $node->id(),
-          'type' => 'second_warning',
-        ];
+        $emailAlreadySent = $keyValueStore->get("second_warning:node:{$node->id()}", FALSE);
+
+        if (!$emailAlreadySent) {
+          $this->emailService->sendNotification($owner, $node, 'second_warning');
+          $this->results['warnings'][] = [
+            'nid' => $node->id(),
+            'type' => 'second_warning',
+          ];
+        }
+
+        // Mark node warning email as sent, with expiry of unpublished interval, as it's bigger than warning interval
+        $keyValueStore->setWithExpire("second_warning:node:{$node->id()}", TRUE, $unpublishInterval);
       }
     } catch (\Exception $e) {
       $this->results['errors_warning_email'][] = "Failed to send email for node {$node->id()}: {$e->getMessage()}";
@@ -221,29 +237,29 @@ class ModerationService {
    */
   protected function logSummary() {
     if (!empty($this->results['unpublished'])) {
-      \Drupal::logger('os2uol_moderation')->info('Unpublished @count nodes.', [
+      $this->logger->info('Unpublished @count nodes.', [
         '@count' => count($this->results['unpublished']),
       ]);
     }
 
     if (!empty($this->results['skipped'])) {
-      \Drupal::logger('os2uol_moderation')->info('Skipped @count nodes due to "Automatisk afpublicering" being disabled.', [
+      $this->logger->info('Skipped @count nodes due to "Automatisk afpublicering" being disabled.', [
         '@count' => count($this->results['skipped']),
       ]);
     }
 
     if (!empty($this->results['errors_warning_email'])) {
-      \Drupal::logger('os2uol_moderation')->error('Encountered errors with warning email in @count nodes.', [
+      $this->logger->error('Encountered errors with warning email in @count nodes.', [
         '@count' => count($this->results['errors_warning_email']),
       ]);
-      \Drupal::logger('os2uol_moderation')->error($this->results['errors_warning_email'][0]);
+      $this->logger->error($this->results['errors_warning_email'][0]);
     }
 
     if (!empty($this->results['errors_unpublishing'])) {
-      \Drupal::logger('os2uol_moderation')->error('Encountered errors unpublishing @count nodes.', [
+      $this->logger->error('Encountered errors unpublishing @count nodes.', [
         '@count' => count($this->results['errors_unpublishing']),
       ]);
-      \Drupal::logger('os2uol_moderation')->error($this->results['errors_unpublishing'][0]);
+      $this->logger->error($this->results['errors_unpublishing'][0]);
     }
   }
 }
