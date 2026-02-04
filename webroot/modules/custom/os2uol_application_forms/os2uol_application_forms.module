@@ -236,7 +236,7 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
 
         $sum_markup_general = Markup::create(
           '<table class="applications-summary">' .
-          '<tr><td class="applications-summary__label">Filter: </td><td class="applications-summary__value">' . $year . '</td></tr>' .
+          '<tr><td class="applications-summary__label">År: </td><td class="applications-summary__value">' . $year . '</td></tr>' .
           '<tr><td class="applications-summary__label">Tildelt budget: </td><td class="applications-summary__value">' . $allocated_budget_string . '</td></tr>' .
           '<tr><td class="applications-summary__label">Restbudget: </td><td class="applications-summary__value">' . $remaining_budget_string . '</td></tr>' .
           '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
