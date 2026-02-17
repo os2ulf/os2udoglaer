@@ -15,12 +15,11 @@ bundle: video
 mode: default
 content:
   field_text:
-    type: plain_text
+    type: text_format
     weight: '1'
     region: content
     label: omit
-    settings:
-      text_length: 0
+    settings: {  }
     third_party_settings: {  }
   field_title:
     type: value
@@ -36,6 +35,11 @@ content:
     label: omit
     settings:
       transform_mode: default
+    third_party_settings: {  }
+  label:
+    weight: '-100'
+    region: content
+    settings: {  }
     third_party_settings: {  }
 hidden:
   langcode: true
