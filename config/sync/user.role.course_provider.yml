@@ -21,6 +21,7 @@ dependencies:
     - filter
     - node
     - os2uol_pretix
+    - replicate_ui
     - system
     - toolbar
     - workbench
@@ -63,6 +64,7 @@ permissions:
   - 'edit own pretix events'
   - 'edit own transport_pool_form content'
   - 'remove pretix event connection'
+  - 'replicate entities'
   - 'update course content on assigned domains'
   - 'update course_educators content on assigned domains'
   - 'update exercise content on assigned domains'

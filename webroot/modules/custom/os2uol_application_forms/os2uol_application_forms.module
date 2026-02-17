@@ -75,7 +75,8 @@ function os2uol_application_forms_node_presave(\Drupal\Core\Entity\EntityInterfa
  *   The date of the event (Afviklingsdato) in timestamp format.
  *
  * @return string
- *   Returns the machine-readable value for the semester, e.g., "1_halvar_2024_2025" or "2_halvar_2024_2025".
+ *   Returns the machine-readable value for the semester, e.g.,
+ *   "1_halvar_2024_2025" or "2_halvar_2024_2025".
  */
 function calculateSemesterMachineName($afviklingsdato) {
   // Get the timestamp of the given date (Afviklingsdato).
@@ -200,7 +201,7 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
     }
 
     // Create summary markup for non-transport forms.
-    if (in_array($view->id(), ['free_course_request', 'theater_refund'])) {
+    if ($view->id() == 'free_course_request') {
       $sum_markup_general = Markup::create(
         '<table class="applications-summary">' .
         '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
@@ -208,6 +209,49 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
         '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
         '</table>'
       );
+
+      // Attach the general summary only for non-transport views.
+      $view->attachment_before['sum_markup_general'] = [
+        '#markup' => $sum_markup_general,
+        '#weight' => -10, // Ensure it appears before other elements.
+      ];
+    }
+
+    // Create summary for theater refund
+    if ($view->id() == 'theater_refund') {
+      if ($view->current_display == 'page_4') {
+        $year = $view->getExposedInput()['budget_year'] ?? '';
+        $allocated_budget_string = '';
+        $remaining_budget_string = '';
+
+        if (!empty($year)) {
+          $user = \Drupal\user\Entity\User::load(Drupal::currentUser()->id());
+
+          $allocated_budget = (float) os2uol_get_user_allocated_budget_for_year($user, $year);
+          $allocated_budget_string = number_format($allocated_budget, 2, ',', '.') . ' kr.';
+
+          $remaining_budget = $allocated_budget - $granted_amount;
+          $remaining_budget_string = number_format($remaining_budget, 2, ',', '.') . ' kr.';
+        }
+
+        $sum_markup_general = Markup::create(
+          '<table class="applications-summary">' .
+          '<tr><td class="applications-summary__label">År: </td><td class="applications-summary__value">' . $year . '</td></tr>' .
+          '<tr><td class="applications-summary__label">Tildelt budget: </td><td class="applications-summary__value">' . $allocated_budget_string . '</td></tr>' .
+          '<tr><td class="applications-summary__label">Restbudget: </td><td class="applications-summary__value">' . $remaining_budget_string . '</td></tr>' .
+          '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '</table>'
+        );
+      } else {
+        $sum_markup_general = Markup::create(
+          '<table class="applications-summary">' .
+          '<tr><td class="applications-summary__label">Ansøgt sum: </td><td class="applications-summary__value">' . number_format($requested_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '<tr><td class="applications-summary__label">Bevilget sum: </td><td class="applications-summary__value">' . number_format($granted_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '<tr><td class="applications-summary__label">Forbrugt sum: </td><td class="applications-summary__value">' . number_format($spent_amount, 2, ',', '.') . ' kr.</td></tr>' .
+          '</table>'
+        );
+      }
 
       // Attach the general summary only for non-transport views.
       $view->attachment_before['sum_markup_general'] = [
@@ -442,28 +486,28 @@ function os2uol_application_forms_entity_presave(Drupal\Core\Entity\EntityInterf
       $entity->set('field_rfc_payment_date', $current_timestamp);
     }
   }
-  
+
   // Fix for UOLOS2-420: Ensure field updates are saved even when moderation state doesn't change
   // This is particularly important for the "Annulleret" (cancelled) state
-  if ($entity instanceof \Drupal\node\Entity\Node && 
+  if ($entity instanceof \Drupal\node\Entity\Node &&
       ($entity->bundle() === 'theater_refund' || $entity->bundle() === 'free_course_request')) {
-    
+
     // Check if we have an original entity (updating existing node)
     if (isset($entity->original)) {
       $original_state = $entity->original->get('moderation_state')->getString();
       $new_state = $entity->get('moderation_state')->getString();
-      
+
       // If the state is "cancelled" and remains "cancelled", ensure changes are properly saved
       if ($original_state === 'cancelled' && $new_state === 'cancelled') {
         // Force a new revision to ensure field changes are captured
         $entity->setNewRevision(TRUE);
         $entity->setRevisionCreationTime(time());
-        
+
         // Set revision log message to track this update
         if ($entity->hasField('revision_log')) {
           $entity->setRevisionLogMessage('Updated fields while maintaining cancelled status');
         }
-        
+
         // Ensure the entity is marked as changed to trigger cache invalidation
         $entity->setChangedTime(time());
       }
@@ -503,16 +547,16 @@ function os2uol_application_forms_entity_update(\Drupal\Core\Entity\EntityInterf
       $session->save();
     }
   }
-  
+
   // Fix for UOLOS2-420: Invalidate cache tags for application forms to ensure list views are updated
-  if ($entity instanceof \Drupal\node\Entity\Node && 
+  if ($entity instanceof \Drupal\node\Entity\Node &&
       ($entity->bundle() === 'theater_refund' || $entity->bundle() === 'free_course_request')) {
-    
+
     // Check if we're updating from cancelled to cancelled state
     if (isset($entity->original)) {
       $original_state = $entity->original->get('moderation_state')->getString();
       $new_state = $entity->get('moderation_state')->getString();
-      
+
       if ($original_state === 'cancelled' && $new_state === 'cancelled') {
         // Invalidate specific cache tags to ensure views are refreshed
         \Drupal\Core\Cache\Cache::invalidateTags([
@@ -520,7 +564,7 @@ function os2uol_application_forms_entity_update(\Drupal\Core\Entity\EntityInterf
           'node_list:' . $entity->bundle(),
           'views_data:' . $entity->bundle(),
         ]);
-        
+
         // Log the cache invalidation for debugging
         \Drupal::logger('os2uol_application_forms')->info('Cache invalidated for @type node @nid after cancelled->cancelled update', [
           '@type' => $entity->bundle(),
@@ -648,7 +692,7 @@ function os2uol_application_forms_mail_alter(&$message) {
     'user_register_pending_approval_admin',
     'user_status_activated',
     'user_status_blocked',
-    'user_status_canceled'
+    'user_status_canceled',
   ];
 
   if (in_array($message['id'], $core_user_mail_types)) {
@@ -707,11 +751,33 @@ function os2uol_application_forms_views_data_alter(array &$data) {
  * Implements hook_views_pre_build().
  */
 function os2uol_application_forms_views_pre_build(ViewExecutable $view) {
-  if ($view->id() === 'school_budget_overview') {
+  $budget_year_views = [
+    'school_budget_overview',
+    'theater_refund',
+  ];
+
+  if (in_array($view->id(), $budget_year_views)) {
     $exposed_input = $view->getExposedInput();
+
+    if ($view->id() == 'theater_refund' && $view->current_display == 'page_4' && !isset($exposed_input['budget_year'])) {
+      $exposed_input['budget_year'] = date('Y');
+    }
 
     $exposed_input['budget_year_1'] = $exposed_input['budget_year'] ?? '';
 
     $view->setExposedInput($exposed_input);
   }
+}
+
+function os2uol_get_user_allocated_budget_for_year(\Drupal\user\UserInterface $user, string $year): string {
+  $allocated_budget_paragraphs = $user->get('field_allocated_budget')->referencedEntities();
+
+  /** @var \Drupal\paragraphs\ParagraphInterface $budget_paragraph */
+  foreach ($allocated_budget_paragraphs as $budget_paragraph) {
+    if (str_starts_with($budget_paragraph->get('field_allocated_budget_year')->getString(), $year)) {
+      return $budget_paragraph->get('field_allocated_budget')->getString();
+    }
+  }
+
+  return "";
 }

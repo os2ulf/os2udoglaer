@@ -1,0 +1,6 @@
+services:
+  os2uol_moderation.process_moderation:
+    class: Drupal\os2uol_moderation\Command\ProcessModerationCommand
+    arguments: ['@os2uol_moderation.moderation_service']
+    tags:
+      - { name: console.command }
