@@ -249,11 +249,15 @@ function os2uol_moderation_entity_presave(EntityInterface $entity) {
  * Implements hook_ENTITY_TYPE_update().
  */
 function os2uol_moderation_node_update(\Drupal\node\NodeInterface $node): void {
-  // Reset key value expiry for first_warning and second_warning unpublishing mails
-  $key_value_store = Drupal::keyValueExpirable(\Drupal\os2uol_moderation\ModerationService::KEY_VALUE_STORE);
+  // Reset key value store only if the revision updated is the main one
+  // This ensures nodes in draft or unapproved don't reset a warning email chain
+  if ($node->isDefaultRevision()) {
+    // Reset key value expiry for first_warning and second_warning unpublishing mails
+    $key_value_store = Drupal::keyValueExpirable(\Drupal\os2uol_moderation\ModerationService::KEY_VALUE_STORE);
 
-  $key_value_store->deleteMultiple([
-    "first_warning:node:{$node->id()}",
-    "second_warning:node:{$node->id()}"
-  ]);
+    $key_value_store->deleteMultiple([
+      "first_warning:node:{$node->id()}",
+      "second_warning:node:{$node->id()}"
+    ]);
+  }
 }
