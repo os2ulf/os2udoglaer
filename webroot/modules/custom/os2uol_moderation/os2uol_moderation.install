@@ -1,6 +1,6 @@
 <?php
 
-use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\os2uol_moderation\ModerationService;
 
 /**
  * Change the translation of "Preview".
@@ -55,4 +55,13 @@ function os2uol_moderation_update_10001(&$sandbox) {
         ->save();
     }
   }
+}
+
+/**
+ * Purge key_value_expirable store for first and second warning emails before unpublishing
+ */
+function os2uol_moderation_update_10002(&$sandbox) {
+  $key_value_store = Drupal::keyValueExpirable(ModerationService::KEY_VALUE_STORE);
+
+  $key_value_store->deleteAll();
 }
