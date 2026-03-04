@@ -149,12 +149,13 @@ class ModerationService {
    */
   protected function checkAllYear(Node $node, int $unpublishInterval): bool {
     $config = $this->configFactory->get('os2uol_moderation.settings');
-    $firstWarning = $config->get('first_warning') * 24 * 60 * 60;
-    $secondWarning = $config->get('second_warning') * 24 * 60 * 60;
 
     $lastUpdated = $node->getChangedTime();
     $timeSinceUpdate = time() - $lastUpdated;
-    $nid = $node->id();
+
+    // First and second warning are saved as days before unpublishing
+    $firstWarning = $unpublishInterval - ($config->get('first_warning') * 24 * 60 * 60);
+    $secondWarning = $unpublishInterval - ($config->get('second_warning') * 24 * 60 * 60);
 
     if ($timeSinceUpdate >= $unpublishInterval) {
       $this->unpublishNode($node, 'time_since_update');
