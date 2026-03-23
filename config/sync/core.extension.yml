@@ -140,6 +140,7 @@ module:
   search_api_solr: 0
   serialization: 0
   sharedemail: 0
+  sharedemail_pass_reset: 0
   shortcut: 0
   simple_access_log: 0
   simple_sitemap: 0

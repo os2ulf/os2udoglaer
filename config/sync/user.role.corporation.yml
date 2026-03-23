@@ -22,6 +22,7 @@ dependencies:
     - node
     - os2uol_pretix
     - replicate_ui
+    - sharedemail
     - system
     - toolbar
     - workbench
@@ -30,6 +31,7 @@ label: Virksomhed
 weight: -4
 is_admin: null
 permissions:
+  - 'access shared email message'
   - 'access toolbar'
   - 'access workbench'
   - 'add all pretix events'
@@ -45,6 +47,7 @@ permissions:
   - 'create internship content on assigned domains'
   - 'create junior_apprenticeship content'
   - 'create news content'
+  - 'create shared email account'
   - 'delete own course content'
   - 'delete own course_educators content'
   - 'delete own exercise content'
