@@ -56,6 +56,7 @@ dependencies:
     - redirect
     - replicate_ui
     - role_delegation
+    - sharedemail
     - system
     - toolbar
     - view_unpublished
@@ -75,6 +76,7 @@ permissions:
   - 'access contextual links'
   - 'access files overview'
   - 'access own webform configuration'
+  - 'access shared email message'
   - 'access site reports'
   - 'access toolbar'
   - 'access user profiles'
@@ -126,6 +128,7 @@ permissions:
   - 'create quote block content'
   - 'create reusable blocks'
   - 'create rte block content'
+  - 'create shared email account'
   - 'create slideshow block content'
   - 'create spacer block content'
   - 'create url aliases'
