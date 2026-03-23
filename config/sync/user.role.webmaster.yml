@@ -80,6 +80,7 @@ dependencies:
     - redirect
     - replicate_ui
     - role_delegation
+    - sharedemail
     - smtp
     - system
     - taxonomy
@@ -102,6 +103,7 @@ permissions:
   - 'access files overview'
   - 'access inactive domains'
   - 'access own webform configuration'
+  - 'access shared email message'
   - 'access site reports'
   - 'access taxonomy overview'
   - 'access toolbar'
@@ -169,6 +171,7 @@ permissions:
   - 'create quote block content'
   - 'create reusable blocks'
   - 'create rte block content'
+  - 'create shared email account'
   - 'create slideshow block content'
   - 'create spacer block content'
   - 'create terms in areas_of_interest'

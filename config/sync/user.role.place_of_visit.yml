@@ -6,6 +6,7 @@ dependencies:
     - filter.format.basic_html
   module:
     - filter
+    - sharedemail
     - system
     - toolbar
 id: place_of_visit
@@ -13,6 +14,8 @@ label: Besøgssted
 weight: -1
 is_admin: null
 permissions:
+  - 'access shared email message'
   - 'access toolbar'
+  - 'create shared email account'
   - 'use text format basic_html'
   - 'view the administration theme'
