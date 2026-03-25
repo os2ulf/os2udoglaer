@@ -100,11 +100,6 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       $node = \Drupal\node\Entity\Node::load($form_state->getFormObject()->getEntity()->id());
       $is_author = ($node->getOwnerId() == $current_user->id());
 
-      // Allow access if the user is the author.
-      if ($is_author) {
-        return;
-      }
-
       // Set the default domain ID.
       $default_domain_id = Os2uolDomain::DEFAULT_DOMAIN_ID;
 
@@ -124,8 +119,10 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
       // Check if the user has access to the node's domain(s).
       $node_access = !empty(array_intersect($user_domains, $filtered_domains));
 
-      if (!$node_access) {
-        throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException('User does not have access to the content\'s domain.');
+      if (!$is_author) {
+        if (!$node_access) {
+          throw new \Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException('User does not have access to the content\'s domain.');
+        }
       }
     }
   }
