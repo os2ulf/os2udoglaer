@@ -1,0 +1,21 @@
+uuid: a37b29bc-bca9-4912-a213-b7a3f5e5fa02
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quantity_desc_expanded
+    - node.type.course_educators
+id: node.course_educators.field_quantity_desc_expanded
+field_name: field_quantity_desc_expanded
+entity_type: node
+bundle: course_educators
+label: 'Vis altid'
+description: 'Vis beskrivelse til antal udvidet'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

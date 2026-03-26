@@ -1,0 +1,21 @@
+uuid: 61ad3d21-2b0f-48d9-b261-0567ff96409c
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_desc_of_duration_expanded
+    - node.type.course_educators
+id: node.course_educators.field_desc_of_duration_expanded
+field_name: field_desc_of_duration_expanded
+entity_type: node
+bundle: course_educators
+label: 'Vis altid'
+description: 'Vis beskrivelse til varighed udvidet'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

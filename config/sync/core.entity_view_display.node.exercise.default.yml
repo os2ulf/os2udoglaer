@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.exercise.field_activity_select
     - field.field.node.exercise.field_banner
     - field.field.node.exercise.field_curriculum_themes
+    - field.field.node.exercise.field_desc_of_duration_expanded
+    - field.field.node.exercise.field_desc_of_period_expanded
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
     - field.field.node.exercise.field_domain_access
@@ -47,6 +49,26 @@ targetEntityType: node
 bundle: exercise
 mode: default
 content:
+  field_desc_of_duration_expanded:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_desc_of_period_expanded:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
   headless_domain_preview:
     settings: {  }
     third_party_settings: {  }

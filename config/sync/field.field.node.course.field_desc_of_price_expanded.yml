@@ -1,0 +1,21 @@
+uuid: 02e63999-2ecf-4419-97e3-4fe1f47d9c4f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_desc_of_price_expanded
+    - node.type.course
+id: node.course.field_desc_of_price_expanded
+field_name: field_desc_of_price_expanded
+entity_type: node
+bundle: course
+label: 'Vis altid'
+description: 'Vis beskrivelse til pris udvidet'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

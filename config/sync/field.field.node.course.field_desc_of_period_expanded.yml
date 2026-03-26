@@ -1,0 +1,21 @@
+uuid: 5663a6f6-0c05-47bd-8ec3-134d1e8de548
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_desc_of_period_expanded
+    - node.type.course
+id: node.course.field_desc_of_period_expanded
+field_name: field_desc_of_period_expanded
+entity_type: node
+bundle: course
+label: 'Vis altid'
+description: 'Vis yderligere oplysninger til periode udvidet'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
