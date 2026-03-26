@@ -439,7 +439,7 @@ content:
       maxlength:
         maxlength_js: null
         maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
-        maxlength_js_summary: 82
+        maxlength_js_summary: 155
         maxlength_js_label_summary: 'Begrænset til @limit karakterer, tilgængelige: <strong>@remaining</strong>'
         maxlength_js_enforce: false
   created:

@@ -42,9 +42,11 @@ dependencies:
     - image.style.medium
     - node.type.exercise
   module:
+    - allowed_formats
     - conditional_fields
     - field_group
     - focal_point
+    - maxlength
     - metatag
     - paragraphs
     - path
@@ -324,7 +326,16 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
-    third_party_settings: {  }
+    third_party_settings:
+      allowed_formats:
+        hide_help: '1'
+        hide_guidelines: '1'
+      maxlength:
+        maxlength_js: null
+        maxlength_js_label: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_summary: 155
+        maxlength_js_label_summary: 'Content limited to @limit characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
   created:
     type: datetime_timestamp
     weight: 13
