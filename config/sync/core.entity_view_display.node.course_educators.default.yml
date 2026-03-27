@@ -65,46 +65,6 @@ targetEntityType: node
 bundle: course_educators
 mode: default
 content:
-  field_desc_of_duration_expanded:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 2
-    region: content
-  field_desc_of_period_expanded:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 4
-    region: content
-  field_desc_of_price_expanded:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 3
-    region: content
-  field_quantity_desc_expanded:
-    type: boolean
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    weight: 5
-    region: content
   headless_domain_preview:
     settings: {  }
     third_party_settings: {  }
@@ -117,6 +77,9 @@ hidden:
   field_banner: true
   field_curriculum_themes: true
   field_dawa_address: true
+  field_desc_of_duration_expanded: true
+  field_desc_of_period_expanded: true
+  field_desc_of_price_expanded: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true
@@ -145,6 +108,7 @@ hidden:
   field_price: true
   field_primary_school_subject: true
   field_quantity: true
+  field_quantity_desc_expanded: true
   field_quantity_description: true
   field_registration_deadline: true
   field_registration_email: true
