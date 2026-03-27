@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.exercise.field_activity_select
     - field.field.node.exercise.field_banner
     - field.field.node.exercise.field_curriculum_themes
+    - field.field.node.exercise.field_desc_of_duration_expanded
+    - field.field.node.exercise.field_desc_of_period_expanded
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
     - field.field.node.exercise.field_domain_access
@@ -131,8 +133,10 @@ third_party_settings:
       children:
         - field_period_select
         - field_description_of_period
+        - field_desc_of_period_expanded
         - field_duration_select
         - field_description_of_duration
+        - field_desc_of_duration_expanded
       label: 'Periode og varighed'
       region: content
       parent_name: ''
@@ -395,9 +399,23 @@ content:
             effect: show
             effect_options: {  }
             selector: ''
+  field_desc_of_duration_expanded:
+    type: boolean_checkbox
+    weight: 25
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_desc_of_period_expanded:
+    type: boolean_checkbox
+    weight: 22
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_description_of_duration:
     type: text_textarea
-    weight: 23
+    weight: 24
     region: content
     settings:
       rows: 5
@@ -419,7 +437,7 @@ content:
     third_party_settings: {  }
   field_duration_select:
     type: options_buttons
-    weight: 22
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }

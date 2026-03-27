@@ -9,6 +9,9 @@ dependencies:
     - field.field.node.course_educators.field_banner
     - field.field.node.course_educators.field_curriculum_themes
     - field.field.node.course_educators.field_dawa_address
+    - field.field.node.course_educators.field_desc_of_duration_expanded
+    - field.field.node.course_educators.field_desc_of_period_expanded
+    - field.field.node.course_educators.field_desc_of_price_expanded
     - field.field.node.course_educators.field_description_of_duration
     - field.field.node.course_educators.field_description_of_period
     - field.field.node.course_educators.field_description_of_price
@@ -37,6 +40,7 @@ dependencies:
     - field.field.node.course_educators.field_price
     - field.field.node.course_educators.field_primary_school_subject
     - field.field.node.course_educators.field_quantity
+    - field.field.node.course_educators.field_quantity_desc_expanded
     - field.field.node.course_educators.field_quantity_description
     - field.field.node.course_educators.field_registration_deadline
     - field.field.node.course_educators.field_registration_email
@@ -467,6 +471,9 @@ hidden:
   field_banner: true
   field_curriculum_themes: true
   field_dawa_address: true
+  field_desc_of_duration_expanded: true
+  field_desc_of_period_expanded: true
+  field_desc_of_price_expanded: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true
@@ -492,6 +499,7 @@ hidden:
   field_price: true
   field_primary_school_subject: true
   field_quantity: true
+  field_quantity_desc_expanded: true
   field_quantity_description: true
   field_registration_deadline: true
   field_registration_email: true
