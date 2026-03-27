@@ -11,6 +11,9 @@ dependencies:
     - field.field.node.course.field_course_type
     - field.field.node.course.field_curriculum_themes
     - field.field.node.course.field_dawa_address
+    - field.field.node.course.field_desc_of_duration_expanded
+    - field.field.node.course.field_desc_of_period_expanded
+    - field.field.node.course.field_desc_of_price_expanded
     - field.field.node.course.field_description_of_duration
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
@@ -42,6 +45,7 @@ dependencies:
     - field.field.node.course.field_primary_school_subject
     - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
+    - field.field.node.course.field_quantity_desc_expanded
     - field.field.node.course.field_quantity_description
     - field.field.node.course.field_registration_deadline
     - field.field.node.course.field_registration_description
@@ -98,6 +102,9 @@ hidden:
   field_course_type: true
   field_curriculum_themes: true
   field_dawa_address: true
+  field_desc_of_duration_expanded: true
+  field_desc_of_period_expanded: true
+  field_desc_of_price_expanded: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true
@@ -129,6 +136,7 @@ hidden:
   field_primary_school_subject: true
   field_purpose: true
   field_quantity: true
+  field_quantity_desc_expanded: true
   field_quantity_description: true
   field_registration_deadline: true
   field_registration_description: true
@@ -151,6 +159,7 @@ hidden:
   field_video_title: true
   field_view_on_map: true
   field_youth_education_subject: true
+  headless_domain_preview: true
   langcode: true
   search_api_excerpt: true
   workbench_reviewer: true
