@@ -163,6 +163,19 @@ display:
         options: {  }
       empty: {  }
       sorts:
+        random:
+          id: random
+          table: views
+          field: random
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: random
+          order: ASC
+          expose:
+            label: Tilfældig
+            field_identifier: random
+          exposed: true
         created:
           id: created
           table: search_api_index_search
@@ -476,7 +489,7 @@ display:
       footer: {  }
       display_extenders: {  }
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -813,7 +826,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Erhvervspraktik'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -1945,7 +1958,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Erhvervspraktik'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -2383,7 +2396,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Kursus'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -2828,7 +2841,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Kursus'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -3161,7 +3174,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Nyhed'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -3643,7 +3656,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - UV- og læringsforløb - dagtilbud'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -4131,7 +4144,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - UV- og læringsforløb - dagtilbud'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -4517,7 +4530,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Opgave - dagtilbud'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -5008,7 +5021,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - UV- og læringsforløb - grundskole'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -5496,7 +5509,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - UV- og læringsforløb - grundskole'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -5977,7 +5990,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - UV- og læringsforløb - ung.udd.'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -6465,7 +6478,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - UV- og læringsforløb - ung.udd.'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -6851,7 +6864,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Opgave - grundskole'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
@@ -7238,7 +7251,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Opgave - ung.udd.'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
