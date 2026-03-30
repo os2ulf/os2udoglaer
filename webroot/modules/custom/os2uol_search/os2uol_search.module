@@ -38,17 +38,6 @@ function os2uol_search_views_pre_build(\Drupal\views\ViewExecutable $view) {
 }
 
 /**
- * Implements hook_form_views_exposed_form_alter().
- */
-function os2uol_search_form_views_exposed_form_alter(array &$form, \Drupal\Core\Form\FormStateInterface $form_state) {
-  $view = $form_state->get('view');
-
-  if ($view instanceof \Drupal\views\ViewExecutable && $view->id() == 'content_search') {
-    unset($form['sort_by']['#options']['random']);
-  }
-}
-
-/**
  * Implements hook_HOOK_transform_alter().
  */
 function os2uol_search_view_content_search_transform_alter(&$transformation) {
