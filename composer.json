@@ -100,6 +100,7 @@
         "drupal/search_api_solr": "^4.3",
         "drupal/sendgrid_integration": "^2.2",
         "drupal/sharedemail": "^3.2",
+        "drupal/sharedemail_pass_reset": "^2.0@beta",
         "drupal/simple_access_log": "^2.0",
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",

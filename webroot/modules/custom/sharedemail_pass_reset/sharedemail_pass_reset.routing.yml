@@ -1,7 +1,0 @@
-sharedemail_pass_reset.settings_form:
-  path: '/admin/config/people/shared-email-pass-reset'
-  defaults:
-    _form: 'Drupal\sharedemail_pass_reset\Form\SharedEmailPassResetSettingsForm'
-    _title: 'Shared E-Mail Password Reset settings'
-  requirements:
-    _permission: 'administer shared email pass reset'
