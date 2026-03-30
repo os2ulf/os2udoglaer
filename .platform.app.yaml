@@ -67,7 +67,6 @@ hooks:
     /app/vendor/bin/drush -y config-import
     /app/vendor/bin/drush locale-check
     /app/vendor/bin/drush locale-update
-    /app/vendor/bin/drush image-flush --all
     /app/vendor/bin/drush sset system.maintenance_mode 0 --input-format=integer
 relationships:
   database: "db:mysql"
