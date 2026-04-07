@@ -37,3 +37,30 @@ function os2uol_search_update_10000() {
 
   $index->reindex();
 }
+
+/**
+ * Import Danish translations for os2uol_search module.
+ */
+function os2uol_search_update_10001() {
+  $langcode = 'da';
+  $module_path = \Drupal::service('extension.list.module')->getPath('os2uol_search');
+  $po_file = $module_path . '/translations/da.po';
+
+  $reader = new \Drupal\Component\Gettext\PoStreamReader();
+  $reader->setURI($po_file);
+  $reader->setLangcode($langcode);
+  $reader->open();
+  $header = $reader->getHeader();
+
+  $writer = new \Drupal\locale\PoDatabaseWriter();
+  $writer->setLangcode($langcode);
+  $writer->setOptions([
+    'overwrite_options' => [
+      'not_customized' => TRUE,
+      'customized' => FALSE,
+    ],
+    'customized' => LOCALE_NOT_CUSTOMIZED,
+  ]);
+  $writer->setHeader($header);
+  $writer->writeItems($reader);
+}
