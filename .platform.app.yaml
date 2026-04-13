@@ -81,7 +81,7 @@ crons:
     commands:
       start: "/app/vendor/bin/drush core-cron"
   content_moderation:
-    spec: "*/15 * * * *"
+    spec: "0 0/6 * * *"
     commands:
       start: |
         /app/vendor/bin/drush --uri=api.ulfiaarhus.dk os2uol_process_moderation
