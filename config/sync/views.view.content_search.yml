@@ -859,6 +859,19 @@ display:
             label: ''
             field_identifier: ''
           exposed: false
+        random:
+          id: random
+          table: views
+          field: random
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: random
+          order: ASC
+          expose:
+            label: Tilfældig
+            field_identifier: random
+          exposed: true
         created:
           id: created
           table: search_api_index_search
@@ -1218,7 +1231,7 @@ display:
           pager_transform_links_destination: current
       block_description: 'Søg - Juniormesterlære'
     cache_metadata:
-      max-age: -1
+      max-age: 0
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
