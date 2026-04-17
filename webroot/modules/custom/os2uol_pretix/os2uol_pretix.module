@@ -474,7 +474,11 @@ function os2uol_pretix_tokens($type, $tokens, array $data, array $options, Bubbl
       foreach ($tokens as $name => $original) {
         switch ($name) {
           case 'name':
-            $replacements[$original] = $order_line[$name]['da'] ?? $order_line[$name][array_key_first($order_line[$name])] ?? '';
+            if (is_array($order_line[$name])) {
+              $replacements[$original] = $order_line[$name]['da'] ?? $order_line[$name][array_key_first($order_line[$name])] ?? '';
+            } else {
+              $replacements[$original] = '';
+            }
             break;
 
           case 'date_from':

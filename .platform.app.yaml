@@ -67,7 +67,6 @@ hooks:
     /app/vendor/bin/drush -y config-import
     /app/vendor/bin/drush locale-check
     /app/vendor/bin/drush locale-update
-    /app/vendor/bin/drush image-flush --all
     /app/vendor/bin/drush sset system.maintenance_mode 0 --input-format=integer
 relationships:
   database: "db:mysql"
@@ -78,11 +77,11 @@ relationships:
 crons:
   # Run Drupal's cron tasks every 1 minutes.
   drupal:
-    spec: "*/1 * * * *"
+    spec: "*/5 * * * *"
     commands:
       start: "/app/vendor/bin/drush core-cron"
   content_moderation:
-    spec: "*/15 * * * *"
+    spec: "0 0/6 * * *"
     commands:
       start: |
         /app/vendor/bin/drush --uri=api.ulfiaarhus.dk os2uol_process_moderation

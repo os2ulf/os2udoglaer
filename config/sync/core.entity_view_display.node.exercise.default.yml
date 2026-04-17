@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.exercise.field_activity_select
     - field.field.node.exercise.field_banner
     - field.field.node.exercise.field_curriculum_themes
+    - field.field.node.exercise.field_desc_of_duration_expanded
+    - field.field.node.exercise.field_desc_of_period_expanded
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
     - field.field.node.exercise.field_domain_access
@@ -60,6 +62,8 @@ hidden:
   field_activity_select: true
   field_banner: true
   field_curriculum_themes: true
+  field_desc_of_duration_expanded: true
+  field_desc_of_period_expanded: true
   field_description_of_duration: true
   field_description_of_period: true
   field_domain_access: true

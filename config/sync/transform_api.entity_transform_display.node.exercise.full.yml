@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.exercise.field_activity_select
     - field.field.node.exercise.field_banner
     - field.field.node.exercise.field_curriculum_themes
+    - field.field.node.exercise.field_desc_of_duration_expanded
+    - field.field.node.exercise.field_desc_of_period_expanded
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
     - field.field.node.exercise.field_domain_access
@@ -51,63 +53,77 @@ mode: full
 content:
   body:
     type: text_format
-    weight: '1'
+    weight: '2'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_ackground_knowledge:
     type: text_format
-    weight: '4'
+    weight: '5'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_activities:
     type: text_format
-    weight: '5'
+    weight: '6'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_activity_select:
     type: entity_reference_labels
-    weight: '12'
+    weight: '13'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_banner:
     type: entity_reference_labels
-    weight: '26'
+    weight: '27'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_curriculum_themes:
     type: entity_reference_labels
-    weight: '11'
+    weight: '12'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_desc_of_duration_expanded:
+    type: boolean
+    weight: '34'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_desc_of_period_expanded:
+    type: boolean
+    weight: '35'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_description_of_duration:
     type: text_format
-    weight: '16'
+    weight: '17'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_description_of_period:
     type: text_format
-    weight: '18'
+    weight: '19'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_duration_select:
     type: entity_reference_labels
-    weight: '15'
+    weight: '16'
     region: content
     label: omit
     settings: {  }
@@ -121,7 +137,7 @@ content:
     third_party_settings: {  }
   field_focus:
     type: entity_reference_labels
-    weight: '27'
+    weight: '28'
     region: content
     label: omit
     settings: {  }
@@ -135,14 +151,14 @@ content:
     third_party_settings: {  }
   field_how_to:
     type: text_format
-    weight: '3'
+    weight: '4'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_image:
     type: responsive_image
-    weight: '19'
+    weight: '20'
     region: content
     label: omit
     settings:
@@ -160,42 +176,42 @@ content:
     third_party_settings: {  }
   field_period_select:
     type: entity_reference_labels
-    weight: '17'
+    weight: '18'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_post_processing:
     type: text_format
-    weight: '6'
+    weight: '7'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_preparation:
     type: text_format
-    weight: '28'
+    weight: '29'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_primary_school_subject:
     type: entity_reference_labels
-    weight: '13'
+    weight: '14'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_purpose_exercise:
     type: text_format
-    weight: '2'
+    weight: '3'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_related_excercises:
     type: entity_transform
-    weight: '7'
+    weight: '8'
     region: content
     label: omit
     settings:
@@ -203,7 +219,7 @@ content:
     third_party_settings: {  }
   field_related_user:
     type: entity_transform
-    weight: '23'
+    weight: '24'
     region: content
     label: omit
     settings:
@@ -211,7 +227,7 @@ content:
     third_party_settings: {  }
   field_sustainability_goals:
     type: entity_transform
-    weight: '24'
+    weight: '25'
     region: content
     label: omit
     settings:
@@ -219,42 +235,42 @@ content:
     third_party_settings: {  }
   field_sustainability_goals_desc:
     type: text_format
-    weight: '25'
+    weight: '26'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_target_group:
     type: entity_reference_labels
-    weight: '0'
+    weight: '1'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_daycare:
     type: entity_reference_labels
-    weight: '8'
+    weight: '9'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_primary_school:
     type: entity_reference_labels
-    weight: '9'
+    weight: '10'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_trgt_grp_youth_education:
     type: entity_reference_labels
-    weight: '10'
+    weight: '11'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video:
     type: entity_transform
-    weight: '22'
+    weight: '23'
     region: content
     label: omit
     settings:
@@ -262,14 +278,14 @@ content:
     third_party_settings: {  }
   field_video_description:
     type: text_format
-    weight: '21'
+    weight: '22'
     region: content
     label: omit
     settings: {  }
     third_party_settings: {  }
   field_video_title:
     type: value
-    weight: '20'
+    weight: '21'
     region: content
     label: omit
     settings: {  }
@@ -284,7 +300,7 @@ content:
     third_party_settings: {  }
   field_youth_education_subject:
     type: entity_reference_labels
-    weight: '14'
+    weight: '15'
     region: content
     label: omit
     settings: {  }

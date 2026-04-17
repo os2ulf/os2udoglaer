@@ -10,9 +10,12 @@ dependencies:
     - field.field.node.exercise.field_activity_select
     - field.field.node.exercise.field_banner
     - field.field.node.exercise.field_curriculum_themes
+    - field.field.node.exercise.field_desc_of_duration_expanded
+    - field.field.node.exercise.field_desc_of_period_expanded
     - field.field.node.exercise.field_description_of_duration
     - field.field.node.exercise.field_description_of_period
     - field.field.node.exercise.field_domain_access
+    - field.field.node.exercise.field_domain_all_affiliates
     - field.field.node.exercise.field_duration_select
     - field.field.node.exercise.field_exclude_from_profile
     - field.field.node.exercise.field_exclude_from_search
@@ -72,6 +75,8 @@ hidden:
   field_activity_select: true
   field_banner: true
   field_curriculum_themes: true
+  field_desc_of_duration_expanded: true
+  field_desc_of_period_expanded: true
   field_description_of_duration: true
   field_description_of_period: true
   field_domain_access: true
@@ -102,6 +107,7 @@ hidden:
   field_video_title: true
   field_work_documents: true
   field_youth_education_subject: true
+  headless_domain_preview: true
   langcode: true
   search_api_excerpt: true
   workbench_reviewer: true

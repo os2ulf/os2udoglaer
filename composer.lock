@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0efb707c6649f3430b5fc839d25096f4",
+    "content-hash": "cb6d87e0b32ab6949bb65d46481bafb7",
     "packages": [
         {
             "name": "algolia/places",
@@ -6827,6 +6827,58 @@
             }
         },
         {
+            "name": "drupal/sharedemail_pass_reset",
+            "version": "2.0.0-beta2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/sharedemail_pass_reset.git",
+                "reference": "8.x-2.0-beta2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/sharedemail_pass_reset-8.x-2.0-beta2.zip",
+                "reference": "8.x-2.0-beta2",
+                "shasum": "da16c28108680464cdf10db337f62d60397e9ba0"
+            },
+            "require": {
+                "drupal/core": "^8 || ^9 || ^10"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "8.x-2.0-beta2",
+                    "datestamp": "1774276938",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "baikho",
+                    "homepage": "https://www.drupal.org/user/2727459"
+                },
+                {
+                    "name": "dreed47",
+                    "homepage": "https://www.drupal.org/user/20575"
+                },
+                {
+                    "name": "qandeel",
+                    "homepage": "https://www.drupal.org/user/387397"
+                }
+            ],
+            "description": "Enhances the password reset functionality when an e-mail address is used by more than one user account",
+            "homepage": "https://www.drupal.org/project/sharedemail_pass_reset",
+            "support": {
+                "source": "https://git.drupalcode.org/project/sharedemail_pass_reset"
+            }
+        },
+        {
             "name": "drupal/simple_access_log",
             "version": "2.0.1",
             "source": {
@@ -7126,17 +7178,17 @@
         },
         {
             "name": "drupal/transform_api",
-            "version": "2.1.4",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api.git",
-                "reference": "2.1.4"
+                "reference": "2.1.5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api-2.1.4.zip",
-                "reference": "2.1.4",
-                "shasum": "592aa125f3ebcfa21fc6a11ea7039724f84029b2"
+                "url": "https://ftp.drupal.org/files/projects/transform_api-2.1.5.zip",
+                "reference": "2.1.5",
+                "shasum": "7f2f3fb37061a20c0abb7328abfa1f96dfb9b3ce"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -7150,8 +7202,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.4",
-                    "datestamp": "1760338511",
+                    "version": "2.1.5",
+                    "datestamp": "1774531532",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -15654,6 +15706,7 @@
         "drupal/maxlength": 10,
         "drupal/pathologic": 15,
         "drupal/search_api_page": 10,
+        "drupal/sharedemail_pass_reset": 10,
         "drupal/transform_api_facets": 15,
         "drupal/ultimate_cron": 15,
         "drupal/views_base_url": 10,
@@ -15672,5 +15725,5 @@
     "platform-overrides": {
         "php": "8.3"
     },
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }

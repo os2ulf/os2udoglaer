@@ -1,0 +1,21 @@
+uuid: b889e8de-d332-46e7-b066-05fd98a3c953
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_quantity_desc_expanded
+    - node.type.course
+id: node.course.field_quantity_desc_expanded
+field_name: field_quantity_desc_expanded
+entity_type: node
+bundle: course
+label: 'Vis altid'
+description: 'Vis beskrivelse til antal udvidet'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

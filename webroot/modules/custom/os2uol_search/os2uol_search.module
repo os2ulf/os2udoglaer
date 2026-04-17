@@ -1,7 +1,24 @@
 <?php
 
-use Drupal\node\Entity\Node;
-use Drupal\user\Entity\User;
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_plugins_display_alter().
+ */
+function os2uol_search_views_plugins_display_alter(&$displays) {
+  if (!empty($displays['block']['class']) && $displays['block']['class'] == \Drupal\views\Plugin\views\display\Block::class) {
+    $displays['block']['class'] = \Drupal\os2uol_search\Plugin\Display\SearchViewsBlock::class;
+  }
+}
+
+/**
+ * Implements hook_transform_api_type_info_alter().
+ */
+function os2uol_search_transform_api_type_info_alter(array &$definitions) {
+  if (!empty($definitions['view']['class'])) {
+    $definitions['view']['class'] = \Drupal\os2uol_search\Plugin\Transform\Type\View::class;
+  }
+}
 
 /**
  * Implements hook_views_pre_build().
@@ -67,6 +84,14 @@ function os2uol_search_view_content_search_transform_alter(&$transformation) {
         '@view' => $view->id(),
         '@display' => $view->current_display,
       ]);
+    }
+  }
+
+  if (!empty($transformation['exposed_filters']['sort_by']['options'])) {
+    foreach ($transformation['exposed_filters']['sort_by']['options'] as $key => $option) {
+      if (($option->value ?? NULL) === 'random') {
+        unset($transformation['exposed_filters']['sort_by']['options'][$key]);
+      }
     }
   }
 }
