@@ -127,6 +127,54 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#default_value' => $config->get('text_positive_color'),
     ];
 
+    $form['tab_theme']['primary_button_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Primary button color'),
+      '#default_value' => $config->get('primary_button_color'),
+    ];
+
+    $form['tab_theme']['primary_button_text_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Primary button text color'),
+      '#default_value' => $config->get('primary_button_text_color'),
+    ];
+
+    $form['tab_theme']['primary_button_hover_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Primary button hover color'),
+      '#default_value' => $config->get('primary_button_hover_color'),
+    ];
+
+    $form['tab_theme']['primary_button_hover_text_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Primary button hover text color'),
+      '#default_value' => $config->get('primary_button_hover_text_color'),
+    ];
+
+    $form['tab_theme']['secondary_button_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Secondary button color'),
+      '#default_value' => $config->get('secondary_button_color'),
+    ];
+
+    $form['tab_theme']['secondary_button_text_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Secondary button text color'),
+      '#default_value' => $config->get('secondary_button_text_color'),
+    ];
+
+    $form['tab_theme']['secondary_button_hover_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Secondary button hover color'),
+      '#default_value' => $config->get('secondary_button_hover_color'),
+    ];
+
+    $form['tab_theme']['secondary_button_hover_text_color'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Secondary button hover text color'),
+      '#default_value' => $config->get('secondary_button_hover_text_color'),
+    ];
+
     $form['tab_scripts'] = [
       '#type' => 'details',
       '#title' => $this->t('Scripts'),
@@ -441,6 +489,14 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('secondary_background_text_color', $form_state->getValue('secondary_background_text_color'))
       ->set('tertiary_background_color', $form_state->getValue('tertiary_background_color'))
       ->set('tertiary_background_text_color', $form_state->getValue('tertiary_background_text_color'))
+      ->set('primary_button_color', $form_state->getValue('primary_button_color'))
+      ->set('primary_button_text_color', $form_state->getValue('primary_button_text_color'))
+      ->set('primary_button_hover_color', $form_state->getValue('primary_button_hover_color'))
+      ->set('primary_button_hover_text_color', $form_state->getValue('primary_button_hover_text_color'))
+      ->set('secondary_button_color', $form_state->getValue('secondary_button_color'))
+      ->set('secondary_button_text_color', $form_state->getValue('secondary_button_text_color'))
+      ->set('secondary_button_hover_color', $form_state->getValue('secondary_button_hover_color'))
+      ->set('secondary_button_hover_text_color', $form_state->getValue('secondary_button_hover_text_color'))
       ->set('text_positive_color', $form_state->getValue('text_positive_color'))
       ->set('text_negative_color', $form_state->getValue('text_negative_color'))
       ->set('site_tracking_script', $form_state->getValue('site_tracking_script'))
