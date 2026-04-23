@@ -5,7 +5,6 @@ dependencies:
   config:
     - user.role.administrator
     - user.role.bypass_workflow
-    - user.role.editor
     - user.role.webmaster
     - workflows.workflow.editorial
   module:
@@ -631,7 +630,6 @@ display:
           role:
             administrator: administrator
             webmaster: webmaster
-            editor: editor
             bypass_workflow: bypass_workflow
       cache:
         type: tag
@@ -1073,6 +1071,8 @@ display:
     position: 1
     display_options:
       display_extenders:
+        os2uol_search:
+          os2uol_search_result_string: ''
         transform_api_facets:
           transform_facets: {  }
         transform_api_views:
