@@ -1,3 +1,3 @@
 <?php
 
-$options['uri'] = 'os2udoglaer.localhost';
+$options['uri'] = 'os2udoglaer.test';
