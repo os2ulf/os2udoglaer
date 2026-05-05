@@ -1,0 +1,9 @@
+uuid: be694726-890d-4747-a19e-001267f0d9ab
+langcode: da
+status: true
+dependencies: {  }
+id: api_taetpaadig_roskilde_dk
+domain_id: api_udoglaer_roskilde_dk
+pattern: api.taetpaadig.roskilde.dk
+redirect: 0
+environment: default
