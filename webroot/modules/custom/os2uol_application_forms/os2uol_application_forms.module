@@ -3,6 +3,8 @@
 use Drupal\content_moderation\Entity\ContentModerationState;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\domain\Entity\Domain;
+use Drupal\node\NodeInterface;
+use Drupal\node\NodeStorageInterface;
 use Drupal\os2uol_application_forms\Os2Notification;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\views\ViewExecutable;
@@ -421,8 +423,8 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
   if (!empty($nids)) {
     $logger->info('Nodes found for anonymization: @nids', ['@nids' => implode(',', $nids)]);
 
-    // Get the storage handler for nodes and ensure it is cast as RevisionableStorageInterface.
-    /** @var \Drupal\Core\Entity\RevisionableStorageInterface $node_storage */
+    // Get the node storage handler.
+    /** @var \Drupal\node\NodeStorageInterface $node_storage */
     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 
     foreach ($nids as $nid) {
@@ -467,22 +469,20 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
       // Mark as anonymized.
       $node->set('field_data_anonymized', '1');
 
-      // Save the revision.
-      $node->save();
-
-      // Load revisions once again after saving the node
-      $revisions = $node_storage->revisionIds($node);
-      $default_revision = $node->getRevisionId();
-
-      // Remove all revisions
-      foreach ($revisions as $revision_id) {
-        // Skip default revision
-        if ($revision_id == $default_revision) {
-          continue;
-        }
-
-        $node_storage->deleteRevision($revision_id);
+      // Save anonymized data as the default revision. Some moderation states
+      // normally create non-default revisions, which would leave the old
+      // default revision containing personal data in place.
+      $node->setSyncing(TRUE);
+      try {
+        $node->setNewRevision(TRUE);
+        $node->isDefaultRevision(TRUE);
+        $node->save();
       }
+      finally {
+        $node->setSyncing(FALSE);
+      }
+
+      os2uol_application_forms_delete_non_default_revisions($node_storage, $node);
 
       foreach ($attachment_files as $attachment_file) {
         $attachment_file->delete();
@@ -496,6 +496,20 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
   }
   else {
     $logger->info('No nodes found for anonymization.');
+  }
+}
+
+/**
+ * Deletes all non-default revisions for a node.
+ */
+function os2uol_application_forms_delete_non_default_revisions(NodeStorageInterface $node_storage, NodeInterface $node) {
+  foreach ($node_storage->revisionIds($node) as $revision_id) {
+    $revision = $node_storage->loadRevision($revision_id);
+    if (!$revision || $revision->isDefaultRevision()) {
+      continue;
+    }
+
+    $node_storage->deleteRevision($revision_id);
   }
 }
 
