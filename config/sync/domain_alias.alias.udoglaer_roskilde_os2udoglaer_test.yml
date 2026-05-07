@@ -1,0 +1,9 @@
+uuid: ad080d35-28df-4727-abb4-40a85d03b3c6
+langcode: da
+status: true
+dependencies: {  }
+id: udoglaer_roskilde_os2udoglaer_test
+domain_id: api_udoglaer_roskilde_dk
+pattern: udoglaer.roskilde.os2udoglaer.test
+redirect: 0
+environment: default
