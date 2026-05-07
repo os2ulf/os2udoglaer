@@ -6,6 +6,7 @@ use Drupal\Core\Config\ImmutableConfig;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Language\LanguageManagerInterface;
 use Drupal\Core\Path\PathValidatorInterface;
+use Drupal\Core\Url;
 use Drupal\simple_sitemap\Entity\EntityHelper;
 use Drupal\simple_sitemap\Logger;
 use Drupal\simple_sitemap\Manager\CustomLinkManager;
@@ -32,24 +33,27 @@ class HeadlessCustomUrlGenerator extends CustomUrlGenerator {
   }
 
   protected function processDataSet($data_set): array {
-    $results = parent::processDataSet($data_set);
-
     // Get the selected domain for the sitemap type.
     $sitemap_domain_id = $this->sitemap->getType()->getThirdPartySetting('domain_simple_sitemap', 'sitemap_domain');
-    if (!$sitemap_domain_id) {
-      return $results;
+
+    if ($sitemap_domain_id) {
+      $domain_base_url = $this->config->get($sitemap_domain_id);
+
+      if (!empty($domain_base_url)) {
+        // Build the URL directly from the headless frontend base URL.
+        // This bypasses Drupal's path validator, which validates backend routes,
+        // not frontend paths. In a headless context, custom paths refer to the
+        // frontend so backend path validation is incorrect.
+        $url = Url::fromUri(rtrim($domain_base_url, '/') . $data_set['path']);
+        $data_set['include_images'] = $this->settings->get('custom_links_include_images', FALSE);
+
+        return $this->constructPathData($url, $data_set);
+      }
     }
 
-    // Set the base URL to the headless domain.
-    $domain_base_url = $this->config->get($sitemap_domain_id);
-
-    if (empty($domain_base_url)) {
-      return $results;
-    }
-
-    $results['url']->setOption('base_url', $domain_base_url);
-
-    return $results;
+    // No headless URL configured — fall back to default behavior which
+    // validates paths against Drupal's routing system.
+    return parent::processDataSet($data_set);
   }
 
 }
