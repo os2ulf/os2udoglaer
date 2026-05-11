@@ -449,9 +449,11 @@ display:
           sort_asc_label: Stigende
           sort_desc_label: Faldende
       access:
-        type: perm
+        type: role
         options:
-          perm: 'view any unpublished content'
+          role:
+            administrator: administrator
+            webmaster: webmaster
       cache:
         type: tag
         options: {  }
@@ -825,7 +827,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:workflow_list'
   moderated_content:
@@ -835,7 +837,17 @@ display:
     position: 1
     display_options:
       display_description: ''
-      display_extenders: {  }
+      display_extenders:
+        os2uol_search:
+          os2uol_search_result_string: ''
+        transform_api_facets:
+          transform_facets: {  }
+        transform_api_views:
+          row_transform: entity
+          row_transform_mode: default
+          pager_transform: basic
+          pager_transform_links: relative
+          pager_transform_links_destination: current
       path: admin/content/moderated
     cache_metadata:
       max-age: -1
@@ -845,7 +857,7 @@ display:
         - url
         - url.query_args
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:workflow_list'
   page_1:
@@ -854,12 +866,6 @@ display:
     display_plugin: page
     position: 1
     display_options:
-      access:
-        type: role
-        options:
-          role:
-            administrator: administrator
-            webmaster: webmaster
       query:
         type: views_query
         options:
@@ -869,7 +875,7 @@ display:
           replica: false
           query_tags: {  }
       defaults:
-        access: false
+        access: true
         query: false
       display_description: ''
       display_extenders:
