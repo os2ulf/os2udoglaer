@@ -324,9 +324,13 @@ content:
     weight: 1
     region: content
     settings:
-      size: 60
+      size: 45
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      maxlength:
+        maxlength_js: 45
+        maxlength_js_label: 'Begrænset til @limit karakterer, tilgængelige: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
   uid:
     type: entity_reference_autocomplete
     weight: 5
