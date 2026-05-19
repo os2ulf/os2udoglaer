@@ -312,6 +312,57 @@ final class DomainSettingsForm extends ConfigFormBase {
       '#description' => $this->t('Write a "Receipt" message.'),
     ];
 
+    $form['tab_free_course_request']['evaluation_email_enabled'] = [
+      '#type' => 'checkbox',
+      '#title' => $this->t('Enable evaluation email'),
+      '#default_value' => $config->get('evaluation_email_enabled') ?? FALSE,
+      '#description' => $this->t('Enable sending an evaluation email after the course execution date.'),
+    ];
+
+    $form['tab_free_course_request']['evaluation_email_days'] = [
+      '#type' => 'number',
+      '#title' => $this->t('Days after execution date'),
+      '#default_value' => $config->get('evaluation_email_days') ?? 7,
+      '#min' => 1,
+      '#description' => $this->t('Number of days after "Afviklingsdato" before the evaluation email is sent.'),
+      '#states' => [
+        'visible' => [
+          ':input[name="evaluation_email_enabled"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['tab_free_course_request']['evaluation_email_subject'] = [
+      '#type' => 'textfield',
+      '#title' => $this->t('Evaluation email subject'),
+      '#default_value' => $config->get('evaluation_email_subject') ?? '',
+      '#description' => $this->t('Subject line for the evaluation email.'),
+      '#states' => [
+        'visible' => [
+          ':input[name="evaluation_email_enabled"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['tab_free_course_request']['evaluation_email_body'] = [
+      '#type' => 'text_format',
+      '#title' => $this->t('Evaluation email body'),
+      '#default_value' => $config->get('evaluation_email_body')['value'] ?? '',
+      '#format' => $config->get('evaluation_email_body')['format'] ?? 'basic_html',
+      '#description' => $this->t('Body of the evaluation email. You can use tokens.'),
+      '#states' => [
+        'visible' => [
+          ':input[name="evaluation_email_enabled"]' => ['checked' => TRUE],
+        ],
+      ],
+    ];
+
+    $form['tab_free_course_request']['evaluation_token_help'] = [
+      '#theme' => 'token_tree_link',
+      '#token_types' => ['node', 'user'],
+      '#global_types' => FALSE,
+    ];
+
     $form['tab_free_course_request']['free_course_email_signature'] = [
       '#type' => 'text_format',
       '#title' => $this->t('Free Course Email Signature'),
@@ -518,6 +569,10 @@ final class DomainSettingsForm extends ConfigFormBase {
       ->set('confirmation', $form_state->getValue('confirmation'))
       ->set('tr_receipt', $form_state->getValue('tr_receipt'))
       ->set('from_reply_to_email', $form_state->getValue('from_reply_to_email'))
+      ->set('evaluation_email_enabled', $form_state->getValue('evaluation_email_enabled'))
+      ->set('evaluation_email_days', $form_state->getValue('evaluation_email_days'))
+      ->set('evaluation_email_subject', $form_state->getValue('evaluation_email_subject'))
+      ->set('evaluation_email_body', $form_state->getValue('evaluation_email_body'))
       ->set('free_course_email_signature', $form_state->getValue('free_course_email_signature'))
       ->set('transport_pool_email_signature', $form_state->getValue('transport_pool_email_signature'))
       ->set('theater_refund_email_signature', $form_state->getValue('theater_refund_email_signature'))
