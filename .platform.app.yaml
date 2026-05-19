@@ -95,3 +95,18 @@ crons:
         /app/vendor/bin/drush --uri=api.udoglaer.roskilde.dk os2uol_process_moderation
         /app/vendor/bin/drush --uri=api.udoglaer.syddjurs.dk os2uol_process_moderation
         /app/vendor/bin/drush --uri=api.udsynmodarbejdsliv.dk os2uol_process_moderation
+  free_course_evaluation:
+    spec: "0 5 * * *"
+    commands:
+      start: |
+        /app/vendor/bin/drush --uri=api.ulfiaarhus.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.mitvadehav.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.aabenaalborg.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.klcviborg.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.laeringsportalenskive.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.udoglaer.randers.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.udoglaer.vejle.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.ude.nu os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.udoglaer.roskilde.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.udoglaer.syddjurs.dk os2uol_send_free_course_evaluation
+        /app/vendor/bin/drush --uri=api.udsynmodarbejdsliv.dk os2uol_send_free_course_evaluation

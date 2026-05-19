@@ -1,0 +1,7 @@
+services:
+  os2uol_application_forms.send_free_course_evaluation:
+    class: Drupal\os2uol_application_forms\Command\SendFreeCourseEvaluationCommand
+    arguments: ['@os2uol_application_forms.free_course_evaluation']
+    tags:
+      - { name: console.command }
+
