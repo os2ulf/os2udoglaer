@@ -185,7 +185,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_rfc_follow_up_mail_sent:
-    type: datetime_timestamp
+    type: nullable_datetime_timestamp
     weight: 5
     region: content
     settings: {  }
