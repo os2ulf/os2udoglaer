@@ -151,6 +151,14 @@ function os2uol_moderation_config_schema_info_alter(&$definitions) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function os2uol_moderation_form_revision_overview_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['node_revisions_table']['#header']['select_column_one'] = t('Version A');
+  $form['node_revisions_table']['#header']['select_column_two'] = t('Version B');
+}
+
+/**
  * Implements hook_form_alter().
  */
 function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
