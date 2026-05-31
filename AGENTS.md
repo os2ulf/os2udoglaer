@@ -4,6 +4,7 @@
 - This is a Drupal project
 - DDEV is used for local development
 - For drush, use `ddev drush` alias
+- For composer, use `ddev composer` alias
 - Configuration is stored in `config/sync` directory
 
 ## Hosting
