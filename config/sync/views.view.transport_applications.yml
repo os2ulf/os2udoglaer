@@ -24,12 +24,12 @@ dependencies:
     - workflows.workflow.application
   module:
     - better_exposed_filters
-    - content_moderation
     - datetime
     - dawa
     - domain_access
     - node
     - options
+    - os2uol_moderation
     - rest
     - serialization
     - user
@@ -1722,15 +1722,54 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-        moderation_state:
-          id: moderation_state
-          table: node_field_data
-          field: moderation_state
+        latest_revision:
+          id: latest_revision
+          table: node_revision
+          field: latest_revision
           relationship: none
           group_type: group
           admin_label: ''
           entity_type: node
-          plugin_id: moderation_state_filter
+          plugin_id: latest_revision
+          operator: '='
+          value: ''
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+        moderation_state_revision:
+          id: moderation_state_revision
+          table: node_field_revision
+          field: moderation_state_revision
+          relationship: none
+          group_type: group
+          admin_label: ''
+          entity_type: node
+          plugin_id: revision_moderation_state_filter
           operator: in
           value:
             application-draft: application-draft
@@ -1744,14 +1783,14 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: moderation_state_op
-            label: Status
+            operator_id: moderation_state_revision_op
+            label: Godkendelsestilstand
             description: ''
             use_operator: false
-            operator: moderation_state_op
+            operator: moderation_state_revision_op
             operator_limit_selection: false
             operator_list: {  }
-            identifier: moderation_state
+            identifier: moderation_state_revision
             required: false
             remember: false
             multiple: true

@@ -25,3 +25,7 @@ os2uol_moderation.email_settings:
     second_warning_email:
       type: text
       label: 'Second warning email'
+
+views.filter.revision_moderation_state_filter:
+  type: views.filter.in_operator
+  label: 'Revision moderation state filter'
