@@ -3,6 +3,8 @@
 use Drupal\content_moderation\Entity\ContentModerationState;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\domain\Entity\Domain;
+use Drupal\node\NodeInterface;
+use Drupal\node\NodeStorageInterface;
 use Drupal\os2uol_application_forms\Os2Notification;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\views\ViewExecutable;
@@ -421,12 +423,15 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
   if (!empty($nids)) {
     $logger->info('Nodes found for anonymization: @nids', ['@nids' => implode(',', $nids)]);
 
-    // Get the storage handler for nodes and ensure it is cast as RevisionableStorageInterface.
-    /** @var \Drupal\Core\Entity\RevisionableStorageInterface $node_storage */
+    // Get the node storage handler.
+    /** @var \Drupal\node\NodeStorageInterface $node_storage */
     $node_storage = \Drupal::entityTypeManager()->getStorage('node');
 
     foreach ($nids as $nid) {
       $node = $node_storage->load($nid);
+
+      // Log the operation.
+      $logger->info('Anonymizing personal data for node ID ' . $node->id());
 
       // Generate a unique anonymized identifier (UUID-like).
       $random_id = substr(hash('sha256', uniqid(rand(), TRUE)), 0, 8);
@@ -443,32 +448,68 @@ function os2uol_application_forms_anonymize_data(LoggerInterface $logger, Domain
         $node->set('field_rfc_phone', '00000000'); // Fake, non-real phone number.
       }
 
-      // Mark as anonymized.
-      $node->set('field_data_anonymized', '1');
-
-      // Save the revision.
-      $node->save();
-
-      // Log the operation.
-      $logger->info('Personal data anonymized for node ID ' . $node->id());
-
+      // Collect attachments from all existing revisions before deleting them.
+      $attachment_files = [];
       $revisions = $node_storage->revisionIds($node);
-      $default_revision = $node->getRevisionId();
-
-      // Remove all revisions
       foreach ($revisions as $revision_id) {
-        // Skip default revision
-        if ($revision_id == $default_revision) {
+        $revision = $node_storage->loadRevision($revision_id);
+        if (!$revision || !$revision->hasField('field_rfc_attachment') || $revision->get('field_rfc_attachment')->isEmpty()) {
           continue;
         }
 
-        $node_storage->deleteRevision($revision_id);
+        foreach ($revision->get('field_rfc_attachment')->referencedEntities() as $attachment_file) {
+          $attachment_files[$attachment_file->id()] = $attachment_file;
+        }
+      }
+
+      if ($node->hasField('field_rfc_attachment')) {
+        $node->set('field_rfc_attachment', NULL);
+      }
+
+      // Mark as anonymized.
+      $node->set('field_data_anonymized', '1');
+
+      // Save anonymized data as the default revision. Some moderation states
+      // normally create non-default revisions, which would leave the old
+      // default revision containing personal data in place.
+      $node->setSyncing(TRUE);
+      try {
+        $node->setNewRevision(TRUE);
+        $node->isDefaultRevision(TRUE);
+        $node->save();
+      }
+      finally {
+        $node->setSyncing(FALSE);
+      }
+
+      os2uol_application_forms_delete_non_default_revisions($node_storage, $node);
+
+      foreach ($attachment_files as $attachment_file) {
+        $attachment_file->delete();
+        $logger->info('Deleted Bilag attachment file ID @fid for anonymized node ID @nid.', [
+          '@fid' => $attachment_file->id(),
+          '@nid' => $node->id(),
+        ]);
       }
     }
     $logger->info('Anonymization completed for ' . count($nids) . ' nodes.');
   }
   else {
     $logger->info('No nodes found for anonymization.');
+  }
+}
+
+/**
+ * Deletes all non-default revisions for a node.
+ */
+function os2uol_application_forms_delete_non_default_revisions(NodeStorageInterface $node_storage, NodeInterface $node) {
+  foreach ($node_storage->revisionIds($node) as $revision_id) {
+    $revision = $node_storage->loadRevision($revision_id);
+    if (!$revision || $revision->isDefaultRevision()) {
+      continue;
+    }
+
+    $node_storage->deleteRevision($revision_id);
   }
 }
 
@@ -781,3 +822,15 @@ function os2uol_get_user_allocated_budget_for_year(\Drupal\user\UserInterface $u
 
   return "";
 }
+
+/**
+ * Implements hook_mail().
+ */
+function os2uol_application_forms_mail($key, &$message, $params) {
+  if ($key === 'free_course_evaluation') {
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed';
+    $message['subject'] = str_replace(["\r", "\n"], '', $params['subject']);
+    $message['body'][] = Markup::create($params['content']);
+  }
+}
+

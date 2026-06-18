@@ -27,11 +27,12 @@ bundle: news
 mode: search_result
 content:
   body:
-    type: text_format
+    type: text_summary_or_trimmed
     weight: '0'
     region: content
     label: omit
-    settings: {  }
+    settings:
+      trim_length: '255'
     third_party_settings: {  }
   field_audience:
     type: text_summary_or_trimmed
@@ -59,6 +60,11 @@ content:
       image_loading:
         attribute: lazy
     third_party_settings: {  }
+  label:
+    weight: '-100'
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
@@ -70,3 +76,4 @@ hidden:
   field_video_description: true
   field_video_title: true
   langcode: true
+  url: true

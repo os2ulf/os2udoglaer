@@ -1,0 +1,13 @@
+services:
+  os2uol_application_forms.free_course_evaluation:
+    class: Drupal\os2uol_application_forms\Service\FreeCourseEvaluationService
+    arguments:
+      - '@entity_type.manager'
+      - '@config.factory'
+      - '@domain.negotiator'
+      - '@plugin.manager.mail'
+      - '@token'
+      - '@database'
+      - '@logger.factory'
+
+

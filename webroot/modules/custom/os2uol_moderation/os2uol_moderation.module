@@ -1,6 +1,7 @@
 <?php
 
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
@@ -151,6 +152,14 @@ function os2uol_moderation_config_schema_info_alter(&$definitions) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function os2uol_moderation_form_revision_overview_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['node_revisions_table']['#header']['select_column_one'] = t('Version A');
+  $form['node_revisions_table']['#header']['select_column_two'] = t('Version B');
+}
+
+/**
  * Implements hook_form_alter().
  */
 function os2uol_moderation_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
@@ -259,5 +268,40 @@ function os2uol_moderation_node_update(\Drupal\node\NodeInterface $node): void {
       "first_warning:node:{$node->id()}",
       "second_warning:node:{$node->id()}"
     ]);
+  }
+}
+
+/**
+ * Implements hook_views_data_alter().
+ *
+ * Exposes an additional "Moderation state (revision)" filter on revision
+ * tables of moderated entity types, alongside the default moderation state
+ * filter provided by content_moderation.
+ */
+function os2uol_moderation_views_data_alter(array &$data) {
+  /** @var \Drupal\content_moderation\ModerationInformationInterface $moderation_information */
+  $moderation_information = \Drupal::service('content_moderation.moderation_information');
+  $entity_type_manager = \Drupal::entityTypeManager();
+
+  $moderated_entity_types = array_filter(
+    $entity_type_manager->getDefinitions(),
+    function (EntityTypeInterface $type) use ($moderation_information) {
+      return $moderation_information->isModeratedEntityType($type);
+    }
+  );
+
+  foreach ($moderated_entity_types as $entity_type) {
+    $revision_table = $entity_type->getRevisionDataTable() ?: $entity_type->getRevisionTable();
+    if ($revision_table && isset($data[$revision_table]['moderation_state'])) {
+      $data[$revision_table]['moderation_state_revision'] = [
+        'title' => t('Moderation state (revision)'),
+        'filter' => [
+          'id' => 'revision_moderation_state_filter',
+          'field_name' => 'moderation_state',
+          'real field' => 'moderation_state',
+          'allow empty' => TRUE,
+        ],
+      ];
+    }
   }
 }
