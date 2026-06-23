@@ -1,0 +1,9 @@
+uuid: 0e7dd9b0-47e9-42fb-b2cb-fe64a87d38ea
+langcode: da
+status: true
+dependencies: {  }
+id: udoglaer_syddjurs_os2udoglaer_test
+domain_id: api_udoglaer_syddjurs_dk
+pattern: udoglaer.syddjurs.os2udoglaer.test
+redirect: 0
+environment: local

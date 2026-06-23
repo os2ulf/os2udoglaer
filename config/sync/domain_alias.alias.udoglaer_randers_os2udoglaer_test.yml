@@ -1,0 +1,9 @@
+uuid: b77cb601-2b39-4b1f-95ee-e8dc58f7b808
+langcode: da
+status: true
+dependencies: {  }
+id: udoglaer_randers_os2udoglaer_test
+domain_id: api_udoglaer_randers_dk
+pattern: udoglaer.randers.os2udoglaer.test
+redirect: 0
+environment: local
