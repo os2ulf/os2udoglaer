@@ -1,0 +1,9 @@
+uuid: 7f453b4a-3e1c-4737-a6a1-19657fa41a71
+langcode: da
+status: true
+dependencies: {  }
+id: udoglaer_vejle_os2udoglaer_test
+domain_id: api_udoglaer_vejle_dk
+pattern: udoglaer.vejle.os2udoglaer.test
+redirect: 0
+environment: local

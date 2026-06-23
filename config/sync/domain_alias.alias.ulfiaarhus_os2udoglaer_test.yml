@@ -1,0 +1,9 @@
+uuid: a8ea88a9-80c8-4293-8bbb-6f5f710412ed
+langcode: da
+status: true
+dependencies: {  }
+id: ulfiaarhus_os2udoglaer_test
+domain_id: api_ulfiaarhus_dk
+pattern: ulfiaarhus.os2udoglaer.test
+redirect: 0
+environment: local

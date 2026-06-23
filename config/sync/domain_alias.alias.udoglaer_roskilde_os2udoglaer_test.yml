@@ -6,4 +6,4 @@ id: udoglaer_roskilde_os2udoglaer_test
 domain_id: api_udoglaer_roskilde_dk
 pattern: udoglaer.roskilde.os2udoglaer.test
 redirect: 0
-environment: default
+environment: local
