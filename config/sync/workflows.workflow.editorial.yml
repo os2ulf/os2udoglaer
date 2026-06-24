@@ -120,6 +120,7 @@ type_settings:
     unpublish:
       label: Afpublicér
       from:
+        - draft
         - published
       to: unpublished
       weight: 3
