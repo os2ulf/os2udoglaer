@@ -5,6 +5,13 @@ use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * Ultimate Cron callback for purging old trash nodes.
+ */
+function os2uol_moderation_purge_trash_cron(): void {
+  \Drupal::service('os2uol_moderation.purger')->purgeOldTrashNodes();
+}
+
+/**
  * Implements hook_mail().
  */
 function os2uol_moderation_mail($key, &$message, $params) {
