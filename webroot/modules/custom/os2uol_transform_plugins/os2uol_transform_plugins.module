@@ -1,8 +1,119 @@
 <?php
 
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\layout_builder\Form\ConfigureSectionForm;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Drupal\transform_api\Transform\EntityTransform;
 use Drupal\transform_api_views\Transform\ViewTransform;
+
+const OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID = 'anchor_id';
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for layout_builder_configure_section.
+ */
+function os2uol_transform_plugins_form_layout_builder_configure_section_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  $form_object = $form_state->getFormObject();
+  if (!$form_object instanceof ConfigureSectionForm) {
+    return;
+  }
+
+  $anchor_id = $form_object
+    ->getCurrentSection()
+    ->getThirdPartySetting('os2uol_transform_plugins', OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID, '');
+
+  $form['os2uol_transform_plugins'] = [
+    '#type' => 'container',
+    '#weight' => 50,
+  ];
+  $form['actions']['#weight'] = 100;
+  $form['os2uol_transform_plugins'][OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID] = [
+    '#type' => 'textfield',
+    '#title' => t('Anchor ID'),
+    '#default_value' => $anchor_id,
+    '#description' => t('Used as the URL fragment for linking to this section, for example #program. Use letters, numbers, underscores, and hyphens. The first character must be a letter.'),
+    '#maxlength' => 128,
+    '#attributes' => [
+      'pattern' => '[A-Za-z][A-Za-z0-9_-]*',
+    ],
+  ];
+
+  $form['#validate'][] = 'os2uol_transform_plugins_layout_builder_section_anchor_validate';
+
+  $submit_handler = 'os2uol_transform_plugins_layout_builder_section_anchor_submit';
+  $submit_handlers = array_values(array_filter($form['#submit'] ?? [], static function ($callback) use ($submit_handler) {
+    return $callback !== $submit_handler;
+  }));
+  $core_submit_position = array_search('::submitForm', $submit_handlers, TRUE);
+  if ($core_submit_position === FALSE) {
+    $submit_handlers[] = $submit_handler;
+  }
+  else {
+    array_splice($submit_handlers, $core_submit_position, 0, [$submit_handler]);
+  }
+  $form['#submit'] = $submit_handlers;
+}
+
+/**
+ * Validates the section anchor ID.
+ */
+function os2uol_transform_plugins_layout_builder_section_anchor_validate(array &$form, FormStateInterface $form_state): void {
+  $anchor_id = trim((string) $form_state->getValue(['os2uol_transform_plugins', OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID], ''));
+  if ($anchor_id === '') {
+    return;
+  }
+
+  if (!preg_match('/^[A-Za-z][A-Za-z0-9_-]*$/', $anchor_id)) {
+    $form_state->setError(
+      $form['os2uol_transform_plugins'][OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID],
+      t('The anchor ID must start with a letter and only contain letters, numbers, underscores, and hyphens.')
+    );
+    return;
+  }
+
+  $form_object = $form_state->getFormObject();
+  if (!$form_object instanceof ConfigureSectionForm) {
+    return;
+  }
+
+  $build_info = $form_state->getBuildInfo();
+  $current_delta = $build_info['args'][1] ?? NULL;
+  $plugin_id = $build_info['args'][2] ?? NULL;
+  $is_update = $plugin_id === NULL;
+
+  foreach ($form_object->getSectionStorage()->getSections() as $delta => $section) {
+    if ($is_update && (string) $delta === (string) $current_delta) {
+      continue;
+    }
+
+    $existing_anchor_id = $section->getThirdPartySetting('os2uol_transform_plugins', OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID);
+    if ($existing_anchor_id === $anchor_id) {
+      $form_state->setError(
+        $form['os2uol_transform_plugins'][OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID],
+        t('The anchor ID must be unique on this page.')
+      );
+      return;
+    }
+  }
+}
+
+/**
+ * Stores the section anchor ID before Layout Builder saves the section.
+ */
+function os2uol_transform_plugins_layout_builder_section_anchor_submit(array &$form, FormStateInterface $form_state): void {
+  $form_object = $form_state->getFormObject();
+  if (!$form_object instanceof ConfigureSectionForm) {
+    return;
+  }
+
+  $anchor_id = trim((string) $form_state->getValue(['os2uol_transform_plugins', OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID], ''));
+  $section = $form_object->getCurrentSection();
+  if ($anchor_id === '') {
+    $section->unsetThirdPartySetting('os2uol_transform_plugins', OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID);
+    return;
+  }
+
+  $section->setThirdPartySetting('os2uol_transform_plugins', OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID, $anchor_id);
+}
 
 function os2uol_transform_plugins_block_content_transform_alter(&$transformation): void {
   if (empty($transformation)) {
@@ -74,6 +185,16 @@ function os2uol_transform_plugins_node_transform_alter(&$transformation) {
  * Implements hook_TRANSFORM_TYPE_transform_alter().
  */
 function os2uol_transform_plugins_section_transform_alter(&$transformation) {
+  $anchor_id = $transformation['third_party_settings']['os2uol_transform_plugins'][OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID] ?? NULL;
+  if (!empty($anchor_id)) {
+    $transformation['layout_settings'][OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID] = $anchor_id;
+    unset($transformation['third_party_settings']['os2uol_transform_plugins'][OS2UOL_TRANSFORM_PLUGINS_SECTION_ANCHOR_ID]);
+
+    if (empty($transformation['third_party_settings']['os2uol_transform_plugins'])) {
+      unset($transformation['third_party_settings']['os2uol_transform_plugins']);
+    }
+  }
+
   foreach ($transformation['regions'] as $region => $components) {
     foreach ($components as &$component) {
       os2uol_transform_plugins_layout_blocks_pre_transform($component);
