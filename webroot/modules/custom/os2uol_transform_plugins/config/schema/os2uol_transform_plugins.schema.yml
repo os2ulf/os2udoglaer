@@ -1,0 +1,7 @@
+layout_builder.section.third_party.os2uol_transform_plugins:
+  type: mapping
+  label: 'OS2 Ud og lær section settings'
+  mapping:
+    anchor_id:
+      type: string
+      label: 'Anchor ID'
