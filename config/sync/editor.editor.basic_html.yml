@@ -24,6 +24,7 @@ settings:
       - heading
       - '|'
       - link
+      - anchor
   plugins:
     ckeditor5_alignment:
       enabled_alignments:
