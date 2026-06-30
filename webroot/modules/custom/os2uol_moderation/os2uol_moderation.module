@@ -128,6 +128,33 @@ function os2uol_moderation_views_query_alter($view, \Drupal\views\Plugin\views\q
       ");
     }
   }
+
+  if ($view->id() === 'trash' && $view->current_display === 'page_1') {
+    $current_user = \Drupal::currentUser();
+    $privileged_roles = [
+      'administrator',
+      'webmaster',
+      'editor',
+      'bypass_workflow',
+    ];
+
+    if (!$current_user->hasRole('course_provider') || array_intersect($privileged_roles, $current_user->getRoles())) {
+      return;
+    }
+
+    if ($query instanceof \Drupal\views\Plugin\views\query\Sql) {
+      $query->addWhereExpression(0, "
+        EXISTS (
+          SELECT 1
+          FROM {node_revision} trash_revision
+          WHERE trash_revision.vid = node_field_data.vid
+            AND trash_revision.revision_uid = :trash_revision_uid
+        )
+      ", [
+        ':trash_revision_uid' => $current_user->id(),
+      ]);
+    }
+  }
 }
 
 
