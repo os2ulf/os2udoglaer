@@ -12,6 +12,14 @@ services:
     class: Drupal\os2uol_moderation\EmailService
     arguments: ['@plugin.manager.mail', '@os2uol_domain.config_helper', '@token']
 
+  os2uol_moderation.purger:
+    class: Drupal\os2uol_moderation\Purger
+    arguments:
+      - '@entity_type.manager'
+      - '@logger.channel.os2uol_moderation'
+      - '@database'
+      - '@config.factory'
+
   logger.channel.os2uol_moderation:
-    class: Drupal\Core\Logger\LoggerChannel
+    parent: logger.channel_base
     arguments: ['os2uol_moderation']
