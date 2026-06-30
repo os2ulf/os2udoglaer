@@ -106,7 +106,7 @@ class PostNumberCityProcessor extends ProcessorPluginBase {
    */
   protected function getNodePostNumberCity(NodeInterface $node) {
     // Check if the node has the required fields.
-    if (!$node->hasField('field_dawa_address') && !$node->get('field_dawa_address')->isEmpty()) {
+    if (!$node->hasField('field_dawa_address') || $node->get('field_dawa_address')->isEmpty()) {
       return '';
     }
 
@@ -118,8 +118,8 @@ class PostNumberCityProcessor extends ProcessorPluginBase {
       return '';
     }
 
-    $post_number = $address_data['postnr'];
-    $address = $address_data['postnrnavn'];
+    $post_number = $address_data['postnr'] ?? '';
+    $address = $address_data['postnrnavn'] ?? $address_data['postnummer']['navn'] ?? '';
 
     return $post_number . ' ' . $address;
   }
@@ -149,8 +149,8 @@ class PostNumberCityProcessor extends ProcessorPluginBase {
       return '';
     }
 
-    $post_number = $address_data['postnr'];
-    $address = $address_data['postnrnavn'];
+    $post_number = $address_data['postnr'] ?? '';
+    $address = $address_data['postnrnavn'] ?? $address_data['postnummer']['navn'] ?? '';
 
     return $post_number . ' ' . $address;
   }

@@ -10169,16 +10169,24 @@
         },
         {
             "name": "novicell/dawa",
-            "version": "1.0.1",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/novicell-drupal/dawa.git",
+                "reference": "c99a9d18e52fed41402d5a823b732bfd8257a358"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.drupal.dk/php/~/up/ver_otnZ/novicelldawa-1-0-1.zip"
+                "url": "https://api.github.com/repos/novicell-drupal/dawa/zipball/c99a9d18e52fed41402d5a823b732bfd8257a358",
+                "reference": "c99a9d18e52fed41402d5a823b732bfd8257a358",
+                "shasum": ""
             },
             "require": {
                 "drupal/core": "^10",
                 "drupal/jquery_once": "^1.0"
             },
             "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
@@ -10186,7 +10194,12 @@
             "homepage": "https://www.novicell.dk",
             "keywords": [
                 "Novicell"
-            ]
+            ],
+            "support": {
+                "issues": "https://github.com/novicell-drupal/dawa/issues",
+                "source": "https://github.com/novicell-drupal/dawa/tree/1.1.0"
+            },
+            "time": "2026-06-26T09:59:58+00:00"
         },
         {
             "name": "novicell/dynamic_key_value",
