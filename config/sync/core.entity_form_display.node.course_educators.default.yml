@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.course_educators.field_hide_contact_form
     - field.field.node.course_educators.field_image
     - field.field.node.course_educators.field_is_free
+    - field.field.node.course_educators.field_location_desc_expanded
     - field.field.node.course_educators.field_location_description
     - field.field.node.course_educators.field_location_name
     - field.field.node.course_educators.field_materials
@@ -144,6 +145,7 @@ third_party_settings:
         - field_view_on_map
         - group_alternative_address
         - field_location_description
+        - field_location_desc_expanded
         - field_faciliteter
       label: Lokation
       region: content
@@ -603,7 +605,7 @@ content:
     third_party_settings: {  }
   field_faciliteter:
     type: options_buttons
-    weight: 17
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -635,6 +637,13 @@ content:
   field_is_free:
     type: boolean_checkbox
     weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_location_desc_expanded:
+    type: boolean_checkbox
+    weight: 17
     region: content
     settings:
       display_label: true

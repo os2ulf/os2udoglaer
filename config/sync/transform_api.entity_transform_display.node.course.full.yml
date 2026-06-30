@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
+    - field.field.node.course.field_location_desc_expanded
     - field.field.node.course.field_location_description
     - field.field.node.course.field_location_name
     - field.field.node.course.field_materials
@@ -219,6 +220,13 @@ content:
   field_is_free:
     type: boolean
     weight: '5'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_location_desc_expanded:
+    type: boolean
+    weight: '57'
     region: content
     label: omit
     settings: {  }
@@ -485,6 +493,11 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: '0'
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_domain_access: true
   field_domain_all_affiliates: true
@@ -495,3 +508,4 @@ hidden:
   field_pretix_shop_url: true
   field_pretix_template_event: true
   langcode: true
+  url: true

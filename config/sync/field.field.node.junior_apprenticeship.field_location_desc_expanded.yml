@@ -1,0 +1,21 @@
+uuid: 002d3b37-0301-4c21-b778-38644005f076
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_desc_expanded
+    - node.type.junior_apprenticeship
+id: node.junior_apprenticeship.field_location_desc_expanded
+field_name: field_location_desc_expanded
+entity_type: node
+bundle: junior_apprenticeship
+label: 'Vis altid'
+description: 'Vis beskrivelse til sted udvidet'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
