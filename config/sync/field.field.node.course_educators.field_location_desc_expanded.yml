@@ -1,0 +1,21 @@
+uuid: 6be238f4-8c20-4b9a-860b-7ede402a8ea8
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_desc_expanded
+    - node.type.course_educators
+id: node.course_educators.field_location_desc_expanded
+field_name: field_location_desc_expanded
+entity_type: node
+bundle: course_educators
+label: 'Vis altid'
+description: 'Vis beskrivelse til sted udvidet'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean
