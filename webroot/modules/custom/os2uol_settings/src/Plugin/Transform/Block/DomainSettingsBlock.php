@@ -2,8 +2,11 @@
 
 namespace Drupal\os2uol_settings\Plugin\Transform\Block;
 
+use Drupal\Core\Cache\Cache;
 use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\File\FileSystemInterface;
 use Drupal\file\Entity\File;
+use Drupal\file\FileInterface;
 use Drupal\transform_api\TransformBlockBase;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -21,6 +24,7 @@ class DomainSettingsBlock extends TransformBlockBase {
     $plugin_id,
     $plugin_definition,
     protected ConfigFactoryInterface $configFactory,
+    protected FileSystemInterface $fileSystem,
   ) {
     parent::__construct($configuration, $plugin_id, $plugin_definition);
   }
@@ -30,19 +34,26 @@ class DomainSettingsBlock extends TransformBlockBase {
       $configuration,
       $plugin_id,
       $plugin_definition,
-      $container->get('config.factory')
+      $container->get('config.factory'),
+      $container->get('file_system')
     );
   }
 
   public function transform() {
     $config = $this->configFactory->get('os2uol_settings.settings');
+    $site_config = $this->configFactory->get('system.site');
 
-    // Get logo URL.
-    $logo_url = '';
+    $logo = [
+      'src' => '',
+      'alt' => $site_config->get('name') ?? '',
+      'width' => NULL,
+      'height' => NULL,
+    ];
     if ($logo_fid = $config->get('logo')) {
       $file = File::load($logo_fid);
       if ($file) {
-        $logo_url = $file->createFileUrl(FALSE);
+        $logo['src'] = $file->createFileUrl(FALSE);
+        $logo = array_replace($logo, $this->getImageDimensions($file));
       }
     }
 
@@ -56,7 +67,7 @@ class DomainSettingsBlock extends TransformBlockBase {
     }
 
     return [
-      'logo' => $logo_url,
+      'logo' => $logo,
       'favicon' => $favicon_url,
       'font' => $config->get('font'),
       'primary_background_color' => $config->get('primary_background_color'),
@@ -97,7 +108,70 @@ class DomainSettingsBlock extends TransformBlockBase {
   }
 
   public function getCacheTags() {
-    return $this->configFactory->get('os2uol_settings.settings')->getCacheTags();
+    return Cache::mergeTags(
+      $this->configFactory->get('os2uol_settings.settings')->getCacheTags(),
+      $this->configFactory->get('system.site')->getCacheTags(),
+    );
+  }
+
+  private function getImageDimensions(FileInterface $file): array {
+    $path = $this->fileSystem->realpath($file->getFileUri());
+    if (!$path || !is_file($path)) {
+      return [];
+    }
+
+    $size = @getimagesize($path);
+    if (is_array($size) && !empty($size[0]) && !empty($size[1])) {
+      return [
+        'width' => (int) $size[0],
+        'height' => (int) $size[1],
+      ];
+    }
+
+    if (strtolower(pathinfo($path, PATHINFO_EXTENSION)) === 'svg') {
+      return $this->getSvgDimensions($path);
+    }
+
+    return [];
+  }
+
+  private function getSvgDimensions(string $path): array {
+    $previous = libxml_use_internal_errors(TRUE);
+    $svg = simplexml_load_file($path, 'SimpleXMLElement', LIBXML_NONET);
+    libxml_clear_errors();
+    libxml_use_internal_errors($previous);
+
+    if (!$svg) {
+      return [];
+    }
+
+    $width = $this->parseSvgLength((string) $svg['width']);
+    $height = $this->parseSvgLength((string) $svg['height']);
+
+    if ($width && $height) {
+      return [
+        'width' => $width,
+        'height' => $height,
+      ];
+    }
+
+    $view_box = preg_split('/[\s,]+/', trim((string) $svg['viewBox']));
+    if (is_array($view_box) && count($view_box) === 4) {
+      return [
+        'width' => (int) round((float) $view_box[2]),
+        'height' => (int) round((float) $view_box[3]),
+      ];
+    }
+
+    return [];
+  }
+
+  private function parseSvgLength(string $length): ?int {
+    if (preg_match('/^-?\d*\.?\d+/', $length, $matches)) {
+      return (int) round((float) $matches[0]);
+    }
+
+    return NULL;
   }
 
 }
