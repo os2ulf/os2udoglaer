@@ -833,6 +833,10 @@ $settings['config_sync_directory'] = '../config/sync';
 
 $config['config_split.config_split.develop']['status'] = strtolower(getenv('CONFIG_SPLIT_DEVELOPMENT')) === 'true';
 
+$dawa_token = getenv('NUXT_PUBLIC_ADRESSEVAELGER_TOKEN');
+if ($dawa_token !== false) {
+  $config['dawa.settings']['token'] = $dawa_token;
+}
 
 if (extension_loaded('redis') && !empty(getenv('REDIS_HOST'))) {
   $settings['redis.connection']['interface'] = 'PhpRedis';
