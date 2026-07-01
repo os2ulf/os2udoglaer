@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.paragraph.accordion_item.field_accordion_expanded
     - field.field.paragraph.accordion_item.field_accordion_item_headline
     - field.field.paragraph.accordion_item.field_accordion_item_text
     - paragraphs.paragraphs_type.accordion_item
@@ -11,6 +12,13 @@ targetEntityType: paragraph
 bundle: accordion_item
 mode: default
 content:
+  field_accordion_expanded:
+    type: boolean
+    weight: '2'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
   field_accordion_item_headline:
     type: value
     weight: '0'
