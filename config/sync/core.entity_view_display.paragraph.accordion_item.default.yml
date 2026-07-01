@@ -3,6 +3,7 @@ langcode: da
 status: true
 dependencies:
   config:
+    - field.field.paragraph.accordion_item.field_accordion_expanded
     - field.field.paragraph.accordion_item.field_accordion_item_headline
     - field.field.paragraph.accordion_item.field_accordion_item_text
     - paragraphs.paragraphs_type.accordion_item
@@ -35,4 +36,5 @@ content:
     third_party_settings: {  }
     weight: 2
     region: content
-hidden: {  }
+hidden:
+  field_accordion_expanded: true
