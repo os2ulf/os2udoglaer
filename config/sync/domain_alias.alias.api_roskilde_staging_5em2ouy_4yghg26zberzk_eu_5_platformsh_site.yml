@@ -1,0 +1,9 @@
+uuid: 3932cfaa-5386-47ae-a1b3-fc21b56c7d18
+langcode: da
+status: true
+dependencies: {  }
+id: api_roskilde_staging_5em2ouy_4yghg26zberzk_eu_5_platformsh_site
+domain_id: api_udoglaer_roskilde_dk
+pattern: api.roskilde.staging-5em2ouy-4yghg26zberzk.eu-5.platformsh.site
+redirect: 0
+environment: staging
