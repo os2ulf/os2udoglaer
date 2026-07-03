@@ -10,3 +10,14 @@ custom-form-alter:
   css:
     theme:
       css/custom-form-alter.css: {}
+
+admin-number-input:
+  version: VERSION
+  css:
+    theme:
+      css/admin-number-input.css: {}
+  js:
+    js/admin-number-input.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
