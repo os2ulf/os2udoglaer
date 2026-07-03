@@ -7,6 +7,12 @@
             event.preventDefault();
           }
         });
+
+        input.addEventListener('wheel', (event) => {
+          if (document.activeElement === input) {
+            event.preventDefault();
+          }
+        }, { passive: false });
       });
     },
   };
