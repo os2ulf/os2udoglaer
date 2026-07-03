@@ -5,6 +5,15 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\user\UserInterface;
 
 /**
+ * Checks if the current request is using the configured admin theme.
+ */
+function _os2uol_entity_forms_is_admin_theme_active(): bool {
+  $admin_theme = \Drupal::config('system.theme')->get('admin');
+
+  return $admin_theme && \Drupal::theme()->getActiveTheme()->getName() === $admin_theme;
+}
+
+/**
  * implements hook_field_widget_single_element_paragraphs_form_alter().
  */
 function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&$element, FormStateInterface $form_state, $context) {
@@ -37,6 +46,10 @@ function os2uol_entity_forms_form_alter(&$form, FormStateInterface $form_state, 
   // Attach library for jQuery functionality.
   $form['#attached']['library'][] = 'os2uol_entity_forms/field-group-form-alter';
   $form['#attached']['library'][] = 'os2uol_entity_forms/custom-form-alter';
+
+  if (_os2uol_entity_forms_is_admin_theme_active()) {
+    $form['#attached']['library'][] = 'os2uol_entity_forms/admin-number-input';
+  }
 
   // Define node add and edit form IDs.
   $node_add_forms = [
