@@ -6,9 +6,176 @@
  */
 
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\Cache;
 use Drupal\views\Plugin\views\query\QueryPluginBase;
 use Drupal\views\ViewExecutable;
 use Drupal\views\Views;
+use Drupal\user\UserInterface;
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function os2uol_users_module_implements_alter(&$implementations, $hook) {
+  if ($hook === 'user_cancel') {
+    // Drupal core's node_user_cancel() loads and saves all historical node
+    // revisions owned by the deleted account. With content moderation this can
+    // turn an old revision into current content, overwriting a later author
+    // reassignment and publication state. os2uol_users_user_cancel() replaces
+    // only the node-specific account cancellation handling below.
+    unset($implementations['node']);
+  }
+}
+
+/**
+ * Implements hook_user_cancel().
+ */
+function os2uol_users_user_cancel($edit, UserInterface $account, $method) {
+  switch ($method) {
+    case 'user_cancel_block_unpublish':
+      // Match core node behavior for this cancellation method.
+      $nids = \Drupal::entityQuery('node')
+        ->accessCheck(FALSE)
+        ->condition('uid', $account->id())
+        ->execute();
+      \Drupal::moduleHandler()->loadInclude('node', 'inc', 'node.admin');
+      node_mass_update($nids, ['status' => 0], NULL, TRUE);
+      break;
+
+    case 'user_cancel_reassign':
+      _os2uol_users_reassign_node_authorship_to_anonymous($account);
+      break;
+  }
+}
+
+/**
+ * Reassigns node authorship data for a cancelled user without saving nodes.
+ */
+function _os2uol_users_reassign_node_authorship_to_anonymous(UserInterface $account): void {
+  $uid = (int) $account->id();
+  if ($uid <= 0) {
+    return;
+  }
+
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $node_entity_type = $entity_type_manager->getDefinition('node');
+  $connection = \Drupal::database();
+
+  $nid_key = $node_entity_type->getKey('id');
+  $owner_key = $node_entity_type->getKey('owner');
+  $revision_user_key = $node_entity_type->getRevisionMetadataKey('revision_user');
+  $data_table = $node_entity_type->getDataTable();
+  $revision_data_table = $node_entity_type->getRevisionDataTable();
+  $revision_table = $node_entity_type->getRevisionTable();
+
+  $affected_nids = array_unique(array_merge(
+    _os2uol_users_node_ids_referencing_user($data_table, $nid_key, $owner_key, $uid),
+    _os2uol_users_node_ids_referencing_user($revision_data_table, $nid_key, $owner_key, $uid),
+    _os2uol_users_node_ids_referencing_user($revision_table, $nid_key, $revision_user_key, $uid)
+  ));
+
+  $transaction = $connection->startTransaction();
+  try {
+    $connection->update($data_table)
+      ->fields([$owner_key => 0])
+      ->condition($owner_key, $uid)
+      ->execute();
+
+    $connection->update($revision_data_table)
+      ->fields([$owner_key => 0])
+      ->condition($owner_key, $uid)
+      ->execute();
+
+    $connection->update($revision_table)
+      ->fields([$revision_user_key => 0])
+      ->condition($revision_user_key, $uid)
+      ->execute();
+
+    _os2uol_users_anonymize_node_moderation_state_owners($uid);
+  }
+  catch (\Throwable $e) {
+    $transaction->rollBack();
+    throw $e;
+  }
+  unset($transaction);
+
+  _os2uol_users_invalidate_reassigned_nodes($affected_nids);
+}
+
+/**
+ * Gets node IDs where a table column references a user ID.
+ */
+function _os2uol_users_node_ids_referencing_user(string $table, string $nid_key, string $uid_key, int $uid): array {
+  if (!$table) {
+    return [];
+  }
+
+  return \Drupal::database()
+    ->select($table, 't')
+    ->distinct()
+    ->fields('t', [$nid_key])
+    ->condition($uid_key, $uid)
+    ->execute()
+    ->fetchCol();
+}
+
+/**
+ * Anonymizes internal moderation-state owner records for node content.
+ */
+function _os2uol_users_anonymize_node_moderation_state_owners(int $uid): void {
+  if (!\Drupal::moduleHandler()->moduleExists('content_moderation')) {
+    return;
+  }
+
+  $connection = \Drupal::database();
+  $schema = $connection->schema();
+  foreach (['content_moderation_state_field_data', 'content_moderation_state_field_revision'] as $table) {
+    if (!$schema->tableExists($table)) {
+      continue;
+    }
+
+    $connection->update($table)
+      ->fields(['uid' => 0])
+      ->condition('uid', $uid)
+      ->condition('content_entity_type_id', 'node')
+      ->execute();
+  }
+}
+
+/**
+ * Clears entity caches and queues affected nodes for Search API reindexing.
+ */
+function _os2uol_users_invalidate_reassigned_nodes(array $nids): void {
+  $nids = array_values(array_unique(array_filter(array_map('intval', $nids))));
+  if (!$nids) {
+    return;
+  }
+
+  $node_storage = \Drupal::entityTypeManager()->getStorage('node');
+  $module_handler = \Drupal::moduleHandler();
+  $track_search = $module_handler->moduleExists('search_api');
+  $tracking_manager = $track_search ? \Drupal::service('search_api.entity_datasource.tracking_manager') : NULL;
+  $tracking_helper = $track_search ? \Drupal::service('search_api.tracking_helper') : NULL;
+
+  foreach (array_chunk($nids, 100) as $nid_chunk) {
+    $node_storage->resetCache($nid_chunk);
+
+    $cache_tags = ['node_list'];
+    foreach ($nid_chunk as $nid) {
+      $cache_tags[] = "node:$nid";
+    }
+    Cache::invalidateTags($cache_tags);
+
+    if (!$track_search) {
+      continue;
+    }
+
+    $nodes = $node_storage->loadMultiple($nid_chunk);
+    foreach ($nodes as $node) {
+      $tracking_manager->entityUpdate($node);
+      $tracking_helper->trackReferencedEntityUpdate($node);
+    }
+  }
+}
 
 /**
  * Implements hook_ENTITY_TYPE_access().
