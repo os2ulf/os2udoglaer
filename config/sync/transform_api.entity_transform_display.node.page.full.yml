@@ -74,6 +74,11 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: -100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   layout_builder__layout:
     type: layout_builder
     weight: '4'
@@ -86,4 +91,10 @@ hidden:
   field_domain_all_affiliates: true
   field_exclude_from_profile: true
   field_exclude_from_search: true
+  field_pretix_email_notifiers: true
+  field_pretix_event_short_form: true
+  field_pretix_shop_url: true
+  field_pretix_template_event: true
+  field_pretix_widget_type: true
   langcode: true
+  url: true
