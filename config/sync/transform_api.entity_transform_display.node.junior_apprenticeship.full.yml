@@ -267,7 +267,7 @@ content:
     region: content
     label: omit
     settings:
-      transform_mode: default
+      transform_mode: related_courses
     third_party_settings: {  }
   field_show_application_link:
     type: boolean
