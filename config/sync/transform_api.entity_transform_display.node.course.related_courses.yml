@@ -10,6 +10,9 @@ dependencies:
     - field.field.node.course.field_course_type
     - field.field.node.course.field_curriculum_themes
     - field.field.node.course.field_dawa_address
+    - field.field.node.course.field_desc_of_duration_expanded
+    - field.field.node.course.field_desc_of_period_expanded
+    - field.field.node.course.field_desc_of_price_expanded
     - field.field.node.course.field_description_of_duration
     - field.field.node.course.field_description_of_period
     - field.field.node.course.field_description_of_price
@@ -24,6 +27,7 @@ dependencies:
     - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
+    - field.field.node.course.field_location_desc_expanded
     - field.field.node.course.field_location_description
     - field.field.node.course.field_location_name
     - field.field.node.course.field_materials
@@ -41,6 +45,7 @@ dependencies:
     - field.field.node.course.field_primary_school_subject
     - field.field.node.course.field_purpose
     - field.field.node.course.field_quantity
+    - field.field.node.course.field_quantity_desc_expanded
     - field.field.node.course.field_quantity_description
     - field.field.node.course.field_registration_deadline
     - field.field.node.course.field_registration_description
@@ -169,11 +174,19 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: '-100'
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_activities: true
   field_all_year: true
   field_course_type: true
   field_dawa_address: true
+  field_desc_of_duration_expanded: true
+  field_desc_of_period_expanded: true
+  field_desc_of_price_expanded: true
   field_description_of_duration: true
   field_description_of_period: true
   field_description_of_price: true
@@ -186,6 +199,7 @@ hidden:
   field_faciliteter: true
   field_facilities_description: true
   field_hide_contact_form: true
+  field_location_desc_expanded: true
   field_location_description: true
   field_location_name: true
   field_materials: true
@@ -202,6 +216,7 @@ hidden:
   field_price: true
   field_purpose: true
   field_quantity: true
+  field_quantity_desc_expanded: true
   field_quantity_description: true
   field_registration_deadline: true
   field_registration_description: true
@@ -218,3 +233,4 @@ hidden:
   field_video_description: true
   field_video_title: true
   langcode: true
+  url: true

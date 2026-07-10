@@ -32,7 +32,7 @@ content:
     region: content
     label: omit
     settings:
-      trim_length: '255'
+      trim_length: '155'
     third_party_settings: {  }
   field_audience:
     type: text_summary_or_trimmed
