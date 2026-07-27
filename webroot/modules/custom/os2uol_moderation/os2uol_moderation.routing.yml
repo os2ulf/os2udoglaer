@@ -13,3 +13,25 @@ os2uol_moderation.email_settings_form:
     _title: 'OS2UOL Moderation Email Settings'
   requirements:
     _permission: 'administer site configuration'
+
+os2uol_moderation.node.move_to_trash:
+  path: '/node/{node}/move-to-trash'
+  defaults:
+    _form: '\Drupal\os2uol_moderation\Form\MoveToTrashConfirmForm'
+    _title: 'Delete'
+  requirements:
+    _custom_access: '\Drupal\os2uol_moderation\Form\MoveToTrashConfirmForm::access'
+    node: '\d+'
+  options:
+    _node_operation_route: true
+    parameters:
+      node:
+        type: entity:node
+
+os2uol_moderation.node.move_to_trash_multiple:
+  path: '/admin/content/node/move-to-trash'
+  defaults:
+    _form: '\Drupal\os2uol_moderation\Form\MoveToTrashMultipleForm'
+    _title: 'Delete content'
+  requirements:
+    _user_is_logged_in: 'TRUE'

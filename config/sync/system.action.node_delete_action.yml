@@ -4,10 +4,11 @@ status: true
 dependencies:
   module:
     - node
+    - os2uol_moderation
 _core:
   default_config_hash: t43OqwzP3CTbcAagSsWKNy6KwMm_zShXo3c4-So6rQg
 id: node_delete_action
 label: 'Slet indhold'
 type: node
-plugin: 'entity:delete_action:node'
+plugin: os2uol_moderation_move_to_trash
 configuration: {  }

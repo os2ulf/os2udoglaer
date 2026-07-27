@@ -1,0 +1,5 @@
+os2uol_moderation.node.move_to_trash:
+  route_name: os2uol_moderation.node.move_to_trash
+  base_route: entity.node.canonical
+  title: 'Delete'
+  weight: 10
