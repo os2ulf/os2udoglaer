@@ -1,8 +1,13 @@
 <?php
 
+use Drupal\Component\Serialization\Json;
+use Drupal\Core\Cache\RefinableCacheableDependencyInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityFormInterface;
 use Drupal\Core\Entity\EntityTypeInterface;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
 
 /**
  * Ultimate Cron callback for purging old trash nodes.
@@ -143,16 +148,8 @@ function os2uol_moderation_views_query_alter($view, \Drupal\views\Plugin\views\q
     }
 
     if ($query instanceof \Drupal\views\Plugin\views\query\Sql) {
-      $query->addWhereExpression(0, "
-        EXISTS (
-          SELECT 1
-          FROM {node_revision} trash_revision
-          WHERE trash_revision.vid = node_field_data.vid
-            AND trash_revision.revision_uid = :trash_revision_uid
-        )
-      ", [
-        ':trash_revision_uid' => $current_user->id(),
-      ]);
+      // Course providers should only see trash nodes they own.
+      $query->addWhere(0, 'node_field_data.uid', $current_user->id());
     }
   }
 }
@@ -172,6 +169,184 @@ function os2uol_moderation_entity_type_alter(array &$entity_types) {
     $config_export = $type->get('config_export');
     $config_export[] = 'domain';
     $type->set('config_export', $config_export);
+  }
+}
+
+/**
+ * Implements hook_entity_operation_alter().
+ */
+function os2uol_moderation_entity_operation_alter(array &$operations, EntityInterface $entity): void {
+  if (!$entity instanceof NodeInterface) {
+    return;
+  }
+
+  /** @var \Drupal\os2uol_moderation\TrashManager $trash_manager */
+  $trash_manager = \Drupal::service('os2uol_moderation.trash_manager');
+  if (!$trash_manager->supports($entity)) {
+    return;
+  }
+
+  $delete_operation = $operations['delete'] ?? [];
+  unset($operations['delete']);
+
+  if (!$trash_manager->access($entity, \Drupal::currentUser())->isAllowed()) {
+    return;
+  }
+
+  $url_options = isset($delete_operation['url'])
+    ? $delete_operation['url']->getOptions()
+    : ['query' => \Drupal::destination()->getAsArray()];
+  $url_options['attributes']['aria-label'] = t('Delete @entity_label', [
+    '@entity_label' => $entity->label(),
+  ]);
+
+  $operations['move_to_trash'] = [
+    'title' => t('Delete'),
+    'weight' => $delete_operation['weight'] ?? 100,
+    'attributes' => $delete_operation['attributes'] ?? [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'modal',
+      'data-dialog-options' => Json::encode(['width' => 880]),
+    ],
+    'url' => Url::fromRoute(
+      'os2uol_moderation.node.move_to_trash',
+      ['node' => $entity->id()],
+      $url_options,
+    ),
+  ];
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter() for node forms.
+ */
+function os2uol_moderation_form_node_form_alter(array &$form, FormStateInterface $form_state, string $form_id): void {
+  $form_object = $form_state->getFormObject();
+  if (!$form_object instanceof EntityFormInterface) {
+    return;
+  }
+
+  $entity = $form_object->getEntity();
+  if (!$entity instanceof NodeInterface || $entity->isNew()) {
+    return;
+  }
+
+  /** @var \Drupal\os2uol_moderation\TrashManager $trash_manager */
+  $trash_manager = \Drupal::service('os2uol_moderation.trash_manager');
+  if ($trash_manager->supports($entity)) {
+    // Run after field widget processing, which may add workflow buttons and
+    // copies of the action container for the Gin sticky action bar.
+    $form['#after_build'][] = 'os2uol_moderation_node_form_replace_delete_actions';
+  }
+}
+
+/**
+ * Replaces node-form delete actions with the move-to-trash action.
+ */
+function os2uol_moderation_node_form_replace_delete_actions(array $form, FormStateInterface $form_state): array {
+  $form_object = $form_state->getFormObject();
+  if (!$form_object instanceof EntityFormInterface) {
+    return $form;
+  }
+
+  $entity = $form_object->getEntity();
+  if (!$entity instanceof NodeInterface || $entity->isNew()) {
+    return $form;
+  }
+
+  /** @var \Drupal\os2uol_moderation\TrashManager $trash_manager */
+  $trash_manager = \Drupal::service('os2uol_moderation.trash_manager');
+  if (!$trash_manager->supports($entity)) {
+    return $form;
+  }
+
+  $access = $trash_manager->access($entity, \Drupal::currentUser());
+  $replace_actions = static function (array &$actions) use ($access, $entity): void {
+    if (!isset($actions['delete'])) {
+      return;
+    }
+
+    $move_to_trash = $actions['delete'];
+    $url_options = isset($move_to_trash['#url'])
+      ? $move_to_trash['#url']->getOptions()
+      : ['query' => \Drupal::destination()->getAsArray()];
+
+    $move_to_trash['#title'] = t('Delete');
+    $move_to_trash['#access'] = $access;
+    $move_to_trash['#url'] = Url::fromRoute(
+      'os2uol_moderation.node.move_to_trash',
+      ['node' => $entity->id()],
+      $url_options,
+    );
+    $move_to_trash['#attributes']['aria-label'] = t('Delete @entity_label', [
+      '@entity_label' => $entity->label(),
+    ]);
+
+    unset(
+      $actions['delete'],
+      $actions['moderation_state_' . \Drupal\os2uol_moderation\TrashManager::TRASH_STATE],
+    );
+    $actions['move_to_trash'] = $move_to_trash;
+  };
+
+  if (isset($form['actions'])) {
+    $replace_actions($form['actions']);
+  }
+  if (isset($form['gin_actions']['actions'])) {
+    $replace_actions($form['gin_actions']['actions']);
+  }
+  foreach (['actions_top', 'actions_bottom'] as $key) {
+    if (isset($form[$key])) {
+      $replace_actions($form[$key]);
+    }
+  }
+
+  return $form;
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function os2uol_moderation_menu_local_tasks_alter(
+  array &$data,
+  string $route_name,
+  RefinableCacheableDependencyInterface &$cacheability,
+): void {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  /** @var \Drupal\os2uol_moderation\TrashManager $trash_manager */
+  $trash_manager = \Drupal::service('os2uol_moderation.trash_manager');
+  if (!$trash_manager->supports($node)) {
+    return;
+  }
+
+  unset($data['tabs'][0]['entity.node.delete_form']);
+  $cacheability->addCacheableDependency($node);
+}
+
+/**
+ * Implements hook_contextual_links_alter().
+ */
+function os2uol_moderation_contextual_links_alter(array &$links, string $group, array $route_parameters): void {
+  if ($group !== 'node' || !isset($route_parameters['node'])) {
+    return;
+  }
+
+  /** @var \Drupal\node\NodeInterface|null $node */
+  $node = \Drupal::entityTypeManager()
+    ->getStorage('node')
+    ->load($route_parameters['node']);
+
+  if (!$node instanceof NodeInterface) {
+    return;
+  }
+
+  /** @var \Drupal\os2uol_moderation\TrashManager $trash_manager */
+  $trash_manager = \Drupal::service('os2uol_moderation.trash_manager');
+  if ($trash_manager->supports($node)) {
+    unset($links['entity.node.delete_form']);
   }
 }
 
