@@ -20,6 +20,15 @@ services:
       - '@database'
       - '@config.factory'
 
+  os2uol_moderation.trash_manager:
+    class: Drupal\os2uol_moderation\TrashManager
+    arguments:
+      - '@content_moderation.moderation_information'
+      - '@content_moderation.state_transition_validation'
+      - '@entity_type.manager'
+      - '@datetime.time'
+      - '@logger.channel.os2uol_moderation'
+
   logger.channel.os2uol_moderation:
     parent: logger.channel_base
     arguments: ['os2uol_moderation']
