@@ -12,7 +12,7 @@ field_name: field_semester
 entity_type: node
 bundle: free_course_request
 label: Semester
-description: ''
+description: 'The internal name for the options need to be in this format <em>1_halvar_2026_2027</em> in orde for the system to automatically set the semester.'
 required: false
 translatable: false
 default_value: {  }
