@@ -154,6 +154,8 @@ class FreeCourseEvaluationService {
       if ($result['result']) {
         // Mark the follow-up mail as sent.
         $node->set('field_rfc_follow_up_mail_sent', \Drupal::time()->getRequestTime());
+        // Skip content moderation notification
+        $node->set('field_rfc_send_mail', '0');
         $node->save();
 
         $this->logger->info('Evaluation email sent for node @nid to @email.', [

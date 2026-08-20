@@ -27,6 +27,7 @@ dependencies:
     - field.field.node.course.field_hide_contact_form
     - field.field.node.course.field_image
     - field.field.node.course.field_is_free
+    - field.field.node.course.field_location_desc_expanded
     - field.field.node.course.field_location_description
     - field.field.node.course.field_location_name
     - field.field.node.course.field_materials
@@ -166,7 +167,7 @@ third_party_settings:
       label: Faciliteter
       region: content
       parent_name: group_lokation
-      weight: 59
+      weight: 60
       format_type: fieldset
       format_settings:
         classes: ''
@@ -199,6 +200,7 @@ third_party_settings:
         - field_view_on_map
         - group_alternative_address
         - field_location_description
+        - field_location_desc_expanded
         - group_facilities
       label: Lokation
       region: content
@@ -710,6 +712,13 @@ content:
   field_is_free:
     type: boolean_checkbox
     weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_location_desc_expanded:
+    type: boolean_checkbox
+    weight: 59
     region: content
     settings:
       display_label: true

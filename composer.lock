@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb6d87e0b32ab6949bb65d46481bafb7",
+    "content-hash": "2f4b74a50e71435afc46ef3837439f7c",
     "packages": [
         {
             "name": "algolia/places",
@@ -1544,6 +1544,62 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/allowed_formats",
                 "issues": "https://www.drupal.org/project/issues/allowed_formats"
+            }
+        },
+        {
+            "name": "drupal/anchor_link",
+            "version": "3.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupalcode.org/project/anchor_link.git",
+                "reference": "3.0.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/anchor_link-3.0.4.zip",
+                "reference": "3.0.4",
+                "shasum": "e46e48235915d46c0428e8dbee4b7a3eba21cd44"
+            },
+            "require": {
+                "drupal/core": "^9 || ^10 || ^11",
+                "vardot/ckeditor5-anchor-drupal": "^1.0.3 || ^2.0.4"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "drupal": {
+                    "version": "3.0.4",
+                    "datestamp": "1770468477",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Vardot",
+                    "homepage": "https://www.drupal.org/vardot",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "Northern Commerce",
+                    "homepage": "https://www.drupal.org/northern-commerce",
+                    "role": "Maintainer"
+                },
+                {
+                    "name": "rajab natshah",
+                    "homepage": "https://www.drupal.org/user/1414312"
+                }
+            ],
+            "description": "This plugin module adds the better link dialog and anchor related features to CKEditor in Drupal.",
+            "homepage": "https://www.drupal.org/project/anchor_link",
+            "support": {
+                "source": "http://cgit.drupalcode.org/anchor_link",
+                "issues": "https://www.drupal.org/project/issues/anchor_link"
             }
         },
         {
@@ -7178,17 +7234,17 @@
         },
         {
             "name": "drupal/transform_api",
-            "version": "2.1.5",
+            "version": "2.1.7",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/transform_api.git",
-                "reference": "2.1.5"
+                "reference": "2.1.7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/transform_api-2.1.5.zip",
-                "reference": "2.1.5",
-                "shasum": "7f2f3fb37061a20c0abb7328abfa1f96dfb9b3ce"
+                "url": "https://ftp.drupal.org/files/projects/transform_api-2.1.7.zip",
+                "reference": "2.1.7",
+                "shasum": "5ad5967175260a83c4ab1e4db3392b6285150c1a"
             },
             "require": {
                 "drupal/core": "^10.3 || ^11",
@@ -7202,8 +7258,8 @@
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "2.1.5",
-                    "datestamp": "1774531532",
+                    "version": "2.1.7",
+                    "datestamp": "1783606043",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -10113,16 +10169,24 @@
         },
         {
             "name": "novicell/dawa",
-            "version": "1.0.1",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/novicell-drupal/dawa.git",
+                "reference": "c99a9d18e52fed41402d5a823b732bfd8257a358"
+            },
             "dist": {
                 "type": "zip",
-                "url": "https://packages.drupal.dk/php/~/up/ver_otnZ/novicelldawa-1-0-1.zip"
+                "url": "https://api.github.com/repos/novicell-drupal/dawa/zipball/c99a9d18e52fed41402d5a823b732bfd8257a358",
+                "reference": "c99a9d18e52fed41402d5a823b732bfd8257a358",
+                "shasum": ""
             },
             "require": {
                 "drupal/core": "^10",
                 "drupal/jquery_once": "^1.0"
             },
             "type": "drupal-module",
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "GPL-2.0+"
             ],
@@ -10130,7 +10194,12 @@
             "homepage": "https://www.novicell.dk",
             "keywords": [
                 "Novicell"
-            ]
+            ],
+            "support": {
+                "issues": "https://github.com/novicell-drupal/dawa/issues",
+                "source": "https://github.com/novicell-drupal/dawa/tree/1.1.0"
+            },
+            "time": "2026-06-26T09:59:58+00:00"
         },
         {
             "name": "novicell/dynamic_key_value",
@@ -14783,6 +14852,48 @@
                 }
             ],
             "time": "2025-02-13T08:34:43+00:00"
+        },
+        {
+            "name": "vardot/ckeditor5-anchor-drupal",
+            "version": "2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Vardot/ckeditor5-anchor-drupal.git",
+                "reference": "00fbfd8d63ca29c1efd9b327ea973f99f78e9f16"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Vardot/ckeditor5-anchor-drupal/zipball/00fbfd8d63ca29c1efd9b327ea973f99f78e9f16",
+                "reference": "00fbfd8d63ca29c1efd9b327ea973f99f78e9f16",
+                "shasum": ""
+            },
+            "require": {
+                "drupal/core": ">=10.5 || >=11.2"
+            },
+            "type": "drupal-library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vardot",
+                    "homepage": "https://github.com/vardot",
+                    "role": "Maintainer"
+                }
+            ],
+            "description": "Anchor feature for CKEditor 5, adapted for Drupal",
+            "homepage": "https://github.com/vardot/ckeditor5-anchor-drupal",
+            "keywords": [
+                "ckeditor5",
+                "drupal",
+                "plugin"
+            ],
+            "support": {
+                "issues": "http://drupal.org/project/issues/anchor_link",
+                "source": "http://cgit.drupalcode.org/anchor_link"
+            },
+            "time": "2025-12-09T10:59:53+00:00"
         },
         {
             "name": "vlucas/phpdotenv",

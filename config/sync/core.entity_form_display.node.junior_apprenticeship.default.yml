@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.junior_apprenticeship.field_hide_contact_form
     - field.field.node.junior_apprenticeship.field_image
     - field.field.node.junior_apprenticeship.field_industry
+    - field.field.node.junior_apprenticeship.field_location_desc_expanded
     - field.field.node.junior_apprenticeship.field_location_description
     - field.field.node.junior_apprenticeship.field_location_name
     - field.field.node.junior_apprenticeship.field_materials
@@ -119,6 +120,7 @@ third_party_settings:
         - field_view_on_map
         - group_alternative_address
         - field_location_description
+        - field_location_desc_expanded
         - field_p_number
       label: Lokation
       region: content
@@ -489,6 +491,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_location_desc_expanded:
+    type: boolean_checkbox
+    weight: 77
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_location_description:
     type: text_textarea
     weight: 76
@@ -550,7 +559,7 @@ content:
     third_party_settings: {  }
   field_p_number:
     type: string_textfield
-    weight: 77
+    weight: 78
     region: content
     settings:
       size: 60

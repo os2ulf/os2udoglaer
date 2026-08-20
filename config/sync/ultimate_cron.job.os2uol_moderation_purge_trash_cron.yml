@@ -1,0 +1,30 @@
+uuid: 84b56f84-b1e9-4c21-92ff-e2b6f81e966c
+langcode: da
+status: true
+dependencies:
+  module:
+    - os2uol_moderation
+title: 'Purge old trash nodes'
+id: os2uol_moderation_purge_trash_cron
+weight: 0
+module: os2uol_moderation
+callback: os2uol_moderation_purge_trash_cron
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '30 2 * * *'
+    catch_up: 0
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

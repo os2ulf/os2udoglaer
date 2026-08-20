@@ -24,6 +24,7 @@ dependencies:
     - field.field.node.internship.field_hide_contact_form
     - field.field.node.internship.field_image
     - field.field.node.internship.field_industry
+    - field.field.node.internship.field_location_desc_expanded
     - field.field.node.internship.field_location_description
     - field.field.node.internship.field_location_name
     - field.field.node.internship.field_materials
@@ -101,6 +102,11 @@ content:
     label: omit
     settings: {  }
     third_party_settings: {  }
+  label:
+    weight: '-100'
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_application_deadline: true
   field_application_email: true
@@ -118,6 +124,7 @@ hidden:
   field_exclude_from_search: true
   field_expectations: true
   field_hide_contact_form: true
+  field_location_desc_expanded: true
   field_location_description: true
   field_location_name: true
   field_materials: true
@@ -138,3 +145,4 @@ hidden:
   field_video_description: true
   field_video_title: true
   langcode: true
+  url: true
