@@ -10169,16 +10169,16 @@
         },
         {
             "name": "novicell/dawa",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/novicell-drupal/dawa.git",
-                "reference": "c99a9d18e52fed41402d5a823b732bfd8257a358"
+                "reference": "bb13510385444431234f5d2235b7c172f2d3a53e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/novicell-drupal/dawa/zipball/c99a9d18e52fed41402d5a823b732bfd8257a358",
-                "reference": "c99a9d18e52fed41402d5a823b732bfd8257a358",
+                "url": "https://api.github.com/repos/novicell-drupal/dawa/zipball/bb13510385444431234f5d2235b7c172f2d3a53e",
+                "reference": "bb13510385444431234f5d2235b7c172f2d3a53e",
                 "shasum": ""
             },
             "require": {
@@ -10197,9 +10197,9 @@
             ],
             "support": {
                 "issues": "https://github.com/novicell-drupal/dawa/issues",
-                "source": "https://github.com/novicell-drupal/dawa/tree/1.1.0"
+                "source": "https://github.com/novicell-drupal/dawa/tree/1.1.1"
             },
-            "time": "2026-06-26T09:59:58+00:00"
+            "time": "2026-08-20T10:34:59+00:00"
         },
         {
             "name": "novicell/dynamic_key_value",
