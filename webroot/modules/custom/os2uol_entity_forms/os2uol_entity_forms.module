@@ -741,3 +741,20 @@ function os2uol_entity_forms_entity_presave(EntityInterface $entity) {
     }
   }
 }
+
+/**
+ * Implements hook_field_diff_builder_info_alter().
+ */
+function os2uol_entity_forms_field_diff_builder_info_alter(
+  array &$diff_builders,
+): void {
+  if (!isset($diff_builders['core_field_diff_builder']['field_types'])) {
+    return;
+  }
+
+  $field_types = &$diff_builders['core_field_diff_builder']['field_types'];
+  $field_types = array_values(array_unique(array_merge($field_types, [
+    'daterange',
+    'dawa_address_autocomplete',
+  ])));
+}
