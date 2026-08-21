@@ -761,6 +761,10 @@ $manually_added_hosts = [
   'api-staging.syddjurs.os2udoglaer.dk',
 
   'api.taetpaadig.roskilde.dk',
+
+  'api.udoglærsyddjurs.dk',
+  'api.udoglaersyddjurs.dk',
+  'api.xn--udoglrsyddjurs-4ib.dk',
 ];
 
 if ($trusted_hosts !== false) {
