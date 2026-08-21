@@ -9,34 +9,32 @@ use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Entity\RevisionableStorageInterface;
 use Drupal\Core\Extension\ModuleHandlerInterface;
-use Drupal\Core\KeyValueStore\KeyValueExpirableFactoryInterface;
-use Drupal\Core\KeyValueStore\KeyValueStoreExpirableInterface;
+use Drupal\Core\KeyValueStore\KeyValueFactoryInterface;
+use Drupal\Core\KeyValueStore\KeyValueStoreInterface;
 use Drupal\transform_api\Repository\EntityTransformRepositoryInterface;
 use Drupal\transform_api\Transform\EntityTransform;
 use Drupal\transform_api\Transformer;
 
 class TransformPreview {
 
-  protected KeyValueStoreExpirableInterface $keyValueStore;
+  protected KeyValueStoreInterface $keyValueStore;
   protected Config $config;
   protected Transformer $transformer;
   protected EntityTypeManagerInterface $entityTypeManager;
   protected UuidInterface $uuid;
   protected ModuleHandlerInterface $moduleHandler;
 
-  public const int EXPIRE = 30 * 60;
-
   /**
-   * @param KeyValueExpirableFactoryInterface $keyValueExpirableFactory
+   * @param KeyValueFactoryInterface $keyValueFactory
    * @param EntityTypeManagerInterface $entityTypeManager
    * @param Transformer $transformer
    * @param UuidInterface $uuid
    * @param ModuleHandlerInterface $moduleHandler
    */
-  public function __construct(KeyValueExpirableFactoryInterface $keyValueExpirableFactory, EntityTypeManagerInterface $entityTypeManager, Transformer $transformer, UuidInterface $uuid, ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $configFactory)
+  public function __construct(KeyValueFactoryInterface $keyValueFactory, EntityTypeManagerInterface $entityTypeManager, Transformer $transformer, UuidInterface $uuid, ModuleHandlerInterface $moduleHandler, ConfigFactoryInterface $configFactory)
   {
     $this->config = $configFactory->get('transform_api_preview.settings');
-    $this->keyValueStore = $keyValueExpirableFactory->get('transform_api_preview');
+    $this->keyValueStore = $keyValueFactory->get('transform_api_preview');
     $this->transformer = $transformer;
     $this->entityTypeManager = $entityTypeManager;
     $this->uuid = $uuid;
@@ -47,16 +45,12 @@ class TransformPreview {
     $uuid = $this->uuid->generate();
     $entity_id = $entity->id();
     $entity_type_id = $entity->getEntityTypeId();
-    $storage = $this->entityTypeManager->getStorage($entity_type_id);
     $info = [
       'entity_id' => $entity_id,
       'entity_type_id' => $entity_type_id,
     ];
-    if ($storage instanceof RevisionableStorageInterface) {
-      $info['revision_id'] = $storage->getLatestRevisionId($entity_id);
-    }
 
-    $this->keyValueStore->setWithExpire($uuid, $info, self::EXPIRE);
+    $this->keyValueStore->set($uuid, $info);
     return $uuid;
   }
 
@@ -73,7 +67,10 @@ class TransformPreview {
     if (!empty($info)) {
       $storage = $this->entityTypeManager->getStorage($info['entity_type_id']);
       if ($storage instanceof RevisionableStorageInterface) {
-        $entity = $storage->loadRevision($info['revision_id']);
+        $revision_id = $storage->getLatestRevisionId($info['entity_id']);
+        if ($revision_id !== NULL) {
+          $entity = $storage->loadRevision($revision_id);
+        }
       } else {
         $entity = $storage->load($info['entity_id']);
       }
