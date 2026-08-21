@@ -1,0 +1,9 @@
+uuid: 8bd47618-8a99-4016-85de-1e657b3a8932
+langcode: da
+status: true
+dependencies: {  }
+id: api_xn_udoglrsyddjurs_4ib_dk
+domain_id: api_udoglaer_syddjurs_dk
+pattern: api.xn--udoglrsyddjurs-4ib.dk
+redirect: 0
+environment: default
