@@ -2,7 +2,7 @@ services:
   transform_api_preview:
     class: Drupal\transform_api_preview\TransformPreview
     arguments:
-      - '@keyvalue.expirable'
+      - '@keyvalue'
       - '@entity_type.manager'
       - '@transform_api.transformer'
       - '@uuid'
