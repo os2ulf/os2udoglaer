@@ -792,21 +792,29 @@ function os2uol_application_forms_views_data_alter(array &$data) {
  * Implements hook_views_pre_build().
  */
 function os2uol_application_forms_views_pre_build(ViewExecutable $view) {
-  $budget_year_views = [
-    'school_budget_overview',
-    'theater_refund',
-  ];
+  // The second year filter selects allocated budget paragraphs and must only
+  // follow the application year on the overview that displays those budgets.
+  if ($view->id() === 'school_budget_overview') {
+    $exposed_input = $view->getExposedInput();
+    $exposed_input['budget_year_1'] = $exposed_input['budget_year'] ?? '';
+    $view->setExposedInput($exposed_input);
+  }
 
-  if (in_array($view->id(), $budget_year_views)) {
+  // Ignore stale values for the hidden budget year filter on the application
+  // overview. Its totals are calculated from application fields, not budgets.
+  if ($view->id() === 'theater_refund' && $view->current_display === 'page_1') {
+    $exposed_input = $view->getExposedInput();
+    $exposed_input['budget_year_1'] = '';
+    $view->setExposedInput($exposed_input);
+  }
+
+  if ($view->id() === 'theater_refund' && $view->current_display === 'page_4') {
     $exposed_input = $view->getExposedInput();
 
-    if ($view->id() == 'theater_refund' && $view->current_display == 'page_4' && !isset($exposed_input['budget_year'])) {
+    if (!isset($exposed_input['budget_year'])) {
       $exposed_input['budget_year'] = date('Y');
+      $view->setExposedInput($exposed_input);
     }
-
-    $exposed_input['budget_year_1'] = $exposed_input['budget_year'] ?? '';
-
-    $view->setExposedInput($exposed_input);
   }
 }
 
@@ -833,4 +841,3 @@ function os2uol_application_forms_mail($key, &$message, $params) {
     $message['body'][] = Markup::create($params['content']);
   }
 }
-
