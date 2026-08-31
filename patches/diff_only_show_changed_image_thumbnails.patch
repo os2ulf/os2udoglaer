@@ -1,0 +1,20 @@
+diff --git a/src/Plugin/diff/Layout/SplitFieldsDiffLayout.php b/src/Plugin/diff/Layout/SplitFieldsDiffLayout.php
+--- a/src/Plugin/diff/Layout/SplitFieldsDiffLayout.php
++++ b/src/Plugin/diff/Layout/SplitFieldsDiffLayout.php
+@@ -162,13 +162,13 @@ class SplitFieldsDiffLayout extends DiffLayoutBase {
+       );
+ 
+-      // EXPERIMENTAL: Deal with magic thumbnail image data.
+-      if (isset($field['#data']['#left_thumbnail'])) {
++      // EXPERIMENTAL: Show thumbnail image data only for changed fields.
++      if (!empty($field_diff_rows) && isset($field['#data']['#left_thumbnail'])) {
+         $field_diff_rows['#thumbnail'][1] = [
+           'data' => $field['#data']['#left_thumbnail'],
+           'class' => [],
+         ];
+       }
+-      if (isset($field['#data']['#right_thumbnail'])) {
++      if (!empty($field_diff_rows) && isset($field['#data']['#right_thumbnail'])) {
+         $field_diff_rows['#thumbnail'][3] = [
+           'data' => $field['#data']['#right_thumbnail'],
+           'class' => [],
