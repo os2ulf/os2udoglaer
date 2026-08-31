@@ -244,7 +244,8 @@
                 "Turn BCC into To": "patches/content_moderation_notifications_bcc_into_to.patch"
             },
             "drupal/diff": {
-                "(#3165141) Set the default filter to 'Strip Tags'": "https://www.drupal.org/files/issues/2024-09-16/3165141-21.patch"
+                "(#3165141) Set the default filter to 'Strip Tags'": "https://www.drupal.org/files/issues/2024-09-16/3165141-21.patch",
+                "Only show image thumbnails when the field changed": "patches/diff_only_show_changed_image_thumbnails.patch"
             },
             "drupal/domain_entity" : {
                 "(#3405907) Make module compatible with PHP 8.2": "https://www.drupal.org/files/issues/2023-12-04/3405907-1.patch"
