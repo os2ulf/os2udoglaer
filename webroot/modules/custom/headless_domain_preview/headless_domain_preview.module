@@ -101,8 +101,5 @@ function headless_domain_preview_entity_view(array &$build, \Drupal\Core\Entity\
       '#theme' => 'headless_domain_preview',
       '#preview_url' => $preview_url,
     ];
-
-    // Set cache max age to match preview expiration and decrease by 60 seconds
-    $build['#cache']['max-age'] = \Drupal\transform_api_preview\TransformPreview::EXPIRE - 60;
   }
 }
