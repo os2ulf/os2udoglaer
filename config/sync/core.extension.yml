@@ -54,7 +54,6 @@ module:
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
-  entity_diff_ui: 0
   entity_reference_revisions: 0
   entity_usage: 0
   facets: 0
@@ -151,7 +150,6 @@ module:
   symfony_mailer_lite: 0
   system: 0
   taxonomy: 0
-  taxonomy_diff_ui: 0
   text: 0
   token: 0
   toolbar: 0
