@@ -41,6 +41,7 @@ dependencies:
     - field.field.node.junior_apprenticeship.field_quantity
     - field.field.node.junior_apprenticeship.field_related_courses
     - field.field.node.junior_apprenticeship.field_show_application_link
+    - field.field.node.junior_apprenticeship.field_sub_industry
     - field.field.node.junior_apprenticeship.field_todo_list
     - field.field.node.junior_apprenticeship.field_video
     - field.field.node.junior_apprenticeship.field_video_description
@@ -196,6 +197,7 @@ third_party_settings:
     group_industry_area_interest:
       children:
         - field_industry
+        - field_sub_industry
         - field_areas_of_interest
         - field_education_path
       label: 'Branche og interesseområde'
@@ -369,7 +371,7 @@ content:
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_autocomplete
-    weight: 70
+    weight: 71
     region: content
     settings:
       match_operator: CONTAINS
@@ -597,6 +599,16 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_sub_industry:
+    type: entity_reference_autocomplete_tags
+    weight: 70
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_todo_list:
     type: text_textarea

@@ -29,6 +29,7 @@ dependencies:
     - field.storage.node.field_purpose
     - field.storage.node.field_purpose_exercise
     - field.storage.node.field_related_user
+    - field.storage.node.field_sub_industry
     - field.storage.node.field_subject
     - field.storage.node.field_sustainability_goals
     - field.storage.node.field_sustainability_goals_desc
@@ -501,6 +502,24 @@ field_settings:
         - field.storage.user.field_name
       module:
         - user
+  field_sub_industry:
+    label: Underbranche
+    datasource_id: 'entity:node'
+    property_path: field_sub_industry
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_sub_industry
+  field_sub_industry_name:
+    label: 'Underbranche » Ord i ordforråd » Navn'
+    datasource_id: 'entity:node'
+    property_path: 'field_sub_industry:entity:name'
+    type: 'solr_text_custom:ngram'
+    dependencies:
+      config:
+        - field.storage.node.field_sub_industry
+      module:
+        - taxonomy
   field_subject:
     label: Emneområde
     datasource_id: 'entity:node'
