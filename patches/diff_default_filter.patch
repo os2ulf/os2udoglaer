@@ -1,0 +1,165 @@
+# Upstream: https://git.drupalcode.org/project/diff/-/merge_requests/95.diff
+# Revision: 8e40220b6239f0995484c8a89d0c270b68687f2c
+# Upstream diff SHA-256: 52224c9720acee9a7918c932d32c6bf0c721bd4aa28ef898449893dcaa86bb51
+# Patch body below is unchanged from upstream; this snapshot pins the reviewed revision.
+diff --git a/config/install/diff.settings.yml b/config/install/diff.settings.yml
+index db5ba4a773f86c5c5fb94afe1625cf7f804adc92..6d15f9cbabce6a1adb86603320fa6596ccd400f2 100644
+--- a/config/install/diff.settings.yml
++++ b/config/install/diff.settings.yml
+@@ -15,3 +15,4 @@ general_settings:
+       weight: 2
+   visual_default_view_mode: full
+   visual_inline_theme: default
++  default_filter: raw
+diff --git a/config/schema/diff.schema.yml b/config/schema/diff.schema.yml
+index 1122802fd4076fc96d9a9e8ef05016def036cec4..e3f0fa052d9c27ccdc1ce803f225a56225247831 100644
+--- a/config/schema/diff.schema.yml
++++ b/config/schema/diff.schema.yml
+@@ -15,6 +15,9 @@ diff.settings:
+         context_lines_trailing:
+           type: integer
+           label: "Number of trailing context lines"
++        default_filter:
++          type: string
++          label: "Default filter on fields based comparison"
+         revision_pager_limit:
+           type: integer
+           label: "Revisions per page to be displayed in diff pager"
+diff --git a/diff.install b/diff.install
+index 09a28dedda943f1baec6d3468509fad72b7151ff..c119025f18334c7cce61537c9c9da9e32c795905 100644
+--- a/diff.install
++++ b/diff.install
+@@ -157,3 +157,12 @@ function diff_update_8010(): void {
+     ->set('general_settings.visual_default_view_mode', 'full')
+     ->save();
+ }
++
++/**
++ * Update diff.settings to include general_settings.default_filter.
++ */
++function diff_update_8011(): void {
++  \Drupal::configFactory()->getEditable('diff.settings')
++    ->set('general_settings.default_filter', 'raw')
++    ->save();
++}
+diff --git a/phpstan-baseline.neon b/phpstan-baseline.neon
+index f1b452edcf738c5fad0706684d9abcf7be448867..674c19cfad636737ea35952239c0876323cc4030 100644
+--- a/phpstan-baseline.neon
++++ b/phpstan-baseline.neon
+@@ -291,11 +291,6 @@ parameters:
+ 			count: 4
+ 			path: src/Plugin/diff/Layout/SplitFieldsDiffLayout.php
+ 
+-		-
+-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
+-			count: 1
+-			path: src/Plugin/diff/Layout/SplitFieldsDiffLayout.php
+-
+ 		-
+ 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+ 			count: 1
+@@ -311,11 +306,6 @@ parameters:
+ 			count: 1
+ 			path: src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php
+ 
+-		-
+-			message: "#^Short ternary operator is not allowed\\. Use null coalesce operator if applicable or consider using long ternary\\.$#"
+-			count: 1
+-			path: src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php
+-
+ 		-
+ 			message: "#^Unsafe usage of new static\\(\\)\\.$#"
+ 			count: 1
+diff --git a/src/Form/GeneralSettingsForm.php b/src/Form/GeneralSettingsForm.php
+index 67878e4f7a4da685950129369b5d55060d5bf033..7dfa35209be46f7ea4385f2afdb6239cb5f196ce 100644
+--- a/src/Form/GeneralSettingsForm.php
++++ b/src/Form/GeneralSettingsForm.php
+@@ -164,6 +164,17 @@ class GeneralSettingsForm extends ConfigFormBase {
+       '#options' => $options,
+     ];
+ 
++    $form['field_based_settings']['default_filter'] = [
++      '#type' => 'select',
++      '#title' => $this->t('Default Filter'),
++      '#description' => $this->t('Set the default filter on unified/split fields layouts.'),
++      '#options' => [
++        'raw' => $this->t('Raw'),
++        'strip_tags' => $this->t('Strip Tags'),
++      ],
++      '#default_value' => $config->get('general_settings.default_filter'),
++    ];
++
+     // Check if Visual inline layout is installed.
+     if ($this->diffLayoutManager->hasDefinition('visual_inline')) {
+       $form['visual_inline_settings'] = [
+@@ -241,6 +252,7 @@ class GeneralSettingsForm extends ConfigFormBase {
+       'layout_plugins',
+       'visual_default_view_mode',
+       'visual_inline_theme',
++      'default_filter',
+     ];
+     foreach ($keys as $key) {
+       $config->set('general_settings.' . $key, $form_state->getValue($key));
+diff --git a/src/Plugin/diff/Layout/SplitFieldsDiffLayout.php b/src/Plugin/diff/Layout/SplitFieldsDiffLayout.php
+index cafcac17906dbd1f25ebed9469bff415bf604140..37ec322e20629609eb5cfb4616dc53dd5951dca0 100644
+--- a/src/Plugin/diff/Layout/SplitFieldsDiffLayout.php
++++ b/src/Plugin/diff/Layout/SplitFieldsDiffLayout.php
+@@ -70,7 +70,8 @@ class SplitFieldsDiffLayout extends DiffLayoutBase {
+     // Build the revisions data.
+     $build = $this->buildRevisionsData($left_revision, $right_revision);
+ 
+-    $active_filter = $this->requestStack->getCurrentRequest()->query->get('filter') ?: 'raw';
++    $configFilter = $this->configFactory->get('diff.settings')->get('general_settings.default_filter') ?? 'raw';
++    $active_filter = $this->requestStack->getCurrentRequest()->query->get('filter') ?? $configFilter;
+     $build['controls']['filter'] = [
+       '#type' => 'item',
+       '#title' => $this->t('Filter'),
+diff --git a/src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php b/src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php
+index 80d61f35e9c8f6f931d7f2fe6f425844e75ce344..2b855ae1ca733ab2eda6be637204d7a4d95625a7 100644
+--- a/src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php
++++ b/src/Plugin/diff/Layout/UnifiedFieldsDiffLayout.php
+@@ -71,7 +71,8 @@ class UnifiedFieldsDiffLayout extends DiffLayoutBase {
+     // Build the revisions data.
+     $build = $this->buildRevisionsData($left_revision, $right_revision);
+ 
+-    $active_filter = $this->requestStack->getCurrentRequest()->query->get('filter') ?: 'raw';
++    $configFilter = $this->configFactory->get('diff.settings')->get('general_settings.default_filter') ?? 'raw';
++    $active_filter = $this->requestStack->getCurrentRequest()->query->get('filter') ?? $configFilter;
+     $raw_active = $active_filter == 'raw';
+ 
+     $build['controls']['filter'] = [
+diff --git a/tests/src/Functional/DiffAdminFormsTest.php b/tests/src/Functional/DiffAdminFormsTest.php
+index 75770afd56b86f5f645262fbb8e74f7d2625ba62..17bc9dcee38fc6e550a9ef3a46200e5d048fe189 100644
+--- a/tests/src/Functional/DiffAdminFormsTest.php
++++ b/tests/src/Functional/DiffAdminFormsTest.php
+@@ -62,6 +62,7 @@ class DiffAdminFormsTest extends DiffTestBase {
+       'radio_behavior' => 'linear',
+       'context_lines_leading' => 10,
+       'context_lines_trailing' => 5,
++      'default_filter' => 'strip_tags',
+     ], 'Save configuration');
+     $this->assertSession()->pageTextContains('The configuration options have been saved.');
+   }
+@@ -241,6 +242,22 @@ class DiffAdminFormsTest extends DiffTestBase {
+     $this->clickLink('Strip tags');
+     $assert_session->elementContains('css', 'tr:nth-child(5) td:nth-child(2)', 'great_body');
+     $assert_session->elementTextNotContains('css', 'tr:nth-child(5) td:nth-child(2)', '<p>');
++
++    // Change the default filter.
++    $edit = [
++      'layout_plugins[unified_fields][enabled]' => TRUE,
++      'layout_plugins[split_fields][enabled]' => TRUE,
++      'default_filter' => 'strip_tags',
++    ];
++    $this->drupalGet('admin/config/content/diff/general');
++    $this->submitForm($edit, 'Save configuration');
++    $this->drupalGet('node/' . $node->id() . '/revisions');
++    $this->submitForm([], 'Compare selected revisions');
++    $this->assertSession()->statusCodeEquals(200);
++    $assert_session->elementContains('css', 'tr:nth-child(5) td:nth-child(2)', 'great_body');
++    $assert_session->elementTextNotContains('css', 'tr:nth-child(5) td:nth-child(2)', '<p>');
++    $this->clickLink('Split fields');
++    $assert_session->elementContains('css', 'tr:nth-child(4) td:nth-child(2)', 'great_body');
+   }
+ 
+   /**
