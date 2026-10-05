@@ -1,57 +1,32 @@
 diff --git a/content_moderation_notifications.services.yml b/content_moderation_notifications.services.yml
-index fb4bb66..a795daa 100644
 --- a/content_moderation_notifications.services.yml
 +++ b/content_moderation_notifications.services.yml
-@@ -4,4 +4,4 @@ services:
+@@ -4,4 +4,4 @@
      arguments: ['@entity_type.manager', '@content_moderation.moderation_information']
    content_moderation_notifications.notification:
      class: Drupal\content_moderation_notifications\Notification
--    arguments: ['@current_user', '@entity_type.manager', '@plugin.manager.mail', '@module_handler', '@content_moderation_notifications.notification_information', '@?token.entity_mapper']
-+    arguments: ['@current_user', '@entity_type.manager', '@plugin.manager.mail', '@module_handler', '@content_moderation_notifications.notification_information', '@token', '@?token.entity_mapper']
+-    arguments: ['@current_user', '@entity_type.manager', '@plugin.manager.mail', '@module_handler', '@content_moderation_notifications.notification_information', '@renderer', '@config.factory', '@?token.entity_mapper']
++    arguments: ['@current_user', '@entity_type.manager', '@plugin.manager.mail', '@module_handler', '@content_moderation_notifications.notification_information', '@renderer', '@config.factory', '@token', '@?token.entity_mapper']
 diff --git a/src/Notification.php b/src/Notification.php
-index 8a73db1..e44c109 100644
 --- a/src/Notification.php
 +++ b/src/Notification.php
-@@ -9,6 +9,7 @@ use Drupal\Core\Entity\SynchronizableInterface;
- use Drupal\Core\Extension\ModuleHandlerInterface;
+@@ -11,6 +11,7 @@
  use Drupal\Core\Mail\MailManagerInterface;
+ use Drupal\Core\Render\RendererInterface;
  use Drupal\Core\Session\AccountInterface;
 +use Drupal\Core\Utility\Token;
  use Drupal\token\TokenEntityMapperInterface;
- use Drupal\user\Entity\User;
  use Drupal\user\EntityOwnerInterface;
-@@ -62,6 +63,13 @@ class Notification implements NotificationInterface {
-    */
-   protected $tokenEntityMapper;
+ use Drupal\user\RoleInterface;
+@@ -28,6 +29,7 @@
+     protected NotificationInformationInterface $notificationInformation,
+     protected RendererInterface $renderer,
+     protected ConfigFactoryInterface $configFactory,
++    protected Token $token,
+     protected ?TokenEntityMapperInterface $tokenEntityMapper = NULL,
+   ) {}
  
-+  /**
-+   * The token service.
-+   *
-+   * @var \Drupal\Core\Utility\Token
-+   */
-+  protected $token;
-+
-   /**
-    * Creates a new ModerationInformation instance.
-    *
-@@ -78,13 +86,14 @@ class Notification implements NotificationInterface {
-    * @param \Drupal\token\TokenEntityMapperInterface $token_entity_mappper
-    *   The token entity mapper service.
-    */
--  public function __construct(AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager, MailManagerInterface $mail_manager, ModuleHandlerInterface $module_handler, NotificationInformationInterface $notification_information, TokenEntityMapperInterface $token_entity_mappper = NULL) {
-+  public function __construct(AccountInterface $current_user, EntityTypeManagerInterface $entity_type_manager, MailManagerInterface $mail_manager, ModuleHandlerInterface $module_handler, NotificationInformationInterface $notification_information, Token $token, TokenEntityMapperInterface $token_entity_mappper = NULL) {
-     $this->currentUser = $current_user;
-     $this->entityTypeManager = $entity_type_manager;
-     $this->mailManager = $mail_manager;
-     $this->moduleHandler = $module_handler;
-     $this->notificationInformation = $notification_information;
-     $this->tokenEntityMapper = $token_entity_mappper;
-+    $this->token = $token;
-   }
- 
-   /**
-@@ -211,6 +220,9 @@ class Notification implements NotificationInterface {
-         deprecatedCallable: fn() => $renderer->renderPlain($template),
+@@ -156,6 +158,9 @@
        );
  
 +      // Replace any tokens.
@@ -59,4 +34,5 @@ index 8a73db1..e44c109 100644
 +
        // Split Adhoc emails on commas and newlines.
        $adhoc_emails = array_map('trim', explode(',', preg_replace("/((\r?\n)|(\r\n?))/", ',', $adhoc_emails)));
-       $anonymous_access = $notification->bypassAnonymousAccess() || $entity->access('view', User::getAnonymousUser());
+       foreach ($adhoc_emails as $email) {
+         $data['to'][] = $email;
