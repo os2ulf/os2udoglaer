@@ -142,9 +142,6 @@ third_party_settings:
       children:
         - field_location_name
         - field_dawa_address
-        - field_location_street
-        - field_location_zipcode
-        - field_location_city
       label: 'Alternativ adresse'
       region: content
       parent_name: group_location
@@ -595,7 +592,7 @@ content:
       display_label: true
     third_party_settings: {  }
   field_sub_industry:
-    type: entity_reference_autocomplete_tags
+    type: entity_reference_autocomplete
     weight: 70
     region: content
     settings:
