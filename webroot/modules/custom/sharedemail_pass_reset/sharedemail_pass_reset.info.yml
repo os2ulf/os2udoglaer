@@ -1,0 +1,6 @@
+name: 'Shared E-mail Password Reset'
+type: module
+description: 'Enhances the password reset functionality when an e-mail address is used by more than one user account'
+core_version_requirement: ^10 || ^11
+dependencies:
+  - drupal:user

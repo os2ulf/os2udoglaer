@@ -5,6 +5,7 @@ namespace Drupal\os2uol_moderation;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\KeyValueStore\KeyValueExpirableFactoryInterface;
+use Drupal\Core\Utility\Error;
 use Drupal\node\Entity\Node;
 use Drupal\os2uol_domain\Os2uolDomain;
 use Psr\Log\LoggerInterface;
@@ -85,7 +86,7 @@ class ModerationService {
         $this->processNode($node, $unpublishInterval);
       }
     } catch (\Throwable $throwable) {
-      watchdog_exception('os2uol_moderation', $throwable);
+      Error::logException($this->logger, $throwable);
     }
 
     $this->logSummary();

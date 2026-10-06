@@ -1,0 +1,22 @@
+uuid: 83dec15c-a6a8-4c22-9992-7f9907715995
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.internship
+id: node.internship.promote
+field_name: promote
+entity_type: node
+bundle: internship
+label: 'Forfremmet til forside'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

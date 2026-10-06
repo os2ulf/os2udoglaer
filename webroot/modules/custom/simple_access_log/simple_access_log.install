@@ -1,0 +1,96 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the simple_access_log module.
+ */
+
+/**
+ * Implements hook_schema().
+ *
+ * Defines the database tables used by this module.
+ *
+ * @see hook_schema()
+ *
+ * @ingroup simple_access_log
+ */
+function simple_access_log_schema() {
+  $schema['simple_access_log'] = [
+    'description' => 'Stores example person entries for demonstration purposes.',
+    'fields' => [
+      'lid' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'Primary Key: Unique log entry ID.',
+      ],
+      'uid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => "User ID of current user",
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => 'Timestamp of request using Unix Epoch',
+      ],
+      'remote_host' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => false,
+        'default' => '',
+        'description' => 'Client IP address or hostname, best effort.',
+      ],
+      'host' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => false,
+        'default' => '',
+        'description' => 'IP address or hostname of the server that processed the request',
+      ],
+      'title' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => false,
+        'default' => '',
+        'description' => 'Title of Page requested, if available.',
+      ],
+      'uri' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => false,
+        'default' => '',
+        'description' => 'The URI of the page requested',
+      ],
+      'path' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => false,
+        'default' => '',
+        'description' => 'The path of the page requested',
+      ],
+      'referer' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => false,
+        'default' => '',
+        'description' => 'The referer, if supplied.',
+      ],
+      'user_agent' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => false,
+        'default' => '',
+        'description' => 'Supplied remote client user agent string',
+      ],
+    ],
+    'primary key' => ['lid'],
+    'indexes' => [
+      'uid' => ['uid'],
+      'timestamp' => ['timestamp'],
+    ],
+  ];
+
+  return $schema;
+}

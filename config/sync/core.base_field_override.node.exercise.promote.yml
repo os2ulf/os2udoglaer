@@ -1,0 +1,22 @@
+uuid: 9086d3fb-c4f4-4cd3-8d99-db0bcbbc956c
+langcode: da
+status: true
+dependencies:
+  config:
+    - node.type.exercise
+id: node.exercise.promote
+field_name: promote
+entity_type: node
+bundle: exercise
+label: 'Forfremmet til forside'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: Tilsluttet
+  off_label: Afbrudt
+field_type: boolean

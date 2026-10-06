@@ -1,0 +1,110 @@
+<?php
+
+/**
+ * @file
+ * Shared email password reset module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\sharedemail_pass_reset\SharedEmailPassResetConstants;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function sharedemail_pass_reset_form_user_pass_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $strategy = \Drupal::config('sharedemail_pass_reset.settings')->get('sharedemail_pass_reset_strategy');
+
+  switch ($strategy) {
+    case SharedEmailPassResetConstants::STRATEGY_ALL:
+      $form['email'] = [
+        '#type' => 'email',
+        '#title' => t('Email address'),
+        '#required' => TRUE,
+        '#weight' => -1,
+      ];
+      $form['name']['#title'] = t('Username');
+      break;
+
+    case SharedEmailPassResetConstants::STRATEGY_CONDITIONAL:
+    default:
+      // Keep empty body for this scenario.
+      break;
+
+    case SharedEmailPassResetConstants::STRATEGY_USERNAME:
+      $form['name']['#title'] = t('Username');
+      break;
+  }
+
+  $form_state->set('sharedemail_pass_reset_strategy', $strategy);
+
+  unset($form['#validate']);
+  $form['#validate'][] = '_sharedemail_pass_reset_user_pass_validate';
+}
+
+/**
+ *  Form validate handler defined in form alter section
+ */
+function _sharedemail_pass_reset_user_pass_validate($form, FormStateInterface $form_state) {
+
+  $strategy = $form_state->get('sharedemail_pass_reset_strategy');
+  $user_storage = \Drupal::entityTypeManager()->getStorage('user');
+
+  switch ($strategy) {
+    case SharedEmailPassResetConstants::STRATEGY_ALL:
+      $name = trim($form_state->getValue('name'));
+      $email = trim($form_state->getValue('email'));
+      // Try to load by email and username.
+      $users = $user_storage->loadByProperties(['mail' => $email, 'name' => $name]);
+      $account = reset($users);
+      break;
+
+    case SharedEmailPassResetConstants::STRATEGY_CONDITIONAL:
+    default:
+      $name = trim($form_state->getValue('name'));
+      // Try to load by email.
+      $users_by_email = $user_storage->loadByProperties(['mail' => $name]);
+      if (empty($users_by_email)) {
+        // No success, try to load by name.
+        $users_by_name = $user_storage->loadByProperties(['name' => $name]);
+        $account = reset($users_by_name);
+      }
+      elseif (count($users_by_email) > 1) {
+        $form_state
+          ->setErrorByName('name', t('Sorry, username is required as there is more than one account registered with %email.', [
+            '%email' => $name,
+          ]));
+        return;
+      }
+      else {
+        $account = reset($users_by_email);
+      }
+      break;
+
+    case SharedEmailPassResetConstants::STRATEGY_USERNAME:
+      $name = trim($form_state->getValue('name'));
+      // Try to load by username only.
+      $users = $user_storage->loadByProperties(['name' => $name]);
+      $account = reset($users);
+      break;
+  }
+
+  if ($account && $account->id()) {
+    // Blocked accounts cannot request a new password.
+    if (!$account->isActive()) {
+      $form_state
+        ->setErrorByName('name', t('%name is blocked or has not been activated yet.', [
+          '%name' => $name,
+        ]));
+    }
+    else {
+      $form_state->setValueForElement(['#parents' => ['account']], $account);
+    }
+  }
+  else {
+    $form_state
+      ->setErrorByName('name', t('%name is not recognized as a username or an email address.', [
+        '%name' => $name,
+      ]));
+  }
+}

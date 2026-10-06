@@ -1,0 +1,58 @@
+Project compatibility for novicell/dawa 1.1.1 (no upstream Drupal 11 release).
+Composer's core constraint is allowed only for this package via drupal-lenient.
+Retain the independent full-address validation patch.
+
+--- a/dawa.info.yml
++++ b/dawa.info.yml
+@@ -2,8 +2,7 @@
+ type: module
+ description: Adds API service for DAWA and address autocomplete fields.
+ package: Drupal Premium
+-core: 8.x
+-core_version_requirement: ^10
++core_version_requirement: ^10.3 || ^11
+ 
+ dependencies:
+   - jquery_once
+--- a/modules/transform_api_dawa/transform_api_dawa.info.yml
++++ b/modules/transform_api_dawa/transform_api_dawa.info.yml
+@@ -2,7 +2,7 @@
+ type: module
+ description: Adds Transform API compatibility to a Dawa address field.
+ package: Web services
+-core_version_requirement: ^9 || ^10
++core_version_requirement: ^10.3 || ^11
+ dependencies:
+   - dawa
+   - transform_api
+--- a/modules/custom_forms_field/dawa_custom_forms_field.info.yml
++++ b/modules/custom_forms_field/dawa_custom_forms_field.info.yml
+@@ -2,7 +2,7 @@
+ type: module
+ description: Adds a Dawa address field to custom forms.
+ package: Custom Forms
+-core_version_requirement: ^9 || ^10
++core_version_requirement: ^10.3 || ^11
+ dependencies:
+   - custom_forms
+   - custom_forms_states
+--- a/src/Element/AutocompleteAddressField.php
++++ b/src/Element/AutocompleteAddressField.php
+@@ -5,7 +5,7 @@
+ 
+ use Drupal\Core\Form\FormStateInterface;
+ use Drupal\Core\Render\Element;
+-use Drupal\Core\Render\Element\FormElement;
++use Drupal\Core\Render\Element\FormElementBase;
+ 
+ /**
+  * Provides a one-line text field form element for dawa address autocomplete.
+@@ -26,7 +26,7 @@
+  *
+  * @FormElement("dawa_autocomplete")
+  */
+-class AutocompleteAddressField extends FormElement {
++class AutocompleteAddressField extends FormElementBase {
+ 
+   /**
+    * {@inheritdoc}
