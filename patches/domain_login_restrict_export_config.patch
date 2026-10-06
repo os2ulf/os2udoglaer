@@ -1,0 +1,169 @@
+Source: https://www.drupal.org/project/domain_login_restrict/issues/3336184
+Based on upstream patch #12 (2026-01-15), adapted to release 1.4.
+The two role defaults now use local variables with empty-array fallbacks.
+Retain the existing update_9501; this adds no new update hook.
+
+--- a/domain_login_restrict.module
++++ b/domain_login_restrict.module
+@@ -38,8 +38,9 @@
+   $currentDomain = \Drupal::service('domain.negotiator')->getActiveDomain();
+   $saveCustomDetails = FALSE;
+   $user = User::load($account->id());
++  $config = \Drupal::config('domain_login_restrict.settings');
+   // Check setting enabled ?
+-  if (\Drupal::state()->get('domain_login_restrict_assign_domain')) {
++  if ($config->get('domain_login_restrict_assign_domain')) {
+     // Then assign current hostname to field 'Domain Access'\
+     // Get existing domain field value if user is created through Admin UI.
+     $field_domain_access = $user->get('field_domain_access')->getValue();
+@@ -59,7 +60,7 @@
+     $saveCustomDetails = TRUE;
+   }
+   // Get roles configured for domain and assigned to newly created user.
+-  $rolesToAssignUser = \Drupal::state()->get('domain_login_restrict_assign_role_' . $currentDomain->id());
++  $rolesToAssignUser = $config->get('domain_login_restrict_assign_role_' . $currentDomain->id());
+   if (is_array($rolesToAssignUser) && !empty($rolesToAssignUser)) {
+     $rolesToAssignUser = array_filter($rolesToAssignUser);
+   }
+@@ -83,6 +84,7 @@
+  * Implements hook_form_FORM_ID_alter().
+  */
+ function domain_login_restrict_form_alter(&$form, FormStateInterface $form_state, $form_id) {
++  $config = \Drupal::config('domain_login_restrict.settings');
+ 
+   switch ($form_id) {
+     // Validate the user based on domain affiliate or role
+@@ -129,14 +131,14 @@
+       $form['domain_account_login_fieldset']['domain_login_restrict_enabled'] = [
+         '#type' => 'checkbox',
+         '#title' => t('Enable restriction'),
+-        '#default_value' => \Drupal::state()->get('domain_login_restrict_enabled'),
++        '#default_value' => $config->get('domain_login_restrict_enabled'),
+         '#description' => t('If checked allow user account login by registered domain affiliation only. This setting also applied to reset password functionality.'),
+         '#weight' => 1,
+       ];
+       $form['domain_account_login_fieldset']['domain_login_restrict_assign_domain'] = [
+         '#type' => 'checkbox',
+         '#title' => t('Assign Domain to User'),
+-        '#default_value' => \Drupal::state()->get('domain_login_restrict_assign_domain'),
++        '#default_value' => $config->get('domain_login_restrict_assign_domain'),
+         '#description' => t('Assign Newly created user to respective domain'),
+         '#weight' => 1,
+       ];
+@@ -168,7 +170,7 @@
+         unset($roles[RoleInterface::AUTHENTICATED_ID]);
+         $roles = array_map(fn(RoleInterface $role) => $role->label(), $roles);
+         // Add form element.
+-        $domainLoginDefault = \Drupal::state()->get('domain_login_restrict_role_' . $currentDomain->id());
++        $domainLoginDefault = $config->get('domain_login_restrict_role_' . $currentDomain->id());
+         $form['domain_account_login_fieldset']['domain_login_restrict_role_' . $currentDomain->id()] = [
+           '#type' => 'checkboxes',
+           '#title' => t('Allow Login to Role'),
+@@ -178,7 +180,7 @@
+           '#weight' => 1,
+         ];
+ 
+-        $domainAssignDefault = \Drupal::state()->get('domain_login_restrict_assign_role_' . $currentDomain->id());
++        $domainAssignDefault = $config->get('domain_login_restrict_assign_role_' . $currentDomain->id());
+         $form['domain_account_login_fieldset']['domain_login_restrict_assign_role_' . $currentDomain->id()] = [
+           '#type' => 'checkboxes',
+           '#title' => t('Assign Role to New User'),
+@@ -210,8 +212,11 @@
+  *   Form state.
+  */
+ function _domain_login_restrict_config_submit(&$form, FormStateInterface $form_state) {
+-  \Drupal::state()->set('domain_login_restrict_enabled', $form_state->getValue('domain_login_restrict_enabled'));
+-  \Drupal::state()->set('domain_login_restrict_assign_domain', $form_state->getValue('domain_login_restrict_assign_domain'));
++  $config_factory = \Drupal::configFactory();
++  $config = $config_factory->getEditable('domain_login_restrict.settings');
++  $config->set('domain_login_restrict_enabled', $form_state->getValue('domain_login_restrict_enabled'));
++  $config->set('domain_login_restrict_assign_domain', $form_state->getValue('domain_login_restrict_assign_domain'));
++  $config->save();
+ }
+ 
+ /**
+@@ -223,9 +228,12 @@
+  *   Form state.
+  */
+ function _domain_login_restrict_config_role_submit(&$form, FormStateInterface $form_state) {
++  $config_factory = \Drupal::configFactory();
++  $config = $config_factory->getEditable('domain_login_restrict.settings');
+   $currentDomain = \Drupal::routeMatch()->getParameter('domain');
+-  \Drupal::state()->set('domain_login_restrict_role_' . $currentDomain->id(), $form_state->getValue('domain_login_restrict_role_' . $currentDomain->id()));
+-  \Drupal::state()->set('domain_login_restrict_assign_role_' . $currentDomain->id(), $form_state->getValue('domain_login_restrict_assign_role_' . $currentDomain->id()));
++  $config->set('domain_login_restrict_role_' . $currentDomain->id(), $form_state->getValue('domain_login_restrict_role_' . $currentDomain->id()));
++  $config->set('domain_login_restrict_assign_role_' . $currentDomain->id(), $form_state->getValue('domain_login_restrict_assign_role_' . $currentDomain->id()));
++  $config->save();
+ }
+ 
+ /**
+@@ -237,7 +245,8 @@
+  *   Form state.
+  */
+ function _domain_login_restrict_reset_password_validate(&$form, FormStateInterface $form_state) {
+-  if (\Drupal::state()->get('domain_login_restrict_enabled')) {
++  $config = \Drupal::config('domain_login_restrict.settings');
++  if ($config->get('domain_login_restrict_enabled')) {
+     $values = $form_state->getValues();
+     $userName = $values['name'];
+     if (!empty($userName)) {
+@@ -332,10 +341,11 @@
+  *   User Object.
+  */
+ function _domain_login_restrict_check(string $userName, ?FormStateInterface $form_state = NULL) {
++  $config = \Drupal::config('domain_login_restrict.settings');
+   // Check setting enabled at '/admin/config/domain/settings' also, the user
+   // data.
+   if (
+-    \Drupal::state()->get('domain_login_restrict_enabled') &&
++    $config->get('domain_login_restrict_enabled') &&
+     !empty($userName) &&
+     $user = _domain_login_restrict_user_lookup($userName)
+   ) {
+@@ -380,7 +390,7 @@
+     // does not have permission to bypass using
+     // 'login to any domain' permission then show error to the user and
+     // log there error message.
+-    $domainWiseRoleSettings = \Drupal::state()->get('domain_login_restrict_role_' . $currentDomain->id());
++    $domainWiseRoleSettings = $config->get('domain_login_restrict_role_' . $currentDomain->id());
+     // Remove empty roles (not selected on domain)
+     if (is_array($domainWiseRoleSettings) && !empty($domainWiseRoleSettings)) {
+       $domainWiseRoleSettings = array_filter($domainWiseRoleSettings);
+--- a/domain_login_restrict.install
++++ b/domain_login_restrict.install
+@@ -0,0 +1,35 @@
++<?php
++
++/**
++ * @file
++ * Contains domain_login_restrict.install.
++ */
++
++/**
++ * Move module config from state to configuration.
++ */
++function domain_login_restrict_update_9501() {
++  $state = \Drupal::state();
++  $config_factory = \Drupal::configFactory();
++  $config = $config_factory->getEditable('domain_login_restrict.settings');
++
++  $statesToRemove = [];
++
++  $config->set('domain_login_restrict_enabled', $state->get('domain_login_restrict_enabled'));
++  $statesToRemove[] = 'domain_login_restrict_enabled';
++  $config->set('domain_login_restrict_assign_domain', $state->get('domain_login_restrict_assign_domain'));
++  $statesToRemove[] = 'domain_login_restrict_assign_domain';
++
++  $domain_ids = \Drupal::entityTypeManager()->getStorage('domain')->getQuery()
++    ->accessCheck(FALSE)
++    ->execute();
++  foreach ($domain_ids as $domain_id) {
++    $config->set('domain_login_restrict_role_' . $domain_id, $state->get('domain_login_restrict_role_' . $domain_id));
++    $statesToRemove[] = 'domain_login_restrict_role_' . $domain_id;
++    $config->set('domain_login_restrict_assign_role_' . $domain_id, $state->get('domain_login_restrict_assign_role_' . $domain_id));
++    $statesToRemove[] = 'domain_login_restrict_assign_role_' . $domain_id;
++  }
++
++  $config->save(TRUE);
++  $state->deleteMultiple($statesToRemove);
++}

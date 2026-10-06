@@ -120,7 +120,8 @@ display:
           buttons: false
           action_title: Handling
           clear_on_exposed: true
-          force_selection_info: false
+          show_multipage_selection_box: default
+          show_select_all: default
           selected_actions:
             -
               action_id: set_ready_for_payment_status
@@ -1536,8 +1537,11 @@ display:
           bef:
             general:
               autosubmit: false
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
@@ -1548,49 +1552,79 @@ display:
               combine:
                 plugin_id: default
                 advanced:
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   placeholder_text: ''
                   collapsible: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
               moderation_state:
                 plugin_id: default
                 advanced:
                   sort_options: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
               field_rfc_date_value:
                 plugin_id: default
                 advanced:
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   collapsible: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
               field_rfc_date_value_1:
                 plugin_id: default
                 advanced:
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   collapsible: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
               combine_1:
                 plugin_id: default
                 advanced:
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   placeholder_text: ''
                   collapsible: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
               field_subject_target_id:
                 plugin_id: default
                 advanced:
                   sort_options: false
+                  sort_options_method: alphabetical_asc
+                  sort_options_natural: true
                   rewrite:
                     filter_rewrite_values: ''
                     filter_rewrite_values_key: false
                   collapsible: false
                   collapsible_disable_automatic_open: false
+                  open_by_default: false
                   is_secondary: false
+                  hide_label: false
+                  field_classes: ''
       access:
         type: role
         options:
@@ -1657,19 +1691,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1718,19 +1739,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1770,19 +1778,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1831,19 +1826,6 @@ display:
             multiple: true
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             reduce: true
           is_grouped: false
           group_info:
@@ -1887,19 +1869,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -1945,19 +1914,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -2037,19 +1993,6 @@ display:
             multiple: true
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2095,19 +2038,6 @@ display:
             multiple: true
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2311,6 +2241,7 @@ display:
           empty_table: false
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
       query:

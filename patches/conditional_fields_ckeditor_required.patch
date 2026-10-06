@@ -1,0 +1,37 @@
+Issue: https://www.drupal.org/project/conditional_fields/issues/2988937
+Source: https://git.drupalcode.org/project/conditional_fields/-/commit/e937e4b718d3c072d0e5b774ba1491ed2b45e76f.diff
+Upstream full diff SHA-256: 19c7a6f7c002219374dece687fac066786962f7d5d8a0b23c3d5fc10ed93f088
+
+Exact upstream diff, stored locally to avoid downloading the patch during builds.
+
+diff --git a/js/conditional_fields.js b/js/conditional_fields.js
+index 61e0bbde4c2c5571189b7df3551114b48eb21ed1..f2a756871e7740208c0887898508c6e7c32d343e 100644
+--- a/js/conditional_fields.js
++++ b/js/conditional_fields.js
+@@ -158,6 +158,26 @@
+           fieldsSupportingRequired.removeAttr('required');
+         }
+       }
++      // Fix for form control is not focusable for ckeditor 4.
++      if (typeof CKEDITOR !== 'undefined') {
++        for (var instance in CKEDITOR.instances) {
++          //Get id for textarea with ckeditor4 instance.
++          var id = CKEDITOR.instances[instance].element.$.id;
++          //Remove attribute required from hidden textarea.
++          $('#' + id).removeAttr('required');
++        }
++      }
++      // Fix for form control is not focusable for ckeditor 5.
++      if (typeof Drupal.ckeditor5 !== 'undefined') {
++        Drupal.CKEditor5Instances.forEach(
++          (item, key) => {
++            //Get id for textarea with ckeditor5 instance.
++            var id = item.sourceElement.id;
++            //Remove attribute required from hidden textarea.
++            $('#' + id).removeAttr('required');
++          }
++        );
++      }
+     })
+     // Unchanged state. Do nothing.
+     .on('state:unchanged', () => {});

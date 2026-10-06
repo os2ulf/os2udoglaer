@@ -1,0 +1,5 @@
+services:
+  simple_access_log.event_subscriber:
+    class: Drupal\simple_access_log\EventSubscriber\SimpleAccessLogSubscriber
+    tags:
+      - {name: event_subscriber}

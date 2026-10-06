@@ -1,0 +1,24 @@
+# Schema for the configuration files of the simple access log module.
+
+simple_access_log.settings:
+  type: config_object
+  label: 'Simple Access Log settings'
+  mapping:
+    do_not_log_0:
+      type: integer
+      label: 'Do not log Anonymous page visits'
+    do_not_log_1:
+      type: integer
+      label: 'Do not log Super User (UID 1) page visits'
+    do_not_log_admin:
+      type: integer
+      label: 'Do not log for users with "Administrator" role'
+    not_admin_paths:
+      type: integer
+      label: 'Skip logging for any admin paths. i.e. those paths that start with "/admin/*".'
+    delete_log_after:
+      type: integer
+      label: 'Length of time to keep access logs.'
+    respect_dnt:
+      type: integer
+      label: 'Prevent this module from tracking access by clients sending the Do Not Track header.'

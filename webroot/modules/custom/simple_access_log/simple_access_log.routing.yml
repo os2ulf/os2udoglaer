@@ -1,0 +1,7 @@
+simple_access_log.settings:
+  path: '/admin/config/system/simple_access_log'
+  defaults:
+    _form: 'Drupal\simple_access_log\SimpleAccessLogSettingsForm'
+    _title: 'Simple Access Log'
+  requirements:
+    _permission: 'administer simple access log'
