@@ -40,6 +40,7 @@ dependencies:
     - field.field.node.internship.field_quantity
     - field.field.node.internship.field_related_courses
     - field.field.node.internship.field_show_application_link
+    - field.field.node.internship.field_sub_industry
     - field.field.node.internship.field_todo_list
     - field.field.node.internship.field_video
     - field.field.node.internship.field_video_description
@@ -141,9 +142,6 @@ third_party_settings:
       children:
         - field_location_name
         - field_dawa_address
-        - field_location_street
-        - field_location_zipcode
-        - field_location_city
       label: 'Alternativ adresse'
       region: content
       parent_name: group_location
@@ -197,6 +195,7 @@ third_party_settings:
     group_industry_area_interest:
       children:
         - field_industry
+        - field_sub_industry
         - field_areas_of_interest
         - field_education_path
       label: 'Branche og interesseområde'
@@ -370,7 +369,7 @@ content:
     third_party_settings: {  }
   field_areas_of_interest:
     type: entity_reference_autocomplete
-    weight: 70
+    weight: 71
     region: content
     settings:
       match_operator: CONTAINS
@@ -591,6 +590,16 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  field_sub_industry:
+    type: entity_reference_autocomplete
+    weight: 70
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_todo_list:
     type: text_textarea

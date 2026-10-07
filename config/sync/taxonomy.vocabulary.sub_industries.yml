@@ -1,0 +1,9 @@
+uuid: a54b7881-81c0-4154-b571-74577d62255c
+langcode: da
+status: true
+dependencies: {  }
+name: Underbranche
+vid: sub_industries
+description: null
+weight: 0
+new_revision: false

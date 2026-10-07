@@ -45,6 +45,7 @@ dependencies:
     - taxonomy.vocabulary.price_settlement_unit
     - taxonomy.vocabulary.price_vat
     - taxonomy.vocabulary.primary_school_subject
+    - taxonomy.vocabulary.sub_industries
     - taxonomy.vocabulary.subject
     - taxonomy.vocabulary.sustainability_goal
     - taxonomy.vocabulary.target_group
@@ -186,6 +187,7 @@ permissions:
   - 'create terms in price_settlement_unit'
   - 'create terms in price_vat'
   - 'create terms in primary_school_subject'
+  - 'create terms in sub_industries'
   - 'create terms in subject'
   - 'create terms in sustainability_goal'
   - 'create terms in target_group'
@@ -259,6 +261,7 @@ permissions:
   - 'delete terms in price_settlement_unit'
   - 'delete terms in price_vat'
   - 'delete terms in primary_school_subject'
+  - 'delete terms in sub_industries'
   - 'delete terms in subject'
   - 'delete terms in sustainability_goal'
   - 'delete terms in target_group'
@@ -323,6 +326,7 @@ permissions:
   - 'edit terms in price_settlement_unit'
   - 'edit terms in price_vat'
   - 'edit terms in primary_school_subject'
+  - 'edit terms in sub_industries'
   - 'edit terms in subject'
   - 'edit terms in sustainability_goal'
   - 'edit terms in target_group'
