@@ -1,0 +1,40 @@
+Issue: https://www.drupal.org/project/layoutbuilder_search_api/issues/3566471
+Source: https://git.drupalcode.org/project/layoutbuilder_search_api/-/commit/7ab6cad4157d9091a9c0042bb0dced72bc104e2f.diff
+Upstream full diff SHA-256: f1cd43c91a58bdb00e131c4f9dc5f2b0118150c62394c86dde82403912838720
+
+Exact upstream runtime-file diff; unrelated CI, documentation, Composer metadata
+and upstream test additions are omitted. Removes the conflicting trait property
+and retains the upstream local-variable spelling correction.
+
+diff --git a/src/Plugin/search_api/processor/LayoutBuilderReferences.php b/src/Plugin/search_api/processor/LayoutBuilderReferences.php
+index cff8e913a1a8a291d9defaf8ebd7c27c90508d12..f3ae8d8797915a1a155a24f4c5b01bfb1f2570ed 100644
+--- a/src/Plugin/search_api/processor/LayoutBuilderReferences.php
++++ b/src/Plugin/search_api/processor/LayoutBuilderReferences.php
+@@ -77,13 +77,6 @@ class LayoutBuilderReferences extends ProcessorPluginBase implements PluginFormI
+    */
+   protected $cache;
+ 
+-  /**
+-   * The section storage manager.
+-   *
+-   * @var \Drupal\layout_builder\SectionStorage\SectionStorageManagerInterface
+-   */
+-  protected $sectionStorageManager;
+-
+   /**
+    * The block content helper.
+    *
+@@ -234,10 +227,10 @@ class LayoutBuilderReferences extends ProcessorPluginBase implements PluginFormI
+     // Prepare inline blocks from layout builder.
+     $sections = $this->getEntitySections($entity);
+     $components = [];
+-    $block_componenets = $this->getInlineBlockComponents($sections);
+-    $block_componenets = array_merge($block_componenets, $this->layoutbuilderSearchApiManager->getContentBlocks($sections));
++    $block_components = $this->getInlineBlockComponents($sections);
++    $block_components = array_merge($block_components, $this->layoutbuilderSearchApiManager->getContentBlocks($sections));
+     // Prepare content block from layout builder.
+-    foreach ($block_componenets as $component) {
++    foreach ($block_components as $component) {
+       $base_id = $component->getPlugin()->getBaseId();
+       if ($base_id === "inline_block") {
+         $configuration = $component->getPlugin()->getConfiguration();

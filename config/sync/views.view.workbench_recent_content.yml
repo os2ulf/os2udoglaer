@@ -583,9 +583,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -624,9 +621,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -668,19 +662,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -900,6 +881,7 @@ display:
           empty_table: false
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
       query:
@@ -947,8 +929,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
         - 'config:field.storage.node.field_target_group'
         - 'config:workflow_list'
   block_1:
@@ -1006,9 +986,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -1152,8 +1129,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
         - 'config:field.storage.node.field_target_group'
         - 'config:workflow_list'
   block_2:
@@ -1785,9 +1760,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -1826,9 +1798,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1870,19 +1839,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -1960,19 +1916,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -2031,8 +1974,6 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
         - 'config:field.storage.node.field_target_group'
   embed_1:
     id: embed_1
@@ -2662,9 +2603,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              editor: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -2711,19 +2649,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             reduce: true
           is_grouped: false
           group_info:
@@ -2765,19 +2690,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -2901,6 +2813,4 @@ display:
         - 'user.node_grants:view'
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.node.field_target_group'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.node.field_target_group'
         - 'config:field.storage.node.field_target_group'

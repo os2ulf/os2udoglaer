@@ -1,0 +1,40 @@
+Issue: https://www.drupal.org/project/scheduled_transitions/issues/3264674
+Source: upstream MR80, commit 4e54b20966f83fb75e77277865b82294ba8910b4
+https://git.drupalcode.org/project/scheduled_transitions/-/commit/4e54b20966f83fb75e77277865b82294ba8910b4.diff
+Upstream diff SHA-256: f250d6dc2aed1e9a3c416cda6435c8709c4089cc9633af78b4584637917959c2
+
+Exact upstream diff, stored locally to avoid downloading the patch during builds.
+Applies to Scheduled Transitions 2.8.4. The older Drupal.org attachment #2
+does not apply to this release's imports. Preserve the existing form-display fix.
+
+diff --git a/src/Form/Entity/ScheduledTransitionAddForm.php b/src/Form/Entity/ScheduledTransitionAddForm.php
+index 9028ef529762d125f5cd46832535b4e7af06a9bb..81a9a0efa717c559319b403076b78799a0884355 100644
+--- a/src/Form/Entity/ScheduledTransitionAddForm.php
++++ b/src/Form/Entity/ScheduledTransitionAddForm.php
+@@ -13,6 +13,7 @@ use Drupal\Core\Config\ConfigFactoryInterface;
+ use Drupal\Core\Datetime\DateFormatterInterface;
+ use Drupal\Core\Entity\ContentEntityForm;
+ use Drupal\Core\Entity\ContentEntityInterface;
++use Drupal\Core\Entity\Entity\EntityFormDisplay;
+ use Drupal\Core\Entity\EntityInterface;
+ use Drupal\Core\Entity\EntityRepositoryInterface;
+ use Drupal\Core\Entity\EntityTypeBundleInfoInterface;
+@@ -570,4 +571,18 @@ class ScheduledTransitionAddForm extends ContentEntityForm {
+     return $form;
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  protected function init(FormStateInterface $form_state) {
++    parent::init($form_state);
++
++    // If the form's operation doesn't match a form display, the "default" form
++    // display is set as the form's display. This may cause modules altering
++    // entity forms based on the form display (such as the field_group module)
++    // to alter forms they don't intend to.
++    $form_display = EntityFormDisplay::collectRenderDisplay($this->entity, $this->getOperation(), FALSE);
++    $this->setFormDisplay($form_display, $form_state);
++  }
++
+ }

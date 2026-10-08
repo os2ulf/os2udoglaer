@@ -33,10 +33,10 @@
         "drupal/admin_toolbar": "^3.4",
         "drupal/allowed_formats": "^3.0",
         "drupal/anchor_link": "^3.0",
-        "drupal/atoms": "^1.0",
+        "drupal/atoms": "^1.1",
         "drupal/auto_entitylabel": "^3.3",
-        "drupal/autosave_form": "^1.0",
-        "drupal/better_exposed_filters": "^6.0",
+        "drupal/autosave_form": "^1.11",
+        "drupal/better_exposed_filters": "^7.1",
         "drupal/better_permissions_page": "^1.0",
         "drupal/ckeditor5_paste_filter": "^1.0",
         "drupal/components": "^3.0@beta",
@@ -46,37 +46,36 @@
         "drupal/config_split": "^2.0",
         "drupal/content_moderation_bypass": "^1.0@alpha",
         "drupal/content_moderation_notifications": "^3.6",
-        "drupal/core-composer-scaffold": "^10.3",
-        "drupal/core-project-message": "^10.3",
-        "drupal/core-recommended": "^10.3",
-        "drupal/core-vendor-hardening": "^10.3",
+        "drupal/core-composer-scaffold": "^11.3",
+        "drupal/core-project-message": "^11.3",
+        "drupal/core-recommended": "^11.3",
+        "drupal/core-vendor-hardening": "^11.3",
         "drupal/date_popup": "^2.0",
-        "drupal/diff": "^1.7",
-        "drupal/domain": "^2.0@beta",
+        "drupal/diff": "^2.1",
+        "drupal/domain": "~2.0.0",
         "drupal/domain_access_search_api": "^1.0",
-        "drupal/domain_entity": "^1.0@RC",
-        "drupal/domain_login_restrict": "^1.2",
-        "drupal/domain_menus": "^3.6",
-        "drupal/domain_simple_sitemap": "^3.0@beta",
+        "drupal/domain_entity": "^2.0",
+        "drupal/domain_login_restrict": "^1.4",
+        "drupal/domain_menus": "^3.7",
+        "drupal/domain_simple_sitemap": "^3.0@RC",
         "drupal/editor_advanced_link": "^2.2",
         "drupal/entity_clone": "^2.0@beta",
-        "drupal/entity_diff_ui": "^2.0@alpha",
         "drupal/entity_usage": "^2.0-beta3",
         "drupal/facets": "^2.0",
-        "drupal/field_group": "^3.0",
+        "drupal/field_group": "^4.0",
         "drupal/focal_point": "^2.0",
-        "drupal/gin": "^3.0",
-        "drupal/gin_toolbar": "^1.0@RC",
+        "drupal/gin": "^5.0",
+        "drupal/gin_toolbar": "^3.0",
         "drupal/health_check": "^3.0",
         "drupal/hreflang": "^1.0",
-        "drupal/imageapi_optimize": "^4.0",
-        "drupal/inline_block_title_automatic": "^1.0",
+        "drupal/imageapi_optimize": "^4.2",
+        "drupal/inline_block_title_automatic": "^2.0",
         "drupal/jquery_once": "^1.1",
-        "drupal/layout_builder_at": "^2.0",
+        "drupal/layout_builder_at": "^3.0",
         "drupal/layout_builder_modal": "^1.0",
-        "drupal/layout_builder_restrictions": "^2.0",
+        "drupal/layout_builder_restrictions": "^3.0",
         "drupal/layoutbuilder_search_api": "^1.0",
-        "drupal/linkit": "^6.0",
+        "drupal/linkit": "^7.0",
         "drupal/maxlength": "^3.0@beta",
         "drupal/menu_item_fields": "^1.10",
         "drupal/menu_per_role": "^1.7",
@@ -87,52 +86,49 @@
         "drupal/pathauto": "^1.0",
         "drupal/pathologic": "^2.0@alpha",
         "drupal/r4032login": "^2.2",
-        "drupal/rdf": "^2.0",
+        "drupal/rdf": "^4.0",
         "drupal/redirect": "^1.0",
         "drupal/redirect_after_login": "^3.0",
-        "drupal/redis": "^1.5",
+        "drupal/redis": "^1.11",
         "drupal/replicate_ui": "^1.2",
         "drupal/restui": "^1.21",
         "drupal/role_delegation": "^1.1",
-        "drupal/scheduled_transitions": "^2.0",
-        "drupal/search_api": "^1.0",
-        "drupal/search_api_exclude_entity": "^2.0",
+        "drupal/scheduled_transitions": "^2.8",
+        "drupal/search_api": "^1.41",
+        "drupal/search_api_exclude_entity": "^3.0",
         "drupal/search_api_page": "^1.0@beta",
         "drupal/search_api_solr": "^4.3",
         "drupal/sendgrid_integration": "^2.2",
         "drupal/sharedemail": "^3.2",
-        "drupal/sharedemail_pass_reset": "^2.0@beta",
-        "drupal/simple_access_log": "^2.0",
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",
         "drupal/symfony_mailer_lite": "^2.0",
-        "drupal/transform_api": "^2.0",
+        "drupal/transform_api": "^2.1.7",
         "drupal/transform_api_facets": "^2.0@alpha",
         "drupal/ultimate_cron": "^2.0@alpha",
-        "drupal/view_profiles_perms": "^2.1",
         "drupal/view_unpublished": "^1.0",
-        "drupal/views_base_url": "^2.1@beta",
-        "drupal/views_bulk_operations": "^4.3",
+        "drupal/views_base_url": "^2.1",
+        "drupal/views_bulk_operations": "^4.4",
         "drupal/views_cm_current_state": "^2.1",
-        "drupal/views_contextual_filters_or": "^1.4",
+        "drupal/views_contextual_filters_or": "^1.5",
         "drupal/views_data_export": "^1.4",
         "drupal/views_simple_math_field": "^3.0",
-        "drupal/webform": "^6.2",
-        "drupal/webform_rest": "^4.1",
+        "drupal/webform": "^6.3",
+        "drupal/webform_rest": "^4.2",
         "drupal/webp": "^1.0@RC",
         "drupal/workbench": "^1.4",
         "drupal/workbench_reviewer": "^3.0@beta",
         "drupal/workflow_buttons": "^1.0@beta",
         "drupal/xls_serialization": "^1.3",
-        "drush/drush": "^12",
+        "drush/drush": "^13",
+        "mglaman/composer-drupal-lenient": "^2.0",
         "novicell/dawa": "^1.0",
         "novicell/dynamic_key_value": "^1.0",
         "novicell/image_style_generator": "^1.0",
-        "novicell/media_icons": "^1.0",
         "novicell/premium_core": "^1.0",
         "novicell/premium_headless": "^2.1",
         "novicell/premium_headless_theme": "^1.0",
-        "novicell/premium_profile": "^1.0",
+        "novicell/premium_profile": "^11.1",
         "novicell/premium_search": "^1.0",
         "novicell/premium_tools": "^1.0",
         "novicell/status_feed": "^1.0",
@@ -145,7 +141,8 @@
     "require-dev": {
         "drupal/devel": "^5.0",
         "drupal/upgrade_status": "^4.0",
-        "kint-php/kint": "^5.1"
+        "kint-php/kint": "^5.1",
+        "phpunit/phpunit": "^12.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -165,7 +162,9 @@
             "drupal/core-vendor-hardening": true,
             "composer/installers": true,
             "wikimedia/composer-merge-plugin": true,
-            "oomphinc/composer-installers-extender": true
+            "oomphinc/composer-installers-extender": true,
+            "mglaman/composer-drupal-lenient": true,
+            "symfony/runtime": true
         }
     },
     "extra": {
@@ -225,55 +224,48 @@
             ]
         },
         "patches": {
+            "drupal/conditional_fields": {
+                "(#2988937) CKEditor required-field fix for alpha6 (reviewed upstream patch, local copy)": "patches/conditional_fields_ckeditor_required.patch"
+            },
+            "drupal/content_moderation_notifications": {
+                "(#2965600) Add content type option": "https://www.drupal.org/files/issues/2026-03-04/2965600-content-type_23.patch",
+                "Enable token support for ad-hoc email addresses": "patches/content_moderation_notifications_support_adhoc_token.patch",
+                "Turn BCC into To": "patches/content_moderation_notifications_bcc_into_to.patch",
+                "Project compatibility: preserve configured ad-hoc recipient access rules": "patches/content_moderation_notifications_preserve_recipient_access.patch"
+            },
             "drupal/core": {
+                "(#3612050) Resolve legacy route converter IDs during the Drupal 11.4 upgrade": "https://www.drupal.org/files/issues/2026-08-12/3612050-paramconverter-invalid-argument-workaround.patch",
                 "(#2999491) Allow creation of reuseable inline blocks": "https://www.drupal.org/files/issues/2024-07-17/drupal-2999491-162.patch",
                 "Configure limit method on titles and link fields": "patches/configure_limit_method_on_titles_and_link_fields.patch",
                 "Remove link from node updated message": "patches/core_remove_link_from_node_save_message.patch"
             },
-            "drupal/autosave_form": {
-                "(#3355495) PHP 8.2 deprecation issue with AutosaveFormBuilder": "https://www.drupal.org/files/issues/2023-04-20/autosave_form-dynamic-property-deprecation.patch",
-                "(#3487459) Deprecation error on user edit form": "https://www.drupal.org/files/issues/2024-11-18/3487459-4.patch"
-            },
-            "drupal/conditional_fields": {
-                "(#2988937) An invalid form control with name='body[0][value]' is not focusable. with ckeditor enabled": "https://www.drupal.org/files/issues/2023-04-25/dependency-using-body-as-target-2988937-12.patch"
-            },
-            "drupal/content_moderation_notifications": {
-                "(#3419565) Allow a notification to bypass the content access check": "https://www.drupal.org/files/issues/2024-02-06/content_moderation_notifications-bypass_access_check-3419565-2.patch",
-                "(#2965600) Add content type option": "https://www.drupal.org/files/issues/2025-01-24/2965600-content-type_20.patch",
-                "Enable token support for ad-hoc email addresses": "patches/content_moderation_notifications_support_adhoc_token.patch",
-                "Turn BCC into To": "patches/content_moderation_notifications_bcc_into_to.patch"
-            },
             "drupal/diff": {
-                "(#3165141) Set the default filter to 'Strip Tags'": "https://www.drupal.org/files/issues/2024-09-16/3165141-21.patch",
+                "(#3165141) Configure the default revision comparison filter (upstream MR95, 8e40220)": "patches/diff_default_filter.patch",
                 "Only show image thumbnails when the field changed": "patches/diff_only_show_changed_image_thumbnails.patch"
             },
-            "drupal/domain_entity" : {
-                "(#3405907) Make module compatible with PHP 8.2": "https://www.drupal.org/files/issues/2023-12-04/3405907-1.patch"
+            "drupal/domain_login_restrict": {
+                "(#3336184) Preserve configuration export on release 1.4 (upstream #12 adapted)": "patches/domain_login_restrict_export_config.patch"
             },
-            "drupal/domain_login_restrict" : {
-                "(#3336184) The configuration is not exported": "https://www.drupal.org/files/issues/2024-02-12/domain_login_restrict-3336184-9.patch"
+            "drupal/layoutbuilder_search_api": {
+                "(#3566471) Drupal 11.3+ trait compatibility (reviewed upstream fix, local copy)": "patches/layoutbuilder_search_api_drupal11_compatibility.patch"
             },
             "drupal/paragraphs": {
                 "(#2901390) Integrity constraint violation: 1048 Column 'langcode' cannot be null": "https://www.drupal.org/files/issues/2023-07-20/2901390-9-109.patch"
             },
             "drupal/redis": {
-                "(#3337750) DivisionByZeroError - Problem to access Status Page on PHP 8.1.14": "https://www.drupal.org/files/issues/2024-09-05/redis_status_page_divizion_by_zero_error_php8_1_14_3337750-13.patch"
+                "(#3337750) Preserve zero-metrics guard on Redis 1.11": "patches/redis_report_zero_metrics.patch"
             },
             "drupal/replicate": {
                 "(#3392959) Replicated layout builder blocks don't always have the correct order": "https://git.drupalcode.org/project/replicate/-/merge_requests/8.diff"
             },
             "drupal/scheduled_transitions": {
-                "(#3264674) Field groups are added to the scheduled transitions add form": "https://www.drupal.org/files/issues/2022-02-16/scheduled_transitions-field_groups_add_form-3264674-2.patch"
+                "(#3264674) Keep unrelated field groups off the transition form (reviewed upstream patch, local copy)": "patches/scheduled_transitions_form_display.patch"
             },
             "drupal/transform_api": {
                 "Fix access check for non-bundled entity types": "patches/transform_api_non_bundled_entity_access_fix.patch"
             },
-            "drupal/webform": {
-                "(#3435903) Fix incompatibility with devel ^5.2": "https://www.drupal.org/files/issues/2024-08-01/fix_incompatibility_with_devel_5.2.patch"
-            },
             "drupal/views_bulk_operations": {
-                "(#3422715) Missing checkboxes in 4.2.6 when using Views Data Export": "https://git.drupalcode.org/project/views_bulk_operations/-/merge_requests/79.diff",
-                "(#3210957) VBO is skipping translated entities during batch process": "https://git.drupalcode.org/project/views_bulk_operations/-/merge_requests/66.diff"
+                "(#3422715) Missing checkboxes in 4.2.6 when using Views Data Export": "https://git.drupalcode.org/project/views_bulk_operations/-/merge_requests/79.diff"
             },
             "drupal/workbench": {
                 "Apply patch from branch 3484630-mismatched-views-area": "https://git.drupalcode.org/issue/workbench-3484630/-/commit/41ff2be540e760aec54e06cd35c5e5a75e21f502.diff"
@@ -282,8 +274,15 @@
                 "(#3451409) Automated Drupal 11 compatibility fixes for workflow_buttons": "https://www.drupal.org/files/issues/2024-11-25/workflow_buttons_3451409_git_theme.patch"
             },
             "novicell/dawa": {
-                "Require full address, or none": "patches/dawa_require_full_address_or_none.patch"
+                "Require full address, or none": "patches/dawa_require_full_address_or_none.patch",
+                "Project compatibility: Drupal 11 extension metadata and form element base": "patches/dawa_drupal11_compatibility.patch"
             }
+        },
+        "composer-exit-on-patch-failure": true,
+        "drupal-lenient": {
+            "allowed-list": [
+                "novicell/dawa"
+            ]
         }
     }
 }

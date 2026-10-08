@@ -4,6 +4,7 @@ namespace Drupal\os2uol_application_forms\Plugin\Action;
 
 use Drupal\Core\Action\ActionBase;
 use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Utility\Error;
 use Drupal\node\NodeInterface;
 use Drupal\os2uol_application_forms\Os2Notification;
 
@@ -36,7 +37,7 @@ class SetRefusedStatusNoEmail extends ActionBase {
         // Save the entity.
         $entity->save();
       } catch (\Throwable $e) {
-        watchdog_exception('os2uol_application_forms', $e);
+        Error::logException(\Drupal::logger('os2uol_application_forms'), $e);
       } finally {
         $session->remove(Os2Notification::NO_EMAIL_SESSION_VARIABLE);
         $session->save();

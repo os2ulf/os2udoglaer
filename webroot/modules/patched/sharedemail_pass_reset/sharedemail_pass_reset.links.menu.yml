@@ -1,0 +1,5 @@
+sharedemail_pass_reset.settings_form:
+  route_name: sharedemail_pass_reset.settings_form
+  parent: user.admin_index
+  title: 'Shared E-mail Password Reset settings'
+  description: 'Configure Shared E-mail Password Reset settings.'

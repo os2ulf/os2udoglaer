@@ -689,11 +689,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              blog_contributor: '0'
-              content_contributor: '0'
-              content_manager: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -732,11 +727,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              blog_contributor: '0'
-              content_contributor: '0'
-              content_manager: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -779,11 +769,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              blog_contributor: '0'
-              content_contributor: '0'
-              content_manager: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -822,13 +807,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              blog_contributor: '0'
-              content_contributor: '0'
-              content_manager: '0'
-              directory_manager: '0'
-              content_reviewer: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -906,13 +884,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              view_only: '0'
-              content_editor: '0'
-              content_approver: '0'
-              content_publisher: '0'
-              technical_administrator: '0'
-              administrator: '0'
             reduce: false
           is_grouped: false
           group_info:
@@ -1015,6 +986,7 @@ display:
           empty_table: true
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
       query:

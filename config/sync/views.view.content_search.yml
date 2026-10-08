@@ -137,8 +137,11 @@ display:
           bef:
             general:
               autosubmit: false
+              auto_submit_sort_only: false
+              autosubmit_breakpoint: ''
               autosubmit_exclude_textfield: false
               autosubmit_textfield_delay: 500
+              autosubmit_textfield_minimum_length: 3
               autosubmit_hide: false
               input_required: false
               allow_secondary: false
@@ -401,19 +404,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -694,19 +684,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -1099,19 +1076,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -1498,19 +1462,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -1844,19 +1795,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -2183,19 +2121,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -2320,19 +2245,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -2628,19 +2540,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -2765,19 +2664,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -3068,19 +2954,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -3448,19 +3321,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -3585,19 +3445,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -3936,19 +3783,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -4073,19 +3907,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -4420,19 +4241,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -4807,19 +4615,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -4944,19 +4739,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -5304,19 +5086,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -5441,19 +5210,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -5787,19 +5543,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -5924,19 +5667,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -6275,19 +6005,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -6412,19 +6129,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             min_placeholder: ''
             max_placeholder: ''
             placeholder: ''
@@ -6759,19 +6463,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
@@ -7147,19 +6838,6 @@ display:
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-              webmaster: '0'
-              editor: '0'
-              course_provider: '0'
-              corporation: '0'
-              institution: '0'
-              school: '0'
-              place_of_visit: '0'
-              theater_contact: '0'
-              monitor: '0'
-              bypass_workflow: '0'
-              rest_api: '0'
             expose_fields: false
             placeholder: ''
             searched_fields_id: search_api_fulltext_searched_fields
