@@ -6,6 +6,7 @@ dependencies:
     - search_api.index.search
     - views.view.search
   module:
+    - os2uol_search
     - search_api
 id: search_type
 name: Type
@@ -67,6 +68,11 @@ processor_configs:
     processor_id: hierarchy_processor
     weights:
       build: 100
+    settings: {  }
+  search_type_role_labels:
+    processor_id: search_type_role_labels
+    weights:
+      build: 6
     settings: {  }
   translate_entity_aggregated_fields:
     processor_id: translate_entity_aggregated_fields
