@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04f5fda0bde58cbfbdd5f64108757d5b",
+    "content-hash": "f770411b6764a66fab02e31fa68dd433",
     "packages": [
         {
             "name": "andileco/eval-math",
@@ -9720,68 +9720,6 @@
             "time": "2026-07-21T11:56:06+00:00"
         },
         {
-            "name": "mglaman/composer-drupal-lenient",
-            "version": "2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mglaman/composer-drupal-lenient.git",
-                "reference": "7bfe79bfcccf1b0f3dafee7e36468dccfc2e56bb"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mglaman/composer-drupal-lenient/zipball/7bfe79bfcccf1b0f3dafee7e36468dccfc2e56bb",
-                "reference": "7bfe79bfcccf1b0f3dafee7e36468dccfc2e56bb",
-                "shasum": ""
-            },
-            "require": {
-                "composer-plugin-api": "^2.0",
-                "php": ">=8.3"
-            },
-            "require-dev": {
-                "composer/composer": "^2.3",
-                "drupal/core": "^11 || ^12",
-                "phpstan/extension-installer": "^1.1",
-                "phpstan/phpstan": "^1.6",
-                "phpstan/phpstan-phpunit": "^1.1",
-                "phpstan/phpstan-strict-rules": "^1.2",
-                "phpunit/phpunit": "^9.5",
-                "squizlabs/php_codesniffer": "^3.6"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "ComposerDrupalLenient\\Plugin"
-            },
-            "autoload": {
-                "files": [
-                    "src/autoload.php"
-                ],
-                "psr-4": {
-                    "ComposerDrupalLenient\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "Matt Glaman",
-                    "email": "nmd.matt@gmail.com"
-                }
-            ],
-            "support": {
-                "issues": "https://github.com/mglaman/composer-drupal-lenient/issues",
-                "source": "https://github.com/mglaman/composer-drupal-lenient/tree/2.0.0"
-            },
-            "funding": [
-                {
-                    "url": "https://github.com/mglaman",
-                    "type": "github"
-                }
-            ],
-            "time": "2026-03-20T20:28:20+00:00"
-        },
-        {
             "name": "mkalkbrenner/php-htmldiff-advanced",
             "version": "0.0.8",
             "source": {
@@ -9881,20 +9819,20 @@
         },
         {
             "name": "novicell/dawa",
-            "version": "1.1.1",
+            "version": "11.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/novicell-drupal/dawa.git",
-                "reference": "bb13510385444431234f5d2235b7c172f2d3a53e"
+                "reference": "9e1305259422f205c9334a35143ae69afd118c15"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/novicell-drupal/dawa/zipball/bb13510385444431234f5d2235b7c172f2d3a53e",
-                "reference": "bb13510385444431234f5d2235b7c172f2d3a53e",
+                "url": "https://api.github.com/repos/novicell-drupal/dawa/zipball/9e1305259422f205c9334a35143ae69afd118c15",
+                "reference": "9e1305259422f205c9334a35143ae69afd118c15",
                 "shasum": ""
             },
             "require": {
-                "drupal/core": "^8 || ^9 || ^10 || ^11 || ^12",
+                "drupal/core": "^10.3 || ^11",
                 "drupal/jquery_once": "^1.0"
             },
             "type": "drupal-module",
@@ -9909,9 +9847,9 @@
             ],
             "support": {
                 "issues": "https://github.com/novicell-drupal/dawa/issues",
-                "source": "https://github.com/novicell-drupal/dawa/tree/1.1.1"
+                "source": "https://github.com/novicell-drupal/dawa/tree/11.0.0"
             },
-            "time": "2026-08-20T10:34:59+00:00"
+            "time": "2026-10-12T10:42:29+00:00"
         },
         {
             "name": "novicell/dynamic_key_value",
