@@ -41,6 +41,7 @@ dependencies:
     - field.field.node.junior_apprenticeship.field_quantity
     - field.field.node.junior_apprenticeship.field_related_courses
     - field.field.node.junior_apprenticeship.field_show_application_link
+    - field.field.node.junior_apprenticeship.field_sub_industry
     - field.field.node.junior_apprenticeship.field_todo_list
     - field.field.node.junior_apprenticeship.field_video
     - field.field.node.junior_apprenticeship.field_video_description
@@ -272,6 +273,13 @@ content:
   field_show_application_link:
     type: boolean
     weight: '17'
+    region: content
+    label: omit
+    settings: {  }
+    third_party_settings: {  }
+  field_sub_industry:
+    type: entity_reference_labels
+    weight: '36'
     region: content
     label: omit
     settings: {  }

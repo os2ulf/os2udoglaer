@@ -449,6 +449,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -728,6 +729,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -793,6 +795,7 @@ display:
             internship_areas_of_interest: internship_areas_of_interest
             internship_company: internship_company
             internship_industry: internship_industry
+            internship_sub_industry: internship_sub_industry
             internship_post_number_and_city: internship_post_number_and_city
             internship_company_guarantee_partner: 0
         transform_api_views:
@@ -1118,6 +1121,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -1184,6 +1188,7 @@ display:
             junior_apprenticeship_areas_of_interest: junior_apprenticeship_areas_of_interest
             junior_apprenticeship_company: junior_apprenticeship_company
             junior_apprenticeship_industry: junior_apprenticeship_industry
+            junior_apprenticeship_sub_industry: junior_apprenticeship_sub_industry
             junior_apprenticeship_open_for_application: junior_apprenticeship_open_for_application
             junior_apprenticeship_post_number_and_city: junior_apprenticeship_post_number_and_city
             junior_apprenticeship_company_guarantee_partner: 0
@@ -1502,6 +1507,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -1569,6 +1575,7 @@ display:
             junior_apprenticeship_areas_of_interest_map: junior_apprenticeship_areas_of_interest_map
             junior_apprenticeship_company_map: junior_apprenticeship_company_map
             junior_apprenticeship_industry_map: junior_apprenticeship_industry_map
+            junior_apprenticeship_sub_industry_map: junior_apprenticeship_sub_industry_map
             junior_apprenticeship_open_for_application_map: junior_apprenticeship_open_for_application_map
             junior_apprenticeship_post_number_and_city_map: junior_apprenticeship_post_number_and_city_map
             junior_apprenticeship_company_guarantee_partner_map: 0
@@ -1833,6 +1840,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -1899,6 +1907,7 @@ display:
             internship_areas_of_interest_map: internship_areas_of_interest_map
             internship_company_map: internship_company_map
             internship_industry_map: internship_industry_map
+            internship_sub_industry_map: internship_sub_industry_map
             internship_post_number_and_city_map: internship_post_number_and_city_map
             internship_company_guarantee_partner_map: 0
         transform_api_views:
@@ -2157,6 +2166,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -2575,6 +2585,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -2988,6 +2999,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -3354,6 +3366,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -3815,6 +3828,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -4272,6 +4286,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -4645,6 +4660,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -5115,6 +5131,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -5571,6 +5588,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -6032,6 +6050,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -6489,6 +6508,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text
@@ -6863,6 +6883,7 @@ display:
             - field_purpose_exercise
             - field_quote_text
             - field_related_user_field_name
+            - field_sub_industry_name
             - field_subject_name
             - field_sustainability_goals_name
             - field_text

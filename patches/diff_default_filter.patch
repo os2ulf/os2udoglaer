@@ -1,7 +1,6 @@
 # Upstream: https://git.drupalcode.org/project/diff/-/merge_requests/95.diff
 # Revision: 8e40220b6239f0995484c8a89d0c270b68687f2c
 # Upstream diff SHA-256: 52224c9720acee9a7918c932d32c6bf0c721bd4aa28ef898449893dcaa86bb51
-# Patch body below is unchanged from upstream; this snapshot pins the reviewed revision.
 diff --git a/config/install/diff.settings.yml b/config/install/diff.settings.yml
 index db5ba4a773f86c5c5fb94afe1625cf7f804adc92..6d15f9cbabce6a1adb86603320fa6596ccd400f2 100644
 --- a/config/install/diff.settings.yml
@@ -25,23 +24,6 @@ index 1122802fd4076fc96d9a9e8ef05016def036cec4..e3f0fa052d9c27ccdc1ce803f225a562
          revision_pager_limit:
            type: integer
            label: "Revisions per page to be displayed in diff pager"
-diff --git a/diff.install b/diff.install
-index 09a28dedda943f1baec6d3468509fad72b7151ff..c119025f18334c7cce61537c9c9da9e32c795905 100644
---- a/diff.install
-+++ b/diff.install
-@@ -157,3 +157,12 @@ function diff_update_8010(): void {
-     ->set('general_settings.visual_default_view_mode', 'full')
-     ->save();
- }
-+
-+/**
-+ * Update diff.settings to include general_settings.default_filter.
-+ */
-+function diff_update_8011(): void {
-+  \Drupal::configFactory()->getEditable('diff.settings')
-+    ->set('general_settings.default_filter', 'raw')
-+    ->save();
-+}
 diff --git a/phpstan-baseline.neon b/phpstan-baseline.neon
 index f1b452edcf738c5fad0706684d9abcf7be448867..674c19cfad636737ea35952239c0876323cc4030 100644
 --- a/phpstan-baseline.neon
