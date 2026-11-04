@@ -1,0 +1,29 @@
+uuid: 297df5f3-652a-4ba7-95aa-77b2ebba6b9f
+langcode: da
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_industry
+    - node.type.internship
+    - taxonomy.vocabulary.sub_industries
+id: node.internship.field_sub_industry
+field_name: field_sub_industry
+entity_type: node
+bundle: internship
+label: Underbranche
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sub_industries: sub_industries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
