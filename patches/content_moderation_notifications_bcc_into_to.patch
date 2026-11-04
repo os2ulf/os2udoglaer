@@ -1,22 +1,31 @@
 diff --git a/src/Notification.php b/src/Notification.php
-index e44c109..92073c0 100644
 --- a/src/Notification.php
 +++ b/src/Notification.php
-@@ -250,14 +250,12 @@ class Notification implements NotificationInterface {
+@@ -173,20 +173,19 @@
+       // Let other modules to alter the email data.
+       $this->moduleHandler->alter('content_moderation_notification_mail_data', $entity, $data);
+
++      // Include the site copy before removing empty and duplicate addresses.
++      if (!$notification->disableSiteMail()) {
++        $data['to'][] = trim((string) $this->configFactory->get('system.site')->get('mail'));
++      }
++
+       // Remove any null values that have crept in.
+       $data['to'] = array_filter($data['to']);
+
        // Remove any duplicates.
        $data['to'] = array_unique($data['to']);
- 
+
 -      // Force to BCC.
 -      $data['params']['headers']['Bcc'] = implode(',', $data['to']);
-+      $recipient = implode(',', $data['to']);
- 
+-
 -      $recipient = '';
-       if (!$notification->disableSiteMail()) {
--        $recipient = \Drupal::config('system.site')->get('mail');
-+        $recipient .= ',' . \Drupal::config('system.site')->get('mail');
-       }
+-      if (!$notification->disableSiteMail()) {
+-        $recipient = $this->configFactory->get('system.site')->get('mail');
+-      }
 -      if (!empty($data['params']['headers']['Bcc'])) {
-+      if (!empty($recipient)) {
++      $recipient = implode(',', $data['to']);
++      if ($recipient !== '') {
          $this->mailManager->mail('content_moderation_notifications', 'content_moderation_notification', $recipient, $data['langcode'], $data['params'], NULL, TRUE);
        }
      }
