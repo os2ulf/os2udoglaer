@@ -1,0 +1,135 @@
+Project compatibility patch for content_moderation_notifications 3.9.
+The 3.8 release intentionally removed all ad-hoc recipient access checks:
+https://www.drupal.org/project/content_moderation_notifications/releases/8.x-3.8
+This project explicitly retains its previous access policy and existing
+bypass_anonymous_access values. This is NOT an unmerged upstream bug fix.
+Based on the pre-3.8 behavior and the project's former #3419565 patch.
+Apply after the content-type, token and Bcc-to-To patches. No config migration
+is required: missing bypass values default to FALSE; existing values persist.
+diff --git a/src/ContentModerationNotificationInterface.php b/src/ContentModerationNotificationInterface.php
+--- a/src/ContentModerationNotificationInterface.php
++++ b/src/ContentModerationNotificationInterface.php
+@@ -34,6 +34,14 @@
+   public function disableSiteMail();
+
+   /**
++   * Whether ad-hoc recipients may bypass the content access check.
++   *
++   * @return bool
++   *   TRUE if the existing per-notification bypass is enabled.
++   */
++  public function bypassAnonymousAccess();
++
++  /**
+    * Get the user reference fields.
+    *
+    * @return array
+diff --git a/src/Entity/ContentModerationNotification.php b/src/Entity/ContentModerationNotification.php
+--- a/src/Entity/ContentModerationNotification.php
++++ b/src/Entity/ContentModerationNotification.php
+@@ -53,6 +53,7 @@
+  *     "roles",
+  *     "author",
+  *     "site_mail",
++ *     "bypass_anonymous_access",
+  *     "emails",
+  *     "user_fields",
+  *     "subject",
+@@ -78,6 +79,13 @@
+   public $site_mail = FALSE;
+
+   /**
++   * Allow ad-hoc recipients without view access to receive this notification.
++   *
++   * @var bool
++   */
++  public $bypass_anonymous_access = FALSE;
++
++  /**
+    * The notification body value and format.
+    *
+    * @var array
+@@ -216,6 +224,13 @@
+   }
+
+   /**
++   * {@inheritdoc}
++   */
++  public function bypassAnonymousAccess() {
++    return (bool) $this->get('bypass_anonymous_access');
++  }
++
++  /**
+    * {@inheritdoc}
+    */
+   public function getUserFields(): array {
+diff --git a/config/schema/content_moderation_notifications.schema.yml b/config/schema/content_moderation_notifications.schema.yml
+--- a/config/schema/content_moderation_notifications.schema.yml
++++ b/config/schema/content_moderation_notifications.schema.yml
+@@ -33,6 +33,9 @@
+     site_mail:
+       type: boolean
+       label: Disable site mail
++    bypass_anonymous_access:
++      type: boolean
++      label: 'Bypass content access for ad-hoc recipients'
+     user_fields:
+       type: sequence
+       sequence:
+diff --git a/src/Form/ContentModerationNotificationsFormBase.php b/src/Form/ContentModerationNotificationsFormBase.php
+--- a/src/Form/ContentModerationNotificationsFormBase.php
++++ b/src/Form/ContentModerationNotificationsFormBase.php
+@@ -260,12 +260,19 @@
+       '#default_value' => $content_moderation_notification->getUserFields(),
+     ];
+
++    $form['bypass_anonymous_access'] = [
++      '#type' => 'checkbox',
++      '#title' => $this->t('Bypass content access for ad-hoc recipients'),
++      '#default_value' => $content_moderation_notification->bypassAnonymousAccess(),
++      '#description' => $this->t('Send to all ad-hoc recipients even when they cannot view the content. Only enable this for recipients authorised to receive this notification.'),
++    ];
++
+     $form['emails'] = [
+       '#type' => 'textarea',
+       '#rows' => 3,
+       '#title' => $this->t('Adhoc email addresses'),
+       '#default_value' => $content_moderation_notification->getEmails(),
+-      '#description' => $this->t('Send notifications to these email addresses. No access checking is performed to verify these emails have access to view the content. Separate emails with commas or newlines. You may use Twig templating code in this field.'),
++      '#description' => $this->t('Send notifications to these email addresses when a matching active user can view the content, anonymous users can view it, or the bypass option is enabled. Separate emails with commas or newlines. You may use Twig templating code or tokens in this field.'),
+     ];
+
+     // Email subject line.
+diff --git a/src/Notification.php b/src/Notification.php
+--- a/src/Notification.php
++++ b/src/Notification.php
+@@ -13,6 +13,7 @@
+ use Drupal\Core\Session\AccountInterface;
+ use Drupal\Core\Utility\Token;
+ use Drupal\token\TokenEntityMapperInterface;
++use Drupal\user\Entity\User;
+ use Drupal\user\EntityOwnerInterface;
+ use Drupal\user\RoleInterface;
+
+@@ -162,8 +163,20 @@
+
+       // Split Adhoc emails on commas and newlines.
+       $adhoc_emails = array_map('trim', explode(',', preg_replace("/((\r?\n)|(\r\n?))/", ',', $adhoc_emails)));
++      // Preserve the project's pre-3.8 recipient policy and bypass setting.
++      $anonymous_access = $notification->bypassAnonymousAccess() || $entity->access('view', User::getAnonymousUser());
+       foreach ($adhoc_emails as $email) {
+-        $data['to'][] = $email;
++        if ($email === '') {
++          continue;
++        }
++        $email_accounts = $this->entityTypeManager->getStorage('user')->loadByProperties([
++          'status' => 1,
++          'mail' => $email,
++        ]);
++        $email_account = reset($email_accounts);
++        if (($email_account && $entity->access('view', $email_account)) || $anonymous_access) {
++          $data['to'][] = $email;
++        }
+       }
+
+       foreach ($this->getEmailsFromUserFields($entity, $notification) as $email) {

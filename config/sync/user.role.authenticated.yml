@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.basic_html
+    - filter.format.webform_default
   module:
     - filter
     - search_api_page
@@ -20,4 +21,5 @@ permissions:
   - 'access shortcuts'
   - 'access user profiles'
   - 'use text format basic_html'
+  - 'use text format webform_default'
   - 'view search api pages'
