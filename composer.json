@@ -242,7 +242,7 @@
                 "Only show image thumbnails when the field changed": "patches/diff_only_show_changed_image_thumbnails.patch"
             },
             "drupal/domain_login_restrict": {
-                "(#3336184) Preserve configuration export on release 1.4 (upstream #12 adapted)": "patches/domain_login_restrict_export_config.patch"
+                "(#3336184) Preserve configuration export on release 1.5 (upstream MR6)": "patches/domain_login_restrict_export_config.patch"
             },
             "drupal/layoutbuilder_search_api": {
                 "(#3566471) Drupal 11.3+ trait compatibility (reviewed upstream fix, local copy)": "patches/layoutbuilder_search_api_drupal11_compatibility.patch"
