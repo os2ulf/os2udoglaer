@@ -10,7 +10,7 @@ dependencies:
 id: junior_apprenticeship_areas_of_interest
 name: Interesseområde
 weight: -2
-min_count: 0
+min_count: 1
 missing: false
 missing_label: others
 url_alias: jaaoi
