@@ -3,6 +3,7 @@ type: module
 description: 'Clears Pretix fields on replicated nodes.'
 core_version_requirement: ^10 || ^11
 package: 'OS2udoglær'
+interface translation project: os2uol_pretix_clone
 dependencies:
   - drupal:replicate
   - drupal:replicate_ui

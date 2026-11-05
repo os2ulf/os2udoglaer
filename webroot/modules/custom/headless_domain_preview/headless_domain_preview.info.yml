@@ -3,6 +3,7 @@ type: module
 description: 'Extension for transform_api_preview to work with Domain module.'
 package: Domain
 core_version_requirement: ^10 || ^11
+interface translation project: headless_domain_preview
 dependencies:
   - headless_domain:headless_domain
   - transform_api_preview:transform_api_preview

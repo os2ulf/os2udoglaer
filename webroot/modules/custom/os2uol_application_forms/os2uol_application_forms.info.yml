@@ -3,6 +3,7 @@ type: module
 description: 'This module alters the application forms per GDPR requirements per domain.'
 core_version_requirement: ^10 || ^11
 package: 'OS2udoglær'
+interface translation project: os2uol_application_forms
 dependencies:
   - drupal:user
   - drupal:views
