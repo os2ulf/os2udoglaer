@@ -3,5 +3,6 @@ type: module
 description: 'Handles integration with Pretix.'
 core_version_requirement: ^10 || ^11
 package: 'OS2udoglær'
+interface translation project: os2uol_pretix
 dependencies:
   - drupal:node
