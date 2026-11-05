@@ -161,7 +161,7 @@
             "drupal/core-project-message": true,
             "drupal/core-vendor-hardening": true,
             "oomphinc/composer-installers-extender": true,
-            "symfony/runtime": false,
+            "symfony/runtime": true,
             "wikimedia/composer-merge-plugin": true
         }
     },
