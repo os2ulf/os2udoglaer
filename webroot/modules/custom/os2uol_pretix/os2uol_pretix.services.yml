@@ -27,3 +27,4 @@ services:
      - '@cache.data'
      - '@database'
      - '@entity_type.manager'
+     - '@datetime.time'

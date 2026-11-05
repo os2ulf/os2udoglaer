@@ -1,0 +1,15 @@
+{
+  "name": "drupal/view_profiles_perms",
+  "description": "Provides permissions to view user profiles based on user roles.",
+  "type": "drupal-module",
+  "keywords": ["Drupal"],
+  "homepage": "http://drupal.org/project/view_profiles_perms",
+  "license": "GPL-2.0-or-later",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/view_profiles_perms",
+    "source": "https://git.drupalcode.org/project/view_profiles_perms"
+  },
+  "require": {
+    "drupal/core": "^10 || ^11"
+  }
+}

@@ -17,12 +17,12 @@ input.submit-trash {
 
 /* Highlight input field with Gin danger color */
 input.overspend-highlight-input {
-  border: 2px solid var(--colorGinDanger) !important;
+  border: 2px solid var(--gin-color-danger) !important;
   background-color: rgba(227, 52, 47, 0.05) !important;
 }
 
 /* Styling for inline message */
 .overspend-message {
-  color: var(--colorGinDanger);
+  color: var(--gin-color-danger);
   margin-top: 4px;
 }

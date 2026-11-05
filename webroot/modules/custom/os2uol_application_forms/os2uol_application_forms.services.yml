@@ -1,4 +1,7 @@
 services:
+  Drupal\os2uol_application_forms\Service\FreeCourseEvaluationService:
+    alias: os2uol_application_forms.free_course_evaluation
+
   os2uol_application_forms.free_course_evaluation:
     class: Drupal\os2uol_application_forms\Service\FreeCourseEvaluationService
     arguments:
@@ -9,5 +12,4 @@ services:
       - '@token'
       - '@database'
       - '@logger.factory'
-
 

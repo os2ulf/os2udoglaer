@@ -1,0 +1,6 @@
+simple_access_log.settings:
+  title: Simple Access Log
+  description: 'Configure the logging of all page requests.'
+  route_name: simple_access_log.settings
+  parent: system.admin_config_system
+  weight: -15

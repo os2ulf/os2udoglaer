@@ -2,6 +2,7 @@
 
 use Drupal\content_moderation\Entity\ContentModerationState;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\RevisionableStorageInterface;
 use Drupal\domain\Entity\Domain;
 use Drupal\node\NodeInterface;
 use Drupal\node\NodeStorageInterface;
@@ -297,6 +298,9 @@ function os2uol_application_forms_views_pre_render(ViewExecutable $view) {
 
 function os2uol_application_forms_get_latest_revision($entity) {
   $storage = \Drupal::entityTypeManager()->getStorage($entity->getEntityTypeId());
+  if (!$storage instanceof RevisionableStorageInterface) {
+    throw new \InvalidArgumentException('The entity storage must support revisions.');
+  }
   $latest_revision_id = $storage->getLatestRevisionId($entity->id());
   return $storage->loadRevision($latest_revision_id);
 }

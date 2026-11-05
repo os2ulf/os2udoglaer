@@ -1,0 +1,17 @@
+Source: https://www.drupal.org/project/redis/issues/3337750
+Preserve the existing non-zero output guard on Redis 1.11.
+Upstream now normalizes INFO data and handles missing metrics, but isset()
+still accepts zero and leaves the percentage calculation able to divide by zero.
+Patch #24 and MR55 still target the old INFO structure and do not apply to 1.11.
+
+--- a/src/Controller/ReportController.php
++++ b/src/Controller/ReportController.php
+@@ -223,7 +223,7 @@
+       ],
+       'read_write' => [
+         'title' => $this->t('Read/Write'),
+-        'value' => isset($info['total_net_output_bytes']) ? $this->t('@read read (@percent_read%), @write written (@percent_write%), @commands commands in @connections connections.', [
++        'value' => !empty($info['total_net_output_bytes']) ? $this->t('@read read (@percent_read%), @write written (@percent_write%), @commands commands in @connections connections.', [
+           '@read' => static::formatSize($info['total_net_output_bytes']),
+           '@percent_read' => round(100 / ($info['total_net_output_bytes'] + $info['total_net_input_bytes']) * ($info['total_net_output_bytes'])),
+           '@write' => static::formatSize($info['total_net_input_bytes']),

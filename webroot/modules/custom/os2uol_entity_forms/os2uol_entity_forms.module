@@ -21,7 +21,7 @@ function os2uol_entity_forms_field_widget_single_element_paragraphs_form_alter(&
   $form_object = $form_state->getFormObject();
 
   // Check if the form object is an instance of NodeForm.
-  if ($form_object instanceof \Drupal\node\NodeForm) {
+  if ($form_object instanceof \Drupal\node\Form\NodeForm) {
     // Get the node entity.
     $node = $form_object->getEntity();
 
