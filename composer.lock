@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a430e369f00667f403afd48ad59b2044",
+    "content-hash": "b2690abae1f2a0eb34c5f42928a03a9c",
     "packages": [
         {
             "name": "andileco/eval-math",
@@ -4661,27 +4661,27 @@
         },
         {
             "name": "drupal/layoutbuilder_search_api",
-            "version": "1.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/layoutbuilder_search_api.git",
-                "reference": "1.0.3"
+                "reference": "1.0.4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/layoutbuilder_search_api-1.0.3.zip",
-                "reference": "1.0.3",
-                "shasum": "ae250f55e4872517068c07d0935fd7ad6037ab0a"
+                "url": "https://ftp.drupal.org/files/projects/layoutbuilder_search_api-1.0.4.zip",
+                "reference": "1.0.4",
+                "shasum": "9af89dccb1fcf1be06878da0a1300a749a611527"
             },
             "require": {
                 "drupal/core": "^8 || ^9 || ^10 || ^11",
-                "drupal/search_api": "*"
+                "drupal/search_api": "^1"
             },
             "type": "drupal-module",
             "extra": {
                 "drupal": {
-                    "version": "1.0.3",
-                    "datestamp": "1727443336",
+                    "version": "1.0.4",
+                    "datestamp": "1793105666",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4690,22 +4690,23 @@
             },
             "notification-url": "https://packages.drupal.org/8/downloads",
             "license": [
-                "GPL-2.0-or-later"
+                "GPL-2.0+"
             ],
             "authors": [
                 {
-                    "name": "ayalon",
-                    "homepage": "https://www.drupal.org/user/419226"
+                    "name": "Lucas Hedding",
+                    "homepage": "https://www.drupal.org/u/heddn"
                 },
                 {
-                    "name": "heddn",
-                    "homepage": "https://www.drupal.org/user/1463982"
+                    "name": "Jon Minder",
+                    "homepage": "https://www.drupal.org/u/ayalon"
                 }
             ],
             "description": "Support for indexing Layout Builder blocks",
             "homepage": "https://www.drupal.org/project/layoutbuilder_search_api",
             "support": {
-                "source": "https://git.drupalcode.org/project/layoutbuilder_search_api"
+                "source": "https://git.drupalcode.org/project/layoutbuilder_search_api",
+                "issues": "https://www.drupal.org/project/issues/layoutbuilder_search_api"
             }
         },
         {
