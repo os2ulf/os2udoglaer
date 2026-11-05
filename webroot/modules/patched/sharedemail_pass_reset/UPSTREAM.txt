@@ -1,0 +1,7 @@
+Project-maintained Drupal 11 version of sharedemail_pass_reset.
+Based on Drupal.org release 8.x-2.0-beta2:
+https://www.drupal.org/project/sharedemail_pass_reset/releases/8.x-2.0-beta2
+
+The machine name is retained to preserve existing configuration and permissions.
+Deploy as a replacement for the Composer package; do not uninstall the module.
+Review future upstream security advisories and releases manually.

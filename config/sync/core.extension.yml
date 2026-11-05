@@ -40,7 +40,6 @@ module:
   dblog: 0
   diff: 0
   domain: 0
-  domain_access: 0
   domain_access_search_api: 0
   domain_alias: 0
   domain_config: 0
@@ -185,6 +184,7 @@ module:
   content_translation: 10
   views: 10
   paragraphs: 11
+  domain_access: 20
 theme:
   claro: 0
   gin: 0

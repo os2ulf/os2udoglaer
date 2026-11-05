@@ -1,0 +1,7 @@
+Project-maintained Drupal 11 version of view_profiles_perms.
+Based on Drupal.org release 2.1.1:
+https://www.drupal.org/project/view_profiles_perms/releases/2.1.1
+
+The machine name is retained to preserve existing configuration and permissions.
+Deploy as a replacement for the Composer package; do not uninstall the module.
+Review future upstream security advisories and releases manually.

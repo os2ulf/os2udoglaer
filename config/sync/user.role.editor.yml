@@ -226,6 +226,7 @@ permissions:
   - 'edit webform assets'
   - 'publish to any assigned domain'
   - 'publish to any domain'
+  - 'rebuild node access permissions'
   - 'remove pretix event connection'
   - 'replicate entities'
   - 'revert all revisions'

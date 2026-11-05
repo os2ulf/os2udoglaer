@@ -285,7 +285,7 @@ display:
           set_precision: false
           precision: 0
           decimal: .
-          format_plural: 0
+          format_plural: false
           format_plural_string: !!binary MQNAY291bnQ=
           prefix: ''
           suffix: ''
@@ -416,6 +416,7 @@ display:
           empty_table: false
           caption: ''
           description: ''
+          class: ''
       row:
         type: fields
         options:
@@ -463,9 +464,5 @@ display:
         - url.query_args
         - user.permissions
       tags:
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_allocated_budget'
-        - 'config:domain.config.api_os2udoglaer_dk.da.field.storage.user.field_name'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_allocated_budget'
-        - 'config:domain.config.api_os2udoglaer_dk.field.storage.user.field_name'
         - 'config:field.storage.user.field_allocated_budget'
         - 'config:field.storage.user.field_name'

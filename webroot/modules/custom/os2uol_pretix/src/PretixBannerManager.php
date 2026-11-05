@@ -2,6 +2,7 @@
 
 namespace Drupal\os2uol_pretix;
 
+use Drupal\Component\Datetime\TimeInterface;
 use Drupal\Component\Plugin\Exception\InvalidPluginDefinitionException;
 use Drupal\Component\Plugin\Exception\PluginNotFoundException;
 use Drupal\Core\Cache\CacheBackendInterface;
@@ -43,6 +44,11 @@ class PretixBannerManager implements TrustedCallbackInterface {
   private EntityTypeManagerInterface $entityTypeManager;
 
   /**
+   * Request time service.
+   */
+  private TimeInterface $time;
+
+  /**
    * Constructs an AliasManager.
    *
    * @param PretixEventManager $event_manager
@@ -50,11 +56,12 @@ class PretixBannerManager implements TrustedCallbackInterface {
    * @param \Drupal\Core\Cache\CacheBackendInterface $cache
    *   Cache backend.
    */
-  public function __construct(PretixEventManager $event_manager, CacheBackendInterface $cache, Connection $connection, EntityTypeManagerInterface $entity_type_manager) {
+  public function __construct(PretixEventManager $event_manager, CacheBackendInterface $cache, Connection $connection, EntityTypeManagerInterface $entity_type_manager, TimeInterface $time) {
     $this->eventManager = $event_manager;
     $this->cache = $cache;
     $this->connection = $connection;
     $this->entityTypeManager = $entity_type_manager;
+    $this->time = $time;
   }
 
   /**
@@ -267,12 +274,12 @@ class PretixBannerManager implements TrustedCallbackInterface {
   }
 
   /**
-   * Wrapper method for REQUEST_TIME constant.
+   * Returns the request timestamp from the time service.
    *
    * @return int
    */
   protected function getRequestTime() {
-    return defined('REQUEST_TIME') ? REQUEST_TIME : (int) $_SERVER['REQUEST_TIME'];
+    return $this->time->getRequestTime();
   }
 
   public static function trustedCallbacks() {

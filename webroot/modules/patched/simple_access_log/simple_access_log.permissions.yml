@@ -1,0 +1,4 @@
+administer simple access log:
+  title: 'Administer simple access log'
+view simple access log:
+  title: 'View access log'

@@ -1,0 +1,36 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the view_profile_perms module.
+ */
+
+/**
+ * Update permission name to avoid core permission collision.
+ */
+function view_profile_perms_update_8600() {
+  // See https://www.drupal.org/project/view_profiles_perms/issues/2996101
+  $roles = \Drupal\user\Entity\Role::loadMultiple();
+  unset($roles[\Drupal\user\RoleInterface::ANONYMOUS_ID]);
+  if (count($roles) < 1) {
+    return t('No roles to update.');
+  }
+  $roles_updated = [];
+  foreach ($roles as $role) {
+    $role_id = $role->id();
+    $old_permission = "access {$role_id} profiles";
+    if ($role->hasPermission($old_permission)) {
+      $role->revokePermission($old_permission);
+      $role->grantPermission("access {$role_id} users profiles");
+      $role->save();
+      $roles_updated[] = $role_id;
+    }
+  }
+  if (empty($roles_updated)) {
+    return t('No roles needed to be updated.');
+  }
+  return t('Updated @count roles: @role_ids', [
+    '@count' => count($roles_updated),
+    '@role_ids' => implode(', ', $roles_updated),
+  ]);
+}

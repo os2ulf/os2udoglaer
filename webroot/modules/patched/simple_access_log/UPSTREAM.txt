@@ -1,0 +1,7 @@
+Project-maintained Drupal 11 version of simple_access_log.
+Based on Drupal.org release 2.0.1:
+https://www.drupal.org/project/simple_access_log/releases/2.0.1
+
+The machine name is retained to preserve existing configuration and permissions.
+Deploy as a replacement for the Composer package; do not uninstall the module.
+Review future upstream security advisories and releases manually.
