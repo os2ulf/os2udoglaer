@@ -103,7 +103,7 @@
         "drupal/simple_sitemap": "^4.1",
         "drupal/smtp": "^1.2",
         "drupal/symfony_mailer_lite": "^2.0",
-        "drupal/transform_api": "^2.1.7",
+        "drupal/transform_api": "^2.1.8",
         "drupal/transform_api_facets": "^2.0@alpha",
         "drupal/ultimate_cron": "^2.0@alpha",
         "drupal/view_unpublished": "^1.0",
