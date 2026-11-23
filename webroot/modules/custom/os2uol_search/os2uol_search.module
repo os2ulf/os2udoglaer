@@ -3,6 +3,18 @@
 use Drupal\views\ViewExecutable;
 
 /**
+ * Implements hook_views_data_alter().
+ */
+function os2uol_search_views_data_alter(array &$data) {
+  if (isset($data['search_api_index_search']['field_period']['filter'])) {
+    // Solr maps date ranges to the string handler, overriding the handler in
+    // Views configuration. Use the date handler so the selected end date
+    // includes the whole day. Solr's date range field matches overlapping periods.
+    $data['search_api_index_search']['field_period']['filter']['id'] = 'search_api_date';
+  }
+}
+
+/**
  * Implements hook_views_plugins_display_alter().
  */
 function os2uol_search_views_plugins_display_alter(&$displays) {
