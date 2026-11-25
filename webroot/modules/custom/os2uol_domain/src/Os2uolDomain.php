@@ -2,8 +2,9 @@
 
 namespace Drupal\os2uol_domain;
 
-use Drupal\Core\Entity\EntityTypeManagerInterface;
+use Drupal\Core\Config\Entity\ThirdPartySettingsInterface;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\domain\DomainNegotiatorInterface;
 
 /**
  * Class Os2uolDomain.
@@ -13,20 +14,20 @@ class Os2uolDomain {
   public const DEFAULT_DOMAIN_ID = 'api_os2udoglaer_dk';
 
   /**
-   * The entity type manager.
+   * The domain negotiator.
    *
-   * @var \Drupal\Core\Entity\EntityTypeManagerInterface
+   * @var \Drupal\domain\DomainNegotiatorInterface
    */
-  protected $entityTypeManager;
+  protected $domainNegotiator;
 
   /**
    * Constructs a new Os2uolDomain object.
    *
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
-   *   The entity type manager.
+   * @param \Drupal\domain\DomainNegotiatorInterface $domain_negotiator
+   *   The domain negotiator.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager) {
-    $this->entityTypeManager = $entity_type_manager;
+  public function __construct(DomainNegotiatorInterface $domain_negotiator) {
+    $this->domainNegotiator = $domain_negotiator;
   }
 
   /**
@@ -40,11 +41,24 @@ class Os2uolDomain {
     if ($entity->getEntityTypeId() == 'node') {
       // Check if the domain field exists.
       if ($entity->hasField('field_domain_access')) {
+        $field = $entity->get('field_domain_access');
+        $field_definition = $field->getFieldDefinition();
         // Get the current domain values.
-        $current_domains = $entity->get('field_domain_access')->getValue();
+        $current_domains = $field->getValue();
 
-        // Add the new domain. Replace default domain ID with your actual domain ID.
-        $current_domains[] = ['target_id' => self::DEFAULT_DOMAIN_ID];
+        // API submissions do not run Domain Access's entity form preparation.
+        if ($field->isEmpty()
+          && $field_definition instanceof ThirdPartySettingsInterface
+          && $field_definition->getThirdPartySetting('domain_access', 'add_current_domain')) {
+          $active_domain = $this->domainNegotiator->getActiveDomain();
+          if ($active_domain) {
+            $current_domains[] = ['target_id' => $active_domain->id()];
+          }
+        }
+
+        if (!in_array(self::DEFAULT_DOMAIN_ID, array_column($current_domains, 'target_id'), TRUE)) {
+          $current_domains[] = ['target_id' => self::DEFAULT_DOMAIN_ID];
+        }
 
         // Set the domain field with the updated array.
         $entity->set('field_domain_access', $current_domains);
