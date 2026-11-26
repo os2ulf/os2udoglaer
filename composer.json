@@ -46,9 +46,9 @@
         "drupal/config_split": "^2.0",
         "drupal/content_moderation_bypass": "^1.0@alpha",
         "drupal/content_moderation_notifications": "^3.6",
-        "drupal/core-composer-scaffold": "10.6.22",
-        "drupal/core-project-message": "10.6.22",
-        "drupal/core-recommended": "10.6.22",
+        "drupal/core-composer-scaffold": "10.6.23",
+        "drupal/core-project-message": "10.6.23",
+        "drupal/core-recommended": "10.6.23",
         "drupal/core-vendor-hardening": "^10.3",
         "drupal/date_popup": "^2.0",
         "drupal/diff": "^1.7",
@@ -167,6 +167,10 @@
             "wikimedia/composer-merge-plugin": true,
             "oomphinc/composer-installers-extender": true
         }
+    },
+    "scripts": {
+        "post-install-cmd": ["rm -f webroot/core/install.php"],
+        "post-update-cmd": ["rm -f webroot/core/install.php"]
     },
     "extra": {
         "drupal-scaffold": {
